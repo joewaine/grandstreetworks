@@ -1,0 +1,1045 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grand Street Works — find the week of work your office is losing every month</title>
+<meta name="description" content="Fixed-fee operations audits for owner-run businesses: dental and medical practices, law and accounting firms, agencies and contractors. We find the manual work, cost it, and hand you the fix in writing. Brooklyn, NY.">
+<link rel="canonical" href="https://grandstreetworks.com/">
+<meta property="og:title" content="Grand Street Works — operations audits for owner-run businesses">
+<meta property="og:description" content="There's a week of work a month happening in your office that shouldn't be. We find it, cost it, and hand you the fix. Brooklyn, NY.">
+<meta property="og:url" content="https://grandstreetworks.com/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23050505'/%3E%3Ccircle cx='14' cy='14' r='5' fill='%23C2D57D'/%3E%3Ctext x='32' y='50' font-family='Menlo,Consolas,monospace' font-size='26' font-weight='bold' fill='%23E5E5E6' text-anchor='middle'%3EGW%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+<!-- ===================================================================
+     Every CTA points at joe@grandstreetworks.com (5 places).
+     Email forwarding + Gmail send-as must be live BEFORE this site is.
+     A live site with a dead mailto is worse than no site.
+     =================================================================== -->
+<style>
+  :root {
+    --bg-color: #E5E5E6;
+    --text-color: #050505;
+    --border-color: #050505;
+    --border-light: rgba(5, 5, 5, 0.15);
+    --font-sans: 'Inter', -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --nav-height: 60px;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    line-height: 1.4;
+  }
+
+  h1 {
+    font-size: clamp(2.6rem, 6vw, 6rem);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    margin-bottom: 2rem;
+    max-width: 1400px;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 4vw, 4rem);
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  .label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-color);
+  }
+
+  p {
+    font-size: 1.125rem;
+    color: rgba(5, 5, 5, 0.8);
+    line-height: 1.5;
+  }
+
+  .text-large {
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    font-weight: 400;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  a:focus-visible, summary:focus-visible {
+    outline: 2px solid var(--text-color);
+    outline-offset: 3px;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 0;
+    width: 100%;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .col-span-6 { grid-column: span 6; }
+  .col-span-12 { grid-column: 1 / -1; }
+
+  .pad-box-large {
+    padding: 4rem 2rem;
+  }
+
+  .border-right { border-right: 1px solid var(--border-color); }
+  .border-bottom { border-bottom: 1px solid var(--border-color); }
+  .border-top { border-top: 1px solid var(--border-color); }
+
+  .structural-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background-color: var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .structural-grid > div {
+    background-color: var(--bg-color);
+  }
+
+  /* ---------- Header ---------- */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--nav-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    background-color: var(--bg-color);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 100;
+  }
+
+  .logo-mark {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #C2D57D;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 10px rgba(194, 213, 125, 0.5);
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    padding-top: var(--nav-height);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  #canvas-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0.9;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    pointer-events: none;
+  }
+
+  .hero-content a { pointer-events: auto; }
+
+  .hero-top-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .hero-top-grid > div {
+    padding: 1.5rem 2rem;
+    background: rgba(229, 229, 230, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .hero-main {
+    padding: 4rem 2rem;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to right, rgba(229, 229, 230, 0.9) 0%, rgba(229, 229, 230, 0.4) 100%);
+  }
+
+  .hero-cta {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: inline-block;
+    margin-top: 2.5rem;
+    padding: 0.875rem 1.5rem;
+    background: var(--text-color);
+    color: var(--bg-color);
+    transition: opacity 0.2s ease;
+  }
+
+  .hero-cta:hover { opacity: 0.85; }
+
+  .stats-ticker {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--border-color);
+    background: var(--bg-color);
+    position: relative;
+    z-index: 10;
+  }
+
+  .stat-item {
+    padding: 1.5rem 2rem;
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .stat-item:last-child {
+    border-right: none;
+  }
+
+  .stat-value {
+    font-size: 2.5rem;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+
+  /* ---------- Section headers ---------- */
+  .section-header {
+    display: flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--text-color);
+    color: var(--bg-color);
+  }
+
+  .section-header .label {
+    color: var(--bg-color);
+  }
+
+  /* ---------- Services ---------- */
+  .service-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: background-color 0.3s ease;
+  }
+
+  .service-card:hover {
+    /* solid color — the grid parent behind the card is black, so a
+       transparent hover tint would show through as a black card */
+    background-color: #DEDEDF;
+  }
+
+  .service-header {
+    padding: 2rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .service-note {
+    display: block;
+    margin-top: 0.75rem;
+    color: rgba(5, 5, 5, 0.55);
+    text-transform: none;
+    letter-spacing: 0.02em;
+  }
+
+  .service-body {
+    padding: 2rem;
+    flex: 1;
+  }
+
+  .deliverables-list {
+    list-style: none;
+    margin-top: 2rem;
+    border-top: 1px solid var(--border-color);
+  }
+
+  .deliverables-list li {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-light);
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .deliverables-list li::before {
+    content: '+';
+    font-family: var(--font-mono);
+    color: var(--text-color);
+  }
+
+  /* ---------- Process ---------- */
+  .process-step {
+    padding: 3rem 2rem;
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 2rem;
+  }
+
+  .step-number {
+    font-family: var(--font-mono);
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--border-light);
+    line-height: 1;
+  }
+
+  /* ---------- Principal ---------- */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+  }
+
+  .data-table tr {
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .data-table td {
+    padding: 1rem 0;
+    font-size: 0.875rem;
+  }
+
+  .data-table td:first-child {
+    font-family: var(--font-mono);
+    color: rgba(5, 5, 5, 0.6);
+    width: 40%;
+  }
+
+  /* ---------- FAQ ---------- */
+  details {
+    border-bottom: 1px solid var(--border-color);
+    background: var(--bg-color);
+  }
+
+  summary {
+    padding: 2rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  summary::after {
+    content: '↓';
+    font-family: var(--font-mono);
+    transition: transform 0.3s ease;
+  }
+
+  details[open] summary::after {
+    transform: rotate(180deg);
+  }
+
+  .faq-content {
+    padding: 0 2rem 2rem 2rem;
+  }
+
+  .faq-content p { max-width: 70ch; }
+
+  /* ---------- Contact ---------- */
+  .footer-cta {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    text-align: center;
+  }
+
+  .footer-cta h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-cta p {
+    color: rgba(229, 229, 230, 0.7);
+    max-width: 52ch;
+    margin: 0 auto 2.5rem;
+  }
+
+  .email-link {
+    display: inline-block;
+    font-size: clamp(1.25rem, 4vw, 3rem);
+    font-family: var(--font-mono);
+    color: var(--bg-color);
+    border: 1px solid var(--bg-color);
+    padding: 1rem 2rem;
+    transition: all 0.3s ease;
+  }
+
+  .email-link:hover {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 1.5rem 2rem;
+    background-color: var(--bg-color);
+    border-top: 1px solid var(--border-color);
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 1024px) {
+    .structural-grid, .stats-ticker {
+      grid-template-columns: 1fr;
+    }
+    .border-right {
+      border-right: none;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .stat-item {
+      border-right: none;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .stat-item:last-child { border-bottom: none; }
+    .grid-container {
+      display: block;
+    }
+    .col-span-6, .col-span-12 {
+      width: 100%;
+      border-right: none;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .hero-top-grid {
+      grid-template-columns: 1fr;
+    }
+    .hero-top-grid > div:first-child {
+      border-bottom: 1px solid var(--border-color);
+      border-right: none;
+    }
+    .process-step {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    header { padding: 0 1.25rem; }
+    .hero-main, .pad-box-large { padding-left: 1.25rem; padding-right: 1.25rem; }
+    .hero-top-grid > div, .stat-item, .section-header,
+    .service-header, .service-body, .process-step { padding-left: 1.25rem; padding-right: 1.25rem; }
+    summary { padding: 1.5rem 1.25rem; }
+    .faq-content { padding: 0 1.25rem 1.5rem; }
+    footer { padding: 1.5rem 1.25rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    summary::after, .service-card, .email-link, .hero-cta { transition: none; }
+  }
+</style>
+<style>
+  /* ---------- Grand Street Works additions to the shared system ---------- */
+  .tile {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    transition: background-color 0.3s ease;
+  }
+  .tile:hover { background-color: #DEDEDF; }
+  .tile p { font-size: 1.0625rem; }
+
+  .band { display: grid; grid-template-columns: 1fr 1fr; }
+  .band > div { padding: 4rem 2rem; }
+  .band > div:first-child { border-right: 1px solid var(--border-color); }
+
+  .refusal-grid { display: grid; grid-template-columns: 1fr 1fr; }
+  .refusal-grid > div {
+    padding: 3rem 2rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .refusal-grid > div:nth-child(odd) { border-right: 1px solid var(--border-color); }
+  .refusal-grid > div:nth-last-child(-n+2) { border-bottom: none; }
+  .refusal-grid h3 { margin-bottom: 0.75rem; }
+
+  .verticals-list {
+    list-style: none;
+    columns: 4;
+    column-gap: 0;
+    padding: 0 2rem 2rem;
+  }
+  .verticals-list li {
+    break-inside: avoid;
+    padding: 0.875rem 1.5rem 0.875rem 0;
+    border-bottom: 1px solid var(--border-light);
+    font-size: 0.9375rem;
+    color: rgba(5, 5, 5, 0.8);
+  }
+
+  .callout {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.75rem 1.25rem;
+    border: 1px solid var(--border-color);
+  }
+  .callout:hover { background: var(--text-color); color: var(--bg-color); }
+
+  @media (max-width: 1024px) {
+    .band, .refusal-grid { grid-template-columns: 1fr; }
+    .band > div:first-child { border-right: none; border-bottom: 1px solid var(--border-color); }
+    .refusal-grid > div:nth-child(odd) { border-right: none; }
+    .refusal-grid > div:nth-last-child(2) { border-bottom: 1px solid var(--border-color); }
+    .verticals-list { columns: 2; }
+  }
+  @media (max-width: 640px) {
+    .tile, .band > div, .refusal-grid > div { padding-left: 1.25rem; padding-right: 1.25rem; }
+    .verticals-list { columns: 1; padding-left: 1.25rem; padding-right: 1.25rem; }
+  }
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo-mark">
+    <span class="status-dot" aria-hidden="true"></span>
+    <span class="label" style="font-weight: 600;">Grand Street Works</span>
+  </div>
+  <a href="mailto:joe@grandstreetworks.com?subject=Operations%20audit" class="label" style="text-decoration: underline;">Get in touch</a>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div id="canvas-container" aria-hidden="true"></div>
+    <div class="hero-content">
+      <div class="hero-top-grid">
+        <div class="border-right">
+          <span class="label">Location // Brooklyn, NY</span>
+        </div>
+        <div>
+          <span class="label">Status // Taking audits this month</span>
+        </div>
+      </div>
+      <div class="hero-main">
+        <div>
+          <h1>There's a week of work a month happening in your office that shouldn't be.</h1>
+          <p class="text-large" style="max-width: 800px;">
+            We find it, cost it in hours and dollars, and hand you the fix in writing — whether or not you hire us to build it. One engineer, working directly with the owner.
+          </p>
+          <a class="hero-cta" href="mailto:joe@grandstreetworks.com?subject=Operations%20audit">Book an operations audit →</a>
+        </div>
+      </div>
+    </div>
+    <div class="stats-ticker">
+      <div class="stat-item">
+        <span class="label">Metric_01</span>
+        <span class="stat-value">5 days</span>
+        <span class="label" style="color: rgba(5,5,5,0.6)">Walkthrough to written report</span>
+      </div>
+      <div class="stat-item">
+        <span class="label">Metric_02</span>
+        <span class="stat-value">90+</span>
+        <span class="label" style="color: rgba(5,5,5,0.6)">Projects shipped behind the work</span>
+      </div>
+      <div class="stat-item">
+        <span class="label">Metric_03</span>
+        <span class="stat-value">100%</span>
+        <span class="label" style="color: rgba(5,5,5,0.6)">Audit fee credited against a build</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <span class="label">[SEC_01] Where the hours go</span>
+    </div>
+    <div class="structural-grid">
+      <div class="tile border-right">
+        <span class="label">Sym_01 // Front desk</span>
+        <p>Mornings go to voicemail, intake forms and rescheduling, instead of the people standing at the counter.</p>
+      </div>
+      <div class="tile border-right">
+        <span class="label">Sym_02 // Quoting</span>
+        <p>Quotes, proposals and engagement letters take two days, because one person writes every one from scratch.</p>
+      </div>
+      <div class="tile">
+        <span class="label">Sym_03 // Double entry</span>
+        <p>The same client details get typed into three systems by three people, and the three systems disagree by Friday.</p>
+      </div>
+      <div class="tile border-right">
+        <span class="label">Sym_04 // Software bill</span>
+        <p>Lines nobody has reviewed since whoever chose them left. One of them costs more than a part-time salary.</p>
+      </div>
+      <div class="tile border-right">
+        <span class="label">Sym_05 // Follow-up</span>
+        <p>Enquiries that didn't book get chased when someone remembers. Most months, nobody remembers.</p>
+      </div>
+      <div class="tile">
+        <span class="label">Sym_06 // Shadow AI</span>
+        <p>Half the team already pastes client information into ChatGPT, and there's no written rule about what they can paste.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="section-header border-top">
+      <span class="label">[SEC_02] Services</span>
+    </div>
+    <div class="structural-grid">
+      <div class="service-card border-right">
+        <div class="service-header">
+          <span class="label" style="display:block; margin-bottom: 1rem;">Svc_A // Start here</span>
+          <h3>Operations Audit</h3>
+          <span class="label service-note">Fixed fee · report inside 5 business days</span>
+        </div>
+        <div class="service-body">
+          <p>A costed picture of where the manual work lives in your business, and what it's worth to fix. Plain language, numbers shown, yours to keep either way.</p>
+          <ul class="deliverables-list">
+            <li>60–90 minute walkthrough of how the business actually runs — bring the software bill</li>
+            <li>Top five opportunities ranked by hours saved against effort, each with a fixed price to fix</li>
+            <li>Software spend check: what you rent monthly and use a fifth of, with break-even maths</li>
+            <li>A "do not automate" list — what looks automatable but isn't worth the money or the risk</li>
+            <li>30-minute readout call to walk you through it</li>
+          </ul>
+        </div>
+      </div>
+      <div class="service-card border-right">
+        <div class="service-header">
+          <span class="label" style="display:block; margin-bottom: 1rem;">Svc_B // For the team</span>
+          <h3>Training Day</h3>
+          <span class="label service-note">Half-day or full-day · on-site or remote</span>
+        </div>
+        <div class="service-body">
+          <p>One working session, everybody hands-on at a keyboard, built on your team's real files and real workflows. No slide deck about the future of work.</p>
+          <ul class="deliverables-list">
+            <li>Pre-call to pick the 3–5 workflows worth transforming live</li>
+            <li>Written playbook and prompt library your team keeps</li>
+            <li>Rules on what must never be pasted into a chat window, in writing</li>
+            <li>Follow-up call at two weeks to unstick anyone who stalled</li>
+          </ul>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-header">
+          <span class="label" style="display:block; margin-bottom: 1rem;">Svc_C // For the owner</span>
+          <h3>Back-Office Assistant</h3>
+          <span class="label service-note">Built for you · running inside a week</span>
+        </div>
+        <div class="service-body">
+          <p>A system that does the work rather than reporting on it. Maintained monthly so it doesn't quietly rot six weeks after launch.</p>
+          <ul class="deliverables-list">
+            <li>Morning brief: the handful of things that genuinely need you, replies drafted</li>
+            <li>Follow-up that actually happens — stale enquiries chased, drafted for your approval</li>
+            <li>One page showing where the pipeline, the schedule and the money stand</li>
+            <li>Monitoring, fixes, and one improvement a month</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-header border-top">
+      <span class="label">[SEC_03] How the audit runs</span>
+    </div>
+    <div class="grid-container">
+      <div class="col-span-6 border-right" style="padding: 0;">
+        <div class="process-step border-bottom">
+          <div class="step-number">01</div>
+          <div>
+            <h3 style="margin-bottom: 0.5rem;">The walkthrough</h3>
+            <p>60–90 minutes with you and, ideally, whoever runs the front desk. We follow the work, not the org chart.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-number">02</div>
+          <div>
+            <h3 style="margin-bottom: 0.5rem;">The report</h3>
+            <p>Inside five business days. Five ranked opportunities, hours and dollars on each, a fixed price to fix each one.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-span-6" style="padding: 0;">
+        <div class="process-step border-bottom">
+          <div class="step-number">03</div>
+          <div>
+            <h3 style="margin-bottom: 0.5rem;">The readout</h3>
+            <p>Half an hour to walk you through it and answer everything. Your team can act on any of it without us.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-number">04</div>
+          <div>
+            <h3 style="margin-bottom: 0.5rem;">Your call</h3>
+            <p>Book a fix, book the training, or take the report in-house. The fee credits in full for 30 days either way.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-header border-top">
+      <span class="label">[SEC_04] When the maths is obvious</span>
+    </div>
+    <div class="band">
+      <div>
+        <h2>Software you own instead of software you rent.</h2>
+        <p class="text-large" style="margin-top: 1.5rem; max-width: 52ch;">
+          If the audit turns up a tool you pay hundreds a month for and use a fifth of, we can rebuild the fifth you use as software you own outright.
+        </p>
+        <a class="callout" href="mailto:joe@grandstreetworks.com?subject=Software%20we%20rent%20and%20barely%20use">Ask about your software bill →</a>
+      </div>
+      <div>
+        <ul class="deliverables-list" style="margin-top: 0;">
+          <li>Scope comes straight from the audit — the workflows you actually use, mapped</li>
+          <li>Your data, your hosting, your repository, documented and handed over</li>
+          <li>Old and new run side by side for a full billing cycle before you cancel anything</li>
+          <li>One-time build fee, typically paying for itself inside eighteen months</li>
+          <li>Optional care plan for hosting and patching — decline it and the code is still yours</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-header border-top">
+      <span class="label">[SEC_05] What we won't do</span>
+    </div>
+    <div class="refusal-grid">
+      <div>
+        <h3>Anything compliance-heavy</h3>
+        <p>Payroll, tax filing, accounting of record, clinical records — anything that would put protected health information through a system we built. That stays with the specialists and the software carrying the liability.</p>
+      </div>
+      <div>
+        <h3>Replace software that's good value</h3>
+        <p>Plenty of what you pay for is cheap for what it does, or worth it because everyone else is on it. We'll say so, and it costs you nothing to hear it.</p>
+      </div>
+      <div>
+        <h3>Automate judgement</h3>
+        <p>Some of what looks automatable is the part where your experience shows. Automating it saves an hour and costs a client. That list is in the report too.</p>
+      </div>
+      <div>
+        <h3>Sell you a build the audit didn't justify</h3>
+        <p>If you're already running lean, we'd rather tell you and keep the relationship than invoice you for a project neither of us believed in.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-header border-top">
+      <span class="label">[SEC_06] Who this is for</span>
+    </div>
+    <div class="grid-container" style="border-bottom: none;">
+      <div class="col-span-12 pad-box-large" style="padding-bottom: 1rem; border-bottom: none;">
+        <h2>Owner-run businesses with real revenue and no spare hours.</h2>
+        <p class="text-large" style="margin-top: 1rem; max-width: 60ch;">
+          The common thread isn't an industry, it's a shape: healthy margins, a small team wearing several hats each, and nobody whose job is to look at how the work flows.
+        </p>
+      </div>
+    </div>
+    <ul class="verticals-list">
+      <li>Dental practices &amp; orthodontists</li>
+      <li>Oral &amp; cosmetic surgery</li>
+      <li>Dermatology &amp; med spas</li>
+      <li>Plastic surgery practices</li>
+      <li>Private medical practices</li>
+      <li>Fertility clinics</li>
+      <li>Veterinary hospitals</li>
+      <li>Personal injury law firms</li>
+      <li>Corporate &amp; estate law</li>
+      <li>Accounting firms &amp; CPAs</li>
+      <li>Wealth management</li>
+      <li>Insurance brokerages</li>
+      <li>Commercial real estate</li>
+      <li>Property management</li>
+      <li>General contractors</li>
+      <li>Roofing, HVAC &amp; plumbing</li>
+      <li>Restoration &amp; specialty trades</li>
+      <li>Architecture &amp; engineering</li>
+      <li>Interior design studios</li>
+      <li>Agencies &amp; production companies</li>
+      <li>Staffing &amp; executive search</li>
+      <li>Private schools &amp; clubs</li>
+      <li>Luxury &amp; independent dealerships</li>
+      <li>Wedding &amp; event venues</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="section-header border-top">
+      <span class="label">[SEC_07] Principal</span>
+    </div>
+    <div class="grid-container">
+      <div class="col-span-12 pad-box-large">
+        <h2>Joe Waine</h2>
+        <p class="text-large" style="margin-top: 1rem; margin-bottom: 3rem; max-width: 62ch;">
+          Grand Street Works is one Brooklyn engineer with 90+ shipped projects — automations, internal tools, and the unglamorous plumbing that connects a business's software to itself. The person in your discovery call is the person who writes the report and the person who builds the fix. I take a small number of engagements at a time, and I'd rather turn work down than staff it out to someone you've never met.
+        </p>
+        <table class="data-table" style="max-width: 860px;">
+          <tbody>
+            <tr>
+              <td>Entity type</td>
+              <td>Solo practice</td>
+            </tr>
+            <tr>
+              <td>Base of operations</td>
+              <td>Brooklyn, New York</td>
+            </tr>
+            <tr>
+              <td>Works with</td>
+              <td>Owners and practice managers, directly</td>
+            </tr>
+            <tr>
+              <td>First step</td>
+              <td>Fixed-fee operations audit</td>
+            </tr>
+            <tr>
+              <td>Engagements</td>
+              <td>Remote across the US · on-site in NYC</td>
+            </tr>
+            <tr>
+              <td>Sister practice</td>
+              <td><a href="https://grandstreetai.com" style="text-decoration: underline;">Grand Street AI</a> — for technical teams shipping AI</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-header border-top">
+      <span class="label">[SEC_08] Fair questions</span>
+    </div>
+    <div class="faq-container">
+      <details>
+        <summary>We're too small for this.</summary>
+        <div class="faq-content">
+          <p>Smaller usually makes the maths better, not worse. In a ten-person firm one person is doing four jobs, so an hour returned to them is an hour returned to four functions. The businesses that get least out of this are the large ones with an operations team already asking the same questions.</p>
+        </div>
+      </details>
+      <details>
+        <summary>We tried ChatGPT and it was underwhelming.</summary>
+        <div class="faq-content">
+          <p>That's the usual experience, and it's the right conclusion from the wrong experiment. Typing questions into a chat box isn't the same as changing how a workflow runs. The audit looks at where the hours actually go — intake, scheduling, quoting, follow-up, double entry — and plenty of the fixes are ordinary software rather than AI.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Is our client data safe?</summary>
+        <div class="faq-content">
+          <p>The first thing the audit produces is a list of what should never leave your systems, and a written rule for your team about what can and can't be pasted into a chat window. Anything we build runs on your accounts and your hosting, and nothing gets write access until you've watched it work with drafts and approvals first. We stay out of clinical records, payroll and anything else carrying regulatory liability.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Who maintains whatever you build?</summary>
+        <div class="faq-content">
+          <p>Your choice. There's an optional monthly care plan covering hosting, patching and small changes, priced well below the subscription it usually replaces — or your own IT can hold it, because the code is documented and it's yours. Declining the care plan doesn't cost you access to anything.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Aren't you just a new kind of lock-in?</summary>
+        <div class="faq-content">
+          <p>You own the repository, the data and the infrastructure accounts, and that's in the contract rather than in a sales conversation. If you want to move to another engineer, everything they need is already in your possession. Replaceable by design.</p>
+        </div>
+      </details>
+      <details>
+        <summary>What if switching breaks something we depend on?</summary>
+        <div class="faq-content">
+          <p>Nothing gets cancelled on a promise. When we replace a tool, old and new run side by side for a full billing cycle, and you only cancel once the new one has done the job for a month with your real work going through it.</p>
+        </div>
+      </details>
+      <details>
+        <summary>What does it cost, and how much of our time does it take?</summary>
+        <div class="faq-content">
+          <p>Everything is a fixed fee agreed before work starts — no hourly billing and no scope-creep conversations. The audit is deliberately the cheapest way in and credits 100% against anything booked in the following 30 days. Your side of it is one 60–90 minute call, a short email thread, and a 30-minute readout.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section class="footer-cta pad-box-large border-top" id="contact">
+    <h2>Tell us what's eating the week.</h2>
+    <p>One email. You'll get a straight answer within a business day on whether an audit is worth your money — including if it isn't.</p>
+    <a href="mailto:joe@grandstreetworks.com?subject=What's%20eating%20our%20week" class="email-link">joe@grandstreetworks.com</a>
+  </section>
+
+</main>
+
+<footer>
+  <div class="label">© 2026 Grand Street Works · 700 Grand Street #2F, Brooklyn, NY 11211</div>
+  <div class="label">Sys_Ver 1.0 // Operational</div>
+</footer>
+
+<script>
+(function () {
+  var container = document.getElementById('canvas-container');
+  if (!window.THREE || !container) return;
+
+  var scene = new THREE.Scene();
+  var camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 10);
+  camera.position.z = 1;
+
+  var renderer;
+  try {
+    renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+  } catch (e) {
+    return; // no WebGL — hero falls back to the flat background
+  }
+  renderer.setSize(container.clientWidth, container.clientHeight);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  container.appendChild(renderer.domElement);
+
+  var fragmentShader = `
+    uniform float u_time;
+    uniform vec2 u_resolution;
+
+    // Simplex 2D noise
+    vec3 permute(vec3 x) { return mod(((x*34.0)+1.0)*x, 289.0); }
+    float snoise(vec2 v){
+        const vec4 C = vec4(0.211324865405187, 0.366025403784439, -0.577350269189626, 0.024390243902439);
+        vec2 i  = floor(v + dot(v, C.yy) );
+        vec2 x0 = v -   i + dot(i, C.xx);
+        vec2 i1;
+        i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
+        vec4 x12 = x0.xyxy + C.xxzz;
+        x12.xy -= i1;
+        i = mod(i, 289.0);
+        vec3 p = permute( permute( i.y + vec3(0.0, i1.y, 1.0 )) + i.x + vec3(0.0, i1.x, 1.0 ));
+        vec3 m = max(0.5 - vec3(dot(x0,x0), dot(x12.xy,x12.xy), dot(x12.zw,x12.zw)), 0.0);
+        m = m*m ;
+        m = m*m ;
+        vec3 x = 2.0 * fract(p * C.www) - 1.0;
+        vec3 h = abs(x) - 0.5;
+        vec3 ox = floor(x + 0.5);
+        vec3 a0 = x - ox;
+        m *= 1.79284291400159 - 0.85373472095314 * ( a0*a0 + h*h );
+        vec3 g;
+        g.x  = a0.x  * x0.x  + h.x  * x0.y;
+        g.yz = a0.yz * x12.xz + h.yz * x12.yw;
+        return 130.0 * dot(m, g);
+    }
+
+    void main() {
+        vec2 uv = gl_FragCoord.xy / u_resolution.xy;
+
+        vec3 color1 = vec3(0.76, 0.84, 0.49); // Lime
+        vec3 color2 = vec3(0.08, 0.47, 0.53); // Teal
+        vec3 color3 = vec3(0.01, 0.08, 0.15); // Navy
+
+        vec2 pos = uv * 2.0;
+        float noise = snoise(pos + u_time * 0.2);
+        float noise2 = snoise(pos - u_time * 0.15 + 10.0);
+
+        float mix1 = smoothstep(-0.5, 0.8, uv.y + noise * 0.2 - 0.2);
+
+        vec3 finalColor = mix(color3, color2, mix1);
+
+        float limeIntensity = smoothstep(0.8, -0.2, uv.x + uv.y - noise*0.5);
+        finalColor = mix(finalColor, color1, limeIntensity * 0.8);
+
+        gl_FragColor = vec4(finalColor, 1.0);
+    }
+  `;
+
+  var vertexShader = `
+    void main() {
+        gl_Position = vec4(position, 1.0);
+    }
+  `;
+
+  var geometry = new THREE.PlaneGeometry(2, 2);
+  var material = new THREE.ShaderMaterial({
+    vertexShader: vertexShader,
+    fragmentShader: fragmentShader,
+    uniforms: {
+      u_time: { value: 0.0 },
+      u_resolution: { value: new THREE.Vector2(container.clientWidth, container.clientHeight) }
+    }
+  });
+
+  scene.add(new THREE.Mesh(geometry, material));
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var startTime = Date.now();
+  function animate() {
+    requestAnimationFrame(animate);
+    material.uniforms.u_time.value = (Date.now() - startTime) * 0.001;
+    renderer.render(scene, camera);
+  }
+  if (reduceMotion) {
+    renderer.render(scene, camera); // single static frame
+  } else {
+    animate();
+  }
+
+  window.addEventListener('resize', function () {
+    var width = container.clientWidth;
+    var height = container.clientHeight;
+    renderer.setSize(width, height);
+    material.uniforms.u_resolution.value.set(width, height);
+  });
+})();
+</script>
+</body>
+</html>

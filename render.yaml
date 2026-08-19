@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: grandstreetworks
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: .
+    autoDeploy: true
+    domains:
+      - grandstreetworks.com
+      - www.grandstreetworks.com
