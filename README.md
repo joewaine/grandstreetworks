@@ -1,5 +1,7 @@
 # Grand Street Works — marketing site
 
+Live at **[grandstreetworks.com](https://grandstreetworks.com)** (`www` 301s to the apex).
+
 Single static page, no build step, no framework. `index.html` is the whole
 site.
 
