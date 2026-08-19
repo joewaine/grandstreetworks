@@ -58,8 +58,15 @@ site with a dead mailto is worse than no site.
 command, auto-deploy on push to `main`.
 
 1. dashboard.render.com → New → **Blueprint** → connect this repo.
-2. Custom domains (Settings → Custom Domains):
-   - `grandstreetworks.com` → A record to Render's apex IP (use the value
-     Render shows you) or ALIAS/ANAME if the DNS host supports it
-   - `www.grandstreetworks.com` → CNAME to the `*.onrender.com` hostname
+2. Add both custom domains (Settings → Custom Domains), then create the DNS
+   records at the registrar:
+
+   | Host | Type | Value |
+   |---|---|---|
+   | `@` | A | `216.24.57.1` |
+   | `www` | CNAME | `<service>.onrender.com` |
+
+   `216.24.57.1` is Render's apex IP, in use by the sibling sites today —
+   but confirm against what the Render dashboard shows you, since it can
+   change. Use ALIAS/ANAME for the apex instead if the DNS host supports it.
 3. TLS certificates are automatic once DNS resolves.
