@@ -33,13 +33,21 @@ One page, sectioned with the shared `[SEC_0x]` header bars:
 
 ## `work/` — the reference builds
 
-`work/` holds twenty industries, six homepage directions each (120 pages plus
-twenty per-industry index pages), and `work/index.html` lists them in the site's
-own design system. They came from `~/fractal/cash_rich/demos/` and are copied in,
-not linked — editing them there does not change what is published here.
+`work/` holds twenty trades, six builds each — 120 pages plus twenty per-trade
+index pages — and `work/index.html` lists them in the site's own design system.
 
-Every business in them is **fictional**, which the pages say in their own footers
-and the site says in `SEC_04`. Every page under `work/` carries
+URLs read `work/<trade>/<business>.html`, e.g. `work/roofing/fair-oaks-roofing.html`.
+Every one of the 120 is a **different fictional business** with its own name,
+phone number, headline and argument; the trade-generic copy underneath is shared
+on purpose, because six roofers really do all tear off and re-deck.
+
+The pages are generated, not hand-edited. Sources are the harness in
+`~/fractal/cash_rich/demos/` and the photographic set in `cash_rich/static2`;
+per-page copy lives in `tools/demo_copy/<trade>.py` and `tools/photo_copy_*.py`.
+Editing a file under `work/` directly will be overwritten on the next build.
+
+Every business in them is **fictional**, which the pages say in their own footers.
+Every page under `work/` carries
 `<meta name="robots" content="noindex">` so invented practices never compete with
 the real page in search results. If you ever want that traffic, removing the tag
 is a one-line change per file — but read the warning in the internal notes first.
@@ -70,9 +78,12 @@ self-hosted fonts and no external requests at all. Their pages are built by
 `tools/build-photo-sets.py` and their per-page copy lives in
 `tools/photo_copy_*.py`; their shared fonts and plates live in `work/_assets/`.
 
-Regenerate the twenty index pages with:
+Rebuild, in this order — the index generator reads the firm names out of the
+pages the other two write:
 
-    python3 tools/build-work-index.py [--source <demos dir>]
+    python3 tools/build-photo-sets.py     # the photographic trade
+    python3 tools/build-demo-copy.py      # the nineteen CSS-only trades
+    python3 tools/build-work-index.py     # the twenty index pages
 
 It parses the direction names, the FIX each one answers, the axis picks and the
 accent swatch out of the demo harness's own index pages in

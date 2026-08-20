@@ -19,6 +19,7 @@ it previously wrote, so running it twice is a no-op.
 
 import argparse
 import html
+import importlib
 import re
 import sys
 from pathlib import Path
@@ -450,9 +451,7 @@ def main():
         if not src.exists() and slug not in PHOTO_SETS:
             print(f"skip {slug}: no source at {src}", file=sys.stderr)
             continue
-        if not dest.parent.exists():
-            print(f"skip {slug}: no {dest.parent}", file=sys.stderr)
-            continue
+        dest.parent.mkdir(parents=True, exist_ok=True)
         if slug in PHOTO_SETS:
             module, blurb = PHOTO_SETS[slug]
             try:
