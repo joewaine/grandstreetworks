@@ -51,8 +51,8 @@ contact address, so the `mailto:` count below is unaffected by them.
 The per-trade `work/<trade>/index.html` pages are ours, not the harness's:
 site header, then the six builds stacked top to bottom on a neutral ground, each
 in a live `<iframe>` at 90% of the browser width with air between them, so it is
-obvious at a glance that another build follows. Under each one sits a bar carrying that direction's name
-and the failure it answers, a **Desktop / Mobile** toggle, and **View full site**.
+obvious at a glance that another build follows. Above each one sits a bar carrying its accent, a `C1`–`C6` position marker, the
+business the build is for, a **Desktop / Mobile** toggle, and **View full site**.
 Only the first frame loads eagerly; the other five are `loading="lazy"`.
 
 There is deliberately no title block or intro copy above the first frame: the

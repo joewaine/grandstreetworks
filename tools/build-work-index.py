@@ -179,10 +179,6 @@ def render(slug, industry, company, sub, disclaimer, directions):
     for i, d in enumerate(directions):
         title = f"C{i + 1} · {d['label']}"
         blocks.append(f'''      <section class="build">
-        <div class="frame-well" data-mode="full">
-          <iframe src="{esc(d['href'])}" title="{esc(title)}"
-                  loading="{'eager' if i == 0 else 'lazy'}"></iframe>
-        </div>
         <div class="bar">
           <span class="bar-head">
             {swatch(d['accent'])}
@@ -196,6 +192,10 @@ def render(slug, industry, company, sub, disclaimer, directions):
             </div>
             <a class="open" href="{esc(d['href'])}" target="_blank" rel="noopener">View full site ↗</a>
           </div>
+        </div>
+        <div class="frame-well" data-mode="full">
+          <iframe src="{esc(d['href'])}" title="{esc(title)}"
+                  loading="{'eager' if i == 0 else 'lazy'}"></iframe>
         </div>
       </section>''')
     builds = "\n".join(blocks)
@@ -297,7 +297,7 @@ def render(slug, industry, company, sub, disclaimer, directions):
   .bar {{
     display: flex; align-items: center; justify-content: space-between;
     gap: 2rem; padding: 0.85rem 1.5rem;
-    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
     background: var(--bg-color);
   }}
   .bar-head {{ display: flex; align-items: center; gap: 0.7rem; min-width: 0; }}
