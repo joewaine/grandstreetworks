@@ -34,6 +34,37 @@ NOINDEX = '<meta name="robots" content="noindex">\n'
 CHARSET = '<meta charset="utf-8">\n'
 
 
+BRAND_RE = re.compile(r'(<(?:a|div|span)[^>]*class="[^"]*\bbrand\b[^"]*"[^>]*>)(.*?)(</(?:a|div|span)>)', re.S)
+
+
+def rebrand_split(page, source_firm, new_firm):
+    """Rewrite nav wordmarks that split the firm name across markup.
+
+    Several designs set the brand as `Ardent<span>.</span>Smile Studio` or
+    `Ardent <span>Smile Studio</span>`, so a plain string replacement never
+    matches. Rebuild the element's contents in whichever shape it already uses,
+    so the design's own treatment of the wordmark survives the rename.
+    """
+    head = source_firm.split()[0]
+    first, _, rest = new_firm.partition(" ")
+
+    def swap(m):
+        inner = m.group(2)
+        if head not in re.sub(r"<[^>]+>", "", inner):
+            return m.group(0)
+        sep = re.search(r"<span[^>]*>([^<]{1,3})</span>", inner)
+        e = lambda t: html.escape(t, quote=False)
+        if sep and not sep.group(1).strip().isalnum():
+            built = f"{e(first)}<span>{sep.group(1)}</span>{e(rest)}"
+        elif "<span" in inner:
+            built = f"{e(first)} <span>{e(rest)}</span>"
+        else:
+            built = e(new_firm)
+        return m.group(1) + built + m.group(3)
+
+    return BRAND_RE.sub(swap, page)
+
+
 def build_page(deck, filename, spec, trade, check=False):
     src = SOURCE / trade / filename
     if not src.exists():
@@ -50,6 +81,19 @@ def build_page(deck, filename, spec, trade, check=False):
             continue
         s = s.replace(old, new)
 
+    # The headline is shared across a trade's six designs and its markup varies,
+    # so swap the element's contents rather than matching a literal string.
+    if spec.get("h1"):
+        lines = spec["h1"] if isinstance(spec["h1"], list) else [spec["h1"]]
+        def swap(m):
+            sep = "<br>" if "<br" in m.group(2) else " "
+            return m.group(1) + sep.join(html.escape(l, quote=False) for l in lines) + m.group(3)
+        s2, n = re.subn(r"(<h1[^>]*>)(.*?)(</h1>)", swap, s, count=1, flags=re.S)
+        if n:
+            s = s2
+        else:
+            notes.append("no <h1> found")
+
     firm = html.escape(spec["firm"], quote=False)
     s = s.replace(html.escape(deck.SOURCE_FIRM, quote=False), firm)
     s = s.replace(deck.SOURCE_FIRM, spec["firm"])
@@ -57,6 +101,7 @@ def build_page(deck, filename, spec, trade, check=False):
     s = s.replace(deck.SOURCE_TEL, spec["tel"])
     for short, repl in spec.get("short", {}).items():
         s = s.replace(short, repl)
+    s = rebrand_split(s, deck.SOURCE_FIRM, spec["firm"])
 
     if 'name="robots"' not in s and CHARSET in s:
         s = s.replace(CHARSET, CHARSET + NOINDEX, 1)
