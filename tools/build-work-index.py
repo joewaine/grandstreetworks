@@ -233,8 +233,8 @@ def render(slug, industry, company, sub, disclaimer, directions):
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{esc(company)} — six directions · Grand Street Works</title>
-<meta name="description" content="Six reference homepage directions for {industry.lower()}. {esc(company)} is a fictional business; the structure is real.">
+<title>{titled(industry)} — six builds · Grand Street Works</title>
+<meta name="description" content="Six reference homepage builds for {industry.lower()}, each for a different business.">
 <link rel="icon" href="{FAVICON}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -410,7 +410,6 @@ def render(slug, industry, company, sub, disclaimer, directions):
 </main>
 
 <footer>
-  <div class="label">{disclaimer}</div>
   <div class="label"><a href="../" style="text-decoration: underline;">← All work</a></div>
 </footer>
 
