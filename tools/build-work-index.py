@@ -148,6 +148,20 @@ def parse(src_index: Path):
     return company, sub, disclaimer, directions
 
 
+# Two trade names read badly with "Clients" appended in the plural.
+HEADER_LABELS = {
+    "Med spas": "Med Spa",
+    "Accounting &amp; CPAs": "Accounting &amp; CPA",
+}
+
+
+def titled(industry):
+    """Trade name in title case, leaving CPAs and the like as they are."""
+    if industry in HEADER_LABELS:
+        return HEADER_LABELS[industry]
+    return " ".join(w.capitalize() if w.islower() else w for w in industry.split())
+
+
 def firm_of(page):
     """The business name a build is for, read from its own <title>.
 
@@ -369,7 +383,7 @@ def render(slug, industry, company, sub, disclaimer, directions):
 
 <main>
   <div class="section-header">
-    <span class="label">[VIEW] Six directions</span>
+    <span class="label">{titled(industry)} Clients</span>
     <span class="label dim">Scroll — each one in full, desktop or mobile</span>
   </div>
 
