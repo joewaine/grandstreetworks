@@ -1,38 +1,357 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8">
+<html lang="en">
+<head>
+<meta charset="utf-8">
 <meta name="robots" content="noindex">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Lumen Aesthetics — six directions</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lumen Aesthetics — six directions · Grand Street Works</title>
+<meta name="description" content="Six reference homepage directions for med spas. Lumen Aesthetics is a fictional business; the structure is real.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23050505'/%3E%3Ccircle cx='14' cy='14' r='5' fill='%23C2D57D'/%3E%3Ctext x='32' y='50' font-family='Menlo,Consolas,monospace' font-size='26' font-weight='bold' fill='%23E5E5E6' text-anchor='middle'%3EGW%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#1D1A1E;--surface:#F7F3F3;--muted:#5E5560;--rule:rgba(29,26,30,.14)}
-*{box-sizing:border-box}
-body{margin:0;background:var(--surface);color:var(--ink);
-font:400 17px/1.55 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
-.wrap{max-width:760px;margin:0 auto;padding:36px 20px 60px}
-h1{font-size:28px;letter-spacing:-.02em;margin:0 0 6px}
-.sub{color:var(--muted);margin:0 0 28px;font-size:16px}
-ol{list-style:none;margin:0;padding:0;display:grid;gap:12px}
-a.card{display:block;background:#fff;border:1px solid var(--rule);border-radius:10px;padding:18px;
-text-decoration:none;color:inherit;min-height:64px}
-a.card:hover{border-color:var(--ink)}
-.name{font-weight:700;font-size:20px;letter-spacing:-.01em}
-.why{color:var(--muted);font-size:15px;margin:6px 0 10px}
-.axes{font-size:13px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
-.axes b{color:var(--ink);font-weight:600}
-.sw{display:inline-block;width:13px;height:13px;border-radius:3px;margin-right:6px;
-vertical-align:-2px;border:1px solid rgba(0,0,0,.15)}
-footer{margin-top:32px;color:var(--muted);font-size:14px}
-</style></head>
-<body><div class="wrap">
-<h1>Lumen Aesthetics — six directions</h1>
-<p class="sub">Med spa. Fictional business, real structure. Open each on the phone — Book now is reachable without scrolling in all six, and the published price list is the object every direction is built around.</p>
-<ol>
-<li><a class="card" href="d1-pricelist.html"><div class="name">D1 · The Price List One</div><p class="why">Fixes: no published pricing — the four real numbers sit inside the hero panel, above the fold, with membership as the last row.</p><p class="axes"><span class="sw" style="background:#A63D5B"></span>Hero <b>panel</b> · Nav <b>centered</b> · Services <b>grid-numbered</b> · Proof <b>logos</b></p></a></li>
-<li><a class="card" href="d2-membership.html"><div class="name">D2 · The Membership One</div><p class="why">Fixes: membership unsold — a card object directly under the stacked hero, monthly figure set as large as the headline.</p><p class="axes"><span class="sw" style="background:#6E4877"></span>Hero <b>stack</b> · Nav <b>minimal</b> · Services <b>cards</b> · Proof <b>stats</b></p></a></li>
-<li><a class="card" href="d3-twotaps.html"><div class="name">D3 · The Two Taps One</div><p class="why">Fixes: booking requires an account — the band leads with the action and a full-bleed price ledger runs straight underneath it, so there is nothing to call about and nothing to register for.</p><p class="axes"><span class="sw" style="background:#7F6228"></span>Hero <b>band</b> · Nav <b>inline</b> · Services <b>list</b> · Proof <b>stats</b></p></a></li>
-<li><a class="card" href="d4-ownedgrid.html"><div class="name">D4 · The Owned Grid One</div><p class="why">Fixes: business dependent on Instagram it doesn't own — a nine-square lattice takes the place the feed embed usually occupies, on a page they control.</p><p class="axes"><span class="sw" style="background:#7E4234"></span>Hero <b>split</b> · Nav <b>bar</b> · Services <b>tiles</b> · Proof <b>logos</b></p></a></li>
-<li><a class="card" href="d5-menu.html"><div class="name">D5 · The Menu One</div><p class="why">Fixes: no published pricing — a paper menu lifted out of the full-bleed field, each price set on its own line the way a menu prices a dish.</p><p class="axes"><span class="sw" style="background:#566334"></span>Hero <b>fullbleed</b> · Nav <b>bar</b> · Services <b>cards</b> · Proof <b>testimonial-lead</b></p></a></li>
-<li><a class="card" href="d6-clients.html"><div class="name">D6 · The Client One</div><p class="why">Fixes: business dependent on Instagram it doesn't own — the review wall is hosted here, and the price strip sits inside the dark hero slab.</p><p class="axes"><span class="sw" style="background:#46394F"></span>Hero <b>panel</b> · Nav <b>centered</b> · Services <b>tiles</b> · Proof <b>review-wall</b></p></a></li>
-</ol>
-<footer>Lumen Aesthetics is a fictional med spa. Medical director on site · Licensed nurse injectors · Est. 2019. Design demonstration only.</footer>
-</div></body></html>
+  :root {
+    --bg-color: #E5E5E6;
+    --text-color: #050505;
+    --border-color: #050505;
+    --border-light: rgba(5, 5, 5, 0.15);
+    --font-sans: 'Inter', -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --nav-height: 60px;
+    --toolbar-height: 59px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.4;
+    overflow-x: hidden;
+    padding-top: var(--nav-height);
+  }
+  a { color: inherit; text-decoration: none; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--text-color); outline-offset: 3px; }
+  h1 { font-size: clamp(2rem, 4vw, 3.25rem); font-weight: 500; letter-spacing: -0.03em; line-height: 1.05; }
+  p { font-size: 1.125rem; color: rgba(5, 5, 5, 0.8); line-height: 1.5; }
+  .label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  header {
+    position: fixed; top: 0; left: 0; width: 100%; height: var(--nav-height);
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 2rem; background-color: var(--bg-color);
+    border-bottom: 1px solid var(--border-color); z-index: 100;
+  }
+  .logo-mark { display: flex; align-items: center; gap: 1rem; }
+  .status-dot {
+    width: 8px; height: 8px; background-color: #C2D57D; border-radius: 50%;
+    display: inline-block; box-shadow: 0 0 10px rgba(194, 213, 125, 0.5); flex: none;
+  }
+
+  .section-header {
+    display: flex; align-items: center; gap: 1rem; padding: 1rem 2rem;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--text-color); color: var(--bg-color);
+  }
+  .section-header .label { color: var(--bg-color); }
+  .section-header .label.dim { color: rgba(229, 229, 230, 0.6); }
+  /* the rail is a left column on wide screens and a row on top below 1000px */
+  .hint-narrow { display: none; }
+
+  .intro { padding: 3.5rem 2rem; border-bottom: 1px solid var(--border-color); }
+  .intro p { margin-top: 1.25rem; max-width: 68ch; }
+
+  /* ---------- Viewer ---------- */
+  .viewer {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    align-items: start;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .rail { border-right: 1px solid var(--border-color); }
+  .dir {
+    display: flex; flex-direction: column; gap: 0.5rem;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.2s ease;
+  }
+  .rail .dir:last-child { border-bottom: none; }
+  .dir:hover { background-color: #DEDEDF; }
+  .dir.is-active { background-color: var(--text-color); color: var(--bg-color); }
+  .dir.is-active .label { color: var(--bg-color); }
+  .dir.is-active .dir-why, .dir.is-active .dir-axes { color: rgba(229, 229, 230, 0.7); }
+  .dir.is-active .dir-axes b { color: var(--bg-color); }
+  .dir-top { display: flex; align-items: center; gap: 0.6rem; }
+  .sw {
+    width: 12px; height: 12px; flex: none;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+  }
+  /* one industry's harness never recorded accents — drop the slot rather than
+     showing six empty boxes */
+  .sw-none { display: none; }
+  .dir.is-active .sw { border-color: rgba(255, 255, 255, 0.35); }
+  .dir-name { font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; }
+  .dir-why { font-size: 0.9375rem; color: rgba(5, 5, 5, 0.7); line-height: 1.45; }
+  .dir-axes {
+    font-family: var(--font-mono); font-size: 0.6875rem;
+    text-transform: uppercase; letter-spacing: 0.04em;
+    color: rgba(5, 5, 5, 0.55); line-height: 1.6;
+  }
+  .dir-axes b { color: var(--text-color); font-weight: 500; }
+
+  .stage { position: sticky; top: var(--nav-height); }
+  .toolbar {
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 1rem; flex-wrap: wrap;
+    padding: 0.75rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--bg-color);
+  }
+  .toolbar-right { display: flex; align-items: center; gap: 0.75rem; }
+  .widths { display: flex; border: 1px solid var(--border-color); }
+  .wbtn {
+    font-family: var(--font-mono); font-size: 0.6875rem;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    padding: 0.5rem 0.85rem; border: none; background: transparent;
+    color: var(--text-color); cursor: pointer;
+  }
+  .wbtn + .wbtn { border-left: 1px solid var(--border-color); }
+  .wbtn.is-on { background: var(--text-color); color: var(--bg-color); }
+  .open {
+    font-family: var(--font-mono); font-size: 0.6875rem;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    padding: 0.5rem 0.85rem; border: 1px solid var(--border-color);
+  }
+  .open:hover { background: var(--text-color); color: var(--bg-color); }
+
+  .frame-well {
+    background: var(--text-color);
+    /* viewport, less the fixed header and the toolbar directly above */
+    height: calc(100vh - var(--nav-height) - var(--toolbar-height));
+    min-height: 520px;
+    display: flex; justify-content: center;
+    padding: 0;
+  }
+  .frame-well[data-mode="phone"] { padding: 1.5rem 1rem; }
+  #preview {
+    width: 100%; height: 100%; border: 0; background: #fff;
+    display: block;
+  }
+  .frame-well[data-mode="phone"] #preview {
+    width: 390px; max-width: 100%;
+    box-shadow: 0 0 0 1px rgba(229, 229, 230, 0.25);
+  }
+  .noscript-note {
+    padding: 1rem 1.5rem; border-bottom: 1px solid var(--border-color);
+    font-family: var(--font-mono); font-size: 0.75rem;
+  }
+
+  footer {
+    display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+    padding: 1.5rem 2rem; border-top: 1px solid var(--border-color);
+  }
+  footer .label { color: rgba(5, 5, 5, 0.7); }
+
+  @media (max-width: 1000px) {
+    .hint-wide { display: none; }
+    .hint-narrow { display: inline; }
+    .viewer { grid-template-columns: 1fr; }
+    .rail {
+      border-right: none; border-bottom: 1px solid var(--border-color);
+      display: flex; overflow-x: auto; -webkit-overflow-scrolling: touch;
+    }
+    .dir {
+      min-width: 260px; border-bottom: none;
+      border-right: 1px solid var(--border-color);
+    }
+    .rail .dir:last-child { border-right: none; }
+    .stage { position: static; }
+    /* At this width the viewport is already the phone the demo was built for. */
+    .widths { display: none; }
+    .frame-well, .frame-well[data-mode="phone"] {
+      padding: 0; height: 640px; min-height: 0;
+    }
+    .frame-well[data-mode="phone"] #preview { width: 100%; box-shadow: none; }
+  }
+  @media (max-width: 640px) {
+    /* no room for the hint next to the section label at phone widths, and the
+       stacked layout explains itself anyway */
+    .hint-wide, .hint-narrow { display: none; }
+    header, .intro, .section-header, footer { padding-left: 1.25rem; padding-right: 1.25rem; }
+    .toolbar { padding-left: 1.25rem; padding-right: 1.25rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .dir, .open, .wbtn { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-mark">
+    <span class="status-dot" aria-hidden="true"></span>
+    <a href="../../" class="label" style="font-weight: 600;">Grand Street Works</a>
+  </div>
+  <a href="../" class="label" style="text-decoration: underline;">← All work</a>
+</header>
+
+<main>
+  <div class="section-header">
+    <span class="label">[IND_04] Med spas</span>
+    <span class="label dim">Reference build</span>
+  </div>
+
+  <div class="intro">
+    <h1>Lumen Aesthetics</h1>
+    <p>Fictional business, real structure. Open each on the phone — Book now is reachable without scrolling in all six, and the published price list is the object every direction is built around.</p>
+  </div>
+
+  <div class="section-header">
+    <span class="label">[VIEW] Six directions</span>
+    <span class="label dim hint-wide">Pick one on the left — it loads on the right</span>
+    <span class="label dim hint-narrow">Pick one above — it loads below</span>
+  </div>
+
+  <noscript>
+    <div class="noscript-note">JavaScript is off, so the preview won't swap. Every direction below is a normal link — open them directly.</div>
+  </noscript>
+
+  <div class="viewer">
+    <nav class="rail" aria-label="Directions">
+      <a class="dir is-active" href="d1-pricelist.html"
+         data-src="d1-pricelist.html" data-title="D1 · The Price List One"
+         aria-current="true">
+        <span class="dir-top">
+          <span class="sw" style="background:#A63D5B" aria-hidden="true"></span>
+          <span class="label">D1</span>
+        </span>
+        <span class="dir-name">The Price List One</span>
+        <span class="dir-why">Fixes: no published pricing — the four real numbers sit inside the hero panel, above the fold, with membership as the last row.</span>
+        <span class="dir-axes">Hero <b>panel</b> · Nav <b>centered</b> · Services <b>grid-numbered</b> · Proof <b>logos</b></span>
+      </a>
+      <a class="dir" href="d2-membership.html"
+         data-src="d2-membership.html" data-title="D2 · The Membership One"
+         aria-current="false">
+        <span class="dir-top">
+          <span class="sw" style="background:#6E4877" aria-hidden="true"></span>
+          <span class="label">D2</span>
+        </span>
+        <span class="dir-name">The Membership One</span>
+        <span class="dir-why">Fixes: membership unsold — a card object directly under the stacked hero, monthly figure set as large as the headline.</span>
+        <span class="dir-axes">Hero <b>stack</b> · Nav <b>minimal</b> · Services <b>cards</b> · Proof <b>stats</b></span>
+      </a>
+      <a class="dir" href="d3-twotaps.html"
+         data-src="d3-twotaps.html" data-title="D3 · The Two Taps One"
+         aria-current="false">
+        <span class="dir-top">
+          <span class="sw" style="background:#7F6228" aria-hidden="true"></span>
+          <span class="label">D3</span>
+        </span>
+        <span class="dir-name">The Two Taps One</span>
+        <span class="dir-why">Fixes: booking requires an account — the band leads with the action and a full-bleed price ledger runs straight underneath it, so there is nothing to call about and nothing to register for.</span>
+        <span class="dir-axes">Hero <b>band</b> · Nav <b>inline</b> · Services <b>list</b> · Proof <b>stats</b></span>
+      </a>
+      <a class="dir" href="d4-ownedgrid.html"
+         data-src="d4-ownedgrid.html" data-title="D4 · The Owned Grid One"
+         aria-current="false">
+        <span class="dir-top">
+          <span class="sw" style="background:#7E4234" aria-hidden="true"></span>
+          <span class="label">D4</span>
+        </span>
+        <span class="dir-name">The Owned Grid One</span>
+        <span class="dir-why">Fixes: business dependent on Instagram it doesn't own — a nine-square lattice takes the place the feed embed usually occupies, on a page they control.</span>
+        <span class="dir-axes">Hero <b>split</b> · Nav <b>bar</b> · Services <b>tiles</b> · Proof <b>logos</b></span>
+      </a>
+      <a class="dir" href="d5-menu.html"
+         data-src="d5-menu.html" data-title="D5 · The Menu One"
+         aria-current="false">
+        <span class="dir-top">
+          <span class="sw" style="background:#566334" aria-hidden="true"></span>
+          <span class="label">D5</span>
+        </span>
+        <span class="dir-name">The Menu One</span>
+        <span class="dir-why">Fixes: no published pricing — a paper menu lifted out of the full-bleed field, each price set on its own line the way a menu prices a dish.</span>
+        <span class="dir-axes">Hero <b>fullbleed</b> · Nav <b>bar</b> · Services <b>cards</b> · Proof <b>testimonial-lead</b></span>
+      </a>
+      <a class="dir" href="d6-clients.html"
+         data-src="d6-clients.html" data-title="D6 · The Client One"
+         aria-current="false">
+        <span class="dir-top">
+          <span class="sw" style="background:#46394F" aria-hidden="true"></span>
+          <span class="label">D6</span>
+        </span>
+        <span class="dir-name">The Client One</span>
+        <span class="dir-why">Fixes: business dependent on Instagram it doesn't own — the review wall is hosted here, and the price strip sits inside the dark hero slab.</span>
+        <span class="dir-axes">Hero <b>panel</b> · Nav <b>centered</b> · Services <b>tiles</b> · Proof <b>review-wall</b></span>
+      </a>
+    </nav>
+    <div class="stage">
+      <div class="toolbar">
+        <span class="label" id="now-showing">D1 · The Price List One</span>
+        <div class="toolbar-right">
+          <div class="widths" role="group" aria-label="Preview width">
+            <button type="button" class="wbtn is-on" data-mode="phone" aria-pressed="true">Phone</button>
+            <button type="button" class="wbtn" data-mode="full" aria-pressed="false">Desktop</button>
+          </div>
+          <a class="open" id="open-full" href="d1-pricelist.html" target="_blank" rel="noopener">Open full page ↗</a>
+        </div>
+      </div>
+      <div class="frame-well" data-mode="phone">
+        <iframe id="preview" src="d1-pricelist.html" title="Preview of D1 · The Price List One" loading="eager"></iframe>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="label">Lumen Aesthetics is a fictional med spa. Medical director on site · Licensed nurse injectors · Est. 2019. Design demonstration only.</div>
+  <div class="label"><a href="../" style="text-decoration: underline;">← All work</a></div>
+</footer>
+
+<script>
+(function () {
+  var frame = document.getElementById('preview');
+  var openFull = document.getElementById('open-full');
+  var nowShowing = document.getElementById('now-showing');
+  var well = document.querySelector('.frame-well');
+  if (!frame || !well) return;
+
+  document.querySelectorAll('.rail .dir').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      // Cmd/ctrl/middle click keeps its normal meaning: open in a new tab.
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+      e.preventDefault();
+      var src = link.getAttribute('data-src');
+      var title = link.getAttribute('data-title');
+      frame.src = src;
+      frame.title = 'Preview of ' + title;
+      openFull.href = src;
+      nowShowing.textContent = title;
+      document.querySelectorAll('.rail .dir').forEach(function (other) {
+        var on = other === link;
+        other.classList.toggle('is-active', on);
+        other.setAttribute('aria-current', on ? 'true' : 'false');
+      });
+    });
+  });
+
+  document.querySelectorAll('.wbtn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      well.setAttribute('data-mode', btn.getAttribute('data-mode'));
+      document.querySelectorAll('.wbtn').forEach(function (other) {
+        var on = other === btn;
+        other.classList.toggle('is-on', on);
+        other.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>

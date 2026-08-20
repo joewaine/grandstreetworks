@@ -44,9 +44,28 @@ and the site says in `SEC_04`. Every page under `work/` carries
 the real page in search results. If you ever want that traffic, removing the tag
 is a one-line change per file — but read the warning in the internal notes first.
 
-The reference pages are self-contained: one `<style>` block, no JS, no images, one
-Google Fonts request each, and no outbound links. They do not carry a contact
-address, so the `mailto:` count below is unaffected by them.
+The reference pages themselves are self-contained: one `<style>` block, no JS, no
+images, one Google Fonts request each, and no outbound links. They do not carry a
+contact address, so the `mailto:` count below is unaffected by them.
+
+The per-industry `work/<industry>/index.html` pages are ours, not the harness's:
+site header, the six directions in a rail, and a live `<iframe>` preview that
+swaps when you pick one, with a phone/desktop width toggle above it. Below
+1000px the rail becomes a horizontal scroller above the frame and the width
+toggle hides, because the viewport is already the phone the demo was built for.
+Without JavaScript every direction is still a plain link — the preview just
+stops swapping.
+
+Regenerate those twenty pages with:
+
+    python3 tools/build-work-index.py [--source <demos dir>]
+
+It parses the direction names, the FIX each one answers, the axis picks and the
+accent swatch out of the demo harness's own index pages in
+`~/fractal/cash_rich/demos` and rewrites ours from a template. It always reads
+the harness format, never the page it last wrote, so running it twice is a no-op.
+It is a maintenance tool, **not** a build step — Render still publishes the repo
+exactly as committed.
 
 ## Look and feel
 
