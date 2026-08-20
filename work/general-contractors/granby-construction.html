@@ -145,19 +145,21 @@ text-decoration:none;font-weight:700;font-size:15px;text-align:center;line-heigh
 </style>
 
 <style>
-  /* Hero plate, added with the photography pass. Full-bleed between the hero
-     and the first content section, with no border of its own: every one of
-     these designs owns a different rule weight and ink colour, and a borrowed
-     hairline reads as a mistake in about half of them. */
-  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
-  .gsw-plate img {
-    display: block;
-    width: 100%;
-    height: clamp(220px, 40vw, 520px);
-    object-fit: cover;
-    object-position: center;
+  /* Hero backdrop. The photograph sits behind the hero's own composition; the
+     scrim below is the design's own background colour, so nothing about the
+     contrast the layout was built with changes. */
+  .gsw-imaged { position: relative; isolation: isolate; overflow: hidden; }
+  .gsw-imaged > *:not(.gsw-backdrop) { position: relative; z-index: 1; }
+  .gsw-backdrop { position: absolute; inset: 0; z-index: 0; }
+  .gsw-backdrop img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .gsw-backdrop::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(100deg,
+      rgb(28 26 23 / 0.9) 0%, rgb(28 26 23 / 0.84) 38%, rgb(28 26 23 / 0.56) 68%, rgb(28 26 23 / 0.36) 100%);
   }
-  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+  @media (max-width: 60rem) { .gsw-backdrop::after { background: rgb(28 26 23 / 0.86); } }
+  @media (forced-colors: active) { .gsw-backdrop { display: none; } }
+  @media print { .gsw-backdrop { display: none; } }
 </style>
 </head>
 <body>
@@ -168,7 +170,7 @@ text-decoration:none;font-weight:700;font-size:15px;text-align:center;line-heigh
   <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
 </div></header>
 
-<section class="hero"><div class="wrap">
+<section class="gsw-imaged hero"><div class="gsw-backdrop" aria-hidden="true"><img src="../_assets/hero/general-contractors/e-finished-street.jpg" alt="" loading="eager"></div><div class="wrap">
   <p class="eyebrow">Whole-home renovation &amp; additions</p>
   <h1>Licensed, bonded, permitted — and we'll show you all three.</h1>
   <p class="sub">Whole-home renovations, additions and structural work, typically from $75,000. Licence number, bond, insurance certificates and every pulled permit are handed over at signing, not promised and then chased.</p>
@@ -181,8 +183,6 @@ text-decoration:none;font-weight:700;font-size:15px;text-align:center;line-heigh
     <li>Weekly written updates</li><li>Fixed schedule commitment</li>
   </ul>
 </div></section>
-<figure class="gsw-plate"><img src="../_assets/hero/general-contractors/e-finished-street.jpg" alt="Finished street — general contractors" loading="lazy"></figure>
-
 
 <section class="sec" id="services"><div class="wrap">
   <p class="kicker">Services</p>

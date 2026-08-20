@@ -21,11 +21,15 @@ Decks live in tools/demo_copy/<trade>.py. A maintenance tool, not a build step.
 """
 
 import argparse
+import json
 import html
 import importlib
 import re
 import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from hero_backdrops import wants_backdrop
 
 REPO = Path(__file__).resolve().parent.parent
 WORK = REPO / "work"
@@ -146,6 +150,82 @@ def add_hero_plate(page, trade, index):
     return page, None
 
 
+
+HERO_COLORS = json.loads((REPO / "tools" / "hero_colors.json").read_text()) \
+    if (REPO / "tools" / "hero_colors.json").exists() else {}
+
+
+def _luminance(rgb):
+    vals = [int(v) / 255 for v in re.findall(r"\d+", rgb)[:3]]
+    lin = [v / 12.92 if v <= 0.04045 else ((v + 0.055) / 1.055) ** 2.4 for v in vals]
+    return 0.2126 * lin[0] + 0.7152 * lin[1] + 0.0722 * lin[2]
+
+
+def scrim_css(rgb):
+    """A scrim in the design's own hero colour, following the Green Circle rule.
+
+    Legibility must not depend on the photograph: the copy side is opaque enough
+    to hold on its own, thinning toward the side the text does not reach, and
+    flat below the breakpoint where the copy spans the full width.
+
+    Dark heroes get a lighter ramp. A near-black scrim at .97 erases the
+    photograph completely — the pool build was a black rectangle — and light
+    type over a dark image needs far less help than dark type over a bright one.
+    """
+    c = " ".join(re.findall(r"\d+", rgb)[:3])
+    dark = _luminance(rgb) < 0.18
+    a = (0.90, 0.84, 0.56, 0.36) if dark else (0.97, 0.95, 0.70, 0.52)
+    flat = 0.86 if dark else 0.93
+    return f"""  .gsw-backdrop::after {{
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(100deg,
+      rgb({c} / {a[0]}) 0%, rgb({c} / {a[1]}) 38%, rgb({c} / {a[2]}) 68%, rgb({c} / {a[3]}) 100%);
+  }}
+  @media (max-width: 60rem) {{ .gsw-backdrop::after {{ background: rgb({c} / {flat}); }} }}"""
+
+
+BACKDROP_CSS = """
+<style>
+  /* Hero backdrop. The photograph sits behind the hero's own composition; the
+     scrim below is the design's own background colour, so nothing about the
+     contrast the layout was built with changes. */
+  .gsw-imaged {{ position: relative; isolation: isolate; overflow: hidden; }}
+  .gsw-imaged > *:not(.gsw-backdrop) {{ position: relative; z-index: 1; }}
+  .gsw-backdrop {{ position: absolute; inset: 0; z-index: 0; }}
+  .gsw-backdrop img {{ width: 100%; height: 100%; object-fit: cover; object-position: center; }}
+{scrim}
+  @media (forced-colors: active) {{ .gsw-backdrop {{ display: none; }} }}
+  @media print {{ .gsw-backdrop {{ display: none; }} }}
+</style>
+"""
+
+
+def add_hero_backdrop(page, trade, index, filename):
+    """Put the plate behind the hero instead of under it."""
+    reading = HERO_COLORS.get(f"{trade}/{filename}")
+    if not reading:
+        return page, f"no measured hero colour for {filename}"
+    plates = sorted(q.name for q in (HERO_DIR / trade).glob("*.jpg"))
+    if not plates:
+        return page, "no plates for this trade"
+    name = plates[index % len(plates)]
+
+    m = re.search(r"<section\b[^>]*>", page)
+    if not m:
+        return page, "no <section> to make the backdrop hero"
+    tag = m.group(0)
+    if 'class="' in tag:
+        new_tag = tag.replace('class="', 'class="gsw-imaged ', 1)
+    else:
+        new_tag = tag[:-1] + ' class="gsw-imaged">'
+    backdrop = (f'<div class="gsw-backdrop" aria-hidden="true">'
+                f'<img src="../_assets/hero/{trade}/{name}" alt="" loading="eager"></div>')
+    page = page[:m.start()] + new_tag + backdrop + page[m.end():]
+    page = page.replace("</head>",
+                        BACKDROP_CSS.format(scrim=scrim_css(reading["bg"])) + "</head>", 1)
+    return page, None
+
+
 def build_page(deck, filename, spec, trade, check=False):
     src = SOURCE / trade / filename
     if not src.exists():
@@ -192,9 +272,14 @@ def build_page(deck, filename, spec, trade, check=False):
     if head in s:
         s = s.replace(head, spec["firm"].split()[0])
 
-    s, plate_note = add_hero_plate(s, trade_dir(trade), spec["_index"])
-    if plate_note:
-        notes.append(plate_note)
+    td = trade_dir(trade)
+    out_name = f"{slugify(spec['firm'])}.html"
+    if wants_backdrop(td, spec["_index"]):
+        s, note = add_hero_backdrop(s, td, spec["_index"], out_name)
+    else:
+        s, note = add_hero_plate(s, td, spec["_index"])
+    if note:
+        notes.append(note)
 
     if 'name="robots"' not in s and CHARSET in s:
         s = s.replace(CHARSET, CHARSET + NOINDEX, 1)

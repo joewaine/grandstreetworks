@@ -137,19 +137,21 @@ padding:28px 14px}
 </style>
 
 <style>
-  /* Hero plate, added with the photography pass. Full-bleed between the hero
-     and the first content section, with no border of its own: every one of
-     these designs owns a different rule weight and ink colour, and a borrowed
-     hairline reads as a mistake in about half of them. */
-  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
-  .gsw-plate img {
-    display: block;
-    width: 100%;
-    height: clamp(220px, 40vw, 520px);
-    object-fit: cover;
-    object-position: center;
+  /* Hero backdrop. The photograph sits behind the hero's own composition; the
+     scrim below is the design's own background colour, so nothing about the
+     contrast the layout was built with changes. */
+  .gsw-imaged { position: relative; isolation: isolate; overflow: hidden; }
+  .gsw-imaged > *:not(.gsw-backdrop) { position: relative; z-index: 1; }
+  .gsw-backdrop { position: absolute; inset: 0; z-index: 0; }
+  .gsw-backdrop img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .gsw-backdrop::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(100deg,
+      rgb(246 244 239 / 0.97) 0%, rgb(246 244 239 / 0.95) 38%, rgb(246 244 239 / 0.7) 68%, rgb(246 244 239 / 0.52) 100%);
   }
-  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+  @media (max-width: 60rem) { .gsw-backdrop::after { background: rgb(246 244 239 / 0.93); } }
+  @media (forced-colors: active) { .gsw-backdrop { display: none; } }
+  @media print { .gsw-backdrop { display: none; } }
 </style>
 </head>
 <body>
@@ -159,7 +161,7 @@ padding:28px 14px}
   <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
   <a class="btn navact" href="#contact">Request a valuation</a>
 </div></header>
-<section class="hero"><div class="wrap"><div class="split">
+<section class="gsw-imaged hero"><div class="gsw-backdrop" aria-hidden="true"><img src="../_assets/hero/luxury-real-estate/a-more-than-six-photographs.jpg" alt="" loading="eager"></div><div class="wrap"><div class="split">
   <div>
     <p class="eyebrow">Estates &amp; architectural properties</p>
     <h1>Sold quietly, before it was ever listed.</h1>
@@ -175,8 +177,6 @@ padding:28px 14px}
     <ul class="register"><li>01</li><li>02</li><li>03</li><li>04</li><li>05</li><li>06</li></ul>
   </div>
 </div></div></section>
-<figure class="gsw-plate"><img src="../_assets/hero/luxury-real-estate/a-more-than-six-photographs.jpg" alt="More than six photographs — luxury real estate" loading="lazy"></figure>
-
 <section class="sec" id="services"><div class="wrap">
   <p class="kicker">Services</p><h2>How we represent</h2>
   <p class="lede">Fewer listings, taken seriously. We turn down more instructions than we accept.</p>

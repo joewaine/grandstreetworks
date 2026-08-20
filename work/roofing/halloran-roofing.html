@@ -130,19 +130,21 @@ letter-spacing:.08em;text-transform:uppercase;max-width:132px}
 </style>
 
 <style>
-  /* Hero plate, added with the photography pass. Full-bleed between the hero
-     and the first content section, with no border of its own: every one of
-     these designs owns a different rule weight and ink colour, and a borrowed
-     hairline reads as a mistake in about half of them. */
-  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
-  .gsw-plate img {
-    display: block;
-    width: 100%;
-    height: clamp(220px, 40vw, 520px);
-    object-fit: cover;
-    object-position: center;
+  /* Hero backdrop. The photograph sits behind the hero's own composition; the
+     scrim below is the design's own background colour, so nothing about the
+     contrast the layout was built with changes. */
+  .gsw-imaged { position: relative; isolation: isolate; overflow: hidden; }
+  .gsw-imaged > *:not(.gsw-backdrop) { position: relative; z-index: 1; }
+  .gsw-backdrop { position: absolute; inset: 0; z-index: 0; }
+  .gsw-backdrop img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .gsw-backdrop::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(100deg,
+      rgb(20 21 23 / 0.9) 0%, rgb(20 21 23 / 0.84) 38%, rgb(20 21 23 / 0.56) 68%, rgb(20 21 23 / 0.36) 100%);
   }
-  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+  @media (max-width: 60rem) { .gsw-backdrop::after { background: rgb(20 21 23 / 0.86); } }
+  @media (forced-colors: active) { .gsw-backdrop { display: none; } }
+  @media print { .gsw-backdrop { display: none; } }
 </style>
 </head>
 <body>
@@ -152,7 +154,7 @@ letter-spacing:.08em;text-transform:uppercase;max-width:132px}
   <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
   <a class="navact" href="tel:+15552084417">(555) 208-4417</a>
 </div></header>
-<section class="hero"><div class="wrap">
+<section class="gsw-imaged hero"><div class="gsw-backdrop" aria-hidden="true"><img src="../_assets/hero/roofing/a-storm-clearing.jpg" alt="" loading="eager"></div><div class="wrap">
   <p class="eyebrow">Storm crews standing by · 24/7</p>
   <h1>Tarped tonight. Replaced this week.</h1>
   <p class="sub">Storm damage, full replacements and repairs across the metro. We tarp the same night you ring, meet your adjuster on the roof, and hand you one number that stays the same from the first call to the warranty.</p>
@@ -165,8 +167,6 @@ letter-spacing:.08em;text-transform:uppercase;max-width:132px}
     <li>25-year workmanship warranty</li><li>Tarped within four hours</li>
   </ul>
 </div><div class="shingles" aria-hidden="true"></div></section>
-<figure class="gsw-plate"><img src="../_assets/hero/roofing/a-storm-clearing.jpg" alt="Storm clearing — roofing" loading="lazy"></figure>
-
 <section class="fin"><div class="wrap">
   <p class="big">Financing from $89/mo</p>
   <p class="small">The financing made it possible. $110 a month instead of fifteen grand up front. — Joel B., Riverbend</p>

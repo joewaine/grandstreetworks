@@ -122,19 +122,21 @@ font-weight:600;font-size:15px;text-align:center;line-height:1.2;padding:0 12px}
 </style>
 
 <style>
-  /* Hero plate, added with the photography pass. Full-bleed between the hero
-     and the first content section, with no border of its own: every one of
-     these designs owns a different rule weight and ink colour, and a borrowed
-     hairline reads as a mistake in about half of them. */
-  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
-  .gsw-plate img {
-    display: block;
-    width: 100%;
-    height: clamp(220px, 40vw, 520px);
-    object-fit: cover;
-    object-position: center;
+  /* Hero backdrop. The photograph sits behind the hero's own composition; the
+     scrim below is the design's own background colour, so nothing about the
+     contrast the layout was built with changes. */
+  .gsw-imaged { position: relative; isolation: isolate; overflow: hidden; }
+  .gsw-imaged > *:not(.gsw-backdrop) { position: relative; z-index: 1; }
+  .gsw-backdrop { position: absolute; inset: 0; z-index: 0; }
+  .gsw-backdrop img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .gsw-backdrop::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(100deg,
+      rgb(22 32 26 / 0.9) 0%, rgb(22 32 26 / 0.84) 38%, rgb(22 32 26 / 0.56) 68%, rgb(22 32 26 / 0.36) 100%);
   }
-  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+  @media (max-width: 60rem) { .gsw-backdrop::after { background: rgb(22 32 26 / 0.86); } }
+  @media (forced-colors: active) { .gsw-backdrop { display: none; } }
+  @media print { .gsw-backdrop { display: none; } }
 </style>
 </head>
 <body>
@@ -145,7 +147,7 @@ font-weight:600;font-size:15px;text-align:center;line-height:1.2;padding:0 12px}
   <div class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></div>
 </header>
 
-<section class="hero">
+<section class="gsw-imaged hero"><div class="gsw-backdrop" aria-hidden="true"><img src="../_assets/hero/custom-home-builders/e-house-and-land.jpg" alt="" loading="eager"></div>
   <div class="wrap">
     <p class="eyebrow">Custom homes from $1.2M</p>
     <h1>The land decides the budget. Not the floor plan.</h1>
@@ -163,8 +165,6 @@ font-weight:600;font-size:15px;text-align:center;line-height:1.2;padding:0 12px}
     <span class="v1"></span><span class="v2"></span><span class="v3"></span><span class="v4"></span>
   </div>
 </section>
-<figure class="gsw-plate"><img src="../_assets/hero/custom-home-builders/e-house-and-land.jpg" alt="House and land — custom home builders" loading="lazy"></figure>
-
 
 <section class="sec paper" id="services"><div class="wrap">
   <p class="kicker">Services</p>

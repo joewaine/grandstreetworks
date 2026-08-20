@@ -97,6 +97,12 @@ The plate is injected after the first `<section>` in the body. That is the one
 structural hook that holds across all 114 designs: most call their hero `.hero`,
 a few call it `.band`, but in every case it is the first section on the page.
 
+Fourteen builds instead put their plate **behind** the hero, with a directional
+scrim in that design's own colour over it — measured from the rendered page by
+`tools/measure-hero-colors.py`, cached in `tools/hero_colors.json`, and applied
+by `tools/hero_backdrops.py`. Two of six in a chosen trade, so scrolling a set
+shows both treatments.
+
 Deliberately no border on the plate. These designs each own a different rule
 weight and ink colour, and a borrowed hairline reads as a mistake in about half
 of them.

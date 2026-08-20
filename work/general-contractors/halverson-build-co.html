@@ -140,19 +140,21 @@ text-decoration:none;font-weight:600;font-size:15px;text-align:center;line-heigh
 </style>
 
 <style>
-  /* Hero plate, added with the photography pass. Full-bleed between the hero
-     and the first content section, with no border of its own: every one of
-     these designs owns a different rule weight and ink colour, and a borrowed
-     hairline reads as a mistake in about half of them. */
-  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
-  .gsw-plate img {
-    display: block;
-    width: 100%;
-    height: clamp(220px, 40vw, 520px);
-    object-fit: cover;
-    object-position: center;
+  /* Hero backdrop. The photograph sits behind the hero's own composition; the
+     scrim below is the design's own background colour, so nothing about the
+     contrast the layout was built with changes. */
+  .gsw-imaged { position: relative; isolation: isolate; overflow: hidden; }
+  .gsw-imaged > *:not(.gsw-backdrop) { position: relative; z-index: 1; }
+  .gsw-backdrop { position: absolute; inset: 0; z-index: 0; }
+  .gsw-backdrop img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .gsw-backdrop::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(100deg,
+      rgb(244 242 237 / 0.97) 0%, rgb(244 242 237 / 0.95) 38%, rgb(244 242 237 / 0.7) 68%, rgb(244 242 237 / 0.52) 100%);
   }
-  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+  @media (max-width: 60rem) { .gsw-backdrop::after { background: rgb(244 242 237 / 0.93); } }
+  @media (forced-colors: active) { .gsw-backdrop { display: none; } }
+  @media print { .gsw-backdrop { display: none; } }
 </style>
 </head>
 <body>
@@ -163,7 +165,7 @@ text-decoration:none;font-weight:600;font-size:15px;text-align:center;line-heigh
   <a class="btn btn-primary navact" href="#contact">Book a consultation</a>
 </div></header>
 
-<section class="hero"><div class="wrap">
+<section class="gsw-imaged hero"><div class="gsw-backdrop" aria-hidden="true"><img src="../_assets/hero/general-contractors/c-hands-and-level.jpg" alt="" loading="eager"></div><div class="wrap">
   <p class="eyebrow">Whole-home renovation &amp; additions</p>
   <h1>Photographs from your site, every single day.</h1>
   <p class="sub">Whole-home renovations, additions and structural work, typically from $75,000. You get a dated site diary with photographs every working day, so you can follow the job from your desk without ringing anybody.</p>
@@ -176,8 +178,6 @@ text-decoration:none;font-weight:600;font-size:15px;text-align:center;line-heigh
     <li>Weekly written updates</li><li>Fixed schedule commitment</li>
   </ul>
 </div></section>
-<figure class="gsw-plate"><img src="../_assets/hero/general-contractors/c-hands-and-level.jpg" alt="Hands and level — general contractors" loading="lazy"></figure>
-
 
 <section class="sec" id="services"><div class="wrap">
   <p class="kicker">Services</p>

@@ -129,19 +129,21 @@ text-transform:uppercase;max-width:126px}
 </style>
 
 <style>
-  /* Hero plate, added with the photography pass. Full-bleed between the hero
-     and the first content section, with no border of its own: every one of
-     these designs owns a different rule weight and ink colour, and a borrowed
-     hairline reads as a mistake in about half of them. */
-  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
-  .gsw-plate img {
-    display: block;
-    width: 100%;
-    height: clamp(220px, 40vw, 520px);
-    object-fit: cover;
-    object-position: center;
+  /* Hero backdrop. The photograph sits behind the hero's own composition; the
+     scrim below is the design's own background colour, so nothing about the
+     contrast the layout was built with changes. */
+  .gsw-imaged { position: relative; isolation: isolate; overflow: hidden; }
+  .gsw-imaged > *:not(.gsw-backdrop) { position: relative; z-index: 1; }
+  .gsw-backdrop { position: absolute; inset: 0; z-index: 0; }
+  .gsw-backdrop img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .gsw-backdrop::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(100deg,
+      rgb(15 17 19 / 0.9) 0%, rgb(15 17 19 / 0.84) 38%, rgb(15 17 19 / 0.56) 68%, rgb(15 17 19 / 0.36) 100%);
   }
-  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+  @media (max-width: 60rem) { .gsw-backdrop::after { background: rgb(15 17 19 / 0.86); } }
+  @media (forced-colors: active) { .gsw-backdrop { display: none; } }
+  @media print { .gsw-backdrop { display: none; } }
 </style>
 </head>
 <body>
@@ -152,7 +154,7 @@ text-transform:uppercase;max-width:126px}
   <a class="navact" href="tel:+15551173382">(555) 117-3382</a>
 </div></header>
 <div class="saw" aria-hidden="true"></div>
-<section class="hero"><div class="wrap">
+<section class="gsw-imaged hero"><div class="gsw-backdrop" aria-hidden="true"><img src="../_assets/hero/roofing/a-storm-clearing.jpg" alt="" loading="eager"></div><div class="wrap">
   <p class="eyebrow">Dispatch open · A person, not a service</p>
   <h1>Call during the storm. Someone answers.</h1>
   <p class="sub">Storm damage, full replacements and repairs across the metro. One number, answered by a person in our office rather than a service, and a truck dispatched from whichever yard is closest to you.</p>
@@ -166,8 +168,6 @@ text-transform:uppercase;max-width:126px}
     <li>25-year workmanship warranty</li><li>Trucks dispatched, not scheduled</li>
   </ul>
 </div></section>
-<figure class="gsw-plate"><img src="../_assets/hero/roofing/a-storm-clearing.jpg" alt="Storm clearing — roofing" loading="lazy"></figure>
-
 <div class="sawdn" aria-hidden="true"></div>
 <section class="sec panel"><div class="wrap"><div class="strips">
   <div><p class="k">Financing</p><span class="disp">Financing from $89/mo</span><p>“The financing made it possible. $110 a month instead of fifteen grand up front.” — Joel B., Riverbend</p></div>
