@@ -48,16 +48,18 @@ The reference pages themselves are self-contained: one `<style>` block, no JS, n
 images, one Google Fonts request each, and no outbound links. They do not carry a
 contact address, so the `mailto:` count below is unaffected by them.
 
-The per-industry `work/<industry>/index.html` pages are ours, not the harness's:
-site header, then straight into the viewer — the six directions in a rail, and a
-live `<iframe>` preview that swaps when you pick one. The width toggle above it
-**defaults to desktop**; Phone reloads the same page at 390px on a black stage.
-There is deliberately no title block or intro copy above the frame: the point of
-the page is to land on a finished homepage, not to read about one. (That also
-means these pages carry no `<h1>` — acceptable here because they are `noindex`
-and the identity lives in the tab title and the footer.) Below 1000px the rail
-becomes a horizontal scroller above the frame and the width toggle hides,
-because the viewport is already the phone the demo was built for.
+The per-trade `work/<trade>/index.html` pages are ours, not the harness's:
+site header, then the six builds stacked top to bottom, each in a live `<iframe>`
+at full container width. Under each one sits a bar carrying that direction's name
+and the failure it answers, a **Desktop / Mobile** toggle, and **View full site**.
+Only the first frame loads eagerly; the other five are `loading="lazy"`.
+
+There is deliberately no title block or intro copy above the first frame: the
+point of the page is to land on a finished homepage, not to read about one. (That
+also means these pages carry no `<h1>` — acceptable while they are `noindex` and
+the identity lives in the tab title and the footer.) Below 860px the width toggle
+hides and every frame goes full-bleed, because the viewport is already the phone
+the builds were made for.
 Without JavaScript every direction is still a plain link — the preview just
 stops swapping.
 

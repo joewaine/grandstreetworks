@@ -156,25 +156,36 @@ def swatch(accent):
 
 
 def render(slug, industry, company, sub, disclaimer, directions):
-    first = directions[0]
+    """One page per trade: the six builds stacked, each at container width."""
     esc = html.escape
 
-    rail = []
+    blocks = []
     for i, d in enumerate(directions):
-        rail.append(
-            f'''      <a class="dir{' is-active' if i == 0 else ''}" href="{esc(d['href'])}"
-         data-src="{esc(d['href'])}" data-title="{esc(d['code'] + ' · ' + d['label'])}"
-         aria-current="{'true' if i == 0 else 'false'}">
-        <span class="dir-top">
-          {swatch(d['accent'])}
-          <span class="label">{esc(d['code'])}</span>
-        </span>
-        <span class="dir-name">{esc(d['label'])}</span>
-        <span class="dir-why">{d['why']}</span>
-        <span class="dir-axes">{d['axes']}</span>
-      </a>'''
-        )
-    rail_html = "\n".join(rail)
+        title = f"{d['code']} · {d['label']}"
+        blocks.append(f'''      <section class="build">
+        <div class="frame-well" data-mode="full">
+          <iframe src="{esc(d['href'])}" title="{esc(title)}"
+                  loading="{'eager' if i == 0 else 'lazy'}"></iframe>
+        </div>
+        <div class="bar">
+          <div class="bar-meta">
+            <span class="bar-head">
+              {swatch(d['accent'])}
+              <span class="label">{esc(d['code'])}</span>
+              <span class="bar-name">{esc(d['label'])}</span>
+            </span>
+            <span class="bar-why">{d['why']}</span>
+          </div>
+          <div class="bar-actions">
+            <div class="widths" role="group" aria-label="Preview width">
+              <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
+              <button type="button" class="wbtn" data-mode="phone" aria-pressed="false">Mobile</button>
+            </div>
+            <a class="open" href="{esc(d['href'])}" target="_blank" rel="noopener">View full site ↗</a>
+          </div>
+        </div>
+      </section>''')
+    builds = "\n".join(blocks)
 
     return f'''<!doctype html>
 <html lang="en">
@@ -197,7 +208,7 @@ def render(slug, industry, company, sub, disclaimer, directions):
     --font-sans: 'Inter', -apple-system, sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
     --nav-height: 60px;
-    --toolbar-height: 59px;
+    --frame-height: min(82vh, 940px);
   }}
   * {{ box-sizing: border-box; margin: 0; padding: 0; }}
   body {{
@@ -211,7 +222,6 @@ def render(slug, industry, company, sub, disclaimer, directions):
   }}
   a {{ color: inherit; text-decoration: none; }}
   a:focus-visible, button:focus-visible {{ outline: 2px solid var(--text-color); outline-offset: 3px; }}
-  p {{ font-size: 1.125rem; color: rgba(5, 5, 5, 0.8); line-height: 1.5; }}
   .label {{
     font-family: var(--font-mono);
     font-size: 0.75rem;
@@ -238,56 +248,40 @@ def render(slug, industry, company, sub, disclaimer, directions):
   }}
   .section-header .label {{ color: var(--bg-color); }}
   .section-header .label.dim {{ color: rgba(229, 229, 230, 0.6); }}
-  /* the rail is a left column on wide screens and a row on top below 1000px */
-  .hint-narrow {{ display: none; }}
 
-  /* ---------- Viewer ---------- */
-  .viewer {{
-    display: grid;
-    grid-template-columns: 340px 1fr;
-    align-items: start;
-    border-bottom: 1px solid var(--border-color);
+  /* ---------- One build: the site, then its bar ---------- */
+  .build {{ border-bottom: 1px solid var(--border-color); }}
+  .frame-well {{
+    background: var(--text-color);
+    height: var(--frame-height);
+    min-height: 520px;
+    display: flex; justify-content: center;
   }}
-  .rail {{ border-right: 1px solid var(--border-color); }}
-  .dir {{
-    display: flex; flex-direction: column; gap: 0.5rem;
-    padding: 1.25rem 1.5rem;
-    border-bottom: 1px solid var(--border-color);
-    transition: background-color 0.2s ease;
+  .frame-well[data-mode="phone"] {{ padding: 1.5rem 1rem; }}
+  .build iframe {{
+    width: 100%; height: 100%; border: 0; background: #fff; display: block;
   }}
-  .rail .dir:last-child {{ border-bottom: none; }}
-  .dir:hover {{ background-color: #DEDEDF; }}
-  .dir.is-active {{ background-color: var(--text-color); color: var(--bg-color); }}
-  .dir.is-active .label {{ color: var(--bg-color); }}
-  .dir.is-active .dir-why, .dir.is-active .dir-axes {{ color: rgba(229, 229, 230, 0.7); }}
-  .dir.is-active .dir-axes b {{ color: var(--bg-color); }}
-  .dir-top {{ display: flex; align-items: center; gap: 0.6rem; }}
-  .sw {{
-    width: 12px; height: 12px; flex: none;
-    border: 1px solid rgba(0, 0, 0, 0.25);
+  .frame-well[data-mode="phone"] iframe {{
+    width: 390px; max-width: 100%;
+    box-shadow: 0 0 0 1px rgba(229, 229, 230, 0.25);
   }}
-  /* one industry's harness never recorded accents — drop the slot rather than
-     showing six empty boxes */
-  .sw-none {{ display: none; }}
-  .dir.is-active .sw {{ border-color: rgba(255, 255, 255, 0.35); }}
-  .dir-name {{ font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; }}
-  .dir-why {{ font-size: 0.9375rem; color: rgba(5, 5, 5, 0.7); line-height: 1.45; }}
-  .dir-axes {{
-    font-family: var(--font-mono); font-size: 0.6875rem;
-    text-transform: uppercase; letter-spacing: 0.04em;
-    color: rgba(5, 5, 5, 0.55); line-height: 1.6;
-  }}
-  .dir-axes b {{ color: var(--text-color); font-weight: 500; }}
 
-  .stage {{ position: sticky; top: var(--nav-height); }}
-  .toolbar {{
-    display: flex; justify-content: space-between; align-items: center;
-    gap: 1rem; flex-wrap: wrap;
-    padding: 0.75rem 1.5rem;
-    border-bottom: 1px solid var(--border-color);
+  .bar {{
+    display: flex; align-items: flex-start; justify-content: space-between;
+    gap: 2rem; padding: 1rem 2rem;
+    border-top: 1px solid var(--border-color);
     background: var(--bg-color);
   }}
-  .toolbar-right {{ display: flex; align-items: center; gap: 0.75rem; }}
+  .bar-meta {{ display: flex; flex-direction: column; gap: 0.4rem; max-width: 76ch; }}
+  .bar-head {{ display: flex; align-items: center; gap: 0.6rem; }}
+  .bar-name {{ font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.01em; }}
+  .bar-why {{ font-size: 0.9375rem; color: rgba(5, 5, 5, 0.7); line-height: 1.45; }}
+  .sw {{ width: 12px; height: 12px; flex: none; border: 1px solid rgba(0, 0, 0, 0.25); }}
+  /* one trade's harness never recorded accents — drop the slot rather than
+     showing six empty boxes */
+  .sw-none {{ display: none; }}
+
+  .bar-actions {{ display: flex; align-items: center; gap: 0.75rem; flex: none; }}
   .widths {{ display: flex; border: 1px solid var(--border-color); }}
   .wbtn {{
     font-family: var(--font-mono); font-size: 0.6875rem;
@@ -301,68 +295,34 @@ def render(slug, industry, company, sub, disclaimer, directions):
     font-family: var(--font-mono); font-size: 0.6875rem;
     text-transform: uppercase; letter-spacing: 0.05em;
     padding: 0.5rem 0.85rem; border: 1px solid var(--border-color);
+    white-space: nowrap;
   }}
   .open:hover {{ background: var(--text-color); color: var(--bg-color); }}
 
-  .frame-well {{
-    background: var(--text-color);
-    /* viewport, less the fixed header and the toolbar directly above */
-    height: calc(100vh - var(--nav-height) - var(--toolbar-height));
-    min-height: 520px;
-    display: flex; justify-content: center;
-    padding: 0;
-  }}
-  .frame-well[data-mode="phone"] {{ padding: 1.5rem 1rem; }}
-  #preview {{
-    width: 100%; height: 100%; border: 0; background: #fff;
-    display: block;
-  }}
-  .frame-well[data-mode="phone"] #preview {{
-    width: 390px; max-width: 100%;
-    box-shadow: 0 0 0 1px rgba(229, 229, 230, 0.25);
-  }}
   .noscript-note {{
-    padding: 1rem 1.5rem; border-bottom: 1px solid var(--border-color);
+    padding: 1rem 2rem; border-bottom: 1px solid var(--border-color);
     font-family: var(--font-mono); font-size: 0.75rem;
   }}
-
   footer {{
     display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
     padding: 1.5rem 2rem; border-top: 1px solid var(--border-color);
   }}
   footer .label {{ color: rgba(5, 5, 5, 0.7); }}
 
-  @media (max-width: 1000px) {{
-    .hint-wide {{ display: none; }}
-    .hint-narrow {{ display: inline; }}
-    .viewer {{ grid-template-columns: 1fr; }}
-    .rail {{
-      border-right: none; border-bottom: 1px solid var(--border-color);
-      display: flex; overflow-x: auto; -webkit-overflow-scrolling: touch;
-    }}
-    .dir {{
-      min-width: 260px; border-bottom: none;
-      border-right: 1px solid var(--border-color);
-    }}
-    .rail .dir:last-child {{ border-right: none; }}
-    .stage {{ position: static; }}
-    /* At this width the viewport is already the phone the demo was built for. */
+  @media (max-width: 860px) {{
+    .bar {{ flex-direction: column; gap: 1rem; }}
+    .bar-actions {{ width: 100%; }}
+    /* the viewport is already the phone these were built for */
     .widths {{ display: none; }}
-    .frame-well, .frame-well[data-mode="phone"] {{
-      padding: 0; height: 640px; min-height: 0;
-    }}
-    .frame-well[data-mode="phone"] #preview {{ width: 100%; box-shadow: none; }}
+    .frame-well, .frame-well[data-mode="phone"] {{ padding: 0; height: 640px; min-height: 0; }}
+    .frame-well[data-mode="phone"] iframe {{ width: 100%; box-shadow: none; }}
   }}
   @media (max-width: 640px) {{
-    /* no room for the hint next to the section label at phone widths, and the
-       stacked layout explains itself anyway */
-    .hint-wide, .hint-narrow {{ display: none; }}
-    header, .section-header, footer {{ padding-left: 1.25rem; padding-right: 1.25rem; }}
-    .toolbar {{ padding-left: 1.25rem; padding-right: 1.25rem; }}
+    header, .section-header, .bar, .noscript-note, footer {{
+      padding-left: 1.25rem; padding-right: 1.25rem;
+    }}
   }}
-  @media (prefers-reduced-motion: reduce) {{
-    .dir, .open, .wbtn {{ transition: none; }}
-  }}
+  @media (prefers-reduced-motion: reduce) {{ .open, .wbtn {{ transition: none; }} }}
 </style>
 </head>
 <body>
@@ -378,34 +338,14 @@ def render(slug, industry, company, sub, disclaimer, directions):
 <main>
   <div class="section-header">
     <span class="label">[VIEW] Six directions</span>
-    <span class="label dim hint-wide">Pick one on the left — it loads on the right</span>
-    <span class="label dim hint-narrow">Pick one above — it loads below</span>
+    <span class="label dim">Scroll — each one in full, desktop or mobile</span>
   </div>
 
   <noscript>
-    <div class="noscript-note">JavaScript is off, so the preview won't swap. Every direction below is a normal link — open them directly.</div>
+    <div class="noscript-note">JavaScript is off, so the width toggles won't switch. Every build below is also a normal link — open them directly.</div>
   </noscript>
 
-  <div class="viewer">
-    <nav class="rail" aria-label="Directions">
-{rail_html}
-    </nav>
-    <div class="stage">
-      <div class="toolbar">
-        <span class="label" id="now-showing">{esc(first['code'] + ' · ' + first['label'])}</span>
-        <div class="toolbar-right">
-          <div class="widths" role="group" aria-label="Preview width">
-            <button type="button" class="wbtn" data-mode="phone" aria-pressed="false">Phone</button>
-            <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
-          </div>
-          <a class="open" id="open-full" href="{esc(first['href'])}" target="_blank" rel="noopener">Open full page ↗</a>
-        </div>
-      </div>
-      <div class="frame-well" data-mode="full">
-        <iframe id="preview" src="{esc(first['href'])}" title="Preview of {esc(first['code'] + ' · ' + first['label'])}" loading="eager"></iframe>
-      </div>
-    </div>
-  </div>
+{builds}
 </main>
 
 <footer>
@@ -415,38 +355,17 @@ def render(slug, industry, company, sub, disclaimer, directions):
 
 <script>
 (function () {{
-  var frame = document.getElementById('preview');
-  var openFull = document.getElementById('open-full');
-  var nowShowing = document.getElementById('now-showing');
-  var well = document.querySelector('.frame-well');
-  if (!frame || !well) return;
-
-  document.querySelectorAll('.rail .dir').forEach(function (link) {{
-    link.addEventListener('click', function (e) {{
-      // Cmd/ctrl/middle click keeps its normal meaning: open in a new tab.
-      if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
-      e.preventDefault();
-      var src = link.getAttribute('data-src');
-      var title = link.getAttribute('data-title');
-      frame.src = src;
-      frame.title = 'Preview of ' + title;
-      openFull.href = src;
-      nowShowing.textContent = title;
-      document.querySelectorAll('.rail .dir').forEach(function (other) {{
-        var on = other === link;
-        other.classList.toggle('is-active', on);
-        other.setAttribute('aria-current', on ? 'true' : 'false');
-      }});
-    }});
-  }});
-
-  document.querySelectorAll('.wbtn').forEach(function (btn) {{
-    btn.addEventListener('click', function () {{
-      well.setAttribute('data-mode', btn.getAttribute('data-mode'));
-      document.querySelectorAll('.wbtn').forEach(function (other) {{
-        var on = other === btn;
-        other.classList.toggle('is-on', on);
-        other.setAttribute('aria-pressed', on ? 'true' : 'false');
+  document.querySelectorAll('.build').forEach(function (build) {{
+    var well = build.querySelector('.frame-well');
+    var buttons = build.querySelectorAll('.wbtn');
+    buttons.forEach(function (btn) {{
+      btn.addEventListener('click', function () {{
+        well.setAttribute('data-mode', btn.getAttribute('data-mode'));
+        buttons.forEach(function (other) {{
+          var on = other === btn;
+          other.classList.toggle('is-on', on);
+          other.setAttribute('aria-pressed', on ? 'true' : 'false');
+        }});
       }});
     }});
   }});
