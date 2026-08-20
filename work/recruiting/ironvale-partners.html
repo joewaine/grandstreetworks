@@ -127,6 +127,22 @@ font-weight:700;font-size:15px;text-align:center;line-height:1.15;padding:0 12px
 @media(min-width:940px){.navlinks{display:flex}.navact{margin-left:auto}}
 @media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
 </style>
+
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap">Specialist search: manufacturing &amp; industrial engineering</div></div>
@@ -156,6 +172,8 @@ font-weight:700;font-size:15px;text-align:center;line-height:1.15;padding:0 12px
   </ul>
 </div>
 </div></section>
+<figure class="gsw-plate"><img src="../_assets/hero/recruiting/b-precision-parts.jpg" alt="Precision parts — recruiting" loading="lazy"></figure>
+
 <section class="sec" id="services"><div class="wrap">
   <p class="kicker">Services</p><h2>Two audiences, honestly</h2>
   <p class="lede">Most agency sites are written entirely for employers and then wonder why candidates don't return calls.</p>

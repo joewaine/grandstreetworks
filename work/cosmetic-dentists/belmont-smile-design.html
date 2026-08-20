@@ -115,6 +115,22 @@ text-decoration:none;font-weight:600;font-size:18px}
 .pv{padding:20px}body{padding-bottom:0}.callbar{display:none}
 .steps{grid-template-columns:repeat(4,1fr)}}
 </style>
+
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap">Digital previews · Trial smiles · New patients welcome</div></div>
@@ -139,6 +155,8 @@ text-decoration:none;font-weight:600;font-size:18px}
     <div class="pv-meta"><span>Digital smile preview</span><b>0% financing available</b></div>
   </aside>
 </div></section>
+<figure class="gsw-plate"><img src="../_assets/hero/cosmetic-dentists/b-craft-and-precision.jpg" alt="Craft and precision — cosmetic dentists" loading="lazy"></figure>
+
 <section class="sec" id="services"><div class="wrap">
   <p class="kicker">Services</p><h2>Treatments</h2>
   <p class="lede">Every case starts with the same thing: a scan, a preview, and a written plan with a number on it.</p>

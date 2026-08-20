@@ -120,6 +120,22 @@ align-items:start}.doorrun{margin-top:0}.badges{margin-top:14px}
 .brand{font-size:24px}.wrap{padding:0 24px}.topbar .wrap,.paneltop{padding-left:24px}}
 @media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
 </style>
+
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap">For owners: 8% management, no hidden fees · Tenant portal →</div></div>
@@ -151,6 +167,8 @@ align-items:start}.doorrun{margin-top:0}.badges{margin-top:14px}
   </div>
   <nav class="panelfoot"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
 </div></div></section>
+<figure class="gsw-plate"><img src="../_assets/hero/property-management/b-portfolio.jpg" alt="Portfolio — property management" loading="lazy"></figure>
+
 <section class="sec" id="services"><div class="wrap">
   <p class="kicker">Services</p>
   <h2>What we take off you</h2>

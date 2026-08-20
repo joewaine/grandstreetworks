@@ -134,6 +134,22 @@ display:flex;align-items:baseline;gap:16px}.logolist{grid-template-columns:repea
 @media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
 @media(max-width:699px){.navrow-links{display:none}}
 </style>
+
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap">Accepting new patients · Scan and plan at the first visit</div></div>
@@ -155,6 +171,8 @@ display:flex;align-items:baseline;gap:16px}.logolist{grid-template-columns:repea
   <ul class="badges"><li>Digital smile preview</li><li>0% financing available</li><li>Sedation available</li><li>Evening appointments</li></ul>
   <div class="preview" aria-hidden="true"><i></i><div class="teeth"><s></s><s></s><s></s><s></s><s></s><s></s><s></s><s></s></div></div>
 </div></section>
+<figure class="gsw-plate"><img src="../_assets/hero/cosmetic-dentists/a-preview-before-commit.jpg" alt="Preview before commit — cosmetic dentists" loading="lazy"></figure>
+
 <section class="sec" id="services"><div class="wrap">
   <div class="sec-head"><p class="kicker">Services</p><h2>Treatments</h2>
   <p class="lede">Every case starts with the same thing: a scan, a preview, and a written plan with a number on it.</p></div>

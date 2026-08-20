@@ -77,6 +77,75 @@ def rebrand_split(page, source_firm, new_firm):
     return BRAND_RE.sub(swap, page)
 
 
+
+HERO_DIR = REPO / "work" / "_assets" / "hero"
+
+
+def first_section_end(page):
+    """Index just past the first top-level <section>'s closing tag.
+
+    Every design opens with its hero as the first section in the body — most
+    call it .hero, a few call it .band — so this is the one structural hook
+    that holds across all 114 pages. Depth-counted, because a couple of heroes
+    nest a section inside themselves.
+    """
+    start = page.find("<section")
+    if start == -1:
+        return -1
+    depth, i = 0, start
+    for m in re.finditer(r"<section\b|</section>", page[start:]):
+        i = start + m.end()
+        depth += 1 if m.group(0).startswith("<section") else -1
+        if depth == 0:
+            return i
+    return -1
+
+
+def plate_alt(filename, trade):
+    """Alt text from the plate's own name: 'a-storm-clearing' -> the phrase."""
+    stem = Path(filename).stem
+    words = stem.split("-", 1)[1].replace("-", " ") if "-" in stem else stem
+    return f"{words[0].upper()}{words[1:]} — {trade.replace('-', ' ')}"
+
+
+PLATE_CSS = """
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
+"""
+
+
+def add_hero_plate(page, trade, index):
+    """Drop one photographic plate in under the hero."""
+    plates = sorted(q.name for q in (HERO_DIR / trade).glob("*.jpg"))
+    if not plates:
+        return page, "no plates for this trade"
+    name = plates[index % len(plates)]
+    cut = first_section_end(page)
+    if cut == -1:
+        return page, "no <section> to place the plate after"
+    fig = (f'\n<figure class="gsw-plate">'
+           f'<img src="../_assets/hero/{trade}/{name}" '
+           f'alt="{html.escape(plate_alt(name, trade), quote=True)}" loading="lazy">'
+           f'</figure>\n')
+    page = page[:cut] + fig + page[cut:]
+    if "gsw-plate" not in page.split("</head>")[0]:
+        page = page.replace("</head>", PLATE_CSS + "</head>", 1)
+    return page, None
+
+
 def build_page(deck, filename, spec, trade, check=False):
     src = SOURCE / trade / filename
     if not src.exists():
@@ -123,6 +192,10 @@ def build_page(deck, filename, spec, trade, check=False):
     if head in s:
         s = s.replace(head, spec["firm"].split()[0])
 
+    s, plate_note = add_hero_plate(s, trade_dir(trade), spec["_index"])
+    if plate_note:
+        notes.append(plate_note)
+
     if 'name="robots"' not in s and CHARSET in s:
         s = s.replace(CHARSET, CHARSET + NOINDEX, 1)
 
@@ -158,7 +231,8 @@ def main():
         deck = importlib.import_module(f"demo_copy.{trade}")
         print(f"[{trade}]")
         names = set()
-        for filename, spec in deck.PAGES.items():
+        for i, (filename, spec) in enumerate(deck.PAGES.items()):
+            spec["_index"] = i
             status, applied = build_page(deck, filename, spec, trade, args.check)
             bad = "SOURCE BRANDING" in status
             print(f"  {'!' if bad else ' '} {filename:<24} {spec['firm']:<30} {applied:>3} applied  {status}")

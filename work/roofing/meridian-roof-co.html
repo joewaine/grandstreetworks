@@ -133,6 +133,22 @@ letter-spacing:.07em;text-transform:uppercase;max-width:128px}
 .tiles{grid-template-columns:repeat(4,1fr)}.statgrid{grid-template-columns:repeat(4,1fr);column-gap:28px}
 .statgrid div{display:block}.statgrid .fig{display:block;margin-bottom:8px}}
 </style>
+
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap">Licensed &amp; insured · 2,400 roofs since 2003</div></div>
@@ -160,6 +176,8 @@ letter-spacing:.07em;text-transform:uppercase;max-width:128px}
     </ul>
   </div>
 </div></div></section>
+<figure class="gsw-plate"><img src="../_assets/hero/roofing/c-hands-on-the-roof.jpg" alt="Hands on the roof — roofing" loading="lazy"></figure>
+
 <section class="strip"><div class="wrap"><div class="striprow">
   <div class="fin"><p class="lab">Financing</p><span class="fig">Financing from $89/mo</span><p>“The financing made it possible. $110 a month instead of fifteen grand up front.” — Joel B., Riverbend</p></div>
   <div><p class="lab">Insurance claims handled</p><span class="fig">Claim or quote</span><p>If it's insurance, we meet your adjuster on site. If it's retail, you get a fixed written price with financing options.</p></div>

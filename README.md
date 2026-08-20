@@ -78,12 +78,28 @@ self-hosted fonts and no external requests at all. Their pages are built by
 `tools/build-photo-sets.py` and their per-page copy lives in
 `tools/photo_copy_*.py`; their shared fonts and plates live in `work/_assets/`.
 
-Rebuild, in this order — the index generator reads the firm names out of the
-pages the other two write:
+Rebuild, in this order — the copy builders need the plates on disk, and the
+index generator reads the firm names out of the pages the other two write:
 
+    python3 tools/prep-hero-images.py     # resample the plate library (once)
     python3 tools/build-photo-sets.py     # the photographic trade
     python3 tools/build-demo-copy.py      # the nineteen CSS-only trades
     python3 tools/build-work-index.py     # the twenty index pages
+
+## Imagery
+
+Every build carries one photographic plate, full-bleed, immediately under its
+hero. They come from `~/fractal/cash_rich/hero_images` — five per trade,
+Gemini-generated, no faces or text — resampled 2752px → 1600px at q66, which
+takes the library from 278MB to 21MB and each plate to roughly 180KB.
+
+The plate is injected after the first `<section>` in the body. That is the one
+structural hook that holds across all 114 designs: most call their hero `.hero`,
+a few call it `.band`, but in every case it is the first section on the page.
+
+Deliberately no border on the plate. These designs each own a different rule
+weight and ink colour, and a borrowed hairline reads as a mistake in about half
+of them.
 
 It parses the direction names, the FIX each one answers, the axis picks and the
 accent swatch out of the demo harness's own index pages in

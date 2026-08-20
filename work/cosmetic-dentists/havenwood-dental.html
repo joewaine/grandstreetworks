@@ -106,6 +106,22 @@ text-decoration:none;font-weight:600;font-size:18px}
 @media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}
 .steps{grid-template-columns:repeat(4,1fr)}}
 </style>
+
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap">Sedation available · No lectures · New patients welcome</div></div>
@@ -123,6 +139,8 @@ text-decoration:none;font-weight:600;font-size:18px}
     <a class="btn btn-ghost" href="#results">See real results</a>
   </div>
 </div></section>
+<figure class="gsw-plate"><img src="../_assets/hero/cosmetic-dentists/e-the-practice.jpg" alt="The practice — cosmetic dentists" loading="lazy"></figure>
+
 <div class="badgeband"><div class="wrap"><ul>
   <li>Digital smile preview</li><li>0% financing available</li><li>Sedation available</li><li>Evening appointments</li>
 </ul></div></div>

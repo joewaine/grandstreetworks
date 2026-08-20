@@ -123,6 +123,22 @@ font-weight:600;font-size:15px;text-align:center;line-height:1.15;padding:0 12px
 .navlinks{display:flex}.navact{margin-left:0}}
 @media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
 </style>
+
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap"><span>Specialist search: manufacturing &amp; industrial engineering</span><a href="tel:+15552189964">(555) 218-9964</a></div></div>
@@ -151,6 +167,8 @@ font-weight:600;font-size:15px;text-align:center;line-height:1.15;padding:0 12px
     <a class="btap" href="tel:+15552189964">(555) 218-9964<em>One-tap apply</em></a>
   </aside>
 </div></div></section>
+<figure class="gsw-plate"><img src="../_assets/hero/recruiting/c-hands-at-the-panel.jpg" alt="Hands at the panel — recruiting" loading="lazy"></figure>
+
 <section class="sec" id="services"><div class="wrap">
   <p class="kicker">Services</p><h2>Two audiences, honestly</h2>
   <p class="lede">Most agency sites are written entirely for employers and then wonder why candidates don't return calls.</p>

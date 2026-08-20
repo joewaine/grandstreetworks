@@ -113,6 +113,22 @@ text-decoration:none;font-weight:600;font-size:15px;line-height:1.2;padding:0 14
 }
 @media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
 </style>
+
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap"><b>—</b><span>Residential &amp; cultural work · Enquiries for 2027 open</span></div></div>
@@ -141,6 +157,8 @@ text-decoration:none;font-weight:600;font-size:15px;line-height:1.2;padding:0 14
     </div>
   </div>
 </div></div></section>
+<figure class="gsw-plate"><img src="../_assets/hero/architecture/b-built-detail.jpg" alt="Built detail — architecture" loading="lazy"></figure>
+
 
 <section class="sec" id="services"><div class="wrap">
   <span class="lbl kick">Services</span>
