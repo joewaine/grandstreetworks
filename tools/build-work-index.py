@@ -279,7 +279,8 @@ def render(slug, industry, company, sub, disclaimer, directions):
     padding: 0 2rem; background-color: var(--bg-color);
     border-bottom: 1px solid var(--border-color); z-index: 100;
   }}
-  .logo-mark {{ display: flex; align-items: center; gap: 1rem; }}
+  .logo-mark {{ display: flex; align-items: center; gap: 1rem; min-width: 0; }}
+  .portfolio-of {{ color: rgba(5, 5, 5, 0.45); white-space: nowrap; }}
   .status-dot {{
     width: 8px; height: 8px; background-color: #C2D57D; border-radius: 50%;
     display: inline-block; box-shadow: 0 0 10px rgba(194, 213, 125, 0.5); flex: none;
@@ -360,7 +361,7 @@ def render(slug, industry, company, sub, disclaimer, directions):
     font-family: var(--font-mono); font-size: 0.75rem;
   }}
   footer {{
-    display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+    display: flex; justify-content: flex-end; gap: 1rem; flex-wrap: wrap;
     padding: 1.5rem 2rem; border-top: 1px solid var(--border-color);
   }}
   footer .label {{ color: rgba(5, 5, 5, 0.7); }}
@@ -376,6 +377,7 @@ def render(slug, industry, company, sub, disclaimer, directions):
     .frame-well[data-mode="phone"] iframe {{ width: 100%; box-shadow: none; }}
   }}
   @media (max-width: 640px) {{
+    .portfolio-of {{ display: none; }}
     header, .section-header, .noscript-note, footer {{
       padding-left: 1.25rem; padding-right: 1.25rem;
     }}
@@ -390,6 +392,7 @@ def render(slug, industry, company, sub, disclaimer, directions):
   <div class="logo-mark">
     <span class="status-dot" aria-hidden="true"></span>
     <a href="../../" class="label" style="font-weight: 600;">Grand Street Works</a>
+    <span class="label portfolio-of">[{titled(industry)} site portfolio]</span>
   </div>
   <a href="../" class="label" style="text-decoration: underline;">← All work</a>
 </header>

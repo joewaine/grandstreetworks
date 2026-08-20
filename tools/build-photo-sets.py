@@ -17,6 +17,10 @@ import argparse
 import html
 import importlib
 import re
+import sys as _sys
+from pathlib import Path as _Path
+_sys.path.insert(0, str(_Path(__file__).resolve().parent))
+from fake_addresses import address_for, swap_disclaimer
 import sys
 from pathlib import Path
 
@@ -98,6 +102,17 @@ def build_page(key, spec, dest_dir, check=False):
     s, n = re.subn(r"(<h1[^>]*>)(.*?)(</h1>)", swap_h1, s, count=1, flags=re.S)
     if not n:
         notes.append("no <h1> found")
+
+    # --- footer: the business, where it is, and its number -----------------
+    s, swapped = swap_disclaimer(s, spec["firm"])
+    if not swapped:
+        # these five say only "Attorney advertising ..." — a real PI footer
+        # line worth keeping, so the business details go in front of it
+        lead = (f'{html.escape(spec["firm"], quote=False)} · '
+                f'{address_for(spec["firm"])} · {spec["phone"]} · ')
+        s, n = re.subn(r"(>)(\s*)(Attorney advertising\.)", r"\1\2" + lead + r"\3", s, count=1)
+        if not n:
+            notes.append("nowhere to put the address")
 
     # --- noindex, same as every other page under work/ ---------------------
     if 'name="robots"' not in s:

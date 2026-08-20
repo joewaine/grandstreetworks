@@ -30,6 +30,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from hero_backdrops import wants_backdrop
+from fake_addresses import swap_disclaimer
 
 REPO = Path(__file__).resolve().parent.parent
 WORK = REPO / "work"
@@ -280,6 +281,10 @@ def build_page(deck, filename, spec, trade, check=False):
         s, note = add_hero_plate(s, td, spec["_index"])
     if note:
         notes.append(note)
+
+    s, swapped = swap_disclaimer(s, spec["firm"])
+    if not swapped:
+        notes.append("no disclaimer line to replace with an address")
 
     if 'name="robots"' not in s and CHARSET in s:
         s = s.replace(CHARSET, CHARSET + NOINDEX, 1)
