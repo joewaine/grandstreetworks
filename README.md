@@ -49,10 +49,15 @@ images, one Google Fonts request each, and no outbound links. They do not carry 
 contact address, so the `mailto:` count below is unaffected by them.
 
 The per-industry `work/<industry>/index.html` pages are ours, not the harness's:
-site header, the six directions in a rail, and a live `<iframe>` preview that
-swaps when you pick one, with a phone/desktop width toggle above it. Below
-1000px the rail becomes a horizontal scroller above the frame and the width
-toggle hides, because the viewport is already the phone the demo was built for.
+site header, then straight into the viewer — the six directions in a rail, and a
+live `<iframe>` preview that swaps when you pick one. The width toggle above it
+**defaults to desktop**; Phone reloads the same page at 390px on a black stage.
+There is deliberately no title block or intro copy above the frame: the point of
+the page is to land on a finished homepage, not to read about one. (That also
+means these pages carry no `<h1>` — acceptable here because they are `noindex`
+and the identity lives in the tab title and the footer.) Below 1000px the rail
+becomes a horizontal scroller above the frame and the width toggle hides,
+because the viewport is already the phone the demo was built for.
 Without JavaScript every direction is still a plain link — the preview just
 stops swapping.
 

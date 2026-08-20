@@ -131,7 +131,6 @@ def swatch(accent):
 
 
 def render(slug, industry, company, sub, disclaimer, directions):
-    ind_no = slug.split("-", 1)[0]
     first = directions[0]
     esc = html.escape
 
@@ -187,7 +186,6 @@ def render(slug, industry, company, sub, disclaimer, directions):
   }}
   a {{ color: inherit; text-decoration: none; }}
   a:focus-visible, button:focus-visible {{ outline: 2px solid var(--text-color); outline-offset: 3px; }}
-  h1 {{ font-size: clamp(2rem, 4vw, 3.25rem); font-weight: 500; letter-spacing: -0.03em; line-height: 1.05; }}
   p {{ font-size: 1.125rem; color: rgba(5, 5, 5, 0.8); line-height: 1.5; }}
   .label {{
     font-family: var(--font-mono);
@@ -217,9 +215,6 @@ def render(slug, industry, company, sub, disclaimer, directions):
   .section-header .label.dim {{ color: rgba(229, 229, 230, 0.6); }}
   /* the rail is a left column on wide screens and a row on top below 1000px */
   .hint-narrow {{ display: none; }}
-
-  .intro {{ padding: 3.5rem 2rem; border-bottom: 1px solid var(--border-color); }}
-  .intro p {{ margin-top: 1.25rem; max-width: 68ch; }}
 
   /* ---------- Viewer ---------- */
   .viewer {{
@@ -337,7 +332,7 @@ def render(slug, industry, company, sub, disclaimer, directions):
     /* no room for the hint next to the section label at phone widths, and the
        stacked layout explains itself anyway */
     .hint-wide, .hint-narrow {{ display: none; }}
-    header, .intro, .section-header, footer {{ padding-left: 1.25rem; padding-right: 1.25rem; }}
+    header, .section-header, footer {{ padding-left: 1.25rem; padding-right: 1.25rem; }}
     .toolbar {{ padding-left: 1.25rem; padding-right: 1.25rem; }}
   }}
   @media (prefers-reduced-motion: reduce) {{
@@ -357,16 +352,6 @@ def render(slug, industry, company, sub, disclaimer, directions):
 
 <main>
   <div class="section-header">
-    <span class="label">[IND_{ind_no}] {industry}</span>
-    <span class="label dim">Reference build</span>
-  </div>
-
-  <div class="intro">
-    <h1>{esc(company)}</h1>
-    <p>{sub}</p>
-  </div>
-
-  <div class="section-header">
     <span class="label">[VIEW] Six directions</span>
     <span class="label dim hint-wide">Pick one on the left — it loads on the right</span>
     <span class="label dim hint-narrow">Pick one above — it loads below</span>
@@ -385,13 +370,13 @@ def render(slug, industry, company, sub, disclaimer, directions):
         <span class="label" id="now-showing">{esc(first['code'] + ' · ' + first['label'])}</span>
         <div class="toolbar-right">
           <div class="widths" role="group" aria-label="Preview width">
-            <button type="button" class="wbtn is-on" data-mode="phone" aria-pressed="true">Phone</button>
-            <button type="button" class="wbtn" data-mode="full" aria-pressed="false">Desktop</button>
+            <button type="button" class="wbtn" data-mode="phone" aria-pressed="false">Phone</button>
+            <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
           </div>
           <a class="open" id="open-full" href="{esc(first['href'])}" target="_blank" rel="noopener">Open full page ↗</a>
         </div>
       </div>
-      <div class="frame-well" data-mode="phone">
+      <div class="frame-well" data-mode="full">
         <iframe id="preview" src="{esc(first['href'])}" title="Preview of {esc(first['code'] + ' · ' + first['label'])}" loading="eager"></iframe>
       </div>
     </div>
