@@ -93,15 +93,16 @@
   }
 
   .bar {
-    display: flex; align-items: flex-start; justify-content: space-between;
-    gap: 2rem; padding: 1rem 1.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 2rem; padding: 0.85rem 1.5rem;
     border-top: 1px solid var(--border-color);
     background: var(--bg-color);
   }
-  .bar-meta { display: flex; flex-direction: column; gap: 0.4rem; max-width: 76ch; }
-  .bar-head { display: flex; align-items: center; gap: 0.6rem; }
-  .bar-name { font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.01em; }
-  .bar-why { font-size: 0.9375rem; color: rgba(5, 5, 5, 0.7); line-height: 1.45; }
+  .bar-head { display: flex; align-items: center; gap: 0.7rem; min-width: 0; }
+  .bar-name {
+    font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.01em;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
   .sw { width: 12px; height: 12px; flex: none; border: 1px solid rgba(0, 0, 0, 0.25); }
   /* one trade's harness never recorded accents — drop the slot rather than
      showing six empty boxes */
@@ -136,7 +137,7 @@
   footer .label { color: rgba(5, 5, 5, 0.7); }
 
   @media (max-width: 860px) {
-    .bar { flex-direction: column; gap: 1rem; }
+    .bar { flex-direction: column; align-items: flex-start; gap: 0.85rem; }
     .bar-actions { width: 100%; }
     /* the viewport is already the phone these were built for */
     .widths { display: none; }
@@ -177,18 +178,15 @@
   <div class="builds">
       <section class="build">
         <div class="frame-well" data-mode="full">
-          <iframe src="d1-waterline.html" title="D1 · The Water Line One"
+          <iframe src="d1-waterline.html" title="C1 · The Water Line One"
                   loading="eager"></iframe>
         </div>
         <div class="bar">
-          <div class="bar-meta">
-            <span class="bar-head">
-              <span class="sw" style="background:#0B7080" aria-hidden="true"></span>
-              <span class="label">D1</span>
-              <span class="bar-name">The Water Line One</span>
-            </span>
-            <span class="bar-why">Fixes: the gallery is the sale and it's small and slow — a full-width water plane paints instantly, no image to wait for.</span>
-          </div>
+          <span class="bar-head">
+            <span class="sw" style="background:#0B7080" aria-hidden="true"></span>
+            <span class="label">C1</span>
+            <span class="bar-name">Still Water Pools</span>
+          </span>
           <div class="bar-actions">
             <div class="widths" role="group" aria-label="Preview width">
               <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
@@ -200,18 +198,15 @@
       </section>
       <section class="build">
         <div class="frame-well" data-mode="full">
-          <iframe src="d2-render.html" title="D2 · The Render One"
+          <iframe src="d2-render.html" title="C2 · The Render One"
                   loading="lazy"></iframe>
         </div>
         <div class="bar">
-          <div class="bar-meta">
-            <span class="bar-head">
-              <span class="sw" style="background:#12558A" aria-hidden="true"></span>
-              <span class="label">D2</span>
-              <span class="bar-name">The Render One</span>
-            </span>
-            <span class="bar-why">Fixes: the 3D design process is invisible — the render viewport is the hero object, chip, ticks and all.</span>
-          </div>
+          <span class="bar-head">
+            <span class="sw" style="background:#12558A" aria-hidden="true"></span>
+            <span class="label">C2</span>
+            <span class="bar-name">Still Water Pools</span>
+          </span>
           <div class="bar-actions">
             <div class="widths" role="group" aria-label="Preview width">
               <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
@@ -223,18 +218,15 @@
       </section>
       <section class="build">
         <div class="frame-well" data-mode="full">
-          <iframe src="d3-winterbook.html" title="D3 · The Winter Book One"
+          <iframe src="d3-winterbook.html" title="C3 · The Winter Book One"
                   loading="lazy"></iframe>
         </div>
         <div class="bar">
-          <div class="bar-meta">
-            <span class="bar-head">
-              <span class="sw" style="background:#3F5480" aria-hidden="true"></span>
-              <span class="label">D3</span>
-              <span class="bar-name">The Winter Book One</span>
-            </span>
-            <span class="bar-why">Fixes: nothing captures off-season interest — a season bar warming from winter dusk to summer aqua, built for the January visitor.</span>
-          </div>
+          <span class="bar-head">
+            <span class="sw" style="background:#3F5480" aria-hidden="true"></span>
+            <span class="label">C3</span>
+            <span class="bar-name">Still Water Pools</span>
+          </span>
           <div class="bar-actions">
             <div class="widths" role="group" aria-label="Preview width">
               <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
@@ -246,18 +238,15 @@
       </section>
       <section class="build">
         <div class="frame-well" data-mode="full">
-          <iframe src="d4-deepend.html" title="D4 · The Deep End One"
+          <iframe src="d4-deepend.html" title="C4 · The Deep End One"
                   loading="lazy"></iframe>
         </div>
         <div class="bar">
-          <div class="bar-meta">
-            <span class="bar-head">
-              <span class="sw" style="background:#63D2DE" aria-hidden="true"></span>
-              <span class="label">D4</span>
-              <span class="bar-name">The Deep End One</span>
-            </span>
-            <span class="bar-why">Fixes: the gallery is the sale and it's small and slow — one full screen of lit night water instead of a slow grid of thumbnails.</span>
-          </div>
+          <span class="bar-head">
+            <span class="sw" style="background:#63D2DE" aria-hidden="true"></span>
+            <span class="label">C4</span>
+            <span class="bar-name">Still Water Pools</span>
+          </span>
           <div class="bar-actions">
             <div class="widths" role="group" aria-label="Preview width">
               <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
@@ -269,18 +258,15 @@
       </section>
       <section class="build">
         <div class="frame-well" data-mode="full">
-          <iframe src="d5-plan.html" title="D5 · The Plan One"
+          <iframe src="d5-plan.html" title="C5 · The Plan One"
                   loading="lazy"></iframe>
         </div>
         <div class="bar">
-          <div class="bar-meta">
-            <span class="bar-head">
-              <span class="sw" style="background:#1E6E90" aria-hidden="true"></span>
-              <span class="label">D5</span>
-              <span class="bar-name">The Plan One</span>
-            </span>
-            <span class="bar-why">Fixes: the 3D design process is invisible — a measured site plan of the garden with the pool drawn into it, beside the headline.</span>
-          </div>
+          <span class="bar-head">
+            <span class="sw" style="background:#1E6E90" aria-hidden="true"></span>
+            <span class="label">C5</span>
+            <span class="bar-name">Still Water Pools</span>
+          </span>
           <div class="bar-actions">
             <div class="widths" role="group" aria-label="Preview width">
               <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
@@ -292,18 +278,15 @@
       </section>
       <section class="build">
         <div class="frame-well" data-mode="full">
-          <iframe src="d6-monthly.html" title="D6 · The Monthly One"
+          <iframe src="d6-monthly.html" title="C6 · The Monthly One"
                   loading="lazy"></iframe>
         </div>
         <div class="bar">
-          <div class="bar-meta">
-            <span class="bar-head">
-              <span class="sw" style="background:#2B4A72" aria-hidden="true"></span>
-              <span class="label">D6</span>
-              <span class="bar-name">The Monthly One</span>
-            </span>
-            <span class="bar-why">Fixes: no financing — the monthly figure is set as the hero object on a ripple bar, not buried behind a form.</span>
-          </div>
+          <span class="bar-head">
+            <span class="sw" style="background:#2B4A72" aria-hidden="true"></span>
+            <span class="label">C6</span>
+            <span class="bar-name">Still Water Pools</span>
+          </span>
           <div class="bar-actions">
             <div class="widths" role="group" aria-label="Preview width">
               <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>

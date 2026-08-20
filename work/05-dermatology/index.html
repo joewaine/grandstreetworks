@@ -93,15 +93,16 @@
   }
 
   .bar {
-    display: flex; align-items: flex-start; justify-content: space-between;
-    gap: 2rem; padding: 1rem 1.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 2rem; padding: 0.85rem 1.5rem;
     border-top: 1px solid var(--border-color);
     background: var(--bg-color);
   }
-  .bar-meta { display: flex; flex-direction: column; gap: 0.4rem; max-width: 76ch; }
-  .bar-head { display: flex; align-items: center; gap: 0.6rem; }
-  .bar-name { font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.01em; }
-  .bar-why { font-size: 0.9375rem; color: rgba(5, 5, 5, 0.7); line-height: 1.45; }
+  .bar-head { display: flex; align-items: center; gap: 0.7rem; min-width: 0; }
+  .bar-name {
+    font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.01em;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
   .sw { width: 12px; height: 12px; flex: none; border: 1px solid rgba(0, 0, 0, 0.25); }
   /* one trade's harness never recorded accents — drop the slot rather than
      showing six empty boxes */
@@ -136,7 +137,7 @@
   footer .label { color: rgba(5, 5, 5, 0.7); }
 
   @media (max-width: 860px) {
-    .bar { flex-direction: column; gap: 1rem; }
+    .bar { flex-direction: column; align-items: flex-start; gap: 0.85rem; }
     .bar-actions { width: 100%; }
     /* the viewport is already the phone these were built for */
     .widths { display: none; }
@@ -177,18 +178,15 @@
   <div class="builds">
       <section class="build">
         <div class="frame-well" data-mode="full">
-          <iframe src="d1-two-door.html" title="D1 · The Two-Door One"
+          <iframe src="d1-two-door.html" title="C1 · The Two-Door One"
                   loading="eager"></iframe>
         </div>
         <div class="bar">
-          <div class="bar-meta">
-            <span class="bar-head">
-              <span class="sw" style="background:#15588F" aria-hidden="true"></span>
-              <span class="label">D1</span>
-              <span class="bar-name">The Two-Door One</span>
-            </span>
-            <span class="bar-why">Fixes: medical and cosmetic buried together — the hero panel is literally two doors, one blue and one warm, each with its own label and its own button.</span>
-          </div>
+          <span class="bar-head">
+            <span class="sw" style="background:#15588F" aria-hidden="true"></span>
+            <span class="label">C1</span>
+            <span class="bar-name">Bellweather Dermatology</span>
+          </span>
           <div class="bar-actions">
             <div class="widths" role="group" aria-label="Preview width">
               <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
@@ -200,18 +198,15 @@
       </section>
       <section class="build">
         <div class="frame-well" data-mode="full">
-          <iframe src="d2-two-week.html" title="D2 · The Two-Week One"
+          <iframe src="d2-two-week.html" title="C2 · The Two-Week One"
                   loading="lazy"></iframe>
         </div>
         <div class="bar">
-          <div class="bar-meta">
-            <span class="bar-head">
-              <span class="sw" style="background:#1B5E7E" aria-hidden="true"></span>
-              <span class="label">D2</span>
-              <span class="bar-name">The Two-Week One</span>
-            </span>
-            <span class="bar-why">Fixes: appointment wait times unaddressed — a wait rail under the nav and a booking board that states the wait before it hands you the two doors.</span>
-          </div>
+          <span class="bar-head">
+            <span class="sw" style="background:#1B5E7E" aria-hidden="true"></span>
+            <span class="label">C2</span>
+            <span class="bar-name">Bellweather Dermatology</span>
+          </span>
           <div class="bar-actions">
             <div class="widths" role="group" aria-label="Preview width">
               <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
@@ -223,18 +218,15 @@
       </section>
       <section class="build">
         <div class="frame-well" data-mode="full">
-          <iframe src="d3-the-spot.html" title="D3 · The Spot One"
+          <iframe src="d3-the-spot.html" title="C3 · The Spot One"
                   loading="lazy"></iframe>
         </div>
         <div class="bar">
-          <div class="bar-meta">
-            <span class="bar-head">
-              <span class="sw" style="background:#1E3E56" aria-hidden="true"></span>
-              <span class="label">D3</span>
-              <span class="bar-name">The Spot One</span>
-            </span>
-            <span class="bar-why">Fixes: skin-cancer urgency path unclear — one dark clinical field, one lit door out of it for the worried visitor, the wait chip on the same line.</span>
-          </div>
+          <span class="bar-head">
+            <span class="sw" style="background:#1E3E56" aria-hidden="true"></span>
+            <span class="label">C3</span>
+            <span class="bar-name">Bellweather Dermatology</span>
+          </span>
           <div class="bar-actions">
             <div class="widths" role="group" aria-label="Preview width">
               <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
@@ -246,18 +238,15 @@
       </section>
       <section class="build">
         <div class="frame-well" data-mode="full">
-          <iframe src="d4-calendar.html" title="D4 · The Calendar One"
+          <iframe src="d4-calendar.html" title="C4 · The Calendar One"
                   loading="lazy"></iframe>
         </div>
         <div class="bar">
-          <div class="bar-meta">
-            <span class="bar-head">
-              <span class="sw" style="background:#4A5A66" aria-hidden="true"></span>
-              <span class="label">D4</span>
-              <span class="bar-name">The Calendar One</span>
-            </span>
-            <span class="bar-why">Fixes: appointment wait times unaddressed — a centred stack with the wait printed above the headline as a held slot, and repeated as the first number.</span>
-          </div>
+          <span class="bar-head">
+            <span class="sw" style="background:#4A5A66" aria-hidden="true"></span>
+            <span class="label">C4</span>
+            <span class="bar-name">Bellweather Dermatology</span>
+          </span>
           <div class="bar-actions">
             <div class="widths" role="group" aria-label="Preview width">
               <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
@@ -269,18 +258,15 @@
       </section>
       <section class="build">
         <div class="frame-well" data-mode="full">
-          <iframe src="d5-counter.html" title="D5 · The Counter One"
+          <iframe src="d5-counter.html" title="C5 · The Counter One"
                   loading="lazy"></iframe>
         </div>
         <div class="bar">
-          <div class="bar-meta">
-            <span class="bar-head">
-              <span class="sw" style="background:#57A8DD" aria-hidden="true"></span>
-              <span class="label">D5</span>
-              <span class="bar-name">The Counter One</span>
-            </span>
-            <span class="bar-why">Fixes: medical and cosmetic buried together — a dark reception counter with two lit windows cut into it, each with its own sill note.</span>
-          </div>
+          <span class="bar-head">
+            <span class="sw" style="background:#57A8DD" aria-hidden="true"></span>
+            <span class="label">C5</span>
+            <span class="bar-name">Bellweather Dermatology</span>
+          </span>
           <div class="bar-actions">
             <div class="widths" role="group" aria-label="Preview width">
               <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
@@ -292,18 +278,15 @@
       </section>
       <section class="build">
         <div class="frame-well" data-mode="full">
-          <iframe src="d6-phone.html" title="D6 · The Phone One"
+          <iframe src="d6-phone.html" title="C6 · The Phone One"
                   loading="lazy"></iframe>
         </div>
         <div class="bar">
-          <div class="bar-meta">
-            <span class="bar-head">
-              <span class="sw" style="background:#9C4F2A" aria-hidden="true"></span>
-              <span class="label">D6</span>
-              <span class="bar-name">The Phone One</span>
-            </span>
-            <span class="bar-why">Fixes: mobile experience poor — one edge-to-edge field cut in two, nothing floating, both doors sitting where a thumb already is.</span>
-          </div>
+          <span class="bar-head">
+            <span class="sw" style="background:#9C4F2A" aria-hidden="true"></span>
+            <span class="label">C6</span>
+            <span class="bar-name">Bellweather Dermatology</span>
+          </span>
           <div class="bar-actions">
             <div class="widths" role="group" aria-label="Preview width">
               <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>

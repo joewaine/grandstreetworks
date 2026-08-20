@@ -93,15 +93,16 @@
   }
 
   .bar {
-    display: flex; align-items: flex-start; justify-content: space-between;
-    gap: 2rem; padding: 1rem 1.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 2rem; padding: 0.85rem 1.5rem;
     border-top: 1px solid var(--border-color);
     background: var(--bg-color);
   }
-  .bar-meta { display: flex; flex-direction: column; gap: 0.4rem; max-width: 76ch; }
-  .bar-head { display: flex; align-items: center; gap: 0.6rem; }
-  .bar-name { font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.01em; }
-  .bar-why { font-size: 0.9375rem; color: rgba(5, 5, 5, 0.7); line-height: 1.45; }
+  .bar-head { display: flex; align-items: center; gap: 0.7rem; min-width: 0; }
+  .bar-name {
+    font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.01em;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
   .sw { width: 12px; height: 12px; flex: none; border: 1px solid rgba(0, 0, 0, 0.25); }
   /* one trade's harness never recorded accents — drop the slot rather than
      showing six empty boxes */
@@ -136,7 +137,7 @@
   footer .label { color: rgba(5, 5, 5, 0.7); }
 
   @media (max-width: 860px) {
-    .bar { flex-direction: column; gap: 1rem; }
+    .bar { flex-direction: column; align-items: flex-start; gap: 0.85rem; }
     .bar-actions { width: 100%; }
     /* the viewport is already the phone these were built for */
     .widths { display: none; }
@@ -177,18 +178,15 @@
   <div class="builds">
       <section class="build">
         <div class="frame-well" data-mode="full">
-          <iframe src="d1-schedule.html" title="D1 · The Schedule One"
+          <iframe src="d1-schedule.html" title="C1 · The Schedule One"
                   loading="eager"></iframe>
         </div>
         <div class="bar">
-          <div class="bar-meta">
-            <span class="bar-head">
-              <span class="sw" style="background:#8A4321" aria-hidden="true"></span>
-              <span class="label">D1</span>
-              <span class="bar-name">The Schedule One</span>
-            </span>
-            <span class="bar-why">Fixes: no process page — the schedule is the largest object on the homepage, a week scale ruled across the page with a bar per stage, and the hero carries it in miniature.</span>
-          </div>
+          <span class="bar-head">
+            <span class="sw" style="background:#8A4321" aria-hidden="true"></span>
+            <span class="label">C1</span>
+            <span class="bar-name">Corvid Build Co.</span>
+          </span>
           <div class="bar-actions">
             <div class="widths" role="group" aria-label="Preview width">
               <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
@@ -200,18 +198,15 @@
       </section>
       <section class="build">
         <div class="frame-well" data-mode="full">
-          <iframe src="d2-plainnumbers.html" title="D2 · The Plain Numbers One"
+          <iframe src="d2-plainnumbers.html" title="C2 · The Plain Numbers One"
                   loading="lazy"></iframe>
         </div>
         <div class="bar">
-          <div class="bar-meta">
-            <span class="bar-head">
-              <span class="sw" style="background:#8A6A12" aria-hidden="true"></span>
-              <span class="label">D2</span>
-              <span class="bar-name">The Plain Numbers One</span>
-            </span>
-            <span class="bar-why">Fixes: trust signals absent — the quietest of the six. Every claim is a number, a rule or a name, and the process runs as a ledger with dotted leaders.</span>
-          </div>
+          <span class="bar-head">
+            <span class="sw" style="background:#8A6A12" aria-hidden="true"></span>
+            <span class="label">C2</span>
+            <span class="bar-name">Corvid Build Co.</span>
+          </span>
           <div class="bar-actions">
             <div class="widths" role="group" aria-label="Preview width">
               <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
@@ -223,18 +218,15 @@
       </section>
       <section class="build">
         <div class="frame-well" data-mode="full">
-          <iframe src="d3-sitediary.html" title="D3 · The Site Diary One"
+          <iframe src="d3-sitediary.html" title="C3 · The Site Diary One"
                   loading="lazy"></iframe>
         </div>
         <div class="bar">
-          <div class="bar-meta">
-            <span class="bar-head">
-              <span class="sw" style="background:#3B4650" aria-hidden="true"></span>
-              <span class="label">D3</span>
-              <span class="bar-name">The Site Diary One</span>
-            </span>
-            <span class="bar-why">Fixes: portfolio without context — each client account is filed against the kind of job it was, and the process is a dated site diary reversed out on graphite.</span>
-          </div>
+          <span class="bar-head">
+            <span class="sw" style="background:#3B4650" aria-hidden="true"></span>
+            <span class="label">C3</span>
+            <span class="bar-name">Corvid Build Co.</span>
+          </span>
           <div class="bar-actions">
             <div class="widths" role="group" aria-label="Preview width">
               <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
@@ -246,18 +238,15 @@
       </section>
       <section class="build">
         <div class="frame-well" data-mode="full">
-          <iframe src="d4-threshold.html" title="D4 · The Threshold One"
+          <iframe src="d4-threshold.html" title="C4 · The Threshold One"
                   loading="lazy"></iframe>
         </div>
         <div class="bar">
-          <div class="bar-meta">
-            <span class="bar-head">
-              <span class="sw" style="background:#6B4A1E" aria-hidden="true"></span>
-              <span class="label">D4</span>
-              <span class="bar-name">The Threshold One</span>
-            </span>
-            <span class="bar-why">Fixes: lead quality poor because the site never qualifies — the hero is a document whose masthead states the $75,000 floor before it states anything else, and the process is a ruled contract schedule.</span>
-          </div>
+          <span class="bar-head">
+            <span class="sw" style="background:#6B4A1E" aria-hidden="true"></span>
+            <span class="label">C4</span>
+            <span class="bar-name">Corvid Build Co.</span>
+          </span>
           <div class="bar-actions">
             <div class="widths" role="group" aria-label="Preview width">
               <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
@@ -269,18 +258,15 @@
       </section>
       <section class="build">
         <div class="frame-well" data-mode="full">
-          <iframe src="d5-licence.html" title="D5 · The Licence One"
+          <iframe src="d5-licence.html" title="C5 · The Licence One"
                   loading="lazy"></iframe>
         </div>
         <div class="bar">
-          <div class="bar-meta">
-            <span class="bar-head">
-              <span class="sw" style="background:#D19A3C" aria-hidden="true"></span>
-              <span class="label">D5</span>
-              <span class="bar-name">The Licence One</span>
-            </span>
-            <span class="bar-why">Fixes: trust signals absent — a dark page with exactly two lit blocks: the licence plate and the schedule. The credential is the composition.</span>
-          </div>
+          <span class="bar-head">
+            <span class="sw" style="background:#D19A3C" aria-hidden="true"></span>
+            <span class="label">C5</span>
+            <span class="bar-name">Corvid Build Co.</span>
+          </span>
           <div class="bar-actions">
             <div class="widths" role="group" aria-label="Preview width">
               <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
@@ -292,18 +278,15 @@
       </section>
       <section class="build">
         <div class="frame-well" data-mode="full">
-          <iframe src="d6-contract.html" title="D6 · The Contract One"
+          <iframe src="d6-contract.html" title="C6 · The Contract One"
                   loading="lazy"></iframe>
         </div>
         <div class="bar">
-          <div class="bar-meta">
-            <span class="bar-head">
-              <span class="sw" style="background:#A34A1C" aria-hidden="true"></span>
-              <span class="label">D6</span>
-              <span class="bar-name">The Contract One</span>
-            </span>
-            <span class="bar-why">Fixes: no process page — the schedule steps down the page as a signed sheet, each stage further right under a rule that grows to full width, and it carries the close.</span>
-          </div>
+          <span class="bar-head">
+            <span class="sw" style="background:#A34A1C" aria-hidden="true"></span>
+            <span class="label">C6</span>
+            <span class="bar-name">Corvid Build Co.</span>
+          </span>
           <div class="bar-actions">
             <div class="widths" role="group" aria-label="Preview width">
               <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>

@@ -93,15 +93,16 @@
   }
 
   .bar {
-    display: flex; align-items: flex-start; justify-content: space-between;
-    gap: 2rem; padding: 1rem 1.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 2rem; padding: 0.85rem 1.5rem;
     border-top: 1px solid var(--border-color);
     background: var(--bg-color);
   }
-  .bar-meta { display: flex; flex-direction: column; gap: 0.4rem; max-width: 76ch; }
-  .bar-head { display: flex; align-items: center; gap: 0.6rem; }
-  .bar-name { font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.01em; }
-  .bar-why { font-size: 0.9375rem; color: rgba(5, 5, 5, 0.7); line-height: 1.45; }
+  .bar-head { display: flex; align-items: center; gap: 0.7rem; min-width: 0; }
+  .bar-name {
+    font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.01em;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
   .sw { width: 12px; height: 12px; flex: none; border: 1px solid rgba(0, 0, 0, 0.25); }
   /* one trade's harness never recorded accents — drop the slot rather than
      showing six empty boxes */
@@ -136,7 +137,7 @@
   footer .label { color: rgba(5, 5, 5, 0.7); }
 
   @media (max-width: 860px) {
-    .bar { flex-direction: column; gap: 1rem; }
+    .bar { flex-direction: column; align-items: flex-start; gap: 0.85rem; }
     .bar-actions { width: 100%; }
     /* the viewport is already the phone these were built for */
     .widths { display: none; }
@@ -177,18 +178,15 @@
   <div class="builds">
       <section class="build">
         <div class="frame-well" data-mode="full">
-          <iframe src="d1-intake.html" title="D1 · The Intake One"
+          <iframe src="d1-intake.html" title="C1 · The Intake One"
                   loading="eager"></iframe>
         </div>
         <div class="bar">
-          <div class="bar-meta">
-            <span class="bar-head">
-              <span class="sw" style="background:#1F3FD8" aria-hidden="true"></span>
-              <span class="label">D1</span>
-              <span class="bar-name">The Intake One</span>
-            </span>
-            <span class="bar-why">Fixes: busy-season document chasing by email attachment — the hero itself is the intake rail, three documents travelling into a sealed portal.</span>
-          </div>
+          <span class="bar-head">
+            <span class="sw" style="background:#1F3FD8" aria-hidden="true"></span>
+            <span class="label">C1</span>
+            <span class="bar-name">Fenwick &amp; Hale CPAs</span>
+          </span>
           <div class="bar-actions">
             <div class="widths" role="group" aria-label="Preview width">
               <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
@@ -200,18 +198,15 @@
       </section>
       <section class="build">
         <div class="frame-well" data-mode="full">
-          <iframe src="d2-ledger.html" title="D2 · The Ledger One"
+          <iframe src="d2-ledger.html" title="C2 · The Ledger One"
                   loading="lazy"></iframe>
         </div>
         <div class="bar">
-          <div class="bar-meta">
-            <span class="bar-head">
-              <span class="sw" style="background:#0F6B4A" aria-hidden="true"></span>
-              <span class="label">D2</span>
-              <span class="bar-name">The Ledger One</span>
-            </span>
-            <span class="bar-why">Fixes: portal experience miserable — the right half of the split is the portal, a request ledger with every row ticked off.</span>
-          </div>
+          <span class="bar-head">
+            <span class="sw" style="background:#0F6B4A" aria-hidden="true"></span>
+            <span class="label">C2</span>
+            <span class="bar-name">Fenwick &amp; Hale CPAs</span>
+          </span>
           <div class="bar-actions">
             <div class="widths" role="group" aria-label="Preview width">
               <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
@@ -223,18 +218,15 @@
       </section>
       <section class="build">
         <div class="frame-well" data-mode="full">
-          <iframe src="d3-advisory.html" title="D3 · The Advisory One"
+          <iframe src="d3-advisory.html" title="C3 · The Advisory One"
                   loading="lazy"></iframe>
         </div>
         <div class="bar">
-          <div class="bar-meta">
-            <span class="bar-head">
-              <span class="sw" style="background:#5A2BC4" aria-hidden="true"></span>
-              <span class="label">D3</span>
-              <span class="bar-name">The Advisory One</span>
-            </span>
-            <span class="bar-why">Fixes: positioned as compliance rather than advisory — a dark fullbleed opening drawn as a four-stage year, not a filing deadline.</span>
-          </div>
+          <span class="bar-head">
+            <span class="sw" style="background:#5A2BC4" aria-hidden="true"></span>
+            <span class="label">C3</span>
+            <span class="bar-name">Fenwick &amp; Hale CPAs</span>
+          </span>
           <div class="bar-actions">
             <div class="widths" role="group" aria-label="Preview width">
               <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
@@ -246,18 +238,15 @@
       </section>
       <section class="build">
         <div class="frame-well" data-mode="full">
-          <iframe src="d4-checklist.html" title="D4 · The Checklist One"
+          <iframe src="d4-checklist.html" title="C4 · The Checklist One"
                   loading="lazy"></iframe>
         </div>
         <div class="bar">
-          <div class="bar-meta">
-            <span class="bar-head">
-              <span class="sw" style="background:#B4470B" aria-hidden="true"></span>
-              <span class="label">D4</span>
-              <span class="bar-name">The Checklist One</span>
-            </span>
-            <span class="bar-why">Fixes: busy-season document chasing by email attachment — a portal window sits in the hero panel with the request list already complete.</span>
-          </div>
+          <span class="bar-head">
+            <span class="sw" style="background:#B4470B" aria-hidden="true"></span>
+            <span class="label">C4</span>
+            <span class="bar-name">Fenwick &amp; Hale CPAs</span>
+          </span>
           <div class="bar-actions">
             <div class="widths" role="group" aria-label="Preview width">
               <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
@@ -269,18 +258,15 @@
       </section>
       <section class="build">
         <div class="frame-well" data-mode="full">
-          <iframe src="d5-rhythm.html" title="D5 · The Rhythm One"
+          <iframe src="d5-rhythm.html" title="C5 · The Rhythm One"
                   loading="lazy"></iframe>
         </div>
         <div class="bar">
-          <div class="bar-meta">
-            <span class="bar-head">
-              <span class="sw" style="background:#A81B62" aria-hidden="true"></span>
-              <span class="label">D5</span>
-              <span class="bar-name">The Rhythm One</span>
-            </span>
-            <span class="bar-why">Fixes: positioned as compliance rather than advisory — the band carries a four-station track through the year, so cadence is the composition.</span>
-          </div>
+          <span class="bar-head">
+            <span class="sw" style="background:#A81B62" aria-hidden="true"></span>
+            <span class="label">C5</span>
+            <span class="bar-name">Fenwick &amp; Hale CPAs</span>
+          </span>
           <div class="bar-actions">
             <div class="widths" role="group" aria-label="Preview width">
               <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
@@ -292,18 +278,15 @@
       </section>
       <section class="build">
         <div class="frame-well" data-mode="full">
-          <iframe src="d6-plain.html" title="D6 · The Plain One"
+          <iframe src="d6-plain.html" title="C6 · The Plain One"
                   loading="lazy"></iframe>
         </div>
         <div class="bar">
-          <div class="bar-meta">
-            <span class="bar-head">
-              <span class="sw" style="background:#06636F" aria-hidden="true"></span>
-              <span class="label">D6</span>
-              <span class="bar-name">The Plain One</span>
-            </span>
-            <span class="bar-why">Fixes: the constraint is capacity, not leads — the quietest of the six, a firm choosing its clients rather than chasing them.</span>
-          </div>
+          <span class="bar-head">
+            <span class="sw" style="background:#06636F" aria-hidden="true"></span>
+            <span class="label">C6</span>
+            <span class="bar-name">Fenwick &amp; Hale CPAs</span>
+          </span>
           <div class="bar-actions">
             <div class="widths" role="group" aria-label="Preview width">
               <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>

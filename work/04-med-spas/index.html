@@ -93,15 +93,16 @@
   }
 
   .bar {
-    display: flex; align-items: flex-start; justify-content: space-between;
-    gap: 2rem; padding: 1rem 1.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 2rem; padding: 0.85rem 1.5rem;
     border-top: 1px solid var(--border-color);
     background: var(--bg-color);
   }
-  .bar-meta { display: flex; flex-direction: column; gap: 0.4rem; max-width: 76ch; }
-  .bar-head { display: flex; align-items: center; gap: 0.6rem; }
-  .bar-name { font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.01em; }
-  .bar-why { font-size: 0.9375rem; color: rgba(5, 5, 5, 0.7); line-height: 1.45; }
+  .bar-head { display: flex; align-items: center; gap: 0.7rem; min-width: 0; }
+  .bar-name {
+    font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.01em;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
   .sw { width: 12px; height: 12px; flex: none; border: 1px solid rgba(0, 0, 0, 0.25); }
   /* one trade's harness never recorded accents — drop the slot rather than
      showing six empty boxes */
@@ -136,7 +137,7 @@
   footer .label { color: rgba(5, 5, 5, 0.7); }
 
   @media (max-width: 860px) {
-    .bar { flex-direction: column; gap: 1rem; }
+    .bar { flex-direction: column; align-items: flex-start; gap: 0.85rem; }
     .bar-actions { width: 100%; }
     /* the viewport is already the phone these were built for */
     .widths { display: none; }
@@ -177,18 +178,15 @@
   <div class="builds">
       <section class="build">
         <div class="frame-well" data-mode="full">
-          <iframe src="d1-pricelist.html" title="D1 · The Price List One"
+          <iframe src="d1-pricelist.html" title="C1 · The Price List One"
                   loading="eager"></iframe>
         </div>
         <div class="bar">
-          <div class="bar-meta">
-            <span class="bar-head">
-              <span class="sw" style="background:#A63D5B" aria-hidden="true"></span>
-              <span class="label">D1</span>
-              <span class="bar-name">The Price List One</span>
-            </span>
-            <span class="bar-why">Fixes: no published pricing — the four real numbers sit inside the hero panel, above the fold, with membership as the last row.</span>
-          </div>
+          <span class="bar-head">
+            <span class="sw" style="background:#A63D5B" aria-hidden="true"></span>
+            <span class="label">C1</span>
+            <span class="bar-name">Lumen Aesthetics</span>
+          </span>
           <div class="bar-actions">
             <div class="widths" role="group" aria-label="Preview width">
               <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
@@ -200,18 +198,15 @@
       </section>
       <section class="build">
         <div class="frame-well" data-mode="full">
-          <iframe src="d2-membership.html" title="D2 · The Membership One"
+          <iframe src="d2-membership.html" title="C2 · The Membership One"
                   loading="lazy"></iframe>
         </div>
         <div class="bar">
-          <div class="bar-meta">
-            <span class="bar-head">
-              <span class="sw" style="background:#6E4877" aria-hidden="true"></span>
-              <span class="label">D2</span>
-              <span class="bar-name">The Membership One</span>
-            </span>
-            <span class="bar-why">Fixes: membership unsold — a card object directly under the stacked hero, monthly figure set as large as the headline.</span>
-          </div>
+          <span class="bar-head">
+            <span class="sw" style="background:#6E4877" aria-hidden="true"></span>
+            <span class="label">C2</span>
+            <span class="bar-name">Lumen Aesthetics</span>
+          </span>
           <div class="bar-actions">
             <div class="widths" role="group" aria-label="Preview width">
               <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
@@ -223,18 +218,15 @@
       </section>
       <section class="build">
         <div class="frame-well" data-mode="full">
-          <iframe src="d3-twotaps.html" title="D3 · The Two Taps One"
+          <iframe src="d3-twotaps.html" title="C3 · The Two Taps One"
                   loading="lazy"></iframe>
         </div>
         <div class="bar">
-          <div class="bar-meta">
-            <span class="bar-head">
-              <span class="sw" style="background:#7F6228" aria-hidden="true"></span>
-              <span class="label">D3</span>
-              <span class="bar-name">The Two Taps One</span>
-            </span>
-            <span class="bar-why">Fixes: booking requires an account — the band leads with the action and a full-bleed price ledger runs straight underneath it, so there is nothing to call about and nothing to register for.</span>
-          </div>
+          <span class="bar-head">
+            <span class="sw" style="background:#7F6228" aria-hidden="true"></span>
+            <span class="label">C3</span>
+            <span class="bar-name">Lumen Aesthetics</span>
+          </span>
           <div class="bar-actions">
             <div class="widths" role="group" aria-label="Preview width">
               <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
@@ -246,18 +238,15 @@
       </section>
       <section class="build">
         <div class="frame-well" data-mode="full">
-          <iframe src="d4-ownedgrid.html" title="D4 · The Owned Grid One"
+          <iframe src="d4-ownedgrid.html" title="C4 · The Owned Grid One"
                   loading="lazy"></iframe>
         </div>
         <div class="bar">
-          <div class="bar-meta">
-            <span class="bar-head">
-              <span class="sw" style="background:#7E4234" aria-hidden="true"></span>
-              <span class="label">D4</span>
-              <span class="bar-name">The Owned Grid One</span>
-            </span>
-            <span class="bar-why">Fixes: business dependent on Instagram it doesn't own — a nine-square lattice takes the place the feed embed usually occupies, on a page they control.</span>
-          </div>
+          <span class="bar-head">
+            <span class="sw" style="background:#7E4234" aria-hidden="true"></span>
+            <span class="label">C4</span>
+            <span class="bar-name">Lumen Aesthetics</span>
+          </span>
           <div class="bar-actions">
             <div class="widths" role="group" aria-label="Preview width">
               <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
@@ -269,18 +258,15 @@
       </section>
       <section class="build">
         <div class="frame-well" data-mode="full">
-          <iframe src="d5-menu.html" title="D5 · The Menu One"
+          <iframe src="d5-menu.html" title="C5 · The Menu One"
                   loading="lazy"></iframe>
         </div>
         <div class="bar">
-          <div class="bar-meta">
-            <span class="bar-head">
-              <span class="sw" style="background:#566334" aria-hidden="true"></span>
-              <span class="label">D5</span>
-              <span class="bar-name">The Menu One</span>
-            </span>
-            <span class="bar-why">Fixes: no published pricing — a paper menu lifted out of the full-bleed field, each price set on its own line the way a menu prices a dish.</span>
-          </div>
+          <span class="bar-head">
+            <span class="sw" style="background:#566334" aria-hidden="true"></span>
+            <span class="label">C5</span>
+            <span class="bar-name">Lumen Aesthetics</span>
+          </span>
           <div class="bar-actions">
             <div class="widths" role="group" aria-label="Preview width">
               <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
@@ -292,18 +278,15 @@
       </section>
       <section class="build">
         <div class="frame-well" data-mode="full">
-          <iframe src="d6-clients.html" title="D6 · The Client One"
+          <iframe src="d6-clients.html" title="C6 · The Client One"
                   loading="lazy"></iframe>
         </div>
         <div class="bar">
-          <div class="bar-meta">
-            <span class="bar-head">
-              <span class="sw" style="background:#46394F" aria-hidden="true"></span>
-              <span class="label">D6</span>
-              <span class="bar-name">The Client One</span>
-            </span>
-            <span class="bar-why">Fixes: business dependent on Instagram it doesn't own — the review wall is hosted here, and the price strip sits inside the dark hero slab.</span>
-          </div>
+          <span class="bar-head">
+            <span class="sw" style="background:#46394F" aria-hidden="true"></span>
+            <span class="label">C6</span>
+            <span class="bar-name">Lumen Aesthetics</span>
+          </span>
           <div class="bar-actions">
             <div class="widths" role="group" aria-label="Preview width">
               <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>

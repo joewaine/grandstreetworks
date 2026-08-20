@@ -93,15 +93,16 @@
   }
 
   .bar {
-    display: flex; align-items: flex-start; justify-content: space-between;
-    gap: 2rem; padding: 1rem 1.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 2rem; padding: 0.85rem 1.5rem;
     border-top: 1px solid var(--border-color);
     background: var(--bg-color);
   }
-  .bar-meta { display: flex; flex-direction: column; gap: 0.4rem; max-width: 76ch; }
-  .bar-head { display: flex; align-items: center; gap: 0.6rem; }
-  .bar-name { font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.01em; }
-  .bar-why { font-size: 0.9375rem; color: rgba(5, 5, 5, 0.7); line-height: 1.45; }
+  .bar-head { display: flex; align-items: center; gap: 0.7rem; min-width: 0; }
+  .bar-name {
+    font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.01em;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
   .sw { width: 12px; height: 12px; flex: none; border: 1px solid rgba(0, 0, 0, 0.25); }
   /* one trade's harness never recorded accents — drop the slot rather than
      showing six empty boxes */
@@ -136,7 +137,7 @@
   footer .label { color: rgba(5, 5, 5, 0.7); }
 
   @media (max-width: 860px) {
-    .bar { flex-direction: column; gap: 1rem; }
+    .bar { flex-direction: column; align-items: flex-start; gap: 0.85rem; }
     .bar-actions { width: 100%; }
     /* the viewport is already the phone these were built for */
     .widths { display: none; }
@@ -177,18 +178,15 @@
   <div class="builds">
       <section class="build">
         <div class="frame-well" data-mode="full">
-          <iframe src="d1-portfolio.html" title="D1 · The Portfolio One"
+          <iframe src="d1-portfolio.html" title="C1 · The Portfolio One"
                   loading="eager"></iframe>
         </div>
         <div class="bar">
-          <div class="bar-meta">
-            <span class="bar-head">
-              <span class="sw" style="background:#7A5F42" aria-hidden="true"></span>
-              <span class="label">D1</span>
-              <span class="bar-name">The Portfolio One</span>
-            </span>
-            <span class="bar-why">Fixes: the gallery underpowered — a numbered results index sits in the hero, not a sub-page.</span>
-          </div>
+          <span class="bar-head">
+            <span class="sw" style="background:#7A5F42" aria-hidden="true"></span>
+            <span class="label">C1</span>
+            <span class="bar-name">Aurelia Aesthetic Surgery</span>
+          </span>
           <div class="bar-actions">
             <div class="widths" role="group" aria-label="Preview width">
               <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
@@ -200,18 +198,15 @@
       </section>
       <section class="build">
         <div class="frame-well" data-mode="full">
-          <iframe src="d2-suite.html" title="D2 · The Suite One"
+          <iframe src="d2-suite.html" title="C2 · The Suite One"
                   loading="lazy"></iframe>
         </div>
         <div class="bar">
-          <div class="bar-meta">
-            <span class="bar-head">
-              <span class="sw" style="background:#B39B6E" aria-hidden="true"></span>
-              <span class="label">D2</span>
-              <span class="bar-name">The Suite One</span>
-            </span>
-            <span class="bar-why">Fixes: paid ad spend landing on a weak page — one screen, one claim, one action.</span>
-          </div>
+          <span class="bar-head">
+            <span class="sw" style="background:#B39B6E" aria-hidden="true"></span>
+            <span class="label">C2</span>
+            <span class="bar-name">Aurelia Aesthetic Surgery</span>
+          </span>
           <div class="bar-actions">
             <div class="widths" role="group" aria-label="Preview width">
               <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
@@ -223,18 +218,15 @@
       </section>
       <section class="build">
         <div class="frame-well" data-mode="full">
-          <iframe src="d3-consultation.html" title="D3 · The Consultation One"
+          <iframe src="d3-consultation.html" title="C3 · The Consultation One"
                   loading="lazy"></iframe>
         </div>
         <div class="bar">
-          <div class="bar-meta">
-            <span class="bar-head">
-              <span class="sw" style="background:#2C3A31" aria-hidden="true"></span>
-              <span class="label">D3</span>
-              <span class="bar-name">The Consultation One</span>
-            </span>
-            <span class="bar-why">Fixes: consult conversion leaking — the whole page is built around the consultation.</span>
-          </div>
+          <span class="bar-head">
+            <span class="sw" style="background:#2C3A31" aria-hidden="true"></span>
+            <span class="label">C3</span>
+            <span class="bar-name">Aurelia Aesthetic Surgery</span>
+          </span>
           <div class="bar-actions">
             <div class="widths" role="group" aria-label="Preview width">
               <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
@@ -246,18 +238,15 @@
       </section>
       <section class="build">
         <div class="frame-well" data-mode="full">
-          <iframe src="d4-credential.html" title="D4 · The Credential One"
+          <iframe src="d4-credential.html" title="C4 · The Credential One"
                   loading="lazy"></iframe>
         </div>
         <div class="bar">
-          <div class="bar-meta">
-            <span class="bar-head">
-              <span class="sw" style="background:#33414E" aria-hidden="true"></span>
-              <span class="label">D4</span>
-              <span class="bar-name">The Credential One</span>
-            </span>
-            <span class="bar-why">Fixes: credentials and board certification not made prominent — the certification is the composition.</span>
-          </div>
+          <span class="bar-head">
+            <span class="sw" style="background:#33414E" aria-hidden="true"></span>
+            <span class="label">C4</span>
+            <span class="bar-name">Aurelia Aesthetic Surgery</span>
+          </span>
           <div class="bar-actions">
             <div class="widths" role="group" aria-label="Preview width">
               <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
@@ -269,18 +258,15 @@
       </section>
       <section class="build">
         <div class="frame-well" data-mode="full">
-          <iframe src="d5-gallery.html" title="D5 · The Gallery One"
+          <iframe src="d5-gallery.html" title="C5 · The Gallery One"
                   loading="lazy"></iframe>
         </div>
         <div class="bar">
-          <div class="bar-meta">
-            <span class="bar-head">
-              <span class="sw" style="background:#6B4A57" aria-hidden="true"></span>
-              <span class="label">D5</span>
-              <span class="bar-name">The Gallery One</span>
-            </span>
-            <span class="bar-why">Fixes: the gallery underpowered — a filmstrip beside the headline, different geometry to D1.</span>
-          </div>
+          <span class="bar-head">
+            <span class="sw" style="background:#6B4A57" aria-hidden="true"></span>
+            <span class="label">C5</span>
+            <span class="bar-name">Aurelia Aesthetic Surgery</span>
+          </span>
           <div class="bar-actions">
             <div class="widths" role="group" aria-label="Preview width">
               <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
@@ -292,18 +278,15 @@
       </section>
       <section class="build">
         <div class="frame-well" data-mode="full">
-          <iframe src="d6-private.html" title="D6 · The Private One"
+          <iframe src="d6-private.html" title="C6 · The Private One"
                   loading="lazy"></iframe>
         </div>
         <div class="bar">
-          <div class="bar-meta">
-            <span class="bar-head">
-              <span class="sw" style="background:#6F6357" aria-hidden="true"></span>
-              <span class="label">D6</span>
-              <span class="bar-name">The Private One</span>
-            </span>
-            <span class="bar-why">Fixes: consult conversion leaking — the most restrained of the six, so nothing reads as a sales process.</span>
-          </div>
+          <span class="bar-head">
+            <span class="sw" style="background:#6F6357" aria-hidden="true"></span>
+            <span class="label">C6</span>
+            <span class="bar-name">Aurelia Aesthetic Surgery</span>
+          </span>
           <div class="bar-actions">
             <div class="widths" role="group" aria-label="Preview width">
               <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>

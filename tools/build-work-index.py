@@ -148,6 +148,22 @@ def parse(src_index: Path):
     return company, sub, disclaimer, directions
 
 
+def firm_of(page):
+    """The business name a build is for, read from its own <title>.
+
+    Every build titles itself "<Firm> — <line>", photographic and CSS-only
+    alike, so this picks up distinct names the moment a set gets them. The
+    nineteen harness sets still name one firm across all six of their builds.
+    """
+    try:
+        t = re.search(r"<title>(.*?)</title>", page.read_text(), re.S)
+    except OSError:
+        return ""
+    if not t:
+        return ""
+    return html.unescape(" ".join(t.group(1).split())).split(" — ")[0].strip()
+
+
 def swatch(accent):
     """Accent swatch, when the harness recorded one for that direction."""
     if not accent:
@@ -161,21 +177,18 @@ def render(slug, industry, company, sub, disclaimer, directions):
 
     blocks = []
     for i, d in enumerate(directions):
-        title = f"{d['code']} · {d['label']}"
+        title = f"C{i + 1} · {d['label']}"
         blocks.append(f'''      <section class="build">
         <div class="frame-well" data-mode="full">
           <iframe src="{esc(d['href'])}" title="{esc(title)}"
                   loading="{'eager' if i == 0 else 'lazy'}"></iframe>
         </div>
         <div class="bar">
-          <div class="bar-meta">
-            <span class="bar-head">
-              {swatch(d['accent'])}
-              <span class="label">{esc(d['code'])}</span>
-              <span class="bar-name">{esc(d['label'])}</span>
-            </span>
-            <span class="bar-why">{d['why']}</span>
-          </div>
+          <span class="bar-head">
+            {swatch(d['accent'])}
+            <span class="label">C{i + 1}</span>
+            <span class="bar-name">{esc(firm_of(WORK / slug / d['href']) or d['label'])}</span>
+          </span>
           <div class="bar-actions">
             <div class="widths" role="group" aria-label="Preview width">
               <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
@@ -282,15 +295,16 @@ def render(slug, industry, company, sub, disclaimer, directions):
   }}
 
   .bar {{
-    display: flex; align-items: flex-start; justify-content: space-between;
-    gap: 2rem; padding: 1rem 1.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 2rem; padding: 0.85rem 1.5rem;
     border-top: 1px solid var(--border-color);
     background: var(--bg-color);
   }}
-  .bar-meta {{ display: flex; flex-direction: column; gap: 0.4rem; max-width: 76ch; }}
-  .bar-head {{ display: flex; align-items: center; gap: 0.6rem; }}
-  .bar-name {{ font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.01em; }}
-  .bar-why {{ font-size: 0.9375rem; color: rgba(5, 5, 5, 0.7); line-height: 1.45; }}
+  .bar-head {{ display: flex; align-items: center; gap: 0.7rem; min-width: 0; }}
+  .bar-name {{
+    font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.01em;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }}
   .sw {{ width: 12px; height: 12px; flex: none; border: 1px solid rgba(0, 0, 0, 0.25); }}
   /* one trade's harness never recorded accents — drop the slot rather than
      showing six empty boxes */
@@ -325,7 +339,7 @@ def render(slug, industry, company, sub, disclaimer, directions):
   footer .label {{ color: rgba(5, 5, 5, 0.7); }}
 
   @media (max-width: 860px) {{
-    .bar {{ flex-direction: column; gap: 1rem; }}
+    .bar {{ flex-direction: column; align-items: flex-start; gap: 0.85rem; }}
     .bar-actions {{ width: 100%; }}
     /* the viewport is already the phone these were built for */
     .widths {{ display: none; }}
