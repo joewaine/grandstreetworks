@@ -51,6 +51,31 @@ INDUSTRIES = {
     "20-veterinary": "Veterinary",
 }
 
+# Industries whose directions are photographic builds from cash_rich/static2.
+# Their metadata lives in the copy deck rather than in the demo harness.
+PHOTO_SETS = {
+    "01-personal-injury": ("photo_copy_pi", "Injury and accident firms"),
+    "21-estate-law": ("photo_copy_estate", "Estate, trust and corporate counsel"),
+}
+
+
+def photo_directions(module):
+    """Directions for a photographic set, read from its copy deck."""
+    import importlib
+    deck = importlib.import_module(module)
+    out = []
+    for i, spec in enumerate(deck.PAGES.values(), 1):
+        out.append({
+            "href": spec["slug"] + ".html",
+            "code": f"D{i}",
+            "label": spec["name"],
+            "why": spec["why"],
+            "accent": spec.get("accent", ""),
+            "axes": spec.get("axes", ""),
+        })
+    return out
+
+
 # The demo harness emitted a few different card shapes over the twenty builds —
 # some carry an accent swatch, some put the accent in a border-left-color, one
 # numbers the cards, and a couple use &middot; rather than a literal ·. Match the
@@ -439,16 +464,27 @@ def main():
     args = ap.parse_args()
 
     written = 0
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
     for slug, industry in INDUSTRIES.items():
         src = args.source / slug / "index.html"
         dest = WORK / slug / "index.html"
-        if not src.exists():
+        if not src.exists() and slug not in PHOTO_SETS:
             print(f"skip {slug}: no source at {src}", file=sys.stderr)
             continue
         if not dest.parent.exists():
             print(f"skip {slug}: no {dest.parent}", file=sys.stderr)
             continue
-        company, sub, disclaimer, directions = parse(src)
+        if slug in PHOTO_SETS:
+            module, blurb = PHOTO_SETS[slug]
+            try:
+                directions = photo_directions(module)
+            except ModuleNotFoundError:
+                print(f"skip {slug}: no copy deck {module}.py", file=sys.stderr)
+                continue
+            company, sub, disclaimer = blurb, "", ""
+        else:
+            company, sub, disclaimer = parse(src)[:3]
+            directions = parse(src)[3]
         dest.write_text(render(slug, industry, company, sub, disclaimer, directions))
         written += 1
         print(f"{slug}: {company} — {len(directions)} directions")

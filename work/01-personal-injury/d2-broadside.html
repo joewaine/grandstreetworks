@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="robots" content="noindex"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="../_assets/fonts/19b40698fdf5.css" rel="stylesheet"/>
+<style>
+        
+        :root {
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+            --border-thin: 1px solid var(--ink);
+            --border-thick: 3px solid var(--ink);
+            --radius-pill: 999px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--font-sans); -webkit-font-smoothing: antialiased; background: #E5E5E5; color: #111; overflow-y: scroll; }
+        
+        
+        .presentation-deck { max-width: 1400px; margin: 0 auto; padding: 2rem 1rem 8rem; }
+        .deck-header { text-align: center; margin-bottom: 3rem; font-family: var(--font-serif); }
+        .deck-header h1 { font-size: 2rem; font-weight: 400; letter-spacing: -0.02em; }
+        
+        .controls { 
+            position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%);
+            display: flex; gap: 0.5rem; background: #111; padding: 0.5rem; border-radius: var(--radius-pill);
+            z-index: 1000; box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        .controls label {
+            color: #fff; padding: 0.75rem 1.5rem; cursor: pointer; border-radius: var(--radius-pill);
+            font-size: 0.85rem; font-weight: 500; letter-spacing: 0.02em; transition: all 0.2s;
+        }
+        .controls label:hover { background: #333; }
+        input[type="radio"] { display: none; }
+        
+        #t1:checked ~ .controls label[for="t1"], #t2:checked ~ .controls label[for="t2"],
+        #t3:checked ~ .controls label[for="t3"], #t4:checked ~ .controls label[for="t4"],
+        #t5:checked ~ .controls label[for="t5"], #t6:checked ~ .controls label[for="t6"] {
+            background: #fff; color: #111;
+        }
+
+        .direction-container { display: none; animation: fadeIn 0.4s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        #t1:checked ~ .deck-content #d1, #t2:checked ~ .deck-content #d2,
+        #t3:checked ~ .deck-content #d3, #t4:checked ~ .deck-content #d4,
+        #t5:checked ~ .deck-content #d5, #t6:checked ~ .deck-content #d6 { display: block; }
+
+        .meta-panel { 
+            background: #111; color: #fff; padding: 2rem; margin-bottom: 2rem; border-radius: 8px;
+            display: grid; gap: 1rem;
+        }
+        .meta-panel h2 { font-family: var(--font-serif); font-size: 2rem; font-weight: 400; margin-bottom: 0.5rem; color: var(--accent, #fff); }
+        .meta-panel p.rationale { font-size: 1.1rem; line-height: 1.5; color: #ccc; margin-bottom: 1rem; }
+        .meta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; font-size: 0.85rem; color: #aaa; }
+        .meta-grid strong { color: #fff; display: block; margin-bottom: 0.25rem; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.7rem; }
+        .defend-callout { background: #222; padding: 1rem; border-left: 2px solid var(--accent, #fff); margin-top: 1rem; color: #fff; }
+
+        
+        .page { 
+            background: var(--surface); color: var(--ink); 
+            width: 100%; max-width: 1200px; margin: 0 auto; 
+            position: relative; overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.1); box-shadow: 0 20px 60px rgba(0,0,0,0.05);
+        }
+
+        
+        .page h1, .page h2, .page h3, .page .serif { font-family: var(--font-serif); font-weight: 400; line-height: 1; letter-spacing: -0.02em; }
+        .page p { line-height: 1.6; font-size: 1rem; }
+        
+        .topbar { background: var(--ink); color: var(--surface); text-align: center; padding: 0.5rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+        .topbar .dot { opacity: 0.5; }
+        
+        .btn-primary, .btn-secondary { display: inline-flex; justify-content: center; align-items: center; padding: 1rem 2rem; font-weight: 500; text-decoration: none; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.85rem; cursor: pointer; transition: all 0.2s; border-radius: var(--radius-pill); width: 100%; }
+        @media(min-width: 768px) { .btn-primary, .btn-secondary { width: auto; } }
+        .btn-primary { background: var(--ink); color: var(--surface); border: 2px solid var(--ink); }
+        .btn-primary:hover { background: transparent; color: var(--ink); }
+        .btn-secondary { background: transparent; color: var(--ink); border: 2px solid var(--ink); }
+        .btn-secondary:hover { background: var(--ink); color: var(--surface); }
+
+        .section-pad { padding: 4rem 1.5rem; }
+        @media(min-width: 768px) { .section-pad { padding: 6rem 4rem; } }
+        
+        .section-header { margin-bottom: 3rem; max-width: 600px; }
+        .section-header h2 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1rem; }
+        .section-header p { color: var(--muted); }
+
+        .badge-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2rem; }
+        .badge { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.5rem 1rem; border: var(--border-thin); border-radius: var(--radius-pill); }
+
+        
+        .nav-inline { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem; border-bottom: var(--border-thin); flex-wrap: wrap; gap: 1rem; }
+        .nav-inline .logo { font-family: var(--font-serif); font-size: 1.5rem; }
+        .nav-inline .links { display: none; gap: 2rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .nav-inline .phone { font-weight: 600; color: var(--ink); text-decoration: none; }
+        @media(min-width: 768px) { .nav-inline .links { display: flex; } }
+
+        .nav-bar { border-bottom: var(--border-thick); }
+        .nav-bar .inner { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem; }
+        .nav-bar .logo { font-family: var(--font-serif); font-size: 1.75rem; text-transform: uppercase; }
+        .nav-bar .links { display: none; gap: 2rem; font-size: 0.85rem; font-weight: 500; }
+        .nav-bar .phone { background: var(--ink); color: var(--surface); padding: 0.75rem 1.5rem; border-radius: var(--radius-pill); text-decoration: none; font-size: 0.85rem; }
+        @media(min-width: 768px) { .nav-bar .links { display: flex; } }
+
+        .nav-minimal { display: flex; justify-content: space-between; align-items: center; padding: 2rem; }
+        .nav-minimal .logo { font-family: var(--font-serif); font-size: 1.5rem; }
+        .nav-minimal .menu-btn { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; }
+
+        .nav-centered { display: flex; flex-direction: column; align-items: center; gap: 1rem; padding: 2rem; border-bottom: var(--border-thin); }
+        .nav-centered .logo { font-family: var(--font-serif); font-size: 2rem; }
+        .nav-centered .links { display: flex; gap: 1rem; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; flex-wrap: wrap; justify-content: center; }
+
+        
+        
+        .hero-split { display: grid; grid-template-columns: 1fr; border-bottom: var(--border-thick); }
+        @media(min-width: 900px) { .hero-split { grid-template-columns: 1.2fr 0.8fr; } }
+        .hero-split .content { padding: 3rem 1.5rem; display: flex; flex-direction: column; justify-content: center; }
+        @media(min-width: 900px) { .hero-split .content { padding: 6rem 4rem; } }
+        .hero-split .eyebrow { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 2rem; display: block; }
+        .hero-split h1 { font-size: clamp(3rem, 7vw, 6rem); margin-bottom: 1.5rem; }
+        .hero-split .ctas { display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap; }
+        .hero-split .side { background: var(--accent); padding: 3rem 1.5rem; border-top: var(--border-thin); display: flex; flex-direction: column; justify-content: center; }
+        @media(min-width: 900px) { .hero-split .side { border-top: none; border-left: var(--border-thin); padding: 4rem; } }
+        .hero-split .side .badge-list { flex-direction: column; gap: 1rem; margin: 0; }
+        .hero-split .side .badge { border-color: var(--on-accent); color: var(--on-accent); padding: 1rem; text-align: center; background: transparent; }
+
+        
+        .hero-stack { text-align: center; padding: 4rem 1.5rem; border-bottom: var(--border-thick); display: flex; flex-direction: column; align-items: center; }
+        @media(min-width: 768px) { .hero-stack { padding: 8rem 2rem; } }
+        .hero-stack .eyebrow { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; border: var(--border-thin); padding: 0.5rem 1.5rem; border-radius: var(--radius-pill); margin-bottom: 3rem; }
+        .hero-stack h1 { font-size: clamp(3.5rem, 10vw, 8rem); max-width: 1000px; margin-bottom: 2rem; text-transform: uppercase; }
+        .hero-stack p { max-width: 600px; margin: 0 auto 3rem; font-size: 1.1rem; }
+        .hero-stack .ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+        
+        .hero-panel { padding: 1rem; background: var(--surface); }
+        .hero-panel .inner { border: var(--border-thick); background: var(--accent); padding: 3rem 1.5rem; text-align: center; }
+        @media(min-width: 768px) { .hero-panel .inner { padding: 6rem 4rem; } }
+        .hero-panel h1 { font-size: clamp(3rem, 8vw, 7rem); color: var(--on-accent); margin: 2rem 0; }
+        .hero-panel p { color: var(--on-accent); opacity: 0.9; max-width: 600px; margin: 0 auto 3rem; }
+        .hero-panel .badge-list { justify-content: center; border-top: 1px solid var(--on-accent); padding-top: 2rem; margin-top: 3rem; }
+
+        
+        .hero-fullbleed { background: var(--ink); color: var(--surface); padding: 6rem 1.5rem; text-align: center; border-bottom: var(--border-thin); }
+        @media(min-width: 768px) { .hero-fullbleed { padding: 10rem 2rem; } }
+        .hero-fullbleed h1 { font-size: clamp(3.5rem, 9vw, 8rem); margin-bottom: 2rem; }
+        .hero-fullbleed p { color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto 3rem; font-size: 1.25rem; }
+        .hero-fullbleed .btn-primary { background: var(--surface); color: var(--ink); border-color: var(--surface); }
+        .hero-fullbleed .btn-secondary { color: var(--surface); border-color: var(--surface); }
+        .hero-fullbleed .badge { border-color: rgba(255,255,255,0.3); }
+        .hero-fullbleed .badge-list { justify-content: center; }
+
+        
+        .hero-band { background: var(--accent); color: var(--on-accent); padding: 4rem 1.5rem; border-bottom: var(--border-thick); }
+        @media(min-width: 768px) { .hero-band { padding: 6rem 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; } }
+        .hero-band h1 { font-size: clamp(3rem, 6vw, 5rem); margin-bottom: 1rem; }
+        .hero-band .right { border-top: 2px solid var(--on-accent); padding-top: 2rem; }
+        @media(min-width: 768px) { .hero-band .right { border-top: none; border-left: 2px solid var(--on-accent); padding-top: 0; padding-left: 4rem; } }
+        
+        
+        
+        .services-list .s-item { border-bottom: var(--border-thin); padding: 2rem 0; display: grid; gap: 1rem; }
+        @media(min-width: 768px) { .services-list .s-item { grid-template-columns: 300px 1fr; align-items: baseline; padding: 3rem 0; } }
+        .services-list .s-item:first-child { border-top: var(--border-thick); }
+        .services-list h3 { font-size: 1.5rem; }
+        .services-list p { color: var(--muted); }
+
+        
+        .services-grid-num { display: grid; gap: 1px; background: var(--ink); border: var(--border-thin); }
+        @media(min-width: 768px) { .services-grid-num { grid-template-columns: 1fr 1fr; } }
+        .services-grid-num .s-item { background: var(--surface); padding: 3rem 2rem; position: relative; }
+        .services-grid-num h3 { font-size: 1.75rem; margin-bottom: 1rem; position: relative; z-index: 2; }
+        .services-grid-num p { color: var(--muted); position: relative; z-index: 2; }
+        .services-grid-num .num { position: absolute; top: 1rem; right: 1rem; font-family: var(--font-serif); font-size: 6rem; color: var(--accent); opacity: 0.5; line-height: 0.8; z-index: 1; }
+
+        
+        .services-cards { display: grid; gap: 1.5rem; padding: 1.5rem; background: var(--accent); }
+        @media(min-width: 768px) { .services-cards { grid-template-columns: 1fr 1fr; padding: 4rem; gap: 2rem; } }
+        .services-cards .s-item { background: var(--surface); border: var(--border-thick); padding: 2rem; }
+        .services-cards h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+
+        
+        .services-tiles { display: grid; grid-template-columns: 1fr; }
+        @media(min-width: 768px) { .services-tiles { grid-template-columns: repeat(4, 1fr); } }
+        .services-tiles .s-item { background: var(--ink); color: var(--surface); padding: 3rem 2rem; border-right: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .services-tiles h3 { font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--accent); }
+        .services-tiles p { opacity: 0.8; font-size: 0.9rem; }
+
+        
+        
+        .proof-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; border-top: var(--border-thick); padding-top: 4rem; }
+        @media(min-width: 768px) { .proof-stats { grid-template-columns: repeat(4, 1fr); } }
+        .proof-stats .stat { display: flex; flex-direction: column; border-left: var(--border-thin); padding-left: 1rem; }
+        .proof-stats .val { font-family: var(--font-serif); font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1; margin-bottom: 0.5rem; }
+        .proof-stats .lbl { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
+
+        
+        .proof-test-lead { background: var(--ink); color: var(--surface); padding: 6rem 1.5rem; text-align: center; }
+        @media(min-width: 768px) { .proof-test-lead { padding: 10rem 4rem; } }
+        .proof-test-lead blockquote { font-family: var(--font-serif); font-size: clamp(2rem, 5vw, 4rem); line-height: 1.2; margin-bottom: 2rem; max-width: 900px; margin-inline: auto; }
+        .proof-test-lead cite { display: block; font-style: normal; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); }
+
+        
+        .proof-logos { display: flex; flex-wrap: wrap; justify-content: center; gap: 3rem; padding: 4rem 1.5rem; border-y: var(--border-thin); }
+        .proof-logos .logo-item { font-family: var(--font-serif); font-size: 1.25rem; color: var(--muted); text-transform: uppercase; text-align: center; max-width: 150px; line-height: 1.2; }
+
+        
+        .proof-wall { display: grid; gap: 1px; background: var(--ink); border: var(--border-thin); }
+        @media(min-width: 768px) { .proof-wall { grid-template-columns: 1fr 1fr; } }
+        .proof-wall .rev { background: var(--surface); padding: 3rem; }
+        .proof-wall p { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 1.5rem; }
+        .proof-wall cite { font-style: normal; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
+
+        
+        .process-grid { display: grid; gap: 2rem; }
+        @media(min-width: 768px) { .process-grid { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; } }
+        .process-item { border-top: 2px solid var(--ink); padding-top: 1.5rem; }
+        .process-item .step { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 0.5rem; display: block; }
+        .process-item h3 { font-size: 1.1rem; margin-bottom: 1rem; font-family: var(--font-sans); font-weight: 600; }
+        .process-item p { font-size: 0.9rem; color: var(--muted); }
+
+        
+        .closing-cta { background: var(--accent); color: var(--on-accent); text-align: center; padding: 6rem 1.5rem; border-top: var(--border-thick); }
+        .closing-cta h2 { font-size: clamp(3rem, 6vw, 5rem); margin-bottom: 1.5rem; }
+        .closing-cta p { max-width: 600px; margin: 0 auto 2rem; font-size: 1.1rem; }
+        .closing-cta .note { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 2rem; opacity: 0.7; }
+
+        
+        .footer { background: var(--ink); color: var(--surface); padding: 2rem; text-align: center; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+
+        
+        #d1 .page { --ink: #0A0A0A; --surface: #FAFAFA; --accent: #BCA38F; --muted: #666; --on-accent: #0A0A0A; }
+        #d2 .page { --ink: #000000; --surface: #FFFFFF; --accent: #E5E5E5; --muted: #777; --on-accent: #000000; }
+        #d3 .page { --ink: #111111; --surface: #ECEAE5; --accent: #A89B86; --muted: #555; --on-accent: #111111; }
+        #d4 .page { --ink: #FAFAFA; --surface: #0F0F0F; --accent: #222222; --muted: #888; --on-accent: #FAFAFA; --border-thin: 1px solid var(--ink); --border-thick: 3px solid var(--ink); }
+        #d5 .page { --ink: #050505; --surface: #F4F4F4; --accent: #D4D0C9; --muted: #444; --on-accent: #050505; }
+        #d6 .page { --ink: #141311; --surface: #F5F3EE; --accent: #C2B59B; --muted: #6E6B66; --on-accent: #141311; }
+    </style>
+<title>Okonkwo Trial Law — Injury cases tried, not just settled</title>
+<style>
+/* --- standalone overrides: strip the pitch-deck device frame --- */
+
+html, body { margin: 0; padding: 0; width: 100%; max-width: none; }
+body { display: block; background: #fff; }
+body > * { margin: 0; }
+
+.direction-container { display: block !important; animation: none !important; }
+.page { max-width: none !important; border: 0 !important; box-shadow: none !important;
+        min-height: 100vh; }
+
+#d2 .broadside { border-bottom: var(--border-thick); background: #000; }
+        #d2 .broadside figure { margin: 0; position: relative; overflow: hidden; }
+        #d2 .broadside img { display: block; width: 100%; aspect-ratio: 21 / 8; object-fit: cover;
+              object-position: 50% 60%; filter: grayscale(1) contrast(1.35) brightness(.95); }
+        #d2 .broadside figcaption { display: flex; justify-content: space-between; gap: 2rem;
+              flex-wrap: wrap; align-items: baseline; padding: 1rem 1.5rem; background: #000; color: #fff;
+              font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; }
+        @media(min-width: 768px) { #d2 .broadside figcaption { padding: 1.25rem 4rem; } }
+        #d2 .broadside figcaption em { font-family: var(--font-serif); font-style: italic;
+              font-size: 1.1rem; letter-spacing: 0; text-transform: none; }
+</style>
+</head>
+<body>
+<div id="d2" class="direction-container"><div class="page">
+<div class="topbar"><span>Free case review</span><span class="dot">·</span><span>No fee unless we win</span><span class="dot">·</span><span>Hablamos español</span></div>
+<header class="nav-inline">
+<div class="logo">Okonkwo Trial Law</div>
+<nav class="links"><a href="#">Services</a><a href="#">Results</a><a href="#">Process</a><a href="#">Contact</a></nav>
+<a class="phone" href="tel:+15553164020">(555) 316-4020</a>
+</header>
+<section class="hero-stack">
+<span class="eyebrow">Trial counsel · Se habla español</span>
+<h1>Most firms settle.<br/>We try cases.</h1>
+<p>Injury and accident claims across the state. Ninety-odd per cent of these end in a settlement, and the size of that settlement depends entirely on whether the insurer believes you will go to trial. Ours know we will.</p>
+<div class="ctas">
+<a class="btn-primary" href="tel:+15553164020">Talk to a trial lawyer</a>
+<a class="btn-secondary" href="#">See our verdicts</a>
+</div>
+<div class="badge-list" style="justify-content: center; margin-top: 3rem;">
+<div class="badge">No fee unless we win</div><div class="badge">Free case review</div><div class="badge">Home &amp; hospital visits</div>
+</div>
+</section>
+<div class="broadside">
+<figure>
+<img alt="Downtown at 2am, one window still lit" src="../_assets/hero/city.jpg"/>
+<figcaption><span>Fig. 1 &mdash; 02:14, from our floor</span><em>&ldquo;Somebody is always up here.&rdquo;</em><span>OTL / TRIAL</span></figcaption>
+</figure>
+</div><section class="section-pad">
+<div class="section-header">
+<h2>What we try</h2>
+<p>If your situation isn't listed, ring anyway. We will tell you what it is worth and whether it needs a courtroom — including when the answer is no.</p>
+</div>
+<div class="services-grid-num">
+<div class="s-item"><span class="num">1</span><h3>Catastrophic vehicle collisions</h3><p>Commercial trucking, multi-vehicle and wrongful-death collisions. The cases where the carrier's own lawyers arrive within hours and we need to be there first.</p></div>
+<div class="s-item"><span class="num">2</span><h3>Industrial and site injury</h3><p>Scaffold and machinery cases against general contractors and equipment makers. Comp pays a fraction; the third-party claim is where the real recovery lives.</p></div>
+<div class="s-item"><span class="num">3</span><h3>Premises and negligent security</h3><p>Owners and managers who knew and did nothing. These turn on maintenance logs and prior complaints, and those only surface in discovery.</p></div>
+<div class="s-item"><span class="num">4</span><h3>Wrongful death</h3><p>Tried when they must be tried. Families are not asked to relive it in a deposition until we are certain the case needs it.</p></div>
+</div>
+</section>
+<section class="proof-test-lead">
+<blockquote>"The insurer offered forty thousand and told me that was the ceiling. Okonkwo filed. Eleven months later a jury came back with just under two million."</blockquote>
+<cite>— Ray M., commercial truck collision</cite>
+</section>
+<section class="section-pad">
+<div class="section-header">
+<h2>How a case gets tried</h2>
+<p>Almost everyone who calls us is frightened of a courtroom. Most never see one — but the preparation for it is what pays.</p>
+</div>
+<div class="process-grid">
+<div class="process-item"><span class="step">1</span><h3>The case review</h3><p>Free, unhurried, and honest about what your case is worth. If it belongs with a different firm we will say so on that call.</p></div>
+<div class="process-item"><span class="step">2</span><h3>Discovery</h3><p>Depositions, maintenance records, black-box data, internal email. This is the stage that separates a nuisance offer from a real one.</p></div>
+<div class="process-item"><span class="step">3</span><h3>The demand</h3><p>Everything discovery produced, put in front of the carrier with a number attached. Most cases end here — at a price set by what we found.</p></div>
+<div class="process-item"><span class="step">4</span><h3>Trial</h3><p>If the number is not serious, we pick a jury. Thirty-one times so far, which is precisely why the numbers usually are serious.</p></div>
+</div>
+</section>
+<section class="closing-cta">
+<h2>Been told what your case is worth?</h2>
+<p>Get a second read before you sign anything. Free, no obligation, and we will tell you honestly if the offer in front of you is already fair.</p>
+<a class="btn-primary" href="tel:+15553164020" style="background:var(--on-accent); color:var(--accent); border:none;">Talk to a trial lawyer</a>
+<div class="note">No fee unless we recover for you. Consultations at our office, your home, or the hospital.</div>
+</section>
+<footer class="footer">Attorney advertising. Prior results do not guarantee a similar outcome.</footer>
+</div></div>
+</body>
+</html>

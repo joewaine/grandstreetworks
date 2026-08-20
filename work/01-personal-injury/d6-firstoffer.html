@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="robots" content="noindex"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="../_assets/fonts/e0a444ef5fe6.css" rel="stylesheet"/>
+<style>
+        :root {
+            --pitch-bg: #050505;
+            --pitch-text: #F3F3F3;
+            --pitch-muted: #666;
+            --pitch-accent: #E0D4FF;
+            --pitch-border: #222;
+        }
+
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background: var(--pitch-bg); color: var(--pitch-text); font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        
+        .pitch-header {
+            padding: 4rem 2rem; border-bottom: 1px solid var(--pitch-border);
+            max-width: 1600px; margin: 0 auto;
+        }
+        .pitch-header h1 { font-family: 'Space Grotesk', sans-serif; font-size: 3rem; letter-spacing: -0.05em; margin-bottom: 1rem; }
+        .pitch-header p { color: var(--pitch-muted); font-size: 1.1rem; max-width: 600px; line-height: 1.5; }
+
+        .direction-section { border-bottom: 1px solid var(--pitch-border); }
+        .direction-meta {
+            padding: 4rem 2rem; max-width: 1600px; margin: 0 auto;
+            display: grid; grid-template-columns: 1fr 2fr; gap: 4rem;
+        }
+        
+        .meta-title h2 { font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; letter-spacing: -0.03em; margin-bottom: 0.5rem; color: var(--pitch-accent); }
+        .meta-title .rationale { font-size: 1.1rem; color: var(--pitch-text); margin-bottom: 2rem; line-height: 1.4; }
+        .meta-title .callout { background: rgba(224, 212, 255, 0.1); border-left: 3px solid var(--pitch-accent); padding: 1.5rem; font-size: 0.95rem; line-height: 1.5; }
+        .meta-title .callout strong { display: block; margin-bottom: 0.5rem; font-family: 'Space Grotesk', sans-serif; letter-spacing: 0; }
+
+        .meta-details { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; font-size: 0.85rem; color: var(--pitch-muted); }
+        .meta-details h3 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--pitch-text); margin-bottom: 1rem; border-bottom: 1px solid var(--pitch-border); padding-bottom: 0.5rem; }
+        .meta-list { list-style: none; }
+        .meta-list li { margin-bottom: 0.5rem; display: flex; justify-content: space-between; }
+        .meta-list span { color: var(--pitch-text); }
+        
+        .palette-swatches { display: flex; gap: 0.5rem; margin-top: 0.5rem; }
+        .swatch { width: 1.5rem; height: 1.5rem; border-radius: 2px; border: 1px solid rgba(255,255,255,0.1); }
+
+        .showcase-area {
+            background: #000; padding: 4rem 2rem;
+            display: flex; flex-direction: column; align-items: center; gap: 4rem;
+        }
+        .showcase-label { font-family: 'Space Grotesk', sans-serif; color: var(--pitch-muted); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; margin-bottom: 1rem; text-align: center; }
+        
+        
+        .device-desktop { width: 100%; max-width: 1400px; background: #fff; border: 1px solid var(--pitch-border); border-radius: 8px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+        .device-mobile { width: 390px; background: #fff; border: 12px solid #111; border-radius: 40px; overflow: hidden; height: 844px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+        
+        
+        .vc-canvas { container-type: inline-size; width: 100%; height: 100%; overflow-y: auto; background: var(--bg); color: var(--text); font-family: var(--font-body); -webkit-font-smoothing: antialiased; }
+        .vc-canvas::-webkit-scrollbar { width: 0; }
+
+        
+        .vc-app { display: flex; flex-direction: column; min-height: 100vh; }
+        
+        
+        .vc-app h1, .vc-app h2, .vc-app h3 { font-family: var(--font-display); line-height: 1.1; margin: 0; font-weight: var(--weight-display, 700); }
+        .vc-app p { margin: 0; line-height: 1.5; }
+        .vc-app a { color: inherit; text-decoration: none; }
+        .vc-app button, .vc-app .btn { 
+            font-family: var(--font-body); font-weight: 600; cursor: pointer; border: none; 
+            display: inline-flex; align-items: center; justify-content: center;
+            transition: opacity 0.2s; 
+        }
+        .vc-app .btn:hover { opacity: 0.8; }
+
+        
+        .topbar { background: var(--accent); color: var(--on-accent); text-align: center; font-size: 0.75rem; font-weight: 600; padding: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .footer { background: var(--surface); border-top: 1px solid var(--border); padding: 2rem; text-align: center; font-size: 0.8rem; color: var(--muted); }
+
+        
+        .pad-x { padding-left: 2rem; padding-right: 2rem; }
+        .pad-y { padding-top: 5rem; padding-bottom: 5rem; }
+        @container (max-width: 600px) {
+            .pad-x { padding-left: 1.25rem; padding-right: 1.25rem; }
+            .pad-y { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+        }
+
+        
+        .nav-inline { display: flex; justify-content: space-between; align-items: center; padding-top: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+        .nav-inline .links { display: flex; gap: 2rem; font-size: 0.9rem; font-weight: 500; }
+        .nav-inline .logo { font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; }
+        
+        .nav-centered { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; padding-top: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+        .nav-centered .logo { font-family: var(--font-display); font-size: 2rem; font-weight: 800; }
+        .nav-centered .links { display: flex; gap: 2.5rem; font-size: 0.9rem; font-weight: 500; }
+        
+        .nav-minimal { display: flex; justify-content: space-between; align-items: center; padding-top: 1.5rem; padding-bottom: 1.5rem; }
+        .nav-minimal .links { display: none; }
+        .nav-minimal .logo { font-family: var(--font-display); font-size: 1.25rem; font-weight: 800; }
+
+        .nav-bar { background: var(--surface); padding-top: 1rem; padding-bottom: 1rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
+        .nav-bar .logo { font-family: var(--font-display); font-size: 1.2rem; font-weight: bold; background: var(--text); color: var(--bg); padding: 0.25rem 0.75rem; }
+        .nav-bar .links { display: flex; gap: 1.5rem; font-size: 0.85rem; }
+
+        @container (max-width: 600px) {
+            .nav-inline .links, .nav-centered .links, .nav-bar .links { display: none; }
+            .nav-centered { flex-direction: row; justify-content: space-between; padding-top: 1rem; padding-bottom: 1rem; }
+        }
+
+        
+        .hero { position: relative; }
+        .hero .eyebrow { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 1.5rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; }
+        .hero .eyebrow::before { content: ''; display: block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; }
+        .hero h1 { font-size: var(--h1-desk); letter-spacing: -0.04em; margin-bottom: 1.5rem; }
+        .hero .sub { font-size: 1.25rem; color: var(--muted); max-width: 600px; margin-bottom: 2.5rem; line-height: 1.6; }
+        .hero .ctas { display: flex; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap; }
+        .hero .btn-primary { background: var(--text); color: var(--bg); padding: 1rem 2rem; font-size: 1.1rem; border-radius: var(--radius-btn); }
+        .hero .btn-secondary { background: transparent; border: 1px solid var(--border); color: var(--text); padding: 1rem 2rem; font-size: 1.1rem; border-radius: var(--radius-btn); }
+        .hero .badges { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+        .hero .badges span { font-size: 0.75rem; text-transform: uppercase; padding: 0.4rem 0.8rem; border: 1px solid var(--border); border-radius: 100px; color: var(--muted); }
+
+        .hero-split { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; align-items: center; }
+        .hero-split .right-col { border-left: 1px solid var(--border); padding-left: 4rem; display: flex; flex-direction: column; justify-content: center; height: 100%; }
+        
+        .hero-band { background: var(--surface); border-bottom: 1px solid var(--border); text-align: center; display: flex; flex-direction: column; align-items: center; }
+        .hero-band h1 { max-width: 900px; }
+        .hero-band .ctas { justify-content: center; }
+        .hero-band .badges { justify-content: center; }
+
+        .hero-fullbleed { padding-top: 8rem; padding-bottom: 8rem; }
+        .hero-fullbleed h1 { font-size: calc(var(--h1-desk) * 1.2); max-width: 1200px; line-height: 0.95; letter-spacing: -0.06em; text-transform: uppercase; }
+
+        .hero-stack { display: flex; flex-direction: column; text-align: center; align-items: center; }
+        .hero-stack h1 { max-width: 1000px; }
+        .hero-stack .ctas { justify-content: center; }
+        .hero-stack .badges { justify-content: center; }
+
+        .hero-panel { padding: 4rem 0; }
+        .hero-panel .panel-inner { background: var(--surface); border: 1px solid var(--accent); padding: 4rem; border-radius: var(--radius-card); box-shadow: 10px 10px 0 var(--border); }
+
+        @container (max-width: 600px) {
+            .hero h1 { font-size: var(--h1-mob) !important; line-height: 1.05; }
+            .hero .sub { font-size: 1.1rem; }
+            .hero .ctas { flex-direction: column; width: 100%; }
+            .hero .btn-primary, .hero .btn-secondary { width: 100%; }
+            .hero-split { grid-template-columns: 1fr; gap: 2rem; }
+            .hero-split .right-col { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 2rem; }
+            .hero-panel .panel-inner { padding: 1.5rem; box-shadow: 4px 4px 0 var(--border); }
+            .hero-fullbleed { padding-top: 4rem; padding-bottom: 4rem; }
+        }
+
+        
+        .services h2 { font-size: 2.5rem; margin-bottom: 1rem; letter-spacing: -0.03em; }
+        .services > .sub { font-size: 1.1rem; color: var(--muted); max-width: 600px; margin-bottom: 3rem; }
+
+        .serv-cards .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+        .serv-cards .item { border: 1px solid var(--border); padding: 2rem; background: var(--surface); border-radius: var(--radius-card); }
+        .serv-cards .item h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--accent); }
+
+        .serv-list .grid { display: flex; flex-direction: column; }
+        .serv-list .item { display: grid; grid-template-columns: 300px 1fr; gap: 2rem; padding: 2rem 0; border-top: 1px solid var(--border); }
+        .serv-list .item:last-child { border-bottom: 1px solid var(--border); }
+        .serv-list .item h3 { font-size: 1.5rem; }
+
+        .serv-grid-num { counter-reset: serv-counter; }
+        .serv-grid-num .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; border-top: 1px solid var(--border); border-left: 1px solid var(--border); }
+        .serv-grid-num .item { border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 3rem; position: relative; }
+        .serv-grid-num .item::before { counter-increment: serv-counter; content: "0" counter(serv-counter); display: block; font-family: var(--font-display); font-size: 3rem; color: var(--accent); opacity: 0.5; margin-bottom: 1rem; line-height: 1; }
+        .serv-grid-num .item h3 { font-size: 1.75rem; margin-bottom: 1rem; }
+
+        .serv-tiles .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+        .serv-tiles .item { background: var(--bg); padding: 2rem; }
+        .serv-tiles .item h3 { font-size: 1.2rem; margin-bottom: 1rem; }
+
+        @container (max-width: 800px) {
+            .serv-cards .grid { grid-template-columns: 1fr; }
+            .serv-list .item { grid-template-columns: 1fr; gap: 0.5rem; padding: 1.5rem 0; }
+            .serv-grid-num .grid { grid-template-columns: 1fr; }
+            .serv-tiles .grid { grid-template-columns: 1fr; }
+            .serv-grid-num .item { padding: 2rem; }
+        }
+
+        
+        .proof { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        
+        .proof-stats .grid { display: grid; grid-template-columns: repeat(4, 1fr); text-align: center; }
+        .proof-stats .stat { padding: 3rem 1rem; border-right: 1px solid var(--border); }
+        .proof-stats .stat:last-child { border-right: none; }
+        .proof-stats .num { font-family: var(--font-display); font-size: 3rem; color: var(--accent); letter-spacing: -0.05em; margin-bottom: 0.5rem; }
+        .proof-stats .label { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
+
+        .proof-test-lead blockquote { font-family: var(--font-display); font-size: 2.5rem; line-height: 1.2; letter-spacing: -0.02em; max-width: 900px; margin: 0 auto 2rem auto; text-align: center; }
+        .proof-test-lead cite { display: block; text-align: center; font-style: normal; font-size: 1rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; }
+
+        .proof-logos .logos-wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; }
+        .proof-logos .logo-badge { font-family: var(--font-display); font-size: 1.25rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; font-weight: bold; }
+
+        .proof-wall .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+        .proof-wall .quote-card { border: 1px solid var(--border); padding: 2rem; border-radius: var(--radius-card); background: var(--bg); }
+        .proof-wall p { font-size: 1.1rem; font-style: italic; margin-bottom: 1.5rem; }
+        .proof-wall cite { font-style: normal; font-size: 0.85rem; color: var(--accent); font-weight: 600; text-transform: uppercase; }
+
+        @container (max-width: 800px) {
+            .proof-stats .grid { grid-template-columns: repeat(2, 1fr); }
+            .proof-stats .stat { border-bottom: 1px solid var(--border); }
+            .proof-stats .stat:nth-child(even) { border-right: none; }
+            .proof-test-lead blockquote { font-size: 1.5rem; text-align: left; }
+            .proof-test-lead cite { text-align: left; }
+            .proof-logos .logos-wrap { flex-direction: column; align-items: flex-start; }
+            .proof-wall .grid { grid-template-columns: 1fr; }
+        }
+
+        
+        .process h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .process > .sub { font-size: 1.1rem; color: var(--muted); max-width: 600px; margin-bottom: 3rem; }
+        .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+        .process-grid .step-num { font-family: var(--font-display); font-size: 1.5rem; color: var(--accent); margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 2px solid var(--text); display: block; }
+        .process-grid h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+        .process-grid p { font-size: 0.95rem; color: var(--muted); }
+        
+        @container (max-width: 800px) {
+            .process-grid { grid-template-columns: 1fr; gap: 2rem; }
+        }
+
+        
+        .closing { background: var(--accent); color: var(--on-accent); text-align: center; }
+        .closing h2 { font-size: 3.5rem; margin-bottom: 1rem; letter-spacing: -0.04em; }
+        .closing p { font-size: 1.25rem; max-width: 600px; margin: 0 auto 2.5rem auto; line-height: 1.4; opacity: 0.9; }
+        .closing .btn-primary { background: var(--on-accent); color: var(--accent); padding: 1.25rem 2.5rem; font-size: 1.25rem; border-radius: var(--radius-btn); margin-bottom: 2rem; }
+        .closing .note { font-size: 0.85rem; opacity: 0.7; }
+        
+        @container (max-width: 600px) {
+            .closing h2 { font-size: 2rem; }
+            .closing p { font-size: 1.1rem; }
+            .closing .btn-primary { width: 100%; }
+        }
+
+
+        
+        
+        
+        .theme-d1 {
+            --bg: #0A0A0A; --surface: #111111; --text: #FFFFFF; --accent: #E0D4FF; --muted: #888888; --on-accent: #0A0A0A; --border: #333333;
+            --font-display: 'Space Grotesk', sans-serif; --font-body: 'Inter', sans-serif;
+            --h1-desk: 4.5rem; --h1-mob: 2.5rem;
+            --radius-btn: 100px; --radius-card: 0px;
+        }
+        
+        
+        .theme-d2 {
+            --bg: #000000; --surface: #090909; --text: #FFFFFF; --accent: #C2FF00; --muted: #666666; --on-accent: #000000; --border: #222222;
+            --font-display: 'Anton', sans-serif; --font-body: 'DM Sans', sans-serif;
+            --h1-desk: 6rem; --h1-mob: 3rem; --weight-display: 400;
+            --radius-btn: 0px; --radius-card: 0px;
+        }
+
+        
+        .theme-d3 {
+            --bg: #F4F4F0; --surface: #FFFFFF; --text: #050505; --accent: #FF3300; --muted: #555555; --on-accent: #FFFFFF; --border: #050505;
+            --font-display: 'Archivo Black', sans-serif; --font-body: 'Roboto Mono', monospace;
+            --h1-desk: 4rem; --h1-mob: 2.2rem; --weight-display: 400;
+            --radius-btn: 0px; --radius-card: 0px;
+        }
+
+        
+        .theme-d4 {
+            --bg: #001524; --surface: #001B2E; --text: #FFFFFF; --accent: #FFD166; --muted: #8BA3B5; --on-accent: #001524; --border: #003055;
+            --font-display: 'Playfair Display', serif; --font-body: 'Inter', sans-serif;
+            --h1-desk: 4.5rem; --h1-mob: 2.5rem;
+            --radius-btn: 4px; --radius-card: 8px;
+        }
+
+        
+        .theme-d5 {
+            --bg: #051005; --surface: #081808; --text: #E0FFE0; --accent: #39FF14; --muted: #5A8A5A; --on-accent: #051005; --border: #1A3A1A;
+            --font-display: 'JetBrains Mono', monospace; --font-body: 'JetBrains Mono', monospace;
+            --h1-desk: 3.5rem; --h1-mob: 2rem;
+            --radius-btn: 0px; --radius-card: 0px;
+        }
+
+        
+        .theme-d6 {
+            --bg: #EAEAEA; --surface: #F5F5F5; --text: #0A0A0A; --accent: #0044FF; --muted: #666666; --on-accent: #FFFFFF; --border: #CCCCCC;
+            --font-display: 'Syne', sans-serif; --font-body: 'Archivo', sans-serif;
+            --h1-desk: 5rem; --h1-mob: 2.8rem; --weight-display: 800;
+            --radius-btn: 100px; --radius-card: 24px;
+        }
+
+    </style>
+<title>Prentice &amp; Aldana — The first offer is never the last offer</title>
+<style>
+/* --- standalone overrides: strip the pitch-deck device frame --- */
+
+html, body { margin: 0; padding: 0; width: 100%; max-width: none; }
+body { display: block; background: #fff; }
+body > * { margin: 0; }
+
+.vc-canvas { width: 100% !important; height: auto !important; min-height: 100vh;
+             overflow: visible !important; }
+
+.hero-panel .panel-plate { margin-top: 3rem; border-top: 1px solid rgba(255,209,102,.4); padding-top: 2rem; }
+        .hero-panel .panel-plate figure { margin: 0; position: relative; overflow: hidden;
+            border: 1px solid rgba(255,209,102,.55); background: #001524; }
+        .hero-panel .panel-plate img { display: block; width: 100%; aspect-ratio: 21 / 7;
+            object-fit: cover; object-position: 56% 50%; filter: contrast(1.08) saturate(.95); }
+        .hero-panel .panel-plate figure::after { content: ''; position: absolute; inset: 0;
+            background: linear-gradient(180deg, rgba(0,21,36,.25) 0%, rgba(0,21,36,.72) 100%); }
+        .hero-panel .panel-plate figcaption { position: absolute; left: 1.5rem; right: 1.5rem;
+            bottom: 1.25rem; z-index: 2; display: flex; justify-content: space-between;
+            gap: 1rem; flex-wrap: wrap; align-items: baseline; color: #FFFFFF; }
+        .hero-panel .panel-plate figcaption strong { font-family: var(--font-display); font-weight: 500; font-size: 1.15rem; }
+        .hero-panel .panel-plate figcaption span { font-size: .7rem; letter-spacing: .18em;
+            text-transform: uppercase; color: #FFD166; }
+        @media(max-width: 700px) { .hero-panel .panel-plate img { aspect-ratio: 4 / 3; } }
+</style>
+</head>
+<body>
+<div class="vc-canvas theme-d4">
+<div class="vc-app">
+<div class="topbar">Free offer review · No fee unless we win · Hablamos español</div>
+<nav class="nav-minimal pad-x">
+<div class="logo">Prentice &amp; Aldana</div>
+<div class="links"><a href="#">Services</a><a href="#">Results</a><a href="#">Process</a><a href="#">Contact</a></div>
+<a class="btn-primary" href="tel:+15555736690" style="padding: 0.5rem 1rem; border-radius: var(--radius-btn); background: var(--text); color: var(--bg);">(555) 573-6690</a>
+</nav>
+<header class="hero hero-layout pad-x pad-y hero-panel">
+<div class="panel-inner"><div class="left-col">
+<div class="eyebrow">Reviewing offers daily · Se habla español</div>
+<h1>The first offer<br/>is never<br/>the last offer.</h1>
+<p class="sub">Injury and accident claims across the state. The adjuster's opening number is an opening position, calculated on the assumption that you will take it. Almost nobody who calls a lawyer ends up settling for it.</p>
+</div>
+<div class="right-col">
+<div class="ctas">
+<a class="btn-primary" href="tel:+15555736690">Have your offer reviewed</a>
+<button class="btn-secondary">Start a free case review</button>
+</div>
+<div class="badges">
+<span>No fee unless we win</span>
+<span>Free case review</span>
+<span>Se habla español</span>
+<span>Home &amp; hospital visits</span>
+</div>
+</div>
+<div class="panel-plate">
+<figure>
+<img alt="A lit lamp over a desk telephone, rain on the window beyond" src="../_assets/hero/night.jpg"/>
+<figcaption><strong>The lamp does not go off at five.</strong><span>Desk 01 &middot; manned</span></figcaption>
+</figure>
+</div>
+</div></header>
+<section class="services serv-tiles pad-x pad-y">
+<h2>Cases we take</h2>
+<p class="sub">Already been offered something? Ring before you accept. Sometimes the offer on your table is genuinely fair, and we will be the ones to tell you so.</p>
+<div class="grid">
+<div class="item">
+<h3>Car &amp; truck accidents</h3>
+<p>Opening offers here tend to cover the vehicle and ignore the year of physiotherapy. We price the whole injury, including the part that has not happened yet.</p>
+</div>
+<div class="item">
+<h3>Workplace injury</h3>
+<p>Comp offers what the schedule says. Whether a third party owes you considerably more is a separate question that the schedule never asks.</p>
+</div>
+<div class="item">
+<h3>Slip, trip and premises</h3>
+<p>Insurers open low on premises cases because they expect no lawyer. The maintenance record usually changes the arithmetic entirely.</p>
+</div>
+<div class="item">
+<h3>Wrongful death</h3>
+<p>Never negotiated in the first weeks. Early offers in these cases are made precisely because a family is not in a position to weigh them.</p>
+</div>
+</div>
+</section>
+<section class="proof proof-layout pad-x pad-y">
+<div class="logos-wrap">
+<span class="logo-badge">State Bar Certified</span>
+<span class="logo-badge">Million Dollar Advocates Forum</span>
+<span class="logo-badge">Super Lawyers</span>
+<span class="logo-badge">AV Preeminent</span>
+<span class="logo-badge">Trial Lawyers Association</span>
+</div>
+</section>
+<section class="process pad-x pad-y">
+<h2>How the number moves</h2>
+<p class="sub">An opening offer is a negotiating position dressed up as a valuation. Here is what actually moves it.</p>
+<div class="process-grid">
+<div class="step">
+<span class="step-num">01</span>
+<h3>We read the offer</h3>
+<p>Free, fifteen minutes, and an honest read on whether the number in front of you is already fair. Sometimes it is.</p>
+</div>
+<div class="step">
+<span class="step-num">02</span>
+<h3>We price the whole injury</h3>
+<p>Future treatment, lost earnings, the work you can no longer do. Opening offers routinely count none of it.</p>
+</div>
+<div class="step">
+<span class="step-num">03</span>
+<h3>We put it in writing</h3>
+<p>A documented demand with every figure evidenced. This is the document that moves the number, and most cases end on it.</p>
+</div>
+<div class="step">
+<span class="step-num">04</span>
+<h3>We file if we must</h3>
+<p>If the answer stays unserious we file, and the carrier reprices the file the moment it has a court date on it.</p>
+</div>
+</div>
+</section>
+<section class="closing pad-x pad-y">
+<h2>Been offered a settlement?</h2>
+<p>Have it read before you sign. Free, fifteen minutes, and we will say plainly if the offer is already a good one.</p>
+<a class="btn-primary" href="tel:+15555736690">Have your offer reviewed</a>
+<p class="note">No fee unless we recover for you. Free offer reviews, home and hospital visits available.</p>
+</section>
+<footer class="footer">
+                Attorney advertising. Prior results do not guarantee a similar outcome.
+            </footer>
+</div>
+</div>
+</body>
+</html>

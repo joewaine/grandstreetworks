@@ -61,7 +61,13 @@ because the viewport is already the phone the demo was built for.
 Without JavaScript every direction is still a plain link — the preview just
 stops swapping.
 
-Regenerate those twenty pages with:
+Two industries are **photographic** sets rather than CSS-only ones —
+`01-personal-injury` today, built from `cash_rich/static2`, with real imagery,
+self-hosted fonts and no external requests at all. Their pages are built by
+`tools/build-photo-sets.py` and their per-page copy lives in
+`tools/photo_copy_*.py`; their shared fonts and plates live in `work/_assets/`.
+
+Regenerate the twenty index pages with:
 
     python3 tools/build-work-index.py [--source <demos dir>]
 
