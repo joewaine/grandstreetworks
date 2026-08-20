@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kestrel Property Group — Eight percent, published, for rental property owners</title>
+<meta name="description" content="A flat eight percent to manage your rentals. No leasing markup, no maintenance mark-up, a live owner portal and a written proposal without a meeting.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Wix+Madefor+Text:wght@500;600;800&display=swap" rel="stylesheet">
+<style>
+/* D6 — THE EIGHT PERCENT ONE. hero:band nav:inline services:cards proof:logos
+   ink #12171A · surface #F2F1EC · accent #2C4A52 · muted #4D5559 · on-accent #FFFFFF
+   H1 ramp: 28/32/42/52px · Wix Madefor Text display / Archivo body, tabular numerals
+   Fixes "owner acquisition path absent": the fee is the composition. One slate band
+   states eight percent at poster scale with the rest of the owner statement ruled beneath
+   it, so the landlord's only question is answered before he has scrolled. */
+:root{--ink:#12171A;--surface:#F2F1EC;--paper:#FFFFFF;--accent:#2C4A52;--muted:#4D5559;
+--rule:rgba(18,23,26,.2);--hair:rgba(18,23,26,.1);--brass:#B08A2E;--wrap:1140px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.62 Archivo,system-ui,-apple-system,sans-serif;padding-bottom:82px;overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 18px}
+h1,h2,h3{font-family:"Wix Madefor Text",system-ui,sans-serif;font-weight:800;margin:0;
+line-height:1.12;letter-spacing:-.028em}
+a{color:inherit}
+.num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 22px;
+text-decoration:none;font-weight:600;font-size:16px;border:1px solid transparent;text-align:center;
+line-height:1.2;font-family:"Wix Madefor Text",system-ui,sans-serif}
+.btn-primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--rule)}
+.topbar{background:var(--ink);color:#D9DEE0;font-size:15px;line-height:1.4}
+.topbar .wrap{padding:8px 18px}
+.topbar b{color:#E3C377;font-weight:600}
+.nav{position:sticky;top:0;z-index:30;background:var(--surface);border-bottom:1px solid var(--hair)}
+.nav .wrap{display:flex;align-items:center;gap:10px;height:54px}
+.brand{font-family:"Wix Madefor Text",system-ui,sans-serif;font-weight:800;font-size:21px;
+text-decoration:none;line-height:1;letter-spacing:-.04em;flex:none}
+.navlinks{display:flex;gap:13px;margin-left:auto;min-width:0;overflow-x:auto;scrollbar-width:none;
+font-size:14px;color:var(--muted);font-weight:500}
+.navlinks::-webkit-scrollbar{display:none}
+.navlinks a{text-decoration:none;white-space:nowrap}
+.navlinks a:hover{color:var(--accent)}
+.navact{min-height:38px;font-size:14px;padding:0 14px;white-space:nowrap;flex:none}
+.band{background:var(--accent);color:#FFFFFF;padding:26px 0 0;
+border-bottom:6px solid var(--brass)}
+.eyebrow{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:#E3C377;
+font-weight:600;margin:0 0 12px}
+.band h1{font-size:clamp(28px,7vw,52px);max-width:15ch;color:#fff}
+.sub{font-size:16px;color:#D3DEE1;max-width:50ch;margin:13px 0 20px;line-height:1.55}
+.ctas{display:flex;flex-direction:column;gap:10px}
+.band .btn-primary{background:#fff;color:var(--accent);border-color:#fff}
+.band .btn-ghost{color:#fff;border-color:rgba(255,255,255,.5)}
+.fee{display:flex;align-items:flex-end;gap:14px;margin-top:28px;
+border-top:1px solid rgba(255,255,255,.28);padding-top:16px}
+.fee .big{font-family:"Wix Madefor Text",system-ui,sans-serif;font-weight:800;
+font-size:clamp(66px,20vw,132px);line-height:.82;letter-spacing:-.05em;color:#E3C377;
+font-variant-numeric:tabular-nums}
+.fee .cap{font-size:15px;color:#D3DEE1;padding-bottom:9px;max-width:14ch;line-height:1.35}
+.rail{display:grid;grid-template-columns:repeat(3,1fr);margin-top:16px;
+border-top:1px solid rgba(255,255,255,.28)}
+.rail div{padding:13px 10px;border-bottom:1px solid rgba(255,255,255,.28);
+border-right:1px solid rgba(255,255,255,.28)}
+.rail div:first-child{padding-left:0}
+.rail div:last-child{border-right:none;padding-right:0}
+.rail b{display:block;font-family:"Wix Madefor Text",system-ui,sans-serif;font-weight:800;
+font-size:25px;line-height:1;color:#fff;font-variant-numeric:tabular-nums}
+.rail span{display:block;font-size:13px;color:#C6D3D7;margin-top:6px;line-height:1.35}
+.badges{list-style:none;margin:0;padding:15px 0 20px;display:flex;flex-wrap:wrap;gap:7px}
+.badges li{font-size:14px;font-weight:600;border:1px solid rgba(255,255,255,.42);padding:6px 10px;
+color:#fff;font-family:"Wix Madefor Text",system-ui,sans-serif}
+.sec{padding:46px 0}
+.kicker{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);
+font-weight:600;margin:0 0 10px}
+.sec h2{font-size:clamp(26px,6.2vw,42px)}
+.lede{color:var(--muted);max-width:56ch;margin:11px 0 22px;font-size:17px}
+.cards{display:grid;gap:12px}
+.card{background:var(--paper);padding:20px 18px;border-bottom:4px solid var(--accent)}
+.card h3{font-size:20px;margin-bottom:8px}
+.card p{margin:0;color:var(--muted);font-size:16px}
+.logosec{background:var(--paper);border-top:1px solid var(--hair);
+border-bottom:1px solid var(--hair)}
+.plates{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:9px}
+.plates li{border:1px solid var(--rule);padding:15px 14px;text-align:center;
+font-family:"Wix Madefor Text",system-ui,sans-serif;font-weight:600;font-size:17px;
+color:var(--accent);letter-spacing:-.01em}
+.steps{list-style:none;margin:22px 0 0;padding:0;counter-reset:s;display:grid;gap:0}
+.steps li{counter-increment:s;padding:20px 0;border-top:1px solid var(--hair);display:grid;
+grid-template-columns:auto 1fr;gap:14px;align-items:start}
+.steps li:last-child{border-bottom:1px solid var(--hair)}
+.steps li::before{content:counter(s);font-family:"Wix Madefor Text",system-ui,sans-serif;
+font-weight:800;font-size:15px;color:#fff;background:var(--accent);width:30px;height:30px;
+display:flex;align-items:center;justify-content:center;font-variant-numeric:tabular-nums}
+.steps h3{font-size:20px;margin-bottom:6px}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+.close{background:var(--ink);color:#E7EBEC;padding:46px 0 50px;border-top:6px solid var(--brass)}
+.close h2{font-size:clamp(27px,6.6vw,46px);max-width:15ch}
+.close p{max-width:52ch;font-size:17px;color:#ADB5B8;margin:13px 0 20px}
+.close .btn-primary{background:#E3C377;color:#12171A;border-color:#E3C377}
+.close .btn-ghost{color:#E7EBEC;border-color:rgba(231,235,236,.42)}
+.note{font-size:15px;color:#9DA5A9;margin-top:20px;max-width:52ch}
+.foot{padding:32px 0;font-size:15px;color:var(--muted)}
+.foot .brand{color:var(--ink);display:inline-block;margin-bottom:11px;font-size:19px}
+.foot p{margin:0 0 9px;max-width:62ch}
+.foot a{color:var(--accent);font-weight:600}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--surface);
+border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:8px;padding:8px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:58px;
+text-decoration:none;font-weight:600;font-size:15px;text-align:center;line-height:1.2;padding:0 12px;
+font-family:"Wix Madefor Text",system-ui,sans-serif}
+.callbar .go{background:var(--accent);color:#fff}
+.callbar .tel{border:1px solid var(--rule);color:var(--ink);font-variant-numeric:tabular-nums}
+@media(max-width:559px){.navact{display:none}}
+@media(min-width:760px){
+.ctas{flex-direction:row;gap:12px}.sub{font-size:19px}.sec{padding:74px 0}.band{padding-top:46px}
+.band .bandtop{display:grid;grid-template-columns:1.06fr .94fr;gap:40px;align-items:end}
+.fee{margin-top:0;border-top:none;padding-top:0;justify-content:flex-end}
+.fee .cap{max-width:12ch;padding-bottom:14px}
+.rail div{padding:15px 16px}.rail span{font-size:14px}
+.cards{grid-template-columns:repeat(2,1fr);gap:16px}
+.plates{grid-template-columns:repeat(5,1fr)}
+.steps{grid-template-columns:1fr 1fr;column-gap:40px}
+.brand{font-size:23px}.navlinks{gap:22px;font-size:15px}.wrap{padding:0 24px}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap"><b>For owners:</b> 8% management, no hidden fees · Tenant portal →</div></div>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="#">Kestrel</a>
+  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+  <a class="btn btn-primary navact" href="#contact">Get an owner proposal</a>
+</div></header>
+<section class="band">
+  <div class="wrap bandtop">
+    <div>
+      <p class="eyebrow">For rental property owners</p>
+      <h1>Eight rentals and tired of being the plumber's first call?</h1>
+      <p class="sub">Full-service management for owners of one to two hundred doors. Eight percent, no leasing markup, no maintenance mark-up, and an owner portal where you can see everything without asking anyone.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" data-cta="primary" href="#contact">Get an owner proposal</a>
+        <a class="btn btn-ghost" href="#results">See our fees</a>
+      </div>
+    </div>
+    <div class="fee">
+      <span class="big num">8%</span>
+      <span class="cap">Flat management fee</span>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="rail">
+      <div><b class="num">0%</b><span>Maintenance mark-up</span></div>
+      <div><b class="num">1,900</b><span>Doors managed</span></div>
+      <div><b class="num">21d</b><span>Average days vacant</span></div>
+    </div>
+    <ul class="badges"><li>8% management fee</li><li>No maintenance mark-up</li><li>Owner portal, live</li><li>24/7 maintenance line</li></ul>
+  </div>
+</section>
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p>
+  <h2>What we take off you</h2>
+  <p class="lede">Everything you currently do at nine o'clock on a Sunday night.</p>
+  <div class="cards">
+    <article class="card"><h3>Leasing &amp; screening</h3><p>Marketing, showings, credit, criminal and income screening, and lease execution. No separate leasing fee — it's in the eight percent.</p></article>
+    <article class="card"><h3>Maintenance coordination</h3><p>24/7 line, vetted trades and our actual cost passed through with no mark-up. You approve anything over your threshold.</p></article>
+    <article class="card"><h3>Rent &amp; delinquency</h3><p>Collection, late notices and the eviction process where it comes to that. You get paid on the same day each month regardless.</p></article>
+    <article class="card"><h3>Owner reporting</h3><p>Live portal with statements, invoices, inspection photographs and year-end tax documents. Not a monthly PDF emailed to you.</p></article>
+  </div>
+</div></section>
+<section class="sec logosec" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <h2>Accredited &amp; insured</h2>
+  <ul class="plates"><li>NARPM Member</li><li>Licensed Brokerage</li><li>$2M E&amp;O Insurance</li><li>Fair Housing Certified</li><li>AppFolio Partner</li></ul>
+</div></section>
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p>
+  <h2>Handing over a portfolio</h2>
+  <p class="lede">Usually about three weeks from first conversation to us taking the calls.</p>
+  <ol class="steps">
+    <li><div><h3>Proposal</h3><p>We look at your properties and current rents and send a written proposal with real numbers. Free, no meeting required first.</p></div></li>
+    <li><div><h3>Onboarding</h3><p>We collect leases, deposits and keys, notify tenants, and inspect every unit with photographs so we have a documented baseline.</p></div></li>
+    <li><div><h3>Stabilise</h3><p>Rent reviews where they're due, deferred maintenance addressed, and any problem tenancies dealt with properly.</p></div></li>
+    <li><div><h3>Run it</h3><p>You look at the portal when you feel like it. We only contact you for approvals above your threshold and for anything genuinely serious.</p></div></li>
+  </ol>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>Own rentals and manage them yourself?</h2>
+  <p>Send us the addresses and we'll come back with what we'd charge and what we think the units should be renting for. No meeting required to get the number.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="#contact">Get an owner proposal</a>
+    <a class="btn btn-ghost num" href="tel:+15551583390">(555) 158-3390</a>
+  </div>
+  <p class="note">Tenants: use the tenant portal for maintenance requests and rent payments.</p>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Kestrel Property Group</a>
+  <p><a class="num" href="tel:+15551583390">(555) 158-3390</a> · Licensed brokerage · NARPM member · Equal Housing Opportunity</p>
+  <p>Kestrel Property Group is a fictional company. This page is a design demonstration only.</p>
+</div></footer>
+<div class="callbar"><a class="go" href="#contact">Get an owner proposal</a><a class="tel" href="tel:+15551583390">(555) 158-3390</a></div>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ardent Smile Studio — Cosmetic &amp; Restorative Dentistry</title>
+<meta name="description" content="Digital preview at your first consult. Veneers, implants and full-mouth restoration, with financing worked out before treatment begins.">
+<meta name="theme-color" content="#14161A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* D4 — THE SHOWCASE ONE. hero:fullbleed nav:bar services:grid-numbered proof:review-wall
+   ink #F2EFE9 · surface #14161A · accent #C9A227 · muted #A3A39D · on-accent #14161A
+   H1 ramp: 32/40/52/66px · Playfair Display display / Inter body
+   Gallery framing: the practice's own reviews are the wall, because four small
+   before-and-afters where there should be forty is the objection this answers. */
+:root{--ink:#F2EFE9;--surface:#14161A;--accent:#C9A227;--muted:#A3A39D;--on-accent:#14161A;
+--raise:#1C1F25;--rule:rgba(242,239,233,.14);--wrap:1180px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.62 Inter,system-ui,-apple-system,sans-serif;padding-bottom:80px;overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 22px}
+h1,h2,h3{font-family:"Playfair Display",Georgia,serif;font-weight:700;margin:0;line-height:1.08;
+letter-spacing:-.015em}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 26px;
+border-radius:3px;text-decoration:none;font-weight:600;font-size:17px;border:1px solid transparent}
+.btn-primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:rgba(242,239,233,.42)}
+.topbar{background:var(--raise);color:var(--muted);font-size:15px;border-bottom:1px solid var(--rule)}
+.topbar .wrap{padding:8px 22px;text-align:center}
+.nav{position:sticky;top:0;z-index:30;background:var(--raise);border-bottom:1px solid var(--rule)}
+.nav .wrap{display:flex;align-items:center;gap:12px;height:56px}
+.brand{font-family:"Playfair Display",Georgia,serif;font-weight:700;font-size:18px;
+text-decoration:none;line-height:1;flex:none}
+.brand span{color:var(--accent)}
+.navlinks{display:none;gap:22px;margin-left:auto;font-size:15px;color:var(--muted)}
+.navlinks a{text-decoration:none}
+.navlinks a:hover{color:var(--ink)}
+.navbook{min-height:42px;padding:0 14px;font-size:15px;flex:none;margin-left:auto;white-space:nowrap}
+.hero{position:relative;overflow:hidden;padding:18px 0 34px;min-height:calc(100svh - 140px);
+display:flex;align-items:flex-start;
+background:radial-gradient(120% 76% at 84% 2%,rgba(201,162,39,.20),transparent 58%),
+radial-gradient(88% 60% at 4% 98%,rgba(242,239,233,.07),transparent 62%),var(--surface)}
+.hero .wrap{position:relative}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+color:var(--accent);margin:0 0 12px}
+.hero h1{font-size:clamp(32px,8.2vw,66px);max-width:13ch}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.sub{font-size:16px;color:var(--muted);max-width:52ch;margin:12px 0 18px;line-height:1.5}
+.ctas{display:flex;flex-direction:column;gap:10px}
+.badges{display:grid;grid-template-columns:1fr 1fr;gap:8px;list-style:none;margin:22px 0 0;padding:0}
+.badges li{font-size:15px;font-weight:500;color:var(--ink);border:1px solid var(--rule);
+border-radius:3px;padding:10px 12px;text-align:center;background:rgba(242,239,233,.04)}
+.sec{padding:58px 0;border-top:1px solid var(--rule)}
+.kicker{font-size:13px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+color:var(--accent);margin:0 0 12px}
+.sec h2{font-size:clamp(28px,6vw,48px);margin-bottom:14px}
+.lede{color:var(--muted);max-width:60ch;margin:0 0 30px;font-size:17px}
+.gridnum{display:grid;gap:0;border-top:1px solid var(--rule)}
+.gn{padding:24px 0;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:56px 1fr;
+gap:16px;align-items:start}
+.gn .n{font-family:"Playfair Display",Georgia,serif;font-weight:500;font-size:34px;
+color:var(--accent);line-height:.9;font-style:italic}
+.gn h3{font-size:22px;margin-bottom:8px}
+.gn p{margin:0;color:var(--muted);font-size:16px}
+.fin{margin-top:26px;border:1px solid var(--accent);border-radius:3px;padding:20px 22px;
+display:grid;gap:4px;background:rgba(201,162,39,.08)}
+.fin b{font-family:"Playfair Display",Georgia,serif;font-weight:700;font-size:30px;
+color:var(--accent);line-height:1}
+.fin span{font-size:16px;color:var(--muted)}
+.wall{display:grid;gap:14px;margin-top:28px}
+.rev{background:var(--raise);border:1px solid var(--rule);border-radius:4px;padding:22px 20px}
+.rev p{margin:0 0 13px;font-family:"Playfair Display",Georgia,serif;font-weight:500;font-size:20px;
+line-height:1.36}
+.rev cite{font-style:normal;font-size:15px;color:var(--muted)}
+.rev cite b{color:var(--ink);font-weight:600}
+.steps{list-style:none;margin:30px 0 0;padding:0;counter-reset:s}
+.steps li{counter-increment:s;position:relative;padding:0 0 28px 44px}
+.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:29px;height:29px;
+border-radius:50%;border:1px solid var(--accent);color:var(--accent);display:flex;
+align-items:center;justify-content:center;font-family:"Playfair Display",serif;font-weight:700;
+font-size:14px}
+.steps li::after{content:"";position:absolute;left:14px;top:33px;bottom:2px;width:1px;background:var(--rule)}
+.steps li:last-child::after{display:none}
+.steps h3{font-size:20px;margin-bottom:6px}
+.steps p{margin:0;color:var(--muted);font-size:16px;max-width:60ch}
+.close{padding:62px 0;border-top:1px solid var(--rule);
+background:radial-gradient(100% 120% at 50% 0%,rgba(201,162,39,.14),transparent 62%)}
+.close h2{font-size:clamp(30px,6.8vw,54px);max-width:15ch}
+.close p{max-width:54ch;font-size:18px;color:var(--muted);margin:14px 0 24px}
+.note{font-size:15px;color:var(--muted);margin-top:20px;max-width:54ch}
+.foot{background:var(--raise);border-top:1px solid var(--rule);padding:42px 0 34px;font-size:15px;
+color:var(--muted)}
+.foot .brand{color:var(--ink);display:inline-block;margin-bottom:14px}
+.foot p{margin:0 0 10px;max-width:64ch}
+.foot a{color:var(--ink)}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--raise);padding:8px;
+border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:8px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:60px;border-radius:3px;
+text-decoration:none;font-weight:600;font-size:18px}
+.callbar .book{background:var(--accent);color:var(--on-accent)}
+.callbar .tel{border:1px solid rgba(242,239,233,.42);color:var(--ink);padding:0 18px;font-size:16px}
+@media(min-width:760px){.ctas{flex-direction:row;gap:12px}.wall{grid-template-columns:1fr 1fr;gap:18px}
+.gridnum{grid-template-columns:1fr 1fr;column-gap:44px}.sec{padding:88px 0}
+.sub{font-size:19px;line-height:1.55}.badges{display:flex;flex-wrap:wrap}.badges li{padding:10px 14px}
+.nav .wrap{height:62px}.brand{font-size:21px}.fin{display:flex;align-items:baseline;gap:14px}}
+@media(min-width:900px){.navlinks{display:flex}.navbook{margin-left:0}}
+@media(min-width:1000px){.hero{align-items:center;padding:76px 0 88px}body{padding-bottom:0}
+.callbar{display:none}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+.steps li{padding:0}.steps li::before{position:static;margin-bottom:14px}.steps li::after{display:none}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Now accepting new patients · Evening appointments available</div></div>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="#">Ardent <span>Smile Studio</span></a>
+  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+  <a class="btn btn-primary navbook" href="#contact">Book a consult</a>
+</div></header>
+<section class="hero"><div class="wrap">
+  <p class="eyebrow">Veneers · Implants · Full-mouth restoration</p>
+  <h1>See the smile <em>before</em> you commit to it.</h1>
+  <p class="sub">Digital preview at your first consult, so you know exactly what you're paying for. Veneers, implants and full-mouth restoration — with financing worked out before treatment begins.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" data-cta="primary" href="#contact">Book a consult</a>
+    <a class="btn btn-ghost" href="#results">See real results</a>
+  </div>
+  <ul class="badges"><li>Digital smile preview</li><li>0% financing available</li><li>Sedation available</li><li>Evening appointments</li></ul>
+</div></section>
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p><h2>Treatments</h2>
+  <p class="lede">Every case starts with the same thing: a scan, a preview, and a written plan with a number on it.</p>
+  <div class="gridnum">
+    <article class="gn"><div class="n">01</div><div><h3>Porcelain veneers</h3><p>Hand-layered by a master ceramist. You approve a digital preview and a trial smile before a single tooth is prepared.</p></div></article>
+    <article class="gn"><div class="n">02</div><div><h3>Dental implants</h3><p>Single tooth to full arch. Guided placement from a 3D scan, which is why they seat precisely and last.</p></div></article>
+    <article class="gn"><div class="n">03</div><div><h3>Full-mouth restoration</h3><p>For wear, bite collapse or years of patchwork dentistry. Planned as one outcome rather than a series of repairs.</p></div></article>
+    <article class="gn"><div class="n">04</div><div><h3>Whitening &amp; bonding</h3><p>The lower-commitment start. Often all somebody actually needs, and we'll say so if that's the case.</p></div></article>
+  </div>
+  <div class="fin"><b>0%</b><span>Financing available</span></div>
+</div></section>
+<section class="sec" id="results"><div class="wrap">
+  <p class="kicker">Results</p><h2>Patients on the result</h2>
+  <div class="wall">
+    <figure class="rev"><p>"The digital preview was the thing. I knew exactly what I was buying."</p><cite><b>Marcus D.</b> · Veneers</cite></figure>
+    <figure class="rev"><p>"Financing meant I could actually do it this year instead of someday."</p><cite><b>Julia P.</b> · Full-mouth</cite></figure>
+    <figure class="rev"><p>"Sedation option made a fifteen-year phobia manageable."</p><cite><b>Rob T.</b> · Implants</cite></figure>
+    <figure class="rev"><p>"Evening slots meant I never took a day off work."</p><cite><b>Nadia H.</b> · Whitening &amp; bonding</cite></figure>
+  </div>
+</div></section>
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p><h2>How treatment works</h2>
+  <p class="lede">No surprises and no moving numbers. You see the outcome and the price before anything is prepared.</p>
+  <ol class="steps">
+    <li><h3>Consult &amp; scan</h3><p>3D scan, photographs, and a conversation about what actually bothers you. About an hour.</p></li>
+    <li><h3>Digital preview</h3><p>You see your own result rendered before treatment starts, and we adjust it until you're happy.</p></li>
+    <li><h3>Written plan &amp; financing</h3><p>A fixed plan with a fixed number, plus monthly options. You take it away and think about it.</p></li>
+    <li><h3>Treatment &amp; follow-up</h3><p>Most veneer cases are two visits. We review at six months and you have a direct line throughout.</p></li>
+  </ol>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>Been thinking about it for years?</h2>
+  <p>Most of our patients had. The consult is free, there's no pressure, and you'll leave knowing what it would look like and what it would cost.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="#contact">Book a consult</a>
+    <a class="btn btn-ghost" href="tel:+15550371140">(555) 037-1140</a>
+  </div>
+  <p class="note">Free consultations. Financing from 0% APR. Evening and Saturday appointments available.</p>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Ardent <span>Smile Studio</span></a>
+  <p><a href="tel:+15550371140">(555) 037-1140</a> · Now accepting new patients · Evening appointments available</p>
+  <p>General and cosmetic dentistry · Accepting new patients</p>
+  <p>Ardent Smile Studio is a fictional practice. This page is a design demonstration only.</p>
+</div></footer>
+<div class="callbar"><a class="book" href="#contact">Book a consult</a><a class="tel" href="tel:+15550371140">(555) 037-1140</a></div>
+</body>
+</html>

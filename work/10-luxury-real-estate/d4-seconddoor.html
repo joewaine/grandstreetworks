@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hallowell &amp; Reece — Two doors: sellers, and producing agents</title>
+<meta name="description" content="Estate and architectural property representation, and a standing invitation to producing agents.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ovo&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* D4 — THE SECOND DOOR ONE. hero:panel nav:bar services:tiles proof:review-wall
+   paper #F2ECE1 · surface #141310 · accent #D9A273 · muted #ADA294 · on-accent #141310
+   H1 ramp: 32/38/50/62px · Ovo display / Manrope body
+   Device: the plate wall lit on charcoal, and a second door — the agent tile is given
+   the same weight as the seller offer instead of a careers link with a bare form. */
+:root{--ink:#F2ECE1;--surface:#141310;--accent:#D9A273;--muted:#ADA294;--on-accent:#141310;
+--panel:#1C1A16;--tile:#211E19;--rule:rgba(242,236,225,.28);--hair:rgba(242,236,225,.14);
+--wrap:1160px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.65 Manrope,system-ui,-apple-system,sans-serif;padding-bottom:82px;overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 22px}
+h1,h2,h3{font-family:Ovo,Georgia,serif;font-weight:400;margin:0;line-height:1.16;letter-spacing:0}
+a{color:inherit}
+.btn{display:flex;align-items:center;justify-content:center;min-height:56px;padding:0 22px;
+text-decoration:none;font-weight:600;font-size:14px;letter-spacing:.09em;text-transform:uppercase;
+border:1px solid transparent;text-align:center;line-height:1.2}
+.btn-primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--rule)}
+.topbar{background:#0D0C0A;color:var(--muted);font-size:13px}
+.topbar .wrap{padding:9px 22px;text-align:center;letter-spacing:.14em;text-transform:uppercase}
+/* nav:bar — a solid bar, brand left, filled action right */
+.nav{position:sticky;top:0;z-index:30;background:var(--panel);border-bottom:1px solid var(--hair)}
+.nav .wrap{display:flex;align-items:center;gap:12px;height:62px}
+.brand{font-family:Ovo,Georgia,serif;font-size:21px;text-decoration:none;line-height:1;flex:none;
+letter-spacing:.01em}
+.navlinks{display:none;gap:26px;margin-left:auto;font-size:13px;letter-spacing:.18em;
+text-transform:uppercase;color:var(--muted)}
+.navlinks a{text-decoration:none}
+.navlinks a:hover{color:var(--accent)}
+.navact{min-height:42px;padding:0 16px;font-size:12px;flex:none;margin-left:auto;
+white-space:nowrap;letter-spacing:.1em}
+/* hero:panel — the whole hero sits inside one framed panel raised off the ground */
+.hero{padding:16px 0 34px}
+.panel{background:var(--panel);border:1px solid var(--hair);padding:24px 18px 28px;
+box-shadow:inset 0 0 0 1px rgba(217,162,115,.16)}
+.eyebrow{font-size:13px;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);
+margin:0 0 12px;font-weight:600}
+.hero h1{font-size:clamp(32px,8vw,62px);max-width:15ch}
+.sub{font-size:16px;color:var(--muted);max-width:54ch;margin:15px 0 20px;line-height:1.6}
+.ctas{display:grid;gap:10px}
+/* the plate wall */
+.wall{list-style:none;margin:26px 0 0;padding:22px 0 0;border-top:1px solid var(--hair);
+display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.pl{background:#F0EBE1;padding:6px 6px 3px}
+.pl .fld{display:block;position:relative;aspect-ratio:1/1;overflow:hidden;
+background:linear-gradient(155deg,#D6D0C4,#EAE5DA 60%,#DCD6C9)}
+.pl:nth-child(2) .fld{background:linear-gradient(25deg,#D2CEC6,#E9E5DC 58%,#D9D4CA)}
+.pl:nth-child(3) .fld{background:linear-gradient(195deg,#DBD4C6,#EEE9DE 55%,#D3CDC0)}
+.pl:nth-child(4) .fld{background:linear-gradient(115deg,#D4CFC5,#ECE7DD 62%,#DAD4C8)}
+.pl:nth-child(5) .fld{background:linear-gradient(175deg,#DED7C8,#EFEAE0 50%,#D2CCBF)}
+.pl:nth-child(6) .fld{background:linear-gradient(50deg,#D0CBC1,#EDE8DE 64%,#D8D2C6)}
+.pl .fld::before{content:"";position:absolute;left:0;right:0;top:64%;height:1px;
+background:rgba(20,19,16,.2)}
+.pl:nth-child(2) .fld::before{inset:24% 24%;height:auto;border:1px solid rgba(20,19,16,.22);
+background:none;top:auto}
+.pl:nth-child(3) .fld::before{left:56%;top:10%;bottom:10%;width:1px;height:auto;right:auto}
+.pl:nth-child(4) .fld::before{top:auto;bottom:0;left:0;right:52%;height:46%;
+background:rgba(20,19,16,.1)}
+.pl:nth-child(5) .fld::before{top:auto;bottom:18%;left:22%;right:22%;height:40%;
+border-radius:50% 50% 0 0;border:1px solid rgba(20,19,16,.24);background:none}
+.pl:nth-child(6) .fld::before{top:38%;left:12%;right:12%}
+.pl .n{display:block;font-size:13px;letter-spacing:.14em;color:#7A5A34;padding-top:4px;
+font-weight:600}
+.badges{list-style:none;margin:22px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.badges li{font-size:16px;color:var(--muted);border:1px solid var(--hair);padding:8px 12px}
+.badges li:last-child{color:var(--accent);border-color:rgba(217,162,115,.55)}
+.sec{padding:52px 0;border-top:1px solid var(--hair)}
+.kicker{font-size:13px;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);
+margin:0 0 12px;font-weight:600}
+.sec h2{font-size:clamp(29px,6.6vw,50px);margin-bottom:14px}
+.lede{color:var(--muted);max-width:56ch;margin:0 0 30px;font-size:17px}
+/* services:tiles */
+.tiles{display:grid;gap:10px}
+.tile{background:var(--tile);padding:24px 20px 26px;border-top:1px solid var(--hair)}
+.tile h3{font-size:22px;margin-bottom:10px;line-height:1.22}
+.tile p{margin:0;color:var(--muted);font-size:16px}
+.tile.door{background:var(--accent);color:var(--on-accent);border-top:none;padding:28px 20px 30px}
+.tile.door h3{color:var(--on-accent);font-size:26px}
+.tile.door p{color:#3A2A17}
+.tile.door .doorlink{display:inline-flex;align-items:center;min-height:52px;margin-top:16px;
+padding:0 20px;background:var(--on-accent);color:var(--accent);text-decoration:none;font-weight:600;
+font-size:14px;letter-spacing:.09em;text-transform:uppercase}
+/* proof:review-wall */
+.reviews{display:grid;gap:10px;margin-top:8px}
+.rev{background:var(--panel);padding:22px 18px;border-left:2px solid var(--accent)}
+.rev p{margin:0;font-family:Ovo,Georgia,serif;font-size:19px;line-height:1.4}
+.rev cite{display:block;margin-top:12px;font-style:normal;font-size:16px;color:var(--muted)}
+/* process */
+.steps{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:0}
+.steps li{display:grid;grid-template-columns:44px 1fr;gap:14px;padding:22px 0;
+border-bottom:1px solid var(--hair)}
+.steps li:first-child{border-top:1px solid var(--rule)}
+.steps .sn{font-size:13px;letter-spacing:.16em;color:var(--accent);font-weight:600;padding-top:6px}
+.steps h3{font-size:20px;margin-bottom:7px}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+.close{background:var(--panel);padding:54px 0 60px;border-top:1px solid var(--hair)}
+.close h2{font-size:clamp(30px,6.8vw,52px);max-width:17ch}
+.close p{max-width:54ch;font-size:18px;color:var(--muted);margin:16px 0 24px}
+.note{font-size:16px;color:var(--accent);margin-top:22px;max-width:56ch}
+.foot{padding:38px 0 34px;font-size:16px;color:var(--muted)}
+.foot .brand{color:var(--ink);display:inline-block;margin-bottom:14px}
+.foot p{margin:0 0 10px;max-width:66ch}
+.foot a{color:var(--accent)}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--panel);padding:8px;
+border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:8px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:60px;
+text-decoration:none;font-weight:600;font-size:13px;letter-spacing:.09em;text-transform:uppercase;
+text-align:center;line-height:1.2;padding:0 10px}
+.callbar .go{background:var(--accent);color:var(--on-accent)}
+.callbar .tel{border:1px solid var(--rule);color:var(--ink);padding:0 16px;letter-spacing:.03em;
+text-transform:none;font-size:16px}
+@media(max-width:559px){.navact{display:none}}
+@media(min-width:760px){.ctas{grid-template-columns:auto auto;justify-content:start}
+.tiles{grid-template-columns:repeat(3,1fr)}.tile.door{grid-column:1/-1}
+.reviews{grid-template-columns:1fr 1fr}.sec{padding:86px 0}.hero{padding:34px 0 62px}
+.panel{padding:46px 44px 50px}.sub{font-size:19px}.wall{grid-template-columns:repeat(6,1fr)}
+.steps{grid-template-columns:1fr 1fr;column-gap:52px}
+.steps li:nth-child(2){border-top:1px solid var(--rule)}
+.brand{font-size:24px}.navact{font-size:13px}}
+@media(min-width:940px){.navlinks{display:flex}.navact{margin-left:0}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Private client services · Now recruiting producing agents</div></div>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="#">Hallowell &amp; Reece</a>
+  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+  <a class="btn btn-primary navact" href="#contact">Request a valuation</a>
+</div></header>
+<section class="hero"><div class="wrap"><div class="panel">
+  <p class="eyebrow">Estates &amp; architectural properties</p>
+  <h1>Your house deserves better than six photographs.</h1>
+  <p class="sub">Estate and architectural property representation. Every listing gets professional photography, film, floor plans and a dedicated page — because your buyer is comparing four properties on an iPad at eleven at night.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" data-cta="primary" href="#contact">Request a valuation</a>
+    <a class="btn btn-ghost" href="#results">View portfolio</a>
+  </div>
+  <ul class="wall" aria-hidden="true">
+    <li class="pl"><span class="fld"></span><span class="n">01</span></li>
+    <li class="pl"><span class="fld"></span><span class="n">02</span></li>
+    <li class="pl"><span class="fld"></span><span class="n">03</span></li>
+    <li class="pl"><span class="fld"></span><span class="n">04</span></li>
+    <li class="pl"><span class="fld"></span><span class="n">05</span></li>
+    <li class="pl"><span class="fld"></span><span class="n">06</span></li>
+  </ul>
+  <ul class="badges"><li>Film &amp; photography included</li><li>Dedicated listing pages</li><li>Private off-market network</li><li>Now recruiting agents</li></ul>
+</div></div></section>
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p><h2>How we represent</h2>
+  <p class="lede">Fewer listings, taken seriously. We turn down more instructions than we accept.</p>
+  <div class="tiles">
+    <article class="tile"><h3>Estate representation</h3><p>Full marketing production — photography, film, drone, floor plans and a standalone property site, all included rather than optional extras.</p></article>
+    <article class="tile"><h3>Off-market &amp; private sales</h3><p>For sellers who want discretion. A private network of qualified buyers and no public listing at any point.</p></article>
+    <article class="tile"><h3>Buyer representation</h3><p>Including access to properties never publicly listed. We represent perhaps twelve buyers at a time, deliberately.</p></article>
+    <article class="tile door"><h3>For agents — join us</h3><p>Producing agents: full marketing production on every listing you take, a real split, and no desk fees. Have a look at what we'd give you.</p><a class="doorlink" href="#contact">Now recruiting agents</a></article>
+  </div>
+</div></section>
+<section class="sec" id="results"><div class="wrap">
+  <p class="kicker">Sellers, buyers and agents</p><h2>Results</h2>
+  <div class="reviews">
+    <blockquote class="rev"><p>"The listing page did the work. Buyer flew in having only seen the film."</p><cite>Robert A. — Seller, waterfront</cite></blockquote>
+    <blockquote class="rev"><p>"Found us a house that was never publicly listed."</p><cite>The Ohanians — Buyers</cite></blockquote>
+    <blockquote class="rev"><p>"Moved my book here for the marketing production alone."</p><cite>Simone C. — Agent, 2 years in</cite></blockquote>
+    <blockquote class="rev"><p>"Sold in 31 days at 99% of ask in a slow quarter."</p><cite>D. Whitlock — Seller, estate</cite></blockquote>
+  </div>
+</div></section>
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p><h2>Selling with us</h2>
+  <p class="lede">The production work happens before a single buyer sees the property, which is why the first two weeks matter most.</p>
+  <ol class="steps">
+    <li><span class="sn">01</span><div><h3>Valuation &amp; strategy</h3><p>A considered opinion of value with the comparable evidence behind it, and a frank view on timing.</p></div></li>
+    <li><span class="sn">02</span><div><h3>Production</h3><p>Photography, film, drone, floor plans and copy. Usually ten to fourteen days, and it is the reason the rest works.</p></div></li>
+    <li><span class="sn">03</span><div><h3>Launch</h3><p>A dedicated property page, the private network first, then public portals. Sequenced deliberately, not simultaneously.</p></div></li>
+    <li><span class="sn">04</span><div><h3>Negotiate &amp; close</h3><p>Qualified buyers only, and we manage inspection and appraisal so the deal survives to closing.</p></div></li>
+  </ol>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>Selling, buying, or thinking about your next move?</h2>
+  <p>A valuation conversation commits you to nothing and is genuinely useful even if you decide to stay put for another five years.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="#contact">Request a valuation</a>
+    <a class="btn btn-ghost" href="tel:+15551470180">(555) 147-0180</a>
+  </div>
+  <p class="note">Producing agents: ask about our marketing production and split structure.</p>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Hallowell &amp; Reece</a>
+  <p><a href="tel:+15551470180">(555) 147-0180</a> · Private client services · Now recruiting producing agents</p>
+  <p>Estate &amp; architectural property · Licensed brokerage · Equal Housing Opportunity</p>
+  <p>Hallowell &amp; Reece is a fictional brokerage. This page is a design demonstration only.</p>
+</div></footer>
+<div class="callbar"><a class="go" href="#contact">Request a valuation</a><a class="tel" href="tel:+15551470180">(555) 147-0180</a></div>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ardsley Wealth Partners — fee-only fiduciary advice for two generations</title>
+<meta name="description" content="Fee-only fiduciary advice for families and business owners. We meet your adult children at no additional cost.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Assistant:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* D3 — THE HANDOVER ONE. hero:band nav:bar services:cards proof:testimonial-lead
+   ink #16191B · surface #F3F2EE · accent #24486B · muted #565B60 · on-accent #FFFFFF
+   H1 ramp: 30/35/44/54px · PT Serif display / Assistant body
+   Fixes nothing speaking to the next generation: the family that says its previous
+   adviser never spoke to the children leads the proof, the next-generation service is
+   the one filled card, and the fee statement under the band is what the children read
+   first. Two generations addressed on one page without a word of new copy. */
+:root{--ink:#16191B;--surface:#F3F2EE;--accent:#24486B;--muted:#565B60;--on-accent:#FFFFFF;
+--card:#FFFFFF;--rule:rgba(22,25,27,.26);--hair:rgba(22,25,27,.12);--wrap:1080px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.68 "Assistant",system-ui,-apple-system,sans-serif;padding-bottom:82px;overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"PT Serif",Georgia,"Times New Roman",serif;font-weight:700;margin:0;
+line-height:1.18;letter-spacing:-.01em}
+a{color:inherit}
+p{margin:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 24px;
+text-decoration:none;font-weight:700;font-size:16px;border:2px solid transparent;text-align:center;
+line-height:1.25}
+.btn-primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.btn-ghost{background:transparent;color:var(--accent);border-color:var(--accent)}
+.micro{font-size:13px;letter-spacing:.19em;text-transform:uppercase;font-weight:700;color:var(--accent)}
+.topbar{background:var(--surface);color:var(--muted);font-size:15px;border-bottom:1px solid var(--hair)}
+.topbar .wrap{padding:8px 20px;text-align:center;letter-spacing:.05em}
+/* nav:bar — one solid rail, sticky */
+.nav{position:sticky;top:0;z-index:30;background:var(--ink);color:#EDEEEF}
+.nav .wrap{display:flex;align-items:center;gap:12px;min-height:58px}
+.brand{font-family:"PT Serif",Georgia,serif;font-weight:700;font-size:19px;text-decoration:none;
+flex:none;line-height:1.15;letter-spacing:.005em}
+.navlinks{display:none;gap:24px;margin-left:auto;font-size:16px;color:#BFC4C8}
+.navlinks a{text-decoration:none}
+.navlinks a:hover{color:#fff}
+.navact{min-height:40px;padding:0 14px;font-size:15px;flex:none;margin-left:auto;background:#fff;
+color:var(--ink);border-color:#fff}
+/* hero:band — a reversed band carries the claim, the answer sits on paper below it */
+.band{background:var(--accent);color:#fff;padding:26px 0 28px}
+.band .micro{color:#A9C0D9;margin-bottom:11px}
+.band h1{color:#fff;font-size:clamp(30px,7.6vw,54px);max-width:15ch}
+.herobody{padding:26px 0 40px}
+.sub{font-size:16.5px;color:var(--muted);max-width:56ch;margin:0 0 22px;line-height:1.6}
+.ctas{display:flex;flex-direction:column;gap:11px;max-width:420px}
+.badges{list-style:none;display:flex;flex-wrap:wrap;gap:9px;margin:22px 0 0;padding:0}
+.badges li{font-size:15px;color:var(--ink);background:#fff;border:1px solid var(--hair);
+padding:7px 13px;border-radius:999px}
+/* the fee statement */
+.statement{margin-top:28px;background:#fff;border-top:5px solid var(--accent);
+border-bottom:1px solid var(--hair);padding:20px;max-width:620px}
+.statement .micro{display:block;margin-bottom:12px}
+.rows{list-style:none;margin:0;padding:0}
+.rows li{display:grid;grid-template-columns:104px 1fr;gap:14px;align-items:baseline;padding:11px 0;
+border-bottom:1px solid var(--hair)}
+.rows b{font-family:"PT Serif",Georgia,serif;font-weight:700;font-size:22px;color:var(--accent);
+font-variant-numeric:tabular-nums;line-height:1.1}
+.rows span{font-size:16px;color:var(--muted)}
+.note{font-size:15px;color:var(--muted);margin-top:14px;line-height:1.55}
+.sec{padding:52px 0}
+.sec h2{font-size:clamp(27px,6vw,40px);margin:10px 0 0;max-width:20ch}
+.lede{color:var(--muted);max-width:62ch;margin:14px 0 0;font-size:17px}
+/* services:cards */
+.cards{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:14px}
+.cards li{background:var(--card);border:1px solid var(--hair);border-top:3px solid var(--accent);
+padding:22px 20px 24px}
+.cards h3{font-size:22px;margin-bottom:9px}
+.cards p{color:var(--muted);font-size:16px}
+.cards li.next{background:var(--accent);border-color:var(--accent)}
+.cards li.next h3{color:#fff}
+.cards li.next p{color:#CFDDEA}
+/* proof:testimonial-lead */
+.proof{background:#fff;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.quote{font-family:"PT Serif",Georgia,serif;font-size:clamp(21px,4.6vw,31px);line-height:1.4;
+margin:20px 0 0;max-width:24ch;font-style:italic}
+.quote::before{content:"“"}
+.quote::after{content:"”"}
+.who{margin-top:20px;font-size:16px;color:var(--muted);border-top:1px solid var(--hair);
+padding-top:14px;max-width:30ch}
+.who b{display:block;color:var(--ink);font-size:17px;font-weight:700}
+.steps{list-style:none;margin:28px 0 0;padding:0;counter-reset:s}
+.steps li{counter-increment:s;padding:20px 0 20px 0;border-top:1px solid var(--hair);
+display:grid;grid-template-columns:auto 1fr;gap:14px}
+.steps li::before{content:counter(s);width:34px;height:34px;border:1px solid var(--accent);
+border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--accent);
+font-family:"PT Serif",Georgia,serif;font-size:17px;flex:none}
+.steps h3{font-size:20px;margin-bottom:6px}
+.steps p{color:var(--muted);font-size:16px}
+.close{background:var(--ink);color:#fff;padding:54px 0 58px}
+.close h2{color:#fff;font-size:clamp(28px,6.4vw,44px);max-width:18ch}
+.close p{color:#C6CACD;max-width:56ch;margin:16px 0 24px;font-size:17px}
+.close .btn-primary{background:#fff;color:var(--ink);border-color:#fff}
+.close .btn-ghost{color:#fff;border-color:rgba(255,255,255,.6)}
+.close .note{color:#AFB5BA;margin-top:22px}
+.foot{padding:38px 0 34px;font-size:15px;color:var(--muted)}
+.foot .brand{color:var(--ink);display:block;margin-bottom:12px}
+.foot p{margin:0 0 9px;max-width:70ch}
+.foot a{color:var(--accent)}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:#fff;padding:8px;
+border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:8px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:60px;text-decoration:none;
+font-weight:700;font-size:15px;text-align:center;line-height:1.2;padding:0 12px}
+.callbar .book{background:var(--accent);color:#fff}
+.callbar .tel{border:2px solid var(--accent);color:var(--accent);padding:0 16px;font-size:16px}
+@media(max-width:559px){.navact{display:none}}
+@media(min-width:700px){.ctas{flex-direction:row}.sec{padding:80px 0}
+.band{padding:56px 0 58px}.herobody{padding:38px 0 64px}.sub{font-size:19px}
+.cards{grid-template-columns:1fr 1fr;gap:16px}
+.steps{display:grid;grid-template-columns:1fr 1fr;column-gap:40px}
+.rows li{grid-template-columns:130px 1fr}}
+@media(min-width:900px){.navlinks{display:flex}.navact{margin-left:0}
+.proof .wrap{display:grid;grid-template-columns:1.6fr 1fr;gap:44px;align-items:start}
+.quote{margin-top:0;max-width:none}.who{border-top:none;padding-top:0;margin-top:0}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Fee-only · Fiduciary · Registered Investment Adviser</div></div>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="#">Ardsley Wealth Partners</a>
+  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+  <a class="btn btn-primary navact" href="#contact">Arrange an introduction</a>
+</div></header>
+
+<section class="hero">
+  <div class="band"><div class="wrap">
+    <p class="micro">Fee-only fiduciary · RIA</p>
+    <h1>We are paid by you. Only ever by you.</h1>
+  </div></div>
+  <div class="herobody"><div class="wrap">
+    <p class="sub">Fee-only fiduciary advice for families and business owners. No commissions, no product sales, no third-party payments — our fee schedule is published on this page.</p>
+    <div class="ctas">
+      <a class="btn btn-primary" data-cta="primary" href="#contact">Arrange an introduction</a>
+      <a class="btn btn-ghost" href="#fees">See our fees</a>
+    </div>
+    <ul class="badges"><li>Fee-only, always</li><li>Fiduciary at all times</li><li>CFP® professionals</li></ul>
+    <div class="statement" id="fees">
+      <span class="micro">Fee schedule published</span>
+      <ul class="rows">
+        <li><b>Fee-only</b><span>No commissions, ever</span></li>
+        <li><b>$740M</b><span>Assets under advice</span></li>
+        <li><b>0.65%</b><span>Typical all-in fee</span></li>
+        <li><b>CFP®</b><span>Every adviser</span></li>
+      </ul>
+      <p class="note">Fee-only. Fiduciary. Fee schedule published. No products sold, ever.</p>
+    </div>
+  </div></div>
+</section>
+
+<section class="sec" id="services"><div class="wrap">
+  <span class="micro">Services</span>
+  <h2>How we work with families</h2>
+  <p class="lede">Planning first. Investment management matters, but it is rarely the thing that changes an outcome.</p>
+  <ul class="cards">
+    <li><h3>Financial planning</h3><p>Cash flow, tax, insurance and estate structure, reviewed annually. The plan is the product; the portfolio implements it.</p></li>
+    <li><h3>Investment management</h3><p>Low-cost, globally diversified and tax-aware. We do not attempt to time markets and we will tell you why.</p></li>
+    <li><h3>Business owners &amp; exits</h3><p>Concentrated position planning, sale structuring and what happens to a family the year after a liquidity event.</p></li>
+    <li class="next"><h3>The next generation</h3><p>We meet your adult children at no additional cost. Most families lose their adviser at inheritance; that is a failure of relationship, not returns.</p></li>
+  </ul>
+</div></section>
+
+<section class="sec proof" id="results"><div class="wrap">
+  <div>
+    <span class="micro">Results</span>
+    <p class="quote">Our previous adviser was our parents' adviser and never once spoke to us directly. Ardsley met the four of us in the first month and the conversation was completely different.</p>
+  </div>
+  <p class="who"><b>The Aldridge family</b>Clients since 2019</p>
+</div></section>
+
+<section class="sec" id="process"><div class="wrap">
+  <span class="micro">Process</span>
+  <h2>How a relationship starts</h2>
+  <p class="lede">Three conversations before anyone signs anything, and no cost until you decide to proceed.</p>
+  <ol class="steps">
+    <li><div><h3>Introduction</h3><p>Half an hour, no cost, no preparation needed. Mostly us listening and you deciding whether you like us.</p></div></li>
+    <li><div><h3>Discovery &amp; analysis</h3><p>We gather everything and analyse it properly — tax returns, statements, insurance, estate documents. Two to three weeks.</p></div></li>
+    <li><div><h3>The plan</h3><p>Presented in full, in plain English, including what we think you're doing wrong. You take it away whether or not you engage us.</p></div></li>
+    <li><div><h3>Ongoing</h3><p>Quarterly reviews, annual deep planning, and access between times without watching a clock.</p></div></li>
+  </ol>
+</div></section>
+
+<section class="close" id="contact"><div class="wrap">
+  <h2>Wondering whether you're being well advised?</h2>
+  <p>A second opinion costs nothing and takes about an hour. Half the people who come for one go back to their existing adviser reassured, and that is a fine outcome.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="#contact">Arrange an introduction</a>
+    <a class="btn btn-ghost" href="tel:+15551695540">(555) 169-5540</a>
+  </div>
+  <p class="note">Fee-only. Fiduciary. Fee schedule published. No products sold, ever.</p>
+</div></section>
+
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Ardsley Wealth Partners</a>
+  <p><a href="tel:+15551695540">(555) 169-5540</a> · Services · Results · Process · Contact</p>
+  <p>Registered Investment Adviser · Fee-only fiduciary · Form ADV available on request</p>
+  <p>Ardsley Wealth Partners is a fictional firm. This page is a design demonstration only.</p>
+</div></footer>
+<div class="callbar"><a class="book" href="#contact">Arrange an introduction</a><a class="tel" href="tel:+15551695540">(555) 169-5540</a></div>
+</body>
+</html>

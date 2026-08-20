@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vessel Architecture — Residential, cultural and adaptive reuse</title>
+<meta name="description" content="A twelve-person studio working on houses, small cultural buildings and adaptive reuse. Every project shown with the brief, the constraint and what we did about it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* D1 — THE TITLE BLOCK. hero:panel nav:inline services:list proof:testimonial-lead
+   ink #1A1C1E · surface #FBFAF8 · accent #C1272D · muted #565A5E
+   H1 ramp: 30/36/46/58px · Schibsted Grotesk 400/500/700, one grotesque throughout
+   Fixes "credibility gap between the work and its presentation": the hero is a drawing
+   sheet's title block — ruled cells, field numbers, a red issue mark — so the page is
+   drafted to the same standard as the drawings, and carries no image at all. */
+:root{--ink:#1A1C1E;--surface:#FBFAF8;--paper:#FFFFFF;--accent:#C1272D;--muted:#565A5E;
+--rule:rgba(26,28,30,.20);--hair:rgba(26,28,30,.12);--wrap:1140px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.6 "Schibsted Grotesk",system-ui,-apple-system,sans-serif;
+padding-bottom:84px;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 18px}
+h1,h2,h3{margin:0;font-weight:500;line-height:1.1;letter-spacing:-.022em}
+a{color:inherit}
+.lbl{font-size:13px;letter-spacing:.19em;text-transform:uppercase;font-weight:700;line-height:1.3}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;
+padding:0 20px;text-decoration:none;font-weight:700;font-size:16px;line-height:1.2;
+border:1.5px solid var(--ink);text-align:center}
+.btn-primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn-ghost{background:transparent;color:var(--ink)}
+.topbar{background:var(--ink);color:#D8D6D2}
+.topbar .wrap{display:flex;align-items:center;gap:10px;padding:9px 18px;font-size:14px}
+.topbar i{width:9px;height:9px;background:var(--accent);flex:none}
+.nav{position:sticky;top:0;z-index:30;background:var(--surface);border-bottom:1px solid var(--ink)}
+.navrow{display:flex;align-items:center;gap:16px;height:52px}
+.brand{font-weight:700;font-size:18px;letter-spacing:-.02em;text-decoration:none;flex:none}
+.navlinks{display:flex;gap:16px;flex:1;min-width:0;overflow-x:auto;scrollbar-width:none;
+font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+.navlinks::-webkit-scrollbar{display:none}
+.navlinks a{text-decoration:none;white-space:nowrap}
+.navact{min-height:34px;padding:0 13px;font-size:13px;white-space:nowrap;flex:none}
+/* title block */
+.hero{padding:22px 0 34px}
+.tb{border:1.5px solid var(--ink);background:var(--paper)}
+.tbtop{display:flex;align-items:center;justify-content:space-between;gap:12px;
+padding:10px 14px;border-bottom:1px solid var(--ink)}
+.tbtop .lbl{color:var(--muted)}
+.tbno{font-weight:700;font-size:13px;letter-spacing:.16em;color:var(--accent)}
+.tbmain{padding:22px 14px 20px}
+.hero h1{font-size:clamp(30px,8vw,58px);font-weight:500;max-width:15ch}
+.rulered{height:4px;background:var(--accent);width:64px;margin:18px 0 16px}
+.sub{color:var(--muted);font-size:16.5px;line-height:1.55;max-width:56ch;margin:0}
+.acts{display:grid;gap:9px;margin-top:20px}
+.tbfields{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--ink)}
+.fld{padding:11px 14px;border-bottom:1px solid var(--hair);border-right:1px solid var(--hair);
+display:flex;gap:9px;align-items:flex-start}
+.fld:nth-child(2n){border-right:0}
+.fld:nth-last-child(-n+2){border-bottom:0}
+.fldno{font-size:13px;font-weight:700;letter-spacing:.1em;color:var(--accent);flex:none;
+line-height:1.5}
+.fld span{font-size:15px;line-height:1.42}
+/* sections */
+.sec{padding:48px 0;border-top:1px solid var(--rule)}
+.sechead{display:grid;gap:10px}
+.kick{color:var(--accent)}
+.sec h2{font-size:clamp(26px,6.4vw,40px)}
+.lede{color:var(--muted);font-size:17px;max-width:58ch;margin:4px 0 0}
+.idx{list-style:none;margin:26px 0 0;padding:0;border-top:1.5px solid var(--ink)}
+.idx li{display:grid;grid-template-columns:44px 1fr;gap:10px;padding:18px 0;
+border-bottom:1px solid var(--hair)}
+.idx .n{font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--accent);
+padding-top:5px}
+.idx h3{font-size:20px;margin-bottom:6px;font-weight:700;letter-spacing:-.015em}
+.idx p{margin:0;color:var(--muted);font-size:16px}
+/* testimonial */
+.quotebox{margin-top:26px;border-left:4px solid var(--accent);padding:2px 0 2px 18px}
+.quotebox p{margin:0;font-size:clamp(20px,4.9vw,29px);line-height:1.34;font-weight:400;
+letter-spacing:-.017em}
+.cite{margin-top:16px;font-size:15px;color:var(--muted);display:block}
+.cite b{color:var(--ink);font-weight:700}
+/* process */
+.sched{list-style:none;margin:26px 0 0;padding:0;border-top:1.5px solid var(--ink)}
+.sched li{padding:18px 0;border-bottom:1px solid var(--hair)}
+.sched .n{display:block;font-size:13px;font-weight:700;letter-spacing:.16em;
+color:var(--accent);margin-bottom:6px}
+.sched h3{font-size:19px;font-weight:700;margin-bottom:5px;letter-spacing:-.012em}
+.sched p{margin:0;color:var(--muted);font-size:16px}
+/* close */
+.close{background:var(--ink);color:#E9E7E3;padding:50px 0 54px}
+.close h2{font-size:clamp(27px,6.6vw,42px);max-width:19ch;color:#fff}
+.close p{color:#CFCDC9;font-size:17px;max-width:56ch;margin:14px 0 22px}
+.close .btn-primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.close .btn-ghost{color:#fff;border-color:rgba(255,255,255,.6)}
+.note{font-size:15px;color:#BFBDB9;margin-top:18px;max-width:56ch}
+.foot{padding:34px 0 30px;font-size:15px;color:var(--muted)}
+.foot .brand{color:var(--ink);display:inline-block;margin-bottom:10px;font-size:17px}
+.foot p{margin:0 0 8px;max-width:66ch}
+.foot a{color:var(--accent);font-weight:700}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--paper);
+border-top:1.5px solid var(--ink);padding:8px;display:grid;grid-template-columns:1fr auto;gap:8px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:58px;
+text-decoration:none;font-weight:700;font-size:15px;line-height:1.2;padding:0 14px;text-align:center}
+.callbar .go{background:var(--accent);color:#fff}
+.callbar .tel{border:1.5px solid var(--ink);color:var(--ink);font-size:16px}
+@media(max-width:559px){.navact{display:none}}
+@media(min-width:760px){
+ .acts{grid-auto-flow:column;justify-content:start;gap:12px}
+ .tbmain{padding:44px 34px 36px}.tbtop{padding:12px 34px}.fld{padding:14px 34px}
+ .tbfields{grid-template-columns:repeat(4,1fr)}
+ .fld{border-bottom:0}.fld:nth-child(2n){border-right:1px solid var(--hair)}
+ .fld:last-child{border-right:0}
+ .sec{padding:80px 0}.hero{padding:34px 0 54px}
+ .idx li{grid-template-columns:70px 1fr 1fr;gap:26px}
+ .idx h3{margin-bottom:0}
+ .sched{display:grid;grid-template-columns:1fr 1fr;column-gap:44px}
+ .sub{font-size:18px}
+}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap"><i></i><span>Residential &amp; cultural work · Enquiries for 2027 open</span></div></div>
+<header class="nav"><div class="wrap"><div class="navrow">
+  <a class="brand" href="#">Vessel Architecture</a>
+  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+  <a class="btn btn-primary navact" href="#contact">Discuss a project</a>
+</div></div></header>
+
+<section class="hero"><div class="wrap"><div class="tb">
+  <div class="tbtop"><span class="lbl">Residential · Cultural · Adaptive reuse</span><span class="tbno">01</span></div>
+  <div class="tbmain">
+    <h1>The drawing is not the work.<br>
+    The thinking is.</h1>
+    <div class="rulered"></div>
+    <p class="sub">A twelve-person studio working on houses, small cultural buildings and adaptive reuse. Every project here is shown with the brief, the constraint and what we did about it — not just the finished photograph.</p>
+    <div class="acts">
+      <a class="btn btn-primary" data-cta="primary" href="#contact">Discuss a project</a>
+      <a class="btn btn-ghost" href="#results">View work</a>
+    </div>
+  </div>
+  <div class="tbfields">
+    <div class="fld"><span class="fldno">01</span><span>12-person studio</span></div>
+    <div class="fld"><span class="fldno">02</span><span>AIA registered</span></div>
+    <div class="fld"><span class="fldno">03</span><span>Full service through construction</span></div>
+    <div class="fld"><span class="fldno">04</span><span>Enquiries for 2027</span></div>
+  </div>
+</div></div></section>
+
+<section class="sec" id="services"><div class="wrap">
+  <div class="sechead">
+    <span class="lbl kick">Services</span>
+    <h2>What we take on</h2>
+    <p class="lede">Roughly eight projects at a time. We are not the cheapest and we are honest about that early.</p>
+  </div>
+  <ol class="idx">
+    <li><span class="n">01</span><div><h3>Private houses</h3></div><p>New build and substantial renovation. Typically construction budgets from $900k, where the site or the brief has genuine difficulty in it.</p></li>
+    <li><span class="n">02</span><div><h3>Adaptive reuse</h3></div><p>Industrial, agricultural and civic buildings given a second life. The constraint is the interesting part and usually the reason it works.</p></li>
+    <li><span class="n">03</span><div><h3>Cultural &amp; civic</h3></div><p>Small galleries, libraries and community buildings, including competition work and public procurement.</p></li>
+    <li><span class="n">04</span><div><h3>Feasibility &amp; pre-design</h3></div><p>Before you buy a site or commit to a scheme. A short, paid piece of work that regularly saves people a great deal.</p></li>
+  </ol>
+</div></section>
+
+<section class="sec" id="results"><div class="wrap">
+  <div class="sechead"><span class="lbl kick">Results</span></div>
+  <figure class="quotebox">
+    <p>“We interviewed five practices. Vessel were the only ones who asked what we were afraid of rather than what we wanted. The house we ended up with is nothing like what we described and exactly what we needed.”</p>
+    <cite class="cite"><b>Ingrid &amp; Tomas H.</b> · Private house, coastal site</cite>
+  </figure>
+</div></section>
+
+<section class="sec" id="process"><div class="wrap">
+  <div class="sechead">
+    <span class="lbl kick">Process</span>
+    <h2>How a commission runs</h2>
+    <p class="lede">Five stages, and we stay through the last one — which is where most of the risk actually sits.</p>
+  </div>
+  <ol class="sched">
+    <li><span class="n">01</span><h3>Feasibility</h3><p>A short paid study: what the site allows, what it will cost, and whether the idea survives contact with reality.</p></li>
+    <li><span class="n">02</span><h3>Concept</h3><p>Two or three genuinely different directions rather than one refined proposal. You choose a direction, not a drawing.</p></li>
+    <li><span class="n">03</span><h3>Developed design</h3><p>Resolved with engineers and costed properly. Permitting runs from here, and we handle it.</p></li>
+    <li><span class="n">04</span><h3>Construction</h3><p>Tender, contractor selection and site administration through to completion. We do not hand over drawings and disappear.</p></li>
+  </ol>
+</div></section>
+
+<section class="close" id="contact"><div class="wrap">
+  <h2>Have a site, or a building you don't know what to do with?</h2>
+  <p>A first conversation is free and often clarifies more than people expect. If it isn't a project for us we will say so and suggest who it is for.</p>
+  <div class="acts">
+    <a class="btn btn-primary" href="#contact">Discuss a project</a>
+    <a class="btn btn-ghost" href="tel:+15551834410">(555) 183-4410</a>
+  </div>
+  <p class="note">Enquiries for 2027 now open. Feasibility studies available as standalone work.</p>
+</div></section>
+
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Vessel Architecture</a>
+  <p>AIA registered practice · Residential, cultural and adaptive reuse · Est. 2007</p>
+  <p><a href="tel:+15551834410">(555) 183-4410</a></p>
+  <p>Vessel Architecture is a fictional practice. This page is a design demonstration only.</p>
+</div></footer>
+<div class="callbar"><a class="go" href="#contact">Discuss a project</a><a class="tel" href="tel:+15551834410">(555) 183-4410</a></div>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bellweather Dermatology — Book a skin check</title>
+<meta name="description" content="Skin checks within 2 weeks, Mohs surgery on site, most insurance accepted, and a separate cosmetic clinic.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500;600;700&family=Mada:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* D4 — THE CALENDAR ONE. hero:stack nav:minimal services:cards proof:stats
+   ink #131C24 · surface #F5F8FA · accent #4A5A66 · blue #1C5E86 · warm #8E4C2A
+   H1 ramp: 30/35/45/56px · Cabin display / Mada body
+   Fixes "appointment wait times unaddressed": one centred stack, nothing to the side of
+   it, with the wait printed above the headline as a dated slot and the two doors stacked
+   directly under it. The numbers block repeats the wait as the first stat. */
+:root{--ink:#131C24;--surface:#F5F8FA;--paper:#FFFFFF;--accent:#4A5A66;--blue:#1C5E86;
+--warm:#8E4C2A;--muted:#5A6672;--rule:rgba(19,28,36,.16);--wrap:1080px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.64 "Mada",system-ui,-apple-system,sans-serif;padding-bottom:82px;overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Cabin",system-ui,sans-serif;font-weight:700;margin:0;line-height:1.15;
+letter-spacing:-.012em}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 22px;
+text-decoration:none;font-weight:700;font-size:16px;border:1px solid transparent;text-align:center;
+line-height:1.2;font-family:"Cabin",system-ui,sans-serif}
+.btn-primary{background:var(--blue);color:#fff;border-color:var(--blue)}
+.btn-ghost{background:transparent;color:var(--accent);border-color:var(--accent)}
+.topbar{background:var(--accent);color:#E4EAEE;font-size:15px}
+.topbar .wrap{padding:9px 20px;text-align:center}
+.nav{position:sticky;top:0;z-index:30;background:var(--surface);border-bottom:1px solid var(--rule)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:54px}
+.brand{font-family:"Cabin",system-ui,sans-serif;font-weight:700;font-size:20px;text-decoration:none;
+letter-spacing:-.01em;line-height:1}
+.navact{min-height:38px;padding:0 15px;font-size:14px;white-space:nowrap}
+.hero{padding:26px 0 34px;text-align:center}
+.slot{display:inline-flex;align-items:center;gap:9px;border:1px dashed var(--blue);color:var(--blue);
+font-size:13px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;padding:8px 14px;
+margin:0 0 16px}
+.eyebrow{font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);
+margin:0 0 10px;font-weight:700}
+.hero h1{font-size:clamp(30px,7.4vw,56px);max-width:17ch;margin:0 auto}
+.sub{font-size:16px;color:var(--muted);max-width:52ch;margin:14px auto 20px;line-height:1.55}
+.doors{display:grid;gap:9px;max-width:520px;margin:0 auto}
+.door{display:grid;grid-template-columns:1fr;gap:2px;text-decoration:none;padding:13px 18px;
+background:var(--blue);color:#fff;text-align:left}
+.door.cos{background:var(--paper);color:var(--warm);border:1px solid var(--warm)}
+.door u{text-decoration:none;font-size:13px;letter-spacing:.13em;text-transform:uppercase;
+font-weight:700;opacity:.9}
+.door b{font-family:"Cabin",system-ui,sans-serif;font-size:20px;font-weight:700;line-height:1.25}
+.badges{list-style:none;margin:20px auto 0;padding:0;display:flex;flex-wrap:wrap;gap:8px;
+justify-content:center;max-width:640px}
+.badges li{font-size:15px;color:var(--accent);background:var(--paper);border:1px solid var(--rule);
+padding:7px 12px}
+.sec{padding:52px 0}
+.sechead{text-align:center;margin-bottom:28px}
+.kicker{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);
+margin:0 0 10px;font-weight:700}
+.sec h2{font-size:clamp(27px,6vw,42px)}
+.lede{color:var(--muted);max-width:58ch;margin:12px auto 0;font-size:17px}
+.cards{display:grid;gap:12px}
+.card{background:var(--paper);border-top:4px solid var(--accent);padding:22px 18px;
+box-shadow:0 1px 0 var(--rule),1px 0 0 var(--rule),-1px 0 0 var(--rule)}
+.card.cos{border-top-color:var(--warm)}
+.card h3{font-size:21px;margin-bottom:9px}
+.card h3::after{content:"";display:block;width:32px;height:2px;background:var(--blue);margin-top:9px}
+.card.cos h3::after{background:var(--warm)}
+.card p{margin:0;color:var(--muted);font-size:16px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);
+border:1px solid var(--rule);margin-top:8px}
+.stat{background:var(--paper);padding:24px 16px;text-align:center}
+.stat b{display:block;font-family:"Cabin",system-ui,sans-serif;font-size:38px;font-weight:700;
+line-height:1;color:var(--blue);letter-spacing:-.02em}
+.stat span{display:block;margin-top:9px;font-size:15px;color:var(--muted)}
+.stat:nth-child(4) b{color:var(--warm)}
+.steps{list-style:none;margin:26px 0 0;padding:0;counter-reset:s;max-width:760px;
+margin-left:auto;margin-right:auto}
+.steps li{counter-increment:s;display:grid;grid-template-columns:52px 1fr;gap:14px;padding:18px 0;
+border-top:1px solid var(--rule)}
+.steps li::before{content:"0" counter(s);font-family:"Cabin",system-ui,sans-serif;font-weight:700;
+font-size:15px;letter-spacing:.1em;color:#fff;background:var(--accent);width:38px;height:38px;
+display:flex;align-items:center;justify-content:center;border-radius:50%}
+.steps h3{font-size:20px;margin-bottom:5px}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+.close{background:var(--paper);padding:52px 0 58px;text-align:center;border-top:1px solid var(--rule)}
+.close h2{font-size:clamp(28px,6.2vw,46px);max-width:18ch;margin:0 auto}
+.close p{max-width:56ch;font-size:17px;color:var(--muted);margin:14px auto 20px}
+.ctas{display:flex;flex-direction:column;gap:10px;max-width:520px;margin:0 auto}
+.note{font-size:15px;color:var(--muted);margin:18px auto 0;max-width:56ch}
+.foot{padding:38px 0 34px;font-size:15px;color:var(--muted);background:var(--accent)}
+.foot .brand{color:#fff;display:inline-block;margin-bottom:14px}
+.foot p{margin:0 0 9px;max-width:64ch;color:#DCE3E8}
+.foot a{color:#fff;font-weight:600}
+.footnav{list-style:none;margin:0 0 16px;padding:0;display:grid;gap:0;max-width:280px}
+.footnav li{border-top:1px solid rgba(255,255,255,.24)}
+.footnav a{display:block;padding:10px 0;text-decoration:none;color:#E4EAEE;font-size:16px;
+font-weight:600}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--paper);padding:8px;
+border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:8px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:58px;text-decoration:none;
+font-weight:700;font-size:15px;text-align:center;line-height:1.2;padding:0 12px;
+font-family:"Cabin",system-ui,sans-serif}
+.callbar .book{background:var(--blue);color:#fff}
+.callbar .tel{border:1px solid var(--accent);color:var(--accent);padding:0 16px;font-size:16px}
+@media(max-width:559px){.navact{display:none}}
+@media(min-width:760px){.ctas{flex-direction:row;justify-content:center}
+.doors{grid-template-columns:1fr 1fr;max-width:none}
+.cards{grid-template-columns:1fr 1fr;gap:16px}
+.stats{grid-template-columns:repeat(4,1fr)}
+.footnav{grid-template-columns:repeat(4,1fr);max-width:none;gap:0 20px}
+.sec{padding:84px 0}.sub{font-size:19px}.hero{padding:52px 0 60px}.nav .wrap{height:62px}
+.brand{font-size:23px}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Skin checks within 2 weeks · Most insurance accepted · Cosmetic clinic on site</div></div>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="#">Bellweather</a>
+  <a class="btn btn-primary navact" href="#contact">Book a skin check</a>
+</div></header>
+<section class="hero"><div class="wrap">
+  <span class="slot">Skin checks within 2 weeks</span>
+  <p class="eyebrow">Medical · Surgical · Cosmetic</p>
+  <h1>Worried about a spot? We can see you in two weeks.</h1>
+  <p class="sub">Medical dermatology, skin cancer surgery and a separate cosmetic clinic. Two different kinds of visit, two different booking paths, so you land in the right one.</p>
+  <div class="doors">
+    <a class="door" data-cta="primary" href="#contact"><u>Medical dermatology</u><b>Book a skin check</b></a>
+    <a class="door cos" href="#contact"><u>Cosmetic clinic</u><b>Cosmetic consultations</b></a>
+  </div>
+  <ul class="badges">
+    <li>Skin checks within 2 weeks</li><li>Mohs surgery on site</li>
+    <li>Most insurance accepted</li><li>Separate cosmetic clinic</li>
+  </ul>
+</div></section>
+<section class="sec" id="services"><div class="wrap">
+  <div class="sechead">
+    <p class="kicker">Services</p>
+    <h2>Two clinics, one practice</h2>
+    <p class="lede">Medical dermatology runs on insurance and referral. The cosmetic clinic runs separately, with its own booking and published pricing.</p>
+  </div>
+  <div class="cards">
+    <article class="card"><h3>Skin cancer &amp; Mohs surgery</h3><p>Screening, biopsy and Mohs micrographic surgery on site, so diagnosis and removal don't mean two separate waits.</p></article>
+    <article class="card"><h3>Medical dermatology</h3><p>Acne, eczema, psoriasis, rosacea and hair loss. Most insurance accepted, and biologics managed in house.</p></article>
+    <article class="card"><h3>Paediatric dermatology</h3><p>Eczema, birthmarks and adolescent acne, in appointments long enough for a child to settle.</p></article>
+    <article class="card cos"><h3>Cosmetic clinic</h3><p>Injectables, lasers and medical-grade skincare, with published pricing. Booked separately from medical visits.</p></article>
+  </div>
+</div></section>
+<section class="sec" id="results"><div class="wrap">
+  <div class="sechead"><p class="kicker">Results</p><h2>The practice in numbers</h2></div>
+  <div class="stats">
+    <div class="stat"><b>2wk</b><span>Typical skin check wait</span></div>
+    <div class="stat"><b>Mohs</b><span>Surgery on site</span></div>
+    <div class="stat"><b>4.8★</b><span>Across 480 reviews</span></div>
+    <div class="stat"><b>6</b><span>Board-certified physicians</span></div>
+  </div>
+</div></section>
+<section class="sec" id="process"><div class="wrap">
+  <div class="sechead">
+    <p class="kicker">Process</p>
+    <h2>Booking the right visit</h2>
+    <p class="lede">Medical and cosmetic run on different calendars and different money. Getting this right saves you weeks.</p>
+  </div>
+  <ol class="steps">
+    <li><div><h3>Pick your clinic</h3><p>Worried about a spot, a rash or a mole? Medical. Wanting to change how your skin looks? Cosmetic. If unsure, book medical.</p></div></li>
+    <li><div><h3>Book &amp; pre-register</h3><p>Online, with insurance details taken up front, so the first visit isn't twenty minutes of paperwork.</p></div></li>
+    <li><div><h3>Be seen</h3><p>Full-body skin checks run about thirty minutes. Anything suspicious is biopsied the same visit wherever possible.</p></div></li>
+    <li><div><h3>Results &amp; plan</h3><p>Pathology back within a week, delivered by a person on the phone, with the next step already scheduled.</p></div></li>
+  </ol>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>Noticed something that's changed?</h2>
+  <p>Don't sit on it. Skin checks are booking about two weeks out and we hold urgent slots every week for exactly this reason.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="#contact">Book a skin check</a>
+    <a class="btn btn-ghost" href="tel:+15551342210">(555) 134-2210</a>
+  </div>
+  <p class="note">Most major insurance accepted. Cosmetic clinic pricing published and booked separately.</p>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Bellweather Dermatology</a>
+  <ul class="footnav"><li><a href="#services">Services</a></li><li><a href="#results">Results</a></li><li><a href="#process">Process</a></li><li><a href="#contact">Contact</a></li></ul>
+  <p><a href="tel:+15551342210">(555) 134-2210</a> · Board-certified dermatology · Mohs surgery on site · Accepting new patients</p>
+  <p>Bellweather Dermatology is a fictional practice. This page is a design demonstration only.</p>
+</div></footer>
+<div class="callbar"><a class="book" href="#contact">Book a skin check</a><a class="tel" href="tel:+15551342210">(555) 134-2210</a></div>
+</body>
+</html>

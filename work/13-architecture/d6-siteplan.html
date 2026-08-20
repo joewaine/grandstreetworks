@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vessel Architecture — Nineteen years, twelve people</title>
+<meta name="description" content="Houses, small cultural buildings and adaptive reuse, shown with the brief and the constraint. Roughly eight live projects at a time.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* D6 — THE SITE PLAN. hero:fullbleed nav:centered services:grid-numbered proof:stats
+   ink #1C1D1F · surface #F7F7F6 · accent #B8342A · muted #565A5E
+   H1 ramp: 30/35/44/56px · Onest 400/500/600/700, one grotesque throughout
+   Fixes "5MB images that load slowly and still look bad": the full-bleed opening is a
+   drafting grid and a red site boundary drawn entirely in CSS gradients and borders —
+   the whole page is about 12KB and paints instantly on a phone on site. */
+:root{--ink:#1C1D1F;--surface:#F7F7F6;--paper:#FFFFFF;--accent:#B8342A;--muted:#565A5E;
+--rule:rgba(28,29,31,.24);--hair:rgba(28,29,31,.14);--wrap:1120px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.6 "Onest",system-ui,-apple-system,sans-serif;
+padding-bottom:84px;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 18px}
+h1,h2,h3{margin:0;font-weight:600;line-height:1.1;letter-spacing:-.028em}
+a{color:inherit}
+.lbl{font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;line-height:1.35;
+display:block}
+.btn{display:flex;align-items:center;justify-content:center;min-height:54px;padding:0 20px;
+text-decoration:none;font-weight:600;font-size:16px;line-height:1.2;text-align:center;
+border:1.5px solid var(--ink)}
+.btn-primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn-ghost{background:transparent;color:var(--ink)}
+.topbar{background:var(--surface);color:var(--muted);font-size:14px;border-bottom:1px solid var(--hair)}
+.topbar .wrap{padding:9px 18px;text-align:center}
+/* centred nav */
+.nav{position:sticky;top:0;z-index:30;background:var(--surface);border-bottom:1px solid var(--rule);
+text-align:center}
+.brand{display:inline-block;font-weight:700;font-size:19px;letter-spacing:-.035em;
+text-decoration:none;padding:13px 0 9px}
+.navlinks{display:flex;justify-content:center;gap:20px;padding:0 0 10px;font-size:13px;
+letter-spacing:.13em;text-transform:uppercase;font-weight:600;color:var(--muted);
+overflow-x:auto;scrollbar-width:none}
+.navlinks::-webkit-scrollbar{display:none}
+.navlinks a{text-decoration:none;white-space:nowrap}
+/* full-bleed opening drawn as a site plan */
+.plan{position:relative;overflow:hidden;background:var(--ink);color:#fff;padding:32px 0 38px}
+.plan::before{content:"";position:absolute;inset:0;
+background:repeating-linear-gradient(90deg,rgba(255,255,255,.09) 0 1px,transparent 1px 34px),
+repeating-linear-gradient(0deg,rgba(255,255,255,.09) 0 1px,transparent 1px 34px)}
+.plan::after{content:"";position:absolute;right:-56px;top:26px;width:230px;height:230px;
+border:2px dashed rgba(184,52,42,.85);transform:rotate(-9deg)}
+.plan .wrap{position:relative;z-index:1}
+.plan .lbl{color:#DCD9D6;margin-bottom:16px}
+.plan h1{font-size:clamp(30px,7.9vw,56px);max-width:15ch}
+.northrule{width:70px;height:3px;background:var(--accent);margin:20px 0 18px}
+.plan .sub{color:#CFCDC9;font-size:16.5px;line-height:1.58;max-width:52ch;margin:0}
+.acts{display:grid;gap:9px;margin-top:22px}
+.plan .btn-ghost{color:#fff;border-color:rgba(255,255,255,.62)}
+.coords{display:grid;grid-template-columns:1fr 1fr;margin-top:28px;
+border-top:1px solid rgba(255,255,255,.28)}
+.coords div{padding:12px 0;border-bottom:1px solid rgba(255,255,255,.16);font-size:15px;
+line-height:1.4;color:#DCD9D6;display:flex;gap:9px;align-items:baseline;padding-right:12px}
+.coords b{color:#F0A79E;font-size:13px;font-weight:700;letter-spacing:.1em;flex:none}
+/* sections */
+.sec{padding:50px 0;border-top:1px solid var(--rule)}
+.kick{color:var(--accent);margin-bottom:12px}
+.sec h2{font-size:clamp(26px,6.4vw,42px)}
+.lede{color:var(--muted);font-size:17px;max-width:58ch;margin:14px 0 0}
+/* numbered matrix */
+.matrix{display:grid;margin-top:28px;border-top:1px solid var(--rule);
+border-left:1px solid var(--hair)}
+.cellitem{display:grid;grid-template-columns:52px 1fr;gap:12px;padding:20px 14px 22px;
+border-bottom:1px solid var(--hair);border-right:1px solid var(--hair);background:var(--paper)}
+.cellitem .n{font-size:20px;font-weight:700;color:var(--accent);letter-spacing:.02em;line-height:1.3}
+.cellitem h3{font-size:20px;margin-bottom:8px}
+.cellitem p{margin:0;color:var(--muted);font-size:16px}
+/* stats as a survey band */
+.survey{background:var(--ink);color:#fff;padding:36px 0 40px;margin-top:0}
+.survey .lbl{color:#DCD9D6;margin-bottom:20px}
+.surveygrid{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(255,255,255,.3)}
+.sv{padding:20px 12px 20px 0;border-bottom:1px solid rgba(255,255,255,.16)}
+.sv b{display:block;font-size:clamp(31px,8.4vw,46px);font-weight:700;letter-spacing:-.04em;
+line-height:1;color:#fff}
+.sv span{display:block;margin-top:9px;font-size:14.5px;color:#CFCDC9;line-height:1.35}
+/* process */
+.run{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:0}
+.run li{padding:18px 0 20px 18px;border-left:2px solid var(--accent);border-bottom:1px solid var(--hair)}
+.run .n{display:block;font-size:13px;font-weight:700;letter-spacing:.18em;color:var(--accent);
+margin-bottom:7px}
+.run h3{font-size:20px;margin-bottom:6px}
+.run p{margin:0;color:var(--muted);font-size:16px;max-width:50ch}
+/* close */
+.close{padding:48px 0 52px;background:var(--paper);border-top:1px solid var(--rule)}
+.close h2{font-size:clamp(28px,6.8vw,44px);max-width:19ch}
+.close p{color:var(--muted);font-size:17px;max-width:56ch;margin:16px 0 24px}
+.note{font-size:15px;color:var(--muted);margin-top:20px;max-width:56ch}
+.foot{padding:36px 0 32px;font-size:15px;color:var(--muted);border-top:1px solid var(--hair)}
+.foot .brand{color:var(--ink);padding:0;margin-bottom:10px;font-size:18px}
+.foot p{margin:0 0 8px;max-width:66ch}
+.foot a{color:var(--accent);font-weight:600}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--surface);
+border-top:1px solid var(--ink);padding:8px;display:grid;grid-template-columns:1fr auto;gap:8px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:58px;
+text-decoration:none;font-weight:600;font-size:15px;line-height:1.2;padding:0 14px;text-align:center}
+.callbar .go{background:var(--accent);color:#fff}
+.callbar .tel{border:1.5px solid var(--ink);color:var(--ink);font-size:16px}
+@media(min-width:760px){
+ .acts{grid-auto-flow:column;justify-content:start}
+ .plan{padding:64px 0 70px}.sec{padding:80px 0}.plan .sub{font-size:18px}
+ .plan::after{width:340px;height:340px;right:-70px;top:40px}
+ .coords{grid-template-columns:repeat(4,1fr);column-gap:26px}
+ .matrix{grid-template-columns:1fr 1fr}
+ .surveygrid{grid-template-columns:repeat(4,1fr);column-gap:26px}
+ .run{grid-template-columns:1fr 1fr;column-gap:46px}
+ .close{padding:78px 0 82px}
+}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Residential &amp; cultural work · Enquiries for 2027 open</div></div>
+<header class="nav">
+  <a class="brand" href="#">Vessel Architecture</a>
+  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+</header>
+
+<section class="plan"><div class="wrap">
+  <span class="lbl">Residential · Cultural · Adaptive reuse</span>
+  <h1>The drawing is not the work.<br>
+  The thinking is.</h1>
+  <div class="northrule"></div>
+  <p class="sub">A twelve-person studio working on houses, small cultural buildings and adaptive reuse. Every project here is shown with the brief, the constraint and what we did about it — not just the finished photograph.</p>
+  <div class="acts">
+    <a class="btn btn-primary" data-cta="primary" href="#contact">Discuss a project</a>
+    <a class="btn btn-ghost" href="#results">View work</a>
+  </div>
+  <div class="coords">
+    <div><b>01</b>12-person studio</div>
+    <div><b>02</b>AIA registered</div>
+    <div><b>03</b>Full service through construction</div>
+    <div><b>04</b>Enquiries for 2027</div>
+  </div>
+</div></section>
+
+<section class="sec" id="services"><div class="wrap">
+  <span class="lbl kick">Services</span>
+  <h2>What we take on</h2>
+  <p class="lede">Roughly eight projects at a time. We are not the cheapest and we are honest about that early.</p>
+  <div class="matrix">
+    <article class="cellitem"><span class="n">01</span><div><h3>Private houses</h3><p>New build and substantial renovation. Typically construction budgets from $900k, where the site or the brief has genuine difficulty in it.</p></div></article>
+    <article class="cellitem"><span class="n">02</span><div><h3>Adaptive reuse</h3><p>Industrial, agricultural and civic buildings given a second life. The constraint is the interesting part and usually the reason it works.</p></div></article>
+    <article class="cellitem"><span class="n">03</span><div><h3>Cultural &amp; civic</h3><p>Small galleries, libraries and community buildings, including competition work and public procurement.</p></div></article>
+    <article class="cellitem"><span class="n">04</span><div><h3>Feasibility &amp; pre-design</h3><p>Before you buy a site or commit to a scheme. A short, paid piece of work that regularly saves people a great deal.</p></div></article>
+  </div>
+</div></section>
+
+<section class="survey" id="results"><div class="wrap">
+  <span class="lbl">Results</span>
+  <div class="surveygrid">
+    <div class="sv"><b>12</b><span>People in the studio</span></div>
+    <div class="sv"><b>8</b><span>Live projects, max</span></div>
+    <div class="sv"><b>$900k+</b><span>Typical construction budget</span></div>
+    <div class="sv"><b>19</b><span>Years in practice</span></div>
+  </div>
+</div></section>
+
+<section class="sec" id="process"><div class="wrap">
+  <span class="lbl kick">Process</span>
+  <h2>How a commission runs</h2>
+  <p class="lede">Five stages, and we stay through the last one — which is where most of the risk actually sits.</p>
+  <ol class="run">
+    <li><span class="n">01</span><h3>Feasibility</h3><p>A short paid study: what the site allows, what it will cost, and whether the idea survives contact with reality.</p></li>
+    <li><span class="n">02</span><h3>Concept</h3><p>Two or three genuinely different directions rather than one refined proposal. You choose a direction, not a drawing.</p></li>
+    <li><span class="n">03</span><h3>Developed design</h3><p>Resolved with engineers and costed properly. Permitting runs from here, and we handle it.</p></li>
+    <li><span class="n">04</span><h3>Construction</h3><p>Tender, contractor selection and site administration through to completion. We do not hand over drawings and disappear.</p></li>
+  </ol>
+</div></section>
+
+<section class="close" id="contact"><div class="wrap">
+  <h2>Have a site, or a building you don't know what to do with?</h2>
+  <p>A first conversation is free and often clarifies more than people expect. If it isn't a project for us we will say so and suggest who it is for.</p>
+  <div class="acts">
+    <a class="btn btn-primary" href="#contact">Discuss a project</a>
+    <a class="btn btn-ghost" href="tel:+15551834410">(555) 183-4410</a>
+  </div>
+  <p class="note">Enquiries for 2027 now open. Feasibility studies available as standalone work.</p>
+</div></section>
+
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Vessel Architecture</a>
+  <p>AIA registered practice · Residential, cultural and adaptive reuse · Est. 2007</p>
+  <p><a href="tel:+15551834410">(555) 183-4410</a></p>
+  <p>Vessel Architecture is a fictional practice. This page is a design demonstration only.</p>
+</div></footer>
+<div class="callbar"><a class="go" href="#contact">Discuss a project</a><a class="tel" href="tel:+15551834410">(555) 183-4410</a></div>
+</body>
+</html>

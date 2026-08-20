@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ashgrove Homes — Design-build or builder-of-record</title>
+<meta name="description" content="Custom homes and estate builds across the valley. One contract, or alongside your own architect.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Brygada+1918:wght@400;500;600;700&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* D2 — THE ARCHITECT ONE. hero:split nav:inline services:cards proof:testimonial-lead
+   ink #211C15 · surface #FBF8F3 · accent #7C5423 · green #2F4A34 · muted #5C5A50
+   H1 ramp: 29/33/42/54px · Brygada 1918 display / Archivo body
+   Fixes "architect and designer referral path missing": the split hero carries two
+   entrances, homeowner and architect, and a builder-of-record block with its own terms
+   sits directly under the services. The referring architect is a named audience. */
+:root{--ink:#211C15;--surface:#FBF8F3;--paper:#FFFFFF;--accent:#7C5423;--green:#2F4A34;
+--muted:#5C5A50;--rule:rgba(33,28,21,.16);--wrap:1160px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.6 "Archivo",system-ui,-apple-system,sans-serif;padding-bottom:84px;overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Brygada 1918",Georgia,serif;font-weight:600;margin:0;line-height:1.16}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 22px;
+text-decoration:none;font-weight:600;font-size:16px;border:1.5px solid transparent;text-align:center;
+line-height:1.2}
+.btn-primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn-ghost{background:var(--paper);color:var(--ink);border-color:var(--ink)}
+.topbar{border-bottom:1px solid var(--rule);font-size:15px;color:var(--muted);background:#F4EFE5}
+.topbar .wrap{padding:8px 20px}
+.nav{background:var(--surface);border-bottom:2px solid var(--ink);position:sticky;top:0;z-index:30}
+.navrow{display:flex;align-items:center;gap:20px;height:60px}
+.brand{font-family:"Brygada 1918",Georgia,serif;font-weight:700;font-size:21px;text-decoration:none;
+line-height:1;flex:0 0 auto}
+.inlinks{display:flex;gap:20px;font-size:15px;overflow-x:auto;scrollbar-width:none;flex:1 1 auto}
+.inlinks::-webkit-scrollbar{display:none}
+.inlinks a{text-decoration:none;white-space:nowrap;color:var(--muted);font-weight:500;
+padding-bottom:2px;border-bottom:1.5px solid transparent}
+.inlinks a:hover{color:var(--ink);border-color:var(--accent)}
+.navact{min-height:38px;padding:0 14px;font-size:14px;white-space:nowrap;flex:0 0 auto}
+.hero{padding:26px 0 34px}
+.split{display:grid;gap:26px}
+.eyebrow{display:inline-block;font-size:13px;letter-spacing:.18em;text-transform:uppercase;
+color:#fff;background:var(--green);padding:6px 11px;margin:0 0 14px;font-weight:600}
+h1{font-size:clamp(29px,7.2vw,54px);max-width:15ch;letter-spacing:-.01em}
+.sub{font-size:16px;color:var(--muted);max-width:50ch;margin:14px 0 0;line-height:1.58}
+.ctas{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.doors{display:grid;gap:0;border:1.5px solid var(--ink);margin-top:22px;background:var(--paper)}
+.door{display:block;text-decoration:none;padding:15px 16px;border-bottom:1.5px solid var(--ink)}
+.door:last-child{border-bottom:0}
+.door .dl{display:block;font-size:13px;letter-spacing:.16em;text-transform:uppercase;
+color:var(--accent);font-weight:600;margin-bottom:5px}
+.door .dt{display:block;font-family:"Brygada 1918",Georgia,serif;font-size:19px;font-weight:600}
+.door.arch .dl{color:var(--green)}
+/* elevation drawing */
+.elev{background:var(--paper);border:1.5px solid var(--ink);padding:18px;overflow:hidden}
+.draw{position:relative;height:212px}
+.roof{position:absolute;left:0;right:0;top:0;height:74px;
+background:linear-gradient(135deg,var(--green) 0 50%,#26402C 50% 100%);
+clip-path:polygon(50% 0,100% 100%,0 100%)}
+.walls{position:absolute;left:8%;right:8%;top:74px;bottom:26px;background:#EDE4D5;
+border:1.5px solid var(--ink);display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;padding:14px}
+.walls span{background:var(--accent);opacity:.9;display:block}
+.walls span:nth-child(2){background:#B9A382}
+.ground{position:absolute;left:0;right:0;bottom:0;height:26px;
+background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 9px);opacity:.5}
+.elabel{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
+margin:14px 0 0;font-weight:600}
+.badges{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:0;border-top:1px solid var(--rule)}
+.badges li{font-size:15px;color:var(--muted);padding:9px 0;border-bottom:1px solid var(--rule)}
+.badges li::before{content:"—";color:var(--accent);margin-right:9px;font-weight:600}
+.sec{padding:52px 0;border-top:1px solid var(--rule)}
+.kicker{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);
+margin:0 0 10px;font-weight:600}
+.sec h2{font-size:clamp(28px,6.2vw,42px);max-width:18ch}
+.lede{color:var(--muted);max-width:58ch;margin:14px 0 26px;font-size:17px}
+.cards{display:grid;gap:14px}
+.card{background:var(--paper);border:1px solid var(--rule);padding:22px 20px;
+box-shadow:5px 5px 0 rgba(124,84,35,.13)}
+.card h3{font-size:22px;margin-bottom:9px}
+.card p{margin:0;color:var(--muted);font-size:16px}
+.card:nth-child(2){box-shadow:5px 5px 0 rgba(47,74,52,.16)}
+.refer{background:var(--green);color:#EFEDE3;padding:28px 22px;margin-top:26px}
+.refer h3{color:#fff;font-size:25px;margin-bottom:10px}
+.refer p{margin:0 0 14px;color:#CFDBCB;font-size:16px;max-width:56ch}
+.refer .tag{display:inline-block;font-size:13px;letter-spacing:.16em;text-transform:uppercase;
+border:1px solid rgba(239,237,227,.5);padding:6px 10px;margin-bottom:14px;font-weight:600}
+.refer .btn{background:#F0E3CE;color:#3A2A12;border-color:#F0E3CE}
+.quote{background:var(--paper);border-left:5px solid var(--accent);padding:26px 22px}
+.quote p{font-family:"Brygada 1918",Georgia,serif;font-size:clamp(21px,4.6vw,30px);line-height:1.36;
+margin:0 0 16px;font-weight:500}
+.quote cite{font-style:normal;font-size:16px;color:var(--muted)}
+.quote cite b{display:block;color:var(--ink);font-weight:600;font-size:17px}
+/* eighteen-month ladder */
+.ladder{display:grid;grid-template-columns:30px 1fr;gap:18px;margin-top:26px}
+.spine{display:grid;grid-template-rows:repeat(18,1fr);gap:3px}
+.spine i{background:#D9CDB8;display:block;border-radius:1px}
+.spine i:nth-child(4n+1){background:var(--accent)}
+.steps{list-style:none;margin:0;padding:0;counter-reset:s}
+.steps li{counter-increment:s;padding:0 0 24px}
+.steps li:last-child{padding-bottom:0}
+.steps h3{font-size:21px;margin-bottom:6px}
+.steps h3::before{content:counter(s,decimal-leading-zero) " ";color:var(--accent);font-size:15px;
+font-family:"Archivo",sans-serif;font-weight:600;letter-spacing:.08em;vertical-align:2px}
+.steps p{margin:0;color:var(--muted);font-size:16px;max-width:54ch}
+.close{background:var(--ink);color:#E8E3D8;padding:52px 0 58px}
+.close h2{color:#fff;font-size:clamp(30px,6.6vw,46px)}
+.close p{max-width:56ch;font-size:17px;color:#C9C3B5;margin:16px 0 22px}
+.close .btn-primary{background:#E7BD7E;color:#2A1D0A;border-color:#E7BD7E}
+.close .btn-ghost{background:transparent;color:#fff;border-color:rgba(232,227,216,.55)}
+.note{font-size:15px;color:#BFB8A8;margin-top:20px;max-width:58ch}
+.foot{padding:40px 0 36px;font-size:15px;color:var(--muted)}
+.foot .fbrand{font-family:"Brygada 1918",Georgia,serif;font-size:23px;font-weight:700;
+color:var(--ink);display:block;margin-bottom:12px}
+.foot p{margin:0 0 9px;max-width:64ch}
+.foot a{color:var(--accent);font-weight:600}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--paper);padding:8px;
+border-top:1.5px solid var(--ink);display:grid;grid-template-columns:1fr auto;gap:8px;
+box-shadow:0 -2px 12px rgba(33,28,21,.13)}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:58px;text-decoration:none;
+font-weight:600;font-size:15px;text-align:center;line-height:1.2;padding:0 12px}
+.callbar .go{background:var(--accent);color:#fff}
+.callbar .tel{border:1.5px solid var(--ink);color:var(--ink);padding:0 16px;font-size:16px}
+@media(max-width:559px){.navact{display:none}}
+@media(min-width:820px){
+.split{grid-template-columns:1.08fr .92fr;align-items:start;gap:44px}
+.ctas{flex-direction:row}.doors{grid-template-columns:1fr 1fr}
+.door{border-bottom:0;border-right:1.5px solid var(--ink)}.door:last-child{border-right:0}
+.cards{grid-template-columns:1fr 1fr;gap:18px}
+.badges{grid-template-columns:1fr 1fr;column-gap:28px}
+.steps{display:grid;grid-template-columns:1fr 1fr;column-gap:44px}
+.hero{padding:44px 0 60px}.sec{padding:84px 0}.sub{font-size:19px}
+.draw{height:300px}.refer{padding:40px 34px}.quote{padding:40px 36px}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Now booking 2027 · Serving the valley &amp; foothills</div></div>
+<header class="nav"><div class="wrap"><div class="navrow">
+  <a class="brand" href="#">Ashgrove Homes</a>
+  <nav class="inlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+  <a class="btn btn-primary navact" href="#contact">Arrange a conversation</a>
+</div></div></header>
+
+<section class="hero"><div class="wrap"><div class="split">
+  <div>
+    <p class="eyebrow">Custom homes from $1.2M</p>
+    <h1>Eighteen months of your life. Built by people who explain it.</h1>
+    <p class="sub">Custom homes and estate builds across the valley. Fifteen homes a year, one project manager each, and a schedule you can actually plan a life around.</p>
+    <div class="ctas">
+      <a class="btn btn-primary" data-cta="primary" href="#contact">Arrange a conversation</a>
+      <a class="btn btn-ghost" href="#results">View homes</a>
+    </div>
+    <div class="doors">
+      <a class="door" href="#services"><span class="dl">Design-build</span><span class="dt">Architecture, interiors and construction under one roof and one contract.</span></a>
+      <a class="door arch" href="#refer"><span class="dl">Builder-of-record</span><span class="dt">You have an architect you love. We build it, hold the schedule and the budget.</span></a>
+    </div>
+  </div>
+  <div>
+    <div class="elev">
+      <div class="draw" aria-hidden="true">
+        <div class="roof"></div>
+        <div class="walls"><span></span><span></span><span></span></div>
+        <div class="ground"></div>
+      </div>
+      <p class="elabel">Architect-led welcome</p>
+    </div>
+    <ul class="badges">
+      <li>Homes from $1.2M</li><li>15 builds a year</li>
+      <li>Architect-led welcome</li><li>Fixed-schedule contracts</li>
+    </ul>
+  </div>
+</div></div></section>
+
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p>
+  <h2>How we work</h2>
+  <p class="lede">Design-build if you want one contract, or as builder alongside your own architect. Both work; they run differently.</p>
+  <div class="cards">
+    <article class="card"><h3>Design-build</h3><p>Architecture, interiors and construction under one roof and one contract. Fewer gaps to fall through, one person accountable.</p></article>
+    <article class="card"><h3>Builder-of-record</h3><p>You have an architect you love. We build it, hold the schedule and the budget, and stay out of the design conversation.</p></article>
+    <article class="card"><h3>Estate &amp; acreage</h3><p>Site work, wells, septic and long driveways. The invisible half of a rural build, and the half that surprises people.</p></article>
+    <article class="card"><h3>Renovation of significant homes</h3><p>Older or architecturally notable properties, where the constraint is respecting what's there.</p></article>
+  </div>
+  <div class="refer" id="refer">
+    <span class="tag">Architect-led welcome</span>
+    <h3>Builder-of-record</h3>
+    <p>You have an architect you love. We build it, hold the schedule and the budget, and stay out of the design conversation.</p>
+    <p>Now booking 2027. Architect enquiries welcome — ask for our builder-of-record terms.</p>
+    <a class="btn" href="#contact">Arrange a conversation</a>
+  </div>
+</div></section>
+
+<section class="sec" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <figure class="quote">
+    <p>"Our architect had worked with four builders and asked for Ashgrove by name. Eighteen months later I understand exactly why — we always knew what week we were in."</p>
+    <cite><b>Robert &amp; Cai T.</b>
+      5,200 sq ft, foothills</cite>
+  </figure>
+</div></section>
+
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p>
+  <h2>Eighteen months, mapped</h2>
+  <p class="lede">For architects and homeowners both. Nobody should sign for a house without knowing this.</p>
+  <div class="ladder">
+    <div class="spine" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <ol class="steps">
+      <li><h3>Feasibility &amp; site</h3><p>Before design, we look at the land. Access, soils, utilities and setbacks decide more about cost than the floor plan does.</p></li>
+      <li><h3>Design &amp; budget together</h3><p>Costing runs alongside design rather than after it, so you never fall in love with something unaffordable.</p></li>
+      <li><h3>Contract &amp; schedule</h3><p>A fixed schedule with named milestones, and an allowance schedule that says plainly what is and isn't decided.</p></li>
+      <li><h3>Build &amp; weekly rhythm</h3><p>Site meeting every week, updated numbers every month, and a one-year warranty walkthrough after you've lived in it.</p></li>
+    </ol>
+  </div>
+</div></section>
+
+<section class="close" id="contact"><div class="wrap">
+  <h2>Have land, or looking?</h2>
+  <p>The most useful conversation happens before you buy the site. We'll walk a parcel with you and tell you what it will really cost to build on.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="#contact">Arrange a conversation</a>
+    <a class="btn btn-ghost" href="tel:+15550886120">(555) 088-6120</a>
+  </div>
+  <p class="note">Now booking 2027. Architect enquiries welcome — ask for our builder-of-record terms.</p>
+</div></section>
+
+<footer class="foot"><div class="wrap">
+  <span class="fbrand">Ashgrove Homes</span>
+  <p><a href="tel:+15550886120">(555) 088-6120</a> · Custom homes &amp; estates · Building in the valley since 1994</p>
+  <p>Ashgrove Homes is a fictional builder. This page is a design demonstration only.</p>
+</div></footer>
+
+<div class="callbar"><a class="go" href="#contact">Arrange a conversation</a><a class="tel" href="tel:+15550886120">(555) 088-6120</a></div>
+</body>
+</html>

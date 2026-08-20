@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ridgeway Search — every salary published, apply in one tap</title>
+<meta name="description" content="Specialist search for manufacturing and industrial engineering. Every role carries a real salary band and a one-tap apply.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* D1 — THE ROLE LIST ONE. hero:band nav:minimal services:tiles proof:stats
+   ink #101114 · surface #F4F4F1 · accent #1B2AFF · muted #55585F · on-accent #FFFFFF
+   H1 ramp: 32/40/54/68px · Bricolage Grotesque display / Inter Tight body
+   Device: the salary-published role list — a ruled index sitting directly under the
+   headline, every row carrying the published-band commitment and a tap that dials.
+   Fixes the FIX-list item "job board with no salary and no phone-apply". */
+:root{--ink:#101114;--surface:#F4F4F1;--accent:#1B2AFF;--muted:#55585F;--on-accent:#FFFFFF;
+--paper:#FFFFFF;--rule:rgba(16,17,20,.9);--hair:rgba(16,17,20,.16);--wrap:1120px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.55 "Inter Tight",system-ui,-apple-system,sans-serif;padding-bottom:82px;
+overflow-x:hidden;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Bricolage Grotesque","Inter Tight",system-ui,sans-serif;font-weight:800;
+margin:0;line-height:1.02;letter-spacing:-.035em}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 22px;
+text-decoration:none;font-weight:600;font-size:16px;letter-spacing:-.01em;border:2px solid transparent;
+text-align:center;line-height:1.15}
+.btn-primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.topbar{background:var(--ink);color:#F0F1F3;font-size:14px}
+.topbar .wrap{padding:8px 20px;display:flex;gap:9px;align-items:center;letter-spacing:-.005em}
+.topbar i{width:9px;height:9px;background:var(--accent);flex:none;display:block}
+.nav{position:sticky;top:0;z-index:30;background:var(--surface);border-bottom:2px solid var(--ink)}
+.nav .wrap{display:flex;align-items:center;gap:14px;height:54px}
+.brand{font-family:"Bricolage Grotesque","Inter Tight",sans-serif;font-weight:800;font-size:21px;
+text-decoration:none;letter-spacing:-.04em;flex:none;line-height:1}
+.navlinks{display:none;gap:22px;margin-left:auto;font-size:15px;font-weight:500;color:var(--muted)}
+.navlinks a{text-decoration:none}
+.navlinks a:hover{color:var(--accent)}
+.navact{min-height:38px;padding:0 14px;font-size:15px;flex:none;margin-left:auto;white-space:nowrap}
+@media(max-width:559px){.navact{display:none}}
+.hero{border-bottom:2px solid var(--ink);padding:16px 0 26px}
+.eyebrow{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);
+font-weight:600;margin:0 0 12px}
+.hero h1{font-size:clamp(32px,8.6vw,68px);max-width:17ch}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.sub{font-size:16.5px;color:var(--muted);max-width:56ch;margin:14px 0 18px;line-height:1.5}
+.ctas{display:flex;flex-direction:column;gap:9px}
+.badges{list-style:none;margin:20px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:7px}
+.badges li{font-size:13.5px;font-weight:600;letter-spacing:-.005em;border:1px solid var(--hair);
+padding:6px 10px;color:var(--ink);background:var(--paper)}
+/* the role list */
+.roles{background:var(--paper);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.roles .wrap{padding:0 20px}
+.rhead{display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+padding:14px 0 10px;border-bottom:1px solid var(--hair);font-size:13px;letter-spacing:.16em;
+text-transform:uppercase;font-weight:600}
+.rhead span:last-child{color:var(--accent)}
+.rlist{list-style:none;margin:0;padding:0}
+.rlist a{display:grid;grid-template-columns:1fr auto;gap:4px 12px;padding:14px 0;
+border-bottom:1px solid var(--hair);text-decoration:none;align-items:center}
+.rlist li:last-child a{border-bottom:none}
+.rn{font-family:"Bricolage Grotesque","Inter Tight",sans-serif;font-weight:600;font-size:19px;
+letter-spacing:-.03em;line-height:1.2}
+.rband{grid-column:1;font-size:13.5px;color:var(--muted);font-weight:500}
+.rtap{grid-row:1/3;grid-column:2;font-size:13px;font-weight:600;letter-spacing:.04em;
+text-transform:uppercase;color:var(--accent);border:2px solid var(--accent);padding:9px 11px;
+white-space:nowrap;text-align:center}
+.rlist a:hover .rtap{background:var(--accent);color:var(--on-accent)}
+.sec{padding:48px 0;border-bottom:2px solid var(--ink)}
+.kicker{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);
+font-weight:600;margin:0 0 10px}
+.sec h2{font-size:clamp(29px,7.2vw,50px);max-width:16ch}
+.lede{color:var(--muted);max-width:58ch;margin:13px 0 26px;font-size:17px}
+.tiles{display:grid;gap:10px}
+.tile{border:2px solid var(--ink);background:var(--paper);padding:20px 18px 22px}
+.tile h3{font-size:22px;margin-bottom:9px;letter-spacing:-.03em}
+.tile p{margin:0;font-size:16px;color:var(--muted)}
+.tile.lead{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.tile.lead p{color:#E4E7FF}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:2px solid var(--ink);margin-top:20px}
+.stat{padding:20px 14px 20px 0;border-bottom:1px solid var(--hair)}
+.stat:nth-child(odd){border-right:1px solid var(--hair);padding-right:14px}
+.stat:nth-child(even){padding-left:14px}
+.stat b{display:block;font-family:"Bricolage Grotesque","Inter Tight",sans-serif;font-weight:800;
+font-size:clamp(38px,10vw,62px);line-height:.9;letter-spacing:-.05em;color:var(--accent)}
+.stat span{display:block;margin-top:8px;font-size:14.5px;color:var(--muted);font-weight:500}
+.steps{list-style:none;margin:26px 0 0;padding:0;counter-reset:s;display:grid;gap:0}
+.steps li{counter-increment:s;padding:22px 0;border-top:1px solid var(--hair);
+display:grid;grid-template-columns:38px 1fr;gap:14px}
+.steps li:first-child{border-top:2px solid var(--ink)}
+.steps li::before{content:counter(s,decimal-leading-zero);font-family:"Bricolage Grotesque",sans-serif;
+font-weight:800;font-size:17px;color:var(--accent);letter-spacing:-.02em;padding-top:3px}
+.steps h3{font-size:21px;margin-bottom:7px;letter-spacing:-.03em}
+.steps p{margin:0;font-size:16px;color:var(--muted)}
+.close{background:var(--ink);color:#F0F1F3;padding:52px 0 56px}
+.close h2{font-size:clamp(31px,8vw,56px);max-width:14ch}
+.close p{max-width:52ch;font-size:17.5px;color:#B7BAC2;margin:14px 0 22px}
+.close .btn-primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.close .btn-ghost{color:#F0F1F3;border-color:#F0F1F3}
+.note{font-size:15.5px;color:#9DA1AA;margin-top:20px;max-width:52ch}
+.foot{padding:36px 0 34px;font-size:15.5px;color:var(--muted)}
+.foot .brand{color:var(--ink);display:inline-block;margin-bottom:12px}
+.foot p{margin:0 0 9px;max-width:64ch}
+.foot a{color:var(--accent)}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--ink);padding:7px;
+display:grid;grid-template-columns:1fr auto;gap:7px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:58px;
+text-decoration:none;font-weight:600;font-size:15px;text-align:center;line-height:1.15;padding:0 12px}
+.callbar .go{background:var(--accent);color:var(--on-accent)}
+.callbar .tel{color:#F0F1F3;border:2px solid rgba(240,241,243,.5);padding:0 15px}
+@media(min-width:700px){.ctas{flex-direction:row;gap:11px}.tiles{grid-template-columns:1fr 1fr}
+.stats{grid-template-columns:repeat(4,1fr)}.stat{border-right:1px solid var(--hair);padding:24px 16px}
+.stat:first-child{padding-left:0}.stat:last-child{border-right:none}
+.steps{grid-template-columns:1fr 1fr;column-gap:44px}
+.steps li:nth-child(2){border-top:2px solid var(--ink)}
+.rlist a{grid-template-columns:1fr 220px auto;padding:17px 0}
+.rband{grid-column:2;grid-row:1}.rtap{grid-row:1;grid-column:3}
+.sec{padding:80px 0}.hero{padding:34px 0 44px}.sub{font-size:19px}}
+@media(min-width:940px){.navlinks{display:flex}.navact{margin-left:0}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap"><i aria-hidden="true"></i>Specialist search: manufacturing &amp; industrial engineering</div></div>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="#">Ridgeway Search</a>
+  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+  <a class="btn btn-primary navact" href="#roles">See open roles</a>
+</div></header>
+<section class="hero"><div class="wrap">
+  <p class="eyebrow">Manufacturing &amp; industrial engineering</p>
+  <h1>One sector. <em>Every salary published.</em> Apply in one tap.</h1>
+  <p class="sub">We place engineers and operations leaders in manufacturing and industrial businesses. Every role we advertise carries a real salary band, and you can apply from your phone in under a minute.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" data-cta="primary" href="#roles">See open roles</a>
+    <a class="btn btn-ghost" href="#contact">Hiring? Talk to us</a>
+  </div>
+  <ul class="badges"><li>Salary bands on every role</li><li>One-tap apply</li><li>One sector only</li><li>90-day placement guarantee</li></ul>
+</div></section>
+<section class="roles" id="roles"><div class="wrap">
+  <div class="rhead"><span>See open roles</span><span>One-tap apply</span></div>
+  <ul class="rlist">
+    <li><a href="tel:+15552051160"><span class="rn">Tier-1 automotive suppliers</span><span class="rband">Salary bands on every role</span><span class="rtap">(555) 205-1160</span></a></li>
+    <li><a href="tel:+15552051160"><span class="rn">Precision engineering</span><span class="rband">Salary bands on every role</span><span class="rtap">(555) 205-1160</span></a></li>
+    <li><a href="tel:+15552051160"><span class="rn">Food &amp; beverage manufacturing</span><span class="rband">Salary bands on every role</span><span class="rtap">(555) 205-1160</span></a></li>
+    <li><a href="tel:+15552051160"><span class="rn">Industrial automation</span><span class="rband">Salary bands on every role</span><span class="rtap">(555) 205-1160</span></a></li>
+    <li><a href="tel:+15552051160"><span class="rn">Aerospace components</span><span class="rband">Salary bands on every role</span><span class="rtap">(555) 205-1160</span></a></li>
+  </ul>
+</div></section>
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p><h2>Two audiences, honestly</h2>
+  <p class="lede">Most agency sites are written entirely for employers and then wonder why candidates don't return calls.</p>
+  <div class="tiles">
+    <article class="tile lead"><h3>For candidates</h3><p>Real salary bands, an honest description of the company, and we will tell you when a role isn't right for you even though it costs us a fee.</p></article>
+    <article class="tile"><h3>Contingent search</h3><p>For roles at pace. You pay on placement, 20% of first-year salary, with a 90-day replacement guarantee written into the terms.</p></article>
+    <article class="tile"><h3>Retained search</h3><p>For leadership and hard-to-fill technical roles. Mapped market, full confidentiality, and a shortlist of four rather than a stack of twelve.</p></article>
+    <article class="tile"><h3>Market intelligence</h3><p>What roles actually pay in your region right now, and why your last two offers were declined. Often free, always useful.</p></article>
+  </div>
+</div></section>
+<section class="sec" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <div class="stats">
+    <div class="stat"><b>20%</b><span>Contingent fee</span></div>
+    <div class="stat"><b>90d</b><span>Replacement guarantee</span></div>
+    <div class="stat"><b>31d</b><span>Average time to placement</span></div>
+    <div class="stat"><b>1</b><span>Sector, deliberately</span></div>
+  </div>
+</div></section>
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p><h2>How we run a search</h2>
+  <p class="lede">Same process whether you're hiring or looking. The difference is who pays.</p>
+  <ol class="steps">
+    <li><div><h3>Brief or conversation</h3><p>Employers: the real requirement, not the job description. Candidates: what you'd actually move for, which is rarely just money.</p></div></li>
+    <li><div><h3>Map the market</h3><p>We work one sector, so we largely know who's out there already. Mapping is confirmation rather than discovery.</p></div></li>
+    <li><div><h3>Shortlist</h3><p>Four candidates with a written assessment of each, including the reservations. A stack of twelve means we haven't done our job.</p></div></li>
+    <li><div><h3>Offer &amp; aftercare</h3><p>We manage the offer, the counter-offer and the resignation. We check in at 30, 60 and 90 days — that's when placements actually fail.</p></div></li>
+  </ol>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>Hiring, or quietly looking?</h2>
+  <p>Either conversation is confidential and neither commits you to anything. Candidates: we'll tell you what you're worth right now even if you don't move.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="tel:+15552051160">(555) 205-1160</a>
+    <a class="btn btn-ghost" href="#roles">Hiring? Talk to us</a>
+  </div>
+  <p class="note">20% contingent, 90-day replacement guarantee. Retained terms available for leadership roles.</p>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Ridgeway Search</a>
+  <p><a href="tel:+15552051160">(555) 205-1160</a></p>
+  <p>Specialist search — manufacturing &amp; industrial engineering · Est. 2014</p>
+  <p>Ridgeway Search is a fictional firm. This page is a design demonstration only.</p>
+</div></footer>
+<div class="callbar"><a class="go" href="#roles">See open roles</a><a class="tel" href="tel:+15552051160">(555) 205-1160</a></div>
+</body>
+</html>

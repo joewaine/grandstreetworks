@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aurelia Aesthetic Surgery — Board certified, accredited suite</title>
+<meta name="description" content="Aesthetic and reconstructive surgery in a private, accredited facility. Every consultation is with the surgeon who will operate.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* D1 — THE PORTFOLIO ONE. hero:panel nav:inline services:grid-numbered proof:logos
+   ink #191714 · surface #F3F0EA · accent #7A5F42 · muted #6A6055 · on-accent #FFFFFF
+   H1 ramp: 30/36/48/62px · Cormorant Garamond display / Jost body
+   Device: the results index — a numbered gallery lattice drawn in CSS. The brief's first
+   objection is an underpowered gallery, so the gallery sits in the hero, not a sub-page. */
+:root{--ink:#191714;--surface:#F3F0EA;--accent:#7A5F42;--muted:#6A6055;--on-accent:#FFFFFF;
+--paper:#FBF9F5;--rule:rgba(25,23,20,.16);--hair:rgba(25,23,20,.1);--wrap:1160px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.68 Jost,system-ui,-apple-system,sans-serif;padding-bottom:80px;overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;margin:0;line-height:1.1;
+letter-spacing:-.008em}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 26px;
+text-decoration:none;font-weight:500;font-size:15px;letter-spacing:.06em;text-transform:uppercase;
+border:1px solid transparent;text-align:center;line-height:1.2}
+.btn-primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--rule)}
+.topbar{color:var(--muted);font-size:15px;border-bottom:1px solid var(--hair)}
+.topbar .wrap{padding:9px 24px;text-align:center;letter-spacing:.05em}
+.nav{position:sticky;top:0;z-index:30;background:var(--surface);border-bottom:1px solid var(--hair)}
+.nav .wrap{display:flex;align-items:center;gap:12px;height:58px}
+.brand{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:20px;
+text-decoration:none;line-height:1;flex:none;letter-spacing:.14em;text-transform:uppercase}
+.navlinks{display:none;gap:26px;margin-left:auto;font-size:13px;letter-spacing:.16em;
+text-transform:uppercase;color:var(--muted)}
+.navlinks a{text-decoration:none}
+.navlinks a:hover{color:var(--accent)}
+.navbook{min-height:40px;padding:0 13px;font-size:12px;flex:none;margin-left:auto;
+white-space:nowrap;letter-spacing:.1em}
+.hero{padding:12px 0 38px}
+.panel{background:var(--paper);border:1px solid var(--hair);padding:22px 20px 26px}
+.eyebrow{font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);
+margin:0 0 11px;font-weight:500}
+.hero h1{font-size:clamp(30px,7.4vw,62px);max-width:15ch}
+.sub{font-size:16px;color:var(--muted);max-width:52ch;margin:13px 0 18px;line-height:1.55}
+.ctas{display:flex;flex-direction:column;gap:10px}
+.badges{list-style:none;margin:22px 0 0;padding:18px 0 0;border-top:1px solid var(--hair);
+display:grid;gap:8px}
+.badges li{font-size:15px;color:var(--muted);letter-spacing:.03em}
+.index{margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.cell{position:relative;aspect-ratio:4/5;border:1px solid var(--hair);
+background:linear-gradient(160deg,#E9E3D9,#F7F4EE 60%,#EFEAE1)}
+.cell:nth-child(2){background:linear-gradient(160deg,#E4DED6,#F3EFE8 55%,#E9E2D7)}
+.cell:nth-child(3){background:linear-gradient(200deg,#EDE7DC,#F6F2EB 60%,#E6DFD4)}
+.cell:nth-child(4){background:linear-gradient(140deg,#E7E1D8,#F4F0E9 58%,#EAE3D9)}
+.cell::after{content:attr(data-n);position:absolute;left:9px;bottom:8px;font-size:13px;
+letter-spacing:.18em;color:var(--accent);font-weight:500}
+.cell i{position:absolute;left:50%;top:18%;bottom:18%;width:1px;background:rgba(25,23,20,.18)}
+.sec{padding:54px 0;border-top:1px solid var(--hair)}
+.kicker{font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);
+margin:0 0 11px;font-weight:500}
+.sec h2{font-size:clamp(28px,6vw,48px);margin-bottom:13px}
+.lede{color:var(--muted);max-width:60ch;margin:0 0 28px;font-size:17px}
+.gridnum{display:grid;gap:0;border-top:1px solid var(--rule)}
+.gn{padding:24px 0;border-bottom:1px solid var(--hair);display:grid;grid-template-columns:54px 1fr;
+gap:16px;align-items:start}
+.gn .n{font-family:"Cormorant Garamond",Georgia,serif;font-weight:400;font-size:32px;
+color:var(--accent);line-height:.9}
+.gn h3{font-size:23px;margin-bottom:8px}
+.gn p{margin:0;color:var(--muted);font-size:16px}
+.logos{background:var(--paper)}
+.logolist{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:0;border-top:1px solid var(--hair)}
+.logolist li{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;
+font-size:clamp(17px,4vw,20px);color:var(--accent);padding:18px 6px;
+border-bottom:1px solid var(--hair);text-align:center;line-height:1.3;letter-spacing:.02em}
+.steps{list-style:none;margin:26px 0 0;padding:0;counter-reset:s;display:grid;gap:0;
+border-top:1px solid var(--rule)}
+.steps li{counter-increment:s;padding:22px 0;border-bottom:1px solid var(--hair);display:grid;
+grid-template-columns:46px 1fr;gap:16px}
+.steps li::before{content:counter(s,decimal-leading-zero);font-size:13px;letter-spacing:.16em;
+color:var(--accent);padding-top:5px;font-weight:500}
+.steps h3{font-size:20px;margin-bottom:6px}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+.close{background:var(--ink);color:#EFEBE3;padding:58px 0 64px}
+.close h2{font-size:clamp(29px,6.4vw,52px);max-width:16ch}
+.close p{max-width:54ch;font-size:18px;color:#B0A89C;margin:14px 0 22px}
+.close .btn-primary{background:#EFEBE3;color:var(--ink);border-color:#EFEBE3}
+.close .btn-ghost{color:#EFEBE3;border-color:rgba(239,235,227,.42)}
+.note{font-size:15px;color:#9C9488;margin-top:20px;max-width:54ch}
+.foot{padding:42px 0 36px;font-size:15px;color:var(--muted);border-top:1px solid var(--hair)}
+.foot .brand{color:var(--ink);display:inline-block;margin-bottom:14px}
+.foot p{margin:0 0 10px;max-width:64ch}
+.foot a{color:var(--accent)}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--surface);padding:8px;
+border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:8px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:60px;
+text-decoration:none;font-weight:500;font-size:13px;letter-spacing:.1em;text-transform:uppercase;
+text-align:center;line-height:1.2;padding:0 10px}
+.callbar .book{background:var(--accent);color:#fff}
+.callbar .tel{border:1px solid var(--rule);color:var(--ink);padding:0 16px;letter-spacing:.04em;
+text-transform:none;font-size:16px}
+@media(min-width:760px){.ctas{flex-direction:row;gap:12px}.badges{grid-template-columns:1fr 1fr}
+.index{grid-template-columns:repeat(4,1fr)}.gridnum{grid-template-columns:1fr 1fr;column-gap:48px}
+.logolist{grid-template-columns:repeat(5,1fr)}.logolist li{border-bottom:none;
+border-right:1px solid var(--hair);padding:26px 12px}.logolist li:last-child{border-right:none}
+.steps{grid-template-columns:1fr 1fr;column-gap:48px}.sec{padding:88px 0}
+.sub{font-size:19px}.hero{padding:34px 0 58px}.panel{padding:48px 46px 52px}
+.navbook{font-size:13px;padding:0 18px}.brand{font-size:22px}}
+@media(min-width:940px){.navlinks{display:flex}.navbook{margin-left:0}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Board certified · Private consultations · Accredited surgical suite</div></div>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="#">Aurelia</a>
+  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+  <a class="btn btn-primary navbook" href="#contact">Request a consultation</a>
+</div></header>
+<section class="hero"><div class="wrap"><div class="panel">
+  <p class="eyebrow">Board certified · ABPS</p>
+  <h1>Board certified. Accredited suite. Results you can actually look through.</h1>
+  <p class="sub">Aesthetic and reconstructive surgery in a private, accredited facility. Every consultation is with the surgeon who will operate — not a coordinator, not an associate.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" data-cta="primary" href="#contact">Request a consultation</a>
+    <a class="btn btn-ghost" href="#results">View results</a>
+  </div>
+  <div class="index" aria-hidden="true">
+    <div class="cell" data-n="01"><i></i></div><div class="cell" data-n="02"><i></i></div>
+    <div class="cell" data-n="03"><i></i></div><div class="cell" data-n="04"><i></i></div>
+  </div>
+  <ul class="badges"><li>ABPS board certified</li><li>AAAASF accredited suite</li><li>Consult with your surgeon</li><li>Financing available</li></ul>
+</div></div></section>
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p><h2>Procedures</h2>
+  <p class="lede">A short list, deliberately. These are the operations performed often enough to be performed exceptionally.</p>
+  <div class="gridnum">
+    <article class="gn"><div class="n">01</div><div><h3>Breast surgery</h3><p>Augmentation, lift, reduction and reconstruction. Sizing done with imaging so you see the projected outcome before deciding.</p></div></article>
+    <article class="gn"><div class="n">02</div><div><h3>Body contouring</h3><p>Abdominoplasty, liposuction and post-weight-loss contouring, staged sensibly rather than crammed into one operation.</p></div></article>
+    <article class="gn"><div class="n">03</div><div><h3>Facial surgery</h3><p>Facelift, blepharoplasty and rhinoplasty. Conservative by philosophy — the aim is that nobody can tell you've had anything done.</p></div></article>
+    <article class="gn"><div class="n">04</div><div><h3>Non-surgical</h3><p>Injectables, resurfacing and skin. Often the right starting point, and we'll say so when surgery isn't warranted yet.</p></div></article>
+  </div>
+</div></section>
+<section class="sec logos" id="results"><div class="wrap">
+  <p class="kicker">Results</p><h2>Certified and accredited</h2>
+  <ul class="logolist"><li>American Board of Plastic Surgery</li><li>AAAASF Accredited</li><li>ASPS Member</li><li>ASAPS Member</li><li>Castle Connolly Top Doctor</li></ul>
+</div></section>
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p><h2>From consultation to recovery</h2>
+  <p class="lede">Unhurried, private, and with the surgeon throughout. Most people are deciding over months, not days.</p>
+  <ol class="steps">
+    <li><div><h3>Private consultation</h3><p>Fifty minutes with the surgeon. Examination, imaging where useful, and a frank conversation about what is and isn't achievable.</p></div></li>
+    <li><div><h3>Plan &amp; quote</h3><p>A written surgical plan and an all-inclusive quote — facility, anaesthesia and follow-up included, no line items appearing later.</p></div></li>
+    <li><div><h3>Pre-operative</h3><p>Medical clearance, photographs and a second sit-down to confirm you're certain. You can change your mind at any point.</p></div></li>
+    <li><div><h3>Surgery &amp; aftercare</h3><p>Accredited suite, board-certified anaesthesia, and a structured follow-up schedule out to one year with photographs at each stage.</p></div></li>
+  </ol>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>Considering something, but not ready to book?</h2>
+  <p>Most of our patients thought about it for a year or more. A consultation commits you to nothing and is the fastest way to replace guesswork with facts.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="#contact">Request a consultation</a>
+    <a class="btn btn-ghost" href="tel:+15551189030">(555) 118-9030</a>
+  </div>
+  <p class="note">Private consultations. Financing available. All enquiries handled confidentially.</p>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Aurelia</a>
+  <p><a href="tel:+15551189030">(555) 118-9030</a> · Board certified · Private consultations · Accredited surgical suite</p>
+  <p>Board certified by the American Board of Plastic Surgery · AAAASF accredited facility</p>
+  <p>Aurelia Aesthetic Surgery is a fictional practice. This page is a design demonstration only.</p>
+</div></footer>
+<div class="callbar"><a class="book" href="#contact">Request a consultation</a><a class="tel" href="tel:+15551189030">(555) 118-9030</a></div>
+</body>
+</html>

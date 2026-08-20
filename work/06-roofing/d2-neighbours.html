@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ridgeline Roofing — Licensed &amp; insured, serving the metro area since 2004</title>
+<meta name="description" content="Storm damage, full replacements and repairs across the metro. We meet your adjuster, handle the claim paperwork, and you get one number to call.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* D2 — THE NEIGHBOURS ONE. hero:split nav:minimal services:list proof:review-wall
+   ink #1B1D20 · surface #FAF9F7 · accent #2F4858 · muted #55595F · on-accent #FFFFFF
+   H1 ramp: 33/38/48/60px · Fjalla One display / Work Sans body
+   Device: the chevron rule — a zigzag ridge line drawn in CSS, used as every section
+   divider. FIX answered first: no proof of volume, so four named neighbours from four
+   named streets carry the page. The call slab is the hero's right half, so the number
+   is never below the fold; financing and the claim block are their own strips. */
+:root{--ink:#1B1D20;--surface:#FAF9F7;--accent:#2F4858;--muted:#55595F;--on-accent:#FFFFFF;
+--panel:#FFFFFF;--band:#EDEBE6;--rule:rgba(27,29,32,.15);--hair:rgba(27,29,32,.08);--wrap:1140px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);overflow-x:hidden;padding-bottom:82px;
+font:400 17px/1.62 "Work Sans",system-ui,-apple-system,sans-serif}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Fjalla One",Impact,sans-serif;font-weight:400;margin:0;line-height:1.06;
+letter-spacing:.004em}
+a{color:inherit}
+p{margin:0}
+.btn{display:flex;align-items:center;justify-content:center;min-height:58px;padding:8px 22px;
+text-decoration:none;text-align:center;line-height:1.15;font-weight:600;font-size:16px;
+letter-spacing:.06em;text-transform:uppercase;border:2px solid transparent}
+.btn-primary{background:var(--accent);color:var(--on-accent)}
+.btn-ghost{background:transparent;color:var(--accent);border-color:var(--accent)}
+.topbar{background:var(--ink);color:#D3D6DA;font-size:14px}
+.topbar .wrap{padding:8px 20px;letter-spacing:.05em}
+.nav{position:sticky;top:0;z-index:30;background:var(--surface);border-bottom:1px solid var(--hair)}
+.nav .wrap{display:flex;align-items:center;gap:10px;height:56px}
+.brand{font-family:"Fjalla One",Impact,sans-serif;font-size:22px;text-decoration:none;
+letter-spacing:.02em;flex:none;line-height:1}
+.navact{margin-left:auto;flex:none;text-decoration:none;font-family:"Fjalla One",Impact,sans-serif;
+font-size:21px;color:var(--accent);letter-spacing:.01em;white-space:nowrap;padding:8px 0;
+border-bottom:2px solid var(--accent)}
+.chev{height:15px;background-repeat:repeat-x;background-size:30px 30px;
+background-image:
+linear-gradient(45deg,var(--accent) 25%,transparent 25%),
+linear-gradient(-45deg,var(--accent) 25%,transparent 25%);
+background-position:0 0,0 0;opacity:.85}
+.hero{padding:22px 0 30px}
+.split{display:grid;gap:22px}
+.eyebrow{display:inline-block;font-size:13px;letter-spacing:.18em;text-transform:uppercase;
+font-weight:600;color:var(--on-accent);background:var(--accent);padding:6px 10px;margin:0 0 14px}
+.hero h1{font-size:clamp(33px,8.2vw,60px);max-width:14ch}
+.hero .sub{font-size:16px;color:var(--muted);max-width:48ch;margin:14px 0 0;line-height:1.58}
+.slab{background:var(--panel);border:2px solid var(--ink);padding:18px 16px 20px}
+.slab .lab{font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;
+color:var(--muted);margin:0 0 6px}
+.slab .tel{display:block;font-family:"Fjalla One",Impact,sans-serif;font-size:clamp(38px,10.4vw,54px);
+color:var(--accent);text-decoration:none;line-height:1;letter-spacing:.005em;margin-bottom:14px}
+.ctas{display:grid;gap:9px}
+.badges{list-style:none;margin:16px 0 0;padding:14px 0 0;border-top:2px solid var(--ink);display:grid;gap:7px}
+.badges li{font-size:15px;font-weight:500;padding-left:18px;position:relative;color:var(--ink)}
+.badges li::before{content:"";position:absolute;left:0;top:8px;width:9px;height:9px;
+background:var(--accent);transform:rotate(45deg)}
+.fin{background:var(--accent);color:var(--on-accent)}
+.fin .wrap{padding:18px 20px;display:grid;gap:6px}
+.fin .big{font-family:"Fjalla One",Impact,sans-serif;font-size:clamp(26px,6.6vw,38px);line-height:1.05}
+.fin .small{font-size:16px;color:#D6DEE4}
+.sec{padding:42px 0}
+.kicker{font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;
+color:var(--accent);margin:0 0 9px}
+.sec h2{font-size:clamp(29px,7vw,50px);margin-bottom:12px}
+.lede{color:var(--muted);max-width:58ch;margin:0 0 24px;font-size:16px}
+.list{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
+.list li{padding:18px 0;border-bottom:1px solid var(--rule)}
+.list h3{font-size:22px;margin-bottom:5px}
+.list p{color:var(--muted);font-size:16px;max-width:66ch}
+.claimbox{background:var(--band);border-left:6px solid var(--accent);padding:22px 18px}
+.claimbox h2{font-size:clamp(26px,6.2vw,40px);margin-bottom:10px}
+.claimbox p{color:var(--muted);font-size:16px;max-width:60ch;margin-bottom:12px}
+.claimbox p:last-child{margin-bottom:0}
+.claimbox b{color:var(--ink)}
+.wall{display:grid;gap:0;margin-top:22px;border-top:2px solid var(--ink)}
+.wall article{padding:20px 0;border-bottom:1px solid var(--rule)}
+.wall q{display:block;font-family:"Fjalla One",Impact,sans-serif;font-size:clamp(20px,4.6vw,24px);
+line-height:1.28;quotes:none}
+.wall cite{display:block;font-style:normal;font-size:15px;color:var(--muted);margin-top:9px;
+letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+.steps{list-style:none;margin:22px 0 0;padding:0;counter-reset:s;display:grid;gap:0}
+.steps li{counter-increment:s;padding:18px 0;border-top:1px solid var(--rule);display:grid;
+grid-template-columns:40px minmax(0,1fr);gap:12px}
+.steps li::before{content:counter(s);font-family:"Fjalla One",Impact,sans-serif;font-size:26px;
+color:var(--accent);line-height:1}
+.steps h3{font-size:20px;margin-bottom:5px}
+.steps p{color:var(--muted);font-size:16px}
+.close{background:var(--ink);color:#EFEFEE;padding:42px 0 46px}
+.close h2{font-size:clamp(30px,7.2vw,52px);max-width:14ch;color:#fff}
+.close p{max-width:52ch;font-size:17px;margin:12px 0 20px;color:#BFC3C8}
+.close .tel{display:inline-block;font-family:"Fjalla One",Impact,sans-serif;
+font-size:clamp(36px,9.6vw,52px);color:#8FB6CE;text-decoration:none;line-height:1;margin-bottom:16px}
+.close .btn-primary{background:#8FB6CE;color:var(--ink)}
+.close .btn-ghost{color:#EFEFEE;border-color:rgba(239,239,238,.5)}
+.note{font-size:15px;color:#A9AEB4;margin-top:16px;max-width:52ch}
+.foot{padding:32px 0 28px;font-size:15px;color:var(--muted)}
+.foot .brand{display:inline-block;margin-bottom:10px;color:var(--ink)}
+.foot p{margin:0 0 8px;max-width:62ch}
+.footnav{display:flex;flex-wrap:wrap;gap:6px 22px;margin:0 0 14px;font-size:13px;
+letter-spacing:.16em;text-transform:uppercase;font-weight:600}
+.footnav a{text-decoration:none;color:var(--accent);padding:5px 0}
+.foot a{color:var(--accent)}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--surface);
+border-top:2px solid var(--ink);display:grid;grid-template-columns:1fr auto;gap:6px;padding:6px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:58px;
+text-decoration:none;text-align:center;font-weight:600;line-height:1.15;padding:0 12px}
+.callbar .tel{background:var(--accent);color:#fff;font-family:"Fjalla One",Impact,sans-serif;
+font-weight:400;font-size:25px;letter-spacing:.01em}
+.callbar .alt2{border:2px solid var(--ink);font-size:13px;letter-spacing:.07em;
+text-transform:uppercase;max-width:128px}
+@media(max-width:559px){.navact{display:none}}
+@media(min-width:760px){.split{grid-template-columns:1.15fr .85fr;gap:34px;align-items:start}
+.ctas{grid-template-columns:1fr 1fr}.hero .sub{font-size:19px}.slab{padding:26px 24px 28px}
+.sec{padding:70px 0}.hero{padding:40px 0 52px}.wall{grid-template-columns:1fr 1fr;column-gap:40px}
+.steps{grid-template-columns:1fr 1fr;column-gap:40px}.fin .wrap{grid-template-columns:auto 1fr;
+align-items:baseline;gap:22px}.claimbox{padding:34px 30px}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Licensed &amp; insured · Serving the metro area since 2004</div></div>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="#">Ridgeline Roofing</a>
+  <a class="navact" href="tel:+15550148820">(555) 014-8820</a>
+</div></header>
+<section class="hero"><div class="wrap"><div class="split">
+  <div>
+    <p class="eyebrow">Emergency response · 24/7</p>
+    <h1>A roof over your head by the end of the week.</h1>
+    <p class="sub">Storm damage, full replacements and repairs across the metro. We meet your adjuster, handle the claim paperwork, and you get one number to call.</p>
+  </div>
+  <div class="slab">
+    <p class="lab">One number to call</p>
+    <a class="tel" href="tel:+15550148820">(555) 014-8820</a>
+    <div class="ctas">
+      <a class="btn btn-primary" data-cta="primary" href="tel:+15550148820">Call now</a>
+      <a class="btn btn-ghost" href="#contact">Get a free inspection</a>
+    </div>
+    <ul class="badges">
+      <li>Insurance claims handled</li><li>Financing from $89/mo</li>
+      <li>25-year workmanship warranty</li><li>Same-day emergency tarping</li>
+    </ul>
+  </div>
+</div></div></section>
+<div class="chev" aria-hidden="true"></div>
+<section class="fin"><div class="wrap">
+  <p class="big">Financing from $89/mo</p>
+  <p class="small">“The financing made it possible. $110 a month instead of fifteen grand up front.” — Joel B., Riverbend</p>
+</div></section>
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p>
+  <h2>What we do</h2>
+  <p class="lede">Most calls fall into one of these. If yours doesn't, ring us anyway — we'll tell you straight whether it's a repair or a replacement.</p>
+  <ul class="list">
+    <li><h3>Storm &amp; hail damage</h3><p>Free inspection, full photo report, and we meet the adjuster on site so nothing gets argued about later.</p></li>
+    <li><h3>Full replacement</h3><p>Architectural shingle, metal or tile. Tear-off, deck inspection, ice-and-water barrier, and the site left clean.</p></li>
+    <li><h3>Emergency repair</h3><p>Active leak or missing shingles after a storm. Same-day tarping to stop the damage, permanent fix scheduled after.</p></li>
+    <li><h3>Gutters &amp; ventilation</h3><p>Half the roofs we replace failed early because the attic couldn't breathe. We fix the cause, not just the symptom.</p></li>
+  </ul>
+</div></section>
+<div class="chev" aria-hidden="true"></div>
+<section class="sec"><div class="wrap"><div class="claimbox">
+  <p class="kicker">Insurance claims handled</p>
+  <h2>Claim or quote</h2>
+  <p>If it's insurance, we meet your adjuster on site. If it's retail, you get a fixed written price with financing options.</p>
+  <p><b>“Handled the whole insurance claim. I signed two things and that was it.”</b> — Anne-Marie K., Cedar Park</p>
+</div></div></section>
+<section class="sec" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <h2>What the neighbours said</h2>
+  <div class="wall">
+    <article><q>“Came out at 9pm during the storm and tarped it. Full replacement done in two days flat.”</q><cite>Marcus T. · Northside</cite></article>
+    <article><q>“They caught that our attic ventilation was the real problem. Nobody else even looked.”</q><cite>Priya S. · Elmwood</cite></article>
+    <article><q>“The financing made it possible. $110 a month instead of fifteen grand up front.”</q><cite>Joel B. · Riverbend</cite></article>
+    <article><q>“Handled the whole insurance claim. I signed two things and that was it.”</q><cite>Anne-Marie K. · Cedar Park</cite></article>
+  </div>
+</div></section>
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p>
+  <h2>How a job actually runs</h2>
+  <p class="lede">The part most roofers don't explain, which is the part homeowners are actually anxious about.</p>
+  <ol class="steps">
+    <li><div><h3>Free inspection</h3><p>We go up, photograph everything, and tell you whether you need a roof or a repair. No pressure either way.</p></div></li>
+    <li><div><h3>Claim or quote</h3><p>If it's insurance, we meet your adjuster on site. If it's retail, you get a fixed written price with financing options.</p></div></li>
+    <li><div><h3>Install</h3><p>Most homes are one to two days. Materials delivered the morning of, site cleaned and magnet-swept at the end.</p></div></li>
+    <li><div><h3>Final walkthrough</h3><p>We walk it with you, register your warranty, and you have a direct number if anything ever comes up.</p></div></li>
+  </ol>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>Got water coming in right now?</h2>
+  <p>Call and a human answers — day, night, weekend, during the storm. Emergency tarping usually the same day.</p>
+  <a class="tel" href="tel:+15550148820">(555) 014-8820</a>
+  <div class="ctas">
+    <a class="btn btn-primary" href="tel:+15550148820">Call now</a>
+    <a class="btn btn-ghost" href="#contact">Get a free inspection</a>
+  </div>
+  <p class="note">Free inspections. No obligation. We'll tell you if you don't need a roof.</p>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Ridgeline Roofing</a>
+  <nav class="footnav"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+  <p><a href="tel:+15550148820">(555) 014-8820</a> · Licensed, bonded and insured · Serving the metro area since 2004</p>
+  <p>Ridgeline Roofing is a fictional company. This page is a design demonstration only.</p>
+</div></footer>
+<div class="callbar"><a class="tel" href="tel:+15550148820">Call now (555) 014-8820</a><a class="alt2" href="#contact">Free inspection</a></div>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Work — Grand Street Works</title>
+<meta name="description" content="Reference homepage builds across twenty industries, six directions each. Fictional businesses, real conversion structure.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://grandstreetworks.com/work/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23050505'/%3E%3Ccircle cx='14' cy='14' r='5' fill='%23C2D57D'/%3E%3Ctext x='32' y='50' font-family='Menlo,Consolas,monospace' font-size='26' font-weight='bold' fill='%23E5E5E6' text-anchor='middle'%3EGW%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-color: #E5E5E6;
+    --text-color: #050505;
+    --border-color: #050505;
+    --border-light: rgba(5, 5, 5, 0.15);
+    --font-sans: 'Inter', -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --nav-height: 60px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    line-height: 1.4;
+    padding-top: var(--nav-height);
+  }
+  a { color: inherit; text-decoration: none; }
+  a:focus-visible { outline: 2px solid var(--text-color); outline-offset: 3px; }
+  h1 { font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 500; letter-spacing: -0.03em; line-height: 1.05; }
+  p { font-size: 1.125rem; color: rgba(5, 5, 5, 0.8); line-height: 1.5; }
+  .label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  header {
+    position: fixed; top: 0; left: 0; width: 100%; height: var(--nav-height);
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 2rem; background-color: var(--bg-color);
+    border-bottom: 1px solid var(--border-color); z-index: 100;
+  }
+  .logo-mark { display: flex; align-items: center; gap: 1rem; }
+  .status-dot {
+    width: 8px; height: 8px; background-color: #C2D57D; border-radius: 50%;
+    display: inline-block; box-shadow: 0 0 10px rgba(194, 213, 125, 0.5);
+  }
+  .intro { padding: 4rem 2rem; border-bottom: 1px solid var(--border-color); }
+  .intro p { margin-top: 1.5rem; max-width: 66ch; }
+  .section-header {
+    display: flex; align-items: center; padding: 1rem 2rem;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--text-color); color: var(--bg-color);
+  }
+  .section-header .label { color: var(--bg-color); }
+  .work-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+    background-color: var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+  }
+  .work-grid a {
+    background-color: var(--bg-color); padding: 1.5rem 2rem;
+    display: flex; flex-direction: column; gap: 0.5rem;
+    transition: background-color 0.2s ease;
+  }
+  .work-grid a:hover { background-color: #DEDEDF; }
+  .work-name { font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; }
+  .work-firm { font-family: var(--font-mono); font-size: 0.8125rem; color: rgba(5, 5, 5, 0.6); }
+  footer {
+    display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+    padding: 1.5rem 2rem; border-top: 1px solid var(--border-color);
+  }
+  @media (max-width: 1024px) { .work-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px) {
+    header, .intro, .section-header, footer { padding-left: 1.25rem; padding-right: 1.25rem; }
+    .work-grid { grid-template-columns: 1fr; }
+    .work-grid a { padding-left: 1.25rem; padding-right: 1.25rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { .work-grid a { transition: none; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-mark">
+    <span class="status-dot" aria-hidden="true"></span>
+    <a href="../" class="label" style="font-weight: 600;">Grand Street Works</a>
+  </div>
+  <a href="../#contact" class="label" style="text-decoration: underline;">Get in touch</a>
+</header>
+
+<main>
+  <div class="intro">
+    <h1>Twenty industries. Six directions each.</h1>
+    <p>
+      Reference builds, made to show what the method produces. <strong>The businesses are invented; the structure isn't.</strong>
+      Each set started with the same read — what the best-performing firms in that trade put on a homepage, and what the rest leave off — and every direction fixes a named item from that industry's list.
+    </p>
+    <p>
+      They are six structurally different pages, not one layout in six colours. Open the closest one to your trade on a phone: that is the screen the argument is actually settled on.
+    </p>
+  </div>
+
+  <div class="section-header">
+    <span class="label">[WORK] Reference builds</span>
+  </div>
+
+  <div class="work-grid">
+    <a href="01-personal-injury/"><span class="label">Ind_01</span><span class="work-name">Personal injury</span><span class="work-firm">Vance &amp; Cole →</span></a>
+    <a href="02-cosmetic-dentists/"><span class="label">Ind_02</span><span class="work-name">Cosmetic dentistry</span><span class="work-firm">Ardent Smile Studio →</span></a>
+    <a href="03-plastic-surgeons/"><span class="label">Ind_03</span><span class="work-name">Plastic surgery</span><span class="work-firm">Aurelia Aesthetic Surgery →</span></a>
+    <a href="04-med-spas/"><span class="label">Ind_04</span><span class="work-name">Med spas</span><span class="work-firm">Lumen Aesthetics →</span></a>
+    <a href="05-dermatology/"><span class="label">Ind_05</span><span class="work-name">Dermatology</span><span class="work-firm">Bellweather Dermatology →</span></a>
+    <a href="06-roofing/"><span class="label">Ind_06</span><span class="work-name">Roofing</span><span class="work-firm">Ridgeline Roofing →</span></a>
+    <a href="07-hvac/"><span class="label">Ind_07</span><span class="work-name">Heating &amp; cooling</span><span class="work-firm">Meridian Air →</span></a>
+    <a href="08-restoration/"><span class="label">Ind_08</span><span class="work-name">Restoration</span><span class="work-firm">Halcyon Restoration →</span></a>
+    <a href="09-general-contractors/"><span class="label">Ind_09</span><span class="work-name">General contracting</span><span class="work-firm">Corvid Build Co. →</span></a>
+    <a href="10-luxury-real-estate/"><span class="label">Ind_10</span><span class="work-name">Luxury real estate</span><span class="work-firm">Hallowell &amp; Reece →</span></a>
+    <a href="11-wealth-management/"><span class="label">Ind_11</span><span class="work-name">Wealth management</span><span class="work-firm">Ardsley Wealth Partners →</span></a>
+    <a href="12-accounting-cpas/"><span class="label">Ind_12</span><span class="work-name">Accounting &amp; CPAs</span><span class="work-firm">Fenwick &amp; Hale →</span></a>
+    <a href="13-architecture/"><span class="label">Ind_13</span><span class="work-name">Architecture</span><span class="work-firm">Vessel Architecture →</span></a>
+    <a href="14-interior-design/"><span class="label">Ind_14</span><span class="work-name">Interior design</span><span class="work-firm">Marrow &amp; Vine →</span></a>
+    <a href="15-custom-home-builders/"><span class="label">Ind_15</span><span class="work-name">Custom home building</span><span class="work-firm">Ashgrove Homes →</span></a>
+    <a href="16-pool-builders/"><span class="label">Ind_16</span><span class="work-name">Pool building</span><span class="work-firm">Still Water Pools →</span></a>
+    <a href="17-solar/"><span class="label">Ind_17</span><span class="work-name">Solar</span><span class="work-firm">Northlight Solar →</span></a>
+    <a href="18-recruiting/"><span class="label">Ind_18</span><span class="work-name">Recruiting</span><span class="work-firm">Ridgeway Search →</span></a>
+    <a href="19-property-management/"><span class="label">Ind_19</span><span class="work-name">Property management</span><span class="work-firm">Kestrel Property Group →</span></a>
+    <a href="20-veterinary/"><span class="label">Ind_20</span><span class="work-name">Veterinary</span><span class="work-firm">Brightwater Animal Hospital →</span></a>
+  </div>
+</main>
+
+<footer>
+  <div class="label">Every business shown here is fictional. Design demonstrations only.</div>
+  <div class="label"><a href="../" style="text-decoration: underline;">← Back to Grand Street Works</a></div>
+</footer>
+
+</body>
+</html>

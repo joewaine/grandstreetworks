@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ashgrove Homes — Have land, or looking?</title>
+<meta name="description" content="Custom homes and estate builds across the valley and foothills, from $1.2M. Walk the parcel with us first.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:wght@400;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* D5 — THE LAND ONE. hero:fullbleed nav:centered services:cards proof:stats
+   ink #16201A · accent #C6A16B · paper #F6F2E9 · green #274434 · muted #5A5B50
+   H1 ramp: 30/34/44/58px · Gentium Book Plus display / Barlow body
+   Fixes "price positioning ducked entirely": the full-bleed opening is the valley in
+   CSS with the from-price set across it and the typical-build figure repeated in the
+   stat rail, so the money is settled before the first scroll. */
+:root{--ink:#16201A;--surface:#16201A;--paper:#F6F2E9;--accent:#C6A16B;--green:#274434;
+--muted:#5A5B50;--rule:rgba(28,34,26,.16);--wrap:1140px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:#1B211A;
+font:400 17px/1.6 "Barlow",system-ui,-apple-system,sans-serif;padding-bottom:84px;overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Gentium Book Plus",Georgia,serif;font-weight:700;margin:0;line-height:1.16}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 22px;
+text-decoration:none;font-weight:600;font-size:16px;border:2px solid transparent;text-align:center;
+line-height:1.2}
+.btn-primary{background:var(--accent);color:#20180B;border-color:var(--accent)}
+.btn-ghost{background:transparent;color:#F3EEE3;border-color:rgba(243,238,227,.6)}
+.topbar{background:#0E170F;color:#B9C4B4;font-size:15px}
+.topbar .wrap{padding:9px 20px;text-align:center}
+.nav{position:sticky;top:0;z-index:30;background:var(--ink);border-bottom:1px solid rgba(198,161,107,.35)}
+.navrow{display:flex;align-items:center;justify-content:center;height:50px;position:relative}
+.brand{font-family:"Gentium Book Plus",Georgia,serif;font-weight:700;font-size:22px;
+text-decoration:none;color:var(--paper);line-height:1;letter-spacing:.01em}
+.navact{position:absolute;right:20px;top:50%;transform:translateY(-50%);min-height:36px;padding:0 13px;
+font-size:14px;white-space:nowrap}
+.navlinks{display:flex;justify-content:center;gap:22px;padding:0 20px 11px;font-size:13px;
+letter-spacing:.18em;text-transform:uppercase;overflow-x:auto;scrollbar-width:none}
+.navlinks::-webkit-scrollbar{display:none}
+.navlinks a{text-decoration:none;white-space:nowrap;color:#A9B8A4;font-weight:500}
+/* full-bleed valley */
+.hero{background:var(--ink);color:var(--paper);position:relative;overflow:hidden;
+padding:26px 0 0}
+.hero .wrap{position:relative;z-index:2}
+.eyebrow{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);
+margin:0 0 14px;font-weight:600}
+h1{font-size:clamp(30px,7.6vw,58px);max-width:15ch;color:#FBF7EE}
+.sub{font-size:16px;color:#BFC7B9;max-width:52ch;margin:16px 0 0;line-height:1.6}
+.ctas{display:flex;flex-direction:column;gap:10px;margin-top:22px}
+.badges{list-style:none;margin:22px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.badges li{font-size:14px;color:#D8DCCF;border:1px solid rgba(198,161,107,.5);padding:7px 11px;
+border-radius:2px}
+.valley{position:relative;height:136px;margin-top:26px;z-index:1}
+.valley span{position:absolute;left:-10%;right:-10%;display:block}
+.v1{bottom:56%;height:120px;background:#1E3226;clip-path:polygon(0 100%,16% 34%,34% 76%,58% 12%,80% 62%,100% 30%,100% 100%)}
+.v2{bottom:30%;height:110px;background:#2C4A35;clip-path:polygon(0 100%,22% 44%,46% 86%,68% 30%,88% 70%,100% 48%,100% 100%)}
+.v3{bottom:0;height:62px;background:#4A4030;
+background-image:repeating-linear-gradient(90deg,rgba(0,0,0,.16) 0 1px,transparent 1px 13px)}
+.v4{bottom:0;height:14px;background:var(--accent);opacity:.9}
+.sec{padding:52px 0}
+.sec.paper{background:var(--paper);color:#1B211A}
+.kicker{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--green);
+margin:0 0 10px;font-weight:600}
+.sec h2{font-size:clamp(28px,6.4vw,44px);max-width:18ch}
+.lede{color:var(--muted);max-width:58ch;margin:14px 0 26px;font-size:17px}
+.cards{display:grid;gap:14px}
+.card{background:#FFFDF8;border:1px solid var(--rule);border-top:6px solid var(--green);
+padding:22px 20px}
+.card:nth-child(2){border-top-color:var(--accent)}
+.card:nth-child(3){border-top-color:#6E5A3A}
+.card:nth-child(4){border-top-color:#3E5B45}
+.card h3{font-size:22px;margin-bottom:9px}
+.card p{margin:0;color:var(--muted);font-size:16px}
+.statband{background:var(--green);color:#EAEFE6;padding:44px 0 48px}
+.statband .kicker{color:#D9BC8E}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:24px 18px;margin-top:22px}
+.stat .v{font-family:"Gentium Book Plus",Georgia,serif;font-size:40px;line-height:1;font-weight:700;
+color:var(--accent)}
+.stat .l{display:block;font-size:15px;color:#C6D0C1;margin-top:8px;
+border-top:1px solid rgba(234,239,230,.28);padding-top:8px}
+/* eighteen-month ladder */
+.ladder{margin-top:26px;display:grid;gap:0;border-top:2px solid #1B211A}
+.rung{display:grid;grid-template-columns:1fr;gap:10px;padding:22px 0;
+border-bottom:1px solid var(--rule)}
+.rung h3{font-size:21px;margin-bottom:6px}
+.rung p{margin:0;color:var(--muted);font-size:16px;max-width:56ch}
+.months{display:flex;gap:3px;align-items:flex-end;height:26px}
+.months i{flex:1;background:#DDD6C6;height:8px;display:block}
+.rung:nth-child(1) .months i:nth-child(-n+3){background:var(--green);height:22px}
+.rung:nth-child(2) .months i:nth-child(n+3):nth-child(-n+8){background:var(--accent);height:22px}
+.rung:nth-child(3) .months i:nth-child(n+8):nth-child(-n+10){background:#6E5A3A;height:22px}
+.rung:nth-child(4) .months i:nth-child(n+10){background:#3E5B45;height:22px}
+.close{background:var(--ink);color:#DCE2D6;padding:52px 0 58px}
+.close h2{color:#FBF7EE;font-size:clamp(30px,6.8vw,46px)}
+.close p{max-width:56ch;font-size:17px;color:#BCC5B6;margin:16px 0 22px}
+.note{font-size:15px;color:#B3BDAD;margin-top:20px;max-width:58ch}
+.foot{padding:38px 0 34px;font-size:15px;color:var(--muted);background:var(--paper)}
+.foot .fbrand{font-family:"Gentium Book Plus",Georgia,serif;font-size:23px;font-weight:700;
+color:#1B211A;display:block;margin-bottom:12px}
+.foot p{margin:0 0 9px;max-width:64ch}
+.foot a{color:#4A5F3D;font-weight:600}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--ink);padding:8px;
+display:grid;grid-template-columns:1fr auto;gap:8px;border-top:1px solid rgba(198,161,107,.45)}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:58px;text-decoration:none;
+font-weight:600;font-size:15px;text-align:center;line-height:1.2;padding:0 12px}
+.callbar .go{background:var(--accent);color:#20180B}
+.callbar .tel{border:2px solid rgba(246,242,233,.55);color:var(--paper);padding:0 16px;font-size:16px}
+@media(max-width:679px){.navact{display:none}}
+@media(min-width:820px){
+.ctas{flex-direction:row}.cards{grid-template-columns:repeat(2,1fr);gap:20px}
+.stats{grid-template-columns:repeat(4,1fr);gap:26px}
+.rung{grid-template-columns:1fr 1.4fr;gap:36px;align-items:center;padding:28px 0}
+.hero{padding:52px 0 0}.sec{padding:84px 0}.sub{font-size:19px}
+.valley{height:230px;margin-top:40px}.v1{height:190px}.v2{height:170px}.v3{height:92px}
+.navrow{height:60px}.brand{font-size:26px}.stat .v{font-size:52px}
+.statband{padding:74px 0 78px}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Now booking 2027 · Serving the valley &amp; foothills</div></div>
+<header class="nav">
+  <div class="navrow"><a class="brand" href="#">Ashgrove Homes</a>
+    <a class="btn btn-primary navact" href="#contact">Arrange a conversation</a></div>
+  <div class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Custom homes from $1.2M</p>
+    <h1>Eighteen months of your life. Built by people who explain it.</h1>
+    <p class="sub">Custom homes and estate builds across the valley. Fifteen homes a year, one project manager each, and a schedule you can actually plan a life around.</p>
+    <div class="ctas">
+      <a class="btn btn-primary" data-cta="primary" href="#contact">Arrange a conversation</a>
+      <a class="btn btn-ghost" href="#results">View homes</a>
+    </div>
+    <ul class="badges">
+      <li>Homes from $1.2M</li><li>15 builds a year</li>
+      <li>Architect-led welcome</li><li>Fixed-schedule contracts</li>
+    </ul>
+  </div>
+  <div class="valley" aria-hidden="true">
+    <span class="v1"></span><span class="v2"></span><span class="v3"></span><span class="v4"></span>
+  </div>
+</section>
+
+<section class="sec paper" id="services"><div class="wrap">
+  <p class="kicker">Services</p>
+  <h2>How we work</h2>
+  <p class="lede">Design-build if you want one contract, or as builder alongside your own architect. Both work; they run differently.</p>
+  <div class="cards">
+    <article class="card"><h3>Design-build</h3><p>Architecture, interiors and construction under one roof and one contract. Fewer gaps to fall through, one person accountable.</p></article>
+    <article class="card"><h3>Builder-of-record</h3><p>You have an architect you love. We build it, hold the schedule and the budget, and stay out of the design conversation.</p></article>
+    <article class="card"><h3>Estate &amp; acreage</h3><p>Site work, wells, septic and long driveways. The invisible half of a rural build, and the half that surprises people.</p></article>
+    <article class="card"><h3>Renovation of significant homes</h3><p>Older or architecturally notable properties, where the constraint is respecting what's there.</p></article>
+  </div>
+</div></section>
+
+<section class="statband" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <div class="stats">
+    <div class="stat"><div class="v">$1.2M+</div><span class="l">Typical build</span></div>
+    <div class="stat"><div class="v">15</div><span class="l">Homes a year</span></div>
+    <div class="stat"><div class="v">18mo</div><span class="l">Average timeline</span></div>
+    <div class="stat"><div class="v">31</div><span class="l">Years building here</span></div>
+  </div>
+</div></section>
+
+<section class="sec paper" id="process"><div class="wrap">
+  <p class="kicker">Process</p>
+  <h2>Eighteen months, mapped</h2>
+  <p class="lede">For architects and homeowners both. Nobody should sign for a house without knowing this.</p>
+  <div class="ladder">
+    <div class="rung">
+      <div class="months" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div><h3>Feasibility &amp; site</h3><p>Before design, we look at the land. Access, soils, utilities and setbacks decide more about cost than the floor plan does.</p></div>
+    </div>
+    <div class="rung">
+      <div class="months" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div><h3>Design &amp; budget together</h3><p>Costing runs alongside design rather than after it, so you never fall in love with something unaffordable.</p></div>
+    </div>
+    <div class="rung">
+      <div class="months" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div><h3>Contract &amp; schedule</h3><p>A fixed schedule with named milestones, and an allowance schedule that says plainly what is and isn't decided.</p></div>
+    </div>
+    <div class="rung">
+      <div class="months" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div><h3>Build &amp; weekly rhythm</h3><p>Site meeting every week, updated numbers every month, and a one-year warranty walkthrough after you've lived in it.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="close" id="contact"><div class="wrap">
+  <h2>Have land, or looking?</h2>
+  <p>The most useful conversation happens before you buy the site. We'll walk a parcel with you and tell you what it will really cost to build on.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="#contact">Arrange a conversation</a>
+    <a class="btn btn-ghost" href="tel:+15550886120">(555) 088-6120</a>
+  </div>
+  <p class="note">Now booking 2027. Architect enquiries welcome — ask for our builder-of-record terms.</p>
+</div></section>
+
+<footer class="foot"><div class="wrap">
+  <span class="fbrand">Ashgrove Homes</span>
+  <p><a href="tel:+15550886120">(555) 088-6120</a> · Custom homes &amp; estates · Building in the valley since 1994</p>
+  <p>Ashgrove Homes is a fictional builder. This page is a design demonstration only.</p>
+</div></footer>
+
+<div class="callbar"><a class="go" href="#contact">Arrange a conversation</a><a class="tel" href="tel:+15550886120">(555) 088-6120</a></div>
+</body>
+</html>

@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Grand Street Works — find the week of work your office is losing every month</title>
-<meta name="description" content="Fixed-fee operations audits for owner-run businesses: dental and medical practices, law and accounting firms, agencies and contractors. We find the manual work, cost it, and hand you the fix in writing. Brooklyn, NY.">
+<title>Grand Street Works — websites and native apps your business owns outright</title>
+<meta name="description" content="Websites, native apps and back-office systems for owner-run practices, firms and contractors. Structured around what converts in your trade, built by one Brooklyn engineer, handed over with the code and hosting in your name.">
 <link rel="canonical" href="https://grandstreetworks.com/">
-<meta property="og:title" content="Grand Street Works — operations audits for owner-run businesses">
-<meta property="og:description" content="There's a week of work a month happening in your office that shouldn't be. We find it, cost it, and hand you the fix. Brooklyn, NY.">
+<meta property="og:title" content="Grand Street Works — websites and native apps for owner-run businesses">
+<meta property="og:description" content="Send us your URL and we'll rebuild your homepage for free. Twenty industries read, winners against losers, structure before design. Brooklyn, NY.">
 <meta property="og:url" content="https://grandstreetworks.com/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23050505'/%3E%3Ccircle cx='14' cy='14' r='5' fill='%23C2D57D'/%3E%3Ctext x='32' y='50' font-family='Menlo,Consolas,monospace' font-size='26' font-weight='bold' fill='%23E5E5E6' text-anchor='middle'%3EGW%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,7 +16,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
 <!-- ===================================================================
-     Every CTA points at joe@grandstreetworks.com (5 places).
+     Every CTA points at joe@grandstreetworks.com (4 places: header,
+     SEC_05 free rebuild, SEC_06 audit, footer CTA). The work/ reference
+     builds are self-contained and deliberately link nowhere.
      Email forwarding + Gmail send-as must be live BEFORE this site is.
      A live site with a dead mailto is worse than no site.
      =================================================================== -->
@@ -517,20 +519,6 @@
   .refusal-grid > div:nth-last-child(-n+2) { border-bottom: none; }
   .refusal-grid h3 { margin-bottom: 0.75rem; }
 
-  .verticals-list {
-    list-style: none;
-    columns: 4;
-    column-gap: 0;
-    padding: 0 2rem 2rem;
-  }
-  .verticals-list li {
-    break-inside: avoid;
-    padding: 0.875rem 1.5rem 0.875rem 0;
-    border-bottom: 1px solid var(--border-light);
-    font-size: 0.9375rem;
-    color: rgba(5, 5, 5, 0.8);
-  }
-
   .callout {
     font-family: var(--font-mono);
     font-size: 0.8125rem;
@@ -543,16 +531,47 @@
   }
   .callout:hover { background: var(--text-color); color: var(--bg-color); }
 
+
+  /* ---------- Work grid (added with the build-first rewrite) ---------- */
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background-color: var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+  }
+  .work-grid a {
+    background-color: var(--bg-color);
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: background-color 0.2s ease;
+  }
+  .work-grid a:hover { background-color: #DEDEDF; }
+  .work-name {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+  .work-firm {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: rgba(5, 5, 5, 0.6);
+  }
+
   @media (max-width: 1024px) {
     .band, .refusal-grid { grid-template-columns: 1fr; }
     .band > div:first-child { border-right: none; border-bottom: 1px solid var(--border-color); }
     .refusal-grid > div:nth-child(odd) { border-right: none; }
     .refusal-grid > div:nth-last-child(2) { border-bottom: 1px solid var(--border-color); }
-    .verticals-list { columns: 2; }
+    .work-grid { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 640px) {
     .tile, .band > div, .refusal-grid > div { padding-left: 1.25rem; padding-right: 1.25rem; }
-    .verticals-list { columns: 1; padding-left: 1.25rem; padding-right: 1.25rem; }
+    .work-grid a { padding-left: 1.25rem; padding-right: 1.25rem; }
+    .work-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -564,7 +583,7 @@
     <span class="status-dot" aria-hidden="true"></span>
     <span class="label" style="font-weight: 600;">Grand Street Works</span>
   </div>
-  <a href="mailto:joe@grandstreetworks.com?subject=Operations%20audit" class="label" style="text-decoration: underline;">Get in touch</a>
+  <a href="mailto:joe@grandstreetworks.com?subject=Rebuild%20our%20homepage" class="label" style="text-decoration: underline;">Get in touch</a>
 </header>
 
 <main>
@@ -577,119 +596,121 @@
           <span class="label">Location // Brooklyn, NY</span>
         </div>
         <div>
-          <span class="label">Status // Taking audits this month</span>
+          <span class="label">Status // Taking builds this month</span>
         </div>
       </div>
       <div class="hero-main">
         <div>
-          <h1>There's a week of work a month happening in your office that shouldn't be.</h1>
-          <p class="text-large" style="max-width: 800px;">
-            We find it, cost it in hours and dollars, and hand you the fix in writing — whether or not you hire us to build it. One engineer, working directly with the owner.
+          <h1>Your website is the first piece of software you own. We build that one, then the ones behind it.</h1>
+          <p class="text-large" style="max-width: 820px;">
+            Sites and native apps for owner-run practices, firms and contractors — structured around what actually converts in your trade before anything gets designed. One Brooklyn engineer. The repository, the hosting and the domain end up in your name.
           </p>
-          <a class="hero-cta" href="mailto:joe@grandstreetworks.com?subject=Operations%20audit">Book an operations audit →</a>
+          <a class="hero-cta" href="#work">See your industry rebuilt →</a>
         </div>
       </div>
     </div>
     <div class="stats-ticker">
       <div class="stat-item">
         <span class="label">Metric_01</span>
-        <span class="stat-value">5 days</span>
-        <span class="label" style="color: rgba(5,5,5,0.6)">Walkthrough to written report</span>
+        <span class="stat-value">20</span>
+        <span class="label" style="color: rgba(5,5,5,0.6)">Industries read, winners against losers</span>
       </div>
       <div class="stat-item">
         <span class="label">Metric_02</span>
-        <span class="stat-value">90+</span>
-        <span class="label" style="color: rgba(5,5,5,0.6)">Projects shipped behind the work</span>
+        <span class="stat-value">120</span>
+        <span class="label" style="color: rgba(5,5,5,0.6)">Reference homepages built and published</span>
       </div>
       <div class="stat-item">
         <span class="label">Metric_03</span>
         <span class="stat-value">100%</span>
-        <span class="label" style="color: rgba(5,5,5,0.6)">Audit fee credited against a build</span>
+        <span class="label" style="color: rgba(5,5,5,0.6)">Yours at handover — code, hosting, data</span>
       </div>
     </div>
   </section>
 
   <section>
     <div class="section-header">
-      <span class="label">[SEC_01] Where the hours go</span>
+      <span class="label">[SEC_01] Where it leaks</span>
     </div>
     <div class="structural-grid">
       <div class="tile border-right">
-        <span class="label">Sym_01 // Front desk</span>
-        <p>Mornings go to voicemail, intake forms and rescheduling, instead of the people standing at the counter.</p>
+        <span class="label">Sym_01 // The website</span>
+        <p>Your best referral looks you up on a phone at nine at night. What loads is a page from 2016 with the phone number three screens down.</p>
       </div>
       <div class="tile border-right">
-        <span class="label">Sym_02 // Quoting</span>
-        <p>Quotes, proposals and engagement letters take two days, because one person writes every one from scratch.</p>
+        <span class="label">Sym_02 // The enquiry</span>
+        <p>The contact form goes to one inbox that one person reads. Nobody can say how many came in last month, or how many of them booked.</p>
       </div>
       <div class="tile">
-        <span class="label">Sym_03 // Double entry</span>
-        <p>The same client details get typed into three systems by three people, and the three systems disagree by Friday.</p>
-      </div>
-      <div class="tile border-right">
-        <span class="label">Sym_04 // Software bill</span>
-        <p>Lines nobody has reviewed since whoever chose them left. One of them costs more than a part-time salary.</p>
-      </div>
-      <div class="tile border-right">
-        <span class="label">Sym_05 // Follow-up</span>
+        <span class="label">Sym_03 // Follow-up</span>
         <p>Enquiries that didn't book get chased when someone remembers. Most months, nobody remembers.</p>
       </div>
+      <div class="tile border-right">
+        <span class="label">Sym_04 // Quoting</span>
+        <p>Quotes, proposals and engagement letters take two days, because one person writes every one from scratch.</p>
+      </div>
+      <div class="tile border-right">
+        <span class="label">Sym_05 // Double entry</span>
+        <p>The same client details get typed into three systems by three people, and the three systems disagree by Friday.</p>
+      </div>
       <div class="tile">
-        <span class="label">Sym_06 // Shadow AI</span>
-        <p>Half the team already pastes client information into ChatGPT, and there's no written rule about what they can paste.</p>
+        <span class="label">Sym_06 // The software bill</span>
+        <p>Lines nobody has reviewed since whoever chose them left. One of them costs more than a part-time salary.</p>
       </div>
     </div>
   </section>
 
   <section id="services">
     <div class="section-header border-top">
-      <span class="label">[SEC_02] Services</span>
+      <span class="label">[SEC_02] What we build</span>
     </div>
     <div class="structural-grid">
       <div class="service-card border-right">
         <div class="service-header">
           <span class="label" style="display:block; margin-bottom: 1rem;">Svc_A // Start here</span>
-          <h3>Operations Audit</h3>
-          <span class="label service-note">Fixed fee · report inside 5 business days</span>
+          <h3>Websites</h3>
+          <span class="label service-note">Fixed fee · structure first, design second</span>
         </div>
         <div class="service-body">
-          <p>A costed picture of where the manual work lives in your business, and what it's worth to fix. Plain language, numbers shown, yours to keep either way.</p>
+          <p>A site built on the structure that separates the best-performing firms in your trade from the rest — established by reading them, before a single decision about how it looks.</p>
           <ul class="deliverables-list">
-            <li>60–90 minute walkthrough of how the business actually runs — bring the software bill</li>
-            <li>Top five opportunities ranked by hours saved against effort, each with a fixed price to fix</li>
-            <li>Software spend check: what you rent monthly and use a fifth of, with break-even maths</li>
-            <li>A "do not automate" list — what looks automatable but isn't worth the money or the risk</li>
-            <li>30-minute readout call to walk you through it</li>
+            <li>The top and bottom performers in your trade in your metro, pulled and read the way a customer reads them</li>
+            <li>What every winner has and no loser has, written down — that becomes the page</li>
+            <li>Several genuinely different directions to choose from, never one comp to approve or reject</li>
+            <li>Fast on a phone in a driveway: no page builder, no plugin stack, no monthly platform fee</li>
+            <li>Repository, hosting and domain in your name at handover</li>
           </ul>
         </div>
       </div>
       <div class="service-card border-right">
         <div class="service-header">
-          <span class="label" style="display:block; margin-bottom: 1rem;">Svc_B // For the team</span>
-          <h3>Training Day</h3>
-          <span class="label service-note">Half-day or full-day · on-site or remote</span>
+          <span class="label" style="display:block; margin-bottom: 1rem;">Svc_B // Off the desk</span>
+          <h3>Native Apps</h3>
+          <span class="label service-note">iOS, Android and Mac · shipped under your account</span>
         </div>
         <div class="service-body">
-          <p>One working session, everybody hands-on at a keyboard, built on your team's real files and real workflows. No slide deck about the future of work.</p>
+          <p>For the part of the job that happens on a roof, in a unit, or at two in the morning. Most businesses don't need one, and we'll tell you if you're one of them.</p>
           <ul class="deliverables-list">
-            <li>Pre-call to pick the 3–5 workflows worth transforming live</li>
-            <li>Written playbook and prompt library your team keeps</li>
-            <li>Rules on what must never be pasted into a chat window, in writing</li>
-            <li>Follow-up call at two weeks to unstick anyone who stalled</li>
+            <li>Photos, notes and signatures captured with no signal, synced when the truck has bars again</li>
+            <li>One place for the crew's day instead of a group chat, a clipboard and a whiteboard</li>
+            <li>Native where native earns it — camera, offline storage, notifications — and web where it doesn't</li>
+            <li>Published to your own developer account, under your business's name</li>
+            <li>Same care plan as everything else, or hand it to your own IT</li>
           </ul>
         </div>
       </div>
       <div class="service-card">
         <div class="service-header">
-          <span class="label" style="display:block; margin-bottom: 1rem;">Svc_C // For the owner</span>
-          <h3>Back-Office Assistant</h3>
+          <span class="label" style="display:block; margin-bottom: 1rem;">Svc_C // Behind the site</span>
+          <h3>Back-Office Systems</h3>
           <span class="label service-note">Built for you · running inside a week</span>
         </div>
         <div class="service-body">
-          <p>A system that does the work rather than reporting on it. Maintained monthly so it doesn't quietly rot six weeks after launch.</p>
+          <p>A new site sends you more enquiries. This is what catches them — a system that does the work rather than reporting on it, maintained so it doesn't quietly rot six weeks after launch.</p>
           <ul class="deliverables-list">
+            <li>Every enquiry logged, counted and attributed, so you know what the site is actually worth</li>
+            <li>Follow-up that happens — stale enquiries chased, drafted for your approval</li>
             <li>Morning brief: the handful of things that genuinely need you, replies drafted</li>
-            <li>Follow-up that actually happens — stale enquiries chased, drafted for your approval</li>
             <li>One page showing where the pipeline, the schedule and the money stand</li>
             <li>Monitoring, fixes, and one improvement a month</li>
           </ul>
@@ -700,22 +721,22 @@
 
   <section>
     <div class="section-header border-top">
-      <span class="label">[SEC_03] How the audit runs</span>
+      <span class="label">[SEC_03] How a build runs</span>
     </div>
     <div class="grid-container">
       <div class="col-span-6 border-right" style="padding: 0;">
         <div class="process-step border-bottom">
           <div class="step-number">01</div>
           <div>
-            <h3 style="margin-bottom: 0.5rem;">The walkthrough</h3>
-            <p>60–90 minutes with you and, ideally, whoever runs the front desk. We follow the work, not the org chart.</p>
+            <h3 style="margin-bottom: 0.5rem;">The read</h3>
+            <p>We pull the strongest and weakest firms in your trade in your metro and read their sites the way a customer would. What every strong one has and no weak one has is the structure. It gets written down before anything is designed.</p>
           </div>
         </div>
         <div class="process-step">
           <div class="step-number">02</div>
           <div>
-            <h3 style="margin-bottom: 0.5rem;">The report</h3>
-            <p>Inside five business days. Five ranked opportunities, hours and dollars on each, a fixed price to fix each one.</p>
+            <h3 style="margin-bottom: 0.5rem;">The directions</h3>
+            <p>Several complete homepages, structurally different from one another — not one layout in six colours. You tell us which one sounds like you, on the phone, in ten minutes.</p>
           </div>
         </div>
       </div>
@@ -723,40 +744,80 @@
         <div class="process-step border-bottom">
           <div class="step-number">03</div>
           <div>
-            <h3 style="margin-bottom: 0.5rem;">The readout</h3>
-            <p>Half an hour to walk you through it and answer everything. Your team can act on any of it without us.</p>
+            <h3 style="margin-bottom: 0.5rem;">The build</h3>
+            <p>The direction you picked becomes the whole site. Your words, edited — never invented. Tested on a real phone at the sizes your customers actually hold, before you see it again.</p>
           </div>
         </div>
         <div class="process-step">
           <div class="step-number">04</div>
           <div>
-            <h3 style="margin-bottom: 0.5rem;">Your call</h3>
-            <p>Book a fix, book the training, or take the report in-house. The fee credits in full for 30 days either way.</p>
+            <h3 style="margin-bottom: 0.5rem;">The handover</h3>
+            <p>Repository, hosting and domain in your name, documented. Take the care plan or take it to your own IT — the code is yours either way, and that's in the contract rather than in a sales conversation.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <section id="work">
+    <div class="section-header border-top">
+      <span class="label">[SEC_04] Work</span>
+    </div>
+    <div class="grid-container" style="border-bottom: none;">
+      <div class="col-span-12 pad-box-large" style="padding-bottom: 2.5rem; border-bottom: none;">
+        <h2>Twenty industries. Six directions each.</h2>
+        <p class="text-large" style="margin-top: 1.5rem; max-width: 64ch;">
+          Reference builds, made to show what the method produces. <strong>The businesses are invented; the structure isn't.</strong> Each set started with the same read — what the best-performing firms in that trade put on a homepage, and what the rest leave off.
+        </p>
+        <p style="margin-top: 1.5rem; max-width: 64ch;">
+          The common thread across them isn't an industry, it's a shape: owner-run, healthy margins, a small team wearing several hats each, and nobody whose job is to look at how the work flows. Open the closest one to yours on your phone.
+        </p>
+      </div>
+    </div>
+    <div class="work-grid">
+      <a href="work/01-personal-injury/"><span class="label">Ind_01</span><span class="work-name">Personal injury</span><span class="work-firm">Vance &amp; Cole →</span></a>
+      <a href="work/02-cosmetic-dentists/"><span class="label">Ind_02</span><span class="work-name">Cosmetic dentistry</span><span class="work-firm">Ardent Smile Studio →</span></a>
+      <a href="work/03-plastic-surgeons/"><span class="label">Ind_03</span><span class="work-name">Plastic surgery</span><span class="work-firm">Aurelia Aesthetic Surgery →</span></a>
+      <a href="work/04-med-spas/"><span class="label">Ind_04</span><span class="work-name">Med spas</span><span class="work-firm">Lumen Aesthetics →</span></a>
+      <a href="work/05-dermatology/"><span class="label">Ind_05</span><span class="work-name">Dermatology</span><span class="work-firm">Bellweather Dermatology →</span></a>
+      <a href="work/06-roofing/"><span class="label">Ind_06</span><span class="work-name">Roofing</span><span class="work-firm">Ridgeline Roofing →</span></a>
+      <a href="work/07-hvac/"><span class="label">Ind_07</span><span class="work-name">Heating &amp; cooling</span><span class="work-firm">Meridian Air →</span></a>
+      <a href="work/08-restoration/"><span class="label">Ind_08</span><span class="work-name">Restoration</span><span class="work-firm">Halcyon Restoration →</span></a>
+      <a href="work/09-general-contractors/"><span class="label">Ind_09</span><span class="work-name">General contracting</span><span class="work-firm">Corvid Build Co. →</span></a>
+      <a href="work/10-luxury-real-estate/"><span class="label">Ind_10</span><span class="work-name">Luxury real estate</span><span class="work-firm">Hallowell &amp; Reece →</span></a>
+      <a href="work/11-wealth-management/"><span class="label">Ind_11</span><span class="work-name">Wealth management</span><span class="work-firm">Ardsley Wealth Partners →</span></a>
+      <a href="work/12-accounting-cpas/"><span class="label">Ind_12</span><span class="work-name">Accounting &amp; CPAs</span><span class="work-firm">Fenwick &amp; Hale →</span></a>
+      <a href="work/13-architecture/"><span class="label">Ind_13</span><span class="work-name">Architecture</span><span class="work-firm">Vessel Architecture →</span></a>
+      <a href="work/14-interior-design/"><span class="label">Ind_14</span><span class="work-name">Interior design</span><span class="work-firm">Marrow &amp; Vine →</span></a>
+      <a href="work/15-custom-home-builders/"><span class="label">Ind_15</span><span class="work-name">Custom home building</span><span class="work-firm">Ashgrove Homes →</span></a>
+      <a href="work/16-pool-builders/"><span class="label">Ind_16</span><span class="work-name">Pool building</span><span class="work-firm">Still Water Pools →</span></a>
+      <a href="work/17-solar/"><span class="label">Ind_17</span><span class="work-name">Solar</span><span class="work-firm">Northlight Solar →</span></a>
+      <a href="work/18-recruiting/"><span class="label">Ind_18</span><span class="work-name">Recruiting</span><span class="work-firm">Ridgeway Search →</span></a>
+      <a href="work/19-property-management/"><span class="label">Ind_19</span><span class="work-name">Property management</span><span class="work-firm">Kestrel Property Group →</span></a>
+      <a href="work/20-veterinary/"><span class="label">Ind_20</span><span class="work-name">Veterinary</span><span class="work-firm">Brightwater Animal Hospital →</span></a>
+    </div>
+  </section>
+
   <section>
     <div class="section-header border-top">
-      <span class="label">[SEC_04] When the maths is obvious</span>
+      <span class="label">[SEC_05] Before you pay anything</span>
     </div>
     <div class="band">
       <div>
-        <h2>Software you own instead of software you rent.</h2>
+        <h2>We'll rebuild your homepage first, for free.</h2>
         <p class="text-large" style="margin-top: 1.5rem; max-width: 52ch;">
-          If the audit turns up a tool you pay hundreds a month for and use a fifth of, we can rebuild the fifth you use as software you own outright.
+          Send the URL. You get back a complete homepage for your actual business — your services, your locations, your words — built on the structure that separates the top performers in your trade from everyone else.
         </p>
-        <a class="callout" href="mailto:joe@grandstreetworks.com?subject=Software%20we%20rent%20and%20barely%20use">Ask about your software bill →</a>
+        <a class="callout" href="mailto:joe@grandstreetworks.com?subject=Rebuild%20our%20homepage">Send us your URL →</a>
       </div>
       <div>
         <ul class="deliverables-list" style="margin-top: 0;">
-          <li>Scope comes straight from the audit — the workflows you actually use, mapped</li>
-          <li>Your data, your hosting, your repository, documented and handed over</li>
-          <li>Old and new run side by side for a full billing cycle before you cancel anything</li>
-          <li>One-time build fee, typically paying for itself inside eighteen months</li>
-          <li>Optional care plan for hosting and patching — decline it and the code is still yours</li>
+          <li>Your real business, not a template — read off the site you have today</li>
+          <li>The structural read that produced it, written out, so your own developer could act on it without us</li>
+          <li>A live link you can send round the office and argue about</li>
+          <li>No call required, no obligation, and nothing to cancel</li>
+          <li>If we don't think your site is what's holding you back, we'll tell you that instead</li>
+          <li>A handful a month — say what you do and where, and we'll tell you if there's room</li>
         </ul>
       </div>
     </div>
@@ -764,9 +825,38 @@
 
   <section>
     <div class="section-header border-top">
-      <span class="label">[SEC_05] What we won't do</span>
+      <span class="label">[SEC_06] If the site isn't the problem</span>
+    </div>
+    <div class="band">
+      <div>
+        <h2>An operations audit, fixed fee, report inside five business days.</h2>
+        <p class="text-large" style="margin-top: 1.5rem; max-width: 52ch;">
+          Some businesses have plenty of enquiries and no hours. For those, the useful thing isn't a new site — it's a costed picture of where the manual work lives and what it's worth to fix. Yours to keep either way.
+        </p>
+        <a class="callout" href="mailto:joe@grandstreetworks.com?subject=Operations%20audit">Book an operations audit →</a>
+      </div>
+      <div>
+        <ul class="deliverables-list" style="margin-top: 0;">
+          <li>60–90 minute walkthrough of how the business actually runs — bring the software bill</li>
+          <li>Top five opportunities ranked by hours saved against effort, each with a fixed price to fix</li>
+          <li>Software spend check: what you rent monthly and use a fifth of, with break-even maths</li>
+          <li>A "do not automate" list — what looks automatable but isn't worth the money or the risk</li>
+          <li>Optional half-day with the team afterwards, if the fix turns out to be a habit rather than software</li>
+          <li>The fee credits in full against anything booked in the next 30 days</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-header border-top">
+      <span class="label">[SEC_07] What we won't do</span>
     </div>
     <div class="refusal-grid">
+      <div>
+        <h3>Build you an app you don't need</h3>
+        <p>A native app is right when the work happens away from a desk and away from signal. For most practices and firms it is a more expensive way to have a website, and we'd rather say so on the first call than take the deposit.</p>
+      </div>
       <div>
         <h3>Anything compliance-heavy</h3>
         <p>Payroll, tax filing, accounting of record, clinical records — anything that would put protected health information through a system we built. That stays with the specialists and the software carrying the liability.</p>
@@ -776,65 +866,21 @@
         <p>Plenty of what you pay for is cheap for what it does, or worth it because everyone else is on it. We'll say so, and it costs you nothing to hear it.</p>
       </div>
       <div>
-        <h3>Automate judgement</h3>
-        <p>Some of what looks automatable is the part where your experience shows. Automating it saves an hour and costs a client. That list is in the report too.</p>
-      </div>
-      <div>
-        <h3>Sell you a build the audit didn't justify</h3>
-        <p>If you're already running lean, we'd rather tell you and keep the relationship than invoice you for a project neither of us believed in.</p>
+        <h3>Sell you a build the numbers didn't justify</h3>
+        <p>If your site is working and your week isn't drowning, we'd rather tell you and keep the relationship than invoice you for a project neither of us believed in.</p>
       </div>
     </div>
   </section>
 
   <section>
     <div class="section-header border-top">
-      <span class="label">[SEC_06] Who this is for</span>
-    </div>
-    <div class="grid-container" style="border-bottom: none;">
-      <div class="col-span-12 pad-box-large" style="padding-bottom: 1rem; border-bottom: none;">
-        <h2>Owner-run businesses with real revenue and no spare hours.</h2>
-        <p class="text-large" style="margin-top: 1rem; max-width: 60ch;">
-          The common thread isn't an industry, it's a shape: healthy margins, a small team wearing several hats each, and nobody whose job is to look at how the work flows.
-        </p>
-      </div>
-    </div>
-    <ul class="verticals-list">
-      <li>Dental practices &amp; orthodontists</li>
-      <li>Oral &amp; cosmetic surgery</li>
-      <li>Dermatology &amp; med spas</li>
-      <li>Plastic surgery practices</li>
-      <li>Private medical practices</li>
-      <li>Fertility clinics</li>
-      <li>Veterinary hospitals</li>
-      <li>Personal injury law firms</li>
-      <li>Corporate &amp; estate law</li>
-      <li>Accounting firms &amp; CPAs</li>
-      <li>Wealth management</li>
-      <li>Insurance brokerages</li>
-      <li>Commercial real estate</li>
-      <li>Property management</li>
-      <li>General contractors</li>
-      <li>Roofing, HVAC &amp; plumbing</li>
-      <li>Restoration &amp; specialty trades</li>
-      <li>Architecture &amp; engineering</li>
-      <li>Interior design studios</li>
-      <li>Agencies &amp; production companies</li>
-      <li>Staffing &amp; executive search</li>
-      <li>Private schools &amp; clubs</li>
-      <li>Luxury &amp; independent dealerships</li>
-      <li>Wedding &amp; event venues</li>
-    </ul>
-  </section>
-
-  <section>
-    <div class="section-header border-top">
-      <span class="label">[SEC_07] Principal</span>
+      <span class="label">[SEC_08] Principal</span>
     </div>
     <div class="grid-container">
       <div class="col-span-12 pad-box-large">
         <h2>Joe Waine</h2>
         <p class="text-large" style="margin-top: 1rem; margin-bottom: 3rem; max-width: 62ch;">
-          Grand Street Works is one Brooklyn engineer with 90+ shipped projects — automations, internal tools, and the unglamorous plumbing that connects a business's software to itself. The person in your discovery call is the person who writes the report and the person who builds the fix. I take a small number of engagements at a time, and I'd rather turn work down than staff it out to someone you've never met.
+          Grand Street Works is one Brooklyn engineer. I've been building for the web since 2013 — agency work for Fortune 500 brands, then in-house, and for the last decade directly for owners — plus native iOS and macOS applications and the unglamorous plumbing that connects a business's software to itself. The person on your first call is the person who reads your competitors, designs the page and writes the code. I take a small number of engagements at a time, and I'd rather turn work down than staff it out to someone you've never met.
         </p>
         <table class="data-table" style="max-width: 860px;">
           <tbody>
@@ -851,8 +897,12 @@
               <td>Owners and practice managers, directly</td>
             </tr>
             <tr>
+              <td>Builds</td>
+              <td>Websites · native iOS, Android and macOS apps · back-office systems</td>
+            </tr>
+            <tr>
               <td>First step</td>
-              <td>Fixed-fee operations audit</td>
+              <td>A rebuilt homepage, free, before anything is agreed</td>
             </tr>
             <tr>
               <td>Engagements</td>
@@ -870,65 +920,59 @@
 
   <section>
     <div class="section-header border-top">
-      <span class="label">[SEC_08] Fair questions</span>
+      <span class="label">[SEC_09] Fair questions</span>
     </div>
     <div class="faq-container">
       <details>
-        <summary>We're too small for this.</summary>
+        <summary>Our site was fine when we paid for it.</summary>
         <div class="faq-content">
-          <p>Smaller usually makes the maths better, not worse. In a ten-person firm one person is doing four jobs, so an hour returned to them is an hour returned to four functions. The businesses that get least out of this are the large ones with an operations team already asking the same questions.</p>
+          <p>Most of them were. What changed isn't taste — it's that the majority of the people checking you out now do it on a phone, in the evening, with two of your competitors open in other tabs. A page that was reasonable on a desktop in 2016 loses that comparison on load time alone, before anyone reads a word of it.</p>
         </div>
       </details>
       <details>
-        <summary>We tried ChatGPT and it was underwhelming.</summary>
+        <summary>We're too small for this.</summary>
         <div class="faq-content">
-          <p>That's the usual experience, and it's the right conclusion from the wrong experiment. Typing questions into a chat box isn't the same as changing how a workflow runs. The audit looks at where the hours actually go — intake, scheduling, quoting, follow-up, double entry — and plenty of the fixes are ordinary software rather than AI.</p>
+          <p>Smaller usually makes the maths better, not worse. In a ten-person firm one person is doing four jobs, so an enquiry that books itself is an hour returned to four functions. The businesses that get least out of this are the large ones with a marketing team already asking the same questions.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Why would you rebuild our homepage for nothing?</summary>
+        <div class="faq-content">
+          <p>Because it's a better first conversation than a sales call, and it's cheap for us to be wrong. If the rebuild is obviously better than what you have, you'll want to talk about the rest of it. If it isn't, you've lost an email and we've lost an afternoon. There's no invoice attached to it and nothing to cancel — you can hand the whole thing to the developer you already use.</p>
         </div>
       </details>
       <details>
         <summary>Is our client data safe?</summary>
         <div class="faq-content">
-          <p>The first thing the audit produces is a list of what should never leave your systems, and a written rule for your team about what can and can't be pasted into a chat window. Anything we build runs on your accounts and your hosting, and nothing gets write access until you've watched it work with drafts and approvals first. We stay out of clinical records, payroll and anything else carrying regulatory liability.</p>
-        </div>
-      </details>
-      <details>
-        <summary>Who maintains whatever you build?</summary>
-        <div class="faq-content">
-          <p>Your choice. There's an optional monthly care plan covering hosting, patching and small changes, priced well below the subscription it usually replaces — or your own IT can hold it, because the code is documented and it's yours. Declining the care plan doesn't cost you access to anything.</p>
+          <p>Anything we build runs on your accounts and your hosting, and nothing gets write access until you've watched it work with drafts and approvals first. We stay out of clinical records, payroll and anything else carrying regulatory liability, and any system that touches your client list comes with a written rule for your team about what can and can't leave it.</p>
         </div>
       </details>
       <details>
         <summary>Aren't you just a new kind of lock-in?</summary>
         <div class="faq-content">
-          <p>You own the repository, the data and the infrastructure accounts, and that's in the contract rather than in a sales conversation. If you want to move to another engineer, everything they need is already in your possession. Replaceable by design.</p>
-        </div>
-      </details>
-      <details>
-        <summary>What if switching breaks something we depend on?</summary>
-        <div class="faq-content">
-          <p>Nothing gets cancelled on a promise. When we replace a tool, old and new run side by side for a full billing cycle, and you only cancel once the new one has done the job for a month with your real work going through it.</p>
+          <p>You own the repository, the data and the infrastructure accounts, and that's in the contract rather than in a sales conversation. The care plan is optional and declining it doesn't cost you access to anything. If you want to move to another engineer, everything they need is already in your possession. Replaceable by design.</p>
         </div>
       </details>
       <details>
         <summary>What does it cost, and how much of our time does it take?</summary>
         <div class="faq-content">
-          <p>Everything is a fixed fee agreed before work starts — no hourly billing and no scope-creep conversations. The audit is deliberately the cheapest way in and credits 100% against anything booked in the following 30 days. Your side of it is one 60–90 minute call, a short email thread, and a 30-minute readout.</p>
+          <p>Everything is a fixed fee agreed before work starts — no hourly billing and no scope-creep conversations. Your side of a site build is one call to pick a direction, one pass on the words, and one review before it goes live. The free rebuild costs you an email.</p>
         </div>
       </details>
     </div>
   </section>
 
   <section class="footer-cta pad-box-large border-top" id="contact">
-    <h2>Tell us what's eating the week.</h2>
-    <p>One email. You'll get a straight answer within a business day on whether an audit is worth your money — including if it isn't.</p>
-    <a href="mailto:joe@grandstreetworks.com?subject=What's%20eating%20our%20week" class="email-link">joe@grandstreetworks.com</a>
+    <h2>Send us the URL.</h2>
+    <p>One email with what you do and where. You'll get a straight answer within a business day on whether there's a real problem worth fixing — including if there isn't.</p>
+    <a href="mailto:joe@grandstreetworks.com?subject=Rebuild%20our%20homepage" class="email-link">joe@grandstreetworks.com</a>
   </section>
 
 </main>
 
 <footer>
   <div class="label">© 2026 Grand Street Works · 700 Grand Street #2F, Brooklyn, NY 11211</div>
-  <div class="label">Sys_Ver 1.0 // Operational</div>
+  <div class="label">Sys_Ver 1.1 // Operational</div>
 </footer>
 
 <script>

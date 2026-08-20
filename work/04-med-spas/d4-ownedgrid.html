@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lumen Aesthetics — injectables, laser and skin</title>
+<meta name="description" content="Licensed injectors, published prices and booking without an account. Injectables, laser and medical-grade skincare.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* D4 — THE OWNED GRID ONE. hero:split nav:bar services:tiles proof:logos
+   ink #241B17 · surface #F8F1EC · accent #7E4234 · muted #6B564C · on-accent #FFFFFF
+   H1 ramp: 33/40/50/62px · Italiana display / Lato body
+   Device: the grid the spa actually owns — a nine-square CSS lattice sitting in the hero's
+   second column where the Instagram embed usually goes, with the price list tiled beneath it.
+   Fixes "business dependent on Instagram it doesn't own": the feed lives on their own page. */
+:root{--ink:#241B17;--surface:#F8F1EC;--accent:#7E4234;--muted:#6B564C;--on-accent:#FFFFFF;
+--paper:#FFF9F5;--tint:#F5E4DC;--deep:#E8D3C8;--rule:rgba(36,27,23,.22);--hair:rgba(36,27,23,.11);--wrap:1180px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.62 Lato,system-ui,-apple-system,sans-serif;padding-bottom:82px;overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 22px}
+h1,h2,h3{font-family:Italiana,Georgia,serif;font-weight:400;margin:0;line-height:1.1}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 24px;
+text-decoration:none;font-weight:700;font-size:14px;letter-spacing:.2em;text-transform:uppercase;
+border:1px solid transparent;text-align:center;line-height:1.2}
+.btn-primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--rule)}
+.topbar{background:var(--ink);color:#EFDED5;font-size:13.5px;letter-spacing:.12em;text-transform:uppercase}
+.topbar .wrap{padding:9px 22px}
+.nav{background:var(--tint);border-bottom:1px solid var(--rule);position:sticky;top:0;z-index:30}
+.nav .wrap{display:flex;align-items:center;gap:12px;min-height:60px}
+.brand{font-family:Italiana,Georgia,serif;font-size:18px;text-decoration:none;letter-spacing:.12em;
+text-transform:uppercase;line-height:1;flex:none}
+.navlinks{display:none;gap:26px;margin-left:auto;font-size:13px;letter-spacing:.18em;
+text-transform:uppercase;color:var(--muted)}
+.navlinks a{text-decoration:none}
+.navlinks a:hover{color:var(--accent)}
+.navbook{min-height:42px;padding:0 12px;font-size:12px;letter-spacing:.1em;margin-left:auto;
+flex:none;white-space:nowrap}
+.hero{padding:24px 0 40px}
+.split{display:grid;gap:26px}
+.eyebrow{font-size:13px;letter-spacing:.34em;text-transform:uppercase;color:var(--accent);
+margin:0 0 13px;font-weight:700}
+.hero h1{font-size:clamp(33px,9vw,62px);max-width:13ch;letter-spacing:.005em}
+.sub{font-size:16.5px;color:var(--muted);max-width:52ch;margin:15px 0 20px}
+.ctas{display:flex;flex-direction:column;gap:10px}
+.badges{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:0;border-top:1px solid var(--rule)}
+.badges li{font-size:15.5px;color:var(--muted);padding:10px 0;border-bottom:1px solid var(--hair);
+letter-spacing:.02em}
+.lattice{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.lattice div{aspect-ratio:1/1;background:var(--deep)}
+.lattice div:nth-child(2){background:linear-gradient(150deg,#E3C8BA,#F2E0D6)}
+.lattice div:nth-child(3){background:var(--tint)}
+.lattice div:nth-child(4){background:linear-gradient(200deg,#DBBFB0,#EEDACE)}
+.lattice div:nth-child(5){background:var(--accent)}
+.lattice div:nth-child(6){background:var(--deep)}
+.lattice div:nth-child(7){background:var(--tint)}
+.lattice div:nth-child(8){background:linear-gradient(120deg,#E6CEC2,#F4E5DC)}
+.lattice div:nth-child(9){background:#C79E8B}
+.sec{padding:52px 0;border-top:1px solid var(--hair)}
+.kicker{font-size:13px;letter-spacing:.34em;text-transform:uppercase;color:var(--accent);
+margin:0 0 12px;font-weight:700}
+.sec h2{font-size:clamp(30px,7.2vw,48px)}
+.lede{color:var(--muted);max-width:58ch;margin:12px 0 26px;font-size:17px}
+.tiles{display:grid;gap:10px}
+.tile{background:var(--tint);padding:24px 20px 26px;position:relative;min-height:190px}
+.tile:nth-child(2){background:var(--deep)}
+.tile:nth-child(3){background:var(--tint)}
+.tile h3{font-size:22px;margin-bottom:10px;line-height:1.25;letter-spacing:.01em}
+.tile p{margin:0;color:var(--muted);font-size:16px}
+.tile.member{background:var(--accent);color:#FFF3EC}
+.tile.member p{color:#F3DCD2}
+.tile.member h3{color:#FFF3EC}
+.tile .tag{position:absolute;right:16px;top:16px;font-size:13px;letter-spacing:.2em;
+text-transform:uppercase;color:var(--accent)}
+.tile.member .tag{color:#F3DCD2}
+.logos{background:var(--paper)}
+.loglabel{font-family:Italiana,Georgia,serif;font-size:clamp(26px,6.6vw,40px);margin:0 0 22px}
+.loglist{list-style:none;margin:0;padding:0;display:grid;gap:0;border-top:1px solid var(--rule)}
+.loglist li{padding:20px 0;border-bottom:1px solid var(--hair);font-size:17px;letter-spacing:.1em;
+text-transform:uppercase;color:var(--accent);font-weight:700;display:flex;align-items:center;gap:14px}
+.loglist li::before{content:"";width:26px;height:1px;background:var(--accent);flex:none}
+.steps{list-style:none;margin:24px 0 0;padding:0;counter-reset:s;display:grid;gap:0}
+.steps li{counter-increment:s;padding:22px 0;border-top:1px solid var(--hair);
+display:grid;grid-template-columns:52px 1fr;gap:14px}
+.steps li:last-child{border-bottom:1px solid var(--hair)}
+.steps li::before{content:counter(s,decimal-leading-zero);font-family:Italiana,Georgia,serif;
+font-size:26px;color:var(--accent);line-height:1.1}
+.steps h3{font-size:21px;margin-bottom:6px;line-height:1.25}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+.close{background:var(--ink);color:#FBEFE9;padding:56px 0 60px}
+.close h2{font-size:clamp(31px,7.6vw,52px);max-width:14ch}
+.close p{max-width:56ch;font-size:17.5px;color:#C4AFA5;margin:16px 0 22px}
+.close .btn-primary{background:#E0A793;color:var(--ink);border-color:#E0A793}
+.close .btn-ghost{color:#FBEFE9;border-color:rgba(251,239,233,.45)}
+.note{font-size:15.5px;color:#C4AFA5;margin-top:20px;max-width:56ch}
+.foot{padding:40px 0 34px;font-size:15.5px;color:var(--muted)}
+.foot .brand{color:var(--ink);display:inline-block;margin-bottom:14px}
+.foot p{margin:0 0 10px;max-width:66ch}
+.foot a{color:var(--accent)}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--tint);padding:8px;
+border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:8px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:60px;text-decoration:none;
+font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase;text-align:center;padding:0 12px}
+.callbar .book{background:var(--accent);color:#fff}
+.callbar .tel{border:1px solid var(--rule);color:var(--ink);padding:0 16px;letter-spacing:.03em;
+text-transform:none;font-size:16px}
+@media(min-width:760px){.ctas{flex-direction:row;gap:12px}.sub{font-size:19px}
+.brand{font-size:23px;letter-spacing:.16em}.navbook{padding:0 16px;letter-spacing:.16em}
+.split{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:44px;align-items:center}
+.hero{padding:44px 0 62px}.tiles{grid-template-columns:1fr 1fr}
+.loglist{grid-template-columns:1fr 1fr;column-gap:44px}
+.steps{grid-template-columns:1fr 1fr;column-gap:46px}.sec{padding:84px 0}}
+@media(min-width:960px){.navlinks{display:flex}.navbook{margin-left:26px}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Book online in under a minute · Memberships from $149/mo</div></div>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="#">Lumen Aesthetics</a>
+  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+  <a class="btn btn-primary navbook" href="#contact">Book now</a>
+</div></header>
+<section class="hero"><div class="wrap"><div class="split">
+  <div>
+    <p class="eyebrow">Injectables · Laser · Skin</p>
+    <h1>Prices published. Booking in two taps.</h1>
+    <p class="sub">Botox, filler, laser and medical-grade skincare, delivered by licensed injectors. Every price is on this page and you can book a real appointment slot without making an account.</p>
+    <div class="ctas">
+      <a class="btn btn-primary" data-cta="primary" href="#contact">Book now</a>
+      <a class="btn btn-ghost" href="#services">See pricing</a>
+    </div>
+    <ul class="badges"><li>All pricing published</li><li>Book without an account</li><li>Licensed injectors only</li><li>Memberships from $149/mo</li></ul>
+  </div>
+  <div class="lattice" aria-hidden="true"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+</div></div></section>
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p><h2>Treatments &amp; prices</h2>
+  <p class="lede">No 'call for pricing'. You should be able to work out what your visit costs before you arrive.</p>
+  <div class="tiles">
+    <article class="tile"><span class="tag" aria-hidden="true">01</span><h3>Neurotoxin — from $12/unit</h3><p>Botox and Dysport for lines and prevention. Most first-time treatments land between $240 and $420 depending on areas.</p></article>
+    <article class="tile"><span class="tag" aria-hidden="true">02</span><h3>Dermal filler — from $650/syringe</h3><p>Lip, cheek and jawline. We are conservative by default and will always start with less than you asked for.</p></article>
+    <article class="tile"><span class="tag" aria-hidden="true">03</span><h3>Laser &amp; resurfacing — from $300</h3><p>Pigment, redness, texture and hair. Package pricing published, because a single session is rarely the whole answer.</p></article>
+    <article class="tile member"><span class="tag" aria-hidden="true">04</span><h3>Memberships — from $149/mo</h3><p>Monthly credit that rolls over, member pricing on everything, and priority booking. Most regulars save around 20%.</p></article>
+  </div>
+</div></section>
+<section class="sec logos" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <h2 class="loglabel">Our team holds</h2>
+  <ul class="loglist"><li>Registered Nurse Injectors</li><li>Medical Director on site</li><li>Allergan Partner Practice</li><li>Galderma Certified</li></ul>
+</div></section>
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p><h2>Your first visit</h2>
+  <p class="lede">About ninety minutes, most of which is talking rather than treating.</p>
+  <ol class="steps">
+    <li><div><h3>Book online</h3><p>Real slots, real availability, no account required. Evenings and Saturdays included.</p></div></li>
+    <li><div><h3>Consultation</h3><p>Photographs, a conversation about what actually bothers you, and a plan. Sometimes the plan is 'not yet'.</p></div></li>
+    <li><div><h3>Treat</h3><p>Same visit where it's appropriate. You'll know the exact cost before anything is drawn up.</p></div></li>
+    <li><div><h3>Two-week review</h3><p>Included, always. Neurotoxin settles over two weeks and small adjustments are free within that window.</p></div></li>
+  </ol>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>First time, or switching?</h2>
+  <p>Book a consultation — it's free, there's no obligation, and you'll leave with a written plan and real prices whether or not you treat that day.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="#contact">Book now</a>
+    <a class="btn btn-ghost" href="tel:+15551216600">(555) 121-6600</a>
+  </div>
+  <p class="note">Free consultations. All pricing published. Evening and Saturday appointments.</p>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Lumen Aesthetics</a>
+  <p><a href="tel:+15551216600">(555) 121-6600</a> · Medical director on site · Licensed nurse injectors · Est. 2019</p>
+  <p>Lumen Aesthetics is a fictional med spa. This page is a design demonstration only.</p>
+</div></footer>
+<div class="callbar"><a class="book" href="#contact">Book now</a><a class="tel" href="tel:+15551216600">(555) 121-6600</a></div>
+</body>
+</html>

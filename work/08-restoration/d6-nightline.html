@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Halcyon Restoration — a person answers, 3am included</title>
+<meta name="description" content="Emergency water, fire and mould restoration. Crews on call 24/7/365, sixty-minute response, insurer billed direct.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600&family=Pathway+Gothic+One&display=swap" rel="stylesheet">
+<style>
+/* D6 — THE NIGHT-LINE ONE. hero:fullbleed nav:bar services:cards proof:testimonial-lead
+   ink #111517 · surface #111517 · accent #F2A413 · muted #98A6AA · on-accent #14161A
+   H1 ramp: 34/42/56/74px · Pathway Gothic One display / Karla body
+   Device: the 60-minute dispatch bar run full-bleed across the foot of a night-dark hero,
+   so the answer-at-3am promise is the composition rather than a line in the footer. */
+:root{--ink:#111517;--surface:#111517;--accent:#F2A413;--muted:#98A6AA;--on-accent:#14161A;
+--paper:#1A2124;--text:#ECF1F2;--rule:rgba(236,241,242,.26);--hair:rgba(236,241,242,.13);
+--wrap:1180px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--text);
+font:400 17px/1.66 Karla,system-ui,-apple-system,sans-serif;padding-bottom:82px;overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Pathway Gothic One","Arial Narrow",sans-serif;font-weight:400;margin:0;
+line-height:1.04;letter-spacing:.01em;text-transform:uppercase}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:58px;padding:0 24px;
+text-decoration:none;font-size:19px;letter-spacing:.09em;text-transform:uppercase;
+border:2px solid transparent;text-align:center;line-height:1.15;
+font-family:"Pathway Gothic One",sans-serif}
+.btn-primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.btn-ghost{background:transparent;color:var(--text);border-color:var(--rule)}
+.topbar{background:var(--paper);color:var(--muted);font-size:16px;
+border-bottom:1px solid var(--hair)}
+.topbar .wrap{padding:9px 20px;line-height:1.35}
+.nav{position:sticky;top:0;z-index:30;background:rgba(17,21,23,.97);
+border-bottom:1px solid var(--hair)}
+.nav .wrap{display:flex;align-items:center;gap:12px;height:60px}
+.brand{font-family:"Pathway Gothic One",sans-serif;font-size:24px;text-decoration:none;
+line-height:1;flex:none;letter-spacing:.09em;text-transform:uppercase}
+.navlinks{display:none;gap:26px;margin-left:auto;font-size:14px;letter-spacing:.16em;
+text-transform:uppercase;color:var(--muted)}
+.navlinks a{text-decoration:none}
+.navlinks a:hover{color:var(--accent)}
+.navact{min-height:42px;padding:0 15px;font-size:16px;flex:none;margin-left:auto;white-space:nowrap}
+@media(max-width:559px){.navact{display:none}}
+/* fullbleed night hero */
+.hero{position:relative;padding:34px 0 0;
+background:radial-gradient(120% 80% at 78% 8%,rgba(242,164,19,.16),transparent 58%),
+linear-gradient(180deg,#0D1112 0%,#131A1D 60%,#161E21 100%)}
+.hero::before{content:"";position:absolute;inset:0;
+background:repeating-linear-gradient(105deg,rgba(236,241,242,.05) 0 1px,transparent 1px 13px);
+pointer-events:none}
+.hero .wrap{position:relative}
+.eyebrow{font-family:"Pathway Gothic One",sans-serif;font-size:17px;letter-spacing:.28em;
+text-transform:uppercase;color:var(--accent);margin:0 0 14px}
+.hero h1{font-size:clamp(34px,9.4vw,74px);max-width:14ch;color:#FFFFFF}
+.sub{font-size:17px;color:var(--muted);max-width:54ch;margin:16px 0 22px;line-height:1.6}
+.ctas{display:flex;flex-direction:column;gap:10px}
+.hero .ctas{padding-bottom:34px}
+/* the dispatch bar, full bleed */
+.dispatch{background:var(--accent);color:var(--on-accent);position:relative}
+.dispatch ul{list-style:none;margin:0;padding:0;display:grid}
+.dispatch li{padding:13px 20px;font-size:16px;font-weight:600;
+border-bottom:1px solid rgba(20,22,26,.22);display:flex;align-items:center;gap:10px}
+.dispatch li:last-child{border-bottom:none}
+.dispatch li::before{content:"";width:9px;height:9px;border-radius:50%;flex:none;
+background:var(--on-accent)}
+.sec{padding:54px 0;border-top:1px solid var(--hair)}
+.kicker{font-family:"Pathway Gothic One",sans-serif;font-size:17px;letter-spacing:.26em;
+text-transform:uppercase;color:var(--accent);margin:0 0 8px}
+.sec h2{font-size:clamp(30px,7.4vw,54px);margin-bottom:12px;color:#FFFFFF}
+.lede{color:var(--muted);max-width:58ch;margin:0 0 26px;font-size:17px}
+.cards{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.cards li{background:var(--paper);border:1px solid var(--hair);border-top:3px solid var(--accent);
+padding:22px 20px 24px}
+.cards h3{font-size:27px;margin-bottom:8px;color:#FFFFFF}
+.cards p{margin:0;color:var(--muted);font-size:16px}
+.lead{background:var(--paper);border-top:none}
+.lead blockquote{margin:0;padding:0 0 0 18px;border-left:3px solid var(--accent);
+font-size:clamp(20px,4.6vw,30px);line-height:1.4;color:#FFFFFF;max-width:26ch;font-weight:400}
+.lead .by{margin:18px 0 0;padding-left:21px;font-size:16px;color:var(--muted)}
+.lead .by b{color:var(--accent);font-weight:600}
+.plabel{margin:34px 0 12px;font-family:"Pathway Gothic One",sans-serif;font-size:17px;
+letter-spacing:.26em;text-transform:uppercase;color:var(--accent)}
+.partners{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.partners li{border:1px solid var(--rule);padding:9px 13px;font-size:16px;color:var(--text)}
+.slats{list-style:none;margin:26px 0 0;padding:0;counter-reset:s;display:grid;gap:0;
+border-top:1px solid var(--hair)}
+.slats li{counter-increment:s;padding:22px 0;border-bottom:1px solid var(--hair);
+display:grid;grid-template-columns:60px 1fr;gap:14px;align-items:start}
+.slats li::before{content:counter(s,decimal-leading-zero);font-family:"Pathway Gothic One",sans-serif;
+font-size:32px;line-height:.95;color:var(--accent)}
+.slats h3{font-size:24px;margin-bottom:6px;color:#FFFFFF}
+.slats p{margin:0;color:var(--muted);font-size:16px}
+.slats li.claims{background:rgba(242,164,19,.09);padding-left:14px;padding-right:14px;
+margin-left:-14px;margin-right:-14px}
+.close{padding:56px 0 60px;border-top:3px solid var(--accent);
+background:linear-gradient(180deg,#161E21,#0E1214)}
+.close h2{font-size:clamp(32px,7.8vw,58px);max-width:13ch}
+.close p{max-width:52ch;font-size:18px;color:var(--muted);margin:14px 0 22px}
+.note{font-size:16px;color:var(--muted);margin-top:20px;max-width:52ch}
+.foot{padding:38px 0 34px;font-size:16px;color:var(--muted);border-top:1px solid var(--hair)}
+.foot .brand{color:var(--text);display:inline-block;margin-bottom:12px}
+.foot p{margin:0 0 9px;max-width:64ch}
+.foot a{color:var(--accent)}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--paper);padding:7px;
+border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:7px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:60px;
+text-decoration:none;font-size:18px;letter-spacing:.08em;text-transform:uppercase;
+text-align:center;line-height:1.15;padding:0 12px;font-family:"Pathway Gothic One",sans-serif}
+.callbar .call{background:var(--accent);color:var(--on-accent)}
+.callbar .tel{border:1px solid var(--rule);color:var(--text);padding:0 14px;letter-spacing:.02em;
+text-transform:none;font-size:17px;font-family:Karla,sans-serif;font-weight:600}
+@media(min-width:740px){.ctas{flex-direction:row;gap:12px}
+.dispatch ul{grid-template-columns:repeat(2,1fr)}
+.dispatch li{border-right:1px solid rgba(20,22,26,.22)}
+.dispatch li:nth-child(2n){border-right:none}
+.cards{grid-template-columns:1fr 1fr}
+.slats{grid-template-columns:1fr 1fr;column-gap:44px}
+.sec{padding:88px 0}.hero{padding:58px 0 0}.sub{font-size:19px}.hero .ctas{padding-bottom:54px}}
+@media(min-width:1080px){.dispatch ul{grid-template-columns:repeat(4,1fr)}
+.dispatch li:nth-child(2n){border-right:1px solid rgba(20,22,26,.22)}
+.dispatch li:last-child{border-right:none}}
+@media(min-width:960px){.navlinks{display:flex}.navact{margin-left:0}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Emergency crews on call 24/7/365 · We bill your insurer direct</div></div>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="#">Halcyon Restoration</a>
+  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+  <a class="btn btn-primary navact" href="tel:+15550449001">Call now — 24/7</a>
+</div></header>
+<section class="hero"><div class="wrap">
+  <p class="eyebrow">Water · Fire · Mould · 24/7</p>
+  <h1>Water coming in? Crews roll in 60 minutes.</h1>
+  <p class="sub">Emergency water, fire and mould restoration. We tarp, extract and dry — then bill your insurer direct and sit with the adjuster so you don't have to.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" data-cta="primary" href="tel:+15550449001">Call now — 24/7</a>
+    <a class="btn btn-ghost" href="#claims">How claims work</a>
+  </div>
+</div></section>
+<div class="dispatch"><ul>
+  <li>60-minute response</li><li>We bill insurers direct</li>
+  <li>IICRC certified</li><li>Adjuster meetings included</li>
+</ul></div>
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p><h2>Emergency services</h2>
+  <p class="lede">Every hour water sits, the damage and the cost compound. This is why we answer at 3am.</p>
+  <ul class="cards">
+    <li><h3>Water extraction &amp; drying</h3><p>Truck-mounted extraction, commercial air movers and moisture mapping so we can prove the structure is genuinely dry, not just dry-feeling.</p></li>
+    <li><h3>Fire &amp; smoke</h3><p>Soot removal, odour neutralisation and contents cleaning. Smoke damage travels far further than the fire itself.</p></li>
+    <li><h3>Mould remediation</h3><p>Containment, HEPA filtration and post-remediation verification by an independent hygienist so the clearance means something.</p></li>
+    <li><h3>Storm &amp; flood</h3><p>Board-up, tarping and full structural drying. We mobilise extra crews before a forecast storm rather than after it.</p></li>
+  </ul>
+</div></section>
+<section class="sec lead" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <blockquote>“Pipe went at two in the morning. Halcyon had extraction running before four and dealt with the insurer entirely. I signed two forms in the whole process.”</blockquote>
+  <p class="by"><b>Gregory N.</b> · Burst supply line, 2,400 sq ft</p>
+  <p class="plabel">Certified and approved</p>
+  <ul class="partners">
+    <li>IICRC Certified Firm</li><li>Preferred Vendor — major carriers</li><li>EPA Lead-Safe</li>
+    <li>BBB A+</li><li>OSHA Compliant</li>
+  </ul>
+</div></section>
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p><h2>From your call to your keys</h2>
+  <p class="lede">You are dealing with a disaster and an insurer at the same time. We take the second one off you.</p>
+  <ol class="slats">
+    <li><div><h3>Call &amp; dispatch</h3><p>A person answers. We dispatch immediately and give you an arrival window measured in minutes.</p></div></li>
+    <li><div><h3>Stabilise</h3><p>Stop the source, extract standing water, tarp or board up. The first hours decide the size of the claim.</p></div></li>
+    <li class="claims" id="claims"><div><h3>Document &amp; bill</h3><p>Full photographic scope and moisture log, submitted to your carrier. We bill them direct and meet the adjuster on site.</p></div></li>
+    <li><div><h3>Dry, verify, restore</h3><p>Daily readings until verified dry, then reconstruction. You get the log, so nothing is disputed months later.</p></div></li>
+  </ol>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>Emergency right now?</h2>
+  <p>Do not wait for business hours. Every hour standing water sits, the cost and the damage climb. Crews are on call this minute.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="tel:+15550449001">Call now — 24/7</a>
+    <a class="btn btn-ghost" href="tel:+15550449001">(555) 044-9001</a>
+  </div>
+  <p class="note">We work with all major insurers and bill direct. Free emergency assessment.</p>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Halcyon Restoration</a>
+  <p><a href="tel:+15550449001">(555) 044-9001</a></p>
+  <p>IICRC certified · 24/7/365 emergency response · Licensed &amp; insured</p>
+  <p>Halcyon Restoration is a fictional company. This page is a design demonstration only.</p>
+</div></footer>
+<div class="callbar"><a class="call" href="tel:+15550449001">Call now — 24/7</a><a class="tel" href="tel:+15550449001">(555) 044-9001</a></div>
+</body>
+</html>

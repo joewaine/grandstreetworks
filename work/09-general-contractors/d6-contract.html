@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Corvid Build Co. — Renovations that finish when we said they would.</title>
+<meta name="description" content="Whole-home renovations, additions and structural work. Projects typically start at $75,000. You get a fixed schedule, a named project manager, and a weekly update you don't have to chase.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700;800&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* D6 — THE CONTRACT ONE. hero:band nav:bar services:cards proof:testimonial-lead
+   ink #1F1A14 · surface #F2EDE3 · accent #A34A1C · muted #5E5344 · on-accent #FFFFFF
+   H1 ramp: 31/37/47/60px · Alegreya display / Karla body
+   Device: the ruled process schedule drawn as a stepped contract sheet — each stage
+   steps further right under a continuous rule, so the sequence is legible before a
+   word is read. Answers FIX #1, no process page: the schedule is the page's spine
+   and the closing argument, not a link in the footer. */
+:root{--ink:#1F1A14;--surface:#F2EDE3;--accent:#A34A1C;--muted:#5E5344;--on-accent:#FFFFFF;
+--paper:#FBF8F1;--band:#E6DDCC;--deep:#241E17;--rule:rgba(31,26,20,.55);
+--hair:rgba(31,26,20,.16);--wrap:1100px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.66 Karla,system-ui,-apple-system,sans-serif;padding-bottom:82px;overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 22px}
+h1,h2,h3{font-family:Alegreya,Georgia,serif;font-weight:800;margin:0;line-height:1.08;
+letter-spacing:-.008em}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 24px;
+text-decoration:none;font-weight:700;font-size:16px;border:2px solid transparent;text-align:center;
+line-height:1.2}
+.btn-primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--rule)}
+.topbar{background:var(--deep);color:#E4DACA;font-size:15px}
+.topbar .wrap{padding:9px 22px;letter-spacing:.03em}
+/* nav: bar */
+.nav{position:sticky;top:0;z-index:30;background:var(--accent);color:#FFFFFF}
+.nav .wrap{display:flex;align-items:center;height:62px;gap:16px}
+.brand{font-family:Alegreya,Georgia,serif;font-weight:800;font-size:23px;text-decoration:none;
+line-height:1;flex:none;color:#FFFFFF}
+.navlinks{display:none;gap:24px;margin-left:26px;font-size:15px;color:#F6E3D8;font-weight:500}
+.navlinks a{text-decoration:none}
+.navlinks a:hover{color:#FFFFFF}
+.navact{margin-left:auto;min-height:42px;padding:0 15px;font-size:14px;white-space:nowrap;
+background:#FFFFFF;color:var(--accent);border-color:#FFFFFF}
+@media(max-width:559px){.navact{display:none}}
+/* hero: band */
+.hero{background:var(--band);border-bottom:6px solid var(--ink)}
+.hero .wrap{padding-top:30px;padding-bottom:34px}
+.eyebrow{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:#8A3D16;
+margin:0 0 14px;font-weight:700}
+.hero h1{font-size:clamp(31px,7.7vw,60px);max-width:15ch}
+.sub{font-size:16px;color:#4E4436;max-width:56ch;margin:16px 0 22px;line-height:1.58}
+.ctas{display:flex;flex-direction:column;gap:10px}
+.seals{list-style:none;margin:26px 0 0;padding:18px 0 0;border-top:2px solid var(--ink);
+display:grid;gap:10px}
+.seals li{font-size:16px;font-weight:500;position:relative;padding-left:22px}
+.seals li::before{content:"";position:absolute;left:0;top:8px;width:12px;height:12px;
+border-radius:50%;border:3px solid var(--accent)}
+.sec{padding:52px 0}
+.kicker{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);
+margin:0 0 10px;font-weight:700}
+.sec h2{font-size:clamp(28px,6.5vw,48px)}
+.lede{color:var(--muted);max-width:58ch;margin:14px 0 28px;font-size:17px}
+/* services: cards ruled by a grid of gaps */
+.cards{display:grid;gap:2px;background:var(--ink);border:2px solid var(--ink)}
+.card{background:var(--paper);padding:24px 20px 26px}
+.card h3{font-size:23px;margin-bottom:9px;line-height:1.14}
+.card p{margin:0;color:var(--muted);font-size:16px}
+/* proof: testimonial-lead */
+.quote{background:var(--deep);color:#F2EADC}
+.quote .kicker{color:#E39A64}
+.quote h2{color:#FFFFFF;margin-bottom:24px}
+.quote blockquote{margin:0;font-family:Alegreya,Georgia,serif;font-weight:400;
+font-size:clamp(22px,5.6vw,36px);line-height:1.34;max-width:26ch;padding-top:22px;
+border-top:3px solid var(--accent);color:#FFFFFF}
+.quote .who{display:block;margin-top:20px;font-size:16px;color:#D5C9B6;letter-spacing:.04em}
+.quote .who b{color:#F2EADC;font-weight:700}
+/* process: the stepped contract sheet — the spine of the page */
+.process{background:var(--paper);border-top:6px solid var(--ink);border-bottom:6px solid var(--ink)}
+.process h2{font-size:clamp(30px,7.2vw,54px)}
+.sheet{list-style:none;margin:0;padding:0;counter-reset:c;border-top:3px solid var(--ink)}
+.sheet li{counter-increment:c;border-bottom:1px solid var(--hair);padding:22px 0 24px;
+position:relative}
+.sheet .cn{display:block;font-family:Alegreya,Georgia,serif;font-weight:700;font-size:19px;
+color:var(--accent);letter-spacing:.06em;margin-bottom:8px}
+.sheet .cn::before{content:counter(c,decimal-leading-zero)}
+.sheet h3{font-size:22px;margin-bottom:9px;line-height:1.16}
+.sheet p{margin:0;color:var(--muted);font-size:16px;max-width:60ch}
+.sheet li::after{content:"";position:absolute;left:0;bottom:-1px;height:3px;background:var(--accent)}
+.sheet li:nth-child(1)::after{width:25%}
+.sheet li:nth-child(2)::after{width:50%}
+.sheet li:nth-child(3)::after{width:75%}
+.sheet li:nth-child(4)::after{width:100%}
+/* close */
+.close{background:var(--surface);padding:54px 0 60px}
+.close h2{font-size:clamp(28px,6.5vw,50px);max-width:14ch}
+.close p{max-width:52ch;font-size:18px;color:var(--muted);margin:14px 0 22px}
+.note{font-size:15px;color:var(--muted);margin-top:20px}
+.foot{padding:36px 0 32px;font-size:15px;color:var(--muted);border-top:2px solid var(--ink)}
+.foot .brand{color:var(--ink);display:block;margin-bottom:12px}
+.foot p{margin:0 0 9px;max-width:66ch}
+.foot a{color:var(--accent)}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--deep);padding:7px;
+display:grid;grid-template-columns:1fr auto;gap:7px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:60px;
+text-decoration:none;font-weight:700;font-size:15px;text-align:center;line-height:1.2;padding:0 12px}
+.callbar .book{background:var(--accent);color:#FFFFFF}
+.callbar .tel{border:2px solid rgba(242,234,220,.6);color:#F2EADC;padding:0 14px}
+@media(min-width:720px){
+ .ctas{flex-direction:row;gap:12px}
+ .seals{grid-template-columns:1fr 1fr;column-gap:32px}
+ .cards{grid-template-columns:1fr 1fr}
+ .hero .wrap{padding-top:52px;padding-bottom:62px}
+ .sub{font-size:19px}.sec{padding:80px 0}
+ .quote{padding:80px 0}
+ .sheet li{padding-left:0;padding-right:0}
+ .sheet li:nth-child(2){padding-left:8%}
+ .sheet li:nth-child(3){padding-left:16%}
+ .sheet li:nth-child(4){padding-left:24%}
+}
+@media(min-width:960px){
+ .navlinks{display:flex}
+ .quote .wrap{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);column-gap:56px;
+ align-items:start}
+ .quote blockquote{max-width:22ch}
+}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Projects from $75,000 · Licensed #GC-22841 · Fully insured</div></div>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="#">Corvid Build Co.</a>
+  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+  <a class="btn btn-primary navact" href="#contact">Book a consultation</a>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <p class="eyebrow">Whole-home renovation &amp; additions</p>
+  <h1>Renovations that finish when we said they would.</h1>
+  <p class="sub">Whole-home renovations, additions and structural work. Projects typically start at $75,000. You get a fixed schedule, a named project manager, and a weekly update you don't have to chase.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" data-cta="primary" href="#contact">Book a consultation</a>
+    <a class="btn btn-ghost" href="#process">See our process</a>
+  </div>
+  <ul class="seals">
+    <li>Projects from $75,000</li><li>Licensed &amp; fully insured</li>
+    <li>Weekly written updates</li><li>Fixed schedule commitment</li>
+  </ul>
+</div></section>
+
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p>
+  <h2>What we build</h2>
+  <p class="lede">We take on fewer projects than we could, because running four properly beats running nine badly.</p>
+  <div class="cards">
+    <article class="card"><h3>Whole-home renovation</h3><p>Gut renovations and reconfigurations. Structural, mechanical and finish work under one contract and one project manager.</p></article>
+    <article class="card"><h3>Additions &amp; extensions</h3><p>Second storeys, rear extensions and garage conversions — including the survey, engineering and permitting.</p></article>
+    <article class="card"><h3>Kitchens &amp; baths</h3><p>Usually where a bigger project starts. We'll tell you honestly whether it makes sense to do them alone or as part of something larger.</p></article>
+    <article class="card"><h3>Structural &amp; permits</h3><p>Load-bearing changes, foundation work and the permit process. This is the part that derails projects run by others.</p></article>
+  </div>
+</div></section>
+
+<section class="sec quote" id="results"><div class="wrap">
+  <div><h2>Results</h2></div>
+  <div>
+    <blockquote>Three builders quoted. Two of them wouldn't tell me what happens after I sign. Corvid handed me a schedule and a named person, and then actually hit the dates.</blockquote>
+    <span class="who"><b>Elaine F.</b> · Whole-home renovation</span>
+  </div>
+</div></section>
+
+<section class="sec process" id="process"><div class="wrap">
+  <p class="kicker">Process</p>
+  <h2>How a project actually runs</h2>
+  <p class="lede">The part homeowners are genuinely anxious about isn't the price. It's not knowing what happens or when.</p>
+  <ol class="sheet">
+    <li><span class="cn" aria-hidden="true"></span><h3>Consultation &amp; feasibility</h3><p>We visit, listen, and tell you whether the idea works and roughly what it costs. Free, and sometimes the answer is don't.</p></li>
+    <li><span class="cn" aria-hidden="true"></span><h3>Design &amp; fixed proposal</h3><p>Drawings, engineering where needed, and a line-item proposal. One number, with allowances stated openly.</p></li>
+    <li><span class="cn" aria-hidden="true"></span><h3>Permits &amp; schedule</h3><p>We handle the city. You get a week-by-week schedule before anyone swings a hammer.</p></li>
+    <li><span class="cn" aria-hidden="true"></span><h3>Build &amp; weekly updates</h3><p>A named project manager, a written update every Friday, and a final walkthrough with a punch list we actually close out.</p></li>
+  </ol>
+</div></section>
+
+<section class="close" id="contact"><div class="wrap">
+  <h2>Thinking about it for next year?</h2>
+  <p>That's the right time to call. Our calendar fills six to nine months out, and the design and permit stage takes longer than people expect.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="#contact">Book a consultation</a>
+    <a class="btn btn-ghost" href="tel:+15550713355">(555) 071-3355</a>
+  </div>
+  <p class="note">Free consultations. Projects typically start at $75,000.</p>
+</div></section>
+
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Corvid Build Co.</a>
+  <p><a href="tel:+15550713355">(555) 071-3355</a> · Licensed #GC-22841 · Bonded &amp; insured · Building here since 2003</p>
+  <p>Corvid Build Co. is a fictional company. This page is a design demonstration only.</p>
+</div></footer>
+
+<div class="callbar"><a class="book" href="#contact">Book a consultation</a><a class="tel" href="tel:+15550713355">(555) 071-3355</a></div>
+</body>
+</html>

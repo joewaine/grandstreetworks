@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ridgeway Search — one sector, manufacturing &amp; industrial engineering</title>
+<meta name="description" content="One sector only. Engineers and operations leaders for manufacturing and industrial businesses, every role advertised with a real salary band.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Sora:wght@600;800&display=swap" rel="stylesheet">
+<style>
+/* D3 — THE SECTOR ONE. hero:split nav:bar services:grid-numbered proof:logos
+   ink #1A1416 · surface #FAF9F7 · accent #C10064 · muted #57545A · on-accent #FFFFFF
+   H1 ramp: 31/38/50/64px · Sora display / IBM Plex Sans body
+   Device: the salary-published role list, split — published numbers beside the headline,
+   then the sector index as a tap-to-apply role list under Results.
+   Fixes the FIX-list item "specialism invisible". */
+:root{--ink:#1A1416;--surface:#FAF9F7;--accent:#C10064;--muted:#57545A;--on-accent:#FFFFFF;
+--paper:#FFFFFF;--hair:rgba(26,20,22,.15);--rule:rgba(26,20,22,.85);--wrap:1160px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.6 "IBM Plex Sans",system-ui,-apple-system,sans-serif;padding-bottom:82px;
+overflow-x:hidden;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:Sora,"IBM Plex Sans",system-ui,sans-serif;font-weight:800;margin:0;
+line-height:1.06;letter-spacing:-.04em}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 22px;
+text-decoration:none;font-weight:600;font-size:16px;border:2px solid transparent;text-align:center;
+line-height:1.15}
+.btn-primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.topbar{background:var(--surface);color:var(--muted);font-size:14px}
+.topbar .wrap{padding:8px 20px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.topbar a{color:var(--accent);text-decoration:none;font-weight:600}
+.nav{position:sticky;top:0;z-index:30;background:var(--ink);color:#F6F2F3}
+.nav .wrap{display:flex;align-items:center;gap:14px;height:56px}
+.brand{font-family:Sora,sans-serif;font-weight:800;font-size:19px;text-decoration:none;
+letter-spacing:-.05em;flex:none;line-height:1;color:#FFF}
+.navlinks{display:none;gap:24px;margin-left:auto;font-size:15px;font-weight:500;color:#D9D2D5}
+.navlinks a{text-decoration:none}
+.navlinks a:hover{color:#FF7FB8}
+.navact{min-height:38px;padding:0 14px;font-size:14.5px;flex:none;margin-left:auto;white-space:nowrap}
+@media(max-width:559px){.navact{display:none}}
+.hero{padding:20px 0 34px}
+.split{display:grid;gap:24px}
+.eyebrow{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);
+font-weight:600;margin:0 0 12px;padding-bottom:10px;border-bottom:2px solid var(--accent);
+display:inline-block}
+.hero h1{font-size:clamp(31px,8.2vw,64px);max-width:16ch}
+.hero h1 em{font-style:normal;background:var(--accent);color:var(--on-accent);
+padding:.02em .1em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.sub{font-size:16.5px;color:var(--muted);max-width:54ch;margin:15px 0 20px;line-height:1.55}
+.ctas{display:flex;flex-direction:column;gap:10px}
+.badges{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:0;border-top:1px solid var(--hair)}
+.badges li{font-size:15.5px;padding:10px 0;border-bottom:1px solid var(--hair);font-weight:500}
+/* published numbers card */
+.board{background:var(--paper);border:2px solid var(--ink)}
+.boardhead{background:var(--ink);color:#FFF;padding:12px 16px;font-size:13px;letter-spacing:.16em;
+text-transform:uppercase;font-weight:600}
+.brow{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:14px 16px;
+border-bottom:1px solid var(--hair)}
+.brow span{font-size:15.5px;color:var(--muted);font-weight:500}
+.brow b{font-family:Sora,sans-serif;font-weight:800;font-size:26px;letter-spacing:-.05em;
+color:var(--accent);line-height:1}
+.btap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 16px;
+text-decoration:none;background:var(--accent);color:var(--on-accent);font-weight:600;font-size:16px;
+min-height:56px}
+.btap em{font-style:normal;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+.sec{padding:48px 0;border-top:2px solid var(--ink)}
+.kicker{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);
+font-weight:600;margin:0 0 10px}
+.sec h2{font-size:clamp(28px,7vw,48px);max-width:15ch}
+.lede{color:var(--muted);max-width:58ch;margin:13px 0 28px;font-size:17px}
+.gridnum{display:grid;gap:0;counter-reset:gn}
+.gn{padding:22px 0;border-top:1px solid var(--hair);display:grid;grid-template-columns:52px 1fr;gap:14px;counter-increment:gn}
+.gn::before{content:counter(gn,decimal-leading-zero);font-family:Sora,sans-serif;font-weight:800;
+font-size:28px;color:var(--accent);line-height:.95;letter-spacing:-.05em}
+.gn h3{font-size:21px;margin-bottom:8px}
+.gn p{margin:0;font-size:16px;color:var(--muted)}
+/* the sector index, as a tap-to-apply role list */
+.sectors{list-style:none;margin:22px 0 0;padding:0;border-top:2px solid var(--ink);counter-reset:sn}
+.sectors a{display:grid;grid-template-columns:auto 1fr auto;gap:6px 14px;align-items:center;
+padding:16px 0;border-bottom:1px solid var(--hair);text-decoration:none;counter-increment:sn}
+.sectors a::before{content:counter(sn,decimal-leading-zero);font-family:Sora,sans-serif;
+font-weight:600;font-size:13px;color:var(--accent);letter-spacing:.1em;grid-row:1/3;grid-column:1}
+.sectors .st{font-family:Sora,sans-serif;font-weight:600;font-size:clamp(18px,4.8vw,26px);
+letter-spacing:-.04em;line-height:1.15}
+.sectors .sb{font-size:13.5px;color:var(--muted);grid-column:2}
+.sectors .sa{grid-row:1/3;grid-column:3;font-size:13px;font-weight:600;letter-spacing:.06em;
+text-transform:uppercase;color:var(--accent);white-space:nowrap;border-bottom:2px solid var(--accent)}
+.sectors a:hover .st{color:var(--accent)}
+.steps{list-style:none;margin:26px 0 0;padding:0;counter-reset:s}
+.steps li{counter-increment:s;padding:20px 0 22px;border-top:1px solid var(--hair);
+display:grid;grid-template-columns:1fr;gap:6px}
+.steps li::before{content:"Step " counter(s);font-size:13px;letter-spacing:.16em;text-transform:uppercase;
+color:var(--accent);font-weight:600}
+.steps h3{font-size:21px}
+.steps p{margin:0;font-size:16px;color:var(--muted)}
+.close{background:var(--accent);color:#FFF;padding:50px 0 56px}
+.close h2{font-size:clamp(30px,7.6vw,52px);max-width:13ch;color:#FFF}
+.close p{max-width:52ch;font-size:17.5px;color:#FFE1EF;margin:14px 0 22px}
+.close .btn-primary{background:#FFF;color:var(--accent);border-color:#FFF}
+.close .btn-ghost{color:#FFF;border-color:rgba(255,255,255,.6)}
+.note{font-size:15.5px;color:#FFD3E7;margin-top:20px;max-width:52ch}
+.foot{padding:34px 0 32px;font-size:15.5px;color:var(--muted)}
+.foot .brand{color:var(--ink);display:inline-block;margin-bottom:12px}
+.foot p{margin:0 0 9px;max-width:64ch}
+.foot a{color:var(--accent)}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--ink);padding:7px;
+display:grid;grid-template-columns:1fr auto;gap:7px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:58px;text-decoration:none;
+font-weight:600;font-size:15px;text-align:center;line-height:1.15;padding:0 12px}
+.callbar .go{background:var(--accent);color:var(--on-accent)}
+.callbar .tel{color:#F6F2F3;border:2px solid rgba(246,242,243,.45);padding:0 15px}
+@media(min-width:760px){.ctas{flex-direction:row}.badges{grid-template-columns:1fr 1fr;column-gap:24px}
+.gridnum{grid-template-columns:1fr 1fr;column-gap:48px}
+.steps{display:grid;grid-template-columns:1fr 1fr;column-gap:48px}
+.sec{padding:78px 0}.hero{padding:38px 0 60px}.sub{font-size:19px}}
+@media(min-width:980px){.split{grid-template-columns:1.35fr .85fr;gap:48px;align-items:start}
+.navlinks{display:flex}.navact{margin-left:0}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap"><span>Specialist search: manufacturing &amp; industrial engineering</span><a href="tel:+15552051160">(555) 205-1160</a></div></div>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="#">Ridgeway Search</a>
+  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+  <a class="btn btn-primary navact" href="#results">See open roles</a>
+</div></header>
+<section class="hero"><div class="wrap"><div class="split">
+  <div>
+    <p class="eyebrow">Manufacturing &amp; industrial engineering</p>
+    <h1>One sector. <em>Every salary published.</em> Apply in one tap.</h1>
+    <p class="sub">We place engineers and operations leaders in manufacturing and industrial businesses. Every role we advertise carries a real salary band, and you can apply from your phone in under a minute.</p>
+    <div class="ctas">
+      <a class="btn btn-primary" data-cta="primary" href="#results">See open roles</a>
+      <a class="btn btn-ghost" href="#contact">Hiring? Talk to us</a>
+    </div>
+    <ul class="badges"><li>Salary bands on every role</li><li>One-tap apply</li><li>One sector only</li><li>90-day placement guarantee</li></ul>
+  </div>
+  <aside class="board">
+    <div class="boardhead">Salary bands on every role</div>
+    <div class="brow"><span>Contingent fee</span><b>20%</b></div>
+    <div class="brow"><span>Replacement guarantee</span><b>90d</b></div>
+    <div class="brow"><span>Average time to placement</span><b>31d</b></div>
+    <div class="brow"><span>Sector, deliberately</span><b>1</b></div>
+    <a class="btap" href="tel:+15552051160">(555) 205-1160<em>One-tap apply</em></a>
+  </aside>
+</div></div></section>
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p><h2>Two audiences, honestly</h2>
+  <p class="lede">Most agency sites are written entirely for employers and then wonder why candidates don't return calls.</p>
+  <div class="gridnum">
+    <article class="gn"><div><h3>For candidates</h3><p>Real salary bands, an honest description of the company, and we will tell you when a role isn't right for you even though it costs us a fee.</p></div></article>
+    <article class="gn"><div><h3>Contingent search</h3><p>For roles at pace. You pay on placement, 20% of first-year salary, with a 90-day replacement guarantee written into the terms.</p></div></article>
+    <article class="gn"><div><h3>Retained search</h3><p>For leadership and hard-to-fill technical roles. Mapped market, full confidentiality, and a shortlist of four rather than a stack of twelve.</p></div></article>
+    <article class="gn"><div><h3>Market intelligence</h3><p>What roles actually pay in your region right now, and why your last two offers were declined. Often free, always useful.</p></div></article>
+  </div>
+</div></section>
+<section class="sec" id="results"><div class="wrap">
+  <p class="kicker">Results</p><h2>Recent placements with</h2>
+  <ul class="sectors">
+    <li><a href="tel:+15552051160"><span class="st">Tier-1 automotive suppliers</span><span class="sb">Salary bands on every role</span><span class="sa">One-tap apply</span></a></li>
+    <li><a href="tel:+15552051160"><span class="st">Precision engineering</span><span class="sb">Salary bands on every role</span><span class="sa">One-tap apply</span></a></li>
+    <li><a href="tel:+15552051160"><span class="st">Food &amp; beverage manufacturing</span><span class="sb">Salary bands on every role</span><span class="sa">One-tap apply</span></a></li>
+    <li><a href="tel:+15552051160"><span class="st">Industrial automation</span><span class="sb">Salary bands on every role</span><span class="sa">One-tap apply</span></a></li>
+    <li><a href="tel:+15552051160"><span class="st">Aerospace components</span><span class="sb">Salary bands on every role</span><span class="sa">One-tap apply</span></a></li>
+  </ul>
+</div></section>
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p><h2>How we run a search</h2>
+  <p class="lede">Same process whether you're hiring or looking. The difference is who pays.</p>
+  <ol class="steps">
+    <li><h3>Brief or conversation</h3><p>Employers: the real requirement, not the job description. Candidates: what you'd actually move for, which is rarely just money.</p></li>
+    <li><h3>Map the market</h3><p>We work one sector, so we largely know who's out there already. Mapping is confirmation rather than discovery.</p></li>
+    <li><h3>Shortlist</h3><p>Four candidates with a written assessment of each, including the reservations. A stack of twelve means we haven't done our job.</p></li>
+    <li><h3>Offer &amp; aftercare</h3><p>We manage the offer, the counter-offer and the resignation. We check in at 30, 60 and 90 days — that's when placements actually fail.</p></li>
+  </ol>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>Hiring, or quietly looking?</h2>
+  <p>Either conversation is confidential and neither commits you to anything. Candidates: we'll tell you what you're worth right now even if you don't move.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="tel:+15552051160">(555) 205-1160</a>
+    <a class="btn btn-ghost" href="#results">Hiring? Talk to us</a>
+  </div>
+  <p class="note">20% contingent, 90-day replacement guarantee. Retained terms available for leadership roles.</p>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Ridgeway Search</a>
+  <p>Specialist search — manufacturing &amp; industrial engineering · Est. 2014</p>
+  <p>Ridgeway Search is a fictional firm. This page is a design demonstration only.</p>
+</div></footer>
+<div class="callbar"><a class="go" href="#results">See open roles</a><a class="tel" href="tel:+15552051160">(555) 205-1160</a></div>
+</body>
+</html>

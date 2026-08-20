@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fenwick &amp; Hale CPAs — Stop emailing your tax documents as attachments.</title>
+<meta name="description" content="Business accounting, tax and advisory for owner-managed companies. Secure document intake, quarterly conversations rather than one annual scramble, and fixed monthly fees.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Public+Sans:wght@400;600&family=Roboto+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* D4 — THE CHECKLIST ONE. hero:panel nav:bar services:list proof:logos
+   ink #141312 · surface #FBFAF7 · accent #B4470B · muted #5C5852
+   Familjen Grotesk display / Public Sans body / Roboto Mono micro-labels
+   Fixes "busy-season document chasing by email attachment": the hero panel is a
+   portal window drawn in CSS with a request checklist inside it — every line
+   already ticked — so the page shows the chase being finished, not promised. */
+:root{--ink:#141312;--surface:#FBFAF7;--paper:#FFFFFF;--accent:#B4470B;--muted:#5C5852;
+--rule:rgba(20,19,18,.2);--hair:rgba(20,19,18,.1);--wrap:1100px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.6 "Public Sans",system-ui,-apple-system,sans-serif;padding-bottom:80px;
+overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Familjen Grotesk","Public Sans",system-ui,sans-serif;font-weight:700;margin:0;
+line-height:1.14;letter-spacing:-.02em}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 22px;
+text-decoration:none;font-weight:700;font-size:16px;line-height:1.2;text-align:center;
+border:2px solid transparent;font-family:"Familjen Grotesk","Public Sans",sans-serif}
+.btn-primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn-ghost{background:var(--paper);color:var(--ink);border-color:var(--ink)}
+.topbar{background:var(--surface);color:var(--muted);font-family:"Roboto Mono",monospace;
+font-size:13px;border-bottom:1px solid var(--hair)}
+.topbar .wrap{padding:9px 20px}
+.nav{position:sticky;top:0;z-index:30;background:var(--ink)}
+.navrow{display:flex;align-items:center;gap:14px;height:58px;max-width:var(--wrap);margin:0 auto;
+padding:0 20px}
+.brand{font-family:"Familjen Grotesk",sans-serif;font-weight:700;font-size:19px;text-decoration:none;
+letter-spacing:-.025em;line-height:1;white-space:nowrap;color:#fff}
+.navlinks{display:flex;gap:16px;flex:1;overflow-x:auto;scrollbar-width:none}
+.navlinks::-webkit-scrollbar{display:none}
+.navlinks a{font-family:"Roboto Mono",monospace;font-size:13px;letter-spacing:.08em;
+text-transform:uppercase;color:#CFC9C1;text-decoration:none;white-space:nowrap}
+.navact{min-height:38px;padding:0 14px;font-size:14px;white-space:nowrap;background:transparent;
+color:#fff;border-color:rgba(255,255,255,.6)}
+.hero{padding:26px 0 30px}
+.eyebrow{font-family:"Roboto Mono",monospace;font-size:13px;letter-spacing:.14em;
+text-transform:uppercase;color:var(--accent);margin:0 0 14px;font-weight:700}
+.hero h1{font-size:clamp(29px,7.4vw,56px);max-width:15ch}
+.sub{font-size:16.5px;color:var(--muted);max-width:52ch;margin:16px 0 0;line-height:1.58}
+.ctas{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.panel{margin-top:28px;background:var(--paper);border:2px solid var(--ink);
+box-shadow:7px 7px 0 rgba(20,19,18,.1)}
+.pbar{display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--ink);color:#fff;
+font-family:"Roboto Mono",monospace;font-size:13px;letter-spacing:.06em}
+.pbar i{width:9px;height:9px;background:rgba(255,255,255,.45);display:block;font-style:normal}
+.pbar i:first-of-type{background:var(--accent)}
+.pbar span{margin-left:4px}
+.plist{list-style:none;margin:0;padding:0}
+.plist li{display:grid;grid-template-columns:26px 30px 1fr 24px;gap:11px;align-items:center;
+padding:13px 14px;border-bottom:1px solid var(--hair);font-size:15.5px;line-height:1.35}
+.plist li:last-child{border-bottom:0}
+.plist .num{font-family:"Roboto Mono",monospace;font-size:13px;color:var(--muted)}
+.sheet{height:28px;border:1.5px solid var(--rule);position:relative;background:var(--surface)}
+.sheet::before{content:"";position:absolute;left:6px;right:9px;top:7px;height:14px;
+background:repeating-linear-gradient(180deg,var(--rule) 0 2px,transparent 2px 6px)}
+.chk{width:22px;height:22px;background:var(--accent);position:relative}
+.chk::after{content:"";position:absolute;left:7px;top:4px;width:6px;height:11px;
+border:solid #fff;border-width:0 2px 2px 0;transform:rotate(42deg)}
+.pfoot{padding:12px 14px;border-top:2px solid var(--ink);background:var(--surface);
+font-family:"Roboto Mono",monospace;font-size:13px;color:var(--ink)}
+.pfoot em{font-style:normal;color:var(--accent);font-weight:700}
+.sec{padding:52px 0;border-top:1px solid var(--rule)}
+.kicker{font-family:"Roboto Mono",monospace;font-size:13px;letter-spacing:.14em;
+text-transform:uppercase;color:var(--accent);margin:0 0 12px;font-weight:700}
+.sec h2{font-size:clamp(27px,6.2vw,42px);max-width:20ch}
+.lede{color:var(--muted);max-width:58ch;margin:14px 0 0;font-size:17px}
+.list{list-style:none;margin:30px 0 0;padding:0;border-top:2px solid var(--ink)}
+.list li{padding:22px 0;border-bottom:1px solid var(--hair)}
+.list h3{font-size:21px;margin-bottom:8px}
+.list p{margin:0;color:var(--muted);font-size:16px;max-width:62ch}
+.creds{margin-top:26px;border:2px solid var(--ink);background:var(--paper)}
+.creds ul{list-style:none;margin:0;padding:0}
+.creds li{display:flex;align-items:center;gap:12px;padding:15px 16px;
+border-bottom:1px solid var(--hair);font-family:"Roboto Mono",monospace;font-size:14px;
+letter-spacing:.04em;line-height:1.4}
+.creds li:last-child{border-bottom:0}
+.creds li::before{content:"";width:14px;height:14px;flex:0 0 14px;border:2px solid var(--accent);
+transform:rotate(45deg)}
+.steps{list-style:none;margin:30px 0 0;padding:0;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:1fr 52px;gap:12px;
+align-items:start;padding:22px 0;border-bottom:1px solid var(--hair)}
+.steps li:first-child{border-top:2px solid var(--ink)}
+.steps li::after{content:counter(s,decimal-leading-zero);grid-column:2;grid-row:1;
+font-family:"Roboto Mono",monospace;font-size:20px;font-weight:700;color:var(--accent);
+text-align:right;line-height:1.3}
+.steps h3{font-size:20px;margin-bottom:7px}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+.close{background:var(--paper);border-top:2px solid var(--ink);padding:52px 0 56px}
+.close h2{font-size:clamp(28px,6.4vw,46px);max-width:17ch}
+.close p{max-width:56ch;font-size:17px;color:var(--muted);margin:16px 0 22px}
+.close .note{font-family:"Roboto Mono",monospace;font-size:16px;color:var(--muted);margin:22px 0 0;
+line-height:1.6;border-left:3px solid var(--accent);padding-left:13px}
+.foot{padding:40px 0 34px;font-size:15.5px;color:var(--muted);background:var(--ink)}
+.foot .brand{display:inline-block;margin-bottom:12px}
+.foot p{margin:0 0 9px;max-width:66ch;color:#B8B2AA}
+.foot a{color:#F0A467;font-weight:600}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--paper);padding:8px;
+border-top:2px solid var(--ink);display:grid;grid-template-columns:1fr auto;gap:8px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:56px;
+text-decoration:none;font-weight:700;font-size:15px;text-align:center;line-height:1.2;padding:0 12px;
+font-family:"Familjen Grotesk",sans-serif}
+.callbar .book{background:var(--accent);color:#fff}
+.callbar .tel{border:2px solid var(--ink);color:var(--ink);padding:0 16px;font-size:16px}
+@media(max-width:559px){.navact{display:none}}
+@media(min-width:760px){
+.ctas{flex-direction:row}.hero{padding:48px 0 56px}.sec{padding:80px 0}.sub{font-size:19px}
+.brand{font-size:22px}.navrow{height:66px}
+.panel{max-width:640px}
+.list li{display:grid;grid-template-columns:1fr 1.35fr;gap:36px}
+.list h3{margin-bottom:0}
+.creds ul{display:grid;grid-template-columns:1fr 1fr}
+.creds li:nth-child(odd){border-right:1px solid var(--hair)}
+.creds li:nth-last-child(-n+1){border-bottom:0}
+.steps{display:grid;grid-template-columns:1fr 1fr;column-gap:44px}
+.steps li:nth-child(2){border-top:2px solid var(--ink)}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Now taking business clients for the coming year · Secure client portal →</div></div>
+<header class="nav">
+  <div class="navrow"><a class="brand" href="#">Fenwick &amp; Hale CPAs</a>
+    <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+    <a class="btn navact" href="#contact">Book a discovery call</a></div>
+</header>
+<section class="hero"><div class="wrap">
+  <p class="eyebrow">Business advisory &amp; tax</p>
+  <h1>Stop emailing your tax documents as attachments.</h1>
+  <p class="sub">Business accounting, tax and advisory for owner-managed companies. Secure document intake, quarterly conversations rather than one annual scramble, and fixed monthly fees.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" data-cta="primary" href="#contact">Book a discovery call</a>
+    <a class="btn btn-ghost" href="#packages">See our packages</a>
+  </div>
+  <div class="panel" id="packages">
+    <div class="pbar"><i></i><i></i><i></i><span>Secure client portal</span></div>
+    <ul class="plist">
+      <li><span class="num">01</span><span class="sheet" aria-hidden="true"></span>Fixed monthly fees<span class="chk" aria-hidden="true"></span></li>
+      <li><span class="num">02</span><span class="sheet" aria-hidden="true"></span>Secure client portal<span class="chk" aria-hidden="true"></span></li>
+      <li><span class="num">03</span><span class="sheet" aria-hidden="true"></span>Quarterly, not annual<span class="chk" aria-hidden="true"></span></li>
+      <li><span class="num">04</span><span class="sheet" aria-hidden="true"></span>CPA-led, not outsourced<span class="chk" aria-hidden="true"></span></li>
+    </ul>
+    <div class="pfoot"><em>Secure</em> Portal, not email</div>
+  </div>
+</div></section>
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p>
+  <h2>What we do</h2>
+  <p class="lede">We work with owner-managed businesses between roughly $500k and $20M in revenue. Below that we'll point you somewhere better suited.</p>
+  <ul class="list">
+    <li><h3>Business tax &amp; compliance</h3><p>Federal, state and local returns, filed early rather than extended. Extensions are a symptom, not a service.</p></li>
+    <li><h3>Monthly accounting</h3><p>Books closed by the tenth, with a short written commentary. You should not be finding out about last quarter in April.</p></li>
+    <li><h3>Advisory &amp; CAS</h3><p>Entity structure, owner compensation, cash-flow forecasting and the tax planning that only works if it happens before December.</p></li>
+    <li><h3>Personal returns for owners</h3><p>Included for owners of business clients. Your company and personal position are the same problem and should be looked at together.</p></li>
+  </ul>
+</div></section>
+<section class="sec" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <h2>Licensed &amp; accredited</h2>
+  <div class="creds"><ul>
+    <li>Licensed CPA Firm</li><li>AICPA Member</li><li>State Society of CPAs</li><li>QuickBooks ProAdvisor</li><li>Xero Certified</li>
+  </ul></div>
+</div></section>
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p>
+  <h2>Switching accountants</h2>
+  <p class="lede">Easier than people think, and best done between May and August rather than in January.</p>
+  <ol class="steps">
+    <li><div><h3>Discovery call</h3><p>Thirty minutes. What your business does, what's currently painful, and whether we're the right size for each other.</p></div></li>
+    <li><div><h3>Review &amp; proposal</h3><p>We look at two years of returns and your current books, then propose a fixed monthly fee. No hourly billing, ever.</p></div></li>
+    <li><div><h3>Transition</h3><p>We request records from your current accountant — you don't have to have that conversation. Usually two to three weeks.</p></div></li>
+    <li><div><h3>Quarterly rhythm</h3><p>Books monthly, a proper conversation quarterly, tax planning in the autumn while it can still change the outcome.</p></div></li>
+  </ol>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>Just finished a rough busy season?</h2>
+  <p>Then this is the right month to talk. Everything worth fixing has to be built between May and August — by January it's too late to change anything.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="#contact">Book a discovery call</a>
+    <a class="btn btn-ghost" href="tel:+15551728845">(555) 172-8845</a>
+  </div>
+  <p class="note">Fixed monthly fees. Business clients from roughly $500k revenue. Free discovery calls.</p>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Fenwick &amp; Hale CPAs</a>
+  <p><a href="tel:+15551728845">(555) 172-8845</a> · Licensed CPA firm · AICPA member · Serving owner-managed businesses since 2006</p>
+  <p>Fenwick &amp; Hale CPAs is a fictional firm. This page is a design demonstration only.</p>
+</div></footer>
+<div class="callbar"><a class="book" href="#contact">Book a discovery call</a><a class="tel" href="tel:+15551728845">(555) 172-8845</a></div>
+</body>
+</html>

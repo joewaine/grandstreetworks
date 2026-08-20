@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Halcyon Restoration — we sit with the adjuster so you don't have to</title>
+<meta name="description" content="Emergency water, fire and mould restoration with the claim handled for you: documented scope, direct billing, adjuster meetings included.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+/* D5 — THE ADJUSTER ONE. hero:panel nav:centered services:tiles proof:testimonial-lead
+   ink #0F1F1D · surface #F5F7F6 · accent #16746B · muted #4E5D5C · on-accent #FFFFFF
+   H1 ramp: 32/38/50/64px · Rajdhani display / IBM Plex Sans body
+   Device: the claims explainer — the hero panel carries a dispatch rail across its head and
+   the claim path is stated as a document trail, for the owner and the adjuster both. */
+:root{--ink:#0F1F1D;--surface:#F5F7F6;--accent:#16746B;--muted:#4E5D5C;--on-accent:#FFFFFF;
+--paper:#FFFFFF;--rule:rgba(15,31,29,.18);--hair:rgba(15,31,29,.1);--wrap:1100px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.66 "IBM Plex Sans",system-ui,-apple-system,sans-serif;padding-bottom:82px;
+overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:Rajdhani,"Arial Narrow",sans-serif;font-weight:700;margin:0;line-height:1.06;
+letter-spacing:.005em}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:58px;padding:0 24px;
+text-decoration:none;font-weight:700;font-size:19px;letter-spacing:.06em;text-transform:uppercase;
+border:2px solid transparent;text-align:center;line-height:1.15;font-family:Rajdhani,sans-serif}
+.btn-primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.btn-ghost{background:transparent;color:var(--accent);border-color:rgba(22,116,107,.45)}
+.topbar{background:var(--surface);color:var(--muted);font-size:16px;
+border-bottom:1px solid var(--hair)}
+.topbar .wrap{padding:9px 20px;text-align:center;line-height:1.35}
+.nav{position:sticky;top:0;z-index:30;background:var(--paper);border-bottom:1px solid var(--hair)}
+.nav .wrap{padding-top:10px;padding-bottom:12px;text-align:center}
+.navlinks{display:flex;justify-content:center;gap:20px;font-size:14px;letter-spacing:.18em;
+text-transform:uppercase;color:var(--muted);flex-wrap:wrap}
+.navlinks a{text-decoration:none}
+.navlinks a:hover{color:var(--accent)}
+.brand{font-family:Rajdhani,sans-serif;font-weight:700;font-size:25px;text-decoration:none;
+line-height:1.1;letter-spacing:.03em;display:inline-block;margin-top:6px;text-transform:uppercase}
+.navtel{display:inline-block;margin-top:5px;font-family:Rajdhani,sans-serif;font-weight:700;
+font-size:19px;color:var(--accent);text-decoration:none;letter-spacing:.04em}
+.hero{padding:18px 0 34px}
+.panel{background:var(--paper);border:1px solid var(--rule);padding:0 0 24px}
+/* dispatch rail — sixty minutes across the head of the panel */
+.rail{height:10px;background:linear-gradient(90deg,var(--accent) 0 34%,rgba(22,116,107,.16) 34% 100%)}
+.panel .inner{padding:22px 20px 0}
+.eyebrow{font-family:Rajdhani,sans-serif;font-size:16px;letter-spacing:.22em;text-transform:uppercase;
+color:var(--accent);margin:0 0 10px;font-weight:600}
+.hero h1{font-size:clamp(32px,8.4vw,64px);max-width:15ch}
+.sub{font-size:17px;color:var(--muted);max-width:54ch;margin:13px 0 20px;line-height:1.6}
+.ctas{display:flex;flex-direction:column;gap:10px}
+.badges{list-style:none;margin:24px 0 0;padding:20px 20px 0;display:grid;gap:10px;
+border-top:1px solid var(--hair)}
+.badges li{font-size:16px;color:var(--ink);display:flex;align-items:baseline;gap:10px}
+.badges li::before{content:"";width:14px;height:2px;background:var(--accent);flex:none;
+transform:translateY(-4px)}
+.sec{padding:52px 0}
+.kicker{font-family:Rajdhani,sans-serif;font-size:16px;letter-spacing:.22em;text-transform:uppercase;
+color:var(--accent);margin:0 0 8px;font-weight:600}
+.sec h2{font-size:clamp(29px,7vw,50px);margin-bottom:12px}
+.lede{color:var(--muted);max-width:58ch;margin:0 0 26px;font-size:17px}
+.tiles{list-style:none;margin:0;padding:0;display:grid;gap:2px;background:var(--rule)}
+.tiles li{background:var(--paper);padding:26px 22px 28px}
+.tiles li:nth-child(2n){background:#EDF3F1}
+.tiles h3{font-size:25px;margin-bottom:8px;color:var(--accent)}
+.tiles p{margin:0;color:var(--muted);font-size:16px}
+.quote{background:var(--ink);color:#DFE9E7}
+.quote .kicker{color:#6FC9BC}
+.quote blockquote{margin:16px 0 0;font-family:Rajdhani,sans-serif;font-weight:600;
+font-size:clamp(24px,5.6vw,40px);line-height:1.22;color:#FFFFFF;max-width:22ch}
+.quote .by{margin:20px 0 0;padding-top:16px;border-top:1px solid rgba(223,233,231,.3);
+font-size:16px;color:#B6CBC8}
+.quote .by b{color:#6FC9BC;font-weight:600}
+.partners{list-style:none;margin:30px 0 0;padding:0;display:grid;gap:0;
+border-top:1px solid rgba(223,233,231,.3)}
+.partners li{padding:14px 0;border-bottom:1px solid rgba(223,233,231,.3);font-size:16px;
+color:#DFE9E7;display:flex;align-items:baseline;gap:12px}
+.partners li::before{content:"";width:7px;height:7px;background:#6FC9BC;flex:none;
+transform:translateY(-3px)}
+.plabel{margin:26px 0 0;font-family:Rajdhani,sans-serif;font-size:16px;letter-spacing:.22em;
+text-transform:uppercase;color:#6FC9BC;font-weight:600}
+.rungs{list-style:none;margin:26px 0 0;padding:0;counter-reset:s;display:grid;gap:16px}
+.rungs li{counter-increment:s;padding-top:16px;border-top:3px solid var(--rule)}
+.rungs li::before{content:counter(s,decimal-leading-zero);display:block;font-family:Rajdhani,sans-serif;
+font-weight:700;font-size:15px;letter-spacing:.2em;color:var(--accent);margin-bottom:8px}
+.rungs h3{font-size:23px;margin-bottom:6px}
+.rungs p{margin:0;color:var(--muted);font-size:16px}
+.rungs li.claims{border-top-color:var(--accent)}
+.close{background:var(--accent);color:#FFFFFF;padding:52px 0 58px}
+.close h2{font-size:clamp(31px,7.4vw,54px);max-width:14ch;color:#FFFFFF}
+.close p{max-width:52ch;font-size:18px;color:#D6EBE8;margin:14px 0 22px}
+.close .btn-primary{background:#FFFFFF;color:var(--accent);border-color:#FFFFFF}
+.close .btn-ghost{color:#FFFFFF;border-color:rgba(255,255,255,.6)}
+.note{font-size:16px;color:#CFE7E4;margin-top:20px;max-width:52ch}
+.foot{padding:38px 0 34px;font-size:16px;color:var(--muted)}
+.foot .brand{color:var(--ink);margin:0 0 12px}
+.foot p{margin:0 0 9px;max-width:64ch}
+.foot a{color:var(--accent);font-weight:500}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--paper);padding:8px;
+border-top:2px solid var(--accent);display:grid;grid-template-columns:1fr auto;gap:8px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:60px;
+text-decoration:none;font-weight:700;font-size:18px;letter-spacing:.06em;text-transform:uppercase;
+text-align:center;line-height:1.15;padding:0 12px;font-family:Rajdhani,sans-serif}
+.callbar .call{background:var(--accent);color:#FFFFFF}
+.callbar .tel{border:1px solid var(--rule);color:var(--ink);padding:0 14px;letter-spacing:.01em;
+text-transform:none;font-size:17px;font-family:"IBM Plex Sans",sans-serif;font-weight:500}
+@media(min-width:720px){.ctas{flex-direction:row;gap:12px}
+.badges{grid-template-columns:1fr 1fr;column-gap:28px}
+.tiles{grid-template-columns:1fr 1fr}
+.rungs{grid-template-columns:repeat(2,1fr);gap:24px 30px}
+.partners{grid-template-columns:1fr 1fr;column-gap:30px}
+.panel .inner{padding:40px 44px 0}.badges{padding:22px 44px 0;margin-left:-44px;
+margin-right:-44px;border-top:1px solid var(--hair)}
+.sec{padding:82px 0}.hero{padding:34px 0 56px}.sub{font-size:19px}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Emergency crews on call 24/7/365 · We bill your insurer direct</div></div>
+<header class="nav"><div class="wrap">
+  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+  <a class="brand" href="#">Halcyon Restoration</a>
+  <a class="navtel" href="tel:+15550449001">(555) 044-9001</a>
+</div></header>
+<section class="hero"><div class="wrap"><div class="panel">
+  <div class="rail" aria-hidden="true"></div>
+  <div class="inner">
+    <p class="eyebrow">Water · Fire · Mould · 24/7</p>
+    <h1>Water coming in? Crews roll in 60 minutes.</h1>
+    <p class="sub">Emergency water, fire and mould restoration. We tarp, extract and dry — then bill your insurer direct and sit with the adjuster so you don't have to.</p>
+    <div class="ctas">
+      <a class="btn btn-primary" data-cta="primary" href="tel:+15550449001">Call now — 24/7</a>
+      <a class="btn btn-ghost" href="#claims">How claims work</a>
+    </div>
+    <ul class="badges">
+      <li>60-minute response</li><li>We bill insurers direct</li>
+      <li>IICRC certified</li><li>Adjuster meetings included</li>
+    </ul>
+  </div>
+</div></div></section>
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p><h2>Emergency services</h2>
+  <p class="lede">Every hour water sits, the damage and the cost compound. This is why we answer at 3am.</p>
+  <ul class="tiles">
+    <li><h3>Water extraction &amp; drying</h3><p>Truck-mounted extraction, commercial air movers and moisture mapping so we can prove the structure is genuinely dry, not just dry-feeling.</p></li>
+    <li><h3>Fire &amp; smoke</h3><p>Soot removal, odour neutralisation and contents cleaning. Smoke damage travels far further than the fire itself.</p></li>
+    <li><h3>Mould remediation</h3><p>Containment, HEPA filtration and post-remediation verification by an independent hygienist so the clearance means something.</p></li>
+    <li><h3>Storm &amp; flood</h3><p>Board-up, tarping and full structural drying. We mobilise extra crews before a forecast storm rather than after it.</p></li>
+  </ul>
+</div></section>
+<section class="sec quote" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <blockquote>“Pipe went at two in the morning. Halcyon had extraction running before four and dealt with the insurer entirely. I signed two forms in the whole process.”</blockquote>
+  <p class="by"><b>Gregory N.</b> · Burst supply line, 2,400 sq ft</p>
+  <p class="plabel">Certified and approved</p>
+  <ul class="partners">
+    <li>IICRC Certified Firm</li><li>Preferred Vendor — major carriers</li><li>EPA Lead-Safe</li>
+    <li>BBB A+</li><li>OSHA Compliant</li>
+  </ul>
+</div></section>
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p><h2>From your call to your keys</h2>
+  <p class="lede">You are dealing with a disaster and an insurer at the same time. We take the second one off you.</p>
+  <ol class="rungs">
+    <li><h3>Call &amp; dispatch</h3><p>A person answers. We dispatch immediately and give you an arrival window measured in minutes.</p></li>
+    <li><h3>Stabilise</h3><p>Stop the source, extract standing water, tarp or board up. The first hours decide the size of the claim.</p></li>
+    <li class="claims" id="claims"><h3>Document &amp; bill</h3><p>Full photographic scope and moisture log, submitted to your carrier. We bill them direct and meet the adjuster on site.</p></li>
+    <li><h3>Dry, verify, restore</h3><p>Daily readings until verified dry, then reconstruction. You get the log, so nothing is disputed months later.</p></li>
+  </ol>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>Emergency right now?</h2>
+  <p>Do not wait for business hours. Every hour standing water sits, the cost and the damage climb. Crews are on call this minute.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="tel:+15550449001">Call now — 24/7</a>
+    <a class="btn btn-ghost" href="tel:+15550449001">(555) 044-9001</a>
+  </div>
+  <p class="note">We work with all major insurers and bill direct. Free emergency assessment.</p>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Halcyon Restoration</a>
+  <p><a href="tel:+15550449001">(555) 044-9001</a></p>
+  <p>IICRC certified · 24/7/365 emergency response · Licensed &amp; insured</p>
+  <p>Halcyon Restoration is a fictional company. This page is a design demonstration only.</p>
+</div></footer>
+<div class="callbar"><a class="call" href="tel:+15550449001">Call now — 24/7</a><a class="tel" href="tel:+15550449001">(555) 044-9001</a></div>
+</body>
+</html>

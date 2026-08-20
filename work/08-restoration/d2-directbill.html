@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Halcyon Restoration — we bill your insurer direct</title>
+<meta name="description" content="Emergency water, fire and mould restoration. We document the scope, bill your carrier direct and meet the adjuster on site.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600&family=Roboto+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* D2 — THE DIRECT-BILL ONE. hero:stack nav:inline services:list proof:logos
+   ink #14202B · surface #F2F4F5 · accent #2C5468 · muted #55636B · on-accent #FFFFFF
+   H1 ramp: 32/40/52/66px · Roboto Condensed display / Public Sans body
+   Device: the claims ledger — the hero badges are set as a carrier schedule and the
+   dispatch bar runs as a ticked rule beneath the headline, so the insurance path is
+   answered before the phone is picked up. */
+:root{--ink:#14202B;--surface:#F2F4F5;--accent:#2C5468;--muted:#55636B;--on-accent:#FFFFFF;
+--paper:#FFFFFF;--rule:rgba(20,32,43,.2);--hair:rgba(20,32,43,.11);--wrap:1120px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.65 "Public Sans",system-ui,-apple-system,sans-serif;padding-bottom:82px;
+overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Roboto Condensed","Arial Narrow",sans-serif;font-weight:700;margin:0;
+line-height:1.05;letter-spacing:-.005em}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:58px;padding:0 24px;
+text-decoration:none;font-weight:600;font-size:17px;letter-spacing:.02em;text-align:center;
+line-height:1.15;border:1px solid transparent;font-family:"Roboto Condensed",sans-serif;
+text-transform:uppercase;letter-spacing:.07em}
+.btn-primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.btn-ghost{background:var(--paper);color:var(--ink);border-color:var(--rule)}
+.topbar{background:var(--paper);border-bottom:1px solid var(--hair);font-size:16px;
+color:var(--muted)}
+.topbar .wrap{padding:10px 20px;display:flex;gap:10px;align-items:baseline;line-height:1.35}
+.topbar b{color:var(--accent);font-family:"Roboto Condensed",sans-serif;font-weight:700;
+letter-spacing:.14em;text-transform:uppercase;font-size:14px;flex:none}
+.nav{position:sticky;top:0;z-index:30;background:var(--surface);border-bottom:1px solid var(--rule)}
+.nav .wrap{display:flex;align-items:baseline;gap:16px;padding-top:15px;padding-bottom:14px;
+flex-wrap:wrap}
+.brand{font-family:"Roboto Condensed",sans-serif;font-weight:700;font-size:22px;
+text-decoration:none;line-height:1;flex:none;letter-spacing:-.01em}
+.navlinks{display:none;gap:22px;font-size:15px;color:var(--muted)}
+.navlinks a{text-decoration:none;padding-bottom:2px;border-bottom:1px solid transparent}
+.navlinks a:hover{border-bottom-color:var(--accent);color:var(--accent)}
+.navact{margin-left:auto;font-family:"Roboto Condensed",sans-serif;font-weight:700;font-size:18px;
+text-decoration:none;color:var(--accent);letter-spacing:.02em;white-space:nowrap;flex:none}
+@media(max-width:559px){.navact{display:none}}
+.hero{padding:26px 0 36px}
+.eyebrow{font-size:14px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);
+margin:0 0 14px;font-weight:600}
+.hero h1{font-size:clamp(32px,8.6vw,66px);max-width:15ch;text-transform:uppercase}
+/* dispatch rule — 60 minutes drawn as a ticked scale */
+.scale{margin:18px 0 16px;height:16px;border-left:2px solid var(--accent);
+border-right:2px solid var(--rule);
+background:repeating-linear-gradient(90deg,var(--rule) 0 1px,transparent 1px 26px);
+position:relative}
+.scale::after{content:"";position:absolute;left:0;top:6px;height:4px;width:32%;
+background:var(--accent)}
+.sub{font-size:17px;color:var(--muted);max-width:56ch;margin:0 0 22px;line-height:1.6}
+.ctas{display:flex;flex-direction:column;gap:10px}
+.ledger{margin:28px 0 0;padding:0;list-style:none;background:var(--paper);
+border:1px solid var(--rule)}
+.ledger li{display:flex;align-items:baseline;gap:12px;padding:14px 16px;
+border-bottom:1px solid var(--hair);font-size:16px}
+.ledger li:last-child{border-bottom:none}
+.ledger li b{font-family:"Roboto Condensed",sans-serif;font-weight:700;color:var(--accent);
+font-size:15px;letter-spacing:.1em;flex:none;width:26px}
+.sec{padding:52px 0;border-top:1px solid var(--rule)}
+.kicker{font-size:14px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);
+margin:0 0 10px;font-weight:600}
+.sec h2{font-size:clamp(28px,6.8vw,48px);margin-bottom:12px;text-transform:uppercase}
+.lede{color:var(--muted);max-width:58ch;margin:0 0 8px;font-size:17px}
+.list{margin:26px 0 0;padding:0;list-style:none;border-top:1px solid var(--rule)}
+.list li{padding:24px 0;border-bottom:1px solid var(--hair)}
+.list h3{font-size:22px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.01em}
+.list p{margin:0;color:var(--muted);font-size:16px;max-width:62ch}
+.logos{background:var(--ink);color:#DFE6EA;border-top:none}
+.logos .kicker{color:#8FB4C6}
+.logos h2{color:#FFFFFF}
+.logolist{list-style:none;margin:26px 0 0;padding:0;border-top:1px solid rgba(223,230,234,.25)}
+.logolist li{font-family:"Roboto Condensed",sans-serif;font-weight:700;
+font-size:clamp(20px,5.4vw,30px);text-transform:uppercase;letter-spacing:.01em;
+padding:18px 0;border-bottom:1px solid rgba(223,230,234,.25);color:#FFFFFF;
+display:flex;align-items:baseline;gap:14px;line-height:1.15}
+.logolist li span{font-family:"Public Sans",sans-serif;font-weight:500;font-size:14px;
+letter-spacing:.16em;color:#8FB4C6;flex:none}
+.stepgrid li.claims{border-left:5px solid var(--accent);border-color:var(--accent);
+box-shadow:inset 0 0 0 1px rgba(44,84,104,.18)}
+.stepgrid{margin:26px 0 0;padding:0;list-style:none;counter-reset:s;display:grid;gap:12px}
+.stepgrid li{counter-increment:s;background:var(--paper);border:1px solid var(--hair);
+padding:20px 18px 22px;position:relative}
+.stepgrid li::before{content:counter(s,decimal-leading-zero);display:block;font-family:"Roboto Condensed",sans-serif;
+font-weight:700;font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);
+margin-bottom:9px}
+.stepgrid h3{font-size:20px;margin-bottom:7px;text-transform:uppercase}
+.stepgrid p{margin:0;color:var(--muted);font-size:16px}
+.close{background:var(--paper);border-top:6px solid var(--accent);padding:50px 0 56px}
+.close h2{font-size:clamp(30px,7.2vw,52px);max-width:14ch;text-transform:uppercase}
+.close p{max-width:54ch;font-size:18px;color:var(--muted);margin:14px 0 22px}
+.note{font-size:16px;color:var(--muted);margin-top:20px;max-width:54ch;
+border-top:1px solid var(--hair);padding-top:16px}
+.foot{padding:38px 0 34px;font-size:16px;color:var(--muted);border-top:1px solid var(--rule)}
+.foot .brand{color:var(--ink);display:inline-block;margin-bottom:12px}
+.foot p{margin:0 0 9px;max-width:64ch}
+.foot a{color:var(--accent);font-weight:600}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--paper);padding:8px;
+border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:8px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:60px;
+text-decoration:none;font-weight:700;font-size:16px;letter-spacing:.06em;text-transform:uppercase;
+text-align:center;line-height:1.15;padding:0 12px;font-family:"Roboto Condensed",sans-serif}
+.callbar .call{background:var(--accent);color:#FFFFFF}
+.callbar .tel{border:1px solid var(--rule);color:var(--ink);padding:0 16px;letter-spacing:.01em;
+text-transform:none;font-size:17px}
+@media(min-width:700px){.ctas{flex-direction:row;gap:12px}
+.ledger{display:grid;grid-template-columns:1fr 1fr}
+.ledger li{border-right:1px solid var(--hair)}
+.ledger li:nth-child(2n){border-right:none}
+.list li{display:grid;grid-template-columns:minmax(220px,1fr) 1.7fr;gap:36px;align-items:baseline}
+.list h3{margin-bottom:0}
+.stepgrid{grid-template-columns:1fr 1fr;gap:14px}
+.logolist li{padding:22px 0}
+.sec{padding:84px 0}.hero{padding:44px 0 60px}.sub{font-size:19px}}
+@media(min-width:900px){.navlinks{display:flex}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap"><b>24/7</b><span>Emergency crews on call 24/7/365 · We bill your insurer direct</span></div></div>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="#">Halcyon Restoration</a>
+  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+  <a class="navact" href="tel:+15550449001">(555) 044-9001</a>
+</div></header>
+<section class="hero"><div class="wrap">
+  <p class="eyebrow">Water · Fire · Mould · 24/7</p>
+  <h1>Water coming in? Crews roll in 60 minutes.</h1>
+  <div class="scale" aria-hidden="true"></div>
+  <p class="sub">Emergency water, fire and mould restoration. We tarp, extract and dry — then bill your insurer direct and sit with the adjuster so you don't have to.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" data-cta="primary" href="tel:+15550449001">Call now — 24/7</a>
+    <a class="btn btn-ghost" href="#claims">How claims work</a>
+  </div>
+  <ul class="ledger">
+    <li><b>01</b><span>60-minute response</span></li>
+    <li><b>02</b><span>We bill insurers direct</span></li>
+    <li><b>03</b><span>IICRC certified</span></li>
+    <li><b>04</b><span>Adjuster meetings included</span></li>
+  </ul>
+</div></section>
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p><h2>Emergency services</h2>
+  <p class="lede">Every hour water sits, the damage and the cost compound. This is why we answer at 3am.</p>
+  <ul class="list">
+    <li><h3>Water extraction &amp; drying</h3><p>Truck-mounted extraction, commercial air movers and moisture mapping so we can prove the structure is genuinely dry, not just dry-feeling.</p></li>
+    <li><h3>Fire &amp; smoke</h3><p>Soot removal, odour neutralisation and contents cleaning. Smoke damage travels far further than the fire itself.</p></li>
+    <li><h3>Mould remediation</h3><p>Containment, HEPA filtration and post-remediation verification by an independent hygienist so the clearance means something.</p></li>
+    <li><h3>Storm &amp; flood</h3><p>Board-up, tarping and full structural drying. We mobilise extra crews before a forecast storm rather than after it.</p></li>
+  </ul>
+</div></section>
+<section class="sec logos" id="results"><div class="wrap">
+  <p class="kicker">Results</p><h2>Certified and approved</h2>
+  <ul class="logolist">
+    <li><span>01</span>IICRC Certified Firm</li>
+    <li><span>02</span>Preferred Vendor — major carriers</li>
+    <li><span>03</span>EPA Lead-Safe</li>
+    <li><span>04</span>BBB A+</li>
+    <li><span>05</span>OSHA Compliant</li>
+  </ul>
+</div></section>
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p><h2>From your call to your keys</h2>
+  <p class="lede">You are dealing with a disaster and an insurer at the same time. We take the second one off you.</p>
+  <ol class="stepgrid">
+    <li><h3>Call &amp; dispatch</h3><p>A person answers. We dispatch immediately and give you an arrival window measured in minutes.</p></li>
+    <li><h3>Stabilise</h3><p>Stop the source, extract standing water, tarp or board up. The first hours decide the size of the claim.</p></li>
+    <li class="claims" id="claims"><h3>Document &amp; bill</h3><p>Full photographic scope and moisture log, submitted to your carrier. We bill them direct and meet the adjuster on site.</p></li>
+    <li><h3>Dry, verify, restore</h3><p>Daily readings until verified dry, then reconstruction. You get the log, so nothing is disputed months later.</p></li>
+  </ol>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>Emergency right now?</h2>
+  <p>Do not wait for business hours. Every hour standing water sits, the cost and the damage climb. Crews are on call this minute.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="tel:+15550449001">Call now — 24/7</a>
+    <a class="btn btn-ghost" href="tel:+15550449001">(555) 044-9001</a>
+  </div>
+  <p class="note">We work with all major insurers and bill direct. Free emergency assessment.</p>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Halcyon Restoration</a>
+  <p><a href="tel:+15550449001">(555) 044-9001</a></p>
+  <p>IICRC certified · 24/7/365 emergency response · Licensed &amp; insured</p>
+  <p>Halcyon Restoration is a fictional company. This page is a design demonstration only.</p>
+</div></footer>
+<div class="callbar"><a class="call" href="tel:+15550449001">Call now — 24/7</a><a class="tel" href="tel:+15550449001">(555) 044-9001</a></div>
+</body>
+</html>

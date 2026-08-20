@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ashgrove Homes — Eighteen months, mapped</title>
+<meta name="description" content="Custom homes and estate builds across the valley. Fifteen homes a year, one project manager each, and a fixed schedule.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* D1 — THE LADDER ONE. hero:band nav:bar services:tiles proof:stats
+   ink #1A1F1A · surface #F7F4EE · accent #2B4B33 · timber #7A5A33 · muted #56584E
+   H1 ramp: 29/34/44/56px · Crimson Text display / IBM Plex Sans body
+   Fixes "no process or timeline": the eighteen-month ladder is the object directly
+   under the hero band — an eighteen-tick rail with four named rungs, before a single
+   service is described. The timeline is the page, not a footnote. */
+:root{--ink:#1A1F1A;--surface:#F7F4EE;--paper:#FFFFFF;--accent:#2B4B33;--timber:#7A5A33;
+--muted:#56584E;--rule:rgba(26,31,26,.16);--wrap:1120px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.6 "IBM Plex Sans",system-ui,-apple-system,sans-serif;padding-bottom:84px;
+overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Crimson Text",Georgia,serif;font-weight:600;margin:0;line-height:1.14;
+letter-spacing:-.005em}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 24px;
+text-decoration:none;font-weight:600;font-size:16px;border:2px solid transparent;text-align:center;
+line-height:1.2}
+.btn-primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.topbar{background:var(--ink);color:#D6D2C4;font-size:15px}
+.topbar .wrap{padding:9px 20px;text-align:center;letter-spacing:.01em}
+.nav{background:var(--accent);color:#F2EFE6;position:sticky;top:0;z-index:30}
+.navrow{display:flex;align-items:center;justify-content:space-between;gap:12px;height:56px}
+.brand{font-family:"Crimson Text",Georgia,serif;font-weight:700;font-size:22px;text-decoration:none;
+color:#F7F4EE;line-height:1;letter-spacing:.005em}
+.navact{min-height:38px;padding:0 15px;font-size:14px;white-space:nowrap;background:#F7F4EE;
+color:var(--accent);border-color:#F7F4EE;font-weight:600}
+.navlinks{display:flex;gap:24px;padding:0 20px 11px;font-size:13px;letter-spacing:.16em;
+text-transform:uppercase;overflow-x:auto;scrollbar-width:none;max-width:var(--wrap);margin:0 auto}
+.navlinks::-webkit-scrollbar{display:none}
+.navlinks a{text-decoration:none;white-space:nowrap;font-weight:500;color:#CFDBC9}
+.band{background:linear-gradient(180deg,#EFEADD 0%,var(--surface) 100%);
+border-bottom:1px solid var(--rule);padding:24px 0 30px}
+.eyebrow{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--timber);
+margin:0 0 12px;font-weight:600}
+.band h1{font-size:clamp(29px,7.4vw,56px);max-width:15ch}
+.sub{font-size:16px;color:var(--muted);max-width:52ch;margin:14px 0 0;line-height:1.58}
+.ctas{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.badges{list-style:none;margin:20px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:7px}
+.badges li{font-size:14px;border:1px solid var(--rule);background:var(--paper);
+padding:7px 11px;color:var(--muted)}
+/* eighteen-month ladder */
+.ladder{background:var(--paper);border-top:3px solid var(--accent);border-bottom:1px solid var(--rule)}
+.ladder .wrap{padding:26px 20px 30px}
+.ltitle{font-family:"Crimson Text",Georgia,serif;font-size:24px;font-weight:600;margin:0 0 4px}
+.lnote{font-size:15px;color:var(--muted);margin:0 0 18px}
+.rail{display:flex;align-items:flex-end;gap:3px;height:34px;margin-bottom:2px}
+.rail i{flex:1;background:#D8D3C3;height:11px;display:block}
+.rail i.q{background:var(--accent);height:26px}
+.rungs{list-style:none;margin:0;padding:0;counter-reset:r;border-top:2px solid var(--ink)}
+.rungs li{counter-increment:r;display:grid;grid-template-columns:34px 1fr;gap:12px;
+padding:12px 0;border-bottom:1px solid var(--rule);align-items:baseline}
+.rungs li::before{content:counter(r,decimal-leading-zero);color:var(--timber);font-size:14px;
+font-weight:600;letter-spacing:.06em}
+.rungs b{font-family:"Crimson Text",Georgia,serif;font-weight:600;font-size:20px}
+.sec{padding:50px 0}
+.sec.alt{background:var(--paper);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.kicker{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--timber);
+margin:0 0 10px;font-weight:600}
+.sec h2{font-size:clamp(28px,6.4vw,44px);max-width:17ch}
+.lede{color:var(--muted);max-width:58ch;margin:14px 0 26px;font-size:17px}
+.tiles{display:grid;gap:2px;background:var(--rule);border:1px solid var(--rule)}
+.tile{background:var(--paper);padding:24px 20px}
+.tile:nth-child(2),.tile:nth-child(3){background:#F2EFE4}
+.tile h3{font-size:23px;margin-bottom:9px}
+.tile p{margin:0;color:var(--muted);font-size:16px}
+.tile h3::before{content:"";display:block;width:34px;height:3px;background:var(--accent);
+margin-bottom:14px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);
+border:1px solid var(--rule);margin-top:8px}
+.stat{background:var(--surface);padding:22px 18px}
+.stat .v{font-family:"Crimson Text",Georgia,serif;font-size:38px;line-height:1;font-weight:700;
+color:var(--accent);letter-spacing:-.01em}
+.stat .l{display:block;font-size:15px;color:var(--muted);margin-top:8px}
+.steps{list-style:none;margin:26px 0 0;padding:0;counter-reset:s}
+.steps li{counter-increment:s;padding:0 0 26px 30px;position:relative;border-left:2px solid var(--accent)}
+.steps li:last-child{padding-bottom:0}
+.steps li::before{content:counter(s,decimal-leading-zero);position:absolute;left:-2px;top:0;
+width:2px;height:100%;background:transparent;font-size:0}
+.steps li::after{content:"";position:absolute;left:-9px;top:6px;width:16px;height:16px;
+background:var(--accent);border:4px solid var(--surface);border-radius:50%}
+.steps h3{font-size:22px;margin-bottom:6px}
+.steps p{margin:0;color:var(--muted);font-size:16px;max-width:52ch}
+.close{background:var(--accent);color:#F2EFE6;padding:52px 0 56px}
+.close h2{font-size:clamp(30px,6.8vw,46px);color:#fff;max-width:16ch}
+.close p{max-width:56ch;font-size:17px;color:#D3DFCF;margin:16px 0 22px}
+.close .btn-primary{background:#F7F4EE;color:var(--accent);border-color:#F7F4EE}
+.close .btn-ghost{color:#fff;border-color:rgba(247,244,238,.6)}
+.note{font-size:15px;color:#C6D4C2;margin-top:20px;max-width:58ch}
+.foot{padding:40px 0 36px;font-size:15px;color:var(--muted)}
+.foot .fbrand{font-family:"Crimson Text",Georgia,serif;font-size:24px;font-weight:700;
+color:var(--ink);display:block;margin-bottom:12px}
+.foot p{margin:0 0 9px;max-width:64ch}
+.foot a{color:var(--accent);font-weight:600}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--paper);padding:8px;
+border-top:2px solid var(--accent);display:grid;grid-template-columns:1fr auto;gap:8px;
+box-shadow:0 -2px 12px rgba(26,31,26,.12)}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:58px;text-decoration:none;
+font-weight:600;font-size:15px;text-align:center;line-height:1.2;padding:0 12px}
+.callbar .go{background:var(--accent);color:#fff}
+.callbar .tel{border:2px solid var(--ink);color:var(--ink);padding:0 16px;font-size:16px}
+@media(max-width:559px){.navact{display:none}}
+@media(min-width:760px){
+.ctas{flex-direction:row}.tiles{grid-template-columns:1fr 1fr}
+.stats{grid-template-columns:repeat(4,1fr)}
+.rungs{display:grid;grid-template-columns:1fr 1fr;column-gap:36px}
+.steps{display:grid;grid-template-columns:1fr 1fr;column-gap:46px}
+.band{padding:44px 0 52px}.sec{padding:82px 0}.sub{font-size:19px}
+.ladder .wrap{padding:40px 20px 46px}.ltitle{font-size:30px}.rail{height:52px}
+.rail i{height:16px}.rail i.q{height:40px}.navrow{height:66px}.brand{font-size:25px}
+.stat .v{font-size:46px}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Now booking 2027 · Serving the valley &amp; foothills</div></div>
+<header class="nav">
+  <div class="wrap"><div class="navrow">
+    <a class="brand" href="#">Ashgrove Homes</a>
+    <a class="btn navact" href="#contact">Arrange a conversation</a>
+  </div></div>
+  <div class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></div>
+</header>
+
+<section class="band"><div class="wrap">
+  <p class="eyebrow">Custom homes from $1.2M</p>
+  <h1>Eighteen months of your life. Built by people who explain it.</h1>
+  <p class="sub">Custom homes and estate builds across the valley. Fifteen homes a year, one project manager each, and a schedule you can actually plan a life around.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" data-cta="primary" href="#contact">Arrange a conversation</a>
+    <a class="btn btn-ghost" href="#results">View homes</a>
+  </div>
+  <ul class="badges">
+    <li>Homes from $1.2M</li><li>15 builds a year</li>
+    <li>Architect-led welcome</li><li>Fixed-schedule contracts</li>
+  </ul>
+</div></section>
+
+<section class="ladder"><div class="wrap">
+  <p class="ltitle">Eighteen months, mapped</p>
+  <p class="lnote">For architects and homeowners both. Nobody should sign for a house without knowing this.</p>
+  <div class="rail" aria-hidden="true">
+    <i class="q"></i><i></i><i></i><i></i><i></i><i class="q"></i><i></i><i></i><i></i>
+    <i></i><i class="q"></i><i></i><i></i><i></i><i></i><i class="q"></i><i></i><i></i>
+  </div>
+  <ol class="rungs">
+    <li><b>Feasibility &amp; site</b></li>
+    <li><b>Design &amp; budget together</b></li>
+    <li><b>Contract &amp; schedule</b></li>
+    <li><b>Build &amp; weekly rhythm</b></li>
+  </ol>
+</div></section>
+
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p>
+  <h2>How we work</h2>
+  <p class="lede">Design-build if you want one contract, or as builder alongside your own architect. Both work; they run differently.</p>
+  <div class="tiles">
+    <article class="tile"><h3>Design-build</h3><p>Architecture, interiors and construction under one roof and one contract. Fewer gaps to fall through, one person accountable.</p></article>
+    <article class="tile"><h3>Builder-of-record</h3><p>You have an architect you love. We build it, hold the schedule and the budget, and stay out of the design conversation.</p></article>
+    <article class="tile"><h3>Estate &amp; acreage</h3><p>Site work, wells, septic and long driveways. The invisible half of a rural build, and the half that surprises people.</p></article>
+    <article class="tile"><h3>Renovation of significant homes</h3><p>Older or architecturally notable properties, where the constraint is respecting what's there.</p></article>
+  </div>
+</div></section>
+
+<section class="sec alt" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <div class="stats">
+    <div class="stat"><div class="v">$1.2M+</div><span class="l">Typical build</span></div>
+    <div class="stat"><div class="v">15</div><span class="l">Homes a year</span></div>
+    <div class="stat"><div class="v">18mo</div><span class="l">Average timeline</span></div>
+    <div class="stat"><div class="v">31</div><span class="l">Years building here</span></div>
+  </div>
+</div></section>
+
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p>
+  <h2>Eighteen months, mapped</h2>
+  <p class="lede">For architects and homeowners both. Nobody should sign for a house without knowing this.</p>
+  <ol class="steps">
+    <li><h3>Feasibility &amp; site</h3><p>Before design, we look at the land. Access, soils, utilities and setbacks decide more about cost than the floor plan does.</p></li>
+    <li><h3>Design &amp; budget together</h3><p>Costing runs alongside design rather than after it, so you never fall in love with something unaffordable.</p></li>
+    <li><h3>Contract &amp; schedule</h3><p>A fixed schedule with named milestones, and an allowance schedule that says plainly what is and isn't decided.</p></li>
+    <li><h3>Build &amp; weekly rhythm</h3><p>Site meeting every week, updated numbers every month, and a one-year warranty walkthrough after you've lived in it.</p></li>
+  </ol>
+</div></section>
+
+<section class="close" id="contact"><div class="wrap">
+  <h2>Have land, or looking?</h2>
+  <p>The most useful conversation happens before you buy the site. We'll walk a parcel with you and tell you what it will really cost to build on.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="#contact">Arrange a conversation</a>
+    <a class="btn btn-ghost" href="tel:+15550886120">(555) 088-6120</a>
+  </div>
+  <p class="note">Now booking 2027. Architect enquiries welcome — ask for our builder-of-record terms.</p>
+</div></section>
+
+<footer class="foot"><div class="wrap">
+  <span class="fbrand">Ashgrove Homes</span>
+  <p><a href="tel:+15550886120">(555) 088-6120</a> · Custom homes &amp; estates · Building in the valley since 1994</p>
+  <p>Ashgrove Homes is a fictional builder. This page is a design demonstration only.</p>
+</div></footer>
+
+<div class="callbar"><a class="go" href="#contact">Arrange a conversation</a><a class="tel" href="tel:+15550886120">(555) 088-6120</a></div>
+</body>
+</html>

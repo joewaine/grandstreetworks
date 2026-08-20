@@ -2,8 +2,8 @@
 
 Live at **[grandstreetworks.com](https://grandstreetworks.com)** (`www` 301s to the apex).
 
-Single static page, no build step, no framework. `index.html` is the whole
-site.
+No build step, no framework. `index.html` is the whole marketing site; `work/`
+is a folder of static reference builds it links into.
 
 ## Working on it
 
@@ -19,16 +19,34 @@ One page, sectioned with the shared `[SEC_0x]` header bars:
 
 | Section | Contents |
 |---|---|
-| Hero | Headline, lede, primary CTA, metrics ticker |
-| `SEC_01` | Where the hours go — the symptoms owners recognise |
-| `SEC_02` | Services — audit, training day, back-office assistant |
-| `SEC_03` | How the audit runs — four steps |
-| `SEC_04` | Software you own — the build offer |
-| `SEC_05` | What we won't do |
-| `SEC_06` | Who this is for |
-| `SEC_07` | Principal |
-| `SEC_08` | Fair questions (FAQ) |
+| Hero | Headline, lede, primary CTA (jumps to `#work`), metrics ticker |
+| `SEC_01` | Where it leaks — the symptoms owners recognise, site first |
+| `SEC_02` | What we build — websites, native apps, back-office systems |
+| `SEC_03` | How a build runs — read, directions, build, handover |
+| `SEC_04` | Work — the twenty reference industries, linked into `work/` |
+| `SEC_05` | The free homepage rebuild — the way in |
+| `SEC_06` | Operations audit — for businesses whose site isn't the problem |
+| `SEC_07` | What we won't do |
+| `SEC_08` | Principal |
+| `SEC_09` | Fair questions (FAQ) |
 | Footer | Contact CTA |
+
+## `work/` — the reference builds
+
+`work/` holds twenty industries, six homepage directions each (120 pages plus
+twenty per-industry index pages), and `work/index.html` lists them in the site's
+own design system. They came from `~/fractal/cash_rich/demos/` and are copied in,
+not linked — editing them there does not change what is published here.
+
+Every business in them is **fictional**, which the pages say in their own footers
+and the site says in `SEC_04`. Every page under `work/` carries
+`<meta name="robots" content="noindex">` so invented practices never compete with
+the real page in search results. If you ever want that traffic, removing the tag
+is a one-line change per file — but read the warning in the internal notes first.
+
+The reference pages are self-contained: one `<style>` block, no JS, no images, one
+Google Fonts request each, and no outbound links. They do not carry a contact
+address, so the `mailto:` count below is unaffected by them.
 
 ## Look and feel
 
@@ -45,12 +63,16 @@ External dependencies are Google Fonts (Inter, JetBrains Mono) and three.js
 from a CDN. The hero shader degrades to the flat background when WebGL is
 unavailable.
 
-Verified in headless Chrome at 500 / 700 / 900 / 1100 / 1440px: no horizontal
-overflow, all grids collapse correctly.
+Verified in headless Chrome at 500 / 768 / 1024 / 1440px: `scrollWidth` equals
+`innerWidth` at every one, no element's bounding box crosses the viewport edge,
+and all grids collapse correctly. 500px is the floor because headless Chrome
+clamps its window width there — narrower phone widths have to be checked in a
+real browser's device emulation.
 
 ## Contact address
 
-Every CTA on the page is `mailto:joe@grandstreetworks.com` — five places.
+Every CTA on the page is `mailto:joe@grandstreetworks.com` — four places (header,
+`SEC_05`, `SEC_06`, footer).
 Email forwarding and Gmail send-as must be live **before** the site is. A live
 site with a dead mailto is worse than no site.
 

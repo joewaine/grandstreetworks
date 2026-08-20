@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Still Water Pools — Gunite pools from $340 a month</title>
+<meta name="description" content="Gunite pools, spas and outdoor living, designed in 3D on your own garden, with financing from $340/mo and a 25-year structural warranty.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&family=Comfortaa:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+/* D6 — THE MONTHLY ONE. hero:panel nav:inline services:tiles proof:testimonial-lead
+   ink #16202E · surface #EDF1F6 · accent #2B4A72 · muted #4E5C70 · on-accent #FFFFFF
+   H1 ramp: 29/33/42/52px · Comfortaa display / Assistant body
+   Device: the water plane compressed into a ripple bar across the top of one panel, with
+   the monthly figure sitting on it as the hero object. Fixes "no financing": the number a
+   buyer is actually deciding on is set in the hero, not hidden behind a form. */
+:root{--ink:#16202E;--surface:#EDF1F6;--paper:#FFFFFF;--accent:#2B4A72;--muted:#4E5C70;
+--aqua:#0F6A7C;--rule:rgba(22,32,46,.16);--wrap:1120px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.62 "Assistant",system-ui,-apple-system,sans-serif;padding-bottom:80px;overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Comfortaa",system-ui,sans-serif;font-weight:700;margin:0;line-height:1.22;
+letter-spacing:-.03em}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 20px;
+text-decoration:none;font-weight:700;font-size:16px;line-height:1.2;text-align:center;
+border:2px solid transparent;border-radius:10px;font-family:"Comfortaa",system-ui,sans-serif}
+.btn-primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn-ghost{background:var(--paper);color:var(--accent);border-color:var(--accent)}
+.topbar{background:var(--surface);color:var(--muted);font-size:15px;border-bottom:1px solid var(--rule)}
+.topbar .wrap{padding:9px 20px;text-align:center}
+.nav{position:sticky;top:0;z-index:30;background:var(--paper);border-bottom:1px solid var(--rule)}
+.navrow{display:flex;align-items:center;gap:16px;height:58px}
+.brand{font-family:"Comfortaa",system-ui,sans-serif;font-weight:700;font-size:18px;
+text-decoration:none;letter-spacing:-.045em;line-height:1;flex:0 0 auto}
+.navlinks{display:flex;gap:18px;font-size:14px;letter-spacing:.12em;text-transform:uppercase;
+color:var(--muted);overflow-x:auto;scrollbar-width:none;flex:1 1 auto}
+.navlinks::-webkit-scrollbar{display:none}
+.navlinks a{text-decoration:none;white-space:nowrap;font-weight:700}
+.navact{min-height:40px;padding:0 14px;font-size:14px;white-space:nowrap;flex:0 0 auto;border-radius:8px}
+.hero{padding:22px 0 8px}
+.panel{background:var(--paper);border:1px solid var(--rule);border-radius:14px;overflow:hidden}
+/* ---- the water plane, compressed ---- */
+.ripple{height:56px;position:relative;
+background:linear-gradient(180deg,#7FD3DF 0%,#3AA3BC 45%,#1D6E90 100%)}
+.ripple::after{content:"";position:absolute;inset:0;opacity:.6;
+background:
+ repeating-linear-gradient(101deg,rgba(255,255,255,.34) 0 2px,rgba(255,255,255,0) 2px 13px),
+ repeating-linear-gradient(-94deg,rgba(255,255,255,.20) 0 2px,rgba(255,255,255,0) 2px 21px)}
+.ripple::before{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;
+background:linear-gradient(90deg,#EDF1F6,#FFFFFF 40%,#DCE6EC);z-index:2}
+.pbody{padding:22px 18px 24px}
+.eyebrow{font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;
+color:var(--aqua);margin:0 0 12px}
+.hero h1{font-size:clamp(29px,6.8vw,52px);max-width:15ch}
+.sub{margin:14px 0 0;max-width:52ch;font-size:16px;line-height:1.55;color:var(--muted)}
+.fin{margin:20px 0 0;background:var(--surface);border:1px solid var(--rule);border-radius:12px;
+padding:16px 18px 18px;font-size:15px;letter-spacing:.13em;text-transform:uppercase;
+font-weight:700;color:var(--muted)}
+.fin b{display:block;font-family:"Comfortaa",system-ui,sans-serif;font-size:clamp(38px,10vw,60px);
+line-height:1.06;color:var(--accent);letter-spacing:-.05em;text-transform:none;margin-top:4px}
+.ctas{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.badges{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:7px}
+.badges li{font-size:15px;font-weight:700;color:var(--ink);padding-left:24px;position:relative}
+.badges li::before{content:"";position:absolute;left:0;top:8px;width:12px;height:12px;
+border-radius:4px;background:var(--aqua)}
+
+.sec{padding:48px 0}
+.sec.paper{background:var(--paper);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.kicker{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--aqua);
+font-weight:700;margin:0 0 10px}
+.sec h2{font-size:clamp(26px,5.8vw,40px)}
+.lede{color:var(--muted);max-width:58ch;margin:12px 0 0;font-size:17px}
+.tiles{display:grid;gap:10px;margin-top:24px}
+.tile{border:1px solid var(--rule);border-radius:12px;padding:18px 16px 20px;background:var(--surface)}
+.sec.paper .tile{background:var(--paper)}
+.tile span{display:block;width:26px;height:6px;border-radius:3px;background:var(--accent);
+margin-bottom:12px}
+.tile h3{font-size:20px;margin-bottom:8px;line-height:1.28}
+.tile p{margin:0;color:var(--muted);font-size:16px}
+.quote{background:var(--paper);border:1px solid var(--rule);border-radius:14px;
+padding:24px 20px;margin-top:22px;border-left:8px solid var(--aqua)}
+.quote p{margin:0;font-family:"Comfortaa",system-ui,sans-serif;font-weight:600;
+font-size:clamp(19px,4.6vw,28px);line-height:1.42;letter-spacing:-.03em}
+.quote cite{display:block;font-style:normal;margin-top:16px;padding-top:14px;
+border-top:1px solid var(--rule);font-size:16px;color:var(--muted)}
+.quote cite b{color:var(--ink);font-weight:700}
+.steps{list-style:none;margin:24px 0 0;padding:0;counter-reset:s;display:grid;gap:10px}
+.steps li{counter-increment:s;position:relative;padding:18px 16px 20px 62px;
+border:1px solid var(--rule);border-radius:12px;background:var(--paper)}
+.sec.paper .steps li{background:var(--surface)}
+.steps li::before{content:counter(s);position:absolute;left:14px;top:12px;
+font-family:"Comfortaa",system-ui,sans-serif;font-weight:700;font-size:34px;line-height:1;
+color:var(--accent);opacity:.34;letter-spacing:-.05em}
+.steps h3{font-size:19px;margin-bottom:6px}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+.close{background:var(--accent);color:#fff}
+.close .wrap{padding-top:48px;padding-bottom:54px}
+.close h2{font-size:clamp(27px,6vw,44px);max-width:16ch}
+.close p{max-width:56ch;font-size:17px;color:#D3DEEC;margin:14px 0 22px}
+.close .btn-primary{background:#fff;color:var(--accent);border-color:#fff}
+.close .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}
+.note{font-size:15px;color:#D3DEEC;margin-top:18px;max-width:56ch}
+.foot{padding:36px 0 32px;font-size:15px;color:var(--muted);background:var(--paper)}
+.foot .brand{color:var(--ink);display:inline-block;margin-bottom:12px}
+.foot p{margin:0 0 9px;max-width:64ch}
+.foot a{color:var(--accent);font-weight:700}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--paper);
+border-top:1px solid var(--rule);padding:8px;display:grid;grid-template-columns:1fr auto;gap:8px;
+box-shadow:0 -3px 14px rgba(22,32,46,.12)}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:56px;
+text-decoration:none;font-weight:700;font-size:15px;text-align:center;line-height:1.2;padding:0 14px;
+border-radius:10px;font-family:"Comfortaa",system-ui,sans-serif}
+.callbar .book{background:var(--accent);color:#fff}
+.callbar .tel{border:2px solid var(--accent);color:var(--accent);font-size:16px}
+@media(max-width:559px){.navact{display:none}}
+@media(min-width:760px){
+ .ctas{flex-direction:row}
+ .pbody{padding:38px 34px 36px;display:grid;grid-template-columns:1.4fr 1fr;
+  column-gap:40px;align-items:start}
+ .pbody .eyebrow,.pbody h1,.pbody .sub,.pbody .ctas{grid-column:1}
+ .fin{grid-column:2;grid-row:1 / span 4;margin-top:0;align-self:center;text-align:center}
+ .badges{grid-column:1 / -1;grid-template-columns:repeat(3,1fr);margin-top:26px}
+ .ripple{height:76px}
+ .tiles{grid-template-columns:1fr 1fr;gap:14px}
+ .steps{grid-template-columns:1fr 1fr;gap:14px}
+ .hero{padding:34px 0 12px}.sec{padding:76px 0}.sub{font-size:19px}.brand{font-size:21px}
+}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Booking spring installs now · 3D design included · Financing available</div></div>
+<header class="nav"><div class="wrap navrow">
+  <a class="brand" href="#">Still Water Pools</a>
+  <nav class="navlinks">
+    <a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a>
+  </nav>
+  <a class="btn btn-primary navact" href="#contact">Book a design consult</a>
+</div></header>
+<section class="hero"><div class="wrap"><div class="panel">
+  <div class="ripple"></div>
+  <div class="pbody">
+    <p class="eyebrow">Booking next season now</p>
+    <h1>See your garden with the pool in it. Before you commit.</h1>
+    <p class="sub">Gunite pools, spas and full outdoor living builds. Every project starts with a 3D design of your actual garden — and next season's calendar fills over the winter.</p>
+    <div class="ctas">
+      <a class="btn btn-primary" data-cta="primary" href="#contact">Book a design consult</a>
+      <a class="btn btn-ghost" href="#results">See finished pools</a>
+    </div>
+    <p class="fin">Financing from <b>$340/mo</b></p>
+    <ul class="badges">
+      <li>3D design included</li>
+      <li>Booking spring now</li>
+      <li>25-year structural warranty</li>
+    </ul>
+  </div>
+</div></div></section>
+<section class="sec paper" id="services"><div class="wrap">
+  <p class="kicker">Services</p>
+  <h2>What we build</h2>
+  <p class="lede">A pool is rarely just a pool. Most of our projects are the whole back garden reconsidered.</p>
+  <div class="tiles">
+    <article class="tile"><span></span><h3>Gunite pools</h3><p>Engineered, steel-reinforced and built to last decades. Any shape, because gunite doesn't come out of a mould.</p></article>
+    <article class="tile"><span></span><h3>Spas &amp; water features</h3><p>Integrated spas, spillovers, and the quiet engineering that keeps them warm without a ruinous bill.</p></article>
+    <article class="tile"><span></span><h3>Outdoor living</h3><p>Hardscape, outdoor kitchens, pergolas and lighting — designed together with the pool rather than bolted on after.</p></article>
+    <article class="tile"><span></span><h3>Renovation &amp; resurfacing</h3><p>Older pools brought back: resurfacing, new tile and coping, and modern equipment that halves the running cost.</p></article>
+  </div>
+</div></section>
+<section class="sec" id="results"><div class="wrap">
+  <h2>Results</h2>
+  <figure class="quote">
+    <p>"We booked in February for a June build, which felt strange until they explained the calendar. Seeing the 3D of our own garden is what actually made us do it."</p>
+    <cite><b>Priyanka &amp; Joe R.</b> · Gunite pool &amp; outdoor kitchen</cite>
+  </figure>
+</div></section>
+<section class="sec paper" id="process"><div class="wrap">
+  <p class="kicker">Process</p>
+  <h2>From first call to first swim</h2>
+  <p class="lede">Roughly nine months if you start in autumn, and considerably longer if you start in May with everyone else.</p>
+  <ol class="steps">
+    <li><h3>Design consult</h3><p>We visit, measure and talk about how you'd actually use it. Free, and no obligation to go further.</p></li>
+    <li><h3>3D design &amp; fixed price</h3><p>Your garden, rendered, with the pool in it. Change it as often as you like before there's a contract.</p></li>
+    <li><h3>Permits &amp; engineering</h3><p>We handle drawings, engineering and the city. This is the stage that quietly takes months.</p></li>
+    <li><h3>Build &amp; handover</h3><p>Excavation to first fill, typically eight to twelve weeks. We teach you the equipment and stay on call after.</p></li>
+  </ol>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>Want it for next summer?</h2>
+  <p>Then now is the conversation. Spring and summer builds are booked over the winter, and the design and permit stage runs longer than anyone expects.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="#contact">Book a design consult</a>
+    <a class="btn btn-ghost" href="tel:+15550932870">(555) 093-2870</a>
+  </div>
+  <p class="note">Free design consultations. 3D rendering included at no cost, no obligation.</p>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Still Water Pools</a>
+  <p>Gunite pools &amp; outdoor living · Licensed &amp; insured · Building since 2001</p>
+  <p><a href="tel:+15550932870">(555) 093-2870</a> · Booking spring installs now</p>
+  <p>Still Water Pools is a fictional company. This page is a design demonstration only.</p>
+</div></footer>
+<div class="callbar">
+  <a class="book" href="#contact">Book a design consult</a>
+  <a class="tel" href="tel:+15550932870">Call</a>
+</div>
+</body>
+</html>

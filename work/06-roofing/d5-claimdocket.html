@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ridgeline Roofing — We meet your adjuster and handle the claim paperwork</title>
+<meta name="description" content="Storm damage, full replacements and repairs across the metro. We meet your adjuster, handle the claim paperwork, and you get one number to call.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Public+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* D5 — THE CLAIM DOCKET ONE. hero:panel nav:inline services:cards proof:testimonial-lead
+   ink #1A1D20 · surface #E9EBEC · accent #4C5A63 · muted #545B61 · on-accent #FFFFFF
+   H1 ramp: 36/42/56/72px · Big Shoulders Display display / Public Sans body
+   Device: the shingle tile band running through the docket header, over a ruled
+   claim panel. FIX answered first: insurance-claim handling never mentioned, so the
+   hero is literally a claim docket — adjuster, paperwork, one number — and the
+   testimonial that leads the proof is the adjuster story. Financing is a ruled line
+   item in the same docket, priced, not buried. */
+:root{--ink:#1A1D20;--surface:#E9EBEC;--accent:#4C5A63;--muted:#545B61;--on-accent:#FFFFFF;
+--panel:#FFFFFF;--rule:rgba(26,29,32,.2);--hair:rgba(26,29,32,.1);--wrap:1080px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);overflow-x:hidden;padding-bottom:82px;
+font:400 17px/1.6 "Public Sans",system-ui,-apple-system,sans-serif}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 18px}
+h1,h2,h3,.big{font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:800;margin:0;
+line-height:1;text-transform:uppercase;letter-spacing:.008em}
+a{color:inherit}
+p{margin:0}
+.btn{display:flex;align-items:center;justify-content:center;min-height:56px;padding:8px 18px;
+text-decoration:none;text-align:center;line-height:1.15;font-weight:700;font-size:15px;
+letter-spacing:.09em;text-transform:uppercase;border:2px solid var(--ink)}
+.btn-primary{background:var(--ink);color:#fff}
+.btn-ghost{background:transparent;color:var(--ink)}
+.topbar{background:var(--accent);color:#fff;font-size:14px;font-weight:500}
+.topbar .wrap{padding:7px 18px;letter-spacing:.04em}
+.nav{position:sticky;top:0;z-index:30;background:var(--surface);border-bottom:1px solid var(--rule)}
+.nav .wrap{display:flex;align-items:center;gap:12px;height:54px}
+.brand{font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:800;font-size:26px;
+text-decoration:none;letter-spacing:.02em;flex:none;line-height:1}
+.navlinks{display:none;gap:18px;font-size:13px;letter-spacing:.13em;text-transform:uppercase;
+font-weight:700;color:var(--muted)}
+.navlinks a{text-decoration:none}
+.navlinks a:hover{color:var(--ink)}
+.navact{margin-left:auto;flex:none;text-decoration:none;font-weight:700;font-size:15px;
+background:var(--ink);color:#fff;padding:8px 12px;white-space:nowrap;line-height:1.2}
+.hero{padding:16px 0 26px}
+.docket{background:var(--panel);border:2px solid var(--ink)}
+.dhead{background:var(--ink);color:#fff;padding:9px 16px 11px;display:flex;flex-direction:column;
+align-items:stretch;gap:8px}
+.dhead .eyebrow{font-size:13px;letter-spacing:.19em;text-transform:uppercase;font-weight:700;
+margin:0;flex:none}
+.tiles-band{display:block;height:17px;width:100%;
+background:repeating-linear-gradient(90deg,rgba(255,255,255,.3) 0 26px,transparent 26px 29px),
+repeating-linear-gradient(0deg,rgba(255,255,255,.3) 0 8px,transparent 8px 9px)}
+.dbody{padding:20px 16px 4px}
+.docket h1{font-size:clamp(36px,9.6vw,72px);max-width:14ch}
+.docket .sub{font-size:16px;color:var(--muted);max-width:52ch;margin:14px 0 18px;line-height:1.58}
+.line{border-top:2px solid var(--ink);padding:14px 16px;display:grid;gap:10px}
+.line .lab{font-size:13px;letter-spacing:.19em;text-transform:uppercase;font-weight:700;
+color:var(--muted);margin:0}
+.line .tel{display:block;font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:800;
+font-size:clamp(44px,12.4vw,64px);color:var(--ink);text-decoration:none;line-height:.94;
+letter-spacing:.005em;margin-top:2px}
+.ctas{display:grid;gap:9px}
+.badges{list-style:none;margin:0;padding:0;display:grid;gap:0;border-top:2px solid var(--ink)}
+.badges li{font-size:15px;font-weight:500;padding:11px 16px;border-bottom:1px solid var(--hair);
+display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.badges li:last-child{border-bottom:0}
+.badges li span{font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:800;
+font-size:17px;color:var(--accent);letter-spacing:.1em;flex:none}
+.sec{padding:40px 0}
+.kicker{font-size:13px;letter-spacing:.19em;text-transform:uppercase;font-weight:700;
+color:var(--accent);margin:0 0 9px}
+.sec h2{font-size:clamp(32px,8vw,54px);margin-bottom:12px}
+.lede{color:var(--muted);max-width:58ch;margin:0 0 22px;font-size:16px}
+.cards{display:grid;gap:10px}
+.card{background:var(--panel);border-left:6px solid var(--accent);padding:16px 16px 18px;
+border-top:1px solid var(--hair);border-right:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.card h3{font-size:25px;margin-bottom:6px}
+.card p{color:var(--muted);font-size:16px}
+.lead{background:var(--accent);color:#fff;padding:38px 0 40px}
+.lead .kicker{color:#D2DAE0}
+.lead blockquote{margin:0;font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:600;
+font-size:clamp(25px,6.4vw,42px);line-height:1.16;text-transform:none;max-width:24ch}
+.lead cite{display:block;font-style:normal;font-size:15px;margin-top:16px;letter-spacing:.14em;
+text-transform:uppercase;font-weight:700;color:#DCE3E8}
+.fin{background:var(--panel);border:2px solid var(--ink);margin-top:22px}
+.fin .row{padding:14px 16px;border-bottom:1px solid var(--hair);display:flex;
+justify-content:space-between;gap:14px;align-items:baseline;flex-wrap:wrap}
+.fin .row:last-child{border-bottom:0}
+.fin .k{font-size:13px;letter-spacing:.19em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+.fin .v{font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:800;
+font-size:clamp(24px,6vw,34px);line-height:1}
+.fin p{font-size:16px;color:var(--muted);width:100%}
+.steps{list-style:none;margin:20px 0 0;padding:0;counter-reset:s;display:grid;gap:0;
+border-top:2px solid var(--ink)}
+.steps li{counter-increment:s;padding:16px 0;border-bottom:1px solid var(--rule);display:grid;
+grid-template-columns:52px minmax(0,1fr);gap:12px}
+.steps li::before{content:"Step " counter(s);font-size:13px;letter-spacing:.1em;font-weight:700;
+color:var(--accent);text-transform:uppercase;line-height:1.5}
+.steps h3{font-size:23px;margin-bottom:4px}
+.steps p{color:var(--muted);font-size:16px}
+.close{background:var(--ink);color:#E7E9EA;padding:40px 0 44px}
+.close h2{color:#fff;font-size:clamp(34px,8.6vw,60px);max-width:14ch}
+.close p{max-width:52ch;font-size:17px;margin:12px 0 18px;color:#B9BEC3}
+.close .tel{display:inline-block;font-family:"Big Shoulders Display",Impact,sans-serif;
+font-weight:800;font-size:clamp(42px,11.4vw,62px);color:#fff;text-decoration:none;
+line-height:1;margin-bottom:16px}
+.close .btn-primary{background:#fff;color:var(--ink);border-color:#fff}
+.close .btn-ghost{color:#fff;border-color:rgba(255,255,255,.55)}
+.note{font-size:15px;color:#A8AEB3;margin-top:16px;max-width:52ch}
+.foot{padding:30px 0 26px;font-size:15px;color:var(--muted)}
+.foot .brand{color:var(--ink);display:inline-block;margin-bottom:10px}
+.foot p{margin:0 0 8px;max-width:62ch}
+.foot a{color:var(--accent);font-weight:700}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--panel);
+border-top:2px solid var(--ink);display:grid;grid-template-columns:1fr auto;gap:6px;padding:6px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:58px;
+text-decoration:none;text-align:center;font-weight:700;line-height:1.15;padding:0 12px}
+.callbar .tel{background:var(--ink);color:#fff;font-family:"Big Shoulders Display",Impact,sans-serif;
+font-weight:800;font-size:28px;text-transform:uppercase}
+.callbar .alt2{border:2px solid var(--ink);font-size:13px;letter-spacing:.06em;
+text-transform:uppercase;max-width:124px}
+@media(max-width:559px){.navact{display:none}}
+@media(min-width:760px){.dbody{padding:34px 30px 8px}.line{padding:18px 30px}
+.badges li{padding:13px 30px}.dhead{padding:11px 30px}
+.line{display:grid;grid-template-columns:1fr auto;align-items:end;gap:20px}
+.ctas{grid-template-columns:auto auto}.cards{grid-template-columns:1fr 1fr}
+.badges{grid-template-columns:1fr 1fr}.badges li:nth-child(1),.badges li:nth-child(2){border-bottom:1px solid var(--hair)}
+.steps{grid-template-columns:1fr 1fr;column-gap:40px}.sec{padding:66px 0}
+.docket .sub{font-size:19px}.hero{padding:26px 0 42px}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}.navlinks{display:flex}
+.navact{margin-left:20px}.cards{grid-template-columns:repeat(4,1fr)}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Licensed &amp; insured · Serving the metro area since 2004</div></div>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="#">Ridgeline Roofing</a>
+  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+  <a class="navact" href="tel:+15550148820">Call now (555) 014-8820</a>
+</div></header>
+<section class="hero"><div class="wrap"><div class="docket">
+  <div class="dhead"><p class="eyebrow">Emergency response · 24/7</p><i class="tiles-band" aria-hidden="true"></i></div>
+  <div class="dbody">
+    <h1>A roof over your head by the end of the week.</h1>
+    <p class="sub">Storm damage, full replacements and repairs across the metro. We meet your adjuster, handle the claim paperwork, and you get one number to call.</p>
+  </div>
+  <div class="line">
+    <div><p class="lab">One number to call</p><a class="tel" href="tel:+15550148820">(555) 014-8820</a></div>
+    <div class="ctas">
+      <a class="btn btn-primary" data-cta="primary" href="tel:+15550148820">Call now</a>
+      <a class="btn btn-ghost" href="#contact">Get a free inspection</a>
+    </div>
+  </div>
+  <ul class="badges">
+    <li>Insurance claims handled<span>Yes</span></li>
+    <li>Financing from $89/mo<span>Yes</span></li>
+    <li>25-year workmanship warranty<span>Yes</span></li>
+    <li>Same-day emergency tarping<span>Yes</span></li>
+  </ul>
+</div></div></section>
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p>
+  <h2>What we do</h2>
+  <p class="lede">Most calls fall into one of these. If yours doesn't, ring us anyway — we'll tell you straight whether it's a repair or a replacement.</p>
+  <div class="cards">
+    <article class="card"><h3>Storm &amp; hail damage</h3><p>Free inspection, full photo report, and we meet the adjuster on site so nothing gets argued about later.</p></article>
+    <article class="card"><h3>Full replacement</h3><p>Architectural shingle, metal or tile. Tear-off, deck inspection, ice-and-water barrier, and the site left clean.</p></article>
+    <article class="card"><h3>Emergency repair</h3><p>Active leak or missing shingles after a storm. Same-day tarping to stop the damage, permanent fix scheduled after.</p></article>
+    <article class="card"><h3>Gutters &amp; ventilation</h3><p>Half the roofs we replace failed early because the attic couldn't breathe. We fix the cause, not just the symptom.</p></article>
+  </div>
+</div></section>
+<section class="lead" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <blockquote>“Hail took out half the neighbourhood. Ridgeline had a tarp on our roof the same afternoon and sat with our adjuster the following Tuesday. The rest of the street was still waiting on callbacks.”</blockquote>
+  <cite>Dana R. · Homeowner, Cedar Park</cite>
+</div></section>
+<section class="sec"><div class="wrap">
+  <p class="kicker">Insurance claims handled</p>
+  <h2>Claim or quote</h2>
+  <p class="lede">If it's insurance, we meet your adjuster on site. If it's retail, you get a fixed written price with financing options.</p>
+  <div class="fin">
+    <div class="row"><span class="k">Financing</span><span class="v">Financing from $89/mo</span></div>
+    <div class="row"><span class="k">Joel B. · Riverbend</span><p>“The financing made it possible. $110 a month instead of fifteen grand up front.”</p></div>
+    <div class="row"><span class="k">Anne-Marie K. · Cedar Park</span><p>“Handled the whole insurance claim. I signed two things and that was it.”</p></div>
+  </div>
+</div></section>
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p>
+  <h2>How a job actually runs</h2>
+  <p class="lede">The part most roofers don't explain, which is the part homeowners are actually anxious about.</p>
+  <ol class="steps">
+    <li><div><h3>Free inspection</h3><p>We go up, photograph everything, and tell you whether you need a roof or a repair. No pressure either way.</p></div></li>
+    <li><div><h3>Claim or quote</h3><p>If it's insurance, we meet your adjuster on site. If it's retail, you get a fixed written price with financing options.</p></div></li>
+    <li><div><h3>Install</h3><p>Most homes are one to two days. Materials delivered the morning of, site cleaned and magnet-swept at the end.</p></div></li>
+    <li><div><h3>Final walkthrough</h3><p>We walk it with you, register your warranty, and you have a direct number if anything ever comes up.</p></div></li>
+  </ol>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>Got water coming in right now?</h2>
+  <p>Call and a human answers — day, night, weekend, during the storm. Emergency tarping usually the same day.</p>
+  <a class="tel" href="tel:+15550148820">(555) 014-8820</a>
+  <div class="ctas">
+    <a class="btn btn-primary" href="tel:+15550148820">Call now</a>
+    <a class="btn btn-ghost" href="#contact">Get a free inspection</a>
+  </div>
+  <p class="note">Free inspections. No obligation. We'll tell you if you don't need a roof.</p>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Ridgeline Roofing</a>
+  <p><a href="tel:+15550148820">(555) 014-8820</a> · Licensed, bonded and insured · Serving the metro area since 2004</p>
+  <p>Ridgeline Roofing is a fictional company. This page is a design demonstration only.</p>
+</div></footer>
+<div class="callbar"><a class="tel" href="tel:+15550148820">Call now (555) 014-8820</a><a class="alt2" href="#contact">Free inspection</a></div>
+</body>
+</html>

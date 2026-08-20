@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bellweather Dermatology — Two doors, one thumb</title>
+<meta name="description" content="Skin checks within 2 weeks and a separate cosmetic clinic. Two booking paths, both reachable in one tap.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Krub:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* D6 — THE PHONE ONE. hero:fullbleed nav:bar services:list proof:testimonial-lead
+   surface #FBF6F2 · accent #9C4F2A · blue #1F4E6B · ink #1B2229 · muted #5A6672
+   H1 ramp: 31/36/46/58px · Hind display / Krub body
+   Fixes "mobile experience poor": one edge-to-edge field cut in two, nothing floating,
+   nothing in columns, and both doors sitting in the bottom third of the first screen
+   where a thumb already is. Everything below is a single ruled column. */
+:root{--surface:#FBF6F2;--paper:#FFFFFF;--accent:#9C4F2A;--blue:#1F4E6B;--ink:#1B2229;
+--muted:#5A6672;--rule:rgba(27,34,41,.16);--wrap:1080px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.64 "Krub",system-ui,-apple-system,sans-serif;padding-bottom:82px;overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Hind",system-ui,sans-serif;font-weight:600;margin:0;line-height:1.16;
+letter-spacing:-.015em}
+a{color:inherit}
+.btn{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:60px;
+padding:0 20px;text-decoration:none;font-weight:600;font-size:17px;border:2px solid transparent;
+line-height:1.2;font-family:"Hind",system-ui,sans-serif}
+.btn::after{content:"→";font-size:19px;opacity:.85}
+.btn-primary{background:#fff;color:var(--blue);border-color:#fff}
+.btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.7)}
+.topbar{background:var(--ink);color:#D4DBE1;font-size:15px}
+.topbar .wrap{padding:9px 20px}
+.navbar{background:var(--ink);color:#fff;border-top:1px solid rgba(255,255,255,.16)}
+.navbar .wrap{display:flex;align-items:center;gap:0;height:54px}
+.brand{font-family:"Hind",system-ui,sans-serif;font-weight:700;font-size:20px;text-decoration:none;
+flex:none;letter-spacing:-.02em;line-height:1;color:#fff}
+.navlinks{display:flex;gap:18px;min-width:0;flex:1;overflow-x:auto;scrollbar-width:none;
+font-size:14px;font-weight:600;color:#C3CCD4;padding-left:18px}
+.navlinks::-webkit-scrollbar{display:none}
+.navlinks a{text-decoration:none;white-space:nowrap}
+.navact{display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:0 14px;
+font-size:14px;flex:none;white-space:nowrap;background:var(--accent);color:#fff;text-decoration:none;
+font-weight:600;font-family:"Hind",system-ui,sans-serif;margin-left:12px}
+.hero{background:linear-gradient(163deg,var(--blue) 0 57%,var(--accent) 57% 100%);color:#fff;
+padding:26px 0 30px}
+.eyebrow{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#B7CBD9;margin:0 0 10px;
+font-weight:600}
+.hero h1{font-size:clamp(31px,7.6vw,58px);max-width:15ch}
+.sub{font-size:16px;color:#D6E2EA;max-width:52ch;margin:13px 0 20px;line-height:1.55}
+.ctas{display:grid;gap:10px}
+.badges{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:0}
+.badges li{font-size:15px;color:#F1E1D6;padding:9px 0;border-top:1px solid rgba(255,255,255,.3)}
+.sec{padding:50px 0}
+.kicker{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);
+margin:0 0 10px;font-weight:600}
+.sec h2{font-size:clamp(27px,6.2vw,44px)}
+.lede{color:var(--muted);max-width:60ch;margin:12px 0 4px;font-size:17px}
+.list{list-style:none;margin:22px 0 0;padding:0;border-top:2px solid var(--ink)}
+.list li{padding:22px 0;border-bottom:1px solid var(--rule)}
+.list h3{font-size:22px;margin-bottom:8px;display:flex;align-items:baseline;gap:10px}
+.list h3::before{content:"";width:10px;height:10px;background:var(--blue);flex:none}
+.list li:last-child h3::before{background:var(--accent)}
+.list p{margin:0;color:var(--muted);font-size:16px;max-width:58ch}
+.tlead{background:var(--paper);padding:50px 0 54px;border-top:1px solid var(--rule);
+border-bottom:1px solid var(--rule)}
+.tlead blockquote{margin:0;padding-left:18px;border-left:4px solid var(--accent);
+font-family:"Hind",system-ui,sans-serif;font-weight:500;font-size:clamp(20px,4.4vw,30px);
+line-height:1.4;max-width:26ch;letter-spacing:-.012em}
+.tlead cite{display:block;font-style:normal;margin:18px 0 0 22px;font-size:16px;color:var(--muted)}
+.tlead cite b{color:var(--ink);font-weight:600}
+.steps{list-style:none;margin:22px 0 0;padding:0;counter-reset:s;border-top:2px solid var(--ink)}
+.steps li{counter-increment:s;padding:20px 0;border-bottom:1px solid var(--rule);display:grid;
+grid-template-columns:34px 1fr;gap:14px}
+.steps li::before{content:counter(s);font-family:"Hind",system-ui,sans-serif;font-weight:700;
+font-size:24px;color:var(--accent);line-height:1.1}
+.steps h3{font-size:20px;margin-bottom:5px}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+.close{background:var(--blue);color:#fff;padding:50px 0 56px}
+.close h2{font-size:clamp(28px,6.4vw,46px);max-width:17ch}
+.close p{max-width:56ch;font-size:17px;color:#CFDDE6;margin:14px 0 20px}
+.note{font-size:15px;color:#BDCEDA;margin-top:18px;max-width:56ch}
+.foot{padding:38px 0 34px;font-size:15px;color:var(--muted)}
+.foot .brand{color:var(--ink);display:inline-block;margin-bottom:12px}
+.foot p{margin:0 0 9px;max-width:64ch}
+.foot a{color:var(--accent);font-weight:600}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--ink);padding:8px;
+display:grid;grid-template-columns:1fr auto;gap:8px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:58px;text-decoration:none;
+font-weight:600;font-size:15px;text-align:center;line-height:1.2;padding:0 12px;
+font-family:"Hind",system-ui,sans-serif}
+.callbar .book{background:var(--accent);color:#fff}
+.callbar .tel{border:2px solid rgba(255,255,255,.55);color:#fff;padding:0 16px;font-size:16px}
+@media(max-width:559px){.navact{display:none}}
+@media(min-width:760px){.ctas{grid-template-columns:1fr 1fr}
+.badges{grid-template-columns:1fr 1fr;column-gap:28px}
+.list li{display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:start}
+.list h3{margin-bottom:0}
+.steps{grid-template-columns:1fr 1fr;column-gap:40px}
+.sec{padding:84px 0}.sub{font-size:19px}.hero{padding:56px 0 62px}
+.navbar .wrap{height:62px}.brand{font-size:23px}.tlead{padding:80px 0 86px}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Skin checks within 2 weeks · Most insurance accepted · Cosmetic clinic on site</div></div>
+<header class="navbar"><div class="wrap">
+  <a class="brand" href="#">Bellweather</a>
+  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+  <a class="navact" href="#contact">Book a skin check</a>
+</div></header>
+<section class="hero"><div class="wrap">
+  <p class="eyebrow">Medical · Surgical · Cosmetic</p>
+  <h1>Worried about a spot? We can see you in two weeks.</h1>
+  <p class="sub">Medical dermatology, skin cancer surgery and a separate cosmetic clinic. Two different kinds of visit, two different booking paths, so you land in the right one.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" data-cta="primary" href="#contact">Book a skin check</a>
+    <a class="btn btn-ghost" href="#contact">Cosmetic consultations</a>
+  </div>
+  <ul class="badges">
+    <li>Skin checks within 2 weeks</li><li>Mohs surgery on site</li>
+    <li>Most insurance accepted</li><li>Separate cosmetic clinic</li>
+  </ul>
+</div></section>
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p>
+  <h2>Two clinics, one practice</h2>
+  <p class="lede">Medical dermatology runs on insurance and referral. The cosmetic clinic runs separately, with its own booking and published pricing.</p>
+  <ul class="list">
+    <li><h3>Skin cancer &amp; Mohs surgery</h3><p>Screening, biopsy and Mohs micrographic surgery on site, so diagnosis and removal don't mean two separate waits.</p></li>
+    <li><h3>Medical dermatology</h3><p>Acne, eczema, psoriasis, rosacea and hair loss. Most insurance accepted, and biologics managed in house.</p></li>
+    <li><h3>Paediatric dermatology</h3><p>Eczema, birthmarks and adolescent acne, in appointments long enough for a child to settle.</p></li>
+    <li><h3>Cosmetic clinic</h3><p>Injectables, lasers and medical-grade skincare, with published pricing. Booked separately from medical visits.</p></li>
+  </ul>
+</div></section>
+<section class="tlead" id="results"><div class="wrap">
+  <blockquote>I found something in November and was terrified. Their site said two weeks for a skin check and I got in in nine days. The biopsy and the removal happened in the same building.</blockquote>
+  <cite><b>Gordon E.</b> · Skin cancer patient</cite>
+</div></section>
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p>
+  <h2>Booking the right visit</h2>
+  <p class="lede">Medical and cosmetic run on different calendars and different money. Getting this right saves you weeks.</p>
+  <ol class="steps">
+    <li><div><h3>Pick your clinic</h3><p>Worried about a spot, a rash or a mole? Medical. Wanting to change how your skin looks? Cosmetic. If unsure, book medical.</p></div></li>
+    <li><div><h3>Book &amp; pre-register</h3><p>Online, with insurance details taken up front, so the first visit isn't twenty minutes of paperwork.</p></div></li>
+    <li><div><h3>Be seen</h3><p>Full-body skin checks run about thirty minutes. Anything suspicious is biopsied the same visit wherever possible.</p></div></li>
+    <li><div><h3>Results &amp; plan</h3><p>Pathology back within a week, delivered by a person on the phone, with the next step already scheduled.</p></div></li>
+  </ol>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>Noticed something that's changed?</h2>
+  <p>Don't sit on it. Skin checks are booking about two weeks out and we hold urgent slots every week for exactly this reason.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="#contact">Book a skin check</a>
+    <a class="btn btn-ghost" href="tel:+15551342210">(555) 134-2210</a>
+  </div>
+  <p class="note">Most major insurance accepted. Cosmetic clinic pricing published and booked separately.</p>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Bellweather Dermatology</a>
+  <p><a href="tel:+15551342210">(555) 134-2210</a> · Board-certified dermatology · Mohs surgery on site · Accepting new patients</p>
+  <p>American Board of Dermatology · American College of Mohs Surgery · AAD Fellows · Most major insurers</p>
+  <p>Bellweather Dermatology is a fictional practice. This page is a design demonstration only.</p>
+</div></footer>
+<div class="callbar"><a class="book" href="#contact">Book a skin check</a><a class="tel" href="tel:+15551342210">(555) 134-2210</a></div>
+</body>
+</html>

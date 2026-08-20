@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kestrel Property Group — The nine o'clock Sunday call, handled</title>
+<meta name="description" content="Owners of one to two hundred doors: eight percent, no maintenance mark-up, 24/7 maintenance line and a live owner portal.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* D3 — THE SUNDAY NIGHT ONE. hero:fullbleed nav:minimal services:cards proof:review-wall
+   ink #F0F2F3 · surface #15191D · accent #D3A03A · muted #A8B0B6 · on-accent #15191D
+   H1 ramp: 28/32/42/52px · Readex Pro throughout, tabular numerals
+   Fixes "maintenance workflow is a phone tree that should be software": the dark field is
+   the nine o'clock call, and the lit strip across it is the owner statement — fee,
+   mark-up, doors, days vacant — the numbers a landlord would otherwise have to ring for. */
+:root{--ink:#F0F2F3;--surface:#15191D;--paper:#1E2429;--accent:#D3A03A;--muted:#A8B0B6;
+--rule:rgba(240,242,243,.2);--hair:rgba(240,242,243,.11);--wrap:1120px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:300 17px/1.62 "Readex Pro",system-ui,-apple-system,sans-serif;padding-bottom:82px;
+overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Readex Pro",system-ui,sans-serif;font-weight:600;margin:0;line-height:1.14;
+letter-spacing:-.022em}
+a{color:inherit}
+.num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 20px;
+text-decoration:none;font-weight:500;font-size:16px;border:1px solid transparent;text-align:center;
+line-height:1.2;border-radius:2px}
+.btn-primary{background:var(--accent);color:#15191D;border-color:var(--accent)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--rule)}
+.topbar{background:#0E1114;color:var(--muted);font-size:15px;line-height:1.4}
+.topbar .wrap{padding:8px 20px}
+.topbar b{color:var(--accent);font-weight:500}
+.nav{position:sticky;top:0;z-index:30;background:rgba(21,25,29,.96);
+border-bottom:1px solid var(--hair)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:10px;height:56px}
+.brand{font-weight:600;font-size:20px;text-decoration:none;line-height:1;letter-spacing:.02em}
+.navact{min-height:38px;font-size:14px;padding:0 12px;white-space:nowrap}
+.bleed{position:relative;background:
+radial-gradient(120% 80% at 78% 4%,rgba(211,160,58,.15),transparent 62%),
+linear-gradient(178deg,#1B2126 0%,#15191D 58%,#101418 100%);
+border-bottom:1px solid var(--hair);padding:26px 0 0;overflow:hidden}
+.bleed::before{content:"";position:absolute;right:-70px;top:-40px;width:230px;height:230px;
+border:1px solid rgba(211,160,58,.28);transform:rotate(24deg)}
+.bleed .wrap{position:relative}
+.eyebrow{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);
+font-weight:500;margin:0 0 12px}
+.bleed h1{font-size:clamp(28px,7.1vw,52px);max-width:15ch;font-weight:500}
+.sub{font-size:16px;color:var(--muted);max-width:50ch;margin:13px 0 20px;line-height:1.6;
+font-weight:300}
+.ctas{display:flex;flex-direction:column;gap:10px}
+.lit{margin:26px -20px 0;background:#0E1114;border-top:1px solid rgba(211,160,58,.45);
+display:grid;grid-template-columns:1fr 1fr}
+.lit div{padding:15px 20px;border-bottom:1px solid var(--hair)}
+.lit div:nth-child(odd){border-right:1px solid var(--hair)}
+.lit b{display:block;font-size:31px;font-weight:600;color:var(--accent);line-height:1;
+letter-spacing:-.02em}
+.lit span{display:block;font-size:14px;color:var(--muted);margin-top:6px}
+.badges{list-style:none;margin:0;padding:14px 20px 16px;display:flex;flex-wrap:wrap;gap:6px 14px;
+background:#0E1114;font-size:14px;color:var(--muted)}
+.badges li{position:relative;padding-left:14px}
+.badges li::before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;
+border-radius:50%;background:var(--accent)}
+.bleedfoot{display:flex;gap:11px;padding:12px 16px;background:#0E1114;
+border-top:1px solid var(--hair);font-size:13px;letter-spacing:.05em;text-transform:uppercase;
+color:var(--muted);overflow-x:auto;scrollbar-width:none}
+.bleedfoot::-webkit-scrollbar{display:none}
+.bleedfoot a{text-decoration:none;white-space:nowrap}
+.bleedfoot a:hover{color:var(--accent)}
+.sec{padding:48px 0}
+.kicker{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);
+font-weight:500;margin:0 0 10px}
+.sec h2{font-size:clamp(26px,6.2vw,42px);font-weight:500}
+.lede{color:var(--muted);max-width:56ch;margin:12px 0 24px;font-size:17px}
+.cards{display:grid;gap:12px}
+.card{background:var(--paper);border:1px solid var(--hair);border-radius:3px;padding:20px 18px;
+border-top:2px solid var(--accent)}
+.card h3{font-size:20px;margin-bottom:8px;font-weight:500}
+.card p{margin:0;color:var(--muted);font-size:16px}
+.wallsec{background:var(--paper);border-top:1px solid var(--hair);
+border-bottom:1px solid var(--hair)}
+.wall{display:grid;gap:12px;margin-top:22px}
+.w{border-left:2px solid var(--accent);padding:2px 0 2px 16px}
+.w p{margin:0 0 8px;font-size:17px;line-height:1.55}
+.w cite{font-style:normal;font-size:14px;color:var(--muted);letter-spacing:.03em}
+.steps{list-style:none;margin:24px 0 0;padding:0;counter-reset:s;display:grid;gap:0}
+.steps li{counter-increment:s;padding:20px 0 20px 46px;position:relative;
+border-bottom:1px solid var(--hair)}
+.steps li:first-child{border-top:1px solid var(--hair)}
+.steps li::before{content:counter(s);position:absolute;left:0;top:20px;font-size:15px;
+color:var(--accent);font-weight:600;font-variant-numeric:tabular-nums;
+border:1px solid rgba(211,160,58,.5);width:29px;height:29px;display:flex;align-items:center;
+justify-content:center;border-radius:50%}
+.steps h3{font-size:20px;margin-bottom:6px;font-weight:500}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+.close{background:var(--accent);color:#15191D;padding:46px 0 50px}
+.close h2{font-size:clamp(27px,6.6vw,46px);max-width:15ch;font-weight:600}
+.close p{max-width:52ch;font-size:17px;color:#2C2412;margin:13px 0 20px}
+.close .btn-primary{background:#15191D;color:var(--accent);border-color:#15191D}
+.close .btn-ghost{color:#15191D;border-color:rgba(21,25,29,.45)}
+.note{font-size:15px;color:#2C2412;margin-top:20px;max-width:52ch;font-weight:400}
+.foot{padding:34px 0;font-size:15px;color:var(--muted)}
+.foot .brand{color:var(--ink);display:inline-block;margin-bottom:12px;font-size:18px}
+.foot p{margin:0 0 9px;max-width:62ch}
+.foot a{color:var(--accent);font-weight:400}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:#0E1114;
+border-top:1px solid rgba(211,160,58,.45);display:grid;grid-template-columns:1fr auto;gap:8px;
+padding:8px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:58px;
+text-decoration:none;font-weight:500;font-size:15px;text-align:center;line-height:1.2;padding:0 12px;
+border-radius:2px}
+.callbar .go{background:var(--accent);color:#15191D}
+.callbar .tel{border:1px solid var(--rule);color:var(--ink);font-variant-numeric:tabular-nums}
+@media(min-width:760px){
+.ctas{flex-direction:row;gap:12px}.sub{font-size:19px}.sec{padding:76px 0}.bleed{padding-top:44px}
+.lit{margin:36px 0 0;grid-template-columns:repeat(4,1fr);border-left:1px solid var(--hair)}
+.lit div{border-right:1px solid var(--hair)}
+.badges{padding:16px 0;background:transparent;gap:8px 26px}
+.bleedfoot{background:transparent;padding:12px 0}
+.cards{grid-template-columns:repeat(2,1fr);gap:16px}
+.wall{grid-template-columns:1fr 1fr;gap:26px 40px}
+.steps{grid-template-columns:1fr 1fr;column-gap:44px}
+.brand{font-size:22px}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap"><b>For owners:</b> 8% management, no hidden fees · Tenant portal →</div></div>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="#">Kestrel</a>
+  <a class="btn btn-primary navact" href="#contact">Get an owner proposal</a>
+</div></header>
+<section class="bleed">
+  <div class="wrap">
+    <p class="eyebrow">For rental property owners</p>
+    <h1>Eight rentals and tired of being the plumber's first call?</h1>
+    <p class="sub">Full-service management for owners of one to two hundred doors. Eight percent, no leasing markup, no maintenance mark-up, and an owner portal where you can see everything without asking anyone.</p>
+    <div class="ctas">
+      <a class="btn btn-primary" data-cta="primary" href="#contact">Get an owner proposal</a>
+      <a class="btn btn-ghost" href="#results">See our fees</a>
+    </div>
+    <div class="lit">
+      <div><b class="num">8%</b><span>Flat management fee</span></div>
+      <div><b class="num">0%</b><span>Maintenance mark-up</span></div>
+      <div><b class="num">1,900</b><span>Doors managed</span></div>
+      <div><b class="num">21d</b><span>Average days vacant</span></div>
+    </div>
+    <ul class="badges"><li>8% management fee</li><li>No maintenance mark-up</li><li>Owner portal, live</li><li>24/7 maintenance line</li></ul>
+    <nav class="bleedfoot"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+  </div>
+</section>
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p>
+  <h2>What we take off you</h2>
+  <p class="lede">Everything you currently do at nine o'clock on a Sunday night.</p>
+  <div class="cards">
+    <article class="card"><h3>Leasing &amp; screening</h3><p>Marketing, showings, credit, criminal and income screening, and lease execution. No separate leasing fee — it's in the eight percent.</p></article>
+    <article class="card"><h3>Maintenance coordination</h3><p>24/7 line, vetted trades and our actual cost passed through with no mark-up. You approve anything over your threshold.</p></article>
+    <article class="card"><h3>Rent &amp; delinquency</h3><p>Collection, late notices and the eviction process where it comes to that. You get paid on the same day each month regardless.</p></article>
+    <article class="card"><h3>Owner reporting</h3><p>Live portal with statements, invoices, inspection photographs and year-end tax documents. Not a monthly PDF emailed to you.</p></article>
+  </div>
+</div></section>
+<section class="sec wallsec" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <h2>From property owners</h2>
+  <div class="wall">
+    <div class="w"><p>“Fees published up front. Nobody else does that.”</p><cite>Renu K. — Owner, 6 doors</cite></div>
+    <div class="w"><p>“Portal means I never have to email asking how things are.”</p><cite>Gary L. — Owner, 34 doors</cite></div>
+    <div class="w"><p>“No mark-up on maintenance. I checked the invoices for a year.”</p><cite>Bernice T. — Owner, 3 doors</cite></div>
+    <div class="w"><p>“Filled a unit in nine days that sat empty for two months before.”</p><cite>Callum W. — Owner, 18 doors</cite></div>
+  </div>
+</div></section>
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p>
+  <h2>Handing over a portfolio</h2>
+  <p class="lede">Usually about three weeks from first conversation to us taking the calls.</p>
+  <ol class="steps">
+    <li><h3>Proposal</h3><p>We look at your properties and current rents and send a written proposal with real numbers. Free, no meeting required first.</p></li>
+    <li><h3>Onboarding</h3><p>We collect leases, deposits and keys, notify tenants, and inspect every unit with photographs so we have a documented baseline.</p></li>
+    <li><h3>Stabilise</h3><p>Rent reviews where they're due, deferred maintenance addressed, and any problem tenancies dealt with properly.</p></li>
+    <li><h3>Run it</h3><p>You look at the portal when you feel like it. We only contact you for approvals above your threshold and for anything genuinely serious.</p></li>
+  </ol>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>Own rentals and manage them yourself?</h2>
+  <p>Send us the addresses and we'll come back with what we'd charge and what we think the units should be renting for. No meeting required to get the number.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="#contact">Get an owner proposal</a>
+    <a class="btn btn-ghost num" href="tel:+15551583390">(555) 158-3390</a>
+  </div>
+  <p class="note">Tenants: use the tenant portal for maintenance requests and rent payments.</p>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Kestrel Property Group</a>
+  <p><a class="num" href="tel:+15551583390">(555) 158-3390</a> · Licensed brokerage · NARPM member · Equal Housing Opportunity</p>
+  <p>Kestrel Property Group is a fictional company. This page is a design demonstration only.</p>
+</div></footer>
+<div class="callbar"><a class="go" href="#contact">Get an owner proposal</a><a class="tel" href="tel:+15551583390">(555) 158-3390</a></div>
+</body>
+</html>

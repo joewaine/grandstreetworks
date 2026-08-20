@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Meridian Air — 24/7 emergency heating and cooling</title>
+<meta name="description" content="Repair, replacement and maintenance across the metro. Same-day emergency service, financing from $89 a month, and a written price before we start.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* D1 — THE DISPATCH ONE. hero:band nav:bar services:list proof:review-wall
+   ink #14171A · surface #F6F7F8 · accent #B3231C · muted #565E66 · on-accent #FFFFFF
+   thermal pair: hot #C0311B / cold #116D86 · H1 ramp 31/38/48/56px
+   Titillium Web display / Inter body
+   Emergency capture was buried, so the dispatch strip — eyebrow, live phone, call
+   button — sits immediately under the hero band and repeats before the footer. The
+   thermal bar runs the full width above the band and reappears as a per-service
+   gauge: emergency sits at the hot end, the maintenance plan at the cold end. */
+:root{--ink:#14171A;--surface:#F6F7F8;--accent:#B3231C;--muted:#565E66;--on-accent:#FFFFFF;
+--hot:#C0311B;--cold:#116D86;--paper:#FFFFFF;--rule:rgba(20,23,26,.16);--wrap:1120px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.6 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;padding-bottom:78px;
+overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Titillium Web",system-ui,sans-serif;font-weight:700;margin:0;
+line-height:1.1;letter-spacing:-.01em}
+a{color:inherit}
+.thermal{height:7px;background:linear-gradient(90deg,var(--hot) 0%,#D8663A 32%,#8FA3A8 52%,
+#2E93AE 74%,var(--cold) 100%)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 22px;
+text-decoration:none;font-weight:600;font-size:17px;border:2px solid transparent;text-align:center;
+line-height:1.15;font-family:"Titillium Web",system-ui,sans-serif;letter-spacing:.01em}
+.btn-primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.btn-ghost{background:var(--paper);color:var(--ink);border-color:var(--ink)}
+.topbar{background:var(--ink);color:#CBD3D9;font-size:14px;letter-spacing:.03em}
+.topbar .wrap{padding:9px 20px}
+.nav{position:sticky;top:0;z-index:30;background:var(--paper);border-bottom:1px solid var(--rule)}
+.nav .wrap{display:flex;align-items:center;gap:14px;height:60px}
+.brand{font-family:"Titillium Web",system-ui,sans-serif;font-weight:700;font-size:21px;
+text-decoration:none;letter-spacing:-.01em;flex:none;line-height:1}
+.brand em{font-style:normal;color:var(--accent)}
+.brand{white-space:nowrap}
+.navlinks{display:none}
+.navact{margin-left:auto;flex:none;min-height:42px;padding:0 16px;font-size:15px;white-space:nowrap}
+.band{background:var(--paper);border-bottom:1px solid var(--rule);padding:24px 0 28px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:"Titillium Web",system-ui,sans-serif;
+font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);
+margin:0 0 12px}
+.eyebrow::before{content:"";width:11px;height:11px;background:var(--hot);border-radius:50%;flex:none}
+.band h1{font-size:clamp(31px,8.2vw,56px);max-width:16ch}
+.band .sub{font-size:17px;color:var(--muted);max-width:54ch;margin:14px 0 20px;line-height:1.5}
+.ctas{display:flex;flex-direction:column;gap:10px}
+.badges{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 0;padding:0;font-size:15px}
+.badges li{border:1px solid var(--rule);background:var(--surface);padding:7px 12px;
+display:flex;align-items:center;gap:8px}
+.badges li::before{content:"";width:8px;height:8px;flex:none;border-radius:50%}
+.badges li:nth-child(1)::before{background:var(--hot)}
+.badges li:nth-child(2)::before{background:#B26A45}
+.badges li:nth-child(3)::before{background:#3C8FA4}
+.badges li:nth-child(4)::before{background:var(--cold)}
+.dispatch{background:var(--accent);color:var(--on-accent)}
+.dispatch .wrap{padding:18px 20px 20px}
+.dispatch .lbl{font-family:"Titillium Web",system-ui,sans-serif;font-size:13px;font-weight:600;
+letter-spacing:.16em;text-transform:uppercase;color:#FFD9D4;margin:0 0 6px}
+.dispatch .tel{font-family:"Titillium Web",system-ui,sans-serif;font-size:clamp(30px,8vw,46px);
+font-weight:700;color:#fff;text-decoration:none;display:block;line-height:1.05;letter-spacing:-.01em}
+.dispatch .btn{background:#fff;color:var(--accent);border-color:#fff;margin-top:14px;width:100%}
+.sec{padding:52px 0}
+.sec--tint{background:var(--paper);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.kicker{font-family:"Titillium Web",system-ui,sans-serif;font-size:13px;font-weight:600;
+letter-spacing:.16em;text-transform:uppercase;color:var(--cold);margin:0 0 10px}
+.sec h2{font-size:clamp(27px,6.4vw,42px)}
+.lede{color:var(--muted);max-width:58ch;margin:12px 0 0;font-size:17px}
+.slist{list-style:none;margin:30px 0 0;padding:0;border-top:2px solid var(--ink)}
+.slist li{padding:22px 0 24px;border-bottom:1px solid var(--rule)}
+.slist h3{font-size:22px;margin-bottom:8px}
+.slist p{margin:0;color:var(--muted);font-size:16px;max-width:62ch}
+.gauge{height:5px;background:rgba(20,23,26,.1);margin-bottom:16px;position:relative}
+.gauge span{position:absolute;top:0;bottom:0;width:34%;background:linear-gradient(90deg,var(--hot),#D9713F)}
+.slist li:nth-child(2) .gauge span{left:22%;background:linear-gradient(90deg,#C4623C,#8C97A0)}
+.slist li:nth-child(3) .gauge span{left:44%;background:linear-gradient(90deg,#7E9AA6,#2E93AE)}
+.slist li:nth-child(4) .gauge span{left:66%;background:linear-gradient(90deg,#2E93AE,var(--cold))}
+.wall{display:grid;gap:12px;margin-top:28px}
+.rev{background:var(--paper);border:1px solid var(--rule);border-left:4px solid var(--cold);
+padding:20px 18px}
+.rev:nth-child(odd){border-left-color:var(--hot)}
+.rev p{margin:0 0 12px;font-size:18px;line-height:1.4}
+.rev cite{font-style:normal;font-size:15px;color:var(--muted)}
+.rev cite b{color:var(--ink);font-weight:600;font-family:"Titillium Web",system-ui,sans-serif}
+.steps{list-style:none;counter-reset:s;margin:30px 0 0;padding:0}
+.steps li{counter-increment:s;display:grid;grid-template-columns:46px 1fr;gap:16px;
+padding:20px 0;border-top:1px solid var(--rule)}
+.steps li::before{content:"0" counter(s);font-family:"Titillium Web",system-ui,sans-serif;
+font-weight:700;font-size:19px;color:var(--accent);line-height:1.4}
+.steps h3{font-size:20px;margin-bottom:6px}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+.plan{margin-top:34px;background:var(--paper);border:2px solid var(--cold);padding:22px 20px}
+.plan .tag{font-family:"Titillium Web",system-ui,sans-serif;font-size:13px;font-weight:600;
+letter-spacing:.16em;text-transform:uppercase;color:var(--cold);margin:0 0 8px}
+.plan h3{font-size:23px;margin-bottom:9px}
+.plan p{margin:0 0 18px;color:var(--muted);font-size:16px;max-width:56ch}
+.plan .btn{width:100%;background:var(--cold);color:#fff;border-color:var(--cold)}
+.close{background:var(--ink);color:#EDF1F4;padding:52px 0 56px}
+.close h2{font-size:clamp(28px,6.8vw,46px);max-width:16ch;color:#fff}
+.close p{max-width:52ch;font-size:17px;color:#BDC6CD;margin:14px 0 20px}
+.close .btn-primary{background:var(--hot);border-color:var(--hot)}
+.close .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
+.close .note{font-size:15px;color:#9FAAB3;margin-top:18px;max-width:52ch}
+.foot{padding:38px 0 34px;font-size:15px;color:var(--muted)}
+.foot .brand{color:var(--ink);display:inline-block;margin-bottom:12px}
+.foot p{margin:0 0 9px;max-width:66ch}
+.foot a{color:var(--accent);font-weight:500}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--paper);
+border-top:2px solid var(--ink);display:grid;grid-template-columns:1.4fr 1fr;gap:8px;padding:8px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:58px;
+text-decoration:none;font-weight:600;font-size:16px;font-family:"Titillium Web",system-ui,sans-serif;
+text-align:center;line-height:1.15;padding:0 8px}
+.callbar .call{background:var(--accent);color:#fff}
+.callbar .tune{border:2px solid var(--cold);color:var(--cold)}
+@media(min-width:760px){
+ .ctas{flex-direction:row}
+ .band{padding:44px 0 46px}
+ .band .sub{font-size:19px}
+ .dispatch .wrap{display:flex;align-items:center;gap:26px;padding:22px 20px}
+ .dispatch .btn{margin-top:0;width:auto;margin-left:auto;flex:none}
+ .sec{padding:78px 0}
+ .slist li{display:grid;grid-template-columns:minmax(210px,1fr) 2fr;gap:30px;align-items:start}
+ .gauge{grid-column:1/-1;margin-bottom:6px}
+ .wall{grid-template-columns:1fr 1fr;gap:16px}
+ .steps{display:grid;grid-template-columns:1fr 1fr;column-gap:40px}
+ .plan{display:grid;grid-template-columns:1.6fr auto;gap:28px;align-items:center;padding:28px}
+ .plan .btn{width:auto;padding:0 28px}
+ .navlinks{display:flex;gap:22px;margin-left:26px;font-size:15px;color:var(--muted)}
+ .navlinks a{text-decoration:none}
+ .navlinks a:hover{color:var(--accent)}
+}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">24/7 emergency service · Financing available · Licensed &amp; insured</div></div>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="#">Meridian <em>Air</em></a>
+  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+  <a class="btn btn-primary navact" href="tel:+15550267310">Call now</a>
+</div></header>
+<div class="thermal"></div>
+<section class="band"><div class="wrap">
+  <p class="eyebrow">Emergency service · 24 hours</p>
+  <h1>No cool air at 9pm? We answer.</h1>
+  <p class="sub">Repair, replacement and maintenance across the metro. Same-day emergency service, financing from $89 a month, and a written price before we start.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" data-cta="primary" href="tel:+15550267310">Call now</a>
+    <a class="btn btn-ghost" href="#contact">Book a tune-up</a>
+  </div>
+  <ul class="badges"><li>24/7 emergency</li><li>Financing from $89/mo</li><li>Heat pump rebates handled</li><li>Upfront flat pricing</li></ul>
+</div></section>
+<section class="dispatch"><div class="wrap">
+  <div><p class="lbl">Emergency service · 24 hours</p><a class="tel" href="tel:+15550267310">(555) 026-7310</a></div>
+  <a class="btn" href="tel:+15550267310">Call now</a>
+</div></section>
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p>
+  <h2>What we handle</h2>
+  <p class="lede">Repairs today, replacements planned properly, and a maintenance plan so you stop having emergencies.</p>
+  <ul class="slist">
+    <li><div class="gauge"><span></span></div><h3>Emergency repair</h3><p>Same-day, seven days. Diagnostic fee waived if you go ahead with the repair, and you approve the price before we touch anything.</p></li>
+    <li><div class="gauge"><span></span></div><h3>System replacement</h3><p>Right-sized with a proper load calculation — not a guess off the old unit's badge. Financing arranged before install day.</p></li>
+    <li><div class="gauge"><span></span></div><h3>Heat pumps &amp; rebates</h3><p>There is serious money in federal credits and utility rebates right now. We handle the paperwork and it comes off your price.</p></li>
+    <li><div class="gauge"><span></span></div><h3>Maintenance plans</h3><p>Two visits a year, priority scheduling, no overtime rates. Most breakdowns we attend were preventable at a tenth the cost.</p></li>
+  </ul>
+</div></section>
+<section class="sec sec--tint" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <h2>What the neighbourhood says</h2>
+  <div class="wall">
+    <figure class="rev"><p>&ldquo;Out on a Sunday in August. Nobody else even picked up.&rdquo;</p><cite><b>Dev A.</b> &middot; Oakridge</cite></figure>
+    <figure class="rev"><p>&ldquo;Found the rebate that took $2,300 off the heat pump.&rdquo;</p><cite><b>Marta C.</b> &middot; Fairview</cite></figure>
+    <figure class="rev"><p>&ldquo;Flat price up front. No 'while we're in here' surprises.&rdquo;</p><cite><b>Tom B.</b> &middot; Riverbend</cite></figure>
+    <figure class="rev"><p>&ldquo;Maintenance plan has paid for itself twice over.&rdquo;</p><cite><b>Lena K.</b> &middot; Cedar Park</cite></figure>
+  </div>
+</div></section>
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p>
+  <h2>How a call runs</h2>
+  <p class="lede">Flat pricing, approved before work starts. No hourly meter running while you watch.</p>
+  <ol class="steps">
+    <li><div><h3>You call</h3><p>A human answers, day or night. We give you a window and we hit it or we tell you early.</p></div></li>
+    <li><div><h3>Diagnose</h3><p>We find the actual fault and show you. Photographs of what's wrong, not a verdict from behind the unit.</p></div></li>
+    <li><div><h3>Flat price, your call</h3><p>A written price for repair and, where it's close, for replacement. You choose with both numbers in front of you.</p></div></li>
+    <li><div><h3>Fix &amp; follow up</h3><p>Work warranted parts and labour. We check in after the first hot or cold snap to make sure it held.</p></div></li>
+  </ol>
+  <div class="plan">
+    <div><p class="tag">Upfront flat pricing</p><h3>Maintenance plans</h3><p>Two visits a year, priority scheduling, no overtime rates. Most breakdowns we attend were preventable at a tenth the cost.</p></div>
+    <a class="btn" href="#contact">Book a tune-up</a>
+  </div>
+</div></section>
+<div class="thermal"></div>
+<section class="close" id="contact"><div class="wrap">
+  <h2>System down right now?</h2>
+  <p>Call and someone picks up — nights, weekends, holidays. Same-day emergency slots held back every day for exactly this.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="tel:+15550267310">Call now</a>
+    <a class="btn btn-ghost" href="tel:+15550267310">(555) 026-7310</a>
+  </div>
+  <p class="note">Free second opinions on replacement quotes. Financing subject to approval.</p>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Meridian <em>Air</em></a>
+  <p><a href="tel:+15550267310">(555) 026-7310</a> &middot; Licensed, bonded and insured · Serving the metro since 1998</p>
+  <p>24/7 emergency service · Financing available · Licensed &amp; insured</p>
+  <p>Meridian Air is a fictional company. This page is a design demonstration only.</p>
+</div></footer>
+<div class="callbar"><a class="call" href="tel:+15550267310">Call now</a><a class="tune" href="#contact">Book a tune-up</a></div>
+</body>
+</html>

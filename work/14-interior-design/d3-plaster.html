@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Marrow &amp; Vine — Projects from $60,000</title>
+<meta name="description" content="Whole homes and substantial renovations. Scope and budget stated before you enquire: projects generally from $60,000 including furnishings.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600&family=Mulish:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* D3 — THE PLASTER ONE. hero:panel nav:centered services:grid-numbered proof:logos
+   ink #1B1D17 · surface #EFE9DD · paper #FCFAF5 · accent #4A5D22 moss · muted #55584A
+   H1 ramp: 40/48/68/86px · Cormorant display / Mulish body
+   Fixes "project scope and budget never framed, so enquiries are unqualified": the
+   hero is a mounted sample card and the number sits on it like a price tag — $60,000
+   stated above the fold, again as a tab, again in the close — so an under-budget
+   enquiry filters itself out before it is ever written. */
+:root{--ink:#1B1D17;--surface:#EFE9DD;--paper:#FCFAF5;--accent:#4A5D22;--muted:#55584A;
+--rule:rgba(27,29,23,.16);--wrap:1100px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);overflow-x:hidden;
+font:400 17px/1.62 "Mulish",system-ui,-apple-system,sans-serif;padding-bottom:80px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Cormorant",Georgia,serif;font-weight:500;margin:0;line-height:1.06;
+letter-spacing:-.005em}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 24px;
+text-decoration:none;font-weight:700;font-size:16px;line-height:1.2;border:1px solid transparent;
+text-align:center;letter-spacing:.02em}
+.btn-fill{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn-line{background:var(--paper);color:var(--ink);border-color:var(--ink)}
+.topbar{background:var(--accent);color:#EAF0DA;font-size:15px}
+.topbar .wrap{padding:9px 20px;text-align:center}
+/* nav: centered */
+.nav{background:var(--paper);border-bottom:1px solid var(--rule);position:sticky;top:0;z-index:30}
+.navrow{display:grid;grid-template-columns:1fr;justify-items:center;gap:8px;padding:12px 0 10px}
+.brand{font-family:"Cormorant",Georgia,serif;font-weight:600;font-size:27px;text-decoration:none;
+line-height:1;letter-spacing:.01em;grid-row:1;grid-column:1}
+.navlinks{display:flex;gap:12px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;
+color:var(--muted);font-weight:700;max-width:100%}
+.navlinks a{text-decoration:none;white-space:nowrap;padding:5px 0}
+.navact{min-height:36px;padding:0 14px;font-size:14px;white-space:nowrap;justify-self:end;
+grid-row:1;grid-column:1}
+/* hero: panel — a mounted sample card */
+.hero{padding:14px 0 12px}
+.panel{background:var(--paper);border:1px solid var(--rule);
+box-shadow:0 1px 0 rgba(27,29,23,.06),0 18px 40px -34px rgba(27,29,23,.6);
+padding:22px 18px 0;position:relative}
+.panel::before{content:"";position:absolute;inset:6px;border:1px solid rgba(27,29,23,.09);
+pointer-events:none}
+.tag{display:inline-block;font-size:13px;letter-spacing:.18em;text-transform:uppercase;
+font-weight:700;color:var(--accent);border:1px solid var(--accent);padding:7px 12px;margin:0 0 12px}
+.eyebrow{font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);
+font-weight:700;margin:0 0 12px}
+.panel h1{font-size:clamp(40px,10.6vw,86px);max-width:14ch;font-weight:400}
+.sub{font-size:16px;color:var(--muted);max-width:54ch;margin:12px 0 0;line-height:1.55}
+.ctas{display:flex;flex-direction:column;gap:10px;margin-top:18px}
+.tabs{display:flex;flex-wrap:wrap;gap:0;list-style:none;margin:24px 0 0;padding:0;
+border-top:1px solid var(--rule)}
+.tabs li{font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;
+color:var(--muted);padding:12px 14px 11px;border-bottom:2px solid transparent;
+border-right:1px solid var(--rule)}
+.tabs li.on{color:var(--accent);border-bottom-color:var(--accent)}
+.tabs li:last-child{border-right:0}
+/* plaster tone strip at the foot of the card */
+.tones{display:grid;grid-template-columns:repeat(5,1fr);height:54px;margin:0 -18px}
+.tones i{display:block}
+.t1{background:radial-gradient(120% 100% at 30% 20%,#FDFAF3,transparent 62%),#F1EADC}
+.t2{background:radial-gradient(120% 100% at 30% 20%,#F6EFE1,transparent 62%),#E2D8C4}
+.t3{background:radial-gradient(120% 100% at 30% 20%,#E8DFCB,transparent 62%),#CFC3AA}
+.t4{background:repeating-linear-gradient(0deg,rgba(0,0,0,.06) 0 1px,transparent 1px 3px),#6E7A4F}
+.t5{background:linear-gradient(160deg,#3B4430,#252A1D)}
+/* sections */
+.sec{padding:56px 0;border-top:1px solid var(--rule)}
+.kicker{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);
+margin:0 0 10px;font-weight:700}
+.sec h2{font-size:clamp(34px,8vw,58px);max-width:18ch;font-weight:400}
+.lede{color:var(--muted);max-width:58ch;margin:14px 0 30px;font-size:17px}
+/* services: grid-numbered with a ruled gutter */
+.gnum{display:grid;gap:0;counter-reset:g;border-top:2px solid var(--ink)}
+.gitem{counter-increment:g;display:grid;grid-template-columns:46px 1fr;gap:14px;padding:24px 0;
+border-bottom:1px solid var(--rule)}
+.gitem::before{content:counter(g,decimal-leading-zero);font-family:"Cormorant",Georgia,serif;
+font-size:26px;font-weight:600;color:var(--accent);line-height:1}
+.gitem h3{font-size:27px;margin-bottom:8px;font-weight:500}
+.gitem p{margin:0;color:var(--muted);font-size:16px;max-width:48ch}
+/* proof: logos */
+.logolabel{font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);
+font-weight:700;margin:0 0 20px}
+.logos{display:grid;grid-template-columns:1fr 1fr;gap:0;list-style:none;margin:0;padding:0;
+border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+.logos li{font-family:"Cormorant",Georgia,serif;font-size:22px;font-weight:600;padding:26px 16px;
+border-bottom:1px solid var(--rule);border-right:1px solid var(--rule);text-align:center;
+line-height:1.25;display:flex;align-items:center;justify-content:center;min-height:104px;
+background:var(--paper)}
+/* process */
+.steps{list-style:none;margin:26px 0 0;padding:0;counter-reset:s;display:grid;gap:14px}
+.steps li{counter-increment:s;background:var(--paper);border:1px solid var(--rule);
+border-top:3px solid var(--accent);padding:20px 18px}
+.steps li::before{content:"Step " counter(s);font-size:13px;letter-spacing:.16em;
+text-transform:uppercase;font-weight:700;color:var(--accent);display:block;margin-bottom:10px}
+.steps h3{font-size:25px;margin-bottom:7px}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+/* close — quiet, no band */
+.close{padding:60px 0;border-top:1px solid var(--rule);background:var(--paper)}
+.close h2{font-size:clamp(34px,8.2vw,60px);max-width:17ch;font-weight:400}
+.close p{max-width:56ch;font-size:17px;color:var(--muted);margin:18px 0 24px}
+.note{font-size:15px;color:var(--ink);margin-top:22px;max-width:56ch;border-left:3px solid var(--accent);
+padding-left:14px}
+.foot{padding:42px 0 36px;font-size:15px;color:var(--muted);border-top:1px solid var(--rule)}
+.foot .brand{color:var(--ink);display:inline-block;margin:0 0 14px}
+.foot p{margin:0 0 10px;max-width:66ch}
+.foot a{color:var(--accent);font-weight:700}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--paper);
+border-top:1px solid var(--rule);padding:8px;display:grid;grid-template-columns:1fr auto;gap:8px;
+box-shadow:0 -2px 12px rgba(27,29,23,.1)}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:56px;
+text-decoration:none;font-size:15px;font-weight:700;line-height:1.2;text-align:center;padding:0 14px}
+.callbar .go{background:var(--accent);color:#fff}
+.callbar .tel{border:1px solid var(--ink);color:var(--ink);font-size:16px}
+@media(max-width:559px){.navact{display:none}}
+@media(min-width:560px){.navlinks{gap:22px;letter-spacing:.2em}}
+@media(min-width:760px){
+.ctas{flex-direction:row}.hero{padding:44px 0 16px}.sec{padding:88px 0}
+.panel{padding:44px 40px 0}.tones{margin:0 -40px;height:74px}
+.sub{font-size:19px}
+.gitem{grid-template-columns:80px 1fr 1fr;column-gap:30px}
+.gitem::before{font-size:34px}
+.gitem p{padding-top:6px}
+.logos{grid-template-columns:repeat(4,1fr)}
+.steps{grid-template-columns:1fr 1fr;gap:16px}
+.close{padding:96px 0}
+}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Full-service interiors · Projects from $60,000 · Now booking</div></div>
+
+<header class="nav"><div class="wrap"><div class="navrow">
+  <a class="brand" href="#">Marrow &amp; Vine</a>
+  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+  <a class="btn btn-fill navact" href="#contact">Start a project</a>
+</div></div></header>
+
+<section class="hero"><div class="wrap"><div class="panel">
+  <span class="tag">Projects from $60,000</span>
+  <p class="eyebrow">Full-service residential interiors</p>
+  <h1>Rooms that look like the people who live in them.</h1>
+  <p class="sub">Full-service interior design for whole homes and substantial renovations. Projects generally start around $60,000 including furnishings, and you can filter our work by the style you actually want.</p>
+  <div class="ctas">
+    <a class="btn btn-fill" data-cta="primary" href="#contact">Start a project</a>
+    <a class="btn btn-line" href="#results">Browse by style</a>
+  </div>
+  <ul class="tabs">
+    <li class="on">Filter work by style</li>
+    <li>Trade pricing passed on</li>
+    <li>Full install &amp; styling</li>
+  </ul>
+  <div class="tones" aria-hidden="true"><i class="t1"></i><i class="t2"></i><i class="t3"></i><i class="t4"></i><i class="t5"></i></div>
+</div></div></section>
+
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p>
+  <h2>How we work</h2>
+  <p class="lede">Full service, meaning we handle procurement, deliveries, trades and installation. Half a service is worse than none in this business.</p>
+  <div class="gnum">
+    <article class="gitem"><div><h3>Whole-home design</h3></div><p>Concept through installation, including everything that gets specified, ordered, chased, received and placed. Usually four to nine months.</p></article>
+    <article class="gitem"><div><h3>Renovation interiors</h3></div><p>Working alongside your architect and builder on finishes, joinery, lighting and the decisions that get made too late otherwise.</p></article>
+    <article class="gitem"><div><h3>Single rooms, done properly</h3></div><p>Kitchens, principal bedrooms and living rooms as standalone projects. From about $25,000 including furnishings.</p></article>
+    <article class="gitem"><div><h3>Trade pricing, passed on</h3></div><p>We buy at trade and pass the discount to you, charging a transparent design fee instead of marking up your sofa.</p></article>
+  </div>
+</div></section>
+
+<section class="sec" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <h2>Where the work is held</h2>
+  <p class="logolabel">Recognised by</p>
+  <ul class="logos">
+    <li>ASID Member</li>
+    <li>Best of Houzz — Design</li>
+    <li>Interior Design Society</li>
+    <li>To The Trade accounts</li>
+  </ul>
+</div></section>
+
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p>
+  <h2>From first visit to install day</h2>
+  <p class="lede">The bit people find hardest is the middle, where nothing seems to be happening and everything is being ordered.</p>
+  <ol class="steps">
+    <li><h3>Consultation</h3><p>We visit, walk the house and talk about how you actually live in it. A fixed fee, credited against the project if you proceed.</p></li>
+    <li><h3>Concept &amp; budget</h3><p>Direction, palette and a realistic furnishing budget room by room. This is where expectations and money get reconciled.</p></li>
+    <li><h3>Specification &amp; procurement</h3><p>Everything specified, ordered and tracked by us. Long lead times are the reality; knowing about them early is the service.</p></li>
+    <li><h3>Install &amp; style</h3><p>Usually a single day. Everything arrives at our warehouse first, gets inspected, and goes in at once rather than in dribs.</p></li>
+  </ol>
+</div></section>
+
+<section class="close" id="contact"><div class="wrap">
+  <h2>Renovating, moving, or finally doing the house properly?</h2>
+  <p>The earliest useful conversation is before the builder starts. Lighting, joinery and layout decisions get very expensive once walls are closed.</p>
+  <div class="ctas">
+    <a class="btn btn-fill" href="#contact">Start a project</a>
+    <a class="btn btn-line" href="tel:+15551947720">(555) 194-7720</a>
+  </div>
+  <p class="note">Projects generally from $60,000 including furnishings. Consultation fee credited against the project.</p>
+</div></section>
+
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Marrow &amp; Vine</a>
+  <p>Full-service residential interiors · Trade pricing passed to clients · Est. 2012</p>
+  <p><a href="tel:+15551947720">(555) 194-7720</a></p>
+  <p>Marrow &amp; Vine is a fictional design studio. This page is a design demonstration only.</p>
+</div></footer>
+
+<div class="callbar"><a class="go" href="#contact">Start a project</a><a class="tel" href="tel:+15551947720">(555) 194-7720</a></div>
+</body>
+</html>
