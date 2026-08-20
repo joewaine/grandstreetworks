@@ -103,6 +103,14 @@ def build_page(deck, filename, spec, trade, check=False):
         s = s.replace(short, repl)
     s = rebrand_split(s, deck.SOURCE_FIRM, spec["firm"])
 
+    # Testimonials tend to drop the suffix and say just "Halcyon" or
+    # "Ridgeline". Sweep the bare head word last, after every deliberate
+    # replacement has had its chance, so a deck can still rewrite the quote
+    # properly when it wants to.
+    head = deck.SOURCE_FIRM.split()[0]
+    if head in s:
+        s = s.replace(head, spec["firm"].split()[0])
+
     if 'name="robots"' not in s and CHARSET in s:
         s = s.replace(CHARSET, CHARSET + NOINDEX, 1)
 
