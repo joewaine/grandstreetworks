@@ -41,6 +41,18 @@ FORBIDDEN = ["Vance", "Cole", "019-2200", "0192200"]
 NOINDEX = '<meta name="robots" content="noindex"/>\n'
 
 
+
+def slugify(name):
+    """A business name as a URL segment: 'Fair Oaks Roofing' -> fair-oaks-roofing."""
+    s = name.lower().replace("&", "and")
+    s = re.sub(r"[^a-z0-9]+", "-", s)
+    return s.strip("-")
+
+
+def trade_dir(source_slug):
+    """Published directory for a trade: '06-roofing' -> 'roofing'."""
+    return re.sub(r"^\d+-", "", source_slug)
+
 def build_page(key, spec, dest_dir, check=False):
     src = SOURCE / f"hero-{key}.html"
     if not src.exists():
@@ -96,7 +108,7 @@ def build_page(key, spec, dest_dir, check=False):
         notes.append(f"SOURCE BRANDING LEFT: {leftovers}")
 
     if not check:
-        out = WORK / dest_dir / f"{spec['slug']}.html"
+        out = WORK / trade_dir(dest_dir) / f"{slugify(spec['firm'])}.html"
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(s)
     return ("; ".join(notes) if notes else "ok"), spec["slug"]

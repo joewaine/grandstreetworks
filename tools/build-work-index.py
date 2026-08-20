@@ -66,7 +66,7 @@ def photo_directions(module):
     out = []
     for i, spec in enumerate(deck.PAGES.values(), 1):
         out.append({
-            "href": spec["slug"] + ".html",
+            "href": slugify(spec["firm"]) + ".html",
             "code": f"D{i}",
             "label": spec["name"],
             "why": spec["why"],
@@ -135,7 +135,7 @@ def parse(src_index: Path):
 
         directions.append(
             {
-                "href": href.group(1),
+                "href": href.group(1),   # rewritten below to the client's own name
                 "code": code.strip() or "D?",
                 "label": label.strip() or plain,
                 "why": " ".join(why.group(1).split()) if why else "",
@@ -154,6 +154,18 @@ HEADER_LABELS = {
     "Accounting &amp; CPAs": "Accounting &amp; CPA",
 }
 
+
+
+def slugify(name):
+    """A business name as a URL segment: 'Fair Oaks Roofing' -> fair-oaks-roofing."""
+    s = name.lower().replace("&", "and")
+    s = re.sub(r"[^a-z0-9]+", "-", s)
+    return s.strip("-")
+
+
+def trade_dir(source_slug):
+    """Published directory for a trade: '06-roofing' -> 'roofing'."""
+    return re.sub(r"^\d+-", "", source_slug)
 
 def titled(industry):
     """Trade name in title case, leaving CPAs and the like as they are."""
@@ -197,7 +209,7 @@ def render(slug, industry, company, sub, disclaimer, directions):
           <span class="bar-head">
             {swatch(d['accent'])}
             <span class="label">C{i + 1}</span>
-            <span class="bar-name">{esc(firm_of(WORK / slug / d['href']) or d['label'])}</span>
+            <span class="bar-name">{esc(firm_of(WORK / trade_dir(slug) / d['href']) or d['label'])}</span>
           </span>
           <div class="bar-actions">
             <div class="widths" role="group" aria-label="Preview width">
@@ -434,7 +446,7 @@ def main():
     sys.path.insert(0, str(Path(__file__).resolve().parent))
     for slug, industry in INDUSTRIES.items():
         src = args.source / slug / "index.html"
-        dest = WORK / slug / "index.html"
+        dest = WORK / trade_dir(slug) / "index.html"
         if not src.exists() and slug not in PHOTO_SETS:
             print(f"skip {slug}: no source at {src}", file=sys.stderr)
             continue
@@ -452,6 +464,15 @@ def main():
         else:
             company, sub, disclaimer = parse(src)[:3]
             directions = parse(src)[3]
+            try:
+                deck = importlib.import_module(f"demo_copy.{slug}")
+            except ModuleNotFoundError:
+                deck = None
+            if deck:
+                for d in directions:
+                    spec = deck.PAGES.get(d["href"])
+                    if spec:
+                        d["href"] = slugify(spec["firm"]) + ".html"
         dest.write_text(render(slug, industry, company, sub, disclaimer, directions))
         written += 1
         print(f"{slug}: {company} — {len(directions)} directions")

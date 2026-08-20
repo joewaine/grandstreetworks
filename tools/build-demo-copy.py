@@ -34,6 +34,18 @@ NOINDEX = '<meta name="robots" content="noindex">\n'
 CHARSET = '<meta charset="utf-8">\n'
 
 
+
+def slugify(name):
+    """A business name as a URL segment: 'Fair Oaks Roofing' -> fair-oaks-roofing."""
+    s = name.lower().replace("&", "and")
+    s = re.sub(r"[^a-z0-9]+", "-", s)
+    return s.strip("-")
+
+
+def trade_dir(source_slug):
+    """Published directory for a trade: '06-roofing' -> 'roofing'."""
+    return re.sub(r"^\d+-", "", source_slug)
+
 BRAND_RE = re.compile(r'(<(?:a|div|span)[^>]*class="[^"]*\bbrand\b[^"]*"[^>]*>)(.*?)(</(?:a|div|span)>)', re.S)
 
 
@@ -121,7 +133,9 @@ def build_page(deck, filename, spec, trade, check=False):
         notes.append(f"{len(missed)} keys n/a: {missed[:2]}")
 
     if not check:
-        (WORK / trade / filename).write_text(s)
+        out = WORK / trade_dir(trade) / f"{slugify(spec['firm'])}.html"
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(s)
     return ("; ".join(notes) if notes else "ok"), len(spec.get("copy", {})) - len(missed)
 
 
