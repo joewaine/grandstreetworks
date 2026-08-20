@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Verdant Pools &amp; Gardens — Your garden, drawn with the pool in it</title>
+<meta name="description" content="A measured plan and a 3D design of your own garden before any contract. Gunite pools, spas, outdoor living and renovation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Lexend:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+/* D5 — THE PLAN ONE. hero:split nav:minimal services:grid-numbered proof:review-wall
+   ink #10222C · surface #F2F5F6 · accent #1E6E90 · muted #4C6470 · on-accent #FFFFFF
+   H1 ramp: 30/34/44/54px · Lexend display / IBM Plex Sans body
+   Device: the water plane seen from above — a measured site plan of the garden with the
+   pool drawn into it, coping, spa and dimension ticks. Fixes "3D design process invisible":
+   the drawing sits beside the headline, so the design step is what the page is about. */
+:root{--ink:#10222C;--surface:#F2F5F6;--paper:#FFFFFF;--accent:#1E6E90;--muted:#4C6470;
+--lawn:#DDE4DA;--rule:rgba(16,34,44,.18);--wrap:1120px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.62 "IBM Plex Sans",system-ui,-apple-system,sans-serif;padding-bottom:80px;
+overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Lexend",system-ui,sans-serif;font-weight:600;margin:0;line-height:1.16;
+letter-spacing:-.02em}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 22px;
+text-decoration:none;font-weight:600;font-size:16px;line-height:1.2;text-align:center;
+border:2px solid transparent;font-family:"Lexend",system-ui,sans-serif}
+.btn-primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.topbar{background:var(--paper);color:var(--muted);font-size:15px;border-bottom:1px solid var(--rule)}
+.topbar .wrap{padding:9px 20px}
+.nav{background:var(--surface);border-bottom:2px solid var(--ink)}
+.navrow{display:flex;align-items:baseline;justify-content:space-between;gap:16px;
+padding-top:16px;padding-bottom:6px}
+.brand{font-family:"Lexend",system-ui,sans-serif;font-weight:700;font-size:19px;
+text-decoration:none;letter-spacing:-.03em;line-height:1}
+.navact{font-size:14px;font-weight:600;text-decoration:none;color:var(--accent);
+border-bottom:2px solid var(--accent);padding-bottom:2px;white-space:nowrap}
+.navlinks{display:flex;gap:16px;padding-bottom:12px;font-size:14px;letter-spacing:.13em;
+text-transform:uppercase;color:var(--muted);overflow-x:auto;scrollbar-width:none}
+.navlinks::-webkit-scrollbar{display:none}
+.navlinks a{text-decoration:none;white-space:nowrap;font-weight:600}
+.hero{padding:26px 0 46px}
+.split{display:grid;gap:26px}
+.eyebrow{font-size:13px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;
+color:var(--accent);margin:0 0 12px}
+.hero h1{font-size:clamp(30px,7.2vw,54px);max-width:15ch}
+.sub{margin:14px 0 0;max-width:52ch;font-size:16px;line-height:1.55;color:var(--muted)}
+.ctas{display:flex;flex-direction:column;gap:10px;margin-top:22px}
+.badges{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:0;border-top:1px dashed var(--rule)}
+.badges li{font-size:15px;padding:10px 0;border-bottom:1px dashed var(--rule);
+display:flex;justify-content:space-between;gap:12px;align-items:baseline;font-weight:500}
+.badges li::after{content:"";width:26px;height:2px;background:var(--accent);flex:0 0 auto;
+align-self:center}
+
+/* ---- the plan: the garden drawn from above, pool in it ---- */
+.plan{background:var(--paper);border:1px solid var(--rule);padding:14px}
+.sheet{position:relative;height:300px;background:var(--lawn);overflow:hidden;
+background-image:
+ repeating-linear-gradient(90deg,rgba(16,34,44,.07) 0 1px,transparent 1px 22px),
+ repeating-linear-gradient(0deg,rgba(16,34,44,.07) 0 1px,transparent 1px 22px);
+outline:2px dashed rgba(16,34,44,.35);outline-offset:-9px}
+.house{position:absolute;left:9px;right:9px;top:9px;height:52px;background:#CFD6D9;
+border-bottom:3px solid var(--ink)}
+.house::after{content:"";position:absolute;left:14px;right:14px;top:14px;height:2px;
+background:rgba(16,34,44,.32)}
+.pool{position:absolute;left:34px;right:58px;top:112px;height:118px;border-radius:14px;
+background:linear-gradient(160deg,#8FE0EA 0%,#3FA9C4 42%,#12668A 100%);
+box-shadow:0 0 0 10px #E9E5DA,0 0 0 11px rgba(16,34,44,.35)}
+.pool::after{content:"";position:absolute;inset:0;border-radius:14px;opacity:.55;
+background:
+ repeating-linear-gradient(106deg,rgba(255,255,255,.35) 0 2px,rgba(255,255,255,0) 2px 14px),
+ repeating-linear-gradient(-92deg,rgba(255,255,255,.22) 0 2px,rgba(255,255,255,0) 2px 19px)}
+.spa{position:absolute;right:30px;top:126px;width:52px;height:52px;border-radius:50%;
+background:linear-gradient(180deg,#A9EDF2,#2E93A8);box-shadow:0 0 0 8px #E9E5DA,0 0 0 9px rgba(16,34,44,.35)}
+.dim{position:absolute;left:9px;right:9px;bottom:20px;height:1px;background:rgba(16,34,44,.55)}
+.dim::before,.dim::after{content:"";position:absolute;top:-5px;width:1px;height:11px;
+background:rgba(16,34,44,.55)}
+.dim::before{left:0}.dim::after{right:0}
+.tag{position:absolute;left:16px;bottom:34px;background:var(--ink);color:#fff;font-size:13px;
+font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:6px 10px}
+.planfoot{display:flex;justify-content:space-between;gap:12px;padding-top:11px;font-size:13px;
+letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+
+.sec{padding:50px 0;border-top:1px solid var(--rule)}
+.sec.paper{background:var(--paper)}
+.kicker{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);
+font-weight:600;margin:0 0 10px}
+.sec h2{font-size:clamp(27px,6vw,42px)}
+.lede{color:var(--muted);max-width:58ch;margin:12px 0 0;font-size:17px}
+.numgrid{display:grid;gap:0;margin-top:26px;counter-reset:n;border-top:1px solid var(--rule)}
+.numgrid article{counter-increment:n;padding:22px 0 24px;border-bottom:1px solid var(--rule)}
+.numgrid article::before{content:counter(n,decimal-leading-zero);display:block;
+font-family:"Lexend",system-ui,sans-serif;font-weight:700;font-size:14px;letter-spacing:.14em;
+color:var(--accent);margin-bottom:9px}
+.numgrid h3{font-size:21px;margin-bottom:7px}
+.numgrid p{margin:0;color:var(--muted);font-size:16px;max-width:52ch}
+.wall{display:grid;gap:12px;margin-top:24px}
+.rev{background:var(--surface);border:1px solid var(--rule);padding:18px 16px;position:relative}
+.sec.paper .rev{background:var(--surface)}
+.rev::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;
+background:linear-gradient(180deg,#8FE0EA,var(--accent))}
+.rev p{margin:0 0 10px;font-family:"Lexend",system-ui,sans-serif;font-size:18px;line-height:1.4;
+font-weight:500;letter-spacing:-.01em}
+.rev cite{font-style:normal;font-size:15px;color:var(--muted)}
+.rev cite b{color:var(--ink);font-weight:600}
+.steps{list-style:none;margin:26px 0 0;padding:0;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:40px 1fr;gap:16px;
+padding:18px 0;border-bottom:1px dashed var(--rule)}
+.steps li:first-child{border-top:1px dashed var(--rule)}
+.steps li::before{content:counter(s,decimal-leading-zero);background:var(--ink);color:#fff;
+font-family:"Lexend",system-ui,sans-serif;font-weight:600;font-size:13px;letter-spacing:.05em;
+height:26px;display:flex;align-items:center;justify-content:center}
+.steps h3{font-size:20px;margin-bottom:5px}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+.close{background:var(--ink);color:#fff;position:relative;overflow:hidden}
+.close::before{content:"";position:absolute;left:0;right:0;top:0;height:8px;
+background:linear-gradient(90deg,#8FE0EA,var(--accent) 60%,#8FE0EA)}
+.close .wrap{position:relative;z-index:2;padding-top:50px;padding-bottom:56px}
+.close h2{font-size:clamp(28px,6.2vw,46px);max-width:16ch}
+.close p{max-width:56ch;font-size:17px;color:#C3D4DB;margin:14px 0 22px}
+.close .btn-primary{background:#8FE0EA;color:var(--ink);border-color:#8FE0EA}
+.close .btn-ghost{color:#fff;border-color:rgba(255,255,255,.6)}
+.note{font-size:15px;color:#C3D4DB;margin-top:18px;max-width:56ch}
+.foot{padding:38px 0 34px;font-size:15px;color:var(--muted);background:var(--paper)}
+.foot .brand{color:var(--ink);display:inline-block;margin-bottom:12px}
+.foot p{margin:0 0 9px;max-width:64ch}
+.foot a{color:var(--accent);font-weight:600}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--paper);
+border-top:2px solid var(--ink);padding:8px;display:grid;grid-template-columns:1fr auto;gap:8px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:56px;
+text-decoration:none;font-weight:600;font-size:15px;text-align:center;line-height:1.2;padding:0 12px;
+font-family:"Lexend",system-ui,sans-serif}
+.callbar .book{background:var(--accent);color:#fff}
+.callbar .tel{border:2px solid var(--ink);color:var(--ink);padding:0 16px;font-size:16px}
+@media(max-width:559px){.navact{display:none}}
+@media(min-width:760px){
+ .ctas{flex-direction:row}
+ .split{grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+ .sheet{height:420px}
+ .pool{top:150px;height:170px;left:44px;right:104px}
+ .spa{top:186px;right:36px;width:64px;height:64px}
+ .numgrid{grid-template-columns:1fr 1fr;column-gap:40px}
+ .wall{grid-template-columns:1fr 1fr;gap:14px}
+ .steps{display:grid;grid-template-columns:1fr 1fr;column-gap:40px}
+ .hero{padding:44px 0 70px}.sec{padding:80px 0}.sub{font-size:19px}.brand{font-size:22px}
+}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Booking spring installs now · 3D design included · Financing available</div></div>
+<header class="nav"><div class="wrap">
+  <div class="navrow">
+    <a class="brand" href="#">Verdant Pools &amp; Gardens</a>
+    <a class="navact" href="#contact">Book a design consult</a>
+  </div>
+  <nav class="navlinks">
+    <a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a>
+  </nav>
+</div></header>
+<section class="hero"><div class="wrap"><div class="split">
+  <div>
+    <p class="eyebrow">Booking next season now</p>
+    <h1>The pool is a quarter of the garden. Design all of it.</h1>
+    <p class="sub">Gunite pools, spas and full outdoor living builds. Hardscape, planting, kitchen, pergola and lighting are designed with the pool rather than bolted on the summer afterwards.</p>
+    <div class="ctas">
+      <a class="btn btn-primary" data-cta="primary" href="#contact">Book a design consult</a>
+      <a class="btn btn-ghost" href="#results">See finished pools</a>
+    </div>
+    <ul class="badges">
+      <li>3D design included</li>
+      <li>Financing from $340/mo</li>
+      <li>Booking spring now</li>
+      <li>25-year structural warranty</li>
+    </ul>
+  </div>
+  <div class="plan">
+    <div class="sheet">
+      <span class="house"></span>
+      <span class="pool"></span>
+      <span class="spa"></span>
+      <span class="tag">3D design included</span>
+      <span class="dim"></span>
+    </div>
+    <div class="planfoot"><span>Design consult</span><span>Verdant Pools &amp; Gardens</span></div>
+  </div>
+</div></div></section>
+<figure class="gsw-plate"><img src="../_assets/hero/pool-builders/e-garden-and-pool.jpg" alt="Garden and pool — pool builders" loading="lazy"></figure>
+
+<section class="sec paper" id="services"><div class="wrap">
+  <p class="kicker">Services</p>
+  <h2>What we build</h2>
+  <p class="lede">A pool is rarely just a pool. Most of our projects are the whole back garden reconsidered.</p>
+  <div class="numgrid">
+    <article><h3>Gunite pools</h3><p>Engineered, steel-reinforced and built to last decades. Any shape, because gunite doesn't come out of a mould.</p></article>
+    <article><h3>Spas &amp; water features</h3><p>Integrated spas, spillovers, and the quiet engineering that keeps them warm without a ruinous bill.</p></article>
+    <article><h3>Outdoor living</h3><p>Hardscape, outdoor kitchens, pergolas and lighting — designed together with the pool rather than bolted on after.</p></article>
+    <article><h3>Renovation &amp; resurfacing</h3><p>Older pools brought back: resurfacing, new tile and coping, and modern equipment that halves the running cost.</p></article>
+  </div>
+</div></section>
+<section class="sec" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <h2>From the garden</h2>
+  <div class="wall">
+    <figure class="rev"><p>"The 3D was accurate to the inch. What we saw is what we got."</p><cite><b>Neil H.</b> · Freeform gunite</cite></figure>
+    <figure class="rev"><p>"Booked in winter, swam in June, exactly as promised."</p><cite><b>Constance A.</b> · Pool &amp; spa</cite></figure>
+    <figure class="rev"><p>"Financing meant we did the outdoor kitchen at the same time instead of never."</p><cite><b>Tobias M.</b> · Full outdoor living</cite></figure>
+    <figure class="rev"><p>"Resurface took our 1990s pool to looking brand new."</p><cite><b>Grace N.</b> · Renovation</cite></figure>
+  </div>
+</div></section>
+<section class="sec paper" id="process"><div class="wrap">
+  <p class="kicker">Process</p>
+  <h2>From first call to first swim</h2>
+  <p class="lede">Roughly nine months if you start in autumn, and considerably longer if you start in May with everyone else.</p>
+  <ol class="steps">
+    <li><div><h3>Design consult</h3><p>We visit, measure and talk about how you'd actually use it. Free, and no obligation to go further.</p></div></li>
+    <li><div><h3>3D design &amp; fixed price</h3><p>Your garden, rendered, with the pool in it. Change it as often as you like before there's a contract.</p></div></li>
+    <li><div><h3>Permits &amp; engineering</h3><p>We handle drawings, engineering and the city. This is the stage that quietly takes months.</p></div></li>
+    <li><div><h3>Build &amp; handover</h3><p>Excavation to first fill, typically eight to twelve weeks. We teach you the equipment and stay on call after.</p></div></li>
+  </ol>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>Want it for next summer?</h2>
+  <p>Now is the conversation, because a garden designed as a whole has to be permitted and sequenced as a whole.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="#contact">Book a design consult</a>
+    <a class="btn btn-ghost" href="tel:+15553507726">(555) 350-7726</a>
+  </div>
+  <p class="note">Free design consultations. 3D rendering included at no cost, no obligation.</p>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Verdant Pools &amp; Gardens</a>
+  <p>Gunite pools &amp; outdoor living · Licensed &amp; insured · Building since 2001</p>
+  <p><a href="tel:+15553507726">(555) 350-7726</a> · Booking spring installs now</p>
+  <p>799 Pardon Road Floor 2, Westmoor, CT 15488</p>
+</div></footer>
+<div class="callbar">
+  <a class="book" href="#contact">Book a design consult</a>
+  <a class="tel" href="tel:+15553507726">Call</a>
+</div>
+</body>
+</html>

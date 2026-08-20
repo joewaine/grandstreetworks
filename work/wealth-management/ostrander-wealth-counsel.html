@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ostrander Wealth Counsel — a fee-only fiduciary firm</title>
+<meta name="description" content="Fee-only fiduciary advice for families and business owners. No commissions, no product sales, no third-party payments.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Faustina:ital,wght@0,400;0,600;0,700;1,400&family=Merriweather+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* D6 — THE LETTERHEAD ONE. hero:fullbleed nav:inline services:grid-numbered proof:testimonial-lead
+   ink #ECEDE8 · surface #101923 · accent #4A5D4E · muted #A9B4BE · on-accent #FFFFFF
+   H1 ramp: 31/36/46/56px · Faustina display / Merriweather Sans body
+   Fixes the broker-network template with the logo swapped: the whole first screen is the
+   firm's own masthead — double rule, name set in the house serif, fee statement centred
+   beneath it like the terms on a letterhead. Dark, quiet, and impossible to hand to a
+   second firm by changing a logo file. */
+:root{--ink:#ECEDE8;--surface:#101923;--accent:#4A5D4E;--muted:#A9B4BE;--on-accent:#FFFFFF;
+--panel:#16212D;--sage:#A8BCA6;--rule:rgba(236,237,232,.34);--hair:rgba(236,237,232,.15);--wrap:1020px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 16.5px/1.72 "Merriweather Sans",system-ui,-apple-system,sans-serif;padding-bottom:82px;
+overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Faustina",Georgia,"Times New Roman",serif;font-weight:600;margin:0;
+line-height:1.16;letter-spacing:-.008em}
+a{color:inherit}
+p{margin:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 24px;
+text-decoration:none;font-weight:700;font-size:16px;border:1px solid transparent;text-align:center;
+line-height:1.25}
+.btn-primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--rule)}
+.micro{font-size:13px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--sage)}
+.topbar{border-bottom:1px solid var(--hair)}
+.topbar .wrap{padding:8px 20px;font-size:15px;color:var(--muted);text-align:center;letter-spacing:.06em}
+/* nav:inline — name, register and action on one running line */
+.nav{border-bottom:1px solid var(--hair)}
+.nav .wrap{display:flex;align-items:center;flex-wrap:wrap;gap:8px 20px;padding:11px 20px}
+.brand{font-family:"Faustina",Georgia,serif;font-weight:700;font-size:19px;text-decoration:none;
+flex:none;line-height:1.2;letter-spacing:.005em}
+.navlinks{display:none;gap:20px;font-size:15px;color:var(--muted);letter-spacing:.06em;
+text-transform:uppercase}
+.navlinks a{text-decoration:none}
+.navlinks a:hover{color:var(--sage)}
+.navact{min-height:40px;padding:0 14px;font-size:15px;flex:none;margin-left:auto}
+/* hero:fullbleed — the masthead, double-ruled, running the full width of the screen */
+.hero{border-bottom:1px solid var(--hair)}
+.hero .wrap{padding:0 20px 40px}
+.masthead{border-top:1px solid var(--rule);border-bottom:3px double var(--rule);padding:14px 0 13px;
+margin-bottom:26px;display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:space-between;
+font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.hero h1{font-size:clamp(31px,7.8vw,56px);max-width:15ch;margin-top:12px}
+.sub{font-size:16.5px;color:var(--muted);max-width:56ch;margin:18px 0 24px;line-height:1.68}
+.ctas{display:flex;flex-direction:column;gap:11px;max-width:420px}
+.badges{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:0;margin:26px 0 0;padding:0}
+.badges li{font-size:15px;color:var(--muted);padding:10px 12px 10px 0;border-top:1px solid var(--hair)}
+/* the fee statement, centred under the masthead like terms on a letterhead */
+.terms{margin-top:30px;border-top:3px double var(--rule);padding-top:20px;max-width:640px}
+.terms .micro{display:block;margin-bottom:14px}
+.terms ul{list-style:none;margin:0;padding:0}
+.terms li{display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding:12px 0;
+border-bottom:1px solid var(--hair);font-size:16px;color:var(--muted)}
+.terms b{font-family:"Faustina",Georgia,serif;font-weight:700;font-size:21px;color:var(--sage);
+font-variant-numeric:tabular-nums;flex:none}
+.note{font-size:15px;color:var(--muted);margin-top:15px;line-height:1.58}
+.sec{padding:52px 0;border-bottom:1px solid var(--hair)}
+.sec h2{font-size:clamp(27px,6.2vw,42px);margin:12px 0 0;max-width:20ch}
+.lede{color:var(--muted);max-width:62ch;margin:14px 0 0;font-size:16.5px}
+/* services:grid-numbered — figures ranged left against a hairline */
+.gridnum{list-style:none;margin:30px 0 0;padding:0;counter-reset:g;display:grid;gap:0}
+.gridnum li{counter-increment:g;display:grid;grid-template-columns:46px 1fr;gap:16px;
+padding:22px 0;border-top:1px solid var(--hair)}
+.gridnum li::before{content:counter(g,decimal-leading-zero);font-family:"Faustina",Georgia,serif;
+font-weight:400;font-size:22px;color:var(--sage);line-height:1.3}
+.gridnum h3{font-size:22px;margin-bottom:8px}
+.gridnum p{color:var(--muted);font-size:16px}
+.gridnum li.next{background:var(--panel);border-top:2px solid var(--accent);padding:22px 16px}
+.gridnum li.next h3{color:var(--sage)}
+/* proof:testimonial-lead */
+.proof{background:var(--panel)}
+.proof .wrap{padding-top:52px;padding-bottom:52px}
+.quote{font-family:"Faustina",Georgia,serif;font-size:clamp(21px,4.8vw,32px);line-height:1.42;
+margin:22px 0 0;max-width:30ch}
+.quote::before{content:"“"}
+.quote::after{content:"”"}
+.who{margin-top:22px;padding-top:14px;border-top:1px solid var(--hair);font-size:16px;
+color:var(--muted)}
+.who b{color:var(--ink);font-weight:700;font-family:"Faustina",Georgia,serif;font-size:18px}
+.steps{list-style:none;margin:30px 0 0;padding:0;counter-reset:s}
+.steps li{counter-increment:s;padding:20px 0;border-top:1px solid var(--hair)}
+.steps h3{font-size:20px;margin-bottom:6px}
+.steps h3::before{content:counter(s,upper-roman) ". ";color:var(--sage);font-weight:400}
+.steps p{color:var(--muted);font-size:16px;max-width:62ch}
+.close{padding:54px 0 58px;background:var(--panel);border-bottom:1px solid var(--hair)}
+.close h2{font-size:clamp(28px,6.6vw,46px);max-width:18ch}
+.close p{color:var(--muted);max-width:56ch;margin:16px 0 24px;font-size:16.5px}
+.foot{padding:36px 0 32px;font-size:15px;color:var(--muted)}
+.foot .brand{color:var(--ink);display:block;margin-bottom:12px}
+.foot p{margin:0 0 9px;max-width:70ch}
+.foot a{color:var(--sage)}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--surface);padding:8px;
+border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:8px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:60px;text-decoration:none;
+font-weight:700;font-size:15px;text-align:center;line-height:1.2;padding:0 12px}
+.callbar .book{background:var(--accent);color:#fff}
+.callbar .tel{border:1px solid var(--rule);color:var(--ink);padding:0 16px;font-size:16px}
+@media(max-width:559px){.navact{display:none}}
+@media(min-width:700px){.ctas{flex-direction:row}.sec{padding:80px 0}
+.hero .wrap{padding:0 20px 72px}.sub{font-size:18.5px}
+.badges li{padding:12px 16px 12px 0}
+.gridnum{grid-template-columns:1fr 1fr;column-gap:44px}
+.steps{display:grid;grid-template-columns:1fr 1fr;column-gap:44px}
+.terms li{font-size:17px}}
+@media(min-width:880px){.navlinks{display:flex}
+.proof .wrap{display:grid;grid-template-columns:1.7fr 1fr;gap:48px;align-items:end}
+.quote{margin-top:0}.who{margin-top:0}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Fee-only · Fiduciary · Registered Investment Adviser</div></div>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="#">Ostrander Wealth Counsel</a>
+  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+  <a class="btn btn-primary navact" href="#contact">Arrange an introduction</a>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <div class="masthead"><span>Fee-only fiduciary · RIA</span><span>Registered Investment Adviser</span></div>
+  <h1>Sixty-one families. Not sixty-two.</h1>
+  <p class="sub">Fee-only fiduciary advice for a deliberately small number of families and business owners. Sixty-one households today, and a waiting list rather than a bigger client roster.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" data-cta="primary" href="#contact">Arrange an introduction</a>
+    <a class="btn btn-ghost" href="#fees">See our fees</a>
+  </div>
+  <ul class="badges"><li>Fee-only, always</li><li>Fiduciary at all times</li><li>Fee schedule published</li><li>CFP® professionals</li></ul>
+  <div class="terms" id="fees">
+    <span class="micro">See our fees</span>
+    <ul>
+      <li><span>No commissions, ever</span><b>Fee-only</b></li>
+      <li><span>Assets under advice</span><b>$740M</b></li>
+      <li><span>Typical all-in fee</span><b>0.65%</b></li>
+      <li><span>Every adviser</span><b>CFP®</b></li>
+    </ul>
+    <p class="note">Fee-only. Fiduciary. Fee schedule published. No products sold, ever.</p>
+  </div>
+</div></section>
+<figure class="gsw-plate"><img src="../_assets/hero/wealth-management/a-not-a-sailboat.jpg" alt="Not a sailboat — wealth management" loading="lazy"></figure>
+
+
+<section class="sec" id="services"><div class="wrap">
+  <span class="micro">Services</span>
+  <h2>How we work with families</h2>
+  <p class="lede">Planning first. Investment management matters, but it is rarely the thing that changes an outcome.</p>
+  <ol class="gridnum">
+    <li><div><h3>Financial planning</h3><p>Cash flow, tax, insurance and estate structure, reviewed annually. The plan is the product; the portfolio implements it.</p></div></li>
+    <li><div><h3>Investment management</h3><p>Low-cost, globally diversified and tax-aware. We do not attempt to time markets and we will tell you why.</p></div></li>
+    <li><div><h3>Business owners &amp; exits</h3><p>Concentrated position planning, sale structuring and what happens to a family the year after a liquidity event.</p></div></li>
+    <li class="next"><div><h3>The next generation</h3><p>We meet your adult children at no additional cost. Most families lose their adviser at inheritance; that is a failure of relationship, not returns.</p></div></li>
+  </ol>
+</div></section>
+
+<section class="sec proof" id="results"><div class="wrap">
+  <div>
+    <span class="micro">Results</span>
+    <p class="quote">Our previous adviser was our parents' adviser and never once spoke to us directly. Ostrander met the four of us in the first month and the conversation was completely different.</p>
+  </div>
+  <p class="who"><b>The Aldridge family</b> · Clients since 2019</p>
+</div></section>
+
+<section class="sec" id="process"><div class="wrap">
+  <span class="micro">Process</span>
+  <h2>How a relationship starts</h2>
+  <p class="lede">Three conversations before anyone signs anything, and no cost until you decide to proceed.</p>
+  <ol class="steps">
+    <li><h3>Introduction</h3><p>Half an hour, no cost, no preparation needed. Mostly us listening and you deciding whether you like us.</p></li>
+    <li><h3>Discovery &amp; analysis</h3><p>We gather everything and analyse it properly — tax returns, statements, insurance, estate documents — over two to three weeks. That pace is only possible because we take on few families.</p></li>
+    <li><h3>The plan</h3><p>Presented in full, in plain English, including what we think you're doing wrong. You take it away whether or not you engage us.</p></li>
+    <li><h3>Ongoing</h3><p>Quarterly reviews, annual deep planning, and access between times without watching a clock.</p></li>
+  </ol>
+</div></section>
+
+<section class="close" id="contact"><div class="wrap">
+  <h2>Wondering whether you're being well advised?</h2>
+  <p>A second opinion costs nothing and takes about an hour. Half the people who come for one go back to their existing adviser reassured, and that is a fine outcome.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="#contact">Arrange an introduction</a>
+    <a class="btn btn-ghost" href="tel:+15556317790">(555) 631-7790</a>
+  </div>
+  <p class="note">Fee-only. Fiduciary. Fee schedule published. No products sold, ever.</p>
+</div></section>
+
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Ostrander Wealth Counsel</a>
+  <p><a href="tel:+15556317790">(555) 631-7790</a> · Services · Results · Process · Contact</p>
+  <p>Registered Investment Adviser · Fee-only fiduciary · Form ADV available on request</p>
+  <p>8505 Fenwick Avenue Floor 2, Millbrook Park, NY 13878</p>
+</div></footer>
+<div class="callbar"><a class="book" href="#contact">Arrange an introduction</a><a class="tel" href="tel:+15556317790">(555) 631-7790</a></div>
+</body>
+</html>

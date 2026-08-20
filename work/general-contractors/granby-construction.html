@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Granby Construction — Renovations that finish when we said they would.</title>
+<meta name="description" content="Whole-home renovations, additions and structural work, typically from $75,000. Licence number, bond, insurance certificates and every pulled permit are handed over at signing, not promised and then chased.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crete+Round&family=Public+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* D5 — THE LICENCE ONE. hero:fullbleed nav:centered services:list proof:logos
+   ink #F2EDE2 · surface #1C1A17 · accent #D19A3C · muted #B7AE9E · on-accent #1C1A17
+   H1 ramp: 31/36/48/60px · Crete Round display / Public Sans body
+   Device: the ruled process schedule inverted — the only two light blocks on a dark
+   page are the licence plate and the schedule, so the eye lands on the credential and
+   then on the plan. Answers FIX #2, trust signals absent. */
+:root{--ink:#F2EDE2;--surface:#1C1A17;--accent:#D19A3C;--muted:#B7AE9E;--on-accent:#1C1A17;
+--paper:#F7F3EA;--paperink:#231F19;--papermuted:#5B5245;--deep:#12110F;
+--rule:rgba(242,237,226,.42);--hair:rgba(242,237,226,.16);--wrap:1120px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.64 "Public Sans",system-ui,-apple-system,sans-serif;padding-bottom:82px;
+overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 22px}
+h1,h2,h3{font-family:"Crete Round",Georgia,serif;font-weight:400;margin:0;line-height:1.1;
+letter-spacing:0}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 24px;
+text-decoration:none;font-weight:700;font-size:16px;border:1px solid transparent;text-align:center;
+line-height:1.2}
+.btn-primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--rule)}
+.topbar{background:var(--deep);color:#CFC6B5;font-size:15px}
+.topbar .wrap{padding:9px 22px;text-align:center;letter-spacing:.05em}
+/* nav: centered */
+.nav{position:sticky;top:0;z-index:30;background:var(--surface);border-bottom:1px solid var(--hair)}
+.nav .wrap{padding-top:12px;padding-bottom:12px;position:relative;text-align:center}
+.brand{font-family:"Crete Round",Georgia,serif;font-size:23px;text-decoration:none;line-height:1;
+display:inline-block;letter-spacing:.01em}
+.navlinks{display:none;justify-content:center;gap:28px;margin-top:10px;font-size:15px;
+color:var(--muted)}
+.navlinks a{text-decoration:none}
+.navlinks a:hover{color:var(--accent)}
+.navact{position:absolute;right:22px;top:6px;min-height:42px;padding:0 15px;font-size:14px;
+white-space:nowrap}
+@media(max-width:559px){.navact{display:none}}
+/* hero: fullbleed */
+.hero{position:relative;overflow:hidden;
+background:radial-gradient(120% 90% at 78% 6%,rgba(209,154,60,.22),transparent 58%),
+linear-gradient(168deg,#2B251D 0%,#1C1A17 52%,#141310 100%)}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;
+background:repeating-linear-gradient(114deg,rgba(242,237,226,.07) 0 1px,transparent 1px 26px)}
+.hero .wrap{position:relative;padding-top:32px;padding-bottom:40px}
+.eyebrow{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);
+margin:0 0 14px;font-weight:700}
+.hero h1{font-size:clamp(31px,7.6vw,60px);max-width:15ch}
+.sub{font-size:16px;color:#D6CFC2;max-width:56ch;margin:16px 0 22px;line-height:1.58}
+.ctas{display:flex;flex-direction:column;gap:10px}
+.marks{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:0;border-top:1px solid var(--rule)}
+.marks li{font-size:16px;padding:12px 0;border-bottom:1px solid var(--hair);position:relative;
+padding-left:26px;color:#EDE7DA}
+.marks li::before{content:"";position:absolute;left:0;top:19px;width:14px;height:2px;
+background:var(--accent)}
+.sec{padding:52px 0}
+.kicker{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);
+margin:0 0 10px;font-weight:700}
+.sec h2{font-size:clamp(28px,6.4vw,48px)}
+.lede{color:var(--muted);max-width:58ch;margin:14px 0 28px;font-size:17px}
+/* services: list */
+.list{list-style:none;margin:0;padding:0}
+.list li{padding:22px 0 26px;border-top:1px solid var(--hair)}
+.list li:first-child{border-top:2px solid var(--accent)}
+.list h3{font-size:24px;margin-bottom:9px;line-height:1.16;color:#FFFBF2}
+.list p{margin:0;color:var(--muted);font-size:16px;max-width:70ch}
+/* proof: logos — the licence plate, light on dark */
+.logos{padding:52px 0}
+.plate{background:var(--paper);color:var(--paperink);border-top:8px solid var(--accent);
+padding:26px 20px 8px}
+.plate .kicker{color:#8A6119}
+.plate h2{color:var(--paperink)}
+.loglist{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:0;
+border-top:1px solid rgba(35,31,25,.2)}
+.loglist li{font-family:"Crete Round",Georgia,serif;font-size:19px;padding:15px 2px;
+border-bottom:1px solid rgba(35,31,25,.2);line-height:1.3}
+/* process: the ruled schedule, inverted to paper */
+.process{background:var(--paper);color:var(--paperink)}
+.process .kicker{color:#8A6119}
+.process h2{color:var(--paperink);font-size:clamp(30px,7vw,54px)}
+.process .lede{color:var(--papermuted)}
+.rail{height:20px;border-top:3px solid var(--paperink);border-bottom:1px solid rgba(35,31,25,.3);
+background:repeating-linear-gradient(90deg,rgba(35,31,25,.35) 0 1px,transparent 1px 6.25%)}
+.ladder{list-style:none;margin:0;padding:0;counter-reset:l;display:grid;gap:0}
+.ladder li{counter-increment:l;padding:22px 0 24px;border-bottom:1px solid rgba(35,31,25,.2)}
+.ln{display:block;font-size:13px;letter-spacing:.24em;font-weight:700;color:#8A6119;
+margin-bottom:9px}
+.ln::before{content:counter(l,decimal-leading-zero)}
+.ladder h3{font-size:22px;margin-bottom:8px;line-height:1.18}
+.ladder p{margin:0;color:var(--papermuted);font-size:16px}
+/* close */
+.close{background:var(--accent);color:#1C1A17;padding:52px 0 58px}
+.close h2{font-size:clamp(28px,6.4vw,50px);max-width:14ch;color:#1C1A17}
+.close p{max-width:52ch;font-size:18px;color:#402D0C;margin:14px 0 22px}
+.close .btn-primary{background:#1C1A17;color:#F7F3EA;border-color:#1C1A17}
+.close .btn-ghost{color:#1C1A17;border-color:rgba(28,26,23,.5)}
+.note{font-size:15px;color:#402D0C;margin-top:20px}
+.foot{padding:38px 0 34px;font-size:15px;color:var(--muted)}
+.foot .brand{color:var(--ink);display:block;margin-bottom:12px}
+.foot p{margin:0 0 9px;max-width:66ch}
+.foot a{color:var(--accent)}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--deep);padding:7px;
+border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:7px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:60px;
+text-decoration:none;font-weight:700;font-size:15px;text-align:center;line-height:1.2;padding:0 12px}
+.callbar .book{background:var(--accent);color:#1C1A17}
+.callbar .tel{border:1px solid var(--rule);color:var(--ink);padding:0 14px}
+@media(min-width:720px){
+ .ctas{flex-direction:row;gap:12px}
+ .marks{grid-template-columns:1fr 1fr;column-gap:36px}
+ .loglist{grid-template-columns:repeat(5,1fr)}
+ .loglist li{border-bottom:0;border-right:1px solid rgba(35,31,25,.2);padding:20px 14px;
+ text-align:center;font-size:17px}
+ .loglist li:last-child{border-right:0}
+ .plate{padding:36px 32px 16px}
+ .ladder{grid-template-columns:repeat(2,1fr);column-gap:0}
+ .ladder li{padding:22px 26px 24px;border-right:1px solid rgba(35,31,25,.2)}
+ .ladder li:nth-child(2n){border-right:0}
+ .ladder li:first-child{padding-left:0}
+ .ladder li:nth-child(3){padding-left:0}
+ .sub{font-size:19px}.sec{padding:82px 0}.hero .wrap{padding-top:52px;padding-bottom:66px}
+}
+@media(min-width:960px){
+ .navlinks{display:flex}
+ .ladder{grid-template-columns:repeat(4,1fr)}
+ .ladder li{border-bottom:0;padding:26px 22px 30px}
+ .ladder li:nth-child(2n){border-right:1px solid rgba(35,31,25,.2)}
+ .ladder li:last-child{border-right:0}
+ .ladder li:nth-child(3){padding-left:22px}
+ .list li{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);column-gap:44px}
+ .list h3{margin-bottom:0}
+}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+
+<style>
+  /* Hero backdrop. The photograph sits behind the hero's own composition; the
+     scrim below is the design's own background colour, so nothing about the
+     contrast the layout was built with changes. */
+  .gsw-imaged { position: relative; isolation: isolate; overflow: hidden; }
+  .gsw-imaged > *:not(.gsw-backdrop) { position: relative; z-index: 1; }
+  .gsw-backdrop { position: absolute; inset: 0; z-index: 0; }
+  .gsw-backdrop img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .gsw-backdrop::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(100deg,
+      rgb(28 26 23 / 0.9) 0%, rgb(28 26 23 / 0.84) 38%, rgb(28 26 23 / 0.56) 68%, rgb(28 26 23 / 0.36) 100%);
+  }
+  @media (max-width: 60rem) { .gsw-backdrop::after { background: rgb(28 26 23 / 0.86); } }
+  @media (forced-colors: active) { .gsw-backdrop { display: none; } }
+  @media print { .gsw-backdrop { display: none; } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Projects from $75,000 · Licensed #GC-22841 · Fully insured</div></div>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="#">Granby Construction</a>
+  <a class="btn btn-primary navact" href="#contact">Book a consultation</a>
+  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+</div></header>
+
+<section class="gsw-imaged hero"><div class="gsw-backdrop" aria-hidden="true"><img src="../_assets/hero/general-contractors/e-finished-street.jpg" alt="" loading="eager"></div><div class="wrap">
+  <p class="eyebrow">Whole-home renovation &amp; additions</p>
+  <h1>Licensed, bonded, permitted — and we'll show you all three.</h1>
+  <p class="sub">Whole-home renovations, additions and structural work, typically from $75,000. Licence number, bond, insurance certificates and every pulled permit are handed over at signing, not promised and then chased.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" data-cta="primary" href="#contact">Book a consultation</a>
+    <a class="btn btn-ghost" href="#process">See our process</a>
+  </div>
+  <ul class="marks">
+    <li>Projects from $75,000</li><li>Licensed &amp; fully insured</li>
+    <li>Weekly written updates</li><li>Fixed schedule commitment</li>
+  </ul>
+</div></section>
+
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p>
+  <h2>What we build</h2>
+  <p class="lede">We take on fewer projects than we could, because running four properly beats running nine badly.</p>
+  <ul class="list">
+    <li><h3>Whole-home renovation</h3><p>Gut renovations and reconfigurations. Structural, mechanical and finish work under one contract and one project manager.</p></li>
+    <li><h3>Additions &amp; extensions</h3><p>Second storeys, rear extensions and garage conversions — including the survey, engineering and permitting.</p></li>
+    <li><h3>Kitchens &amp; baths</h3><p>Usually where a bigger project starts. We'll tell you honestly whether it makes sense to do them alone or as part of something larger.</p></li>
+    <li><h3>Structural &amp; permits</h3><p>Load-bearing changes, foundation work and the permit process. This is the part that derails projects run by others.</p></li>
+  </ul>
+</div></section>
+
+<section class="logos" id="results"><div class="wrap"><div class="plate">
+  <p class="kicker">Results</p>
+  <h2>Licensed and accredited</h2>
+  <ul class="loglist">
+    <li>State Licensed #GC-22841</li><li>NAHB Member</li><li>Fully Bonded &amp; Insured</li><li>EPA Lead-Safe</li><li>BBB A+</li>
+  </ul>
+</div></div></section>
+
+<section class="sec process" id="process"><div class="wrap">
+  <p class="kicker">Process</p>
+  <h2>How a project actually runs</h2>
+  <p class="lede">The part that frightens people is unpermitted work surfacing when they sell. That is exactly the part we document.</p>
+  <div class="rail" aria-hidden="true"></div>
+  <ol class="ladder">
+    <li><span class="ln" aria-hidden="true"></span><h3>Consultation &amp; feasibility</h3><p>We visit, listen, and tell you whether the idea works and roughly what it costs. Free, and sometimes the answer is don't.</p></li>
+    <li><span class="ln" aria-hidden="true"></span><h3>Design &amp; fixed proposal</h3><p>Drawings, engineering where needed, and a line-item proposal. One number, with allowances stated openly.</p></li>
+    <li><span class="ln" aria-hidden="true"></span><h3>Permits &amp; schedule</h3><p>We handle the city. You get a week-by-week schedule before anyone swings a hammer.</p></li>
+    <li><span class="ln" aria-hidden="true"></span><h3>Build &amp; weekly updates</h3><p>A named project manager who pulls the permits in your name, schedules the inspections, and gives you the paperwork as it clears.</p></li>
+  </ol>
+</div></section>
+
+<section class="close" id="contact"><div class="wrap">
+  <h2>Thinking about it for next year?</h2>
+  <p>That's the right time to call. Our calendar fills six to nine months out, and the design and permit stage takes longer than people expect.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="#contact">Book a consultation</a>
+    <a class="btn btn-ghost" href="tel:+15555178836">(555) 517-8836</a>
+  </div>
+  <p class="note">Free consultations. Projects typically start at $75,000.</p>
+</div></section>
+
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Granby Construction</a>
+  <p><a href="tel:+15555178836">(555) 517-8836</a> · Licensed #GC-22841 · Bonded &amp; insured · Building here since 2003</p>
+  <p>5995 Pardon Road Suite 200, Stonebridge, MA 15996</p>
+</div></footer>
+
+<div class="callbar"><a class="book" href="#contact">Book a consultation</a><a class="tel" href="tel:+15555178836">(555) 517-8836</a></div>
+</body>
+</html>

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="robots" content="noindex"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="../_assets/fonts/9d5ddb395f3e.css" rel="stylesheet"/>
+<style>
+        :root {
+            --font-display: 'Unbounded', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --font-body: 'Inter', sans-serif;
+            --ui-bg: #EAEAEA;
+            --ui-panel: #F7F7F7;
+            --ui-border: #D0D0D0;
+            --ui-text: #111111;
+        }
+
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--font-body); background-color: var(--ui-bg); color: var(--ui-text); height: 100vh; overflow: hidden; display: flex; }
+        ul { list-style: none; }
+        a { text-decoration: none; color: inherit; }
+        button { border: none; background: none; cursor: pointer; font: inherit; }
+
+        
+        .app-container { display: flex; width: 100%; height: 100%; }
+        
+        .sidebar { width: 400px; background: var(--ui-panel); border-right: 1px solid var(--ui-border); display: flex; flex-direction: column; z-index: 100; box-shadow: 2px 0 10px rgba(0,0,0,0.05); }
+        .sidebar-header { padding: 24px; border-bottom: 1px solid var(--ui-border); }
+        .sidebar-header h1 { font-family: var(--font-display); font-size: 14px; font-weight: 700; letter-spacing: -0.02em; text-transform: uppercase; }
+        .sidebar-header p { font-family: var(--font-mono); font-size: 10px; color: #666; margin-top: 4px; }
+        
+        .nav-toggles { padding: 24px; border-bottom: 1px solid var(--ui-border); display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .nav-btn { padding: 12px; font-family: var(--font-mono); font-size: 12px; text-align: left; border: 1px solid var(--ui-border); background: #FFF; transition: all 0.2s; font-weight: 600; }
+        .nav-btn:hover { border-color: #000; }
+        .nav-btn.active { background: #000; color: #FFF; border-color: #000; }
+
+        .device-toggles { padding: 16px 24px; border-bottom: 1px solid var(--ui-border); display: flex; gap: 8px; background: #EEE; }
+        .device-btn { flex: 1; padding: 8px; font-size: 12px; font-family: var(--font-mono); background: #FFF; border: 1px solid var(--ui-border); }
+        .device-btn.active { background: #000; color: #FFF; border-color: #000; }
+
+        .meta-panel { padding: 24px; flex-grow: 1; overflow-y: auto; font-size: 13px; line-height: 1.5; }
+        .meta-group { margin-bottom: 24px; }
+        .meta-label { font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; color: #888; margin-bottom: 4px; display: block; }
+        .meta-value { font-weight: 500; }
+        
+        .color-swatches { display: flex; gap: 4px; margin-top: 8px; }
+        .swatch { width: 24px; height: 24px; border: 1px solid rgba(0,0,0,0.1); border-radius: 2px; }
+
+        .callout-box { background: #000; color: #FFF; padding: 16px; font-family: var(--font-mono); font-size: 11px; margin-top: 16px; }
+
+        
+        .stage { flex-grow: 1; background: var(--ui-bg); display: flex; justify-content: center; align-items: center; overflow: hidden; padding: 24px; }
+        
+        .viewport-wrapper { 
+            width: 100%; height: 100%; background: #FFF; transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+            position: relative; overflow-y: auto; overflow-x: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1); border: 1px solid #CCC;
+        }
+        
+        .viewport-wrapper.mobile-mode {
+            width: 390px; height: 844px; 
+            border: 12px solid #111; border-radius: 40px; box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+        }
+        .viewport-wrapper.mobile-mode::-webkit-scrollbar { display: none; }
+
+        .direction-view { display: none; width: 100%; min-height: 100%; }
+        .direction-view.active { display: block; }
+
+        
+        .brut-h1 { font-family: var(--font-display); line-height: 0.9; text-transform: uppercase; letter-spacing: -0.04em; }
+        .brut-h2 { font-family: var(--font-display); line-height: 1; text-transform: uppercase; letter-spacing: -0.02em; }
+        .brut-mono { font-family: var(--font-mono); text-transform: uppercase; }
+        .brut-body { font-family: var(--font-body); line-height: 1.4; }
+        .brut-badge { font-family: var(--font-mono); font-size: 10px; padding: 4px 8px; border: 1px solid currentColor; display: inline-block; white-space: nowrap; }
+        .brut-btn { font-family: var(--font-display); text-transform: uppercase; padding: 16px 24px; font-weight: 700; text-align: center; transition: all 0.2s; display: inline-flex; align-items: center; justify-content: center; gap: 8px;}
+        .micro-label { font-family: var(--font-mono); font-size: 9px; opacity: 0.5; text-transform: uppercase; letter-spacing: 0.1em; }
+        .star-icon { font-family: var(--font-mono); font-size: 1.2em; }
+
+        
+        #d1 { --ink: #050505; --surface: #F4F4F0; --accent: #FF2A00; --muted: #888888; --on-accent: #FFFFFF; background: var(--surface); color: var(--ink); }
+        .d1-topbar { background: var(--ink); color: var(--surface); font-family: var(--font-mono); font-size: 11px; padding: 8px; text-align: center; text-transform: uppercase; letter-spacing: 0.05em; display: flex; justify-content: space-between; }
+        .d1-nav { padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--ink); }
+        .d1-logo { font-family: var(--font-display); font-weight: 900; font-size: 24px; letter-spacing: -0.05em; }
+        .d1-nav-minimal { display: flex; gap: 24px; align-items: center; font-family: var(--font-mono); font-size: 12px; font-weight: 700; }
+        
+        .d1-hero { position: relative; padding: 4vw; background: 
+            linear-gradient(90deg, var(--ink) 25%, transparent 25%),
+            linear-gradient(180deg, var(--ink) 25%, transparent 25%); background-size: 100px 100px; background-position: -50px -50px; 
+            min-height: 85vh; display: flex; align-items: center; justify-content: center; }
+        .d1-hero-panel { background: var(--surface); border: 4px solid var(--ink); padding: 48px; max-width: 900px; width: 100%; position: relative; box-shadow: 16px 16px 0 var(--ink); }
+        .d1-hero-panel .brut-h1 { font-size: clamp(32px, 6vw, 84px); margin-bottom: 24px; }
+        .d1-hero-panel p { font-size: clamp(16px, 2vw, 20px); font-weight: 500; max-width: 600px; margin-bottom: 32px; }
+        .d1-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+        .d1-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+        .d1-btn-primary { background: var(--ink); color: var(--surface); border: 2px solid var(--ink); font-size: 18px; padding: 20px 32px; }
+        .d1-btn-primary:hover { background: var(--accent); border-color: var(--accent); }
+        .d1-btn-sec { background: transparent; color: var(--ink); border: 2px solid var(--ink); font-size: 14px; padding: 20px 32px; }
+        
+        .d1-services { padding: 120px 4vw; border-top: 4px solid var(--ink); }
+        .d1-section-header { margin-bottom: 64px; }
+        .d1-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 0; border: 2px solid var(--ink); }
+        .d1-card { padding: 32px; border: 2px solid var(--ink); position: relative; display: flex; flex-direction: column; justify-content: space-between; min-height: 250px; }
+        .d1-card-num { position: absolute; top: 16px; right: 16px; font-family: var(--font-display); font-size: 64px; color: var(--ink); opacity: 0.1; line-height: 1; }
+        .d1-card h3 { font-family: var(--font-display); font-size: 24px; margin-bottom: 16px; z-index: 1; }
+        .d1-card p { font-family: var(--font-body); font-weight: 500; font-size: 15px; z-index: 1; }
+        
+        .d1-proof { background: var(--ink); color: var(--surface); padding: 120px 4vw; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 48px; }
+        .d1-stat h4 { font-family: var(--font-display); font-size: clamp(48px, 5vw, 72px); line-height: 1; margin-bottom: 16px; color: var(--accent); }
+        .d1-stat p { font-family: var(--font-mono); font-size: 14px; text-transform: uppercase; }
+
+        .d1-process { padding: 120px 4vw; }
+        .d1-process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px; margin-top: 64px; }
+        .d1-step { border-top: 4px solid var(--ink); padding-top: 24px; }
+        .d1-step-num { font-family: var(--font-mono); font-size: 24px; font-weight: 700; margin-bottom: 16px; display: block; }
+
+        .d1-closing { padding: 120px 4vw; background: var(--accent); color: var(--on-accent); text-align: center; border-top: 4px solid var(--ink); border-bottom: 4px solid var(--ink); }
+        .d1-closing .brut-h2 { font-size: clamp(32px, 5vw, 64px); margin-bottom: 24px; }
+        
+        .d1-footer { background: var(--ink); color: var(--muted); padding: 48px 4vw; font-family: var(--font-mono); font-size: 10px; text-align: center; text-transform: uppercase; }
+
+        @media (max-width: 500px) {
+            .d1-topbar { display: none; }
+            .d1-hero-panel { padding: 24px; box-shadow: 8px 8px 0 var(--ink); }
+            .d1-btn-primary, .d1-btn-sec { width: 100%; }
+        }
+
+        
+        #d2 { --ink: #000000; --surface: #FFFFFF; --accent: #E61919; --muted: #CCCCCC; --on-accent: #FFFFFF; background: var(--surface); color: var(--ink); }
+        .d2-bar { background: var(--ink); color: var(--surface); padding: 16px 2vw; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 50; }
+        .d2-bar-nav { display: flex; gap: 32px; font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; font-weight: 700; }
+        .d2-bar-cta { background: var(--accent); color: var(--on-accent); padding: 8px 16px; font-family: var(--font-display); font-size: 12px; }
+        
+        .d2-hero { display: flex; min-height: 90vh; }
+        .d2-hero-left { flex: 1; padding: 6vw 4vw; display: flex; flex-direction: column; justify-content: center; }
+        .d2-hero-right { flex: 1; background: var(--accent); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+        .d2-hero-right::after { content: ''; position: absolute; width: 150%; height: 150%; background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,0.1) 10px, rgba(0,0,0,0.1) 20px); }
+        .d2-giant-cross { font-family: var(--font-display); font-size: 40vw; color: var(--ink); line-height: 0.8; opacity: 0.9; z-index: 1; position: absolute; right: -5vw; bottom: -5vw; font-weight: 900;}
+        .d2-hero .brut-h1 { font-size: clamp(40px, 5vw, 72px); margin: 24px 0; }
+        
+        .d2-services { padding: 8vw 4vw; max-width: 1200px; margin: 0 auto; }
+        .d2-list { margin-top: 64px; border-top: 4px solid var(--ink); }
+        .d2-list-item { display: flex; border-bottom: 2px solid var(--ink); padding: 32px 0; transition: background 0.2s; }
+        .d2-list-item:hover { background: #f0f0f0; }
+        .d2-list-item h3 { flex: 0 0 300px; font-family: var(--font-display); font-size: 24px; padding-right: 24px; }
+        .d2-list-item p { flex: 1; font-size: 18px; font-weight: 500; }
+
+        .d2-proof { background: var(--surface); padding: 8vw 4vw; border-top: 4px solid var(--ink); }
+        .d2-masonry { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 48px; }
+        .d2-review { border: 2px solid var(--ink); padding: 24px; background: #fafafa; }
+        .d2-review q { font-family: var(--font-display); font-size: 16px; line-height: 1.4; display: block; margin-bottom: 16px; }
+        .d2-review cite { font-family: var(--font-mono); font-size: 12px; font-style: normal; font-weight: 700; color: var(--accent); text-transform: uppercase; }
+
+        .d2-closing { background: var(--ink); color: var(--surface); padding: 120px 4vw; text-align: center; }
+        .d2-closing .brut-btn { background: var(--accent); color: var(--on-accent); margin-top: 32px; }
+
+        @media (max-width: 900px) {
+            .d2-hero { flex-direction: column; }
+            .d2-hero-right { min-height: 40vh; }
+            .d2-list-item { flex-direction: column; gap: 16px; }
+            .d2-list-item h3 { flex: auto; }
+            .d2-bar-nav { display: none; }
+        }
+
+        
+        #d3 { --ink: #0A1128; --surface: #F0F4F8; --accent: #0044FF; --muted: #A0AABF; --on-accent: #FFFFFF; background: var(--surface); color: var(--ink); background-image: linear-gradient(var(--muted) 1px, transparent 1px), linear-gradient(90deg, var(--muted) 1px, transparent 1px); background-size: 20px 20px; background-position: center; }
+        
+        .d3-container { background: var(--surface); max-width: 1400px; margin: 0 auto; border-left: 2px solid var(--ink); border-right: 2px solid var(--ink); box-shadow: 0 0 40px rgba(0,0,0,0.1); }
+        .d3-top { background: var(--ink); color: var(--surface); padding: 8px; font-family: var(--font-mono); font-size: 10px; display: flex; justify-content: space-between; }
+        .d3-nav { display: flex; justify-content: space-between; align-items: center; padding: 16px 32px; border-bottom: 2px solid var(--ink); }
+        .d3-links { display: flex; gap: 32px; font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; }
+        
+        .d3-hero { border-bottom: 2px solid var(--ink); }
+        .d3-band { padding: 32px; border-bottom: 1px solid var(--ink); }
+        .d3-band.h1-band { padding: 64px 32px; background: #E8EEF5; }
+        .d3-hero .brut-h1 { font-size: clamp(36px, 7vw, 96px); color: var(--accent); }
+        .d3-band.action-band { display: flex; gap: 24px; align-items: center; background: var(--ink); color: var(--surface); }
+        
+        .d3-services { padding: 80px 32px; border-bottom: 2px solid var(--ink); }
+        .d3-tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--ink); border: 2px solid var(--ink); margin-top: 48px; }
+        .d3-tile { background: var(--surface); padding: 32px; }
+        .d3-tile:nth-child(1) { grid-column: span 2; }
+        .d3-tile h3 { font-family: var(--font-display); font-size: 20px; margin-bottom: 12px; color: var(--accent); }
+        
+        .d3-proof { padding: 64px 32px; border-bottom: 2px solid var(--ink); text-align: center; }
+        .d3-logos { display: flex; flex-wrap: wrap; justify-content: center; gap: 48px; margin-top: 32px; font-family: var(--font-display); font-size: 14px; opacity: 0.6; text-transform: uppercase; }
+        
+        @media (max-width: 800px) {
+            .d3-tiles { grid-template-columns: 1fr; }
+            .d3-tile:nth-child(1) { grid-column: span 1; }
+            .d3-links { display: none; }
+            .d3-band.action-band { flex-direction: column; align-items: stretch; }
+        }
+
+        
+        #d4 { --ink: #1E1E1E; --surface: #E8E6DF; --accent: #2E8B57; --muted: #99968F; --on-accent: #FFFFFF; background: var(--surface); color: var(--ink); }
+        
+        .d4-nav { text-align: center; padding: 32px; border-bottom: 4px double var(--ink); }
+        .d4-nav .d1-logo { font-size: 32px; margin-bottom: 16px; display: block; }
+        .d4-nav-links { display: flex; justify-content: center; gap: 24px; font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; font-weight: 700; }
+        
+        .d4-hero { padding: 8vw 4vw; text-align: center; border-bottom: 1px solid var(--ink); }
+        .d4-hero .brut-h1 { font-size: clamp(48px, 8vw, 110px); margin: 24px 0; max-width: 1200px; margin-inline: auto; }
+        .d4-hero-graphic { height: 16px; background: repeating-linear-gradient(90deg, var(--ink), var(--ink) 4px, transparent 4px, transparent 8px); margin: 48px 0; }
+        .d4-hero .d1-btn-primary { background: var(--accent); border: none; font-size: 24px; padding: 24px 48px; border-radius: 4px; box-shadow: 4px 4px 0 var(--ink); }
+        
+        .d4-services { padding: 120px 4vw; background: #DFDCD3; }
+        .d4-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; margin-top: 64px; }
+        .d4-card { background: var(--surface); border: 2px solid var(--ink); padding: 32px; box-shadow: 8px 8px 0 rgba(0,0,0,0.1); }
+        .d4-card-meta { font-family: var(--font-mono); font-size: 10px; color: var(--accent); margin-bottom: 16px; display: block; }
+        
+        .d4-proof { padding: 120px 4vw; border-bottom: 4px double var(--ink); display: flex; justify-content: center; }
+        .d4-testimonial { max-width: 800px; text-align: center; }
+        .d4-testimonial q { font-family: var(--font-display); font-size: clamp(24px, 4vw, 48px); line-height: 1.2; display: block; margin-bottom: 32px; }
+        .d4-testimonial cite { font-family: var(--font-mono); font-size: 14px; text-transform: uppercase; }
+
+        @media (max-width: 600px) {
+            .d4-nav-links { flex-direction: column; gap: 12px; }
+        }
+
+        
+        #d5 { --ink: #FFFFFF; --surface: #09090B; --accent: #CCFF00; --muted: #555555; --on-accent: #000000; background: var(--surface); color: var(--ink); font-family: var(--font-mono); }
+        #d5 .brut-h1, #d5 .brut-h2, #d5 h3 { font-family: var(--font-mono); font-weight: 700; letter-spacing: -0.05em; text-transform: uppercase; }
+        
+        .d5-bar { background: #111; border-bottom: 1px solid #333; padding: 16px 24px; display: flex; justify-content: space-between; font-size: 12px; color: var(--accent); }
+        
+        .d5-hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 4vw; position: relative; overflow: hidden; }
+        .d5-hero::before { content: 'SYSTEM ACTIVE'; position: absolute; top: 120px; right: 4vw; color: #333; font-size: 10vw; z-index: 0; pointer-events: none; }
+        .d5-hero-content { position: relative; z-index: 1; max-width: 800px; }
+        .d5-hero .brut-h1 { font-size: clamp(40px, 8vw, 90px); color: var(--ink); margin-bottom: 24px; }
+        .d5-hero p { font-size: 18px; color: #AAA; margin-bottom: 40px; max-width: 600px; line-height: 1.6; }
+        .d5-btn { background: var(--accent); color: var(--on-accent); padding: 16px 32px; font-weight: 700; font-size: 16px; border: none; }
+        
+        .d5-services { padding: 120px 4vw; border-top: 1px solid #333; }
+        .d5-list { margin-top: 48px; }
+        .d5-list-item { display: flex; gap: 24px; padding: 24px 0; border-bottom: 1px solid #222; }
+        .d5-list-item::before { content: '>'; color: var(--accent); font-weight: 700; }
+        .d5-list-item h3 { min-width: 200px; color: var(--ink); }
+        .d5-list-item p { color: #888; font-family: var(--font-body); }
+        
+        .d5-proof { display: flex; flex-wrap: wrap; border-top: 1px solid #333; border-bottom: 1px solid #333; }
+        .d5-stat { flex: 1 1 250px; padding: 48px; border-right: 1px solid #333; }
+        .d5-stat:last-child { border-right: none; }
+        .d5-stat h4 { font-size: 48px; color: var(--accent); margin-bottom: 12px; }
+
+        @media (max-width: 700px) {
+            .d5-list-item { flex-direction: column; gap: 8px; }
+            .d5-stat { border-right: none; border-bottom: 1px solid #333; }
+        }
+
+        
+        #d6 { --ink: #222222; --surface: #D1CFC7; --accent: #4A0E4E; --muted: #7A7871; --on-accent: #FFFFFF; background: var(--surface); color: var(--ink); }
+        
+        .d6-wrapper { max-width: 1600px; margin: 0 auto; background: #E6E4DC; min-height: 100vh; border-left: 1px solid var(--muted); border-right: 1px solid var(--muted); }
+        .d6-nav { padding: 24px 4vw; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--ink); }
+        
+        .d6-hero { display: flex; min-height: 80vh; border-bottom: 1px solid var(--ink); }
+        .d6-hero-text { flex: 1.2; padding: 6vw 4vw; border-right: 1px solid var(--ink); display: flex; flex-direction: column; justify-content: space-between; }
+        .d6-hero-image { flex: 0.8; background: var(--ink); position: relative; display: flex; align-items: center; justify-content: center; padding: 4vw; color: var(--surface); text-align: center; font-family: var(--font-display); }
+        .d6-hero .brut-h1 { font-weight: 500; font-size: clamp(48px, 6vw, 90px); letter-spacing: -0.05em; margin: 40px 0; }
+        
+        .d6-services { padding: 120px 4vw; }
+        .d6-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 48px; margin-top: 64px; }
+        .d6-card { border-top: 2px solid var(--ink); padding-top: 24px; }
+        .d6-card h3 { font-family: var(--font-display); font-size: 28px; margin-bottom: 16px; font-weight: 500; }
+        
+        .d6-proof { padding: 120px 4vw; border-top: 1px solid var(--ink); background: #DFDDD4; }
+        .d6-wall { column-count: 3; column-gap: 48px; margin-top: 64px; }
+        .d6-review { break-inside: avoid; margin-bottom: 48px; font-family: var(--font-display); font-weight: 300; font-size: 20px; line-height: 1.4; }
+        
+        @media (max-width: 900px) {
+            .d6-hero { flex-direction: column; }
+            .d6-hero-text { border-right: none; border-bottom: 1px solid var(--ink); }
+            .d6-grid { grid-template-columns: 1fr; }
+            .d6-wall { column-count: 1; }
+        }
+    </style>
+<title>Brightmoor Injury Law — The evidence is gone in a week. Call today.</title>
+<style>
+/* --- standalone overrides: strip the pitch-deck device frame --- */
+
+html, body { margin: 0; padding: 0; width: 100%; max-width: none; }
+body { display: block; background: #fff; }
+body > * { margin: 0; }
+
+.viewport-wrapper { width: 100% !important; height: auto !important; min-height: 100vh;
+                    overflow: visible !important; border: 0 !important;
+                    box-shadow: none !important; }
+.direction-view { display: block !important; min-height: 100vh; }
+
+@media (max-width: 480px) {
+  /* d6's nav is a nowrap flex row (logo + links + CTA) that needs ~405px;
+     let the CTA drop to its own line instead of overflowing. */
+  .d6-nav { flex-wrap: wrap; }
+}
+
+.d2-hero-right > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+            object-position: 58% 50%; display: block; z-index: 0;
+            filter: grayscale(1) contrast(1.3) brightness(.8); mix-blend-mode: luminosity; }
+        .d2-hero-right::before { content: ''; position: absolute; inset: 0; z-index: 1;
+            background: linear-gradient(180deg, rgba(230,25,25,.35) 0%, rgba(120,0,0,.65) 100%); }
+        .d2-hero-right::after { z-index: 2; }
+        .d2-hero-stamp { position: absolute; z-index: 3; left: 0; right: 0; bottom: 0;
+            border-top: 4px solid #000000; background: #FFFFFF; color: #000000;
+            padding: 14px 20px; display: flex; justify-content: space-between; gap: 16px;
+            font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+            letter-spacing: .1em; text-transform: uppercase; }
+        .d2-hero-stamp b { color: #E61919; }
+</style>
+</head>
+<body>
+<div id="viewport" class="viewport-wrapper"><article class="direction-view active" id="view-2">
+<div id="d2">
+<div class="d1-topbar" style="background: #E61919;">
+<span>Same-day case review</span>
+<span>No fee unless we win</span>
+<span>Hablamos español</span>
+</div>
+<nav class="d2-bar">
+<div class="d1-logo" style="color: #FFF;">BIL</div>
+<div class="d2-bar-nav">
+<a href="#">Services</a>
+<a href="#">Results</a>
+<a href="#">Process</a>
+<a href="#">Contact</a>
+</div>
+<a class="d2-bar-cta brut-btn" href="tel:+15554471180">(555) 447-1180</a>
+</nav>
+<header class="d2-hero">
+<div class="d2-hero-left">
+<span class="brut-badge" style="align-self: flex-start; color: var(--accent);">Investigators out today · Se habla español</span>
+<h1 class="brut-h1">The evidence is gone<br/>in a week.</h1>
+<p class="brut-body" style="font-size: 18px; margin-bottom: 32px; max-width: 500px;">Injury and accident claims across the state. Camera footage is overwritten in days, skid marks wash away and witnesses forget. We start the same afternoon you call, and there is no fee unless we recover for you.</p>
+<div style="display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 24px;">
+<span class="brut-badge">No fee unless we win</span>
+<span class="brut-badge">Free case review</span>
+<span class="brut-badge">Se habla español</span>
+<span class="brut-badge">Home &amp; hospital visits</span>
+</div>
+<div class="d1-ctas">
+<a class="d1-btn-primary brut-btn" href="tel:+15554471180" style="background: var(--accent); border-color: var(--accent);">Call now — we start today</a>
+<button class="d1-btn-sec brut-btn">Send us the details</button>
+</div>
+</div>
+<div class="d2-hero-right">
+<img alt="A lit desk lamp and telephone against a rain-streaked window" src="../_assets/hero/night.jpg"/>
+<span class="d2-hero-stamp"><span>Desk 01 &mdash; <b>manned</b></span><span>22:47</span></span>
+<div class="d2-giant-cross">V/C</div>
+</div>
+</header>
+<section class="d2-services">
+<h2 class="brut-h2">What we take on</h2>
+<p class="brut-body" style="margin-top: 16px;">If your situation isn't listed, ring anyway — today rather than next week. We will tell you honestly whether there is anything left to preserve.</p>
+<div class="d2-list">
+<div class="d2-list-item">
+<h3>Vehicle collisions</h3>
+<p>Cars, trucks, motorcycles, rideshare. We send a request to preserve footage before the carrier's own investigator is out of the office.</p>
+</div>
+<div class="d2-list-item">
+<h3>Workplace injury</h3>
+<p>Site accidents, machinery, denied comp claims. Equipment gets repaired and logs get rewritten, so we ask for both in writing on day one.</p>
+</div>
+<div class="d2-list-item">
+<h3>Slip, trip and premises</h3>
+<p>The wet floor is mopped within the hour and the broken step is fixed by the weekend. Photographs taken today are frequently the entire case.</p>
+</div>
+<div class="d2-list-item">
+<h3>Wrongful death</h3>
+<p>We take the calls, the forms and the insurer, and we do not ask a family to make decisions in the first week unless the law forces it.</p>
+</div>
+</div>
+</section>
+<section class="d1-process" style="background: #FAFAFA;">
+<h2 class="brut-h2">The first seventy-two hours</h2>
+<p class="brut-body" style="max-width: 600px; margin-top: 16px;">Nearly everything that decides a case is decided in the first three days, usually before anyone has spoken to a lawyer.</p>
+<div class="d1-process-steps">
+<div class="d1-step" style="border-color: var(--accent);">
+<span class="d1-step-num" style="color: var(--accent);">1. Hour one — you call</span>
+<p class="brut-body">Fifteen minutes, free, and we will tell you on that call what to photograph and what not to sign.</p>
+</div>
+<div class="d1-step" style="border-color: var(--accent);">
+<span class="d1-step-num" style="color: var(--accent);">2. Day one — we preserve</span>
+<p class="brut-body">Letters out to everyone holding footage, logs or records, putting them on notice that destroying it now has consequences.</p>
+</div>
+<div class="d1-step" style="border-color: var(--accent);">
+<span class="d1-step-num" style="color: var(--accent);">3. Week one — we gather</span>
+<p class="brut-body">Scene photographs, witnesses while they still remember, medical records, and the vehicle before it goes to the yard.</p>
+</div>
+<div class="d1-step" style="border-color: var(--accent);">
+<span class="d1-step-num" style="color: var(--accent);">4. Then we demand</span>
+<p class="brut-body">A documented demand built from what we preserved. If the answer is not serious, we file — and we have the file to do it.</p>
+</div>
+</div>
+</section>
+<section class="d2-proof">
+<h2 class="brut-h2">Clients on the record</h2>
+<div class="d2-masonry">
+<div class="d2-review">
+<q>"They had the footage before the shop's system deleted it. That was the case."</q>
+<cite>— Teresa L., rear-end collision</cite>
+</div>
+<div class="d2-review">
+<q>"Told me exactly what to photograph while I was still in A&amp;E."</q>
+<cite>— Danny O., workplace injury</cite>
+</div>
+<div class="d2-review">
+<q>"Vinieron el mismo día. En español, sin intérprete."</q>
+<cite>— Rosa V., auto accident</cite>
+</div>
+<div class="d2-review">
+<q>"Four times the first offer, because they had the maintenance log and the insurer didn't know it."</q>
+<cite>— Chris W., premises liability</cite>
+</div>
+</div>
+</section>
+<section class="d2-closing">
+<h2 class="brut-h2">Did it happen this week?</h2>
+<p class="brut-body" style="max-width: 700px; margin: 16px auto; font-size: 20px;">Footage goes on a timer and the carrier's investigator is already working. One free call, fifteen minutes, and you will know what is worth preserving.</p>
+<a class="d1-btn-primary brut-btn" href="tel:+15554471180" style="background:var(--accent); border:none; margin-top: 40px;">Call now — we start today</a>
+<p class="brut-mono" style="margin-top: 24px; font-size: 10px; color: #888;">No fee unless we recover for you. We come to the hospital, the house or the site.</p>
+</section>
+<footer class="d1-footer" style="background: #111;">Brightmoor Injury Law · 4617 Larkspur Street Floor 2, Lakeview Bend, NY 16453 · (555) 447-1180 · Attorney advertising. Prior results do not guarantee a similar outcome.</footer>
+</div>
+</article></div>
+</body>
+</html>

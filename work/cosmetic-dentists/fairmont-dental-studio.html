@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fairmont Dental Studio — Cosmetic &amp; Restorative Dentistry</title>
+<meta name="description" content="Digital preview at your first consult. Veneers, implants and full-mouth restoration, with financing worked out before treatment begins.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* D1 — THE CLINIC ONE. hero:stack nav:centered services:tiles proof:logos
+   ink #17201F · surface #FAF8F5 · accent #0E6B6B · muted #5C605C · on-accent #FFFFFF
+   H1 ramp: 30/36/46/56px · Lora display / Karla body
+   Industry device: the arch mark and the preview frame — abstract CSS geometry standing
+   in for the digital smile preview, which is what this practice actually sells. */
+:root{--ink:#17201F;--surface:#FAF8F5;--accent:#0E6B6B;--muted:#5C605C;--on-accent:#FFFFFF;
+--paper:#FFFFFF;--rule:rgba(23,32,31,.14);--wrap:1080px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.66 Karla,system-ui,-apple-system,sans-serif;padding-bottom:80px;overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 22px}
+h1,h2,h3{font-family:Lora,Georgia,serif;font-weight:600;margin:0;line-height:1.18;letter-spacing:-.012em}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 26px;
+border-radius:40px;text-decoration:none;font-weight:700;font-size:17px;border:1.5px solid transparent}
+.btn-primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.btn-ghost{background:transparent;color:var(--accent);border-color:var(--accent)}
+.topbar{background:var(--ink);color:#DCE3E1;font-size:15px}
+.topbar .wrap{padding:9px 22px;text-align:center;letter-spacing:.01em}
+.nav{position:sticky;top:0;z-index:30;background:var(--surface);border-bottom:1px solid var(--rule)}
+.navrow-links{border-bottom:1px solid var(--rule)}
+.navrow-links .wrap{display:flex;justify-content:center;gap:30px;padding:10px 22px;font-size:13px;
+font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);
+overflow-x:auto;scrollbar-width:none}
+.navrow-links .wrap::-webkit-scrollbar{display:none}
+.navrow-links a{text-decoration:none;white-space:nowrap}
+.navrow-links a:hover{color:var(--accent)}
+.navmain .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;height:58px}
+.brand{font-family:Lora,Georgia,serif;font-weight:600;font-size:16px;text-decoration:none;
+line-height:1;flex:none;display:flex;align-items:center;gap:8px}
+.arch{width:20px;height:11px;border:2px solid var(--accent);border-bottom:none;
+border-radius:20px 20px 0 0;flex:none}
+.navbook{min-height:42px;padding:0 14px;font-size:15px;flex:none;white-space:nowrap}
+.hero{text-align:center;padding:24px 0 44px;
+background:radial-gradient(120% 70% at 50% 0%,rgba(14,107,107,.09),transparent 62%),var(--surface)}
+.hero .wrap{display:flex;flex-direction:column;align-items:center}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+color:var(--accent);margin:0 0 12px}
+.hero h1{font-size:clamp(30px,7.2vw,56px);max-width:15ch}
+.sub{font-size:16px;color:var(--muted);max-width:56ch;margin:14px 0 20px;line-height:1.55}
+.ctas{display:flex;flex-direction:column;gap:11px;width:100%;max-width:400px}
+.badges{display:grid;grid-template-columns:1fr 1fr;gap:8px;list-style:none;margin:24px 0 0;
+padding:0;width:100%;max-width:420px}
+.badges li{font-size:15px;font-weight:600;color:var(--accent);background:rgba(14,107,107,.09);
+border-radius:40px;padding:10px 12px;text-align:center}
+/* the preview frame: two tinted halves and a divider, no photography */
+.preview{margin:32px auto 0;width:100%;max-width:620px;aspect-ratio:16/7;border-radius:14px;
+border:1px solid var(--rule);overflow:hidden;position:relative;background:var(--paper);
+box-shadow:0 20px 44px -32px rgba(23,32,31,.6)}
+.preview::before{content:"";position:absolute;inset:0;
+background:linear-gradient(90deg,#EDE7DE 0 50%,#F4FBFA 50% 100%)}
+.preview i{position:absolute;left:50%;top:0;bottom:0;width:2px;margin-left:-1px;
+background:var(--accent);opacity:.85}
+.preview i::after{content:"";position:absolute;left:50%;top:50%;width:34px;height:34px;
+margin:-17px 0 0 -17px;border-radius:50%;background:var(--accent);
+box-shadow:0 0 0 5px rgba(250,248,245,.95)}
+.teeth{position:absolute;left:50%;bottom:20%;transform:translateX(-50%);display:flex;gap:5px}
+.teeth s{display:block;width:26px;height:34px;border-radius:6px 6px 13px 13px;
+background:#CFC4B4;text-decoration:none}
+.teeth s:nth-child(n+5){background:#FFFFFF;box-shadow:0 1px 5px rgba(14,107,107,.22)}
+.teeth s:first-child,.teeth s:last-child{height:27px;opacity:.85}
+.sec{padding:58px 0;border-top:1px solid var(--rule)}
+.sec-head{text-align:center;max-width:64ch;margin:0 auto 34px}
+.kicker{font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+color:var(--accent);margin:0 0 10px}
+.sec h2{font-size:clamp(28px,5.6vw,44px);margin-bottom:12px}
+.lede{color:var(--muted);margin:0;font-size:17px}
+.tiles{display:grid;gap:14px}
+.tile{background:var(--paper);border:1px solid var(--rule);border-radius:14px;padding:26px 22px}
+.tile .mark{width:26px;height:14px;border:2px solid var(--accent);border-bottom:none;
+border-radius:26px 26px 0 0;margin-bottom:16px}
+.tile h3{font-size:22px;margin-bottom:9px}
+.tile p{margin:0;color:var(--muted);font-size:16px}
+/* financing is a fix on the brief, so it gets its own module rather than a badge */
+.finance{background:var(--accent);color:#fff;border-radius:14px;padding:24px 22px;margin-top:14px;
+display:grid;gap:6px}
+.finance b{font-family:Lora,Georgia,serif;font-weight:600;font-size:30px;line-height:1}
+.finance span{font-size:16px;color:#CFE6E4}
+.logos{background:var(--paper)}
+.logolist{list-style:none;margin:0;padding:0;display:grid;gap:0;border-top:1px solid var(--rule)}
+.logolist li{font-family:Lora,Georgia,serif;font-weight:600;font-size:clamp(16px,3.8vw,20px);
+color:var(--accent);padding:19px 6px;border-bottom:1px solid var(--rule);text-align:center;
+line-height:1.3}
+.steps{list-style:none;margin:0;padding:0;counter-reset:s;display:grid;gap:0;
+border-top:1px solid var(--rule)}
+.steps li{counter-increment:s;padding:24px 0;border-bottom:1px solid var(--rule);display:grid;
+grid-template-columns:46px 1fr;gap:18px}
+.steps li::before{content:counter(s);width:34px;height:34px;border-radius:50%;
+border:1.5px solid var(--accent);color:var(--accent);display:flex;align-items:center;
+justify-content:center;font-family:Lora,serif;font-weight:600;font-size:16px}
+.steps h3{font-size:20px;margin-bottom:6px}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+.close{background:var(--ink);color:#F1F4F3;padding:62px 0;text-align:center}
+.close .wrap{display:flex;flex-direction:column;align-items:center}
+.close h2{font-size:clamp(30px,6.4vw,50px);max-width:16ch}
+.close p{max-width:54ch;font-size:18px;margin:14px 0 24px;color:#B9C4C2}
+.close .btn-primary{background:#fff;color:var(--ink);border-color:#fff}
+.close .btn-ghost{color:#fff;border-color:rgba(255,255,255,.55)}
+.note{font-size:15px;color:#9FADAB;margin-top:20px;max-width:54ch}
+.foot{background:var(--surface);padding:42px 0 34px;font-size:15px;color:var(--muted);text-align:center}
+.foot .brand{color:var(--ink);display:inline-flex;margin-bottom:14px}
+.foot p{margin:0 0 10px}
+.foot a{color:var(--accent)}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--surface);padding:8px;
+box-shadow:0 -6px 20px rgba(23,32,31,.14);display:grid;grid-template-columns:1fr auto;gap:8px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:62px;border-radius:40px;
+text-decoration:none;font-weight:700;font-size:18px}
+.callbar .book{background:var(--accent);color:#fff}
+.callbar .tel{background:transparent;color:var(--ink);border:1.5px solid var(--ink);padding:0 20px;
+font-size:16px}
+@media(min-width:700px){.ctas{flex-direction:row;justify-content:center;max-width:none}
+.badges{display:flex;flex-wrap:wrap;justify-content:center;max-width:none;width:auto}
+.badges li{padding:9px 15px}
+.tiles{grid-template-columns:1fr 1fr;gap:16px}.finance{grid-column:1/-1;margin-top:0;
+display:flex;align-items:baseline;gap:16px}.logolist{grid-template-columns:repeat(4,1fr)}
+.logolist li{border-bottom:none;border-right:1px solid var(--rule);padding:26px 14px}
+.logolist li:last-child{border-right:none}.steps{grid-template-columns:1fr 1fr;column-gap:44px}
+.sec{padding:84px 0}.hero{padding:64px 0 76px}.sub{font-size:19px}
+.navmain .wrap{height:64px}.brand{font-size:21px;gap:9px}
+.navbook{padding:0 20px;font-size:16px}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+@media(max-width:699px){.navrow-links{display:none}}
+</style>
+
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Accepting new patients · Scan and plan at the first visit</div></div>
+<header class="nav">
+  <div class="navrow-links"><div class="wrap"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></div></div>
+  <div class="navmain"><div class="wrap">
+    <a class="brand" href="#"><span class="arch" aria-hidden="true"></span>Fairmont Dental Studio</a>
+    <a class="btn btn-primary navbook" href="#contact">Book a consult</a>
+  </div></div>
+</header>
+<section class="hero"><div class="wrap">
+  <p class="eyebrow">Veneers · Implants · Full-mouth restoration</p>
+  <h1>Scanned, planned and priced before a tooth is touched.</h1>
+  <p class="sub">A 3D scan, a written plan and a fixed number at the first appointment. Veneers, implants and full-mouth restoration, with the whole sequence mapped before anyone picks up a handpiece.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" data-cta="primary" href="#contact">Book a consult</a>
+    <a class="btn btn-ghost" href="#results">See real results</a>
+  </div>
+  <ul class="badges"><li>Digital smile preview</li><li>0% financing available</li><li>Sedation available</li><li>Evening appointments</li></ul>
+  <div class="preview" aria-hidden="true"><i></i><div class="teeth"><s></s><s></s><s></s><s></s><s></s><s></s><s></s><s></s></div></div>
+</div></section>
+<figure class="gsw-plate"><img src="../_assets/hero/cosmetic-dentists/a-preview-before-commit.jpg" alt="Preview before commit — cosmetic dentists" loading="lazy"></figure>
+
+<section class="sec" id="services"><div class="wrap">
+  <div class="sec-head"><p class="kicker">Services</p><h2>Treatments</h2>
+  <p class="lede">Every case starts with the same thing: a scan, a preview, and a written plan with a number on it.</p></div>
+  <div class="tiles">
+    <article class="tile"><div class="mark" aria-hidden="true"></div><h3>Porcelain veneers</h3><p>Hand-layered by a master ceramist. You approve a digital preview and a trial smile before a single tooth is prepared.</p></article>
+    <article class="tile"><div class="mark" aria-hidden="true"></div><h3>Dental implants</h3><p>Single tooth to full arch. Guided placement from a 3D scan, which is why they seat precisely and last.</p></article>
+    <article class="tile"><div class="mark" aria-hidden="true"></div><h3>Full-mouth restoration</h3><p>For wear, bite collapse or years of patchwork dentistry. Planned as one outcome rather than a series of repairs.</p></article>
+    <article class="tile"><div class="mark" aria-hidden="true"></div><h3>Whitening &amp; bonding</h3><p>The lower-commitment start. Often all somebody actually needs, and we'll say so if that's the case.</p></article>
+    <div class="finance"><b>0%</b><span>Financing available</span></div>
+  </div>
+</div></section>
+<section class="sec logos" id="results"><div class="wrap">
+  <div class="sec-head"><p class="kicker">Results</p><h2>Accredited by</h2></div>
+  <ul class="logolist"><li>American Academy of Cosmetic Dentistry</li><li>Invisalign Diamond</li><li>ADA Member</li><li>Digital Smile Design Certified</li></ul>
+</div></section>
+<section class="sec" id="process"><div class="wrap">
+  <div class="sec-head"><p class="kicker">Process</p><h2>How treatment works</h2>
+  <p class="lede">No surprises and no moving numbers. You see the outcome and the price before anything is prepared.</p></div>
+  <ol class="steps">
+    <li><div><h3>Consult &amp; scan</h3><p>3D scan, photographs, and a conversation about what actually bothers you. About an hour.</p></div></li>
+    <li><div><h3>Digital preview</h3><p>You see your own result rendered before treatment starts, and we adjust it until you're happy.</p></div></li>
+    <li><div><h3>Written plan &amp; financing</h3><p>A fixed plan with a fixed number, plus monthly options. You take it away and think about it.</p></div></li>
+    <li><div><h3>Treatment &amp; follow-up</h3><p>Most veneer cases are two visits. We review at six months and you have a direct line throughout.</p></div></li>
+  </ol>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>Want the plan before the treatment?</h2>
+  <p>Most of our patients had. The consult is free, there's no pressure, and you'll leave knowing what it would look like and what it would cost.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="#contact">Book a consult</a>
+    <a class="btn btn-ghost" href="tel:+15552648890">(555) 264-8890</a>
+  </div>
+  <p class="note">Free consultations, scans included. Financing from 0% APR, and evening and Saturday appointments for people who work.</p>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#"><span class="arch" aria-hidden="true"></span>Fairmont Dental Studio</a>
+  <p><a href="tel:+15552648890">(555) 264-8890</a> · Accepting new patients · Scan and plan at the first visit</p>
+  <p>General and cosmetic dentistry · Accepting new patients</p>
+  <p>2462 Windmere Avenue, Millbrook Park, NY 14660</p>
+</div></footer>
+<div class="callbar"><a class="book" href="#contact">Book a consult</a><a class="tel" href="tel:+15552648890">(555) 264-8890</a></div>
+</body>
+</html>

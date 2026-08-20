@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calderwood Architecture — Houses, adaptive reuse, cultural work</title>
+<meta name="description" content="Four kinds of commission, four ways in. A twelve-person studio that stays through construction.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* D4 — THE SHEET SET. hero:split nav:bar services:list proof:review-wall
+   ink #111214 · surface #F2F1ED · accent #B02318 · muted #4F5356
+   H1 ramp: 30/36/45/58px · Golos Text 400/500/600/700, one grotesque throughout
+   Fixes "no idea who is actually visiting": the hero is a set of four labelled sheets and
+   the wall below answers in the same four voices — client, pre-design, reuse, contractor —
+   so which sheet a visitor opens is itself the qualifying question. */
+:root{--ink:#111214;--surface:#F2F1ED;--paper:#FFFFFF;--accent:#B02318;--muted:#4F5356;
+--rule:rgba(17,18,20,.24);--hair:rgba(17,18,20,.14);--wrap:1160px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.6 "Golos Text",system-ui,-apple-system,sans-serif;
+padding-bottom:84px;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 18px}
+h1,h2,h3{margin:0;font-weight:600;line-height:1.1;letter-spacing:-.024em}
+a{color:inherit}
+.lbl{font-size:13px;letter-spacing:.19em;text-transform:uppercase;font-weight:600;line-height:1.35;
+display:block}
+.btn{display:flex;align-items:center;justify-content:center;min-height:54px;padding:0 20px;
+text-decoration:none;font-weight:600;font-size:16px;line-height:1.2;text-align:center;
+border:2px solid var(--accent)}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.topbar{background:var(--accent);color:#fff;font-size:14px;font-weight:500}
+.topbar .wrap{padding:8px 18px}
+/* bar nav */
+.nav{position:sticky;top:0;z-index:30;background:var(--ink);color:#E9E7E3}
+.navrow{display:flex;align-items:center;gap:14px;height:56px}
+.brand{font-weight:700;font-size:18px;letter-spacing:-.025em;text-decoration:none;color:#fff;flex:none}
+.navlinks{display:flex;gap:18px;flex:1;min-width:0;overflow-x:auto;scrollbar-width:none;
+font-size:13px;letter-spacing:.13em;text-transform:uppercase;font-weight:600;color:#CFCDC9}
+.navlinks::-webkit-scrollbar{display:none}
+.navlinks a{text-decoration:none;white-space:nowrap;padding:18px 0}
+.navact{min-height:36px;padding:0 14px;font-size:13.5px;white-space:nowrap;flex:none;border-width:2px}
+/* split hero: sheets on one side, argument on the other */
+.hero{padding:24px 0 36px}
+.split{display:grid;gap:24px}
+.hero .lbl{color:var(--accent);margin-bottom:14px}
+.hero h1{font-size:clamp(30px,8vw,58px);max-width:15ch}
+.sub{color:var(--muted);font-size:16.5px;line-height:1.56;max-width:54ch;margin:16px 0 0}
+.acts{display:grid;gap:9px;margin-top:22px}
+.sheets{display:grid;gap:8px}
+.sheetcap{color:var(--muted);margin-bottom:12px}
+.tab{background:var(--paper);border:1px solid var(--hair);border-left:5px solid var(--accent);
+padding:13px 14px;display:grid;grid-template-columns:auto 1fr;gap:11px;align-items:baseline}
+.tab .n{font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--accent)}
+.tab .t{font-size:16px;line-height:1.38;font-weight:500}
+/* sections */
+.sec{padding:50px 0;border-top:2px solid var(--ink)}
+.kick{color:var(--accent);margin-bottom:12px}
+.sec h2{font-size:clamp(27px,6.6vw,42px)}
+.lede{color:var(--muted);font-size:17px;max-width:58ch;margin:14px 0 0}
+.tbl{list-style:none;margin:28px 0 0;padding:0}
+.tbl li{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:18px 14px;
+border-bottom:1px solid var(--hair)}
+.tbl li:nth-child(odd){background:var(--paper)}
+.tbl li:first-child{border-top:2px solid var(--ink)}
+.tbl .n{width:34px;height:34px;border:1.5px solid var(--accent);color:var(--accent);
+display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;
+letter-spacing:.06em;flex:none}
+.tbl h3{font-size:20px;margin-bottom:6px}
+.tbl p{margin:0;color:var(--muted);font-size:16px}
+/* review wall */
+.wall{display:grid;margin-top:28px;border-top:2px solid var(--ink)}
+.rev{padding:20px 0 22px;border-bottom:1px solid var(--hair)}
+.rev .n{display:block;font-size:13px;font-weight:700;letter-spacing:.16em;color:var(--accent);
+margin-bottom:10px}
+.rev p{margin:0 0 12px;font-size:18px;line-height:1.42;font-weight:500;letter-spacing:-.012em;
+max-width:38ch}
+.rev cite{font-style:normal;font-size:15px;color:var(--muted)}
+.rev cite b{color:var(--ink);font-weight:600}
+/* process */
+.seq{list-style:none;margin:28px 0 0;padding:0}
+.seq li{position:relative;padding:0 0 24px 30px;border-left:2px solid var(--hair)}
+.seq li:last-child{border-left-color:transparent;padding-bottom:0}
+.seq li::before{content:"";position:absolute;left:-7px;top:4px;width:12px;height:12px;
+background:var(--accent)}
+.seq .n{display:block;font-size:13px;font-weight:700;letter-spacing:.16em;color:var(--accent);
+margin-bottom:6px;line-height:1}
+.seq h3{font-size:20px;margin-bottom:6px}
+.seq p{margin:0;color:var(--muted);font-size:16px;max-width:50ch}
+/* close */
+.close{background:var(--accent);color:#fff;padding:50px 0 54px}
+.close h2{font-size:clamp(28px,6.8vw,44px);max-width:19ch}
+.close p{font-size:17px;max-width:56ch;margin:16px 0 24px;color:#FBE9E7}
+.close .btn-primary{background:#fff;color:var(--accent);border-color:#fff}
+.close .btn-ghost{color:#fff;border-color:rgba(255,255,255,.66)}
+.note{font-size:15px;color:#F7DBD8;margin-top:20px;max-width:56ch}
+.foot{padding:36px 0 32px;font-size:15px;color:var(--muted)}
+.foot .brand{color:var(--ink);display:inline-block;margin-bottom:10px;font-size:18px}
+.foot p{margin:0 0 8px;max-width:66ch}
+.foot a{color:var(--accent);font-weight:600}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--ink);
+padding:8px;display:grid;grid-template-columns:1fr auto;gap:8px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:58px;
+text-decoration:none;font-weight:600;font-size:15px;line-height:1.2;padding:0 14px;text-align:center}
+.callbar .go{background:var(--accent);color:#fff}
+.callbar .tel{border:2px solid #E9E7E3;color:#fff;font-size:16px}
+@media(max-width:559px){.navact{display:none}}
+@media(min-width:760px){
+ .acts{grid-auto-flow:column;justify-content:start}
+ .split{grid-template-columns:.85fr 1.4fr;gap:46px;align-items:start}
+ .split .sheetcol{order:-1}
+ .hero{padding:46px 0 58px}.sec{padding:80px 0}
+ .tbl li{grid-template-columns:auto 1fr 1.25fr;padding:20px 20px}
+ .tbl h3{margin-bottom:0}
+ .wall{grid-template-columns:1fr 1fr;column-gap:46px}
+ .seq{display:grid;grid-template-columns:1fr 1fr;column-gap:46px}
+ .sub{font-size:18px}
+}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Residential &amp; cultural work · Enquiries for 2027 open</div></div>
+<header class="nav"><div class="wrap"><div class="navrow">
+  <a class="brand" href="#">Calderwood Architecture</a>
+  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+  <a class="btn btn-primary navact" href="#contact">Discuss a project</a>
+</div></div></header>
+
+<section class="hero"><div class="wrap"><div class="split">
+  <div>
+    <span class="lbl">Residential · Cultural · Adaptive reuse</span>
+    <h1>Drawings a builder can actually build from.</h1>
+    <p class="sub">A twelve-person studio working on houses, small cultural buildings and adaptive reuse. Our sheet sets are complete and coordinated, which is why our projects tend to come in near the number they were priced at.</p>
+    <div class="acts">
+      <a class="btn btn-primary" data-cta="primary" href="#contact">Discuss a project</a>
+      <a class="btn btn-ghost" href="#results">View work</a>
+    </div>
+  </div>
+  <div class="sheetcol">
+    <div class="sheets">
+      <div class="tab"><span class="n">01</span><span class="t">12-person studio</span></div>
+      <div class="tab"><span class="n">02</span><span class="t">AIA registered</span></div>
+      <div class="tab"><span class="n">03</span><span class="t">Full service through construction</span></div>
+      <div class="tab"><span class="n">04</span><span class="t">Enquiries for 2027</span></div>
+    </div>
+  </div>
+</div></div></section>
+<figure class="gsw-plate"><img src="../_assets/hero/architecture/d-drawing-macro.jpg" alt="Drawing macro — architecture" loading="lazy"></figure>
+
+
+<section class="sec" id="services"><div class="wrap">
+  <span class="lbl kick">Services</span>
+  <h2>What we take on</h2>
+  <p class="lede">Roughly eight projects at a time. We are not the cheapest and we are honest about that early.</p>
+  <ol class="tbl">
+    <li><span class="n">01</span><h3>Private houses</h3><p>New build and substantial renovation. Typically construction budgets from $900k, where the site or the brief has genuine difficulty in it.</p></li>
+    <li><span class="n">02</span><h3>Adaptive reuse</h3><p>Industrial, agricultural and civic buildings given a second life. The constraint is the interesting part and usually the reason it works.</p></li>
+    <li><span class="n">03</span><h3>Cultural &amp; civic</h3><p>Small galleries, libraries and community buildings, including competition work and public procurement.</p></li>
+    <li><span class="n">04</span><h3>Feasibility &amp; pre-design</h3><p>Before you buy a site or commit to a scheme. A short, paid piece of work that regularly saves people a great deal.</p></li>
+  </ol>
+</div></section>
+
+<section class="sec" id="results"><div class="wrap">
+  <span class="lbl kick">Results</span>
+  <h2>Clients &amp; collaborators</h2>
+  <div class="wall">
+    <figure class="rev"><span class="n">01</span><p>“They stayed through construction. That's where the value actually was.”</p><cite><b>R. Alvarez</b> · Private house</cite></figure>
+    <figure class="rev"><span class="n">02</span><p>“The feasibility study stopped us buying the wrong site. Best $6k we spent.”</p><cite><b>Faye C.</b> · Pre-design</cite></figure>
+    <figure class="rev"><span class="n">03</span><p>“Handled a listed building consent that everyone said was impossible.”</p><cite><b>D. Farrow</b> · Adaptive reuse</cite></figure>
+    <figure class="rev"><span class="n">04</span><p>“Best contract administration we've worked with, and we build for a lot of architects.”</p><cite><b>Meakin Construction</b> · Contractor</cite></figure>
+  </div>
+</div></section>
+
+<section class="sec" id="process"><div class="wrap">
+  <span class="lbl kick">Process</span>
+  <h2>How a commission runs</h2>
+  <p class="lede">Five stages, and we stay through the last one — which is where most of the risk actually sits.</p>
+  <ol class="seq">
+    <li><span class="n">01</span><h3>Feasibility</h3><p>A short paid study: what the site allows, what it will cost, and whether the idea survives contact with reality.</p></li>
+    <li><span class="n">02</span><h3>Concept</h3><p>Two or three genuinely different directions rather than one refined proposal. You choose a direction, not a drawing.</p></li>
+    <li><span class="n">03</span><h3>Developed design</h3><p>Resolved with engineers and costed properly. Permitting runs from here, and we handle it.</p></li>
+    <li><span class="n">04</span><h3>Construction</h3><p>Tender, contractor selection and site administration through to completion. We do not hand over drawings and disappear.</p></li>
+  </ol>
+</div></section>
+
+<section class="close" id="contact"><div class="wrap">
+  <h2>Have a site, or a building you don't know what to do with?</h2>
+  <p>A first conversation is free. Bring a set of drawings from anyone and we will show you what a contractor is guessing at in them.</p>
+  <div class="acts">
+    <a class="btn btn-primary" href="#contact">Discuss a project</a>
+    <a class="btn btn-ghost" href="tel:+15558904426">(555) 890-4426</a>
+  </div>
+  <p class="note">Enquiries for 2027 now open. Feasibility studies available as standalone work.</p>
+</div></section>
+
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Calderwood Architecture</a>
+  <p>AIA registered practice · Residential, cultural and adaptive reuse · Est. 2007</p>
+  <p><a href="tel:+15558904426">(555) 890-4426</a></p>
+  <p>5956 Larkspur Street Suite 200, Stonebridge, MA 15304</p>
+</div></footer>
+<div class="callbar"><a class="go" href="#contact">Discuss a project</a><a class="tel" href="tel:+15558904426">(555) 890-4426</a></div>
+</body>
+</html>

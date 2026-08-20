@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aldridge Dental — Cosmetic &amp; Restorative Dentistry</title>
+<meta name="description" content="Digital preview at your first consult. Veneers, implants and full-mouth restoration, with financing worked out before treatment begins.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* D3 — THE QUIET ONE. hero:panel nav:minimal services:list proof:testimonial-lead
+   ink #221F1B · surface #F1EEE7 · accent #4F6B52 · muted #625E56 · on-accent #FFFFFF
+   H1 ramp: 30/36/46/58px · Spectral display / Work Sans body
+   For the patient who has been researching for weeks: no urgency, no pressure devices,
+   one patient's sentence carrying the whole proof section. */
+:root{--ink:#221F1B;--surface:#F1EEE7;--accent:#4F6B52;--muted:#625E56;--on-accent:#FFFFFF;
+--panel:#FBF9F5;--rule:rgba(34,31,27,.15);--wrap:1060px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.7 "Work Sans",system-ui,-apple-system,sans-serif;padding-bottom:80px;overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 22px}
+h1,h2,h3{font-family:Spectral,Georgia,serif;font-weight:600;margin:0;line-height:1.14;letter-spacing:-.01em}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 26px;
+border-radius:2px;text-decoration:none;font-weight:600;font-size:17px;border:1px solid transparent}
+.btn-primary{background:var(--ink);color:var(--on-accent);border-color:var(--ink)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.topbar{background:transparent;color:var(--muted);font-size:15px;border-bottom:1px solid var(--rule)}
+.topbar .wrap{padding:8px 22px;text-align:center;letter-spacing:.02em}
+.nav{position:sticky;top:0;z-index:30;background:var(--surface);border-bottom:1px solid var(--rule)}
+.nav .wrap{display:flex;align-items:center;gap:12px;height:58px}
+.brand{font-family:Spectral,Georgia,serif;font-weight:600;font-size:18px;text-decoration:none;
+line-height:1;flex:none;letter-spacing:.01em}
+.navbook{min-height:42px;padding:0 15px;font-size:15px;flex:none;margin-left:auto;white-space:nowrap}
+.navlinks{border-bottom:1px solid var(--rule)}
+.navlinks .wrap{display:flex;gap:26px;padding:11px 22px;overflow-x:auto;scrollbar-width:none;
+font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.navlinks .wrap::-webkit-scrollbar{display:none}
+.navlinks a{text-decoration:none;white-space:nowrap}
+.navlinks a:hover{color:var(--accent)}
+.hero{padding:10px 0 38px}
+.panel{background:var(--panel);border:1px solid var(--rule);padding:20px 20px 28px}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+color:var(--accent);margin:0 0 10px}
+.hero h1{font-size:clamp(30px,7.2vw,58px);max-width:14ch}
+.sub{font-size:16px;color:var(--muted);max-width:52ch;margin:12px 0 18px;line-height:1.5}
+.ctas{display:flex;flex-direction:column;gap:10px}
+.rule{height:1px;background:var(--rule);margin:26px 0 20px}
+.badges{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.badges li{font-size:16px;color:var(--muted);padding-left:20px;position:relative}
+.badges li::before{content:"";position:absolute;left:0;top:11px;width:9px;height:9px;
+border:1.5px solid var(--accent);border-radius:50%}
+.sec{padding:58px 0;border-top:1px solid var(--rule)}
+.kicker{font-size:13px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+color:var(--accent);margin:0 0 12px}
+.sec h2{font-size:clamp(28px,5.6vw,44px);margin-bottom:14px}
+.lede{color:var(--muted);max-width:60ch;margin:0;font-size:17px}
+.list{margin:32px 0 0;padding:0;list-style:none}
+.list li{padding:26px 0;border-top:1px solid var(--rule);display:grid;gap:8px}
+.list li:last-child{border-bottom:1px solid var(--rule)}
+.list h3{font-size:22px}
+.list p{margin:0;color:var(--muted);font-size:16px;max-width:64ch}
+.fin{margin-top:26px;border:1px solid var(--accent);padding:20px 22px;display:grid;gap:4px;
+background:rgba(79,107,82,.06)}
+.fin b{font-family:Spectral,Georgia,serif;font-weight:600;font-size:28px;color:var(--accent);line-height:1}
+.fin span{font-size:16px;color:var(--muted)}
+.quote{background:var(--ink);color:#EFEBE4}
+.quote .kicker{color:#9DB49F}
+.quote blockquote{margin:26px 0 0}
+.quote .q{font-family:Spectral,Georgia,serif;font-weight:400;font-size:clamp(23px,5vw,40px);
+line-height:1.32;margin:0;max-width:26ch}
+.quote cite{display:block;margin-top:24px;font-style:normal;font-size:16px;color:#A9A296}
+.quote cite b{color:#fff;font-weight:600}
+.steps{list-style:none;margin:30px 0 0;padding:0;counter-reset:s;display:grid;gap:0}
+.steps li{counter-increment:s;display:grid;grid-template-columns:40px 1fr;gap:16px;padding:22px 0;
+border-top:1px solid var(--rule)}
+.steps li::before{content:counter(s);font-family:Spectral,Georgia,serif;font-weight:600;font-size:26px;
+color:var(--accent);line-height:1}
+.steps h3{font-size:20px;margin-bottom:6px}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+.close{padding:58px 0 64px;border-top:1px solid var(--rule)}
+.close .panel{padding:32px 22px 34px}
+.close h2{font-size:clamp(29px,6.2vw,48px);max-width:15ch}
+.close p{max-width:52ch;font-size:18px;color:var(--muted);margin:14px 0 22px}
+.note{font-size:15px;color:var(--muted);margin-top:20px;max-width:54ch}
+.foot{padding:42px 0 34px;font-size:15px;color:var(--muted);border-top:1px solid var(--rule)}
+.foot .brand{color:var(--ink);display:inline-block;margin-bottom:14px}
+.foot p{margin:0 0 10px;max-width:64ch}
+.foot a{color:var(--accent)}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--surface);padding:8px;
+border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:8px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:60px;border-radius:2px;
+text-decoration:none;font-weight:600;font-size:18px}
+.callbar .book{background:var(--ink);color:#fff}
+.callbar .tel{border:1px solid var(--ink);color:var(--ink);padding:0 18px;font-size:16px}
+@media(min-width:760px){.ctas{flex-direction:row;gap:12px}.badges{grid-template-columns:1fr 1fr}
+.sec{padding:88px 0}.sub{font-size:19px}.hero{padding:34px 0 58px}.panel{padding:48px 46px 50px}
+.close .panel{padding:54px 46px 56px}.list li{grid-template-columns:.8fr 1.2fr;gap:40px;align-items:start}
+.steps{grid-template-columns:1fr 1fr;column-gap:44px}.nav .wrap{height:64px}.brand{font-size:20px}
+.fin{display:flex;align-items:baseline;gap:14px}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">One dentist · No treatment coordinators · New patients welcome</div></div>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="#">Aldridge Dental</a>
+  <a class="btn btn-primary navbook" href="#contact">Book a consult</a>
+</div></header>
+<nav class="navlinks"><div class="wrap"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></div></nav>
+<section class="hero"><div class="wrap"><div class="panel">
+  <p class="eyebrow">Veneers · Implants · Full-mouth restoration</p>
+  <h1>No packages. No pressure. One plan.</h1>
+  <p class="sub">One dentist, one plan, and a number that does not move. Veneers, implants and full-mouth restoration — and an honest answer when whitening would have done instead.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" data-cta="primary" href="#contact">Book a consult</a>
+    <a class="btn btn-ghost" href="#results">See real results</a>
+  </div>
+  <div class="rule"></div>
+  <ul class="badges"><li>Digital smile preview</li><li>0% financing available</li><li>Sedation available</li><li>Evening appointments</li></ul>
+</div></div></section>
+<figure class="gsw-plate"><img src="../_assets/hero/cosmetic-dentists/c-the-preview.jpg" alt="The preview — cosmetic dentists" loading="lazy"></figure>
+
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p><h2>Treatments</h2>
+  <p class="lede">Every case starts with the same thing: a scan, a preview, and a written plan with a number on it.</p>
+  <ul class="list">
+    <li><h3>Porcelain veneers</h3><p>Hand-layered by a master ceramist. You approve a digital preview and a trial smile before a single tooth is prepared.</p></li>
+    <li><h3>Dental implants</h3><p>Single tooth to full arch. Guided placement from a 3D scan, which is why they seat precisely and last.</p></li>
+    <li><h3>Full-mouth restoration</h3><p>For wear, bite collapse or years of patchwork dentistry. Planned as one outcome rather than a series of repairs.</p></li>
+    <li><h3>Whitening &amp; bonding</h3><p>The lower-commitment start. Often all somebody actually needs, and we'll say so if that's the case.</p></li>
+  </ul>
+  <div class="fin"><b>0%</b><span>Financing available</span></div>
+</div></section>
+<section class="sec quote" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <blockquote><p class="q">I'd wanted this for eleven years and kept putting it off because I couldn't picture it. They showed me the preview at the first appointment and I booked that afternoon.</p>
+  <cite><b>Alina K.</b> · Porcelain veneers, 10 units</cite></blockquote>
+</div></section>
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p><h2>How treatment works</h2>
+  <p class="lede">No surprises and no moving numbers. You see the outcome and the price before anything is prepared.</p>
+  <ol class="steps">
+    <li><div><h3>Consult &amp; scan</h3><p>3D scan, photographs, and a conversation about what actually bothers you. About an hour.</p></div></li>
+    <li><div><h3>Digital preview</h3><p>You see your own result rendered before treatment starts, and we adjust it until you're happy.</p></div></li>
+    <li><div><h3>Written plan &amp; financing</h3><p>A fixed plan with a fixed number, plus monthly options. You take it away and think about it.</p></div></li>
+    <li><div><h3>Treatment &amp; follow-up</h3><p>Most veneer cases are two visits. We review at six months and you have a direct line throughout.</p></div></li>
+  </ol>
+</div></section>
+<section class="close" id="contact"><div class="wrap"><div class="panel">
+  <h2>Been sold something you didn't need before?</h2>
+  <p>Most of our patients had. The consult is free, there's no pressure, and you'll leave knowing what it would look like and what it would cost.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="#contact">Book a consult</a>
+    <a class="btn btn-ghost" href="tel:+15557036612">(555) 703-6612</a>
+  </div>
+  <p class="note">Free consultations with no treatment coordinator in the room. Financing from 0% APR, and we will tell you when the answer is to do nothing.</p>
+</div></div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Aldridge Dental</a>
+  <p><a href="tel:+15557036612">(555) 703-6612</a> · One dentist · No treatment coordinators · New patients welcome</p>
+  <p>General and cosmetic dentistry · Accepting new patients</p>
+  <p>1834 Ridgeway Avenue Suite 4B, Lakeview Bend, NY 17673</p>
+</div></footer>
+<div class="callbar"><a class="book" href="#contact">Book a consult</a><a class="tel" href="tel:+15557036612">(555) 703-6612</a></div>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Meridian Roof Co. — 2,400+ roofs completed, 24hr emergency response</title>
+<meta name="description" content="Storm damage, full replacements and repairs across the metro. Twenty-one years, 2,400 roofs, and a foreman who gives you his number on day one and answers it on day four hundred.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* D3 — THE NUMBERS ONE. hero:split nav:inline services:tiles proof:stats
+   ink #16181A · surface #F1F2F3 · accent #9A3412 · muted #545A60 · on-dark #E9EAEB
+   H1 ramp: 33/38/50/62px · Antonio display / IBM Plex Sans body
+   Device: the sawtooth ridge — a CSS roofline of triangles capping the slate hero
+   block. FIX answered first: no proof of volume, so 2,400+ roofs is a board of four
+   oversized figures, not a footnote. Financing is a numbered strip, the claim block
+   sits beside it, and the number rides the slate plate in the hero's second column. */
+:root{--ink:#16181A;--surface:#F1F2F3;--accent:#9A3412;--muted:#545A60;--slate:#2B3238;
+--ondark:#E9EAEB;--dim:#AEB4BA;--flare:#FF8C4A;--rule:rgba(22,24,26,.16);--hair:rgba(22,24,26,.09);
+--wrap:1150px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);overflow-x:hidden;padding-bottom:82px;
+font:400 17px/1.6 "IBM Plex Sans",system-ui,-apple-system,sans-serif}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3,.fig{font-family:Antonio,Impact,sans-serif;font-weight:700;margin:0;line-height:1.02;
+text-transform:uppercase;letter-spacing:.01em}
+a{color:inherit}
+p{margin:0}
+.btn{display:flex;align-items:center;justify-content:center;min-height:58px;padding:8px 20px;
+text-decoration:none;text-align:center;line-height:1.15;font-weight:600;font-size:15px;
+letter-spacing:.1em;text-transform:uppercase;border:2px solid transparent}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-ghost{background:transparent;color:var(--ondark);border-color:rgba(233,234,235,.45)}
+.topbar{background:var(--accent);color:#fff;font-size:14px;font-weight:500}
+.topbar .wrap{padding:7px 20px;letter-spacing:.05em}
+.nav{position:sticky;top:0;z-index:30;background:var(--surface);border-bottom:2px solid var(--ink)}
+.nav .wrap{display:flex;align-items:baseline;gap:14px;padding-top:14px;padding-bottom:12px}
+.brand{font-family:Antonio,Impact,sans-serif;font-weight:700;font-size:24px;text-decoration:none;
+text-transform:uppercase;letter-spacing:.02em;flex:none;line-height:1}
+.navlinks{display:none;gap:20px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;
+font-weight:600;color:var(--muted)}
+.navlinks a{text-decoration:none}
+.navlinks a:hover{color:var(--accent)}
+.navact{margin-left:auto;flex:none;text-decoration:none;font-family:Antonio,Impact,sans-serif;
+font-weight:700;font-size:23px;color:var(--accent);white-space:nowrap;line-height:1}
+.hero{padding:0 0 34px}
+.split{display:grid;gap:0}
+.blk{background:var(--slate);color:var(--ondark);padding:24px 20px 28px;position:relative}
+.blk::after{content:"";position:absolute;left:0;right:0;top:100%;height:15px;z-index:2;
+background:linear-gradient(135deg,var(--slate) 50%,transparent 50%) repeat-x 0 0/15px 15px}
+.eyebrow{font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;
+color:var(--flare);margin:0 0 12px}
+.blk h1{font-size:clamp(33px,8.4vw,62px);color:#fff;max-width:13ch}
+.blk .sub{font-size:16px;color:var(--dim);max-width:50ch;margin:14px 0 20px;line-height:1.55}
+.ctas{display:grid;gap:9px}
+.plate{background:var(--surface);border:2px solid var(--ink);border-top:0;padding:26px 18px 20px}
+.plate .lab{font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;
+color:var(--muted);margin:0 0 4px}
+.plate .tel{display:block;font-family:Antonio,Impact,sans-serif;font-weight:700;
+font-size:clamp(40px,11vw,58px);color:var(--accent);text-decoration:none;line-height:1;
+letter-spacing:.01em}
+.badges{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:0;border-top:2px solid var(--ink)}
+.badges li{font-size:15px;font-weight:500;padding:10px 0;border-bottom:1px solid var(--hair)}
+.badges li b{font-family:Antonio,Impact,sans-serif;font-weight:700;color:var(--accent);
+margin-right:8px;font-size:17px}
+.strip{background:var(--ink);color:#fff}
+.strip .wrap{padding:0}
+.striprow{display:grid}
+.striprow>div{padding:20px}
+.striprow .fin{background:var(--accent)}
+.striprow .fig{font-size:clamp(28px,7vw,40px);display:block;margin-bottom:6px;line-height:1}
+.striprow p{font-size:16px;color:#D5D7D9}
+.striprow .fin p{color:#FFE0D2}
+.striprow .lab{font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;
+margin:0 0 8px;color:var(--flare)}
+.striprow .fin .lab{color:#FFD3BF}
+.sec{padding:44px 0}
+.kicker{font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;
+color:var(--accent);margin:0 0 9px}
+.sec h2{font-size:clamp(30px,7.4vw,52px);margin-bottom:12px}
+.lede{color:var(--muted);max-width:58ch;margin:0 0 24px;font-size:16px}
+.tiles{display:grid;gap:12px}
+.tile{background:#fff;border-top:5px solid var(--accent);padding:20px 18px 22px}
+.tile h3{font-size:22px;margin-bottom:7px}
+.tile p{color:var(--muted);font-size:16px}
+.stats{background:var(--slate);color:var(--ondark);padding:40px 0 44px}
+.stats .kicker{color:var(--flare)}
+.stats h2{color:#fff}
+.statgrid{display:grid;gap:0;margin-top:18px;border-top:1px solid rgba(233,234,235,.28)}
+.statgrid div{padding:16px 0;border-bottom:1px solid rgba(233,234,235,.18);display:flex;
+align-items:baseline;gap:14px}
+.statgrid .fig{font-size:clamp(38px,10vw,54px);color:var(--flare);line-height:.95;flex:none;
+min-width:3.4ch}
+.statgrid p{font-size:16px;color:var(--dim)}
+.steps{list-style:none;margin:22px 0 0;padding:0;counter-reset:s;display:grid;gap:0}
+.steps li{counter-increment:s;padding:18px 0;border-top:2px solid var(--rule);display:grid;
+grid-template-columns:46px minmax(0,1fr);gap:12px}
+.steps li::before{content:counter(s) "/";font-family:Antonio,Impact,sans-serif;font-weight:700;
+font-size:28px;color:var(--accent);line-height:1}
+.steps h3{font-size:20px;margin-bottom:5px}
+.steps p{color:var(--muted);font-size:16px}
+.close{background:var(--accent);color:#fff;padding:42px 0 46px}
+.close h2{font-size:clamp(31px,7.6vw,54px);max-width:14ch}
+.close p{max-width:52ch;font-size:17px;margin:12px 0 18px;color:#FFE0D2}
+.close .tel{display:inline-block;font-family:Antonio,Impact,sans-serif;font-weight:700;
+font-size:clamp(38px,10vw,56px);color:#fff;text-decoration:none;line-height:1;margin-bottom:16px}
+.close .btn-primary{background:#fff;color:var(--accent)}
+.close .btn-ghost{color:#fff;border-color:rgba(255,255,255,.6)}
+.note{font-size:15px;color:#FFD3BF;margin-top:16px;max-width:52ch}
+.foot{background:var(--ink);color:var(--dim);padding:32px 0 28px;font-size:15px}
+.foot .brand{color:#fff;display:inline-block;margin-bottom:10px;font-size:22px}
+.foot p{margin:0 0 8px;max-width:62ch}
+.foot a{color:var(--flare)}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--ink);
+display:grid;grid-template-columns:1fr auto;gap:6px;padding:6px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:58px;
+text-decoration:none;text-align:center;font-weight:600;line-height:1.15;padding:0 12px}
+.callbar .tel{background:var(--accent);color:#fff;font-family:Antonio,Impact,sans-serif;
+font-weight:700;font-size:26px;text-transform:uppercase}
+.callbar .alt2{color:#fff;border:2px solid rgba(255,255,255,.45);font-size:13px;
+letter-spacing:.07em;text-transform:uppercase;max-width:128px}
+@media(max-width:559px){.navact{font-size:20px}}
+@media(min-width:760px){.split{grid-template-columns:1.2fr .8fr}
+.plate{border-top:2px solid var(--ink);border-left:0}.blk{padding:44px 40px 48px}
+.plate{padding:34px 28px}.ctas{grid-template-columns:auto auto;justify-content:start}
+.tiles{grid-template-columns:1fr 1fr}.striprow{grid-template-columns:1fr 1fr}
+.statgrid{grid-template-columns:1fr 1fr;column-gap:40px}.steps{grid-template-columns:1fr 1fr;column-gap:40px}
+.sec{padding:74px 0}.blk .sub{font-size:19px}.striprow>div{padding:30px}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}.navlinks{display:flex}
+.tiles{grid-template-columns:repeat(4,1fr)}.statgrid{grid-template-columns:repeat(4,1fr);column-gap:28px}
+.statgrid div{display:block}.statgrid .fig{display:block;margin-bottom:8px}}
+</style>
+
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Licensed &amp; insured · 2,400 roofs since 2003</div></div>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="#">Meridian Roof Co.</a>
+  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+  <a class="navact" href="tel:+15556452130">(555) 645-2130</a>
+</div></header>
+<section class="hero"><div class="wrap"><div class="split">
+  <div class="blk">
+    <p class="eyebrow">2,400 roofs · 21 years · 6 crews</p>
+    <h1>Two thousand four hundred roofs. Six crews. One foreman you'll actually meet.</h1>
+    <p class="sub">Storm damage, full replacements and repairs across the metro. Twenty-one years, 2,400 roofs, and a foreman who gives you his number on day one and answers it on day four hundred.</p>
+    <div class="ctas">
+      <a class="btn btn-primary" data-cta="primary" href="tel:+15556452130">Call now</a>
+      <a class="btn btn-ghost" href="#contact">Get a free inspection</a>
+    </div>
+  </div>
+  <div class="plate">
+    <p class="lab">One number to call</p>
+    <a class="tel" href="tel:+15556452130">(555) 645-2130</a>
+    <ul class="badges">
+      <li><b>01</b>Insurance claims handled</li><li><b>02</b>Financing from $89/mo</li>
+      <li><b>03</b>25-year workmanship warranty, in writing</li><li><b>04</b>Same-day emergency tarping</li>
+    </ul>
+  </div>
+</div></div></section>
+<figure class="gsw-plate"><img src="../_assets/hero/roofing/c-hands-on-the-roof.jpg" alt="Hands on the roof — roofing" loading="lazy"></figure>
+
+<section class="strip"><div class="wrap"><div class="striprow">
+  <div class="fin"><p class="lab">Financing</p><span class="fig">Financing from $89/mo</span><p>“The financing made it possible. $110 a month instead of fifteen grand up front.” — Joel B., Riverbend</p></div>
+  <div><p class="lab">Insurance claims handled</p><span class="fig">Claim or quote</span><p>If it's insurance, we meet your adjuster on site. If it's retail, you get a fixed written price with financing options.</p></div>
+</div></div></section>
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p>
+  <h2>What we do</h2>
+  <p class="lede">Most calls fall into one of these. If yours doesn't, ring us anyway — we'll tell you straight whether it's a repair or a replacement.</p>
+  <div class="tiles">
+    <article class="tile"><h3>Storm &amp; hail damage</h3><p>Free inspection, full photo report, and we meet the adjuster on site so nothing gets argued about later.</p></article>
+    <article class="tile"><h3>Full replacement</h3><p>Architectural shingle, metal or tile. Tear-off, deck inspection, ice-and-water barrier, and the site left clean.</p></article>
+    <article class="tile"><h3>Emergency repair</h3><p>Active leak or missing shingles after a storm. Same-day tarping to stop the damage, permanent fix scheduled after.</p></article>
+    <article class="tile"><h3>Gutters &amp; ventilation</h3><p>Half the roofs we replace failed early because the attic couldn't breathe. We fix the cause, not just the symptom.</p></article>
+  </div>
+</div></section>
+<section class="stats" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <div class="statgrid">
+    <div><span class="fig">2,400+</span><p>Roofs completed</p></div>
+    <div><span class="fig">24hr</span><p>Emergency response</p></div>
+    <div><span class="fig">4.9★</span><p>Across 380 reviews</p></div>
+    <div><span class="fig">25yr</span><p>Workmanship warranty</p></div>
+  </div>
+</div></section>
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p>
+  <h2>How a job actually runs</h2>
+  <p class="lede">The part most roofers keep vague, which is the part we would rather put a number against.</p>
+  <ol class="steps">
+    <li><div><h3>Free inspection</h3><p>We go up, photograph every slope and valley, and give you the count: how many nails were short, how many vents were blocked, how many years are left.</p></div></li>
+    <li><div><h3>Claim or quote</h3><p>If it's insurance, we meet your adjuster on site. If it's retail, you get a fixed written price with financing options.</p></div></li>
+    <li><div><h3>Install</h3><p>Most homes are one to two days. Materials delivered the morning of, site cleaned and magnet-swept at the end.</p></div></li>
+    <li><div><h3>Final walkthrough</h3><p>We walk it with you, register your warranty, and you have a direct number if anything ever comes up.</p></div></li>
+  </ol>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>Want the numbers on your roof?</h2>
+  <p>Call and a human answers — day, night, weekend, during the storm. Emergency tarping usually the same day.</p>
+  <a class="tel" href="tel:+15556452130">(555) 645-2130</a>
+  <div class="ctas">
+    <a class="btn btn-primary" href="tel:+15556452130">Call now</a>
+    <a class="btn btn-ghost" href="#contact">Get a free inspection</a>
+  </div>
+  <p class="note">Free inspection, every slope photographed, and a written figure the same day. We will tell you plainly when the answer is a repair rather than a roof.</p>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Meridian Roof Co.</a>
+  <p><a href="tel:+15556452130">(555) 645-2130</a> · Licensed, bonded and insured · 2,400 roofs since 2003</p>
+  <p>1983 Larkspur Street Unit 12, Millbrook Park, NY 11776</p>
+</div></footer>
+<div class="callbar"><a class="tel" href="tel:+15556452130">Call now (555) 645-2130</a><a class="alt2" href="#contact">Free inspection</a></div>
+</body>
+</html>

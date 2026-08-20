@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fairhaven Solar — See the number first</title>
+<meta name="description" content="A real solar estimate — production, savings and payback — shown before anyone asks for your phone number. Own crews, local since 2011.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Noto+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* D1 — THE NUMBER FIRST ONE. hero:split nav:bar services:list proof:logos
+   ink #171A1C · surface #F5F4F0 · accent #8F5510 · amber #F0A92B · muted #4E5860
+   H1 ramp: 29/33/42/52px · Roboto display / Noto Sans body
+   Device: the ungated estimate as the right half of a split hero — a slip with three
+   open figure slots for production, savings and payback, nothing in front of them,
+   over the four counts we can actually stand behind. Fixes "savings gated behind a
+   form": the slot sits above every button and this page collects no detail at all. */
+:root{--ink:#171A1C;--surface:#F5F4F0;--paper:#FFFFFF;--accent:#8F5510;--amber:#F0A92B;
+--muted:#4E5860;--rule:rgba(23,26,28,.20);--hair:rgba(23,26,28,.10);--slate:#1E252B;--wrap:1140px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.6 "Noto Sans",system-ui,-apple-system,sans-serif;padding-bottom:84px;
+overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 18px}
+h1,h2,h3{font-family:"Roboto",system-ui,sans-serif;font-weight:700;margin:0;line-height:1.12;
+letter-spacing:-.018em}
+a{color:inherit}
+.num{font-family:"Roboto",system-ui,sans-serif;font-variant-numeric:tabular-nums;
+font-feature-settings:"tnum" 1}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 20px;
+text-decoration:none;font-weight:700;font-size:16px;border:2px solid transparent;text-align:center;
+line-height:1.2;font-family:"Roboto",system-ui,sans-serif}
+.btn-primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+/* top bar */
+.topbar{background:var(--slate);color:#D7DBDE;font-size:14px}
+.topbar .wrap{padding:8px 18px;text-align:center}
+/* nav:bar — brand left, links and action right on one rail */
+.nav{background:var(--paper);border-bottom:2px solid var(--ink);position:sticky;top:0;z-index:30}
+.navrow{display:flex;align-items:center;justify-content:space-between;gap:12px;height:54px}
+.brand{font-family:"Roboto",system-ui,sans-serif;font-weight:900;font-size:19px;text-decoration:none;
+letter-spacing:-.02em;line-height:1;white-space:nowrap}
+.navlinks{display:flex;gap:20px;font-size:14px;font-weight:600;color:var(--muted);
+letter-spacing:.02em;overflow-x:auto;scrollbar-width:none;padding:0 0 9px}
+.navlinks::-webkit-scrollbar{display:none}
+.navlinks a{text-decoration:none;white-space:nowrap}
+.navact{min-height:38px;padding:0 13px;font-size:14px;white-space:nowrap}
+/* hero:split */
+.hero{padding:12px 0 26px}
+.split{display:grid;gap:16px}
+.eyebrow{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);
+margin:0 0 9px;font-weight:700}
+.hero h1{font-size:clamp(29px,7.6vw,52px);max-width:15ch}
+.sub{font-size:16px;color:var(--muted);max-width:52ch;margin:0;line-height:1.55}
+/* the ungated figure — an estimate slip */
+.slip{background:var(--paper);border:2px solid var(--ink);border-top:9px solid var(--amber);
+padding:16px 16px 14px}
+.slip .micro{display:block;font-size:13px;letter-spacing:.16em;text-transform:uppercase;
+color:var(--muted);font-weight:700;margin:0 0 10px}
+/* three empty, unlocked figure slots — the estimate has nothing in front of it */
+.slots{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0}
+.q{display:block}
+.q i{display:block;height:52px;border-bottom:4px solid var(--amber);
+background:repeating-linear-gradient(135deg,rgba(23,26,28,.05) 0 6px,transparent 6px 12px)}
+.q span{display:block;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+font-weight:700;margin-top:7px}
+.stamp{margin:12px 0 0;font-size:15px;color:var(--ink);font-weight:600;line-height:1.4}
+.figs{list-style:none;margin:16px 0 0;padding:14px 0 0;border-top:2px solid var(--ink);display:grid;
+grid-template-columns:1fr 1fr;gap:12px 14px}
+.figs li{font-size:14px;color:var(--muted);line-height:1.3}
+.figs b{display:block;font-family:"Roboto",system-ui,sans-serif;font-size:21px;color:var(--ink);
+font-weight:900;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.ctas{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+.badges{list-style:none;margin:2px 0 0;padding:0;display:grid;gap:0}
+.badges li{font-size:15px;color:var(--muted);padding:9px 0 9px 22px;position:relative;
+border-bottom:1px solid var(--hair)}
+.badges li::before{content:"";position:absolute;left:0;top:16px;width:12px;height:3px;
+background:var(--amber)}
+/* sections */
+.sec{padding:46px 0;border-top:2px solid var(--ink)}
+.kicker{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);
+margin:0 0 9px;font-weight:700}
+.sec h2{font-size:clamp(26px,6.2vw,40px)}
+.lede{color:var(--muted);max-width:58ch;margin:11px 0 22px;font-size:17px}
+/* services:list */
+.list{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.list li{padding:20px 0;border-bottom:1px solid var(--hair);display:grid;gap:6px}
+.list h3{font-size:20px}
+.list p{margin:0;color:var(--muted);font-size:16px}
+/* proof:logos */
+.logos{list-style:none;margin:20px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.logos li{background:var(--paper);border:1px solid var(--rule);padding:16px 12px;text-align:center;
+font-family:"Roboto",system-ui,sans-serif;font-weight:700;font-size:15px;line-height:1.25;
+display:flex;align-items:center;justify-content:center;min-height:70px}
+.logos li:last-child{grid-column:1 / -1}
+/* process */
+.steps{list-style:none;margin:22px 0 0;padding:0;counter-reset:s}
+.steps li{counter-increment:s;padding:18px 0;border-top:1px solid var(--rule);display:grid;
+grid-template-columns:44px 1fr;gap:12px}
+.steps li::before{content:"0" counter(s);font-family:"Roboto",system-ui,sans-serif;font-weight:900;
+font-size:24px;color:var(--amber);line-height:1.05;letter-spacing:-.02em}
+.steps h3{font-size:19px;margin-bottom:5px}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+/* close */
+.close{background:var(--amber);color:var(--ink);padding:44px 0 48px}
+.close h2{font-size:clamp(27px,6.4vw,42px);max-width:17ch}
+.close p{max-width:54ch;font-size:17px;margin:12px 0 18px;color:#2B2418}
+.close .btn-primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+.close .btn-ghost{border-color:var(--ink);color:var(--ink)}
+.close .note{font-size:15px;margin:16px 0 0;font-weight:600;color:#2B2418}
+.foot{padding:34px 0 30px;font-size:15px;color:var(--muted);border-top:2px solid var(--ink)}
+.foot .brand{color:var(--ink);display:inline-block;margin-bottom:10px}
+.foot p{margin:0 0 8px;max-width:64ch}
+.foot a{color:var(--accent);font-weight:600}
+/* sticky */
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--paper);padding:8px;
+border-top:2px solid var(--ink);display:grid;grid-template-columns:1fr auto;gap:8px;
+box-shadow:0 -2px 12px rgba(23,26,28,.14)}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:56px;text-decoration:none;
+font-weight:700;font-size:15px;text-align:center;line-height:1.2;padding:0 12px;
+font-family:"Roboto",system-ui,sans-serif}
+.callbar .go{background:var(--accent);color:#fff}
+.callbar .tel{border:2px solid var(--ink);color:var(--ink);padding:0 14px;font-size:16px}
+@media(max-width:559px){.navact{display:none}}
+@media(min-width:700px){
+.ctas{flex-direction:row}.wrap{padding:0 24px}
+.list li{grid-template-columns:1fr 1.6fr;gap:24px;align-items:baseline}
+.logos{grid-template-columns:repeat(5,1fr)}.logos li:last-child{grid-column:auto}
+.badges{grid-template-columns:1fr 1fr;column-gap:28px}
+.steps{border-bottom:1px solid var(--rule)}
+.sec{padding:74px 0}.hero{padding:34px 0 46px}.sub{font-size:19px}
+.slip{padding:24px 24px 22px}.figs{grid-template-columns:1fr 1fr;gap:14px 20px}}
+@media(min-width:960px){
+.split{grid-template-columns:1.1fr .9fr;gap:0 44px;align-items:start}
+.cola{grid-column:1;grid-row:1}.colb{grid-column:2;grid-row:1 / span 3}
+.sub{grid-column:1;grid-row:2;margin-top:18px}
+.badges{grid-column:1;grid-row:3;margin-top:24px}
+.steps{grid-template-columns:1fr 1fr;column-gap:44px;display:grid}
+.navlinks{padding:0}
+}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Local installers since 2011 · We do not subcontract · NABCEP certified</div></div>
+
+<header class="nav"><div class="wrap">
+  <div class="navrow">
+    <a class="brand" href="#">Fairhaven Solar</a>
+    <nav class="navlinks" aria-label="Primary"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+    <a class="btn btn-primary navact" href="#estimate">Estimate my savings</a>
+  </div>
+</div></header>
+
+<section class="hero"><div class="wrap"><div class="split">
+  <div class="cola">
+    <p class="eyebrow">Local crews · Not a sales floor</p>
+    <h1>See the number first. Give us your details after.</h1>
+  </div>
+  <div class="colb">
+    <div class="slip" id="estimate">
+      <span class="micro">Estimate online</span>
+      <div class="slots">
+        <span class="q"><i aria-hidden="true"></i><span>production</span></span>
+        <span class="q"><i aria-hidden="true"></i><span>savings</span></span>
+        <span class="q"><i aria-hidden="true"></i><span>payback</span></span>
+      </div>
+      <p class="stamp">No form gate, no phone call required to see it.</p>
+    </div>
+    <div class="ctas">
+      <a class="btn btn-primary" data-cta="primary" href="#estimate">Estimate my savings</a>
+      <a class="btn btn-ghost" href="#process">How we're different</a>
+    </div>
+    <ul class="figs">
+      <li>Installing since<b>2011</b></li>
+      <li>Jobs subcontracted<b>0</b></li>
+      <li>Systems installed<b>3,400+</b></li>
+      <li>Production warranty<b>25yr</b></li>
+    </ul>
+  </div>
+  <p class="sub">Put in your address and last bill and get a real estimate — production, savings and payback — before anyone asks for your phone number. Our own crews, installing here since 2009.</p>
+  <ul class="badges">
+    <li>No door knocking, ever</li><li>Our own crews, not subs</li>
+    <li>NABCEP certified</li><li>25-year production warranty</li>
+  </ul>
+</div></div></section>
+<figure class="gsw-plate"><img src="../_assets/hero/solar/a-see-the-number.jpg" alt="See the number — solar" loading="lazy"></figure>
+
+
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p>
+  <h2>What we do</h2>
+  <p class="lede">Residential and commercial, designed around your actual usage rather than a standard package.</p>
+  <ul class="list">
+    <li><h3>Residential solar</h3><p>Designed from twelve months of your real usage, not an average. Roof survey, shading analysis and a production estimate you can hold us to.</p></li>
+    <li><h3>Battery storage</h3><p>Backup through an outage and cheaper evening power. We'll tell you honestly whether it pays back in your rate structure — sometimes it doesn't.</p></li>
+    <li><h3>Commercial &amp; agricultural</h3><p>Ground-mount, roof and carport arrays, with the depreciation and incentive modelling your accountant will want to see.</p></li>
+    <li><h3>Service &amp; repair</h3><p>Including systems we didn't install. A lot of our work is fixing arrays whose installer has since disappeared.</p></li>
+  </ul>
+</div></section>
+
+<section class="sec" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <h2>Certified and accredited</h2>
+  <p class="lede">Every certification below is checkable. We would rather you verified them than took our word for it.</p>
+  <ul class="logos">
+    <li>NABCEP Certified</li><li>SEIA Member</li><li>Tesla Powerwall Certified</li>
+    <li>Enphase Platinum</li><li>BBB A+</li>
+  </ul>
+</div></section>
+
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p>
+  <h2>How it goes</h2>
+  <p class="lede">No pressure appointments, no one-night-only pricing, no sales manager phoning from the car park.</p>
+  <ol class="steps">
+    <li><div><h3>Estimate online</h3><p>Real numbers from your address and bill, instantly. No form gate, no phone call required to see it.</p></div></li>
+    <li><div><h3>Site survey</h3><p>We come out, get on the roof and check structure, shading and the panel. The estimate firms up or we tell you it doesn't work.</p></div></li>
+    <li><div><h3>Design, incentives, contract</h3><p>Final design with the current federal credit and local incentives applied, and financing if you want it.</p></div></li>
+    <li><div><h3>Install &amp; switch on</h3><p>One to three days with our own crew. We handle interconnection with the utility and stay for monitoring setup.</p></div></li>
+  </ol>
+</div></section>
+
+<section class="close" id="contact"><div class="wrap">
+  <h2>Curious what it would actually save you?</h2>
+  <p>Get the real number in about ninety seconds, without giving us your phone number. If it doesn't make sense for your roof, the tool will say so.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="#estimate">Estimate my savings</a>
+    <a class="btn btn-ghost" href="tel:+15553286617">(555) 328-6617</a>
+  </div>
+  <p class="note">No door-to-door sales. No subcontracted installs. Local since 2011.</p>
+</div></section>
+
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Fairhaven Solar</a>
+  <p><a href="tel:+15553286617">(555) 328-6617</a> · NABCEP certified · Locally owned &amp; operated since 2011</p>
+  <p>8644 Wexford Lane Floor 2, Fairhill, PA 14725</p>
+</div></footer>
+
+<div class="callbar"><a class="go" href="#estimate">Estimate my savings</a><a class="tel" href="tel:+15553286617">(555) 328-6617</a></div>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ellings Search Group — what candidates and clients actually say</title>
+<meta name="description" content="A specialist manufacturing and industrial engineering search firm, published in full: salary bands, terms, and what both sides say afterwards.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* D5 — THE SCREENING ONE. hero:panel nav:minimal services:list proof:review-wall
+   ink #0E1116 · surface #0E1116 · accent #00D1FF · muted #A9B2BF · on-accent #06131A
+   H1 ramp: 31/37/48/62px · Be Vietnam Pro display / Inter body
+   Device: the salary-published role list as a record card inside the hero panel, then a
+   wall carrying both audiences — this is the page a candidate screens you on.
+   Fixes the FIX-list item "candidates screen the firm and find nothing". */
+:root{--ink:#0E1116;--surface:#0E1116;--accent:#00D1FF;--muted:#A9B2BF;--on-accent:#06131A;
+--paper:#161B22;--text:#EBEFF5;--hair:rgba(235,239,245,.14);--wrap:1120px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--text);
+font:400 17px/1.6 Inter,system-ui,-apple-system,sans-serif;padding-bottom:82px;overflow-x:hidden;
+-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 18px}
+h1,h2,h3{font-family:"Be Vietnam Pro",Inter,system-ui,sans-serif;font-weight:800;margin:0;
+line-height:1.06;letter-spacing:-.035em}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 20px;
+text-decoration:none;font-weight:600;font-size:16px;border:1px solid transparent;text-align:center;
+line-height:1.15}
+.btn-primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.btn-ghost{background:transparent;color:var(--text);border-color:rgba(235,239,245,.42)}
+.topbar{color:var(--muted);font-size:14px;border-bottom:1px solid var(--hair)}
+.topbar .wrap{padding:9px 18px;letter-spacing:.03em}
+.nav{position:sticky;top:0;z-index:30;background:var(--surface);border-bottom:1px solid var(--hair)}
+.nav .wrap{display:flex;align-items:center;gap:14px;height:54px}
+.brand{font-family:"Be Vietnam Pro",sans-serif;font-weight:800;font-size:19px;text-decoration:none;
+letter-spacing:-.045em;flex:none;line-height:1}
+.navlinks{display:none;gap:22px;margin-left:auto;font-size:15px;font-weight:500;color:var(--muted)}
+.navlinks a{text-decoration:none}
+.navlinks a:hover{color:var(--accent)}
+.navtel{margin-left:auto;font-size:15px;font-weight:600;color:var(--accent);text-decoration:none;
+white-space:nowrap}
+.hero{padding:16px 0 30px}
+.panel{background:var(--paper);border:1px solid var(--hair);border-top:3px solid var(--accent);
+padding:22px 18px 24px}
+.eyebrow{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);
+font-weight:600;margin:0 0 13px}
+.panel h1{font-size:clamp(31px,8.2vw,62px);max-width:16ch}
+.panel h1 em{font-style:normal;color:var(--accent)}
+.sub{font-size:16.5px;color:var(--muted);max-width:54ch;margin:15px 0 19px;line-height:1.55}
+.ctas{display:flex;flex-direction:column;gap:10px}
+.badges{list-style:none;margin:20px 0 0;padding:18px 0 0;border-top:1px solid var(--hair);
+display:grid;gap:9px}
+.badges li{font-size:15.5px;color:var(--text);font-weight:500;display:flex;gap:9px;align-items:baseline}
+.badges li::before{content:"—";color:var(--accent);font-weight:600}
+/* the salary-published role list, as record rows */
+.records{margin-top:20px;display:grid;gap:7px}
+.rlabel{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
+font-weight:600;margin:0}
+.records a{display:block;text-decoration:none;background:var(--surface);
+border:1px solid var(--hair);border-left:4px solid var(--accent);padding:12px 14px;min-height:56px}
+.records a:hover{border-color:var(--accent)}
+.records b{display:block;font-family:"Be Vietnam Pro",sans-serif;font-weight:600;font-size:16.5px;
+letter-spacing:-.02em}
+.records span{display:block;margin-top:4px;font-size:13.5px;color:var(--muted)}
+.records span i{font-style:normal;color:var(--accent);font-weight:600}
+.sec{padding:46px 0;border-top:1px solid var(--hair)}
+.kicker{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);
+font-weight:600;margin:0 0 11px}
+.sec h2{font-size:clamp(28px,7vw,48px);max-width:15ch}
+.lede{color:var(--muted);max-width:58ch;margin:13px 0 8px;font-size:17px}
+.list{list-style:none;margin:24px 0 0;padding:0}
+.list li{padding:20px 0;border-top:1px solid var(--hair)}
+.list h3{font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);
+font-weight:600;margin-bottom:9px}
+.list p{margin:0;font-size:17px;max-width:70ch;color:var(--text)}
+/* review wall */
+.wall{display:grid;gap:10px;margin-top:24px}
+.card{background:var(--paper);border:1px solid var(--hair);padding:18px 16px 16px}
+.card p{margin:0;font-size:16.5px;line-height:1.5}
+.card cite{display:block;margin-top:13px;font-style:normal;font-size:14px;color:var(--muted);
+border-top:1px solid var(--hair);padding-top:11px}
+.card cite b{color:var(--accent);font-weight:600}
+.steps{list-style:none;margin:24px 0 0;padding:0;counter-reset:s}
+.steps li{counter-increment:s;padding:20px 0;border-top:1px solid var(--hair);display:grid;
+grid-template-columns:auto 1fr;gap:14px;align-items:start}
+.steps li::before{content:counter(s,decimal-leading-zero);font-family:"Be Vietnam Pro",sans-serif;
+font-weight:800;font-size:14px;color:var(--on-accent);background:var(--accent);padding:5px 8px;
+letter-spacing:.04em}
+.steps h3{font-size:20px;margin-bottom:7px}
+.steps p{margin:0;font-size:16px;color:var(--muted)}
+.close{background:var(--paper);border-top:3px solid var(--accent);padding:48px 0 54px}
+.close h2{font-size:clamp(29px,7.4vw,50px);max-width:13ch}
+.close p{max-width:52ch;font-size:17.5px;color:var(--muted);margin:14px 0 22px}
+.note{font-size:15.5px;color:var(--muted);margin-top:20px;max-width:52ch}
+.foot{padding:34px 0 32px;font-size:15.5px;color:var(--muted)}
+.foot .brand{color:var(--text);display:inline-block;margin-bottom:12px}
+.foot p{margin:0 0 9px;max-width:64ch}
+.foot a{color:var(--accent)}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--paper);padding:7px;
+border-top:1px solid var(--hair);display:grid;grid-template-columns:1fr auto;gap:7px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:58px;text-decoration:none;
+font-weight:600;font-size:15px;text-align:center;line-height:1.15;padding:0 12px}
+.callbar .go{background:var(--accent);color:var(--on-accent)}
+.callbar .tel{color:var(--text);border:1px solid rgba(235,239,245,.4);padding:0 15px}
+@media(min-width:720px){.ctas{flex-direction:row}.badges{grid-template-columns:1fr 1fr}
+.records{grid-template-columns:1fr 1fr}.rlabel{grid-column:1/-1}
+.wall{grid-template-columns:1fr 1fr}
+.list li{display:grid;grid-template-columns:230px 1fr;gap:24px;align-items:start}
+.list h3{margin-bottom:0}
+.steps{display:grid;grid-template-columns:1fr 1fr;column-gap:44px}
+.sec{padding:76px 0}.hero{padding:32px 0 46px}.panel{padding:44px 40px 46px}.sub{font-size:19px}}
+@media(min-width:940px){.navlinks{display:flex}.navtel{margin-left:26px}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Specialist search: manufacturing &amp; industrial engineering</div></div>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="#">Ellings Search Group</a>
+  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+  <a class="navtel" href="tel:+15554561128">(555) 456-1128</a>
+</div></header>
+<section class="hero"><div class="wrap"><div class="panel">
+  <p class="eyebrow">Manufacturing &amp; industrial engineering</p>
+  <h1>We turn down roles we can't fill honestly.</h1>
+  <p class="sub">Engineers and operations leaders in manufacturing and industrial businesses. We decline searches where the band is wrong or the role is undeliverable, which costs us fees and saves everybody four wasted months.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" data-cta="primary" href="#roles">See open roles</a>
+    <a class="btn btn-ghost" href="#contact">Hiring? Talk to us</a>
+  </div>
+  <ul class="badges"><li>Salary bands on every role</li><li>One-tap apply</li><li>One sector only</li><li>90-day placement guarantee</li></ul>
+  <div class="records" id="roles">
+    <p class="rlabel">Recent placements with</p>
+    <a href="tel:+15554561128"><b>Tier-1 automotive suppliers</b><span>Salary bands on every role · <i>One-tap apply</i></span></a>
+    <a href="tel:+15554561128"><b>Precision engineering</b><span>Salary bands on every role · <i>One-tap apply</i></span></a>
+    <a href="tel:+15554561128"><b>Food &amp; beverage manufacturing</b><span>Salary bands on every role · <i>One-tap apply</i></span></a>
+    <a href="tel:+15554561128"><b>Industrial automation</b><span>Salary bands on every role · <i>One-tap apply</i></span></a>
+    <a href="tel:+15554561128"><b>Aerospace components</b><span>Salary bands on every role · <i>One-tap apply</i></span></a>
+  </div>
+</div></div></section>
+<figure class="gsw-plate"><img src="../_assets/hero/recruiting/e-the-plant.jpg" alt="The plant — recruiting" loading="lazy"></figure>
+
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p><h2>Two audiences, honestly</h2>
+  <p class="lede">Most agency sites are written entirely for employers and then wonder why candidates don't return calls.</p>
+  <ul class="list">
+    <li><h3>For candidates</h3><p>Real salary bands, an honest description of the company, and we will tell you when a role isn't right for you even though it costs us a fee.</p></li>
+    <li><h3>Contingent search</h3><p>For roles at pace. You pay on placement, 20% of first-year salary, with a 90-day replacement guarantee written into the terms.</p></li>
+    <li><h3>Retained search</h3><p>For leadership and hard-to-fill technical roles. Mapped market, full confidentiality, and a shortlist of four rather than a stack of twelve.</p></li>
+    <li><h3>Market intelligence</h3><p>What roles actually pay in your region right now, and why your last two offers were declined. Often free, always useful.</p></li>
+  </ul>
+</div></section>
+<section class="sec" id="results"><div class="wrap">
+  <p class="kicker">Results</p><h2>Candidates and clients</h2>
+  <div class="wall">
+    <blockquote class="card"><p>Salary bands published. I knew whether to bother before I called.</p><cite><b>Sasha V.</b> · Placed candidate</cite></blockquote>
+    <blockquote class="card"><p>They told me a role wasn't right for me. Cost them the fee.</p><cite><b>Ben O.</b> · Candidate</cite></blockquote>
+    <blockquote class="card"><p>Shortlist of four, hired the second. No noise.</p><cite><b>Halden Manufacturing</b> · Retained client</cite></blockquote>
+    <blockquote class="card"><p>Understood the technical brief without us translating it.</p><cite><b>Voss Industrial</b> · Contingent client</cite></blockquote>
+  </div>
+</div></section>
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p><h2>How we run a search</h2>
+  <p class="lede">Same process whether you're hiring or looking. The difference is who pays.</p>
+  <ol class="steps">
+    <li><div><h3>Brief or conversation</h3><p>Employers: the real requirement, not the job description. Candidates: what you'd actually move for, which is rarely just money.</p></div></li>
+    <li><div><h3>Map the market</h3><p>We work one sector, so we largely know who's out there already. Mapping is confirmation rather than discovery.</p></div></li>
+    <li><div><h3>Shortlist</h3><p>Four candidates with a written assessment of each, including the reservations. A stack of twelve means we haven't done our job.</p></div></li>
+    <li><div><h3>Offer &amp; aftercare</h3><p>We manage the offer, the counter-offer and the resignation. We check in at 30, 60 and 90 days — that's when placements actually fail.</p></div></li>
+  </ol>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>Hiring, or quietly looking?</h2>
+  <p>Both conversations are confidential. Candidates: we will tell you when a role is wrong for you even though saying so costs us the fee.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="tel:+15554561128">(555) 456-1128</a>
+    <a class="btn btn-ghost" href="#roles">Hiring? Talk to us</a>
+  </div>
+  <p class="note">20% contingent, 90-day replacement guarantee. Retained terms available for leadership roles.</p>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Ellings Search Group</a>
+  <p>Specialist search — manufacturing &amp; industrial engineering · Est. 2014</p>
+  <p>5646 Larkspur Street Unit 12, Westmoor, CT 17825</p>
+</div></footer>
+<div class="callbar"><a class="go" href="#roles">See open roles</a><a class="tel" href="tel:+15554561128">(555) 456-1128</a></div>
+</body>
+</html>

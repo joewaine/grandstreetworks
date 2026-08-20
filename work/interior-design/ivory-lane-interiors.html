@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ivory Lane Interiors — Filter our work by style</title>
+<meta name="description" content="Whole homes and substantial renovations, filterable by the style you actually want. Projects generally from $60,000 including furnishings.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Karla:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* D2 — THE FILTER ONE. hero:band nav:minimal services:grid-numbered proof:testimonial-lead
+   ink #1C1712 · surface #F6F1E7 · accent #8E3B21 sienna · band cream #FBEFE6 · muted #5A5046
+   H1 ramp: 34/42/58/72px · Young Serif display / Karla body
+   Fixes "can't filter by style": the hero is one saturated sienna band and the style
+   chips live inside it as a working filter toolbar, one chip lit; the fan-deck of
+   material strips directly under the band is what the filter is filtering. */
+:root{--ink:#1C1712;--surface:#F6F1E7;--paper:#FFFCF6;--accent:#8E3B21;--cream:#FBEFE6;
+--muted:#5A5046;--rule:rgba(28,23,18,.16);--wrap:1120px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);overflow-x:hidden;
+font:400 17px/1.6 "Karla",system-ui,-apple-system,sans-serif;padding-bottom:80px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Young Serif",Georgia,serif;font-weight:400;margin:0;line-height:1.08;
+letter-spacing:-.01em}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 24px;
+text-decoration:none;font-weight:600;font-size:16px;line-height:1.2;border:1px solid transparent;
+text-align:center}
+.btn-cream{background:var(--cream);color:#7A3119;border-color:var(--cream)}
+.btn-outline{background:transparent;color:var(--cream);border-color:rgba(251,239,230,.62)}
+.btn-ink{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.btn-line{background:transparent;color:var(--ink);border-color:var(--ink)}
+.topbar{background:var(--ink);color:#D9CEC0;font-size:15px}
+.topbar .wrap{padding:10px 20px}
+/* nav: minimal — wordmark, four tracked links, the action as a ruled text link */
+.nav{background:var(--surface);border-bottom:1px solid var(--rule)}
+.navrow{display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:10px 12px;
+padding:14px 0 12px}
+.brand{font-family:"Young Serif",Georgia,serif;font-size:22px;text-decoration:none;line-height:1}
+.navlinks{display:flex;gap:14px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;
+color:var(--muted);font-weight:600;grid-column:1/-1;max-width:100%}
+.navact{font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+text-decoration:none;color:var(--accent);border-bottom:2px solid var(--accent);padding:6px 0;
+white-space:nowrap;justify-self:end}
+.navlinks a{text-decoration:none;white-space:nowrap;padding:6px 0}
+/* hero: band */
+.band{background:var(--accent);color:var(--cream);padding:34px 0 30px;
+background-image:linear-gradient(180deg,rgba(255,255,255,.06),transparent 40%),
+radial-gradient(120% 80% at 90% 0%,rgba(255,214,170,.14),transparent 60%)}
+.eyebrow{font-size:13px;letter-spacing:.24em;text-transform:uppercase;margin:0 0 14px;
+font-weight:600;color:#F3D6C4}
+.band h1{font-size:clamp(34px,8.8vw,72px);max-width:14ch;color:var(--cream)}
+.sub{font-size:16px;max-width:52ch;margin:16px 0 0;color:#F5DED0;line-height:1.6}
+.ctas{display:flex;flex-direction:column;gap:10px;margin-top:22px}
+.filterbar{margin:24px 0 0;border-top:1px solid rgba(251,239,230,.3);padding-top:16px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
+.chips li{font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;
+padding:10px 14px;border:1px solid rgba(251,239,230,.5);color:var(--cream)}
+.chips li.on{background:var(--cream);color:#7A3119;border-color:var(--cream)}
+/* fan deck of material strips, edge to edge under the band */
+.deck{display:grid;grid-template-columns:repeat(8,1fr);height:78px;border-bottom:1px solid var(--rule)}
+.deck i{display:block}
+.m-oak{background:repeating-linear-gradient(90deg,rgba(58,32,10,.14) 0 1px,transparent 1px 6px),
+linear-gradient(180deg,#BE8B4E,#9B6B39)}
+.m-lime{background:radial-gradient(110% 90% at 25% 15%,#FBF5EA,transparent 60%),#E7DDC9}
+.m-clay{background:linear-gradient(170deg,#B4623F,#8E3B21)}
+.m-moss{background:repeating-linear-gradient(0deg,rgba(0,0,0,.08) 0 1px,transparent 1px 3px),#42563A}
+.m-brass{background:linear-gradient(102deg,#7C5C22 0 18%,#D5B569 32%,#A3833A 48%,#E9D69C 62%,#7C5C22)}
+.m-linen{background:repeating-linear-gradient(0deg,rgba(80,66,40,.1) 0 1px,transparent 1px 4px),
+repeating-linear-gradient(90deg,rgba(80,66,40,.1) 0 1px,transparent 1px 4px),#D7CBB1}
+.m-ink{background:linear-gradient(160deg,#332821,#191410)}
+.m-marble{background:linear-gradient(114deg,transparent 0 42%,rgba(110,108,100,.45) 42% 43.4%,
+transparent 43.4%),linear-gradient(98deg,transparent 0 66%,rgba(110,108,100,.3) 66% 67%,transparent 67%),#EDEAE1}
+/* sections */
+.sec{padding:56px 0;border-top:1px solid var(--rule)}
+.kicker{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);
+margin:0 0 12px;font-weight:600}
+.sec h2{font-size:clamp(29px,7vw,48px);max-width:18ch}
+.lede{color:var(--muted);max-width:58ch;margin:16px 0 34px;font-size:17px}
+/* services: grid-numbered */
+.gnum{display:grid;gap:0;counter-reset:g}
+.gitem{counter-increment:g;padding:26px 0;border-top:1px solid var(--rule);position:relative}
+.gitem::before{content:"0" counter(g);font-family:"Young Serif",Georgia,serif;font-size:15px;
+color:var(--accent);letter-spacing:.14em;display:block;margin-bottom:12px}
+.gitem h3{font-size:25px;margin-bottom:10px}
+.gitem p{margin:0;color:var(--muted);font-size:16px;max-width:46ch}
+/* proof: testimonial-lead */
+.quote{background:var(--paper);border:1px solid var(--rule);padding:28px 20px 26px;
+border-top:4px solid var(--accent)}
+.quote blockquote{margin:0;font-family:"Young Serif",Georgia,serif;font-size:clamp(21px,5.2vw,32px);
+line-height:1.32;letter-spacing:-.01em}
+.quote cite{display:block;margin-top:20px;font-style:normal;font-size:15px;color:var(--muted);
+letter-spacing:.04em}
+.quote cite b{color:var(--ink);font-weight:600}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:22px;height:70px}
+/* process */
+.steps{list-style:none;margin:28px 0 0;padding:0 0 0 26px;counter-reset:s;
+border-left:2px solid var(--accent)}
+.steps li{counter-increment:s;padding:0 0 28px;position:relative}
+.steps li::before{content:counter(s);position:absolute;left:-38px;top:0;width:24px;height:24px;
+background:var(--accent);color:var(--cream);font-size:13px;font-weight:600;display:flex;
+align-items:center;justify-content:center;font-family:"Karla",sans-serif}
+.steps h3{font-size:21px;margin-bottom:7px}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+/* close */
+.close{background:var(--ink);color:var(--cream);padding:56px 0 60px}
+.close h2{font-size:clamp(29px,7.2vw,50px);max-width:17ch;color:var(--cream)}
+.close p{max-width:56ch;font-size:17px;color:#CFC3B4;margin:18px 0 24px}
+.close .btn-cream{background:var(--accent);color:#fff;border-color:var(--accent)}
+.note{font-size:15px;color:#CFC3B4;margin-top:20px;max-width:56ch}
+.foot{padding:42px 0 36px;font-size:15px;color:var(--muted)}
+.foot .brand{color:var(--ink);display:inline-block;margin:0 0 14px}
+.foot p{margin:0 0 10px;max-width:66ch}
+.foot a{color:var(--accent);font-weight:600}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--paper);
+border-top:1px solid var(--rule);padding:8px;display:grid;grid-template-columns:1fr auto;gap:8px;
+box-shadow:0 -2px 12px rgba(28,23,18,.12)}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:56px;
+text-decoration:none;font-size:15px;font-weight:600;line-height:1.2;text-align:center;padding:0 14px}
+.callbar .go{background:var(--accent);color:#fff}
+.callbar .tel{border:1px solid var(--ink);color:var(--ink);font-size:16px}
+@media(min-width:760px){
+.ctas{flex-direction:row}.band{padding:64px 0 52px}.sec{padding:88px 0}
+.sub{font-size:19px}.deck{height:120px}
+.gnum{grid-template-columns:1fr 1fr;column-gap:44px}
+.gitem:nth-child(-n+2){border-top:2px solid var(--ink)}
+.quote{padding:48px 44px 42px}.trio{height:110px;gap:8px}
+.steps{display:grid;grid-template-columns:1fr 1fr;column-gap:44px;border-left:0;padding-left:0}
+.steps li{padding-left:44px;padding-bottom:34px}
+.steps li::before{left:0}
+.navrow{padding:20px 0 16px}.brand{font-size:26px}.navlinks{gap:22px;letter-spacing:.18em}
+}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Full-service interiors · Projects from $60,000 · Now booking</div></div>
+
+<header class="nav"><div class="wrap"><div class="navrow">
+  <a class="brand" href="#">Ivory Lane Interiors</a>
+  <a class="navact" href="#contact">Start a project</a>
+  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+</div></div></header>
+
+<section class="band"><div class="wrap">
+  <p class="eyebrow">Full-service residential interiors</p>
+  <h1>Filter the work by what you actually like.</h1>
+  <p class="sub">Full-service interior design for whole homes and substantial renovations, generally from around $60,000 including furnishings. Filter the portfolio by style, budget and room so you are not scrolling through work you would never want.</p>
+  <div class="ctas">
+    <a class="btn btn-cream" data-cta="primary" href="#contact">Start a project</a>
+    <a class="btn btn-outline" href="#results">Browse by style</a>
+  </div>
+  <div class="filterbar"><ul class="chips">
+    <li class="on">Filter work by style</li>
+    <li>Projects from $60,000</li>
+    <li>Trade pricing passed on</li>
+    <li>Full install &amp; styling</li>
+  </ul></div>
+</div></section>
+<figure class="gsw-plate"><img src="../_assets/hero/interior-design/b-materials.jpg" alt="Materials — interior design" loading="lazy"></figure>
+
+<div class="deck" aria-hidden="true">
+  <i class="m-ink"></i><i class="m-clay"></i><i class="m-oak"></i><i class="m-moss"></i>
+  <i class="m-brass"></i><i class="m-linen"></i><i class="m-lime"></i><i class="m-marble"></i>
+</div>
+
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p>
+  <h2>How we work</h2>
+  <p class="lede">Full service, meaning we handle procurement, deliveries, trades and installation. Half a service is worse than none in this business.</p>
+  <div class="gnum">
+    <article class="gitem"><h3>Whole-home design</h3><p>Concept through installation, including everything that gets specified, ordered, chased, received and placed. Usually four to nine months.</p></article>
+    <article class="gitem"><h3>Renovation interiors</h3><p>Working alongside your architect and builder on finishes, joinery, lighting and the decisions that get made too late otherwise.</p></article>
+    <article class="gitem"><h3>Single rooms, done properly</h3><p>Kitchens, principal bedrooms and living rooms as standalone projects. From about $25,000 including furnishings.</p></article>
+    <article class="gitem"><h3>Trade pricing, passed on</h3><p>We buy at trade and pass the discount to you, charging a transparent design fee instead of marking up your sofa.</p></article>
+  </div>
+</div></section>
+
+<section class="sec" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <h2>The one thing clients say first</h2>
+  <figure class="quote">
+    <blockquote>Every designer we met showed us the same coastal-neutral portfolio. Ivory Lane Interiors let me filter to the darker, more layered work — which is what I wanted and what I couldn't find anywhere.</blockquote>
+    <cite><b>Delphine R.</b> · Whole-home, 1920s townhouse</cite>
+  </figure>
+  <div class="trio" aria-hidden="true"><i class="m-ink"></i><i class="m-moss"></i><i class="m-brass"></i></div>
+</div></section>
+
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p>
+  <h2>From first visit to install day</h2>
+  <p class="lede">The bit people find hardest is the middle, where nothing seems to be happening and everything is being ordered.</p>
+  <ol class="steps">
+    <li><h3>Consultation</h3><p>We visit, walk the house and talk about how you actually live in it. A fixed fee, credited against the project if you proceed.</p></li>
+    <li><h3>Concept &amp; budget</h3><p>Direction, palette and a realistic furnishing budget room by room. This is where expectations and money get reconciled.</p></li>
+    <li><h3>Specification &amp; procurement</h3><p>Everything specified, ordered and tracked by us. Long lead times are the reality; knowing about them early is the service.</p></li>
+    <li><h3>Install &amp; style</h3><p>Usually a single day. Everything arrives at our warehouse first, gets inspected, and goes in at once rather than in dribs.</p></li>
+  </ol>
+</div></section>
+
+<section class="close" id="contact"><div class="wrap">
+  <h2>Renovating, moving, or finally doing the house properly?</h2>
+  <p>The earliest useful conversation is before the builder starts. Lighting, joinery and layout decisions get very expensive once walls are closed.</p>
+  <div class="ctas">
+    <a class="btn btn-cream" href="#contact">Start a project</a>
+    <a class="btn btn-outline" href="tel:+15557042263">(555) 704-2263</a>
+  </div>
+  <p class="note">Projects generally from $60,000 including furnishings. Consultation fee credited against the project.</p>
+</div></section>
+
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Ivory Lane Interiors</a>
+  <p>Full-service residential interiors · Trade pricing passed to clients · Est. 2012</p>
+  <p><a href="tel:+15557042263">(555) 704-2263</a></p>
+  <p>3059 Ashmount Road Unit 12, Riverbend, NY 19399</p>
+</div></footer>
+
+<div class="callbar"><a class="go" href="#contact">Start a project</a><a class="tel" href="tel:+15557042263">(555) 704-2263</a></div>
+</body>
+</html>

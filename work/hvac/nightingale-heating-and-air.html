@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nightingale Heating &amp; Air — someone answers, nights and weekends</title>
+<meta name="description" content="Repair, replacement and maintenance across the metro. No overtime rate, no weekend premium and no holiday surcharge — a failure at nine on a Sunday is priced exactly as it would be at nine on a Tuesday.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira:wght@600;700&family=Rubik:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* D4 — THE NIGHT CALL ONE. hero:fullbleed nav:minimal services:tiles proof:testimonial-lead
+   ink #E9EFF3 · surface #0C1418 · accent #FF6B45 · muted #9DAAB3 · on-accent #0C1418
+   thermal pair: hot #FF6B45 / cold #4FC3E0 · H1 ramp 32/40/50/60px
+   Saira display / Rubik body
+   The dark direction, set at the hour the call actually comes in. Emergency capture
+   was buried, so the phone number is the largest object in the fullbleed hero and the
+   thermal bar runs under it — hot glow above, cold glow below — with the badges as
+   readings along it. */
+:root{--ink:#E9EFF3;--surface:#0C1418;--accent:#FF6B45;--muted:#9DAAB3;--on-accent:#0C1418;
+--hot:#FF6B45;--cold:#4FC3E0;--panel:#131E24;--rule:rgba(233,239,243,.16);--wrap:1120px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.62 Rubik,system-ui,-apple-system,"Segoe UI",sans-serif;padding-bottom:76px;
+overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:Saira,system-ui,sans-serif;font-weight:700;margin:0;line-height:1.08;
+letter-spacing:-.01em}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:58px;padding:0 24px;
+text-decoration:none;font-weight:600;font-size:17px;font-family:Saira,system-ui,sans-serif;
+border:2px solid transparent;text-align:center;line-height:1.15;letter-spacing:.02em}
+.btn-hot{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.btn-line{background:transparent;color:var(--ink);border-color:rgba(233,239,243,.5)}
+.topbar{background:#080F12;color:#93A3AC;font-size:14px;border-bottom:1px solid var(--rule)}
+.topbar .wrap{padding:9px 20px}
+.nav{position:sticky;top:0;z-index:30;background:rgba(12,20,24,.94);
+border-bottom:1px solid var(--rule)}
+.nav .wrap{display:flex;align-items:center;gap:12px;height:56px}
+.brand{font-family:Saira,system-ui,sans-serif;font-weight:700;font-size:20px;text-decoration:none;
+white-space:nowrap;letter-spacing:.01em}
+.brand::after{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;
+background:var(--accent);margin-left:8px;vertical-align:2px}
+.navtel{margin-left:auto;font-family:Saira,system-ui,sans-serif;font-weight:600;font-size:17px;
+color:var(--accent);text-decoration:none;white-space:nowrap;min-height:40px;display:inline-flex;
+align-items:center}
+.navstrip{border-bottom:1px solid var(--rule);background:#0A1216}
+.navstrip .wrap{display:flex;gap:24px;padding:10px 20px;font-size:13px;letter-spacing:.16em;
+text-transform:uppercase;color:var(--muted);overflow-x:auto;scrollbar-width:none;
+font-family:Saira,system-ui,sans-serif;font-weight:600}
+.navstrip .wrap::-webkit-scrollbar{display:none}
+.navstrip a{text-decoration:none;white-space:nowrap}
+.bleed{position:relative;padding:34px 0 0;overflow:hidden;
+background:radial-gradient(120% 78% at 8% -12%,rgba(255,107,69,.36) 0%,rgba(255,107,69,0) 58%),
+radial-gradient(110% 72% at 96% 108%,rgba(79,195,224,.3) 0%,rgba(79,195,224,0) 60%),
+var(--surface)}
+.bleed .wrap{position:relative}
+.eyebrow{font-family:Saira,system-ui,sans-serif;font-size:13px;font-weight:600;letter-spacing:.2em;
+text-transform:uppercase;color:var(--accent);margin:0 0 14px}
+.bleed h1{font-size:clamp(32px,8.6vw,60px);max-width:15ch}
+.bleed .sub{font-size:17px;color:#C3CDD4;max-width:52ch;margin:15px 0 20px;line-height:1.5}
+.ctas{display:flex;flex-direction:column;gap:10px}
+.bigtel{display:block;margin:24px 0 0;font-family:Saira,system-ui,sans-serif;font-weight:700;
+font-size:clamp(38px,12vw,86px);line-height:1;color:#fff;text-decoration:none;letter-spacing:-.02em}
+.scale{margin-top:22px}
+.scale .bar{height:9px;background:linear-gradient(90deg,var(--hot) 0%,#E08B58 30%,#7E9AA4 52%,
+#5CB4D2 76%,var(--cold) 100%)}
+.scale ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;
+font-size:14px;color:#B7C3CB}
+.scale li{padding:12px 12px 12px 0;border-bottom:1px solid var(--rule)}
+.sec{padding:52px 0}
+.sec--panel{background:var(--panel)}
+.kicker{font-family:Saira,system-ui,sans-serif;font-size:13px;font-weight:600;letter-spacing:.2em;
+text-transform:uppercase;color:var(--cold);margin:0 0 10px}
+.sec h2{font-size:clamp(28px,6.6vw,44px)}
+.lede{color:var(--muted);max-width:58ch;margin:13px 0 0;font-size:17px}
+.tiles{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:30px}
+.tile{background:var(--surface);padding:26px 20px 24px}
+.sec--panel .tile{background:var(--panel)}
+.tile .dot{display:block;width:26px;height:5px;margin-bottom:16px}
+.tile:nth-child(1) .dot{background:var(--hot)}
+.tile:nth-child(2) .dot{background:#DC8552}
+.tile:nth-child(3) .dot{background:#6FA9BC}
+.tile:nth-child(4) .dot{background:var(--cold)}
+.tile h3{font-size:21px;margin-bottom:9px}
+.tile p{margin:0;color:var(--muted);font-size:16px}
+.quotelead{border-top:2px solid var(--accent);padding-top:26px;margin-top:26px}
+.quotelead blockquote{margin:0;font-family:Saira,system-ui,sans-serif;font-weight:600;
+font-size:clamp(23px,5.6vw,38px);line-height:1.22;color:#fff;letter-spacing:-.01em}
+.quotelead figcaption{margin-top:20px;font-size:16px;color:var(--muted)}
+.quotelead figcaption b{color:var(--cold);font-weight:600;font-family:Saira,system-ui,sans-serif}
+.emerg{background:var(--accent);color:var(--on-accent)}
+.emerg .wrap{padding:24px 20px 26px}
+.emerg p{margin:0 0 6px;font-family:Saira,system-ui,sans-serif;font-size:13px;font-weight:600;
+letter-spacing:.2em;text-transform:uppercase;color:#4A1B0C}
+.emerg a.tel{display:block;font-family:Saira,system-ui,sans-serif;font-weight:700;
+font-size:clamp(30px,8.2vw,46px);color:var(--on-accent);text-decoration:none;line-height:1.05}
+.emerg .btn{background:var(--on-accent);color:#fff;border-color:var(--on-accent);margin-top:16px;
+width:100%}
+.steps{list-style:none;counter-reset:s;margin:30px 0 0;padding:0}
+.steps li{counter-increment:s;padding:22px 0;border-top:1px solid var(--rule);
+display:grid;grid-template-columns:52px 1fr;gap:14px}
+.steps li::before{content:counter(s);font-family:Saira,system-ui,sans-serif;font-weight:700;
+font-size:30px;line-height:1;color:var(--accent)}
+.steps h3{font-size:20px;margin-bottom:6px}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+.plan{margin-top:34px;border:2px solid var(--cold);padding:24px 20px}
+.plan .tag{font-family:Saira,system-ui,sans-serif;font-size:13px;font-weight:600;
+letter-spacing:.2em;text-transform:uppercase;color:var(--cold);margin:0 0 9px}
+.plan h3{font-size:23px;margin-bottom:10px}
+.plan p{margin:0 0 20px;color:var(--muted);font-size:16px;max-width:56ch}
+.plan .btn{background:var(--cold);color:#06171D;border-color:var(--cold);width:100%}
+.close{padding:54px 0 58px;
+background:linear-gradient(180deg,rgba(255,107,69,.16),rgba(12,20,24,0) 70%),var(--panel);
+border-top:1px solid var(--rule)}
+.close h2{font-size:clamp(30px,7.2vw,48px);max-width:14ch;color:#fff}
+.close p{max-width:52ch;font-size:17px;color:#BAC6CD;margin:14px 0 22px}
+.close .note{font-size:15px;color:var(--muted);margin-top:18px;max-width:52ch}
+.foot{padding:38px 0 34px;font-size:15px;color:var(--muted)}
+.foot .brand{color:var(--ink);display:inline-block;margin-bottom:12px}
+.foot p{margin:0 0 9px;max-width:66ch}
+.foot a{color:var(--cold);font-weight:500}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:#0A1216;padding:8px;
+border-top:1px solid var(--rule);display:grid;grid-template-columns:1.35fr 1fr;gap:8px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:58px;
+text-decoration:none;font-weight:600;font-size:16px;font-family:Saira,system-ui,sans-serif;
+text-align:center;line-height:1.15;padding:0 8px}
+.callbar .call{background:var(--accent);color:var(--on-accent)}
+.callbar .tune{border:2px solid var(--cold);color:var(--cold)}
+@media(min-width:760px){
+ .ctas{flex-direction:row}
+ .bleed{padding:66px 0 0}
+ .bleed .sub{font-size:19px}
+ .scale ul{grid-template-columns:repeat(4,1fr)}
+ .scale li{border-bottom:none;padding:12px 16px 14px 0}
+ .sec{padding:80px 0}
+ .tiles{grid-template-columns:1fr 1fr}
+ .steps{display:grid;grid-template-columns:1fr 1fr;column-gap:40px}
+ .plan{display:grid;grid-template-columns:1.6fr auto;gap:30px;align-items:center;padding:30px}
+ .plan .btn{width:auto;min-width:240px}
+ .emerg .wrap{display:flex;align-items:center;gap:26px;padding:28px 20px 30px}
+ .emerg .btn{margin-top:0;margin-left:auto;width:auto;flex:none}
+ .quotelead{padding-top:34px;margin-top:34px}
+}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+
+<style>
+  /* Hero backdrop. The photograph sits behind the hero's own composition; the
+     scrim below is the design's own background colour, so nothing about the
+     contrast the layout was built with changes. */
+  .gsw-imaged { position: relative; isolation: isolate; overflow: hidden; }
+  .gsw-imaged > *:not(.gsw-backdrop) { position: relative; z-index: 1; }
+  .gsw-backdrop { position: absolute; inset: 0; z-index: 0; }
+  .gsw-backdrop img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .gsw-backdrop::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(100deg,
+      rgb(12 20 24 / 0.9) 0%, rgb(12 20 24 / 0.84) 38%, rgb(12 20 24 / 0.56) 68%, rgb(12 20 24 / 0.36) 100%);
+  }
+  @media (max-width: 60rem) { .gsw-backdrop::after { background: rgb(12 20 24 / 0.86); } }
+  @media (forced-colors: active) { .gsw-backdrop { display: none; } }
+  @media print { .gsw-backdrop { display: none; } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">24/7 emergency service · Financing available · Licensed &amp; insured</div></div>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="#">Nightingale Heating &amp; Air</a>
+  <a class="navtel" href="tel:+15558893305">(555) 889-3305</a>
+</div></header>
+<nav class="navstrip"><div class="wrap"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></div></nav>
+<section class="gsw-imaged bleed"><div class="gsw-backdrop" aria-hidden="true"><img src="../_assets/hero/hvac/d-fin-geometry.jpg" alt="" loading="eager"></div><div class="wrap">
+  <p class="eyebrow">Emergency service · 24 hours</p>
+  <h1>Nights and weekends cost the same as Tuesday morning.</h1>
+  <p class="sub">Repair, replacement and maintenance across the metro. No overtime rate, no weekend premium and no holiday surcharge — a failure at nine on a Sunday is priced exactly as it would be at nine on a Tuesday.</p>
+  <div class="ctas">
+    <a class="btn btn-hot" data-cta="primary" href="tel:+15558893305">Call now</a>
+    <a class="btn btn-line" href="#contact">Book a tune-up</a>
+  </div>
+  <a class="bigtel" href="tel:+15558893305">(555) 889-3305</a>
+  <div class="scale">
+    <div class="bar"></div>
+    <ul><li>24/7 emergency</li><li>Financing from $89/mo</li><li>Heat pump rebates handled</li><li>Upfront flat pricing</li></ul>
+  </div>
+</div></section>
+<section class="sec sec--panel" id="services"><div class="wrap">
+  <p class="kicker">Services</p>
+  <h2>What we handle</h2>
+  <p class="lede">Repairs today, replacements planned properly, and a maintenance plan so you stop having emergencies.</p>
+  <div class="tiles">
+    <article class="tile"><span class="dot"></span><h3>Emergency repair</h3><p>Same-day, seven days. Diagnostic fee waived if you go ahead with the repair, and you approve the price before we touch anything.</p></article>
+    <article class="tile"><span class="dot"></span><h3>System replacement</h3><p>Right-sized with a proper load calculation — not a guess off the old unit's badge. Financing arranged before install day.</p></article>
+    <article class="tile"><span class="dot"></span><h3>Heat pumps &amp; rebates</h3><p>There is serious money in federal credits and utility rebates right now. We handle the paperwork and it comes off your price.</p></article>
+    <article class="tile"><span class="dot"></span><h3>Maintenance plans</h3><p>Two visits a year, priority scheduling, no overtime rates. Most breakdowns we attend were preventable at a tenth the cost.</p></article>
+  </div>
+</div></section>
+<section class="sec" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <figure class="quotelead">
+    <blockquote>&ldquo;Ninety-seven degrees, Friday night, two kids. They had someone here in ninety minutes and the price they quoted on the phone was the price on the invoice.&rdquo;</blockquote>
+    <figcaption><b>Sandra P.</b> &middot; Emergency repair, Northside</figcaption>
+  </figure>
+</div></section>
+<section class="emerg"><div class="wrap">
+  <div><p>Emergency service · 24 hours</p><a class="tel" href="tel:+15558893305">(555) 889-3305</a></div>
+  <a class="btn" href="tel:+15558893305">Call now</a>
+</div></section>
+<section class="sec sec--panel" id="process"><div class="wrap">
+  <p class="kicker">Process</p>
+  <h2>How a call runs</h2>
+  <p class="lede">Flat pricing approved before work starts, and the same flat price whatever the hour on the clock says.</p>
+  <ol class="steps">
+    <li><div><h3>You call</h3><p>A human answers, day or night. We give you a window and we hit it or we tell you early.</p></div></li>
+    <li><div><h3>Diagnose</h3><p>We find the actual fault and show you. Photographs of what's wrong, not a verdict from behind the unit.</p></div></li>
+    <li><div><h3>Flat price, your call</h3><p>A written price for repair and, where it's close, for replacement. You choose with both numbers in front of you.</p></div></li>
+    <li><div><h3>Fix &amp; follow up</h3><p>Work warranted parts and labour. We check in after the first hot or cold snap to make sure it held.</p></div></li>
+  </ol>
+  <div class="plan">
+    <div><p class="tag">24/7 emergency</p><h3>Maintenance plans</h3><p>Two visits a year, priority scheduling, no overtime rates. Most breakdowns we attend were preventable at a tenth the cost.</p></div>
+    <a class="btn" href="#contact">Book a tune-up</a>
+  </div>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>System down right now?</h2>
+  <p>Nights, weekends and holidays, answered by our own people, at the same price as any weekday call. That is the entire policy.</p>
+  <div class="ctas">
+    <a class="btn btn-hot" href="tel:+15558893305">Call now</a>
+    <a class="btn btn-line" href="tel:+15558893305">(555) 889-3305</a>
+  </div>
+  <p class="note">Free second opinions on replacement quotes. Financing subject to approval.</p>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Nightingale Heating &amp; Air</a>
+  <p><a href="tel:+15558893305">(555) 889-3305</a> &middot; Licensed, bonded and insured · Serving the metro since 1998</p>
+  <p>24/7 emergency service · Financing available · Licensed &amp; insured</p>
+  <p>4429 Marigold Street Floor 2, Riverbend, NY 17033</p>
+</div></footer>
+<div class="callbar"><a class="call" href="tel:+15558893305">Call now</a><a class="tune" href="#contact">Book a tune-up</a></div>
+</body>
+</html>

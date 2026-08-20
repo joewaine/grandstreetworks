@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ansonia Solar — Local crews, not a sales floor</title>
+<meta name="description" content="A solar company that publishes the number before the form. Own crews, NABCEP certified, installing since 2011.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Heebo:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* D5 — THE QUIET ONE. hero:stack nav:inline services:list proof:testimonial-lead
+   ink #1A1C1A · surface #F2F2EE · accent #7E5214 · amber #F2B23D · muted #4C555B
+   H1 ramp: 29/33/40/48px · Noto Sans display / Heebo body
+   Device: the figure slot left open between two rules — no card, no shadow, no badge,
+   and no number invented to fill it. Fixes "trust unaddressed": this is the least
+   sales-shaped of the six, so a homeowner cold-called four times finds an open slot,
+   a quote and a phone number, and nothing that behaves like a pitch. */
+:root{--ink:#1A1C1A;--surface:#F2F2EE;--paper:#FBFBF9;--accent:#7E5214;--amber:#F2B23D;
+--muted:#4C555B;--rule:rgba(26,28,26,.26);--hair:rgba(26,28,26,.13);--wrap:1000px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.66 "Heebo",system-ui,-apple-system,sans-serif;padding-bottom:84px;overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Noto Sans",system-ui,sans-serif;font-weight:700;margin:0;line-height:1.16;
+letter-spacing:-.014em}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 20px;
+text-decoration:none;font-weight:600;font-size:16px;border:1px solid var(--ink);text-align:center;
+line-height:1.2;font-family:"Noto Sans",system-ui,sans-serif}
+.btn-primary{background:var(--ink);color:var(--surface)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--rule)}
+.topbar{color:var(--muted);font-size:14px;border-bottom:1px solid var(--hair)}
+.topbar .wrap{padding:8px 20px}
+/* nav:inline — brand and the four links share one line */
+.nav{border-bottom:1px solid var(--rule);background:var(--surface);position:sticky;top:0;z-index:30}
+.navrow{display:flex;align-items:baseline;gap:18px;height:50px;padding-top:15px}
+.brand{font-family:"Noto Sans",system-ui,sans-serif;font-weight:700;font-size:18px;
+text-decoration:none;letter-spacing:-.02em;line-height:1;white-space:nowrap;flex:0 0 auto}
+.navlinks{display:flex;gap:18px;font-size:15px;color:var(--muted);overflow-x:auto;
+scrollbar-width:none;flex:1 1 auto}
+.navlinks::-webkit-scrollbar{display:none}
+.navlinks a{text-decoration:none;white-space:nowrap}
+.navact{display:none}
+/* hero:stack */
+.hero{padding:16px 0 34px}
+.eyebrow{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);
+margin:0 0 12px;font-weight:600}
+.hero h1{font-size:clamp(29px,7.4vw,48px);max-width:19ch}
+.sub{font-size:16px;color:var(--muted);max-width:56ch;margin:12px 0 0;line-height:1.58}
+/* the ungated figure, set as type between two rules */
+.figure{margin:18px 0 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+padding:14px 0 13px}
+.figure .micro{display:block;font-size:13px;letter-spacing:.22em;text-transform:uppercase;
+color:var(--accent);font-weight:600}
+/* the figure slot left open — quietest possible statement that nothing is in the way */
+.figure .field{display:block;height:clamp(52px,14vw,74px);margin:6px 0 10px;
+border-bottom:3px solid var(--amber)}
+.figure dl{margin:0;display:flex;flex-wrap:wrap;gap:2px 26px;font-size:13px;letter-spacing:.16em;
+text-transform:uppercase;font-weight:600;color:var(--muted)}
+.figure dl div{display:flex;gap:8px}
+.figure dt{margin:0}
+.figure dd{margin:0;color:var(--ink);font-weight:700;letter-spacing:0}
+.unlock{margin:16px 0 0;font-size:15px;color:var(--ink);line-height:1.5;max-width:46ch;
+border-left:3px solid var(--amber);padding-left:12px}
+.ctas{display:flex;flex-direction:column;gap:10px;margin-top:17px}
+.badges{list-style:none;margin:22px 0 0;padding:0;font-size:15px;color:var(--muted)}
+.badges li{padding:7px 0;border-bottom:1px solid var(--hair)}
+.sec{padding:48px 0;border-top:1px solid var(--rule)}
+.kicker{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);
+margin:0 0 10px;font-weight:600}
+.sec h2{font-size:clamp(26px,6vw,38px)}
+.lede{color:var(--muted);max-width:58ch;margin:12px 0 26px;font-size:17px}
+/* services:list — run-in headings, no boxes */
+.list{list-style:none;margin:0;padding:0}
+.list li{padding:16px 0;border-top:1px solid var(--hair);font-size:16px;color:var(--muted);
+max-width:66ch}
+.list li:first-child{border-top:1px solid var(--ink)}
+.list b{font-family:"Noto Sans",system-ui,sans-serif;font-weight:700;color:var(--ink);font-size:18px;
+display:block;margin-bottom:4px}
+/* proof:testimonial-lead */
+.testi{border-top:3px solid var(--amber);padding:22px 0 0;max-width:34ch}
+.testi blockquote{margin:0;font-family:"Noto Sans",system-ui,sans-serif;font-weight:400;
+font-size:clamp(21px,5.4vw,32px);line-height:1.32;letter-spacing:-.015em}
+.testi cite{display:block;font-style:normal;margin-top:16px;font-size:16px;color:var(--muted)}
+.testi cite b{color:var(--ink);font-weight:600}
+.accred{margin:30px 0 0;font-size:15px;color:var(--muted);max-width:60ch}
+.accred span{display:block;font-size:13px;letter-spacing:.22em;text-transform:uppercase;
+color:var(--accent);font-weight:600;margin-bottom:6px}
+/* process */
+.steps{list-style:none;margin:24px 0 0;padding:0;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:30px 1fr;gap:12px;padding:14px 0;
+border-top:1px solid var(--hair)}
+.steps li::before{content:counter(s) ".";font-family:"Noto Sans",system-ui,sans-serif;font-weight:700;
+font-size:17px;color:var(--accent);line-height:1.6}
+.steps h3{font-size:18px;margin-bottom:4px}
+.steps p{margin:0;color:var(--muted);font-size:16px;max-width:58ch}
+/* close */
+.close{padding:48px 0 52px;border-top:1px solid var(--rule);background:var(--paper)}
+.close h2{font-size:clamp(26px,6.2vw,40px);max-width:18ch}
+.close p{max-width:56ch;font-size:17px;margin:14px 0 20px;color:var(--muted)}
+.close .note{font-size:15px;margin:18px 0 0;color:var(--ink);border-left:3px solid var(--amber);
+padding-left:12px}
+.foot{padding:34px 0 32px;font-size:15px;color:var(--muted);border-top:1px solid var(--rule)}
+.foot .brand{color:var(--ink);display:inline-block;margin-bottom:12px}
+.foot p{margin:0 0 8px;max-width:64ch}
+.foot a{color:var(--accent);font-weight:600}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--surface);padding:8px;
+border-top:1px solid var(--ink);display:grid;grid-template-columns:1fr auto;gap:8px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:56px;text-decoration:none;
+font-weight:600;font-size:15px;text-align:center;line-height:1.2;padding:0 12px;
+font-family:"Noto Sans",system-ui,sans-serif}
+.callbar .go{background:var(--ink);color:var(--surface)}
+.callbar .tel{border:1px solid var(--ink);color:var(--ink);padding:0 14px;font-size:16px}
+@media(min-width:760px){
+.navact{display:inline-flex;min-height:38px;padding:0 14px;font-size:14px;white-space:nowrap;
+margin-left:auto;flex:0 0 auto}
+.navrow{height:56px;align-items:center;padding-top:0}
+.ctas{flex-direction:row}
+.badges{display:grid;grid-template-columns:1fr 1fr;column-gap:32px}
+.sec{padding:78px 0}.hero{padding:44px 0 52px}.sub{font-size:19px}
+.figure{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;padding:20px 0}
+.fmain{flex:1 1 300px}.figure dl{margin-bottom:14px;gap:4px 34px}
+.testi{max-width:26ch}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}
+.steps{display:grid;grid-template-columns:1fr 1fr;column-gap:48px}
+.list{columns:2;column-gap:48px}.list li{break-inside:avoid}}
+</style>
+
+<style>
+  /* Hero backdrop. The photograph sits behind the hero's own composition; the
+     scrim below is the design's own background colour, so nothing about the
+     contrast the layout was built with changes. */
+  .gsw-imaged { position: relative; isolation: isolate; overflow: hidden; }
+  .gsw-imaged > *:not(.gsw-backdrop) { position: relative; z-index: 1; }
+  .gsw-backdrop { position: absolute; inset: 0; z-index: 0; }
+  .gsw-backdrop img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .gsw-backdrop::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(100deg,
+      rgb(242 242 238 / 0.97) 0%, rgb(242 242 238 / 0.95) 38%, rgb(242 242 238 / 0.7) 68%, rgb(242 242 238 / 0.52) 100%);
+  }
+  @media (max-width: 60rem) { .gsw-backdrop::after { background: rgb(242 242 238 / 0.93); } }
+  @media (forced-colors: active) { .gsw-backdrop { display: none; } }
+  @media print { .gsw-backdrop { display: none; } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Local installers since 2011 · We do not subcontract · NABCEP certified</div></div>
+
+<header class="nav"><div class="wrap">
+  <div class="navrow">
+    <a class="brand" href="#">Ansonia Solar</a>
+    <nav class="navlinks" aria-label="Primary"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+    <a class="btn btn-primary navact" href="#estimate">Estimate my savings</a>
+  </div>
+</div></header>
+
+<section class="gsw-imaged hero"><div class="gsw-backdrop" aria-hidden="true"><img src="../_assets/hero/solar/e-street-of-roofs.jpg" alt="" loading="eager"></div><div class="wrap">
+  <p class="eyebrow">Local crews · Not a sales floor</p>
+  <h1>Sometimes the answer is that your roof isn't worth it.</h1>
+  <p class="sub">Put in your address and last bill and get a straight estimate. Roughly one in five roofs we look at does not pay back well enough to recommend, and we say so rather than quoting anyway.</p>
+  <div class="figure" id="estimate">
+    <div class="fmain">
+      <span class="micro">See the number first.</span>
+      <div class="field" aria-hidden="true"></div>
+    </div>
+    <dl>
+      <div><dt>production</dt><dd>&mdash;</dd></div>
+      <div><dt>savings</dt><dd>&mdash;</dd></div>
+      <div><dt>payback</dt><dd>&mdash;</dd></div>
+    </dl>
+  </div>
+  <div class="ctas">
+    <a class="btn btn-primary" data-cta="primary" href="#estimate">Estimate my savings</a>
+    <a class="btn btn-ghost" href="#results">How we're different</a>
+  </div>
+  <p class="unlock">No form gate, no phone call required to see it.</p>
+  <ul class="badges">
+    <li>No door knocking, ever</li><li>Our own crews, not subs</li>
+    <li>NABCEP certified</li><li>25-year production warranty</li>
+  </ul>
+</div></section>
+
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p>
+  <h2>What we do</h2>
+  <p class="lede">Residential and commercial, designed around your actual usage rather than a standard package.</p>
+  <ul class="list">
+    <li><b>Residential solar</b>Designed from twelve months of your real usage, not an average. Roof survey, shading analysis and a production estimate you can hold us to.</li>
+    <li><b>Battery storage</b>Backup through an outage and cheaper evening power. We'll tell you honestly whether it pays back in your rate structure — sometimes it doesn't.</li>
+    <li><b>Commercial &amp; agricultural</b>Ground-mount, roof and carport arrays, with the depreciation and incentive modelling your accountant will want to see.</li>
+    <li><b>Service &amp; repair</b>Including systems we didn't install. A lot of our work is fixing arrays whose installer has since disappeared.</li>
+  </ul>
+</div></section>
+
+<section class="sec" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <h2>One customer, at length</h2>
+  <figure class="testi">
+    <blockquote>Four companies knocked on our door. Ansonia was the one we found ourselves, and the only one that showed us the maths before asking for anything.</blockquote>
+    <cite><b>Devon &amp; Ash L.</b> · 9.2 kW + battery</cite>
+  </figure>
+  <p class="accred"><span>Certified and accredited</span>NABCEP Certified · SEIA Member · Tesla Powerwall Certified · Enphase Platinum · BBB A+</p>
+</div></section>
+
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p>
+  <h2>How it goes</h2>
+  <p class="lede">No pressure appointments, no one-night-only pricing, no sales manager phoning from the car park.</p>
+  <ol class="steps">
+    <li><div><h3>Estimate online</h3><p>Real numbers from your address and bill, instantly. No form gate, no phone call required to see it.</p></div></li>
+    <li><div><h3>Site survey</h3><p>We come out, get on the roof and check structure, shading and the panel. The estimate firms up or we tell you it doesn't work.</p></div></li>
+    <li><div><h3>Design, incentives, contract</h3><p>Final design with the current federal credit and local incentives applied, and financing if you want it.</p></div></li>
+    <li><div><h3>Install &amp; switch on</h3><p>One to three days with our own crew. We handle interconnection with the utility and stay for monitoring setup.</p></div></li>
+  </ol>
+</div></section>
+
+<section class="close" id="contact"><div class="wrap">
+  <h2>Curious what it would actually save you?</h2>
+  <p>Get the real number in about ninety seconds, without giving us your phone number. If it doesn't make sense for your roof, the tool will say so.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="#estimate">Estimate my savings</a>
+    <a class="btn btn-ghost" href="tel:+15559167742">(555) 916-7742</a>
+  </div>
+  <p class="note">No door-to-door sales. No subcontracted installs. Local since 2011.</p>
+</div></section>
+
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Ansonia Solar</a>
+  <p><a href="tel:+15559167742">(555) 916-7742</a> · NABCEP certified · Locally owned &amp; operated since 2011</p>
+  <p>Installing since 2011 · Jobs subcontracted: 0 · Systems installed: 3,400+ · Production warranty: 25yr</p>
+  <p>5341 Wexford Lane, Ashford Green, NJ 17040</p>
+</div></footer>
+
+<div class="callbar"><a class="go" href="#estimate">Estimate my savings</a><a class="tel" href="tel:+15559167742">(555) 916-7742</a></div>
+</body>
+</html>

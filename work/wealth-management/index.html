@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wealth Management — six builds · Grand Street Works</title>
+<meta name="description" content="Six reference homepage builds for wealth management, each for a different business.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23050505'/%3E%3Ccircle cx='14' cy='14' r='5' fill='%23C2D57D'/%3E%3Ctext x='32' y='50' font-family='Menlo,Consolas,monospace' font-size='26' font-weight='bold' fill='%23E5E5E6' text-anchor='middle'%3EGW%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-color: #E5E5E6;
+    --text-color: #050505;
+    --border-color: #050505;
+    --border-light: rgba(5, 5, 5, 0.15);
+    --font-sans: 'Inter', -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --nav-height: 60px;
+    --frame-height: min(82vh, 940px);
+    /* the stack sits on a neutral ground so each build reads as an object
+       rather than as the page itself */
+    --ground: #CFCFD1;
+    --stage: #B7B7B9;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.4;
+    overflow-x: hidden;
+    padding-top: var(--nav-height);
+  }
+  a { color: inherit; text-decoration: none; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--text-color); outline-offset: 3px; }
+  .label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  header {
+    position: fixed; top: 0; left: 0; width: 100%; height: var(--nav-height);
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 2rem; background-color: var(--bg-color);
+    border-bottom: 1px solid var(--border-color); z-index: 100;
+  }
+  .logo-mark { display: flex; align-items: center; gap: 1rem; min-width: 0; }
+  .portfolio-of { color: rgba(5, 5, 5, 0.45); white-space: nowrap; }
+  .status-dot {
+    width: 8px; height: 8px; background-color: #C2D57D; border-radius: 50%;
+    display: inline-block; box-shadow: 0 0 10px rgba(194, 213, 125, 0.5); flex: none;
+  }
+
+  .section-header {
+    display: flex; align-items: center; gap: 1rem; padding: 1rem 2rem;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--text-color); color: var(--bg-color);
+  }
+  .section-header .label { color: var(--bg-color); }
+  .section-header .label.dim { color: rgba(229, 229, 230, 0.6); }
+
+  /* ---------- One build: the site, then its bar ---------- */
+  .builds {
+    background: var(--ground);
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .build {
+    width: 90%;
+    margin: 0 auto 3.5rem;
+    border: 1px solid var(--border-color);
+    background: var(--bg-color);
+  }
+  .build:last-child { margin-bottom: 0; }
+  .frame-well {
+    background: var(--stage);
+    height: var(--frame-height);
+    min-height: 520px;
+    display: flex; justify-content: center;
+  }
+  .frame-well[data-mode="phone"] { padding: 1.5rem 1rem; }
+  .build iframe {
+    width: 100%; height: 100%; border: 0; background: #fff; display: block;
+  }
+  .frame-well[data-mode="phone"] iframe {
+    width: 390px; max-width: 100%;
+    box-shadow: 0 0 0 1px rgba(229, 229, 230, 0.25);
+  }
+
+  .bar {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 2rem; padding: 0.85rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--bg-color);
+  }
+  .bar-head { display: flex; align-items: center; gap: 0.7rem; min-width: 0; }
+  .bar-name {
+    font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.01em;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .sw { width: 12px; height: 12px; flex: none; border: 1px solid rgba(0, 0, 0, 0.25); }
+  /* one trade's harness never recorded accents — drop the slot rather than
+     showing six empty boxes */
+  .sw-none { display: none; }
+
+  .bar-actions { display: flex; align-items: center; gap: 0.75rem; flex: none; }
+  .widths { display: flex; border: 1px solid var(--border-color); }
+  .wbtn {
+    font-family: var(--font-mono); font-size: 0.6875rem;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    padding: 0.5rem 0.85rem; border: none; background: transparent;
+    color: var(--text-color); cursor: pointer;
+  }
+  .wbtn + .wbtn { border-left: 1px solid var(--border-color); }
+  .wbtn.is-on { background: var(--text-color); color: var(--bg-color); }
+  .open {
+    font-family: var(--font-mono); font-size: 0.6875rem;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    padding: 0.5rem 0.85rem; border: 1px solid var(--border-color);
+    white-space: nowrap;
+  }
+  .open:hover { background: var(--text-color); color: var(--bg-color); }
+
+  .noscript-note {
+    padding: 1rem 2rem; border-bottom: 1px solid var(--border-color);
+    font-family: var(--font-mono); font-size: 0.75rem;
+  }
+  footer {
+    display: flex; justify-content: flex-end; gap: 1rem; flex-wrap: wrap;
+    padding: 1.5rem 2rem; border-top: 1px solid var(--border-color);
+  }
+  footer .label { color: rgba(5, 5, 5, 0.7); }
+
+  @media (max-width: 860px) {
+    .bar { flex-direction: column; align-items: flex-start; gap: 0.85rem; }
+    .bar-actions { width: 100%; }
+    /* the viewport is already the phone these were built for */
+    .widths { display: none; }
+    .frame-well, .frame-well[data-mode="phone"] { padding: 0; height: 640px; min-height: 0; }
+    .builds { padding: 1.5rem 0; }
+    .build { width: calc(100% - 2.5rem); margin-bottom: 1.5rem; }
+    .frame-well[data-mode="phone"] iframe { width: 100%; box-shadow: none; }
+  }
+  @media (max-width: 640px) {
+    .portfolio-of { display: none; }
+    header, .section-header, .noscript-note, footer {
+      padding-left: 1.25rem; padding-right: 1.25rem;
+    }
+    .bar { padding-left: 1.25rem; padding-right: 1.25rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { .open, .wbtn { transition: none; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-mark">
+    <span class="status-dot" aria-hidden="true"></span>
+    <a href="../../" class="label" style="font-weight: 600;">Grand Street Works</a>
+    <span class="label portfolio-of">[Wealth Management site portfolio]</span>
+  </div>
+  <a href="../" class="label" style="text-decoration: underline;">← All work</a>
+</header>
+
+<main>
+  <div class="section-header">
+    <span class="label">Wealth Management Clients</span>
+    <span class="label dim">Scroll — each one in full, desktop or mobile</span>
+  </div>
+
+  <noscript>
+    <div class="noscript-note">JavaScript is off, so the width toggles won't switch. Every build below is also a normal link — open them directly.</div>
+  </noscript>
+
+  <div class="builds">
+      <section class="build">
+        <div class="bar">
+          <span class="bar-head">
+            <span class="sw" style="background:#16324F" aria-hidden="true"></span>
+            <span class="label">C1</span>
+            <span class="bar-name">Ferrier Wealth Partners</span>
+          </span>
+          <div class="bar-actions">
+            <div class="widths" role="group" aria-label="Preview width">
+              <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
+              <button type="button" class="wbtn" data-mode="phone" aria-pressed="false">Mobile</button>
+            </div>
+            <a class="open" href="ferrier-wealth-partners.html" target="_blank" rel="noopener">View full site ↗</a>
+          </div>
+        </div>
+        <div class="frame-well" data-mode="full">
+          <iframe src="ferrier-wealth-partners.html" title="C1 · The Statement One"
+                  loading="eager"></iframe>
+        </div>
+      </section>
+      <section class="build">
+        <div class="bar">
+          <span class="bar-head">
+            <span class="sw" style="background:#2E4739" aria-hidden="true"></span>
+            <span class="label">C2</span>
+            <span class="bar-name">Copeland Fiduciary</span>
+          </span>
+          <div class="bar-actions">
+            <div class="widths" role="group" aria-label="Preview width">
+              <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
+              <button type="button" class="wbtn" data-mode="phone" aria-pressed="false">Mobile</button>
+            </div>
+            <a class="open" href="copeland-fiduciary.html" target="_blank" rel="noopener">View full site ↗</a>
+          </div>
+        </div>
+        <div class="frame-well" data-mode="full">
+          <iframe src="copeland-fiduciary.html" title="C2 · The Ledger One"
+                  loading="lazy"></iframe>
+        </div>
+      </section>
+      <section class="build">
+        <div class="bar">
+          <span class="bar-head">
+            <span class="sw" style="background:#24486B" aria-hidden="true"></span>
+            <span class="label">C3</span>
+            <span class="bar-name">Winslow Family Wealth</span>
+          </span>
+          <div class="bar-actions">
+            <div class="widths" role="group" aria-label="Preview width">
+              <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
+              <button type="button" class="wbtn" data-mode="phone" aria-pressed="false">Mobile</button>
+            </div>
+            <a class="open" href="winslow-family-wealth.html" target="_blank" rel="noopener">View full site ↗</a>
+          </div>
+        </div>
+        <div class="frame-well" data-mode="full">
+          <iframe src="winslow-family-wealth.html" title="C3 · The Handover One"
+                  loading="lazy"></iframe>
+        </div>
+      </section>
+      <section class="build">
+        <div class="bar">
+          <span class="bar-head">
+            <span class="sw" style="background:#5B5344" aria-hidden="true"></span>
+            <span class="label">C4</span>
+            <span class="bar-name">Bracken &amp; Lowe</span>
+          </span>
+          <div class="bar-actions">
+            <div class="widths" role="group" aria-label="Preview width">
+              <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
+              <button type="button" class="wbtn" data-mode="phone" aria-pressed="false">Mobile</button>
+            </div>
+            <a class="open" href="bracken-and-lowe.html" target="_blank" rel="noopener">View full site ↗</a>
+          </div>
+        </div>
+        <div class="frame-well" data-mode="full">
+          <iframe src="bracken-and-lowe.html" title="C4 · The Three Conversations One"
+                  loading="lazy"></iframe>
+        </div>
+      </section>
+      <section class="build">
+        <div class="bar">
+          <span class="bar-head">
+            <span class="sw" style="background:#3B4250" aria-hidden="true"></span>
+            <span class="label">C5</span>
+            <span class="bar-name">Hartwell Wealth Advisors</span>
+          </span>
+          <div class="bar-actions">
+            <div class="widths" role="group" aria-label="Preview width">
+              <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
+              <button type="button" class="wbtn" data-mode="phone" aria-pressed="false">Mobile</button>
+            </div>
+            <a class="open" href="hartwell-wealth-advisors.html" target="_blank" rel="noopener">View full site ↗</a>
+          </div>
+        </div>
+        <div class="frame-well" data-mode="full">
+          <iframe src="hartwell-wealth-advisors.html" title="C5 · The Plain One"
+                  loading="lazy"></iframe>
+        </div>
+      </section>
+      <section class="build">
+        <div class="bar">
+          <span class="bar-head">
+            <span class="sw" style="background:#4A5D4E" aria-hidden="true"></span>
+            <span class="label">C6</span>
+            <span class="bar-name">Ostrander Wealth Counsel</span>
+          </span>
+          <div class="bar-actions">
+            <div class="widths" role="group" aria-label="Preview width">
+              <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
+              <button type="button" class="wbtn" data-mode="phone" aria-pressed="false">Mobile</button>
+            </div>
+            <a class="open" href="ostrander-wealth-counsel.html" target="_blank" rel="noopener">View full site ↗</a>
+          </div>
+        </div>
+        <div class="frame-well" data-mode="full">
+          <iframe src="ostrander-wealth-counsel.html" title="C6 · The Letterhead One"
+                  loading="lazy"></iframe>
+        </div>
+      </section>
+  </div>
+</main>
+
+<footer>
+  <div class="label"><a href="../" style="text-decoration: underline;">← All work</a></div>
+</footer>
+
+<script>
+(function () {
+  document.querySelectorAll('.build').forEach(function (build) {
+    var well = build.querySelector('.frame-well');
+    var buttons = build.querySelectorAll('.wbtn');
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        well.setAttribute('data-mode', btn.getAttribute('data-mode'));
+        buttons.forEach(function (other) {
+          var on = other === btn;
+          other.classList.toggle('is-on', on);
+          other.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>

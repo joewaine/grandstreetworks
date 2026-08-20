@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Harrowgate Dermatology — Skin checks within 2 weeks</title>
+<meta name="description" content="Medical dermatology, skin cancer surgery and a separate cosmetic clinic. Two booking paths, so you land in the right one.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Asap:wght@500;600;700&family=Assistant:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* D1 — THE TWO-DOOR ONE. hero:panel nav:centered services:cards proof:review-wall
+   ink #16202B · surface #F4F7FA · accent #15588F · warm #9C5330 · muted #4C5B6A
+   H1 ramp: 29/34/44/54px · Asap display / Assistant body
+   Fixes "medical and cosmetic buried together": the hero panel is literally two doors,
+   a blue one and a warm one, each with its own label and its own booking button, and
+   the stated wait sits as a chip on the frame above them. */
+:root{--ink:#16202B;--surface:#F4F7FA;--paper:#FFFFFF;--accent:#15588F;--warm:#9C5330;
+--muted:#4C5B6A;--rule:rgba(22,32,43,.15);--wrap:1120px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.62 "Assistant",system-ui,-apple-system,sans-serif;padding-bottom:82px;
+overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Asap",system-ui,sans-serif;font-weight:600;margin:0;line-height:1.16;
+letter-spacing:-.012em}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 22px;
+text-decoration:none;font-weight:600;font-size:16px;border:2px solid transparent;text-align:center;
+line-height:1.2;font-family:"Asap",system-ui,sans-serif}
+.btn-primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn-ghost{background:var(--paper);color:var(--ink);border-color:var(--ink)}
+.topbar{background:var(--ink);color:#C8D4DE;font-size:15px}
+.topbar .wrap{padding:9px 20px;text-align:center}
+.nav{position:sticky;top:0;z-index:30;background:var(--paper);border-bottom:1px solid var(--rule)}
+.navrow{position:relative;display:flex;align-items:center;justify-content:center;height:48px}
+.brand{font-family:"Asap",system-ui,sans-serif;font-weight:700;font-size:19px;text-decoration:none;
+letter-spacing:-.01em;line-height:1}
+.navact{position:absolute;right:20px;top:50%;transform:translateY(-50%);min-height:36px;padding:0 14px;
+font-size:14px;white-space:nowrap}
+.navlinks{display:flex;justify-content:center;gap:22px;padding:0 20px 10px;font-size:14px;
+letter-spacing:.12em;text-transform:uppercase;color:var(--muted);overflow-x:auto;scrollbar-width:none}
+.navlinks::-webkit-scrollbar{display:none}
+.navlinks a{text-decoration:none;white-space:nowrap;font-weight:600}
+.hero{padding:20px 0 30px}
+.panel{background:var(--paper);border:1px solid var(--rule);border-top:5px solid var(--accent);
+padding:22px 18px 20px;position:relative}
+.chip{display:inline-flex;align-items:center;gap:8px;background:#E4EEF6;color:#0F4472;
+font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:7px 12px;
+border-radius:999px;margin:0 0 14px}
+.chip i{width:8px;height:8px;border-radius:50%;background:var(--accent);display:block;font-style:normal}
+.eyebrow{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);
+margin:0 0 10px;font-weight:700}
+.hero h1{font-size:clamp(29px,7.2vw,54px);max-width:16ch}
+.sub{font-size:16px;color:var(--muted);max-width:54ch;margin:12px 0 0;line-height:1.55}
+.doors{display:grid;gap:10px;margin-top:18px}
+.door{display:block;text-decoration:none;padding:14px 16px;border:2px solid var(--accent);
+background:var(--accent);color:#fff}
+.door.cos{background:var(--paper);border-color:var(--warm);color:var(--warm)}
+.dlabel{display:block;font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;
+opacity:.92}
+.dcta{display:block;font-family:"Asap",system-ui,sans-serif;font-weight:700;font-size:20px;
+margin-top:4px;line-height:1.25}
+.door.cos .dcta{color:var(--warm)}
+.badges{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:0;border-top:1px solid var(--rule)}
+.badges li{font-size:15px;color:var(--muted);padding:10px 0 10px 20px;position:relative;
+border-bottom:1px solid var(--rule)}
+.badges li::before{content:"";position:absolute;left:0;top:18px;width:9px;height:2px;
+background:var(--accent)}
+.sec{padding:52px 0;border-top:1px solid var(--rule)}
+.kicker{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);
+margin:0 0 10px;font-weight:700}
+.sec h2{font-size:clamp(27px,6vw,42px)}
+.lede{color:var(--muted);max-width:60ch;margin:12px 0 26px;font-size:17px}
+.cards{display:grid;gap:12px}
+.card{background:var(--paper);border:1px solid var(--rule);border-left:5px solid var(--accent);
+padding:20px 18px}
+.card.cos{border-left-color:var(--warm)}
+.card h3{font-size:21px;margin-bottom:8px}
+.card p{margin:0;color:var(--muted);font-size:16px}
+.wall{display:grid;gap:12px;margin-top:24px}
+.rev{background:var(--paper);border:1px solid var(--rule);padding:18px 16px;border-top:3px solid var(--accent)}
+.rev p{margin:0 0 10px;font-family:"Asap",system-ui,sans-serif;font-size:19px;line-height:1.4;
+font-weight:500}
+.rev cite{font-style:normal;font-size:15px;color:var(--muted)}
+.rev cite b{color:var(--ink);font-weight:600}
+.steps{list-style:none;margin:24px 0 0;padding:0;counter-reset:s;border-top:2px solid var(--ink)}
+.steps li{counter-increment:s;padding:20px 0;border-bottom:1px solid var(--rule);display:grid;
+grid-template-columns:38px 1fr;gap:14px}
+.steps li::before{content:counter(s,decimal-leading-zero);font-family:"Asap",system-ui,sans-serif;
+font-weight:700;font-size:17px;color:var(--accent);line-height:1.5;letter-spacing:.04em}
+.steps h3{font-size:20px;margin-bottom:5px}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+.close{background:var(--accent);color:#fff;padding:52px 0 58px}
+.close h2{font-size:clamp(28px,6.2vw,46px);max-width:18ch}
+.close p{max-width:56ch;font-size:17px;color:#D5E6F3;margin:14px 0 20px}
+.close .btn-primary{background:#fff;color:var(--accent);border-color:#fff}
+.close .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.55)}
+.ctas{display:flex;flex-direction:column;gap:10px}
+.note{font-size:15px;color:#C6DBEC;margin-top:18px;max-width:56ch}
+.foot{padding:40px 0 34px;font-size:15px;color:var(--muted)}
+.foot .brand{color:var(--ink);display:inline-block;margin-bottom:12px}
+.foot p{margin:0 0 9px;max-width:64ch}
+.foot a{color:var(--accent);font-weight:600}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--paper);padding:8px;
+border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:8px;
+box-shadow:0 -2px 10px rgba(22,32,43,.09)}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:58px;text-decoration:none;
+font-weight:700;font-size:15px;text-align:center;line-height:1.2;padding:0 12px;
+font-family:"Asap",system-ui,sans-serif}
+.callbar .book{background:var(--accent);color:#fff}
+.callbar .tel{border:2px solid var(--ink);color:var(--ink);padding:0 16px;font-size:16px}
+@media(max-width:759px){.navact{display:none}}
+@media(min-width:760px){.ctas{flex-direction:row}.doors{grid-template-columns:1fr 1fr;gap:14px}
+.cards{grid-template-columns:1fr 1fr;gap:16px}.wall{grid-template-columns:1fr 1fr;gap:14px}
+.badges{grid-template-columns:1fr 1fr;column-gap:26px}
+.steps{grid-template-columns:1fr 1fr;column-gap:40px}
+.panel{padding:38px 34px 32px}.hero{padding:36px 0 46px}.sec{padding:84px 0}
+.sub{font-size:19px}.navrow{height:58px}.brand{font-size:22px}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Two clinics · One practice · Most insurance accepted</div></div>
+<header class="nav">
+  <div class="navrow"><a class="brand" href="#">Harrowgate Dermatology</a>
+    <a class="btn btn-primary navact" href="#contact">Book a skin check</a></div>
+  <div class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></div>
+</header>
+<section class="hero"><div class="wrap"><div class="panel">
+  <span class="chip"><i></i>Skin checks within 2 weeks</span>
+  <p class="eyebrow">Medical · Surgical · Cosmetic</p>
+  <h1>Two clinics, one practice. Pick the right door.</h1>
+  <p class="sub">Medical dermatology, skin cancer surgery and a separate cosmetic clinic — different calendars, different money, different front doors. Choosing correctly saves you weeks and an argument with your insurer.</p>
+  <div class="doors">
+    <a class="door" data-cta="primary" href="#contact"><span class="dlabel">Medical dermatology</span><span class="dcta">Book a skin check</span></a>
+    <a class="door cos" href="#contact"><span class="dlabel">Cosmetic clinic</span><span class="dcta">Cosmetic consultations</span></a>
+  </div>
+  <ul class="badges">
+    <li>Skin checks within 2 weeks</li><li>Mohs surgery on site</li>
+    <li>Most insurance accepted</li><li>Separate cosmetic clinic</li>
+  </ul>
+</div></div></section>
+<figure class="gsw-plate"><img src="../_assets/hero/dermatology/a-seen-quickly.jpg" alt="Seen quickly — dermatology" loading="lazy"></figure>
+
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p>
+  <h2>Two clinics, one practice</h2>
+  <p class="lede">Medical dermatology runs on insurance and referral. The cosmetic clinic runs separately, with its own booking and published pricing.</p>
+  <div class="cards">
+    <article class="card"><h3>Skin cancer &amp; Mohs surgery</h3><p>Screening, biopsy and Mohs micrographic surgery on site, so diagnosis and removal don't mean two separate waits.</p></article>
+    <article class="card"><h3>Medical dermatology</h3><p>Acne, eczema, psoriasis, rosacea and hair loss. Most insurance accepted, and biologics managed in house.</p></article>
+    <article class="card"><h3>Paediatric dermatology</h3><p>Eczema, birthmarks and adolescent acne, in appointments long enough for a child to settle.</p></article>
+    <article class="card cos"><h3>Cosmetic clinic</h3><p>Injectables, lasers and medical-grade skincare, with published pricing. Booked separately from medical visits.</p></article>
+  </div>
+</div></section>
+<section class="sec" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <h2>What patients say</h2>
+  <div class="wall">
+    <figure class="rev"><p>"Nine days from calling to being seen. I'd been quoted three months elsewhere."</p><cite><b>Priscilla N.</b> · Skin check</cite></figure>
+    <figure class="rev"><p>"Mohs done on site. No second referral, no second wait."</p><cite><b>Hank D.</b> · Mohs surgery</cite></figure>
+    <figure class="rev"><p>"Cosmetic side has prices online. Refreshing."</p><cite><b>Yuki S.</b> · Cosmetic clinic</cite></figure>
+    <figure class="rev"><p>"Twelve years of eczema finally under control."</p><cite><b>Ade F.</b> · Medical dermatology</cite></figure>
+  </div>
+</div></section>
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p>
+  <h2>Booking the right visit</h2>
+  <p class="lede">Medical and cosmetic run on different calendars and different money. Getting this right saves you weeks.</p>
+  <ol class="steps">
+    <li><div><h3>Pick your clinic</h3><p>Worried about a spot, a rash or a mole? Medical. Wanting to change how your skin looks? Cosmetic. If unsure, book medical.</p></div></li>
+    <li><div><h3>Book &amp; pre-register</h3><p>Online, with insurance details taken up front, so the first visit isn't twenty minutes of paperwork.</p></div></li>
+    <li><div><h3>Be seen</h3><p>Full-body skin checks run about thirty minutes. Anything suspicious is biopsied the same visit wherever possible.</p></div></li>
+    <li><div><h3>Results &amp; plan</h3><p>Pathology back within a week, delivered by a person on the phone, with the next step already scheduled.</p></div></li>
+  </ol>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>Not sure which door is yours?</h2>
+  <p>Don't sit on it. Skin checks are booking about two weeks out and we hold urgent slots every week for exactly this reason.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="#contact">Book a skin check</a>
+    <a class="btn btn-ghost" href="tel:+15554823390">(555) 482-3390</a>
+  </div>
+  <p class="note">Most major insurance accepted on the medical side. The cosmetic clinic publishes its prices and books separately. If unsure, book medical.</p>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Harrowgate Dermatology</a>
+  <p><a href="tel:+15554823390">(555) 482-3390</a> · Board-certified dermatology · Mohs surgery on site · Two booking paths</p>
+  <p>American Board of Dermatology · American College of Mohs Surgery · AAD Fellows · Most major insurers</p>
+  <p>929 Ridgeway Avenue Suite 200, Cedar Reach, NY 11758</p>
+</div></footer>
+<div class="callbar"><a class="book" href="#contact">Book a skin check</a><a class="tel" href="tel:+15554823390">(555) 482-3390</a></div>
+</body>
+</html>

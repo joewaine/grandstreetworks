@@ -1,0 +1,194 @@
+{
+ "custom-home-builders/coulter-and-vane-homes.html": {
+  "bg": "rgb(22, 32, 26)",
+  "fg": "rgb(251, 247, 238)"
+ },
+ "custom-home-builders/farrow-ridge-builders.html": {
+  "bg": "rgb(251, 248, 243)",
+  "fg": "rgb(33, 28, 21)"
+ },
+ "custom-home-builders/kingsmere-build.html": {
+  "bg": "rgb(250, 246, 239)",
+  "fg": "rgb(30, 26, 21)"
+ },
+ "custom-home-builders/latham-homes.html": {
+  "bg": "rgb(244, 242, 234)",
+  "fg": "rgb(28, 35, 29)"
+ },
+ "custom-home-builders/sable-creek-homes.html": {
+  "bg": "rgb(252, 251, 247)",
+  "fg": "rgb(31, 36, 30)"
+ },
+ "custom-home-builders/wyndham-custom-homes.html": {
+  "bg": "rgb(247, 244, 238)",
+  "fg": "rgb(26, 31, 26)"
+ },
+ "general-contractors/bexley-build-group.html": {
+  "bg": "rgb(230, 221, 204)",
+  "fg": "rgb(31, 26, 20)"
+ },
+ "general-contractors/granby-construction.html": {
+  "bg": "rgb(28, 26, 23)",
+  "fg": "rgb(242, 237, 226)"
+ },
+ "general-contractors/halverson-build-co.html": {
+  "bg": "rgb(244, 242, 237)",
+  "fg": "rgb(30, 33, 38)"
+ },
+ "general-contractors/marrant-construction.html": {
+  "bg": "rgb(250, 246, 236)",
+  "fg": "rgb(33, 30, 23)"
+ },
+ "general-contractors/threshold-builders.html": {
+  "bg": "rgb(253, 251, 246)",
+  "fg": "rgb(36, 29, 20)"
+ },
+ "general-contractors/whitfield-build-co.html": {
+  "bg": "rgb(246, 242, 233)",
+  "fg": "rgb(34, 28, 21)"
+ },
+ "hvac/beacon-comfort-co.html": {
+  "bg": "rgb(242, 245, 246)",
+  "fg": "rgb(16, 24, 28)"
+ },
+ "hvac/ironwood-heating-and-air.html": {
+  "bg": "rgb(255, 255, 255)",
+  "fg": "rgb(20, 23, 26)"
+ },
+ "hvac/nightingale-heating-and-air.html": {
+  "bg": "rgb(12, 20, 24)",
+  "fg": "rgb(233, 239, 243)"
+ },
+ "hvac/sutter-heating-and-cooling.html": {
+  "bg": "rgb(255, 255, 255)",
+  "fg": "rgb(14, 26, 31)"
+ },
+ "hvac/trueline-heating-and-air.html": {
+  "bg": "rgb(255, 255, 255)",
+  "fg": "rgb(16, 26, 30)"
+ },
+ "hvac/vantage-air-systems.html": {
+  "bg": "rgb(244, 242, 240)",
+  "fg": "rgb(255, 255, 255)"
+ },
+ "luxury-real-estate/ashcroft-residential.html": {
+  "bg": "rgb(246, 244, 239)",
+  "fg": "rgb(18, 22, 20)"
+ },
+ "luxury-real-estate/bellamy-estates.html": {
+  "bg": "rgb(250, 248, 243)",
+  "fg": "rgb(23, 26, 24)"
+ },
+ "luxury-real-estate/ellery-and-vane.html": {
+  "bg": "rgb(239, 237, 231)",
+  "fg": "rgb(19, 20, 23)"
+ },
+ "luxury-real-estate/marlowe-and-hart.html": {
+  "bg": "rgb(247, 245, 240)",
+  "fg": "rgb(255, 255, 255)"
+ },
+ "luxury-real-estate/rathmore-and-finch.html": {
+  "bg": "rgb(245, 242, 236)",
+  "fg": "rgb(20, 18, 15)"
+ },
+ "luxury-real-estate/thornbury-property-group.html": {
+  "bg": "rgb(20, 19, 16)",
+  "fg": "rgb(242, 236, 225)"
+ },
+ "pool-builders/anvil-bay-pools.html": {
+  "bg": "rgb(10, 26, 36)",
+  "fg": "rgb(232, 244, 247)"
+ },
+ "pool-builders/blue-harbor-pools.html": {
+  "bg": "rgb(241, 239, 233)",
+  "fg": "rgb(255, 255, 255)"
+ },
+ "pool-builders/clearwater-pool-group.html": {
+  "bg": "rgb(237, 241, 246)",
+  "fg": "rgb(22, 32, 46)"
+ },
+ "pool-builders/cold-spring-pools.html": {
+  "bg": "rgb(246, 243, 236)",
+  "fg": "rgb(27, 35, 51)"
+ },
+ "pool-builders/marlin-pool-co.html": {
+  "bg": "rgb(244, 247, 248)",
+  "fg": "rgb(15, 36, 48)"
+ },
+ "pool-builders/verdant-pools-and-gardens.html": {
+  "bg": "rgb(242, 245, 246)",
+  "fg": "rgb(16, 34, 44)"
+ },
+ "restoration/arbor-restoration-group.html": {
+  "bg": "rgb(16, 38, 43)",
+  "fg": "rgb(255, 255, 255)"
+ },
+ "restoration/bluewater-restoration.html": {
+  "bg": "rgb(242, 244, 245)",
+  "fg": "rgb(20, 32, 43)"
+ },
+ "restoration/claymore-restoration.html": {
+  "bg": "rgb(245, 247, 246)",
+  "fg": "rgb(15, 31, 29)"
+ },
+ "restoration/keystone-restoration.html": {
+  "bg": "rgb(243, 246, 245)",
+  "fg": "rgb(12, 22, 24)"
+ },
+ "restoration/nightwatch-restoration.html": {
+  "bg": "rgb(17, 21, 23)",
+  "fg": "rgb(255, 255, 255)"
+ },
+ "restoration/rapid-dry-restoration.html": {
+  "bg": "rgb(245, 179, 53)",
+  "fg": "rgb(30, 23, 16)"
+ },
+ "roofing/anchor-peak-roofing.html": {
+  "bg": "rgb(244, 243, 240)",
+  "fg": "rgb(23, 24, 26)"
+ },
+ "roofing/fair-oaks-roofing.html": {
+  "bg": "rgb(250, 249, 247)",
+  "fg": "rgb(27, 29, 32)"
+ },
+ "roofing/halloran-roofing.html": {
+  "bg": "rgb(20, 21, 23)",
+  "fg": "rgb(255, 255, 255)"
+ },
+ "roofing/meridian-roof-co.html": {
+  "bg": "rgb(241, 242, 243)",
+  "fg": "rgb(255, 255, 255)"
+ },
+ "roofing/northgate-roofing.html": {
+  "bg": "rgb(15, 17, 19)",
+  "fg": "rgb(255, 255, 255)"
+ },
+ "roofing/sentry-roofing-and-restoration.html": {
+  "bg": "rgb(233, 235, 236)",
+  "fg": "rgb(26, 29, 32)"
+ },
+ "solar/ansonia-solar.html": {
+  "bg": "rgb(242, 242, 238)",
+  "fg": "rgb(26, 28, 26)"
+ },
+ "solar/brightfold-solar.html": {
+  "bg": "rgb(250, 250, 248)",
+  "fg": "rgb(22, 25, 28)"
+ },
+ "solar/cedar-line-solar.html": {
+  "bg": "rgb(247, 246, 242)",
+  "fg": "rgb(20, 24, 27)"
+ },
+ "solar/fairhaven-solar.html": {
+  "bg": "rgb(245, 244, 240)",
+  "fg": "rgb(23, 26, 28)"
+ },
+ "solar/halgrove-energy.html": {
+  "bg": "rgb(18, 23, 27)",
+  "fg": "rgb(241, 244, 246)"
+ },
+ "solar/kettle-ridge-solar.html": {
+  "bg": "rgb(239, 239, 234)",
+  "fg": "rgb(25, 23, 19)"
+ }
+}

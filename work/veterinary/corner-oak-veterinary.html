@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Corner Oak Veterinary — Book online, request refills, no phone call</title>
+<meta name="description" content="Accepting new patients. Online booking, Saturday hours and prescription refills you can request without phoning.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&family=Quattrocento:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* D2 — THE FRONT DESK ONE. hero:split nav:minimal services:grid-numbered proof:logos
+   ink #1F2A22 · surface #F4F6EF · accent #33684A · clay #A9552F · muted #4F5A50
+   H1 ramp: 32/38/48/60px · Quattrocento display / Mulish body
+   Fixes "front desk drowning in calls the site should absorb": the hero splits in
+   two — the open-status statement on one side, a self-service counter on the other
+   with booking and refills as full-size keys, so neither errand needs the phone. */
+:root{--ink:#1F2A22;--surface:#F4F6EF;--paper:#FFFFFF;--accent:#33684A;--clay:#A9552F;
+--muted:#4F5A50;--rule:rgba(31,42,34,.18);--wrap:1140px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.6 "Mulish",system-ui,-apple-system,sans-serif;padding-bottom:84px;overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 18px}
+h1,h2,h3{font-family:"Quattrocento",Georgia,serif;font-weight:700;margin:0;line-height:1.12;
+letter-spacing:-.01em}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 22px;
+text-decoration:none;font-weight:700;font-size:17px;border:2px solid transparent;text-align:center;
+line-height:1.2;font-family:"Mulish",system-ui,sans-serif}
+.btn-primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn-ghost{background:var(--paper);color:var(--ink);border-color:var(--ink)}
+.topbar{background:var(--ink);color:#DCE6DC;font-size:16px}
+.topbar .wrap{padding:9px 18px;text-align:center}
+.nav{position:sticky;top:0;z-index:30;background:var(--surface);border-bottom:1px solid var(--rule)}
+.navrow{display:flex;align-items:center;justify-content:space-between;gap:10px;height:50px}
+.brand{font-family:"Quattrocento",Georgia,serif;font-weight:700;font-size:16px;text-decoration:none;
+letter-spacing:-.015em;line-height:1.05}
+.navact{font-size:14px;font-weight:700;text-decoration:none;border-bottom:2px solid var(--accent);
+color:var(--accent);padding-bottom:2px;white-space:nowrap}
+.hero{padding:0 0 26px}
+.split{display:grid;gap:0;border-bottom:1px solid var(--rule)}
+/* left: the open-status statement */
+.stat{padding:24px 18px 26px;position:relative}
+.flag{display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:#fff;
+font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:8px 14px;
+margin-bottom:16px}
+.flag i{width:10px;height:10px;border-radius:50%;background:#F6D9A6;display:block;font-style:normal}
+.stat h1{font-size:clamp(32px,8.6vw,60px);max-width:12ch}
+.sub{font-size:16px;color:var(--muted);max-width:48ch;margin:14px 0 0;line-height:1.55}
+/* right: the self-service counter */
+.counter{background:var(--ink);color:#EEF3EE;padding:18px 18px 20px}
+.keys{display:grid;gap:10px}
+.key{display:flex;align-items:center;min-height:58px;text-decoration:none;background:var(--accent);
+color:#fff;padding:0 18px;border-left:6px solid #F6D9A6}
+.key.alt{background:var(--paper);color:var(--ink);border-left-color:var(--clay)}
+.key b{display:block;font-family:"Quattrocento",Georgia,serif;font-size:22px;font-weight:700;
+line-height:1.2}
+.badges{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:9px}
+.badges li{font-size:16px;font-weight:600;color:#E4EDE4;padding-left:26px;position:relative}
+.badges li::before{content:"";position:absolute;left:0;top:6px;width:8px;height:4px;
+border-left:2px solid #F6D9A6;border-bottom:2px solid #F6D9A6;transform:rotate(-45deg)}
+.telkey{display:flex;align-items:center;min-height:44px;margin-top:14px;
+border-top:1px solid rgba(255,255,255,.24);padding-top:14px;font-size:17px;color:#F6D9A6;
+text-decoration:none;font-weight:700}
+.sec{padding:48px 0;border-top:1px solid var(--rule)}
+.kicker{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--clay);
+margin:0 0 10px;font-weight:700}
+.sec h2{font-size:clamp(28px,6.6vw,42px)}
+.lede{color:var(--muted);max-width:58ch;margin:12px 0 26px;font-size:17px}
+.grid{display:grid;gap:0;border-top:2px solid var(--ink)}
+.gitem{display:grid;grid-template-columns:52px 1fr;gap:14px;padding:22px 0;
+border-bottom:1px solid var(--rule)}
+.gnum{font-family:"Quattrocento",Georgia,serif;font-weight:700;font-size:30px;color:var(--accent);
+line-height:1}
+.gitem h3{font-size:21px;margin-bottom:7px}
+.gitem p{margin:0;color:var(--muted);font-size:16px}
+/* proof: accreditation plaques */
+.plaques{display:grid;gap:12px;margin-top:22px}
+.plaque{background:var(--paper);border:1px solid var(--rule);padding:20px 16px;text-align:center;
+font-family:"Quattrocento",Georgia,serif;font-weight:700;font-size:18px;position:relative}
+.plaque::before{content:"";display:block;width:38px;height:38px;margin:0 auto 12px;
+border-radius:50%;border:3px solid var(--accent);background:
+radial-gradient(circle at 50% 42%,var(--surface) 0 42%,transparent 43%)}
+.plaque:nth-child(2)::before{border-color:var(--clay)}
+.plaque:nth-child(3)::before{border-color:#4E7C93}
+.plaque:nth-child(4)::before{border-color:#8A6A2E}
+.steps{list-style:none;margin:24px 0 0;padding:0;counter-reset:s}
+.steps li{counter-increment:s;padding:20px 0 20px 54px;position:relative;
+border-bottom:1px solid var(--rule)}
+.steps li:first-child{border-top:1px solid var(--rule)}
+.steps li::before{content:"0" counter(s);position:absolute;left:0;top:20px;
+font-family:"Quattrocento",Georgia,serif;font-weight:700;font-size:19px;color:var(--clay)}
+.steps h3{font-size:20px;margin-bottom:5px}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+.close{background:var(--ink);color:#fff;padding:48px 0 52px}
+.close h2{font-size:clamp(28px,6.4vw,44px);max-width:16ch}
+.close p{max-width:54ch;font-size:17px;color:#CDDACE;margin:14px 0 20px}
+.close .btn-primary{background:#F6D9A6;color:#2B2318;border-color:#F6D9A6}
+.close .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}
+.ctas{display:flex;flex-direction:column;gap:10px}
+.note{font-size:16px;color:#fff;margin-top:20px;max-width:54ch;border-left:5px solid var(--clay);
+padding-left:14px;font-weight:600}
+.foot{padding:36px 0 30px;font-size:16px;color:var(--muted)}
+.foot .brand{color:var(--ink);display:inline-block;margin-bottom:12px;font-size:19px}
+.foot p{margin:0 0 9px;max-width:62ch}
+.foot a{color:var(--accent);font-weight:700}
+.sitemap{display:flex;flex-wrap:wrap;gap:16px;margin:0 0 14px;padding:14px 0;
+border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);font-weight:700}
+.sitemap a{text-decoration:none;color:var(--ink)}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--ink);padding:8px;
+display:grid;grid-template-columns:1fr auto;gap:8px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:60px;text-decoration:none;
+font-weight:700;font-size:16px;text-align:center;line-height:1.2;padding:0 14px}
+.callbar .book{background:var(--accent);color:#fff}
+.callbar .tel{border:2px solid #F6D9A6;color:#F6D9A6;padding:0 16px}
+@media(min-width:760px){.ctas{flex-direction:row}
+.split{grid-template-columns:1.15fr .85fr;border:1px solid var(--rule);background:var(--paper)}
+.stat{padding:46px 38px 46px}.counter{padding:38px 32px 40px}
+.grid{grid-template-columns:1fr 1fr;column-gap:44px}
+.plaques{grid-template-columns:repeat(4,1fr)}
+.steps{display:grid;grid-template-columns:1fr 1fr;column-gap:44px}
+.hero{padding:28px 0 44px}.sec{padding:76px 0}.sub{font-size:19px}.brand{font-size:20px}
+.navrow{height:62px}.navact{font-size:16px}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">✓ Accepting new patients · Online booking · Saturday hours</div></div>
+<header class="nav"><div class="wrap"><div class="navrow">
+  <a class="brand" href="#">Corner Oak Veterinary</a>
+  <a class="navact" href="#contact">Book online</a>
+</div></div></header>
+<section class="hero"><div class="wrap"><div class="split">
+  <div class="stat">
+    <span class="flag"><i></i>Accepting new patients</span>
+    <h1>Nobody should have to phone to order a refill.</h1>
+    <p class="sub">Full-service small animal care. Refills, records, reminders and booking all happen online, so the front desk is free for the people standing in front of it with a frightened animal.</p>
+  </div>
+  <div class="counter">
+    <div class="keys">
+      <a class="key" data-cta="primary" href="#contact"><b>Book online</b></a>
+      <a class="key alt" href="#contact"><b>Request a refill</b></a>
+    </div>
+    <ul class="badges">
+      <li>Accepting new patients</li><li>Online booking</li>
+      <li>Saturday appointments</li><li>First puppy visit free</li>
+    </ul>
+    <a class="telkey" href="tel:+15557192240">(555) 719-2240</a>
+  </div>
+</div></div></section>
+<figure class="gsw-plate"><img src="../_assets/hero/veterinary/b-in-good-hands.jpg" alt="In good hands — veterinary" loading="lazy"></figure>
+
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p>
+  <h2>Care we provide</h2>
+  <p class="lede">Routine to surgical, with the same team seeing your animal each time wherever we can manage it.</p>
+  <div class="grid">
+    <article class="gitem"><div class="gnum">01</div><div><h3>Wellness &amp; vaccination</h3><p>Annual exams, vaccines and parasite prevention on a schedule we track for you, so you get a reminder rather than a guilty realisation.</p></div></article>
+    <article class="gitem"><div class="gnum">02</div><div><h3>Puppy &amp; kitten packages</h3><p>First visit free. Everything the first year needs bundled at a set price, including spay or neuter and microchipping.</p></div></article>
+    <article class="gitem"><div class="gnum">03</div><div><h3>Dentistry</h3><p>Under anaesthetic with full monitoring and dental radiographs. Most dental disease is invisible above the gumline.</p></div></article>
+    <article class="gitem"><div class="gnum">04</div><div><h3>Surgery &amp; diagnostics</h3><p>In-house lab, digital radiography and ultrasound, so most answers come the same visit rather than next week.</p></div></article>
+  </div>
+</div></section>
+<section class="sec" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <h2>Accredited by</h2>
+  <div class="plaques">
+    <div class="plaque">AAHA Accredited</div>
+    <div class="plaque">Fear Free Certified</div>
+    <div class="plaque">AVMA Member</div>
+    <div class="plaque">Cat Friendly Practice</div>
+  </div>
+</div></section>
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p>
+  <h2>Your first visit</h2>
+  <p class="lede">Especially for a first pet, where nobody tells you what actually happens.</p>
+  <ol class="steps">
+    <li><h3>Book online</h3><p>Pick a real slot on a real calendar, any hour. You get a confirmation, not a promise to call you back.</p></li>
+    <li><h3>Come in</h3><p>Bring any records you have. First visits run long on purpose — we'd rather answer everything now.</p></li>
+    <li><h3>A plan, not a bill</h3><p>You get a written care plan with costs before anything is done, and we'll tell you what can wait.</p></li>
+    <li><h3>Stay in touch</h3><p>Reminders when things are due, refills online, and a direct line for the questions that feel too small to phone about.</p></li>
+  </ol>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>New here, or need a vet today?</h2>
+  <p>We're accepting new patients and hold same-day slots for sick visits. Book online in about a minute, or call and we'll sort it.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="#contact">Book online</a>
+    <a class="btn btn-ghost" href="tel:+15557192240">(555) 719-2240</a>
+  </div>
+  <p class="note">Emergencies after hours: call and our recording routes you to the on-call emergency hospital.</p>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <nav class="sitemap"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+  <a class="brand" href="#">Corner Oak Veterinary</a>
+  <p><a href="tel:+15557192240">(555) 719-2240</a> · AAHA accredited · Accepting new patients · Saturday appointments</p>
+  <p>1878 Cobblewood Road Suite 4B, Fairhill, PA 13864</p>
+</div></footer>
+<div class="callbar"><a class="book" href="#contact">Book online</a><a class="tel" href="tel:+15557192240">(555) 719-2240</a></div>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Beacon Comfort Co. — two visits a year, priority scheduling</title>
+<meta name="description" content="Repair, replacement and maintenance across the metro. Two visits a year catches the failures that otherwise arrive at their worst possible moment, at roughly a tenth of what the emergency costs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* D5 — THE PLAN ONE. hero:panel nav:bar services:tiles proof:testimonial-lead
+   ink #10181C · surface #F2F5F6 · accent #0A5A75 · muted #4E5B62 · on-accent #FFFFFF
+   thermal pair: hot #B8321E / cold #0A5A75 · H1 ramp 31/38/46/54px
+   Encode Sans display / Public Sans body
+   Maintenance plans go unsold because nobody puts a price and a promise on them, so
+   this one hangs the whole page off the plan: the hero sits as a panel on the thermal
+   field, and the plan card is the widest object below the fold. The thermal bar runs
+   down the panel's edge — hot at the top where the emergency is, cooling as you read. */
+:root{--ink:#10181C;--surface:#F2F5F6;--accent:#0A5A75;--muted:#4E5B62;--on-accent:#FFFFFF;
+--hot:#B8321E;--cold:#0A5A75;--paper:#FFFFFF;--rule:rgba(16,24,28,.16);--wrap:1120px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.62 "Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+padding-bottom:76px;overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Encode Sans",system-ui,sans-serif;font-weight:700;margin:0;line-height:1.1;
+letter-spacing:-.015em}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 22px;
+text-decoration:none;font-weight:600;font-size:17px;font-family:"Encode Sans",system-ui,sans-serif;
+border:2px solid transparent;text-align:center;line-height:1.15}
+.btn-hot{background:var(--hot);color:#fff;border-color:var(--hot)}
+.btn-cold{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn-line{background:transparent;color:var(--ink);border-color:var(--ink)}
+.topbar{background:var(--hot);color:#FFE3DD;font-size:14px}
+.topbar .wrap{padding:9px 20px}
+.nav{background:var(--paper);border-bottom:1px solid var(--rule);position:sticky;top:0;z-index:30}
+.nav .row{display:flex;align-items:center;gap:12px;height:58px}
+.brand{font-family:"Encode Sans",system-ui,sans-serif;font-weight:700;font-size:20px;
+text-decoration:none;white-space:nowrap;letter-spacing:-.02em}
+.navact{margin-left:auto;min-height:40px;padding:0 15px;font-size:15px;white-space:nowrap;flex:none}
+.navrow2{border-top:1px solid var(--rule);background:var(--paper)}
+.navrow2 .wrap{display:flex;gap:22px;padding:0;overflow-x:auto;scrollbar-width:none}
+.navrow2 .wrap::-webkit-scrollbar{display:none}
+.navrow2 a{padding:11px 0;font-size:14px;letter-spacing:.13em;text-transform:uppercase;
+color:var(--muted);text-decoration:none;white-space:nowrap;border-bottom:3px solid transparent;
+font-family:"Encode Sans",system-ui,sans-serif;font-weight:600}
+.navrow2 a:first-child{border-bottom-color:var(--hot)}
+.field{background:
+linear-gradient(105deg,rgba(184,50,30,.13) 0%,rgba(184,50,30,.04) 34%,rgba(10,90,117,.07) 62%,
+rgba(10,90,117,.16) 100%),var(--surface);padding:20px 0 28px}
+.panel{position:relative;background:var(--paper);border:1px solid var(--rule);
+padding:26px 20px 28px 26px;box-shadow:0 1px 0 rgba(16,24,28,.06)}
+.panel::before{content:"";position:absolute;left:0;top:0;bottom:0;width:8px;
+background:linear-gradient(180deg,var(--hot) 0%,#C4633B 34%,#6D8E99 62%,var(--cold) 100%)}
+.eyebrow{font-family:"Encode Sans",system-ui,sans-serif;font-size:13px;font-weight:600;
+letter-spacing:.16em;text-transform:uppercase;color:var(--hot);margin:0 0 12px}
+.panel h1{font-size:clamp(31px,8vw,54px);max-width:15ch}
+.panel .sub{font-size:17px;color:var(--muted);max-width:52ch;margin:14px 0 20px;line-height:1.5}
+.ctas{display:flex;flex-direction:column;gap:10px}
+.chips{margin:22px 0 0;border-top:1px solid var(--rule);padding-top:16px;list-style:none;
+display:grid;gap:9px;font-size:15px;color:var(--ink)}
+.chips li{display:flex;align-items:center;gap:10px}
+.chips li::before{content:"";width:14px;height:14px;flex:none;border:3px solid var(--cold)}
+.chips li:nth-child(1)::before{border-color:var(--hot)}
+.chips li:nth-child(2)::before{border-color:#B4643E}
+.chips li:nth-child(3)::before{border-color:#3F8296}
+.sec{padding:52px 0}
+.sec--paper{background:var(--paper);border-top:1px solid var(--rule);
+border-bottom:1px solid var(--rule)}
+.kicker{font-family:"Encode Sans",system-ui,sans-serif;font-size:13px;font-weight:600;
+letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
+.sec h2{font-size:clamp(27px,6.4vw,42px)}
+.lede{color:var(--muted);max-width:58ch;margin:13px 0 0;font-size:17px}
+.tiles{display:grid;gap:16px;margin-top:30px}
+.tile{background:var(--paper);border:1px solid var(--rule)}
+.sec--paper .tile{background:var(--surface)}
+.tile .head{padding:14px 18px;color:#fff;font-family:"Encode Sans",system-ui,sans-serif;
+font-weight:700;font-size:20px;letter-spacing:-.01em}
+.tile:nth-child(1) .head{background:var(--hot)}
+.tile:nth-child(2) .head{background:#8F4A2E}
+.tile:nth-child(3) .head{background:#2C6E85}
+.tile:nth-child(4) .head{background:var(--cold)}
+.tile p{margin:0;padding:18px;color:var(--muted);font-size:16px}
+.quote{margin-top:30px;background:var(--paper);border:1px solid var(--rule);position:relative;
+padding:30px 20px 24px}
+.sec--paper .quote{background:var(--surface)}
+.quote::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;
+background:linear-gradient(90deg,var(--hot),#C4633B 40%,#3F8296 72%,var(--cold))}
+.quote blockquote{margin:0;font-family:"Encode Sans",system-ui,sans-serif;font-weight:600;
+font-size:clamp(21px,4.8vw,30px);line-height:1.3;letter-spacing:-.01em}
+.quote figcaption{margin-top:18px;padding-top:16px;border-top:1px solid var(--rule);
+font-size:16px;color:var(--muted)}
+.quote figcaption b{color:var(--ink);font-family:"Encode Sans",system-ui,sans-serif;font-weight:600}
+.plancard{background:var(--accent);color:#fff;margin-top:34px;padding:28px 20px 30px}
+.plancard .tag{font-family:"Encode Sans",system-ui,sans-serif;font-size:13px;font-weight:600;
+letter-spacing:.16em;text-transform:uppercase;color:#B9DDEA;margin:0 0 10px}
+.plancard h3{font-size:clamp(25px,6vw,36px);color:#fff;margin-bottom:12px}
+.plancard p{margin:0 0 22px;font-size:17px;color:#DDEEF4;max-width:56ch}
+.plancard .btn{background:#fff;color:var(--accent);border-color:#fff;width:100%}
+.plancard ul{list-style:none;margin:20px 0 0;padding:18px 0 0;
+border-top:1px solid rgba(255,255,255,.3);display:grid;gap:8px;font-size:15px;color:#DDEEF4}
+.emerg{background:var(--ink);color:#fff}
+.emerg .wrap{padding:24px 20px 28px}
+.emerg p{margin:0 0 6px;font-family:"Encode Sans",system-ui,sans-serif;font-size:13px;
+font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#F0B4A8}
+.emerg a.tel{display:block;font-family:"Encode Sans",system-ui,sans-serif;font-weight:700;
+font-size:clamp(30px,8vw,46px);color:#fff;text-decoration:none;line-height:1.05;
+letter-spacing:-.02em}
+.emerg .btn{margin-top:16px;width:100%}
+.steps{list-style:none;counter-reset:s;margin:30px 0 0;padding:0;display:grid;gap:14px}
+.steps li{counter-increment:s;background:var(--paper);border:1px solid var(--rule);
+padding:20px 18px 22px}
+.sec--paper .steps li{background:var(--surface)}
+.steps li::before{content:"Step " counter(s);display:inline-block;
+font-family:"Encode Sans",system-ui,sans-serif;font-weight:600;font-size:13px;letter-spacing:.14em;
+text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.steps h3{font-size:20px;margin-bottom:7px}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+.close{padding:52px 0 58px;background:
+linear-gradient(105deg,rgba(184,50,30,.16) 0%,rgba(10,90,117,.14) 100%),var(--paper);
+border-top:1px solid var(--rule)}
+.close h2{font-size:clamp(29px,6.8vw,46px);max-width:15ch}
+.close p{max-width:52ch;font-size:17px;color:var(--muted);margin:14px 0 22px}
+.close .note{font-size:15px;color:var(--muted);margin-top:18px;max-width:52ch}
+.foot{padding:38px 0 34px;font-size:15px;color:var(--muted)}
+.foot .brand{color:var(--ink);display:inline-block;margin-bottom:12px}
+.foot p{margin:0 0 9px;max-width:66ch}
+.foot a{color:var(--accent);font-weight:500}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--paper);padding:8px;
+border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr 1fr;gap:8px;
+box-shadow:0 -2px 14px rgba(16,24,28,.14)}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:58px;
+text-decoration:none;font-weight:600;font-size:16px;font-family:"Encode Sans",system-ui,sans-serif;
+text-align:center;line-height:1.15;padding:0 8px}
+.callbar .call{background:var(--hot);color:#fff}
+.callbar .tune{background:var(--accent);color:#fff}
+@media(min-width:760px){
+ .ctas{flex-direction:row}
+ .field{padding:44px 0 52px}
+ .panel{padding:44px 40px 46px 48px}
+ .panel .sub{font-size:19px}
+ .chips{grid-template-columns:1fr 1fr;gap:12px 24px}
+ .sec{padding:80px 0}
+ .tiles{grid-template-columns:1fr 1fr;gap:20px}
+ .steps{grid-template-columns:1fr 1fr;gap:18px}
+ .plancard{display:grid;grid-template-columns:1.5fr auto;gap:34px;align-items:center;padding:38px}
+ .plancard .btn{width:auto;min-width:250px}
+ .plancard ul{grid-column:1/-1}
+ .emerg .wrap{display:flex;align-items:center;gap:26px;padding:30px 20px 32px}
+ .emerg .btn{margin-top:0;margin-left:auto;width:auto;flex:none}
+ .quote{padding:44px 40px 34px}
+}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">24/7 emergency service · Financing available · Licensed &amp; insured</div></div>
+<header class="nav">
+  <div class="wrap"><div class="row">
+    <a class="brand" href="#">Beacon Comfort Co.</a>
+    <a class="btn btn-hot navact" href="tel:+15554036617">Call now</a>
+  </div></div>
+  <div class="navrow2"><div class="wrap"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></div></div>
+</header>
+<section class="field"><div class="wrap">
+  <div class="panel">
+    <p class="eyebrow">Emergency service · 24 hours</p>
+    <h1>Most emergencies we attend were preventable in April.</h1>
+    <p class="sub">Repair, replacement and maintenance across the metro. Two visits a year catches the failures that otherwise arrive at their worst possible moment, at roughly a tenth of what the emergency costs.</p>
+    <div class="ctas">
+      <a class="btn btn-hot" data-cta="primary" href="tel:+15554036617">Call now</a>
+      <a class="btn btn-line" href="#contact">Book a tune-up</a>
+    </div>
+    <ul class="chips"><li>24/7 emergency</li><li>Financing from $89/mo</li><li>Heat pump rebates handled</li><li>Upfront flat pricing</li></ul>
+  </div>
+</div></section>
+<figure class="gsw-plate"><img src="../_assets/hero/hvac/e-comfort-inside.jpg" alt="Comfort inside — hvac" loading="lazy"></figure>
+
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p>
+  <h2>What we handle</h2>
+  <p class="lede">Repairs today, replacements planned properly, and a maintenance plan so you stop having emergencies.</p>
+  <div class="tiles">
+    <article class="tile"><div class="head">Emergency repair</div><p>Same-day, seven days. Diagnostic fee waived if you go ahead with the repair, and you approve the price before we touch anything.</p></article>
+    <article class="tile"><div class="head">System replacement</div><p>Right-sized with a proper load calculation — not a guess off the old unit's badge. Financing arranged before install day.</p></article>
+    <article class="tile"><div class="head">Heat pumps &amp; rebates</div><p>There is real money in federal credits and utility rebates at the moment. We file the paperwork and it comes straight off your invoice.</p></article>
+    <article class="tile"><div class="head">Maintenance plans</div><p>Two visits a year, priority when you do need us, and no overtime rates. Nearly every emergency we attend was visible six months earlier.</p></article>
+  </div>
+</div></section>
+<section class="sec sec--paper" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <figure class="quote">
+    <blockquote>&ldquo;Ninety-seven degrees, Friday night, two kids. They had someone here in ninety minutes and the price they quoted on the phone was the price on the invoice.&rdquo;</blockquote>
+    <figcaption><b>Sandra P.</b> &middot; Emergency repair, Northside</figcaption>
+  </figure>
+  <div class="plancard">
+    <div>
+      <p class="tag">Upfront flat pricing</p>
+      <h3>Maintenance plans</h3>
+      <p>Two visits a year, priority when you do need us, and no overtime rates. Nearly every emergency we attend was visible six months earlier.</p>
+    </div>
+    <a class="btn" href="#contact">Book a tune-up</a>
+    <ul><li>24/7 &middot; Emergency response</li><li>$89/mo &middot; Financing from</li><li>4.8★ &middot; Across 610 reviews</li><li>10yr &middot; Parts &amp; labour warranty</li></ul>
+  </div>
+</div></section>
+<section class="emerg"><div class="wrap">
+  <div><p>Emergency service · 24 hours</p><a class="tel" href="tel:+15554036617">(555) 403-6617</a></div>
+  <a class="btn btn-hot" href="tel:+15554036617">Call now</a>
+</div></section>
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p>
+  <h2>How a call runs</h2>
+  <p class="lede">Flat pricing, approved before work starts. No hourly meter running while you watch.</p>
+  <ol class="steps">
+    <li><h3>You call</h3><p>A human answers, day or night. We give you a window and we hit it or we tell you early.</p></li>
+    <li><h3>Diagnose</h3><p>We find the actual fault and show you. Photographs of what's wrong, not a verdict from behind the unit.</p></li>
+    <li><h3>Flat price, your call</h3><p>A written price for repair and, where it's close, for replacement. You choose with both numbers in front of you.</p></li>
+    <li><h3>Fix &amp; follow up</h3><p>Work warranted parts and labour. We check in after the first hot or cold snap to make sure it held.</p></li>
+  </ol>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>System down right now?</h2>
+  <p>Call and someone picks up — nights, weekends, holidays. Same-day emergency slots held back every day for exactly this.</p>
+  <div class="ctas">
+    <a class="btn btn-hot" href="tel:+15554036617">Call now</a>
+    <a class="btn btn-line" href="tel:+15554036617">(555) 403-6617</a>
+  </div>
+  <p class="note">Free second opinions on replacement quotes. Financing subject to approval.</p>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Beacon Comfort Co.</a>
+  <p><a href="tel:+15554036617">(555) 403-6617</a> &middot; Licensed, bonded and insured · Serving the metro since 1998</p>
+  <p>24/7 emergency service · Financing available · Licensed &amp; insured</p>
+  <p>8585 Delancey Avenue, Northfields, CT 18517</p>
+</div></footer>
+<div class="callbar"><a class="call" href="tel:+15554036617">Call now</a><a class="tune" href="#contact">Book a tune-up</a></div>
+</body>
+</html>

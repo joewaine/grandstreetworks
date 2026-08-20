@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Keystone Restoration — 24/7 emergency water, fire and mould crews</title>
+<meta name="description" content="Emergency water, fire and mould restoration. Crews roll in 60 minutes, and we bill your insurer direct.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* D1 — THE DISPATCH ONE. hero:stack nav:bar services:grid-numbered proof:stats
+   ink #0C1618 · surface #F3F6F5 · accent #0C5A5E · muted #4A5A5E · on-accent #FFFFFF
+   H1 ramp: 31/38/50/64px · Oswald display / Barlow body
+   Device: the 60-minute dispatch bar — the topbar is a live on-call ribbon and the hero
+   badges are a segmented dispatch meter, so 24/7 availability is the first thing on screen. */
+:root{--ink:#0C1618;--surface:#F3F6F5;--accent:#0C5A5E;--muted:#4A5A5E;--on-accent:#FFFFFF;
+--paper:#FFFFFF;--rule:rgba(12,22,24,.18);--hair:rgba(12,22,24,.1);--wrap:1140px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.62 Barlow,system-ui,-apple-system,sans-serif;padding-bottom:82px;overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:Oswald,"Arial Narrow",sans-serif;font-weight:600;margin:0;line-height:1.08;
+letter-spacing:.005em}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:58px;padding:0 22px;
+text-decoration:none;font-weight:600;font-size:16px;letter-spacing:.05em;text-transform:uppercase;
+border:2px solid transparent;text-align:center;line-height:1.15;font-family:Oswald,sans-serif}
+.btn-primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.btn-ghost{background:transparent;color:var(--accent);border-color:var(--accent)}
+.topbar{background:var(--ink);color:#CFDCDC;font-size:16px}
+.topbar .wrap{padding:9px 20px;display:flex;align-items:center;gap:9px;justify-content:center;
+text-align:center;line-height:1.35}
+.dot{width:9px;height:9px;border-radius:50%;background:#48C7B6;flex:none;
+box-shadow:0 0 0 4px rgba(72,199,182,.22)}
+.nav{position:sticky;top:0;z-index:30;background:var(--paper);border-bottom:2px solid var(--ink)}
+.nav .wrap{display:flex;align-items:center;gap:12px;height:60px}
+.brand{font-family:Oswald,sans-serif;font-weight:600;font-size:19px;text-decoration:none;
+line-height:1;flex:none;letter-spacing:.02em;text-transform:uppercase}
+.navlinks{display:none;gap:24px;margin-left:auto;font-size:14px;letter-spacing:.14em;
+text-transform:uppercase;font-family:Oswald,sans-serif;color:var(--muted)}
+.navlinks a{text-decoration:none}
+.navlinks a:hover{color:var(--accent)}
+.navact{min-height:42px;padding:0 14px;font-size:14px;flex:none;margin-left:auto;white-space:nowrap}
+@media(max-width:559px){.navact{display:none}}
+.hero{padding:20px 0 34px}
+.eyebrow{font-family:Oswald,sans-serif;font-size:14px;letter-spacing:.2em;text-transform:uppercase;
+color:var(--accent);margin:0 0 12px;font-weight:500}
+.hero h1{font-size:clamp(31px,8.1vw,64px);max-width:16ch;text-transform:uppercase}
+.sub{font-size:17px;color:var(--muted);max-width:54ch;margin:14px 0 20px;line-height:1.55}
+.ctas{display:flex;flex-direction:column;gap:10px}
+/* dispatch meter — the 60-minute bar */
+.meter{margin:26px 0 0;padding:0;list-style:none;display:grid;gap:0;
+border:2px solid var(--ink);background:var(--paper)}
+.meter li{padding:13px 14px 14px;border-bottom:1px solid var(--hair);position:relative;
+font-size:16px;font-weight:500;display:flex;align-items:center;gap:11px}
+.meter li:last-child{border-bottom:none}
+.meter li::before{content:"";width:11px;height:11px;flex:none;background:var(--accent);
+transform:rotate(45deg)}
+.meter li:first-child{background:var(--ink);color:#EAF1F0;font-family:Oswald,sans-serif;
+letter-spacing:.08em;text-transform:uppercase;font-size:16px}
+.meter li:first-child::before{background:#48C7B6}
+.sec{padding:50px 0;border-top:2px solid var(--ink)}
+.kicker{font-family:Oswald,sans-serif;font-size:14px;letter-spacing:.2em;text-transform:uppercase;
+color:var(--accent);margin:0 0 10px;font-weight:500}
+.sec h2{font-size:clamp(27px,6.6vw,46px);margin-bottom:12px;text-transform:uppercase}
+.lede{color:var(--muted);max-width:58ch;margin:0 0 26px;font-size:17px}
+.gridnum{display:grid;gap:0;border-top:1px solid var(--rule)}
+.gn{padding:22px 0;border-bottom:1px solid var(--hair);display:grid;grid-template-columns:52px 1fr;
+gap:14px;align-items:start}
+.gn .n{font-family:Oswald,sans-serif;font-weight:600;font-size:30px;color:var(--accent);
+line-height:.92}
+.gn h3{font-size:21px;margin-bottom:7px;text-transform:uppercase;letter-spacing:.01em}
+.gn p{margin:0;color:var(--muted);font-size:16px}
+.stats{background:var(--ink);color:#E7EEED;border-top:none}
+.stats .kicker{color:#48C7B6}
+.stats h2{color:#FFFFFF}
+.statgrid{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:0;
+border-top:1px solid rgba(231,238,237,.22)}
+.statgrid li{padding:18px 0;border-bottom:1px solid rgba(231,238,237,.22)}
+.statgrid b{display:block;font-family:Oswald,sans-serif;font-weight:600;
+font-size:clamp(34px,9vw,50px);line-height:1;color:#FFFFFF;letter-spacing:.01em}
+.statgrid span{display:block;margin-top:7px;font-size:15px;letter-spacing:.13em;
+text-transform:uppercase;color:#A9C2C4}
+.partners{margin-top:34px;padding-top:22px;border-top:1px solid rgba(231,238,237,.22)}
+.partners p{margin:0 0 12px;font-size:14px;letter-spacing:.2em;text-transform:uppercase;
+color:#48C7B6;font-family:Oswald,sans-serif}
+.partners ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.partners li{border:1px solid rgba(231,238,237,.34);padding:8px 12px;font-size:16px;color:#D5E2E1}
+.steps{list-style:none;margin:24px 0 0;padding:0;counter-reset:s;display:grid;gap:0}
+.steps li{counter-increment:s;padding:20px 0;border-top:1px solid var(--hair);display:grid;
+grid-template-columns:44px 1fr;gap:14px}
+.steps li::before{content:counter(s,decimal-leading-zero);font-family:Oswald,sans-serif;
+font-size:19px;color:var(--accent);padding-top:3px;font-weight:500}
+.steps h3{font-size:19px;margin-bottom:6px;text-transform:uppercase}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+.steps li.claims{background:var(--paper);border:2px solid var(--accent);padding:20px 16px;
+margin:10px 0}
+.close{background:var(--accent);color:#FFFFFF;padding:52px 0 58px}
+.close h2{font-size:clamp(29px,7vw,50px);max-width:15ch;text-transform:uppercase;color:#FFFFFF}
+.close p{max-width:52ch;font-size:18px;color:#DCEDEB;margin:14px 0 22px}
+.close .btn-primary{background:#FFFFFF;color:var(--accent);border-color:#FFFFFF}
+.close .btn-ghost{color:#FFFFFF;border-color:#FFFFFF}
+.note{font-size:16px;color:#C8E3E0;margin-top:20px;max-width:52ch}
+.foot{padding:38px 0 34px;font-size:16px;color:var(--muted)}
+.foot .brand{color:var(--ink);display:inline-block;margin-bottom:12px}
+.foot p{margin:0 0 9px;max-width:64ch}
+.foot a{color:var(--accent)}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--ink);padding:7px;
+display:grid;grid-template-columns:1fr auto;gap:7px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:60px;
+text-decoration:none;font-weight:600;font-size:15px;letter-spacing:.06em;text-transform:uppercase;
+text-align:center;line-height:1.15;padding:0 12px;font-family:Oswald,sans-serif}
+.callbar .call{background:#48C7B6;color:#06231F}
+.callbar .tel{border:1px solid rgba(231,238,237,.4);color:#E7EEED;padding:0 14px;
+letter-spacing:.02em;text-transform:none;font-size:16px}
+@media(min-width:700px){.ctas{flex-direction:row;gap:12px}
+.meter{grid-template-columns:1fr 1fr}.meter li{border-right:1px solid var(--hair)}
+.meter li:nth-child(2n){border-right:none}
+.gridnum{grid-template-columns:1fr 1fr;column-gap:44px}
+.statgrid{grid-template-columns:repeat(4,1fr);column-gap:26px}
+.steps{grid-template-columns:1fr 1fr;column-gap:44px}
+.sec{padding:82px 0}.hero{padding:38px 0 56px}.sub{font-size:19px}}
+@media(min-width:960px){.navlinks{display:flex}.navact{margin-left:0}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+
+<style>
+  /* Hero backdrop. The photograph sits behind the hero's own composition; the
+     scrim below is the design's own background colour, so nothing about the
+     contrast the layout was built with changes. */
+  .gsw-imaged { position: relative; isolation: isolate; overflow: hidden; }
+  .gsw-imaged > *:not(.gsw-backdrop) { position: relative; z-index: 1; }
+  .gsw-backdrop { position: absolute; inset: 0; z-index: 0; }
+  .gsw-backdrop img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .gsw-backdrop::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(100deg,
+      rgb(243 246 245 / 0.97) 0%, rgb(243 246 245 / 0.95) 38%, rgb(243 246 245 / 0.7) 68%, rgb(243 246 245 / 0.52) 100%);
+  }
+  @media (max-width: 60rem) { .gsw-backdrop::after { background: rgb(243 246 245 / 0.93); } }
+  @media (forced-colors: active) { .gsw-backdrop { display: none; } }
+  @media print { .gsw-backdrop { display: none; } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap"><span class="dot" aria-hidden="true"></span>Emergency crews on call 24/7/365 · We bill your insurer direct</div></div>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="#">Keystone Restoration</a>
+  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+  <a class="btn btn-primary navact" href="tel:+15555217043">Call now — 24/7</a>
+</div></header>
+<section class="gsw-imaged hero"><div class="gsw-backdrop" aria-hidden="true"><img src="../_assets/hero/restoration/a-crews-roll.jpg" alt="" loading="eager"></div><div class="wrap">
+  <p class="eyebrow">Water · Fire · Mould · 24/7</p>
+  <h1>Crews roll before we've worked out who's paying.</h1>
+  <p class="sub">Emergency water, fire and mould restoration. Crews are dispatched the moment you ring — the questions about carriers, deductibles and coverage happen afterwards, because the water isn't waiting for them.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" data-cta="primary" href="tel:+15555217043">Call now — 24/7</a>
+    <a class="btn btn-ghost" href="#claims">How claims work</a>
+  </div>
+  <ul class="meter">
+    <li>60-minute response</li>
+    <li>We bill insurers direct</li>
+    <li>IICRC certified</li>
+    <li>Adjuster meetings included</li>
+  </ul>
+</div></section>
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p><h2>Emergency services</h2>
+  <p class="lede">Every hour standing water sits, the drying time and the claim both grow. That is the whole reason we answer at three in the morning.</p>
+  <div class="gridnum">
+    <article class="gn"><div class="n">01</div><div><h3>Water extraction &amp; drying</h3><p>Truck-mounted extraction, commercial air movers and moisture mapping so we can prove the structure is genuinely dry, not just dry-feeling.</p></div></article>
+    <article class="gn"><div class="n">02</div><div><h3>Fire &amp; smoke</h3><p>Soot removal, odour neutralisation and contents cleaning. Smoke damage travels far further than the fire itself.</p></div></article>
+    <article class="gn"><div class="n">03</div><div><h3>Mould remediation</h3><p>Containment, HEPA filtration and post-remediation verification by an independent hygienist so the clearance means something.</p></div></article>
+    <article class="gn"><div class="n">04</div><div><h3>Storm &amp; flood</h3><p>Board-up, tarping and full structural drying. We mobilise extra crews before a forecast storm rather than after it.</p></div></article>
+  </div>
+</div></section>
+<section class="sec stats" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <ul class="statgrid">
+    <li><b>60min</b><span>Average response</span></li>
+    <li><b>24/7/365</b><span>Crews on call</span></li>
+    <li><b>Direct</b><span>Insurance billing</span></li>
+    <li><b>IICRC</b><span>Certified technicians</span></li>
+  </ul>
+  <div class="partners">
+    <p>Certified and approved</p>
+    <ul><li>IICRC Certified Firm</li><li>Preferred Vendor — major carriers</li><li>EPA Lead-Safe</li><li>BBB A+</li><li>OSHA Compliant</li></ul>
+  </div>
+</div></section>
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p><h2>From your call to your keys</h2>
+  <p class="lede">You are dealing with a disaster and an insurer at the same time. We take the second one off you.</p>
+  <ol class="steps">
+    <li><div><h3>Call &amp; dispatch</h3><p>A person answers, takes the address, and rolls a truck. The paperwork conversation happens once the extraction is running.</p></div></li>
+    <li><div><h3>Stabilise</h3><p>Stop the source, extract standing water, tarp or board up. The first hours decide the size of the claim.</p></div></li>
+    <li class="claims" id="claims"><div><h3>Document &amp; bill</h3><p>Full photographic scope and moisture log, submitted to your carrier. We bill them direct and meet the adjuster on site.</p></div></li>
+    <li><div><h3>Dry, verify, restore</h3><p>Daily readings until verified dry, then reconstruction. You get the log, so nothing is disputed months later.</p></div></li>
+  </ol>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>Emergency right now?</h2>
+  <p>Do not wait for business hours. Every hour standing water sits, the cost and the damage climb. Crews are on call this minute.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="tel:+15555217043">Call now — 24/7</a>
+    <a class="btn btn-ghost" href="tel:+15555217043">(555) 521-7043</a>
+  </div>
+  <p class="note">We work with all major insurers and bill direct. Free emergency assessment.</p>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Keystone Restoration</a>
+  <p><a href="tel:+15555217043">(555) 521-7043</a></p>
+  <p>IICRC certified · 24/7/365 emergency response · Licensed &amp; insured</p>
+  <p>7587 Larkspur Street Suite 200, Lakeview Bend, NY 14159</p>
+</div></footer>
+<div class="callbar"><a class="call" href="tel:+15555217043">Call now — 24/7</a><a class="tel" href="tel:+15555217043">(555) 521-7043</a></div>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vantage Air Systems — emergency service and planned replacement</title>
+<meta name="description" content="Repair, replacement and maintenance across the metro. Uneven rooms are usually ductwork and airflow rather than the unit, which is why replacing the unit so often fails to fix them.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@600;700&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* D3 — THE HOT AND COLD ONE. hero:split nav:inline services:cards proof:stats
+   ink #1A1618 · surface #F4F2F0 · accent #97121E · muted #5C5450 · on-accent #FFFFFF
+   thermal pair: hot #97121E / cold #0E6E87 · H1 ramp 32/38/46/54px
+   Exo 2 display / Inter Tight body
+   Two visitors, one page: the hero is literally split, hot door for the household
+   with no heat or no cooling tonight, cold door for the replacement shopper. The
+   thermal bar is the seam between them, and the same hot-to-cold order runs through
+   the service cards so the maintenance plan closes the cold side. */
+:root{--ink:#1A1618;--surface:#F4F2F0;--accent:#97121E;--muted:#5C5450;--on-accent:#FFFFFF;
+--hot:#97121E;--cold:#0E6E87;--paper:#FFFFFF;--rule:rgba(26,22,24,.16);--wrap:1160px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.6 "Inter Tight",system-ui,-apple-system,"Segoe UI",sans-serif;padding-bottom:76px;
+overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Exo 2",system-ui,sans-serif;font-weight:700;margin:0;line-height:1.1;
+letter-spacing:-.012em}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 24px;
+text-decoration:none;font-weight:600;font-size:17px;font-family:"Exo 2",system-ui,sans-serif;
+border:2px solid transparent;text-align:center;line-height:1.15;width:100%}
+.topbar{background:var(--ink);color:#D8D2CE;font-size:14px}
+.topbar .wrap{padding:9px 20px}
+.nav{background:var(--surface);border-bottom:2px solid var(--ink);position:sticky;top:0;z-index:30}
+.nav .wrap{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;padding:12px 20px}
+.brand{font-family:"Exo 2",system-ui,sans-serif;font-weight:700;font-size:21px;
+text-decoration:none;white-space:nowrap;letter-spacing:-.01em}
+.nav .links{display:flex;gap:14px;font-size:15px;color:var(--muted);flex-wrap:wrap}
+.nav .links a{text-decoration:none}
+.nav .links a:hover{color:var(--accent)}
+.pill{margin-left:auto;border:2px solid var(--accent);color:var(--accent);
+font-family:"Exo 2",system-ui,sans-serif;font-weight:600;font-size:15px;padding:7px 14px;
+text-decoration:none;white-space:nowrap;align-self:center}
+.split{display:grid;grid-template-columns:1fr}
+.door{padding:26px 20px 30px}
+.door--hot{background:var(--hot);color:#fff}
+.door--cold{background:var(--cold);color:#fff}
+.seam{height:8px;background:linear-gradient(90deg,var(--hot),#C4552C 40%,#3C8FA6 70%,var(--cold))}
+.door .inner{max-width:560px;margin-left:auto;margin-right:auto}
+.eyebrow{font-family:"Exo 2",system-ui,sans-serif;font-size:13px;font-weight:600;
+letter-spacing:.18em;text-transform:uppercase;margin:0 0 12px;color:#FFD6D2}
+.door h1{font-size:clamp(32px,8.4vw,54px);color:#fff}
+.door .sub{font-size:17px;color:#FCE4E0;margin:14px 0 20px;line-height:1.5}
+.door--hot .btn{background:#fff;color:var(--hot);border-color:#fff}
+.door--cold .btn{background:transparent;color:#fff;border-color:#fff}
+.door--cold .lbl{font-family:"Exo 2",system-ui,sans-serif;font-size:13px;font-weight:600;
+letter-spacing:.18em;text-transform:uppercase;margin:0 0 14px;color:#CDE9F1}
+.door--cold ul{list-style:none;margin:0 0 22px;padding:0;display:grid;gap:0}
+.door--cold li{padding:11px 0;border-top:1px solid rgba(255,255,255,.35);font-size:16px;
+display:flex;align-items:center;gap:10px}
+.door--cold li::before{content:"";width:10px;height:2px;background:#fff;flex:none}
+.telrow{margin-top:16px;font-size:16px;color:#FCE4E0}
+.telrow a{color:#fff;font-weight:600;font-family:"Exo 2",system-ui,sans-serif;font-size:20px;
+text-decoration:none;border-bottom:2px solid rgba(255,255,255,.5)}
+.sec{padding:52px 0}
+.sec--paper{background:var(--paper);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.kicker{font-family:"Exo 2",system-ui,sans-serif;font-size:13px;font-weight:600;
+letter-spacing:.18em;text-transform:uppercase;color:var(--cold);margin:0 0 10px}
+.sec h2{font-size:clamp(28px,6.6vw,44px)}
+.lede{color:var(--muted);max-width:58ch;margin:13px 0 0;font-size:17px}
+.cards{display:grid;gap:14px;margin-top:32px}
+.card{background:var(--paper);border:1px solid var(--rule);padding:0 0 22px}
+.card .cap{height:6px;display:block}
+.card:nth-child(1) .cap{background:linear-gradient(90deg,var(--hot),#C15230)}
+.card:nth-child(2) .cap{background:linear-gradient(90deg,#C15230,#9C8A80)}
+.card:nth-child(3) .cap{background:linear-gradient(90deg,#7E9BA6,#2C8AA3)}
+.card:nth-child(4) .cap{background:linear-gradient(90deg,#2C8AA3,var(--cold))}
+.card h3{font-size:22px;margin:22px 20px 9px}
+.card p{margin:0 20px;color:var(--muted);font-size:16px}
+.statband{background:var(--ink);color:#fff}
+.statband .wrap{padding:34px 20px 36px}
+.statband .kicker{color:#EEB9B0}
+.statgrid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:20px}
+.statgrid div{padding:18px 14px 18px 0;border-top:1px solid rgba(255,255,255,.22)}
+.statgrid b{display:block;font-family:"Exo 2",system-ui,sans-serif;font-weight:700;font-size:34px;
+line-height:1;color:#fff}
+.statgrid span{display:block;margin-top:8px;font-size:15px;color:#C8BEBA}
+.emerg{background:var(--hot);color:#fff}
+.emerg .wrap{padding:24px 20px 28px}
+.emerg p{margin:0 0 6px;font-family:"Exo 2",system-ui,sans-serif;font-size:13px;font-weight:600;
+letter-spacing:.18em;text-transform:uppercase;color:#FFD6D2}
+.emerg a.tel{display:block;font-family:"Exo 2",system-ui,sans-serif;font-weight:700;
+font-size:clamp(31px,8.4vw,48px);color:#fff;text-decoration:none;line-height:1.05}
+.emerg .btn{background:#fff;color:var(--hot);border-color:#fff;margin-top:16px}
+.steps{list-style:none;counter-reset:s;margin:32px 0 0;padding:0;display:grid;gap:0}
+.steps li{counter-increment:s;padding:20px 0;border-top:2px solid var(--ink)}
+.steps li::before{content:counter(s) "/4";display:block;font-family:"Exo 2",system-ui,sans-serif;
+font-weight:700;font-size:15px;color:var(--accent);letter-spacing:.06em;margin-bottom:10px}
+.steps h3{font-size:20px;margin-bottom:7px}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+.plan{margin-top:32px;background:var(--cold);color:#fff;padding:24px 20px}
+.plan .tag{font-family:"Exo 2",system-ui,sans-serif;font-size:13px;font-weight:600;
+letter-spacing:.18em;text-transform:uppercase;color:#CDE9F1;margin:0 0 9px}
+.plan h3{font-size:24px;margin-bottom:10px;color:#fff}
+.plan p{margin:0 0 20px;font-size:16px;color:#E2F2F7;max-width:54ch}
+.plan .btn{background:#fff;color:var(--cold);border-color:#fff}
+.close{padding:52px 0 58px;background:var(--surface)}
+.close h2{font-size:clamp(29px,7vw,48px);max-width:15ch}
+.close p{max-width:52ch;font-size:17px;color:var(--muted);margin:14px 0 22px}
+.close .ctas{display:grid;gap:10px;max-width:440px}
+.close .primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.close .second{background:transparent;color:var(--ink);border-color:var(--ink)}
+.close .note{font-size:15px;color:var(--muted);margin-top:18px;max-width:52ch}
+.foot{padding:38px 0 34px;font-size:15px;color:var(--muted);border-top:1px solid var(--rule)}
+.foot .brand{color:var(--ink);display:inline-block;margin-bottom:12px}
+.foot p{margin:0 0 9px;max-width:66ch}
+.foot a{color:var(--accent);font-weight:500}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;display:grid;
+grid-template-columns:1fr 1fr;background:var(--ink)}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:60px;
+text-decoration:none;font-weight:600;font-size:16px;font-family:"Exo 2",system-ui,sans-serif;
+text-align:center;line-height:1.15;padding:0 8px;color:#fff}
+.callbar .call{background:var(--hot)}
+.callbar .tune{background:var(--cold)}
+@media(min-width:760px){
+ .split{grid-template-columns:1.15fr 1fr;position:relative}
+ .split::after{content:"";position:absolute;top:0;bottom:0;left:calc(53.5% - 4px);width:8px;
+ background:linear-gradient(180deg,var(--hot),#C4552C 40%,#3C8FA6 70%,var(--cold))}
+ .seam{display:none}
+ .door{padding:56px 34px 60px;display:flex;flex-direction:column;justify-content:center}
+ .door .inner{margin:0;max-width:520px}
+ .door--hot .inner{margin-left:auto;padding-right:26px}
+ .door--cold .inner{padding-left:26px}
+ .btn{width:auto;min-width:230px}
+ .door .sub{font-size:19px}
+ .sec{padding:80px 0}
+ .cards{grid-template-columns:1fr 1fr;gap:18px}
+ .statgrid{grid-template-columns:repeat(4,1fr)}
+ .statgrid div{border-top:none;border-left:1px solid rgba(255,255,255,.22);padding:6px 16px}
+ .steps{grid-template-columns:1fr 1fr;column-gap:40px}
+ .plan{display:grid;grid-template-columns:1.6fr auto;gap:30px;align-items:center;padding:32px}
+ .emerg .wrap{display:flex;align-items:center;gap:26px;padding:28px 20px 30px}
+ .emerg .btn{margin-top:0;margin-left:auto;flex:none}
+ .close .ctas{grid-template-columns:auto auto;justify-content:start;max-width:none}
+}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">24/7 emergency service · Financing available · Licensed &amp; insured</div></div>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="#">Vantage Air Systems</a>
+  <nav class="links"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+  <a class="pill" href="tel:+15552654471">Call now</a>
+</div></header>
+<section class="split">
+  <div class="door door--hot"><div class="inner">
+    <p class="eyebrow">Emergency service · 24 hours</p>
+    <h1>One room freezing, one room baking. That's fixable.</h1>
+    <p class="sub">Repair, replacement and maintenance across the metro. Uneven rooms are usually ductwork and airflow rather than the unit, which is why replacing the unit so often fails to fix them.</p>
+    <a class="btn" data-cta="primary" href="tel:+15552654471">Call now</a>
+    <p class="telrow"><a href="tel:+15552654471">(555) 265-4471</a></p>
+  </div></div>
+  <div class="seam"></div>
+  <div class="door door--cold"><div class="inner">
+    <p class="lbl">What we handle</p>
+    <ul><li>24/7 emergency</li><li>Financing from $89/mo</li><li>Heat pump rebates handled</li><li>Upfront flat pricing</li></ul>
+    <a class="btn" href="#contact">Book a tune-up</a>
+  </div></div>
+</section>
+<figure class="gsw-plate"><img src="../_assets/hero/hvac/c-hands-on-gauges.jpg" alt="Hands on gauges — hvac" loading="lazy"></figure>
+
+<section class="sec sec--paper" id="services"><div class="wrap">
+  <p class="kicker">Services</p>
+  <h2>What we handle</h2>
+  <p class="lede">Repairs today, replacements planned properly, and a maintenance plan so you stop having emergencies.</p>
+  <div class="cards">
+    <article class="card"><span class="cap"></span><h3>Emergency repair</h3><p>Same-day, seven days. Diagnostic fee waived if you go ahead with the repair, and you approve the price before we touch anything.</p></article>
+    <article class="card"><span class="cap"></span><h3>System replacement</h3><p>Right-sized against a proper load calculation and a duct survey — not a guess off the old badge, which is how houses end up with rooms nobody can live in.</p></article>
+    <article class="card"><span class="cap"></span><h3>Heat pumps &amp; rebates</h3><p>There is serious money in federal credits and utility rebates right now. We handle the paperwork and it comes off your price.</p></article>
+    <article class="card"><span class="cap"></span><h3>Maintenance plans</h3><p>Two visits a year, priority scheduling, no overtime rates. Most breakdowns we attend were preventable at a tenth the cost.</p></article>
+  </div>
+</div></section>
+<section class="statband" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <div class="statgrid">
+    <div><b>24/7</b><span>Emergency response</span></div>
+    <div><b>$89/mo</b><span>Financing from</span></div>
+    <div><b>4.8★</b><span>Across 610 reviews</span></div>
+    <div><b>10yr</b><span>Parts &amp; labour warranty</span></div>
+  </div>
+</div></section>
+<section class="emerg"><div class="wrap">
+  <div><p>Emergency service · 24 hours</p><a class="tel" href="tel:+15552654471">(555) 265-4471</a></div>
+  <a class="btn" href="tel:+15552654471">Call now</a>
+</div></section>
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p>
+  <h2>How a call runs</h2>
+  <p class="lede">Flat pricing, approved before work starts, with the airflow readings shown to you before and after.</p>
+  <ol class="steps">
+    <li><h3>You call</h3><p>A human answers, day or night. We give you a window and we hit it or we tell you early.</p></li>
+    <li><h3>Diagnose</h3><p>We find the actual fault and show you. Photographs of what's wrong, not a verdict from behind the unit.</p></li>
+    <li><h3>Flat price, your call</h3><p>A written price for repair and, where it's close, for replacement. You choose with both numbers in front of you.</p></li>
+    <li><h3>Fix &amp; follow up</h3><p>Work warranted parts and labour. We check in after the first hot or cold snap to make sure it held.</p></li>
+  </ol>
+  <div class="plan">
+    <div><p class="tag">Heat pump rebates handled</p><h3>Maintenance plans</h3><p>Two visits a year, priority scheduling, no overtime rates. Most breakdowns we attend were preventable at a tenth the cost.</p></div>
+    <a class="btn" href="#contact">Book a tune-up</a>
+  </div>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>System down right now?</h2>
+  <p>Call and someone picks up — nights, weekends, holidays. Same-day emergency slots held back every day for exactly this.</p>
+  <div class="ctas">
+    <a class="btn primary" href="tel:+15552654471">Call now</a>
+    <a class="btn second" href="tel:+15552654471">(555) 265-4471</a>
+  </div>
+  <p class="note">Free second opinions on replacement quotes. Financing subject to approval.</p>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Vantage Air Systems</a>
+  <p><a href="tel:+15552654471">(555) 265-4471</a> &middot; Licensed, bonded and insured · Serving the metro since 1998</p>
+  <p>24/7 emergency service · Financing available · Licensed &amp; insured</p>
+  <p>1034 Bellamy Street Unit 12, Eastport Hills, NJ 15813</p>
+</div></footer>
+<div class="callbar"><a class="call" href="tel:+15552654471">Call now</a><a class="tune" href="#contact">Book a tune-up</a></div>
+</body>
+</html>

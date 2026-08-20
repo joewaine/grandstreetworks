@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Anvil Bay Pools — Gunite pools, spas, outdoor living</title>
+<meta name="description" content="Gunite pools, integrated spas and full outdoor living builds, designed in 3D on your own garden before anything is signed.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Rubik:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* D4 — THE DEEP END ONE. hero:fullbleed nav:bar services:list proof:logos
+   ink #E8F4F7 · surface #0A1A24 · accent #63D2DE · muted #9DB7C2 · on-accent #072029
+   H1 ramp: 31/36/46/60px · Poppins display / Rubik body
+   Device: the water plane at night and full bleed — lamp glows under the surface, a caustic
+   net raked over it, coping at the waterline. Fixes "the gallery is the sale and it's small
+   and slow": one full screen of water arrives instantly, before any photograph could load. */
+:root{--ink:#E8F4F7;--surface:#0A1A24;--panel:#102733;--accent:#63D2DE;--muted:#9DB7C2;
+--onaccent:#072029;--rule:rgba(157,183,194,.28);--wrap:1120px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.62 "Rubik",system-ui,-apple-system,sans-serif;padding-bottom:80px;overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Poppins",system-ui,sans-serif;font-weight:600;margin:0;line-height:1.15;
+letter-spacing:-.02em}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 22px;
+text-decoration:none;font-weight:600;font-size:16px;line-height:1.2;text-align:center;
+border:2px solid transparent;font-family:"Poppins",system-ui,sans-serif}
+.btn-primary{background:var(--accent);color:var(--onaccent);border-color:var(--accent)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:rgba(232,244,247,.55)}
+.topbar{background:#061219;color:var(--muted);font-size:15px}
+.topbar .wrap{padding:9px 20px;text-align:center}
+.nav{position:sticky;top:0;z-index:30;background:var(--panel);border-bottom:1px solid var(--rule)}
+.navrow{display:flex;align-items:center;gap:18px;height:56px}
+.brand{font-family:"Poppins",system-ui,sans-serif;font-weight:700;font-size:19px;
+text-decoration:none;letter-spacing:-.03em;line-height:1;flex:0 0 auto}
+.navlinks{display:flex;gap:20px;font-size:14px;letter-spacing:.13em;text-transform:uppercase;
+color:var(--muted);overflow-x:auto;scrollbar-width:none;flex:1 1 auto}
+.navlinks::-webkit-scrollbar{display:none}
+.navlinks a{text-decoration:none;white-space:nowrap;font-weight:500}
+.navact{min-height:38px;padding:0 14px;font-size:14px;white-space:nowrap;flex:0 0 auto}
+
+/* ---- the water plane, at night, full bleed ---- */
+.hero{position:relative;overflow:hidden;
+background:
+ radial-gradient(58% 34% at 20% 70%,rgba(140,236,246,.52),transparent 64%),
+ radial-gradient(46% 26% at 74% 86%,rgba(140,236,246,.40),transparent 62%),
+ radial-gradient(90% 40% at 50% 104%,rgba(99,210,222,.30),transparent 70%),
+ linear-gradient(180deg,#04121A 0%,#0A2A38 40%,#0E4658 72%,#14708A 100%)}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.42;
+background:
+ repeating-linear-gradient(101deg,rgba(200,246,251,.34) 0 2px,rgba(200,246,251,0) 2px 11px,rgba(200,246,251,.16) 11px 13px,rgba(200,246,251,0) 13px 30px),
+ repeating-linear-gradient(-97deg,rgba(200,246,251,.12) 0 1px,rgba(200,246,251,0) 1px 41px)}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:22px;
+background:linear-gradient(180deg,rgba(169,237,242,.55),rgba(169,237,242,0) 40%),#0E2B37;
+border-top:2px solid rgba(169,237,242,.8)}
+.hero .wrap{position:relative;z-index:2;padding-top:42px;padding-bottom:64px}
+.eyebrow{font-size:13px;letter-spacing:.24em;text-transform:uppercase;font-weight:600;
+color:var(--accent);margin:0 0 12px}
+.hero h1{font-size:clamp(31px,7.8vw,60px);max-width:15ch}
+.sub{margin:14px 0 0;max-width:52ch;font-size:16px;line-height:1.55;color:#CFE4EA}
+.ctas{display:flex;flex-direction:column;gap:10px;margin-top:24px}
+.badges{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:9px}
+.badges li{font-size:15px;font-weight:500;padding-left:24px;position:relative;color:#DCEEF2}
+.badges li::before{content:"";position:absolute;left:0;top:9px;width:10px;height:10px;
+border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(99,210,222,.22)}
+
+.sec{padding:52px 0;border-top:1px solid var(--rule)}
+.kicker{font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);
+font-weight:600;margin:0 0 10px}
+.sec h2{font-size:clamp(27px,6.2vw,42px)}
+.lede{color:var(--muted);max-width:58ch;margin:12px 0 0;font-size:17px}
+.rows{list-style:none;margin:28px 0 0;padding:0}
+.rows li{padding:22px 0 22px 26px;border-top:1px solid var(--rule);position:relative}
+.rows li:last-child{border-bottom:1px solid var(--rule)}
+.rows li::before{content:"";position:absolute;left:0;top:28px;width:10px;height:10px;
+background:var(--accent);transform:rotate(45deg)}
+.rows h3{font-size:21px;margin-bottom:7px}
+.rows p{margin:0;color:var(--muted);font-size:16px;max-width:62ch}
+.plates{display:grid;gap:10px;margin-top:26px}
+.plate{background:var(--panel);border:1px solid var(--rule);border-top:3px solid var(--accent);
+padding:20px 16px;font-family:"Poppins",system-ui,sans-serif;font-weight:600;font-size:16px;
+letter-spacing:.02em}
+.steps{list-style:none;margin:28px 0 0;padding:0;counter-reset:s;display:grid;gap:10px}
+.steps li{counter-increment:s;background:var(--panel);border:1px solid var(--rule);
+padding:20px 18px 22px;position:relative}
+.steps li::after{content:counter(s,decimal-leading-zero);position:absolute;right:16px;top:14px;
+font-family:"Poppins",system-ui,sans-serif;font-weight:700;font-size:22px;color:var(--accent);
+opacity:.85;letter-spacing:-.02em}
+.steps h3{font-size:20px;margin:0 52px 6px 0}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+.close{background:var(--accent);color:var(--onaccent);position:relative;overflow:hidden}
+.close::after{content:"";position:absolute;inset:0;opacity:.4;pointer-events:none;
+background:repeating-linear-gradient(100deg,rgba(7,32,41,.16) 0 2px,rgba(7,32,41,0) 2px 26px)}
+.close .wrap{position:relative;z-index:2;padding-top:52px;padding-bottom:58px}
+.close h2{font-size:clamp(28px,6.4vw,46px);max-width:16ch}
+.close p{max-width:56ch;font-size:17px;color:#0A2C36;margin:14px 0 22px}
+.close .btn-primary{background:var(--onaccent);color:var(--accent);border-color:var(--onaccent)}
+.close .btn-ghost{color:var(--onaccent);border-color:rgba(7,32,41,.5)}
+.note{font-size:15px;color:#0A2C36;margin-top:18px;max-width:56ch}
+.foot{padding:38px 0 34px;font-size:15px;color:var(--muted);background:#061219}
+.foot .brand{color:var(--ink);display:inline-block;margin-bottom:12px}
+.foot p{margin:0 0 9px;max-width:64ch}
+.foot a{color:var(--accent);font-weight:600}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--panel);
+border-top:1px solid var(--rule);padding:8px;display:grid;grid-template-columns:1fr auto;gap:8px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:56px;
+text-decoration:none;font-weight:600;font-size:15px;text-align:center;line-height:1.2;padding:0 12px;
+font-family:"Poppins",system-ui,sans-serif}
+.callbar .book{background:var(--accent);color:var(--onaccent)}
+.callbar .tel{border:2px solid rgba(232,244,247,.55);color:var(--ink);padding:0 16px;font-size:16px}
+@media(max-width:559px){.navact{display:none}}
+@media(min-width:700px){
+ .ctas{flex-direction:row}
+ .badges{grid-template-columns:1fr 1fr;column-gap:30px}
+ .plates{grid-template-columns:repeat(4,1fr)}
+ .steps{grid-template-columns:1fr 1fr;gap:14px}
+ .rows li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:30px;padding-left:26px}
+ .rows h3{margin-bottom:0}
+ .hero .wrap{padding-top:96px;padding-bottom:118px}
+ .sec{padding:84px 0}.sub{font-size:19px}.navrow{height:64px}.brand{font-size:22px}
+}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Booking spring installs now · 3D design included · Financing available</div></div>
+<header class="nav"><div class="wrap navrow">
+  <a class="brand" href="#">Anvil Bay Pools</a>
+  <nav class="navlinks">
+    <a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a>
+  </nav>
+  <a class="btn btn-primary navact" href="#contact">Book a design consult</a>
+</div></header>
+<section class="hero"><div class="wrap">
+  <p class="eyebrow">Booking next season now</p>
+  <h1>Engineered, steel-tied, and built to outlast us.</h1>
+  <p class="sub">Gunite pools, spas and full outdoor living builds. Engineered steel schedules, inspected before the shoot, and a shell built to last decades rather than to survive the warranty.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" data-cta="primary" href="#contact">Book a design consult</a>
+    <a class="btn btn-ghost" href="#results">See finished pools</a>
+  </div>
+  <ul class="badges">
+    <li>3D design included</li>
+    <li>Financing from $340/mo</li>
+    <li>Booking spring now</li>
+    <li>25-year structural warranty</li>
+  </ul>
+</div></section>
+<figure class="gsw-plate"><img src="../_assets/hero/pool-builders/d-caustics.jpg" alt="Caustics — pool builders" loading="lazy"></figure>
+
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p>
+  <h2>What we build</h2>
+  <p class="lede">A pool is rarely just a pool. Most of our projects are the whole back garden reconsidered.</p>
+  <ul class="rows">
+    <li><h3>Gunite pools</h3><p>Engineered, steel-reinforced and built to last decades. Any shape, because gunite doesn't come out of a mould.</p></li>
+    <li><h3>Spas &amp; water features</h3><p>Integrated spas, spillovers, and the quiet engineering that keeps them warm without a ruinous bill.</p></li>
+    <li><h3>Outdoor living</h3><p>Hardscape, outdoor kitchens, pergolas and lighting — designed together with the pool rather than bolted on after.</p></li>
+    <li><h3>Renovation &amp; resurfacing</h3><p>Older pools brought back: resurfacing, new tile and coping, and modern equipment that halves the running cost.</p></li>
+  </ul>
+</div></section>
+<section class="sec" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <h2>Certified by</h2>
+  <div class="plates">
+    <div class="plate">Pool &amp; Hot Tub Alliance</div>
+    <div class="plate">Certified Building Professional</div>
+    <div class="plate">Pentair Partner</div>
+    <div class="plate">Best of Houzz — Design</div>
+  </div>
+</div></section>
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p>
+  <h2>From first call to first swim</h2>
+  <p class="lede">Roughly nine months if you start in autumn, and considerably longer if you start in May with everyone else.</p>
+  <ol class="steps">
+    <li><h3>Design consult</h3><p>We visit, measure and talk about how you'd actually use it. Free, and no obligation to go further.</p></li>
+    <li><h3>3D design &amp; fixed price</h3><p>Your garden, rendered, with the pool in it. Change it as often as you like before there's a contract.</p></li>
+    <li><h3>Permits &amp; engineering</h3><p>We handle drawings, engineering and the city. This is the stage that quietly takes months.</p></li>
+    <li><h3>Build &amp; handover</h3><p>Excavation to first fill, typically eight to twelve weeks. We teach you the equipment and stay on call after.</p></li>
+  </ol>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>Want it for next summer?</h2>
+  <p>Then now is the conversation. Spring and summer builds are booked over the winter, and the design and permit stage runs longer than anyone expects.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="#contact">Book a design consult</a>
+    <a class="btn btn-ghost" href="tel:+15554629938">(555) 462-9938</a>
+  </div>
+  <p class="note">Free design consultations. 3D rendering included at no cost, no obligation.</p>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Anvil Bay Pools</a>
+  <p>Gunite pools &amp; outdoor living · Licensed &amp; insured · Building since 2001</p>
+  <p><a href="tel:+15554629938">(555) 462-9938</a> · Booking spring installs now</p>
+  <p>6627 Kestrel Way Suite 4B, Stonebridge, MA 14955</p>
+</div></footer>
+<div class="callbar">
+  <a class="book" href="#contact">Book a design consult</a>
+  <a class="tel" href="tel:+15554629938">Call</a>
+</div>
+</body>
+</html>

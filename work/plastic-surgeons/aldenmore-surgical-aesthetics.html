@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aldenmore Surgical Aesthetics — Board certified, accredited suite</title>
+<meta name="description" content="Aesthetic and reconstructive surgery in a private, accredited facility. Every consultation is with the surgeon who will operate.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* D4 — THE CREDENTIAL ONE. hero:stack nav:bar services:list proof:stats
+   ink #16191D · surface #FCFCFA · accent #33414E · muted #5D6670 · on-accent #FFFFFF
+   H1 ramp: 29/34/44/56px · Bodoni Moda display / Inter Tight body
+   Certification is the objection here, so the certification is the composition: a ruled
+   seal under the wordmark, the four credentials as the proof block, nothing decorative. */
+:root{--ink:#16191D;--surface:#FCFCFA;--accent:#33414E;--muted:#5D6670;--on-accent:#FFFFFF;
+--paper:#F4F4F1;--rule:rgba(22,25,29,.16);--hair:rgba(22,25,29,.1);--wrap:1080px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.65 "Inter Tight",system-ui,-apple-system,sans-serif;padding-bottom:80px;
+overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 22px}
+h1,h2,h3{font-family:"Bodoni Moda",Didot,Georgia,serif;font-weight:700;margin:0;line-height:1.14;
+letter-spacing:-.012em}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 24px;
+text-decoration:none;font-weight:500;font-size:16px;border:1px solid transparent;text-align:center;
+line-height:1.2}
+.btn-primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.btn-ghost{background:transparent;color:var(--accent);border-color:var(--accent)}
+.topbar{background:var(--paper);color:var(--muted);font-size:15px;border-bottom:1px solid var(--hair)}
+.topbar .wrap{padding:9px 22px;text-align:center;letter-spacing:.03em}
+.nav{position:sticky;top:0;z-index:30;background:var(--accent);color:#fff}
+.nav .wrap{display:flex;align-items:center;gap:12px;height:56px}
+.brand{font-family:"Bodoni Moda",Didot,serif;font-weight:700;font-size:21px;text-decoration:none;
+line-height:1;flex:none;letter-spacing:.04em}
+.navlinks{display:none;gap:22px;margin-left:auto;font-size:15px;color:rgba(255,255,255,.86)}
+.navlinks a{text-decoration:none}
+.navlinks a:hover{color:#fff}
+.navbook{min-height:40px;padding:0 13px;font-size:14px;flex:none;margin-left:auto;white-space:nowrap;
+background:#fff;color:var(--accent);border-color:#fff}
+.hero{text-align:center;padding:20px 0 38px;border-bottom:1px solid var(--hair);
+background:linear-gradient(180deg,rgba(51,65,78,.05),transparent 46%),var(--surface)}
+.hero .wrap{display:flex;flex-direction:column;align-items:center}
+/* the seal: a ruled lozenge, drawn not photographed */
+.seal{width:64px;height:64px;border:1px solid var(--accent);border-radius:50%;position:relative;
+margin-bottom:14px;display:flex;align-items:center;justify-content:center;flex:none}
+.seal::before{content:"";position:absolute;inset:5px;border:1px solid var(--accent);opacity:.4;
+border-radius:50%}
+.seal span{font-family:"Bodoni Moda",Didot,serif;font-weight:700;font-size:17px;color:var(--accent);
+letter-spacing:.04em}
+.eyebrow{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);
+margin:0 0 10px;font-weight:600}
+.hero h1{font-size:clamp(29px,6.8vw,56px);max-width:17ch}
+.sub{font-size:16px;color:var(--muted);max-width:56ch;margin:13px 0 18px;line-height:1.5}
+.ctas{display:flex;flex-direction:column;gap:10px;width:100%;max-width:410px}
+.badges{display:grid;grid-template-columns:1fr 1fr;gap:0;list-style:none;margin:26px 0 0;padding:0;
+width:100%;max-width:720px;border-top:1px solid var(--hair)}
+.badges li{font-size:15px;color:var(--muted);padding:11px 8px;border-bottom:1px solid var(--hair)}
+.sec{padding:56px 0;border-bottom:1px solid var(--hair)}
+.kicker{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);
+margin:0 0 11px;font-weight:600}
+.sec h2{font-size:clamp(27px,5.6vw,44px);margin-bottom:13px}
+.lede{color:var(--muted);max-width:60ch;margin:0 0 26px;font-size:17px}
+.list{margin:0;padding:0;list-style:none;border-top:1px solid var(--rule)}
+.list li{padding:24px 0;border-bottom:1px solid var(--hair);display:grid;gap:8px}
+.list h3{font-size:23px}
+.list p{margin:0;color:var(--muted);font-size:16px;max-width:66ch}
+.stats{background:var(--accent);color:#fff;padding:50px 0;border:none}
+.stats .kicker{color:#A9BDD0}
+.statgrid{display:grid;grid-template-columns:1fr 1fr;gap:26px 16px;margin-top:24px}
+.stat b{display:block;font-family:"Bodoni Moda",Didot,serif;font-weight:700;
+font-size:clamp(30px,7.4vw,48px);line-height:1;color:#fff;letter-spacing:-.02em}
+.stat span{display:block;font-size:16px;color:#B9C7D4;margin-top:7px;line-height:1.3}
+.steps{list-style:none;margin:26px 0 0;padding:0;counter-reset:s;display:grid;gap:0;
+border-top:1px solid var(--rule)}
+.steps li{counter-increment:s;padding:22px 0;border-bottom:1px solid var(--hair);display:grid;
+grid-template-columns:44px 1fr;gap:16px}
+.steps li::before{content:counter(s,decimal-leading-zero);font-family:"Bodoni Moda",Didot,serif;
+font-weight:500;font-size:20px;color:var(--accent);padding-top:3px}
+.steps h3{font-size:20px;margin-bottom:6px}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+.close{background:var(--paper);padding:56px 0 62px;text-align:center;border:none}
+.close .wrap{display:flex;flex-direction:column;align-items:center}
+.close h2{font-size:clamp(28px,6vw,48px);max-width:18ch}
+.close p{max-width:54ch;font-size:18px;color:var(--muted);margin:14px 0 22px}
+.note{font-size:15px;color:var(--muted);margin-top:20px;max-width:54ch}
+.foot{padding:42px 0 36px;font-size:15px;color:var(--muted);text-align:center}
+.foot .brand{color:var(--ink);display:inline-block;margin-bottom:14px}
+.foot p{margin:0 0 10px}
+.foot a{color:var(--accent)}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--surface);padding:8px;
+border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:8px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:60px;
+text-decoration:none;font-weight:500;font-size:15px;text-align:center;line-height:1.2;padding:0 10px}
+.callbar .book{background:var(--accent);color:#fff}
+.callbar .tel{border:1px solid var(--accent);color:var(--accent);padding:0 16px;font-size:16px}
+@media(min-width:760px){.ctas{flex-direction:row;justify-content:center;max-width:none}
+.badges{grid-template-columns:repeat(4,1fr)}.badges li{border-bottom:none;
+border-right:1px solid var(--hair);text-align:center}.badges li:last-child{border-right:none}
+.statgrid{grid-template-columns:repeat(4,1fr);gap:28px}.steps{grid-template-columns:1fr 1fr;column-gap:46px}
+.sec{padding:86px 0}.sub{font-size:19px;line-height:1.55}.hero{padding:66px 0 70px}
+.nav .wrap{height:62px}.navbook{font-size:15px;padding:0 18px}}
+@media(min-width:900px){.navlinks{display:flex}.navbook{margin-left:0}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">ABPS certified · Hospital privileges · AAAASF suite</div></div>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="#">Aldenmore Surgical Aesthetics</a>
+  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+  <a class="btn btn-primary navbook" href="#contact">Request a consultation</a>
+</div></header>
+<section class="hero"><div class="wrap">
+  <div class="seal" aria-hidden="true"><span>A</span></div>
+  <p class="eyebrow">Board certified · ABPS</p>
+  <h1>Board certified — and here is what that actually means.</h1>
+  <p class="sub">Aesthetic and reconstructive surgery in a private, accredited facility. Certification, hospital privileges and facility accreditation all published here, because almost nobody explains which of the three actually protects you.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" data-cta="primary" href="#contact">Request a consultation</a>
+    <a class="btn btn-ghost" href="#results">View results</a>
+  </div>
+  <ul class="badges"><li>ABPS board certified</li><li>AAAASF accredited suite</li><li>Consult with your surgeon</li><li>Financing available</li></ul>
+</div></section>
+<figure class="gsw-plate"><img src="../_assets/hero/plastic-surgeons/d-alabaster-form.jpg" alt="Alabaster form — plastic surgeons" loading="lazy"></figure>
+
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p><h2>Procedures</h2>
+  <p class="lede">A short list, deliberately. These are the operations performed often enough to be performed exceptionally.</p>
+  <ul class="list">
+    <li><h3>Breast surgery</h3><p>Augmentation, lift, reduction and reconstruction. Sizing done with imaging so you see the projected outcome before deciding.</p></li>
+    <li><h3>Body contouring</h3><p>Abdominoplasty, liposuction and post-weight-loss contouring, staged sensibly rather than crammed into one operation.</p></li>
+    <li><h3>Facial surgery</h3><p>Facelift, blepharoplasty and rhinoplasty. Conservative by philosophy — the aim is that nobody can tell you've had anything done.</p></li>
+    <li><h3>Non-surgical</h3><p>Injectables, resurfacing and skin. Often the right starting point, and we'll say so when surgery isn't warranted yet.</p></li>
+  </ul>
+</div></section>
+<section class="sec stats" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <div class="statgrid">
+    <div class="stat"><b>ABPS</b><span>Board certified</span></div>
+    <div class="stat"><b>4,800+</b><span>Procedures performed</span></div>
+    <div class="stat"><b>AAAASF</b><span>Accredited facility</span></div>
+    <div class="stat"><b>100%</b><span>Consults with your surgeon</span></div>
+  </div>
+</div></section>
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p><h2>From consultation to recovery</h2>
+  <p class="lede">Unhurried, private, and with the surgeon throughout. Most people are deciding over months, not days.</p>
+  <ol class="steps">
+    <li><div><h3>Private consultation</h3><p>Fifty minutes with the surgeon. Examination, imaging where useful, and a frank conversation about what is and isn't achievable.</p></div></li>
+    <li><div><h3>Plan &amp; quote</h3><p>A written surgical plan and an all-inclusive quote — facility, anaesthesia and follow-up included, no line items appearing later.</p></div></li>
+    <li><div><h3>Pre-operative</h3><p>Medical clearance, photographs and a second sit-down to confirm you're certain. You can change your mind at any point.</p></div></li>
+    <li><div><h3>Surgery &amp; aftercare</h3><p>Accredited suite, board-certified anaesthesia, and a structured follow-up schedule out to one year with photographs at each stage.</p></div></li>
+  </ol>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>Comparing surgeons and finding it opaque?</h2>
+  <p>Most of our patients thought about it for a year or more. A consultation commits you to nothing and is the fastest way to replace guesswork with facts.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="#contact">Request a consultation</a>
+    <a class="btn btn-ghost" href="tel:+15554457702">(555) 445-7702</a>
+  </div>
+  <p class="note">Private consultations. Bring the other quotes and we will go through what each credential on them does and doesn't mean. Enquiries handled confidentially.</p>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Aldenmore Surgical Aesthetics</a>
+  <p><a href="tel:+15554457702">(555) 445-7702</a> · ABPS certified · Hospital privileges · AAAASF suite</p>
+  <p>Board certified by the American Board of Plastic Surgery · AAAASF accredited facility</p>
+  <p>7604 Thistle Lane Floor 2, Eastport Hills, NJ 13653</p>
+</div></footer>
+<div class="callbar"><a class="book" href="#contact">Request a consultation</a><a class="tel" href="tel:+15554457702">(555) 445-7702</a></div>
+</body>
+</html>

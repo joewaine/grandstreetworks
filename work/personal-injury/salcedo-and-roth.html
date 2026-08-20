@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="robots" content="noindex"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="../_assets/fonts/c818b3e08965.css" rel="stylesheet"/>
+<style>
+  
+  :root { --bg: #0a0a0a; --text: #f0f0f0; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased; }
+  .pres-header { background: #111; padding: 40px 20px; border-bottom: 1px solid #333; text-align: center; }
+  .pres-header h1 { margin: 0 0 10px; font-weight: 400; letter-spacing: -1px; }
+  .pres-header p { color: #888; max-width: 600px; margin: 0 auto; line-height: 1.5; }
+  
+  .demo-wrapper { max-width: 1440px; margin: 60px auto; border: 1px solid #333; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+  .demo-meta { background: #1a1a1a; padding: 30px; border-bottom: 1px solid #333; display: grid; gap: 16px; font-size: 14px; line-height: 1.6; }
+  .demo-meta h2 { margin: 0 0 8px; font-size: 24px; color: #fff; font-weight: 500; }
+  .demo-meta .rationale { color: #aaa; font-style: italic; margin-bottom: 16px; font-size: 16px; }
+  .demo-meta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+  .demo-meta-grid div strong { color: #fff; display: block; margin-bottom: 4px; text-transform: uppercase; font-size: 11px; letter-spacing: 1px; }
+  .callout-box { background: #222; padding: 16px; border-left: 4px solid #fff; margin-top: 16px; font-size: 15px; }
+
+  
+  .demo-frame { width: 100%; position: relative; overflow-x: hidden; background: #fff; color: #000; text-align: left; }
+  .demo-frame * { box-sizing: border-box; }
+  .demo-frame a { text-decoration: none; color: inherit; }
+  .demo-frame p { margin: 0 0 1rem 0; }
+  .demo-frame h1, .demo-frame h2, .demo-frame h3, .demo-frame h4 { margin: 0; }
+  .mob-cta { display: none; }
+
+  
+  .d1 { font-family: 'Inter', sans-serif; background: #F4F4F4; color: #1B4923; line-height: 1.4; }
+  .d1-grid { border-bottom: 1px solid #1B4923; display: grid; grid-template-columns: 1fr; }
+  @media(min-width: 768px) { .d1-grid { grid-template-columns: 2fr 1fr; } }
+  .d1-cell { padding: 24px; border-bottom: 1px solid #1B4923; }
+  @media(min-width: 768px) { .d1-cell { border-bottom: none; border-right: 1px solid #1B4923; } .d1-cell:last-child { border-right: none; } }
+  .d1-top { display: flex; justify-content: space-between; padding: 8px 24px; font-size: 11px; text-transform: uppercase; border-bottom: 1px solid #1B4923; font-weight: 500; }
+  .d1-nav { display: flex; justify-content: space-between; align-items: center; padding: 16px 24px; border-bottom: 1px solid #1B4923; position: sticky; top: 0; background: #F4F4F4; z-index: 10; }
+  .d1-nav-links { display: none; gap: 24px; font-size: 14px; font-weight: 500; text-transform: uppercase; }
+  @media(min-width: 768px) { .d1-nav-links { display: flex; } }
+  .d1-btn { background: #FA5C2E; color: #fff; padding: 12px 24px; font-weight: 700; text-transform: uppercase; font-size: 14px; display: inline-block; }
+  .d1-btn-sec { border: 1px solid #1B4923; padding: 11px 24px; font-weight: 500; text-transform: uppercase; font-size: 14px; display: inline-block; }
+  .d1-h1 { font-size: clamp(3rem, 6vw, 5.5rem); line-height: 1; letter-spacing: -0.03em; margin: 24px 0; text-transform: uppercase; font-weight: 500; }
+  .d1-meta { font-size: 10px; font-family: monospace; text-transform: uppercase; opacity: 0.6; display: block; margin-bottom: 8px; }
+  .d1-badge-list { display: flex; flex-direction: column; gap: 0; border-top: 1px solid #1B4923; margin-top: 24px; }
+  .d1-badge-item { padding: 12px 0; border-bottom: 1px solid #1B4923; font-size: 14px; font-weight: 500; display: flex; justify-content: space-between; }
+  .d1-table { width: 100%; border-top: 1px solid #1B4923; }
+  .d1-row { display: grid; grid-template-columns: 1fr; border-bottom: 1px solid #1B4923; }
+  @media(min-width: 768px) { .d1-row { grid-template-columns: 300px 1fr; } }
+  .d1-row > div { padding: 24px; }
+  @media(min-width: 768px) { .d1-row > div:first-child { border-right: 1px solid #1B4923; font-weight: 500; text-transform: uppercase; } }
+  .d1-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); border-bottom: 1px solid #1B4923; }
+  .d1-stat { padding: 32px 24px; border-right: 1px solid #1B4923; }
+  .d1-stat:last-child { border-right: none; }
+  .d1-stat-num { font-size: 3rem; font-weight: 500; display: block; margin-bottom: 8px; line-height: 1; }
+  
+  
+  .d2 { font-family: 'Inter', sans-serif; background: #0A0A0A; color: #E8E8E3; }
+  .d2-heading { font-family: 'Space Grotesk', sans-serif; }
+  .d2-top { background: #E8E8E3; color: #0A0A0A; text-align: center; padding: 8px; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+  .d2-nav { padding: 24px 40px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #222; }
+  .d2-nav-inner { background: #1A1A1A; border: 1px solid #333; padding: 8px 24px; border-radius: 100px; display: none; gap: 32px; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
+  @media(min-width: 768px) { .d2-nav-inner { display: flex; } }
+  .d2-btn { background: #33FF77; color: #000; padding: 14px 28px; border-radius: 4px; font-weight: bold; text-transform: uppercase; font-size: 14px; box-shadow: 0 0 20px rgba(51,255,119,0.2); }
+  .d2-hero { padding: 80px 20px; text-align: center; position: relative; overflow: hidden; }
+  .d2-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 800px; height: 800px; background: radial-gradient(circle, rgba(51,255,119,0.05) 0%, transparent 60%); pointer-events: none; }
+  .d2-h1 { font-size: clamp(3.5rem, 8vw, 7rem); font-weight: 700; line-height: 0.9; margin: 24px auto; max-width: 1000px; letter-spacing: -0.04em; }
+  .d2-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 40px; }
+  .d2-badge { background: #1A1A1A; border: 1px solid #333; padding: 8px 16px; font-size: 12px; border-radius: 100px; color: #aaa; }
+  .d2-grid-numbered { display: grid; grid-template-columns: 1fr; gap: 24px; padding: 40px 20px; max-width: 1200px; margin: 0 auto; }
+  @media(min-width: 768px) { .d2-grid-numbered { grid-template-columns: 1fr 1fr; } }
+  .d2-card { background: #111; border: 1px solid #222; padding: 40px; position: relative; overflow: hidden; border-radius: 8px; }
+  .d2-num { position: absolute; right: -10px; bottom: -20px; font-size: 12rem; font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: rgba(255,255,255,0.03); line-height: 1; pointer-events: none; }
+  .d2-quote-sec { padding: 80px 20px; text-align: center; border-top: 1px solid #222; border-bottom: 1px solid #222; background: #0f0f0f; }
+  .d2-quote { font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.5rem, 4vw, 2.5rem); line-height: 1.3; max-width: 900px; margin: 0 auto 24px; color: #fff; }
+
+  
+  .d3 { font-family: 'Inter', sans-serif; background: #FFFDF8; color: #2A2A2A; }
+  .d3-h1 { font-family: 'Playfair Display', serif; font-size: clamp(4rem, 10vw, 9rem); line-height: 0.85; font-style: italic; font-weight: 400; color: #FFFDF8; margin: 0; }
+  .d3-top { padding: 12px 24px; font-size: 12px; border-bottom: 1px solid #EAE8E3; text-align: right; font-style: italic; color: #666; }
+  .d3-nav { position: absolute; top: 60px; left: 0; width: 100%; padding: 0 40px; display: flex; justify-content: space-between; z-index: 20; mix-blend-mode: difference; color: #fff; }
+  .d3-hero-band { background: #E63946; padding: 120px 40px 80px; display: flex; flex-direction: column; justify-content: flex-end; position: relative; }
+  .d3-hero-grid { display: grid; grid-template-columns: 1fr; gap: 40px; padding: 60px 40px; background: #FFFDF8; }
+  @media(min-width: 768px) { .d3-hero-grid { grid-template-columns: 1fr 1fr; } }
+  .d3-btn { background: #2A2A2A; color: #FFFDF8; padding: 16px 32px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; display: inline-block; border-radius: 50px; }
+  .d3-services { padding: 80px 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+  .d3-card { border: 1px solid #EAE8E3; padding: 32px; background: #fff; box-shadow: 0 4px 20px rgba(0,0,0,0.02); transition: transform 0.3s; }
+  .d3-card:hover { transform: translateY(-5px); }
+  .d3-card h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 12px; }
+  .d3-logos { padding: 60px 40px; border-top: 1px solid #EAE8E3; display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; font-family: 'Playfair Display', serif; font-size: 1.2rem; color: #888; }
+
+  
+  .d4 { font-family: 'Inter', sans-serif; background: #FDFBF7; color: #332211; background-image: repeating-linear-gradient(transparent, transparent 31px, #e0ddd5 31px, #e0ddd5 32px); background-size: 100% 32px; background-attachment: local; line-height: 32px; }
+  .d4-container { max-width: 1000px; margin: 40px auto; background: #fff; border: 2px solid #332211; box-shadow: 12px 12px 0 #E0DDD5; position: relative; z-index: 2; }
+  @media(max-width: 768px) { .d4-container { margin: 16px; width: auto; box-shadow: 6px 6px 0 #E0DDD5; } }
+  .d4-top { background: #332211; color: #fff; text-align: center; padding: 8px; font-size: 12px; text-transform: uppercase; line-height: 1.5; }
+  .d4-header { padding: 32px; text-align: center; border-bottom: 2px dashed #332211; }
+  .d4-logo { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700; letter-spacing: -1px; margin-bottom: 16px; }
+  .d4-nav { display: flex; justify-content: center; gap: 32px; text-transform: uppercase; font-size: 12px; font-weight: 700; }
+  .d4-hero { padding: 64px 32px; text-align: center; border-bottom: 2px dashed #332211; }
+  .d4-h1 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1; text-transform: uppercase; margin-bottom: 24px; }
+  .d4-btn { background: #D97736; color: #fff; border: 2px solid #332211; padding: 12px 32px; font-weight: bold; text-transform: uppercase; box-shadow: 4px 4px 0 #332211; display: inline-block; line-height: 1.5; }
+  .d4-services { display: flex; flex-wrap: wrap; border-bottom: 2px dashed #332211; }
+  .d4-tile { flex: 1 1 45%; padding: 32px; border-right: 2px dashed #332211; border-bottom: 2px dashed #332211; background: rgba(255,255,255,0.9); }
+  .d4-tile:nth-child(even) { border-right: none; }
+  .d4-reviews { padding: 32px; background: #f9f8f5; display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+  .d4-review { font-style: italic; border-left: 2px solid #D97736; padding-left: 16px; font-size: 14px; line-height: 1.6; }
+
+  
+  .d5 { font-family: 'Roboto', sans-serif; background: #000; color: #fff; line-height: 1.5; }
+  .d5-h1 { font-family: 'Oswald', sans-serif; font-size: clamp(5rem, 14vw, 12rem); line-height: 0.85; text-transform: uppercase; color: #FFCC00; margin-bottom: 24px; }
+  .d5-top { background: #FFCC00; color: #000; text-align: center; padding: 8px; font-weight: bold; text-transform: uppercase; font-size: 12px; }
+  .d5-nav { display: flex; justify-content: space-between; padding: 20px 40px; border-bottom: 1px solid #333; align-items: center; }
+  .d5-hero { min-height: 90vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 40px; background: linear-gradient(0deg, #000 30%, transparent 100%), repeating-linear-gradient(45deg, #111, #111 20px, #000 20px, #000 40px); }
+  .d5-btn { background: #FFCC00; color: #000; font-family: 'Oswald', sans-serif; font-size: 1.5rem; text-transform: uppercase; padding: 16px 40px; display: inline-block; margin-top: 24px; }
+  .d5-services { display: grid; grid-template-columns: 1fr; border-top: 1px solid #333; }
+  @media(min-width: 768px) { .d5-services { grid-template-columns: 1fr 1fr; } }
+  .d5-srv-item { padding: 60px 40px; border-bottom: 1px solid #333; border-right: 1px solid #333; position: relative; }
+  .d5-srv-num { font-family: 'Oswald', sans-serif; font-size: 3rem; color: #FFCC00; margin-bottom: 16px; }
+  .d5-stats { background: #FFCC00; color: #000; padding: 80px 40px; display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; }
+  .d5-stat h3 { font-family: 'Oswald', sans-serif; font-size: 4rem; line-height: 1; margin-bottom: 8px; }
+
+  
+  .d6 { font-family: 'Inter', sans-serif; background: #001133; color: #fff; background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 40px 40px; line-height: 1.6; }
+  .d6-wrapper { margin: 20px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,17,51,0.8); backdrop-filter: blur(5px); }
+  @media(max-width: 768px) { .d6-wrapper { margin: 0; border: none; } }
+  .d6-top { padding: 12px 24px; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; border-bottom: 1px solid rgba(255,255,255,0.2); display: flex; justify-content: space-between; color: #00FFCC; }
+  .d6-nav { display: flex; justify-content: space-between; padding: 24px; border-bottom: 1px solid rgba(255,255,255,0.2); }
+  .d6-hero { display: flex; flex-direction: column-reverse; }
+  @media(min-width: 768px) { .d6-hero { flex-direction: row; } }
+  .d6-hero-text { flex: 1; padding: 60px 40px; border-left: 1px solid rgba(255,255,255,0.2); }
+  .d6-hero-side { width: 100%; padding: 40px; border-bottom: 1px solid rgba(255,255,255,0.2); }
+  @media(min-width: 768px) { .d6-hero-side { width: 350px; border-bottom: none; } }
+  .d6-h1 { font-size: clamp(3rem, 5vw, 4.5rem); font-weight: 300; letter-spacing: -0.02em; margin-bottom: 24px; line-height: 1.1; }
+  .d6-btn { background: transparent; color: #00FFCC; border: 1px solid #00FFCC; padding: 16px 32px; text-transform: uppercase; font-size: 12px; letter-spacing: 2px; display: inline-block; transition: all 0.3s; }
+  .d6-btn:hover { background: #00FFCC; color: #001133; }
+  .d6-list { border-top: 1px solid rgba(255,255,255,0.2); }
+  .d6-list-item { padding: 32px 40px; border-bottom: 1px solid rgba(255,255,255,0.2); display: grid; gap: 16px; }
+  @media(min-width: 768px) { .d6-list-item { grid-template-columns: 300px 1fr; } }
+  .d6-label { color: #00FFCC; font-family: monospace; font-size: 12px; text-transform: uppercase; }
+
+  
+  @media(max-width: 768px) {
+    .mob-fixed-bottom { display: block; position: fixed; bottom: 0; left: 0; width: 100%; z-index: 999; padding: 16px; text-align: center; }
+    .mob-d1 { background: #F4F4F4; border-top: 1px solid #1B4923; }
+    .mob-d1 a { width: 100%; display: block; background: #FA5C2E; color: #fff; padding: 16px; font-weight: bold; text-transform: uppercase; }
+    .mob-d2 { background: #0A0A0A; border-top: 1px solid #333; }
+    .mob-d2 a { width: 100%; display: block; background: #33FF77; color: #000; padding: 16px; font-weight: bold; text-transform: uppercase; }
+  }
+</style>
+<title>Salcedo &amp; Roth — Workplace injury. Hay un segundo reclamo.</title>
+<style>
+/* --- standalone overrides: strip the pitch-deck device frame --- */
+
+html, body { margin: 0; padding: 0; width: 100%; max-width: none; }
+body { display: block; background: #fff; }
+body > * { margin: 0; }
+
+.demo-frame { min-height: 100vh; }
+
+.d5-hero { position: relative; background: #000; isolation: isolate; }
+  .d5-hero > * { position: relative; z-index: 2; }
+  .d5-hero > .d5-hero-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+  .d5-hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: 74% 50%;
+                    display: block; filter: grayscale(.9) contrast(1.2) brightness(.9); }
+  .d5-hero-bg::after { content: ''; position: absolute; inset: 0;
+        background: linear-gradient(0deg, #000 22%, rgba(0,0,0,.72) 55%, rgba(0,0,0,.5) 100%),
+                    linear-gradient(90deg, rgba(0,0,0,.9) 0%, rgba(0,0,0,.35) 62%, transparent 100%); }
+  .d5-hero > .d5-hazard { position: absolute; top: 0; left: 0; right: 0; height: 10px; z-index: 3;
+        background: repeating-linear-gradient(45deg, #FFCC00 0 14px, #000 14px 28px); }
+  .d5-hero > .d5-hero-stamp { position: absolute; right: 40px; top: 46px; z-index: 3; text-align: right;
+        font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: .18em;
+        font-size: 12px; color: rgba(255,255,255,.55); line-height: 2; }
+  .d5-hero-stamp b { color: #FFCC00; }
+  @media(max-width: 767px) { .d5-hero-stamp { display: none; } }
+</style>
+</head>
+<body>
+<div class="demo-frame d5">
+<div class="d5-top">Consulta gratis · No fee unless we win · Hablamos español</div>
+<nav class="d5-nav">
+<div style="font-family: 'Oswald', sans-serif; font-size: 28px; text-transform: uppercase; color: #FFCC00;">Salcedo &amp; Roth</div>
+<div style="display: none; @media(min-width:768px){display:flex;} gap: 24px; font-weight: bold; text-transform: uppercase; font-size: 14px; letter-spacing: 1px;">
+<a href="#">Services</a> <a href="#">Results</a> <a href="#">Process</a> <a href="#">Contact</a>
+</div>
+<a href="tel:+15559623315" style="font-family: 'Oswald', sans-serif; font-size: 20px; color: #fff;">(555) 962-3315</a>
+</nav>
+<header class="d5-hero">
+<div class="d5-hero-bg"><img alt="A lit desk lamp and a telephone against a rain-streaked city window" src="../_assets/hero/night.jpg"/></div>
+<div class="d5-hazard"></div>
+<div class="d5-hero-stamp">Desk 01 &mdash; <b>manned</b><br/>Rings answered: <b>on the first</b></div>
+<div style="font-family: 'Oswald', sans-serif; font-size: 20px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 24px;">Se habla español · Atendemos 24/7</div>
+<h1 class="d5-h1">Hurt at work?<br/>There is usually<br/>a second claim.</h1>
+<p style="font-size: 20px; max-width: 800px; margin-bottom: 40px; font-weight: 500;">Workplace and accident claims across the state. Comp pays your wages at a discount and closes the file. The claim against whoever actually caused it is separate, larger, and nobody at the comp office is going to mention it.</p>
+<div style="display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 40px;">
+<a class="d5-btn" href="tel:+15559623315">Llámenos — 24/7</a>
+<a class="d5-btn" href="#" style="background: transparent; color: #FFCC00; border: 2px solid #FFCC00;">Start a free case review</a>
+</div>
+<div style="display: flex; gap: 24px; flex-wrap: wrap; font-family: 'Oswald', sans-serif; text-transform: uppercase; font-size: 18px; color: #888;">
+<span>/ No fee unless we win</span>
+<span>/ Free case review</span>
+<span>/ Se habla español</span>
+<span>/ Home &amp; hospital visits</span>
+</div>
+</header>
+<div class="d5-stats">
+<div class="d5-stat"><h3>$44M</h3><div style="font-weight:bold; text-transform:uppercase;">Recovered beyond comp</div></div>
+<div class="d5-stat"><h3>68%</h3><div style="font-weight:bold; text-transform:uppercase;">Of our clients had a second claim nobody mentioned</div></div>
+<div class="d5-stat"><h3>100%</h3><div style="font-weight:bold; text-transform:uppercase;">Of consultations available in Spanish</div></div>
+<div class="d5-stat"><h3>0</h3><div style="font-weight:bold; text-transform:uppercase;">Fee unless we win</div></div>
+</div>
+<section style="background: #111;">
+<div style="padding: 80px 40px; border-bottom: 1px solid #333;">
+<h2 style="font-family: 'Oswald', sans-serif; font-size: 4rem; text-transform: uppercase; color: #FFCC00; margin-bottom: 16px;">Where the second claim hides</h2>
+<p style="font-size: 18px; max-width: 600px; color: #aaa;">Not sure whether yours is one of these? Ring anyway. Si prefiere, llame y hablamos en español — le decimos con franqueza si hay caso.</p>
+</div>
+<div class="d5-services">
+<div class="d5-srv-item">
+<div class="d5-srv-num">01</div>
+<h3 style="font-family: 'Oswald', sans-serif; font-size: 2rem; text-transform: uppercase; margin-bottom: 16px;">Injured driving for work</h3>
+<p style="color: #aaa;">If you were in a vehicle on the clock, there is a comp claim and there is a claim against the other driver. They are separate files and only one of them is capped.</p>
+</div>
+<div class="d5-srv-item">
+<div class="d5-srv-num">02</div>
+<h3 style="font-family: 'Oswald', sans-serif; font-size: 2rem; text-transform: uppercase; margin-bottom: 16px;">Site and machinery accidents</h3>
+<p style="color: #aaa;">The general contractor, the equipment maker and the subcontractor are not your employer, which means comp's limits do not protect them from a claim.</p>
+</div>
+<div class="d5-srv-item">
+<div class="d5-srv-num">03</div>
+<h3 style="font-family: 'Oswald', sans-serif; font-size: 2rem; text-transform: uppercase; margin-bottom: 16px;">Slip, trip &amp; premises</h3>
+<p style="color: #aaa;">Denied, cut short, or closed while you were still in pain. Denials are appealable, and a denial is not the same as a decision.</p>
+</div>
+<div class="d5-srv-item">
+<div class="d5-srv-num">04</div>
+<h3 style="font-family: 'Oswald', sans-serif; font-size: 2rem; text-transform: uppercase; margin-bottom: 16px;">Wrongful death</h3>
+<p style="color: #aaa;">We handle the insurer, the employer and the paperwork in whichever language your family prefers, and we do not rush anybody through it.</p>
+</div>
+</div>
+</section>
+<section style="padding: 80px 40px; border-bottom: 1px solid #333;">
+<h2 style="font-family: 'Oswald', sans-serif; font-size: 4rem; text-transform: uppercase; color: #FFCC00; margin-bottom: 16px;">What happens after you call</h2>
+<p style="font-size: 18px; max-width: 600px; color: #aaa; margin-bottom: 60px;">Most people who call us are worried about their job, their status, or both. Neither is a reason a claim gets refused, and neither comes up in a call with us.</p>
+<div style="display: grid; gap: 40px;">
+<div style="display: flex; gap: 24px; border-left: 4px solid #FFCC00; padding-left: 24px;">
+<div style="font-family: 'Oswald', sans-serif; font-size: 2rem; color: #555;">1</div>
+<div>
+<h4 style="font-family: 'Oswald', sans-serif; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 8px;">You call, in either language</h4>
+<p style="color: #aaa;">Free, about fifteen minutes, in English or Spanish, with a lawyer rather than an interpreter reading from a form.</p>
+</div>
+</div>
+<div style="display: flex; gap: 24px; border-left: 4px solid #FFCC00; padding-left: 24px;">
+<div style="font-family: 'Oswald', sans-serif; font-size: 2rem; color: #555;">2</div>
+<div>
+<h4 style="font-family: 'Oswald', sans-serif; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 8px;">We find the second claim</h4>
+<p style="color: #aaa;">Who owned the equipment, who ran the site, who was contracted to inspect it. The answer is rarely your employer, and that is the point.</p>
+</div>
+</div>
+<div style="display: flex; gap: 24px; border-left: 4px solid #FFCC00; padding-left: 24px;">
+<div style="font-family: 'Oswald', sans-serif; font-size: 2rem; color: #555;">3</div>
+<div>
+<h4 style="font-family: 'Oswald', sans-serif; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 8px;">We demand</h4>
+<p style="color: #aaa;">A documented demand against every party that owed you a duty. Most cases resolve here, at a number set by how much we found.</p>
+</div>
+</div>
+<div style="display: flex; gap: 24px; border-left: 4px solid #FFCC00; padding-left: 24px;">
+<div style="font-family: 'Oswald', sans-serif; font-size: 2rem; color: #555;">4</div>
+<div>
+<h4 style="font-family: 'Oswald', sans-serif; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 8px;">We file if we must</h4>
+<p style="color: #aaa;">If the offer is not serious, we file. Your employer is not the defendant and cannot be the one to punish you for it.</p>
+</div>
+</div>
+</div>
+</section>
+<div style="padding: 100px 40px; text-align: center; background: #FFCC00; color: #000;">
+<h2 style="font-family: 'Oswald', sans-serif; font-size: 5rem; text-transform: uppercase; margin-bottom: 24px; line-height: 1;">¿Se lastimó en el trabajo?</h2>
+<p style="max-width: 800px; margin: 0 auto 40px; font-size: 20px; font-weight: 500;">Llame y le decimos en quince minutos si hay un segundo reclamo. Free, in English or Spanish, and no obligation either way.</p>
+<a class="d5-btn" href="tel:+15559623315" style="background: #000; color: #FFCC00; font-size: 2rem; padding: 20px 60px;">Call now — (555) 962-3315</a>
+<p style="margin-top: 24px; font-weight: bold; text-transform: uppercase;">No fee unless we recover for you. Visitas a domicilio y al hospital disponibles.</p>
+</div>
+<div style="text-align: center; padding: 20px; font-size: 12px; text-transform: uppercase; color: #555;">Salcedo &amp; Roth · 7927 Cobblewood Road, Millbrook Park, NY 10392 · (555) 962-3315 · Attorney advertising. Prior results do not guarantee a similar outcome.</div>
+<div class="mob-cta mob-fixed-bottom" style="background: #FFCC00;">
+<a href="tel:+15559623315" style="display:block; color:#000; font-family:'Oswald', sans-serif; font-size:24px; text-transform:uppercase; text-decoration:none;">Call Now — 24/7</a>
+</div>
+</div>
+</body>
+</html>

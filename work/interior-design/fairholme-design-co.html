@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fairholme Design Co. — Specified, ordered and tracked by us</title>
+<meta name="description" content="Full-service interiors: procurement, deliveries, trades and installation handled. Projects generally from $60,000 including furnishings.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Petrona:wght@500;600&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* D5 — THE LEDGER ONE. hero:split nav:bar services:list proof:logos
+   ink #221F1A · surface #F2EDE3 · paper #FFFDF8 · accent #7C3F12 chestnut · muted #5B5348
+   H1 ramp: 34/40/54/66px · Petrona display / Lato body
+   Fixes "procurement is a manual mess worth automating": the right half of the hero is
+   a specification ledger — each style chip ruled as a line item against its material
+   swatch — so the thing the studio actually sells, tracking every order, is the
+   picture rather than a paragraph nobody reads. */
+:root{--ink:#221F1A;--surface:#F2EDE3;--paper:#FFFDF8;--accent:#7C3F12;--muted:#5B5348;
+--deep:#E7DFD1;--rule:rgba(34,31,26,.17);--wrap:1160px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);overflow-x:hidden;
+font:400 17px/1.62 "Lato",system-ui,-apple-system,sans-serif;padding-bottom:80px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Petrona",Georgia,serif;font-weight:600;margin:0;line-height:1.14;
+letter-spacing:-.012em}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 24px;
+text-decoration:none;font-weight:700;font-size:16px;line-height:1.2;border:1px solid transparent;
+text-align:center}
+.btn-fill{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn-line{background:transparent;color:var(--ink);border-color:var(--ink)}
+.topbar{background:var(--ink);color:#D6CDBE;font-size:15px}
+.topbar .wrap{padding:10px 20px}
+/* nav: bar — a solid chestnut rail */
+.nav{background:var(--accent);color:#fff;position:sticky;top:0;z-index:30}
+.navrow{display:flex;align-items:center;gap:12px;min-height:54px;flex-wrap:wrap;padding:6px 0}
+.brand{font-family:"Petrona",Georgia,serif;font-weight:600;font-size:21px;text-decoration:none;
+margin-right:auto;line-height:1.1;color:#fff}
+.navlinks{order:3;width:100%;display:flex;gap:14px;font-size:13px;letter-spacing:.1em;
+text-transform:uppercase;color:#F3DDCB;font-weight:700;border-top:1px solid rgba(255,255,255,.22);
+padding-top:6px}
+.navlinks a{text-decoration:none;white-space:nowrap;padding:5px 0}
+.navact{min-height:36px;padding:0 14px;font-size:14px;white-space:nowrap;background:#fff;
+color:#6B360F;border-color:#fff}
+/* hero: split */
+.hero{padding:26px 0 34px}
+.split{display:grid;gap:26px}
+.eyebrow{font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);
+font-weight:700;margin:0 0 14px}
+.hero h1{font-size:clamp(34px,8.6vw,66px);max-width:14ch}
+.sub{font-size:16px;color:var(--muted);max-width:52ch;margin:16px 0 0;line-height:1.6}
+.ctas{display:flex;flex-direction:column;gap:10px;margin-top:22px}
+/* the ledger card */
+.ledger{background:var(--paper);border:1px solid var(--rule);
+box-shadow:0 16px 34px -30px rgba(34,31,26,.8)}
+.ledger .stack{display:grid;grid-template-columns:repeat(4,1fr);height:86px}
+.ledger .stack i{display:block}
+.s-walnut{background:repeating-linear-gradient(88deg,rgba(40,20,6,.16) 0 1px,transparent 1px 5px),
+linear-gradient(170deg,#7A4B26,#4E2F17)}
+.s-lime{background:radial-gradient(120% 100% at 28% 18%,#FCF7EC,transparent 62%),#E9DFCB}
+.s-clay{background:linear-gradient(168deg,#B0653B,#7C3F12)}
+.s-sage{background:repeating-linear-gradient(0deg,rgba(0,0,0,.07) 0 1px,transparent 1px 3px),#66735A}
+.lrow{display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px;padding:14px 16px;
+border-top:1px solid var(--rule)}
+.lrow span{font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;
+color:var(--muted)}
+.lrow.on span{color:var(--accent)}
+.lrow i{width:26px;height:26px;display:block;border:1px solid rgba(34,31,26,.14)}
+.lfoot{padding:12px 16px;border-top:2px solid var(--ink);font-size:15px;color:var(--muted);
+display:flex;justify-content:space-between;gap:12px}
+/* sections */
+.sec{padding:56px 0;border-top:1px solid var(--rule)}
+.kicker{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);
+margin:0 0 12px;font-weight:700}
+.sec h2{font-size:clamp(29px,7vw,46px);max-width:18ch}
+.lede{color:var(--muted);max-width:58ch;margin:16px 0 30px;font-size:17px}
+/* services: list */
+.list{border-top:2px solid var(--ink)}
+.li{display:grid;gap:8px;padding:24px 0 24px 18px;border-bottom:1px solid var(--rule);
+position:relative}
+.li::before{content:"";position:absolute;left:0;top:26px;bottom:26px;width:5px}
+.li:nth-child(1)::before{background:linear-gradient(180deg,#7A4B26,#4E2F17)}
+.li:nth-child(2)::before{background:linear-gradient(180deg,#E9DFCB,#C6B899)}
+.li:nth-child(3)::before{background:linear-gradient(180deg,#66735A,#3E4936)}
+.li:nth-child(4)::before{background:linear-gradient(180deg,#B0653B,#7C3F12)}
+.li h3{font-size:24px}
+.li p{margin:0;color:var(--muted);font-size:16px;max-width:52ch}
+/* proof: logos as ruled ledger lines */
+.logolabel{font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);
+font-weight:700;margin:0 0 6px}
+.logos{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.logos li{font-family:"Petrona",Georgia,serif;font-size:22px;font-weight:600;padding:20px 0;
+border-bottom:1px solid var(--rule);display:flex;align-items:center;gap:14px}
+.logos li::before{content:"";width:14px;height:14px;flex:0 0 auto;background:var(--accent)}
+/* process */
+.steps{list-style:none;margin:26px 0 0;padding:0;counter-reset:s;display:grid;gap:0}
+.steps li{counter-increment:s;display:grid;grid-template-columns:auto 1fr;gap:16px;
+padding:22px 0;border-bottom:1px solid var(--rule)}
+.steps li:first-child{border-top:1px solid var(--rule)}
+.steps li::before{content:counter(s);width:34px;height:34px;background:var(--ink);color:var(--surface);
+display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;
+font-family:"Lato",sans-serif}
+.steps h3{font-size:21px;margin-bottom:7px}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+/* close */
+.close{background:var(--deep);padding:56px 0 60px;border-top:1px solid var(--rule)}
+.close h2{font-size:clamp(29px,7.2vw,48px);max-width:17ch}
+.close p{max-width:56ch;font-size:17px;color:var(--muted);margin:18px 0 24px}
+.note{font-size:15px;color:var(--ink);margin-top:24px;max-width:56ch;background:var(--paper);
+border:1px solid var(--rule);border-left:6px solid var(--accent);padding:16px 18px}
+.foot{padding:42px 0 36px;font-size:15px;color:var(--muted)}
+.foot .brand{color:var(--ink);display:inline-block;margin:0 0 14px}
+.foot p{margin:0 0 10px;max-width:66ch}
+.foot a{color:var(--accent);font-weight:700}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--paper);
+border-top:1px solid var(--rule);padding:8px;display:grid;grid-template-columns:1fr auto;gap:8px;
+box-shadow:0 -2px 12px rgba(34,31,26,.12)}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:56px;
+text-decoration:none;font-size:15px;font-weight:700;line-height:1.2;text-align:center;padding:0 14px}
+.callbar .go{background:var(--accent);color:#fff}
+.callbar .tel{border:1px solid var(--ink);color:var(--ink);font-size:16px}
+@media(max-width:479px){.navact{display:none}}
+@media(min-width:760px){
+.ctas{flex-direction:row}.hero{padding:52px 0 60px}.sec{padding:88px 0}.sub{font-size:19px}
+.split{grid-template-columns:1.12fr .88fr;gap:44px;align-items:start}
+.ledger .stack{height:120px}
+.li{grid-template-columns:1fr 1.35fr;gap:30px;padding-left:22px;align-items:start}
+.li::before{width:6px}
+.logos{display:grid;grid-template-columns:1fr 1fr;column-gap:40px}
+.steps{grid-template-columns:1fr 1fr;column-gap:44px}
+.navlinks{order:0;width:auto;border-top:0;padding-top:0;margin-right:8px;gap:20px;letter-spacing:.16em}
+.navrow{flex-wrap:nowrap;min-height:62px}.brand{font-size:24px}
+}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Full-service interiors · Projects from $60,000 · Now booking</div></div>
+
+<header class="nav"><div class="wrap"><div class="navrow">
+  <a class="brand" href="#">Fairholme Design Co.</a>
+  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+  <a class="btn btn-fill navact" href="#contact">Start a project</a>
+</div></div></header>
+
+<section class="hero"><div class="wrap"><div class="split">
+  <div>
+    <p class="eyebrow">Full-service residential interiors</p>
+    <h1>Every item, every price, in one open ledger.</h1>
+    <p class="sub">Full-service interior design for whole homes and substantial renovations, generally from around $60,000 including furnishings. You see the trade price and our fee as separate lines, so you always know what a sofa costs and what we cost.</p>
+    <div class="ctas">
+      <a class="btn btn-fill" data-cta="primary" href="#contact">Start a project</a>
+      <a class="btn btn-line" href="#results">Browse by style</a>
+    </div>
+  </div>
+  <div class="ledger">
+    <div class="stack" aria-hidden="true"><i class="s-walnut"></i><i class="s-lime"></i><i class="s-clay"></i><i class="s-sage"></i></div>
+    <div class="lrow on"><span>Filter work by style</span><i class="s-walnut" aria-hidden="true"></i></div>
+    <div class="lrow"><span>Projects from $60,000</span><i class="s-lime" aria-hidden="true"></i></div>
+    <div class="lrow"><span>Trade pricing passed on</span><i class="s-clay" aria-hidden="true"></i></div>
+    <div class="lrow"><span>Full install &amp; styling</span><i class="s-sage" aria-hidden="true"></i></div>
+    <div class="lfoot"><span>Fairholme Design Co.</span></div>
+  </div>
+</div></div></section>
+<figure class="gsw-plate"><img src="../_assets/hero/interior-design/e-the-whole-room.jpg" alt="The whole room — interior design" loading="lazy"></figure>
+
+
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p>
+  <h2>How we work</h2>
+  <p class="lede">Full service, meaning we handle procurement, deliveries, trades and installation. Half a service is worse than none in this business.</p>
+  <div class="list">
+    <article class="li"><h3>Whole-home design</h3><p>Concept through installation, including everything that gets specified, ordered, chased, received and placed. Usually four to nine months.</p></article>
+    <article class="li"><h3>Renovation interiors</h3><p>Working alongside your architect and builder on finishes, joinery, lighting and the decisions that get made too late otherwise.</p></article>
+    <article class="li"><h3>Single rooms, done properly</h3><p>Kitchens, principal bedrooms and living rooms as standalone projects. From about $25,000 including furnishings.</p></article>
+    <article class="li"><h3>Trade pricing, passed on</h3><p>We buy at trade and pass the discount to you, charging a transparent design fee instead of marking up your sofa.</p></article>
+  </div>
+</div></section>
+
+<section class="sec" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <h2>Accounts, memberships and awards</h2>
+  <p class="logolabel">Recognised by</p>
+  <ul class="logos">
+    <li>ASID Member</li>
+    <li>Best of Houzz — Design</li>
+    <li>Interior Design Society</li>
+    <li>To The Trade accounts</li>
+  </ul>
+</div></section>
+
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p>
+  <h2>From first visit to install day</h2>
+  <p class="lede">The bit people find hardest is the middle, where nothing seems to be happening and everything is being ordered.</p>
+  <ol class="steps">
+    <li><div><h3>Consultation</h3><p>We visit, walk the house and talk about how you actually live in it. A fixed fee, credited against the project if you proceed.</p></div></li>
+    <li><div><h3>Concept &amp; budget</h3><p>Direction, palette and a realistic furnishing budget room by room. This is where expectations and money get reconciled.</p></div></li>
+    <li><div><h3>Specification &amp; procurement</h3><p>Everything specified, ordered and tracked by us. Long lead times are the reality; knowing about them early is the service.</p></div></li>
+    <li><div><h3>Install &amp; style</h3><p>Usually a single day. Everything arrives at our warehouse first, gets inspected, and goes in at once rather than in dribs.</p></div></li>
+  </ol>
+</div></section>
+
+<section class="close" id="contact"><div class="wrap">
+  <h2>Renovating, moving, or finally doing the house properly?</h2>
+  <p>The earliest useful conversation is before the builder starts. Lighting, joinery and layout decisions get very expensive once walls are closed.</p>
+  <div class="ctas">
+    <a class="btn btn-fill" href="#contact">Start a project</a>
+    <a class="btn btn-line" href="tel:+15554256638">(555) 425-6638</a>
+  </div>
+  <p class="note">Projects generally from $60,000 including furnishings. Consultation fee credited against the project.</p>
+</div></section>
+
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Fairholme Design Co.</a>
+  <p>Full-service residential interiors · Trade pricing passed to clients · Est. 2012</p>
+  <p><a href="tel:+15554256638">(555) 425-6638</a></p>
+  <p>3704 Bellamy Street Suite 200, Ashford Green, NJ 14662</p>
+</div></footer>
+
+<div class="callbar"><a class="go" href="#contact">Start a project</a><a class="tel" href="tel:+15554256638">(555) 425-6638</a></div>
+</body>
+</html>

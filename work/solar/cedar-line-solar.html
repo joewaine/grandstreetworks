@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cedar Line Solar — No door knocking, ever</title>
+<meta name="description" content="Solar installed by our own crews since 2011. The savings number is on the page before any form, and nobody will ever knock on your door.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&family=Mukta:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* D2 — THE NO KNOCK ONE. hero:panel nav:centered services:cards proof:review-wall
+   ink #14181B · surface #F7F6F2 · accent #7C4A0B · amber #E8A21F · muted #525C63
+   H1 ramp: 29/33/40/50px · Open Sans display / Mukta body
+   Device: the ungated estimate is the header strip of the hero panel — an amber band
+   holding three open figure slots that sits above the eyebrow, the headline and every
+   button. Fixes "trust unaddressed": the panel opens by showing there is no gate, and
+   the review wall is four customers saying what being straight cost us. */
+:root{--ink:#14181B;--surface:#F7F6F2;--paper:#FFFFFF;--accent:#7C4A0B;--amber:#E8A21F;
+--muted:#525C63;--rule:rgba(20,24,27,.20);--hair:rgba(20,24,27,.10);--slate:#1B2228;--wrap:1120px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.62 "Mukta",system-ui,-apple-system,sans-serif;padding-bottom:84px;overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 18px}
+h1,h2,h3{font-family:"Open Sans",system-ui,sans-serif;font-weight:800;margin:0;line-height:1.14;
+letter-spacing:-.02em}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 20px;
+text-decoration:none;font-weight:700;font-size:16px;border:2px solid transparent;text-align:center;
+line-height:1.2;font-family:"Open Sans",system-ui,sans-serif;border-radius:4px}
+.btn-primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn-ghost{background:var(--paper);color:var(--ink);border-color:var(--rule)}
+.topbar{background:var(--paper);color:var(--muted);font-size:14px;border-bottom:1px solid var(--hair)}
+.topbar .wrap{padding:7px 18px;text-align:center}
+/* nav:centered */
+.nav{background:var(--surface);border-bottom:1px solid var(--rule);position:sticky;top:0;z-index:30}
+.navrow{position:relative;display:flex;align-items:center;justify-content:center;height:48px}
+.brand{font-family:"Open Sans",system-ui,sans-serif;font-weight:800;font-size:19px;
+text-decoration:none;letter-spacing:-.02em;line-height:1}
+.navact{position:absolute;right:0;top:50%;transform:translateY(-50%);min-height:36px;padding:0 13px;
+font-size:14px;white-space:nowrap;border-radius:4px}
+.navlinks{display:flex;justify-content:center;gap:20px;padding:0 0 8px;font-size:14px;
+font-weight:600;color:var(--muted);overflow-x:auto;scrollbar-width:none}
+.navlinks::-webkit-scrollbar{display:none}
+.navlinks a{text-decoration:none;white-space:nowrap}
+/* hero:panel with the figure as its header strip */
+.hero{padding:10px 0 28px}
+.panel{background:var(--paper);border:2px solid var(--ink);border-radius:6px;overflow:hidden}
+.strip{background:var(--amber);color:var(--ink);padding:11px 16px 12px}
+.strip .micro{display:block;font-size:13px;letter-spacing:.15em;text-transform:uppercase;
+font-weight:700;color:#3A2E14;margin-bottom:9px}
+/* three open figure slots — no gate in front of them */
+.slots{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0;flex:1 1 320px}
+.q{display:block}
+.q i{display:block;height:44px;background:var(--paper);border:2px dashed rgba(20,24,27,.45)}
+.q span{display:block;font-size:13px;letter-spacing:.09em;text-transform:uppercase;color:#3A2E14;
+font-weight:700;margin-top:6px}
+.unlock{margin:10px 0 0;font-size:15px;font-weight:600;color:var(--ink);line-height:1.4}
+.panelbody{padding:15px 16px 20px}
+.eyebrow{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);
+margin:0 0 9px;font-weight:700}
+.hero h1{font-size:clamp(29px,7.5vw,50px);max-width:15ch}
+.sub{font-size:16px;color:var(--muted);max-width:52ch;margin:10px 0 0;line-height:1.5}
+.ctas{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+.badges{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.badges li{font-size:14px;color:var(--ink);background:#F3EADC;border:1px solid rgba(124,74,11,.32);
+border-radius:999px;padding:7px 12px;font-weight:600}
+.sec{padding:46px 0;border-top:1px solid var(--rule)}
+.kicker{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);
+margin:0 0 9px;font-weight:700}
+.sec h2{font-size:clamp(26px,6.2vw,40px)}
+.lede{color:var(--muted);max-width:58ch;margin:11px 0 24px;font-size:17px}
+/* services:cards */
+.cards{display:grid;gap:12px}
+.card{background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:18px 16px;
+border-top:6px solid var(--amber)}
+.card h3{font-size:20px;margin-bottom:7px}
+.card p{margin:0;color:var(--muted);font-size:16px}
+/* proof:review-wall */
+.wall{display:grid;gap:12px;margin-top:6px}
+.rev{background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:18px 16px}
+.rev p{margin:0 0 10px;font-family:"Open Sans",system-ui,sans-serif;font-size:18px;line-height:1.4;
+font-weight:600;letter-spacing:-.01em}
+.rev cite{font-style:normal;font-size:15px;color:var(--muted)}
+.rev cite b{color:var(--ink);font-weight:700}
+.walllabel{font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;
+color:var(--muted);margin:0 0 14px}
+/* process — discs on a rule */
+.steps{list-style:none;margin:22px 0 0;padding:0 0 0 34px;counter-reset:s;position:relative}
+.steps::before{content:"";position:absolute;left:13px;top:6px;bottom:6px;width:2px;background:var(--rule)}
+.steps li{counter-increment:s;padding:0 0 22px;position:relative}
+.steps li::before{content:counter(s);position:absolute;left:-34px;top:0;width:28px;height:28px;
+border-radius:50%;background:var(--amber);color:var(--ink);font-family:"Open Sans",system-ui,sans-serif;
+font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center}
+.steps h3{font-size:19px;margin-bottom:5px}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+/* close */
+.close{background:var(--slate);color:#EDEFF1;padding:44px 0 48px}
+.close h2{font-size:clamp(27px,6.4vw,42px);max-width:17ch;color:#fff}
+.close p{max-width:54ch;font-size:17px;margin:12px 0 18px;color:#C9CFD4}
+.close .btn-primary{background:var(--amber);color:var(--ink);border-color:var(--amber)}
+.close .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
+.close .note{font-size:15px;margin:16px 0 0;color:#C9CFD4}
+.foot{padding:34px 0 30px;font-size:15px;color:var(--muted)}
+.foot .brand{color:var(--ink);display:inline-block;margin-bottom:10px}
+.foot p{margin:0 0 8px;max-width:64ch}
+.foot a{color:var(--accent);font-weight:600}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--paper);padding:8px;
+border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:8px;
+box-shadow:0 -2px 12px rgba(20,24,27,.13)}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:56px;text-decoration:none;
+font-weight:700;font-size:15px;text-align:center;line-height:1.2;padding:0 12px;border-radius:4px;
+font-family:"Open Sans",system-ui,sans-serif}
+.callbar .go{background:var(--accent);color:#fff}
+.callbar .tel{border:2px solid var(--ink);color:var(--ink);padding:0 14px;font-size:16px}
+@media(max-width:559px){.navact{display:none}}
+@media(min-width:720px){
+.wrap{padding:0 24px}.ctas{flex-direction:row}
+.cards{grid-template-columns:1fr 1fr;gap:16px}
+.wall{grid-template-columns:1fr 1fr;gap:14px}
+.steps{padding-left:40px}
+.sec{padding:72px 0}.hero{padding:28px 0 44px}.sub{font-size:19px}
+.strip{padding:22px 28px}.panelbody{padding:28px}
+.navrow{height:58px}.brand{font-size:22px}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}
+.steps{display:grid;grid-template-columns:1fr 1fr;column-gap:44px}
+.strip{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.stripmain{flex:1 1 420px}.unlock{margin:0 0 6px;max-width:26ch}}
+</style>
+
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Local installers since 2011 · We do not subcontract · NABCEP certified</div></div>
+
+<header class="nav"><div class="wrap">
+  <div class="navrow"><a class="brand" href="#">Cedar Line Solar</a>
+    <a class="btn btn-primary navact" href="#estimate">Estimate my savings</a></div>
+  <nav class="navlinks" aria-label="Primary"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+</div></header>
+
+<section class="hero"><div class="wrap"><div class="panel" id="estimate">
+  <div class="strip">
+    <div class="stripmain">
+      <span class="micro">Estimate online</span>
+      <div class="slots">
+        <span class="q"><i aria-hidden="true"></i><span>production</span></span>
+        <span class="q"><i aria-hidden="true"></i><span>savings</span></span>
+        <span class="q"><i aria-hidden="true"></i><span>payback</span></span>
+      </div>
+    </div>
+    <p class="unlock">No form gate, no phone call required to see it.</p>
+  </div>
+  <div class="panelbody">
+    <p class="eyebrow">Local crews · Not a sales floor</p>
+    <h1>We have never knocked on a door and never will.</h1>
+    <p class="sub">No canvassers, no clipboards, no appointment setters paid per signature. Put in your address and last bill, see the real numbers, and ring us only if they work.</p>
+    <div class="ctas">
+      <a class="btn btn-primary" data-cta="primary" href="#estimate">Estimate my savings</a>
+      <a class="btn btn-ghost" href="#results">How we're different</a>
+    </div>
+    <ul class="badges">
+      <li>No door knocking, ever</li><li>Our own crews, not subs</li>
+      <li>NABCEP certified</li><li>25-year production warranty</li>
+    </ul>
+  </div>
+</div></div></section>
+<figure class="gsw-plate"><img src="../_assets/hero/solar/b-plain-daylight.jpg" alt="Plain daylight — solar" loading="lazy"></figure>
+
+
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p>
+  <h2>What we do</h2>
+  <p class="lede">Residential and commercial, designed around your actual usage rather than a standard package.</p>
+  <div class="cards">
+    <article class="card"><h3>Residential solar</h3><p>Designed from twelve months of your real usage, not an average. Roof survey, shading analysis and a production estimate you can hold us to.</p></article>
+    <article class="card"><h3>Battery storage</h3><p>Backup through an outage and cheaper evening power. We'll tell you honestly whether it pays back in your rate structure — sometimes it doesn't.</p></article>
+    <article class="card"><h3>Commercial &amp; agricultural</h3><p>Ground-mount, roof and carport arrays, with the depreciation and incentive modelling your accountant will want to see.</p></article>
+    <article class="card"><h3>Service &amp; repair</h3><p>Including systems we didn't install. A lot of our work is fixing arrays whose installer has since disappeared.</p></article>
+  </div>
+</div></section>
+
+<section class="sec" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <h2>Nobody knocked on their door</h2>
+  <p class="lede">Four accounts of what being straight with people costs us, and what it buys back.</p>
+  <p class="walllabel">From our customers</p>
+  <div class="wall">
+    <figure class="rev"><p>"The calculator matched our first year's actual production almost exactly."</p><cite><b>Fiona B.</b> · Residential, 7kW</cite></figure>
+    <figure class="rev"><p>"They told us the battery wouldn't pay back for us. Cost them the sale, earned our trust."</p><cite><b>Ilya P.</b> · Residential</cite></figure>
+    <figure class="rev"><p>"Fixed an array another company abandoned. Nobody else would touch it."</p><cite><b>Wes A.</b> · Service call</cite></figure>
+    <figure class="rev"><p>"Still here eight years later when we needed warranty work."</p><cite><b>Dolores M.</b> · Long-term customer</cite></figure>
+  </div>
+</div></section>
+
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p>
+  <h2>How it goes</h2>
+  <p class="lede">No pressure appointments, no one-night-only pricing, no sales manager phoning from the car park.</p>
+  <ol class="steps">
+    <li><h3>Estimate online</h3><p>Real numbers from your address and bill, instantly. No form gate, no phone call required to see it.</p></li>
+    <li><h3>Site survey</h3><p>We come out, get on the roof and check structure, shading and the panel. The estimate firms up or we tell you it doesn't work.</p></li>
+    <li><h3>Design, incentives, contract</h3><p>Final design with the current federal credit and local incentives applied, and financing if you want it.</p></li>
+    <li><h3>Install &amp; switch on</h3><p>One to three days with our own crew. We handle interconnection with the utility and stay for monitoring setup.</p></li>
+  </ol>
+</div></section>
+
+<section class="close" id="contact"><div class="wrap">
+  <h2>Curious what it would actually save you?</h2>
+  <p>Ninety seconds, no phone number, and nobody will appear at your door on a Saturday because you used it.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="#estimate">Estimate my savings</a>
+    <a class="btn btn-ghost" href="tel:+15557712248">(555) 771-2248</a>
+  </div>
+  <p class="note">No door-to-door sales. No subcontracted installs. Local since 2011.</p>
+</div></section>
+
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Cedar Line Solar</a>
+  <p><a href="tel:+15557712248">(555) 771-2248</a> · NABCEP certified · Locally owned &amp; operated since 2011</p>
+  <p>Certified and accredited: NABCEP Certified · SEIA Member · Tesla Powerwall Certified · Enphase Platinum · BBB A+</p>
+  <p>6775 Wexford Lane Floor 2, Millbrook Park, NY 12892</p>
+</div></footer>
+
+<div class="callbar"><a class="go" href="#estimate">Estimate my savings</a><a class="tel" href="tel:+15557712248">(555) 771-2248</a></div>
+</body>
+</html>

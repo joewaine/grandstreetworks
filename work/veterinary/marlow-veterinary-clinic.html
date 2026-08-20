@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Marlow Veterinary Clinic — Open to new patients</title>
+<meta name="description" content="Accepting new patients. Online booking, Saturday appointments and refills you can request without phoning.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;800&family=Karla:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* D3 — THE OPEN SIGN ONE. hero:panel nav:centered services:list proof:review-wall
+   ink #23282E · surface #FDF7EC · accent #1F5F86 · clay #A9552F · muted #545C64
+   H1 ramp: 33/38/50/62px · Baloo 2 display / Karla body
+   Fixes "can't tell if they take new clients": the fold is a hanging open sign,
+   straps and all, swinging under a centred nameplate — the status is the object,
+   not a line of small print, and the sign carries both self-service actions. */
+:root{--ink:#23282E;--surface:#FDF7EC;--paper:#FFFFFF;--accent:#1F5F86;--clay:#A9552F;
+--muted:#545C64;--rule:rgba(35,40,46,.16);--wrap:1080px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.62 "Karla",system-ui,-apple-system,sans-serif;padding-bottom:84px;overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 18px}
+h1,h2,h3{font-family:"Baloo 2",system-ui,sans-serif;font-weight:800;margin:0;line-height:1.14;
+letter-spacing:-.012em}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 24px;
+text-decoration:none;font-weight:700;font-size:17px;border:2px solid transparent;text-align:center;
+line-height:1.2;font-family:"Karla",system-ui,sans-serif;border-radius:999px}
+.btn-primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn-ghost{background:var(--paper);color:var(--ink);border-color:var(--ink)}
+.topbar{background:var(--accent);color:#E3F0F8;font-size:16px}
+.topbar .wrap{padding:9px 18px;text-align:center}
+.nav{position:sticky;top:0;z-index:30;background:var(--surface);border-bottom:1px solid var(--rule)}
+.navrow{display:flex;align-items:center;justify-content:center;height:52px;position:relative}
+.brand{font-family:"Baloo 2",system-ui,sans-serif;font-weight:800;font-size:19px;text-decoration:none;
+letter-spacing:-.015em;line-height:1.05;text-align:center}
+.navact{position:absolute;right:0;top:50%;transform:translateY(-50%);min-height:38px;padding:0 16px;
+font-size:14px;white-space:nowrap}
+.navlinks{display:flex;justify-content:center;gap:20px;padding:0 18px 10px;font-size:13px;
+letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+.navlinks a{text-decoration:none;white-space:nowrap}
+/* the hanging open sign */
+.hero{padding:16px 0 30px;text-align:center}
+.straps{display:flex;justify-content:center;gap:120px;height:20px}
+.straps span{width:3px;background:var(--ink);display:block}
+.panel{background:var(--paper);border:3px solid var(--ink);border-radius:22px;padding:20px 16px 22px;
+box-shadow:0 6px 0 rgba(35,40,46,.12);position:relative}
+.lamp{display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:700;
+letter-spacing:.18em;text-transform:uppercase;color:var(--clay);margin:0 0 12px}
+.lamp i{width:13px;height:13px;border-radius:50%;background:var(--clay);display:block;
+box-shadow:0 0 0 5px rgba(169,85,47,.18);font-style:normal}
+.hero h1{font-size:clamp(33px,8.8vw,62px);max-width:14ch;margin:0 auto}
+.sub{font-size:16px;color:var(--muted);max-width:50ch;margin:14px auto 0;line-height:1.55}
+.acts{display:flex;flex-direction:column;gap:10px;margin-top:18px}
+.badges{list-style:none;margin:20px auto 0;padding:16px 0 0;display:flex;flex-wrap:wrap;
+justify-content:center;gap:8px 10px;border-top:2px dotted var(--rule)}
+.badges li{font-size:16px;font-weight:700;color:var(--accent);background:#E7F1F7;
+border-radius:999px;padding:7px 14px}
+.sec{padding:48px 0;border-top:1px solid var(--rule)}
+.kicker{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--clay);
+margin:0 0 10px;font-weight:700}
+.sec h2{font-size:clamp(28px,6.6vw,42px)}
+.lede{color:var(--muted);max-width:58ch;margin:12px 0 22px;font-size:17px}
+/* services as a ruled list */
+.list{list-style:none;margin:0;padding:0}
+.list li{padding:22px 0 22px 0;border-top:1px solid var(--rule);display:grid;gap:6px}
+.list li:last-child{border-bottom:1px solid var(--rule)}
+.list h3{font-size:23px;position:relative;padding-left:22px}
+.list h3::before{content:"";position:absolute;left:0;top:11px;width:12px;height:12px;
+border-radius:50% 50% 50% 2px;background:var(--accent)}
+.list li:nth-child(2) h3::before{background:var(--clay)}
+.list li:nth-child(3) h3::before{background:#3F6B4A}
+.list li:nth-child(4) h3::before{background:#8A6A2E}
+.list p{margin:0;color:var(--muted);font-size:16px;padding-left:22px}
+/* proof: review wall */
+.wall{display:grid;gap:12px;margin-top:22px}
+.rev{background:var(--paper);border:2px solid var(--ink);border-radius:18px 18px 18px 4px;
+padding:18px 16px}
+.rev p{margin:0 0 10px;font-family:"Baloo 2",system-ui,sans-serif;font-weight:600;font-size:19px;
+line-height:1.36}
+.rev cite{font-style:normal;font-size:16px;color:var(--muted)}
+.rev cite b{color:var(--ink);font-weight:700}
+.steps{list-style:none;margin:22px 0 0;padding:0;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:40px 1fr;gap:14px;padding:18px 0;
+border-bottom:1px dashed var(--rule)}
+.steps li:first-child{border-top:1px dashed var(--rule)}
+.steps li::before{content:counter(s);width:32px;height:32px;border-radius:50%;
+border:2px solid var(--accent);color:var(--accent);display:flex;align-items:center;
+justify-content:center;font-family:"Baloo 2",system-ui,sans-serif;font-weight:800;font-size:16px}
+.steps h3{font-size:20px;margin-bottom:5px}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+.close{background:var(--ink);color:#fff;padding:48px 0 52px;text-align:center}
+.close h2{font-size:clamp(28px,6.4vw,44px);max-width:17ch;margin:0 auto}
+.close p{max-width:52ch;font-size:17px;color:#CFD7DE;margin:14px auto 20px}
+.close .btn-primary{background:#F6D9A6;color:#2B2318;border-color:#F6D9A6}
+.close .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}
+.note{font-size:16px;color:#fff;margin:20px auto 0;max-width:50ch;font-weight:600;
+border:2px solid #F6D9A6;border-radius:16px;padding:14px 16px}
+.foot{padding:36px 0 30px;font-size:16px;color:var(--muted);text-align:center}
+.foot .brand{color:var(--ink);display:inline-block;margin-bottom:12px}
+.foot p{margin:0 0 9px;max-width:62ch;margin-left:auto;margin-right:auto}
+.foot a{color:var(--accent);font-weight:700}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--paper);padding:8px;
+border-top:2px solid var(--ink);display:grid;grid-template-columns:1fr auto;gap:8px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:60px;text-decoration:none;
+font-weight:700;font-size:16px;text-align:center;line-height:1.2;padding:0 14px;border-radius:999px}
+.callbar .book{background:var(--accent);color:#fff}
+.callbar .tel{border:2px solid var(--ink);color:var(--ink);padding:0 18px}
+@media(max-width:559px){.navact{display:none}}
+@media(min-width:760px){.acts{flex-direction:row;justify-content:center}
+.list li{grid-template-columns:.9fr 1.4fr;column-gap:36px;align-items:start}
+.list p{padding-left:0}.wall{grid-template-columns:1fr 1fr;gap:16px}
+.steps{display:grid;grid-template-columns:1fr 1fr;column-gap:44px}
+.panel{padding:38px 40px 34px}.hero{padding:26px 0 48px}.sec{padding:76px 0}
+.sub{font-size:19px}.brand{font-size:23px}.navrow{height:64px}.straps{gap:320px;height:26px}
+.close{padding:76px 0 82px}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">✓ Accepting new patients · Online booking · Saturday hours</div></div>
+<header class="nav"><div class="wrap">
+  <div class="navrow"><a class="brand" href="#">Marlow Veterinary Clinic</a>
+    <a class="btn btn-primary navact" href="#contact">Book online</a></div>
+  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+</div></header>
+<section class="hero"><div class="wrap">
+  <div class="straps"><span></span><span></span></div>
+  <div class="panel">
+    <p class="lamp"><i></i>Accepting new patients</p>
+    <h1>Sick this morning? We hold slots for exactly that.</h1>
+    <p class="sub">Full-service small animal care with online booking and Saturday hours. Same-day slots are held back every morning for animals that were fine yesterday and are not fine today.</p>
+    <div class="acts">
+      <a class="btn btn-primary" data-cta="primary" href="#contact">Book online</a>
+      <a class="btn btn-ghost" href="#contact">Request a refill</a>
+    </div>
+    <ul class="badges">
+      <li>Accepting new patients</li><li>Online booking</li>
+      <li>Saturday appointments</li><li>First puppy visit free</li>
+    </ul>
+  </div>
+</div></section>
+<figure class="gsw-plate"><img src="../_assets/hero/veterinary/c-gentle-hands.jpg" alt="Gentle hands — veterinary" loading="lazy"></figure>
+
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p>
+  <h2>Care we provide</h2>
+  <p class="lede">Routine to surgical, with the same team seeing your animal each time wherever we can manage it.</p>
+  <ul class="list">
+    <li><h3>Wellness &amp; vaccination</h3><p>Annual exams, vaccines and parasite prevention on a schedule we track for you, so you get a reminder rather than a guilty realisation.</p></li>
+    <li><h3>Puppy &amp; kitten packages</h3><p>First visit free. Everything the first year needs bundled at a set price, including spay or neuter and microchipping.</p></li>
+    <li><h3>Dentistry</h3><p>Under anaesthetic with full monitoring and dental radiographs. Most dental disease is invisible above the gumline.</p></li>
+    <li><h3>Surgery &amp; diagnostics</h3><p>In-house lab, digital radiography and ultrasound, so most answers come the same visit rather than next week.</p></li>
+  </ul>
+</div></section>
+<section class="sec" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <h2>From the waiting room</h2>
+  <div class="wall">
+    <figure class="rev"><p>"Booked online at 10pm. Nobody else let me do that."</p><cite><b>Ines R.</b> · Wellness visit</cite></figure>
+    <figure class="rev"><p>"Refill requests without a phone call is such a small thing and such a relief."</p><cite><b>Paul D.</b> · Long-term client</cite></figure>
+    <figure class="rev"><p>"They explained the dental x-rays instead of just billing for them."</p><cite><b>Cara J.</b> · Dentistry</cite></figure>
+    <figure class="rev"><p>"Saturday hours mean I don't burn a day of leave."</p><cite><b>Miguel T.</b> · Vaccinations</cite></figure>
+  </div>
+</div></section>
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p>
+  <h2>Your first visit</h2>
+  <p class="lede">Especially for a first pet, where nobody tells you what actually happens.</p>
+  <ol class="steps">
+    <li><div><h3>Book online</h3><p>Pick a real slot on a real calendar, any hour. You get a confirmation, not a promise to call you back.</p></div></li>
+    <li><div><h3>Come in</h3><p>Bring any records you have. First visits run long on purpose — we'd rather answer everything now.</p></div></li>
+    <li><div><h3>A plan, not a bill</h3><p>You get a written care plan with costs before anything is done, and we'll tell you what can wait.</p></div></li>
+    <li><div><h3>Stay in touch</h3><p>Reminders when things are due, refills online, and a direct line for the questions that feel too small to phone about.</p></div></li>
+  </ol>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>New here, or need a vet today?</h2>
+  <p>We are accepting new patients and we keep same-day sick slots open. Book online in a minute, or ring and we will find you something.</p>
+  <div class="acts">
+    <a class="btn btn-primary" href="#contact">Book online</a>
+    <a class="btn btn-ghost" href="tel:+15554628873">(555) 462-8873</a>
+  </div>
+  <p class="note">Emergencies after hours: call and our recording routes you to the on-call emergency hospital.</p>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Marlow Veterinary Clinic</a>
+  <p><a href="tel:+15554628873">(555) 462-8873</a> · AAHA accredited · Accepting new patients · Saturday appointments</p>
+  <p>AAHA Accredited · Fear Free Certified · AVMA Member · Cat Friendly Practice</p>
+  <p>1900 Halsey Street Unit 12, Millbrook Park, NY 12063</p>
+</div></footer>
+<div class="callbar"><a class="book" href="#contact">Book online</a><a class="tel" href="tel:+15554628873">(555) 462-8873</a></div>
+</body>
+</html>

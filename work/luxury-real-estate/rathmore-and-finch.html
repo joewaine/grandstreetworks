@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rathmore &amp; Finch — Estate &amp; architectural property representation</title>
+<meta name="description" content="Estate and architectural property representation. Every listing gets professional photography, film, floor plans and a dedicated page.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* D1 — THE PLATE ONE. hero:band nav:minimal services:grid-numbered proof:stats
+   ink #14120F · surface #F5F2EC · accent #7B2E36 · muted #5C564C · on-accent #FFFFFF
+   H1 ramp: 33/40/54/68px · Abril Fatface display / Archivo body
+   Device: the plate set — six mounted, numbered CSS plates sitting directly under the
+   headline, so the answer to "six photographs" is visible before a single scroll. */
+:root{--ink:#14120F;--surface:#F5F2EC;--accent:#7B2E36;--muted:#5C564C;--on-accent:#FFFFFF;
+--paper:#FBF9F4;--field:#E7E2D8;--rule:rgba(20,18,15,.2);--hair:rgba(20,18,15,.11);--wrap:1180px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.62 Archivo,system-ui,-apple-system,sans-serif;padding-bottom:82px;overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 22px}
+h1,h2,h3{font-family:"Abril Fatface",Georgia,serif;font-weight:400;margin:0;line-height:1.06;
+letter-spacing:-.005em}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 24px;
+text-decoration:none;font-weight:500;font-size:14px;letter-spacing:.14em;text-transform:uppercase;
+border:1px solid transparent;text-align:center;line-height:1.2}
+.btn-primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--rule)}
+.topbar{background:var(--ink);color:#DED7C9;font-size:13px}
+.topbar .wrap{padding:9px 22px;text-align:center;letter-spacing:.14em;text-transform:uppercase}
+.nav{position:sticky;top:0;z-index:30;background:var(--surface);border-bottom:1px solid var(--rule)}
+.nav .wrap{display:flex;align-items:center;gap:12px;height:60px}
+.brand{font-family:"Abril Fatface",Georgia,serif;font-size:21px;text-decoration:none;line-height:1;
+flex:none;letter-spacing:.005em}
+.navlinks{display:none;gap:28px;margin-left:auto;font-size:13px;letter-spacing:.2em;
+text-transform:uppercase;color:var(--muted)}
+.navlinks a{text-decoration:none}
+.navlinks a:hover{color:var(--accent)}
+.navact{min-height:42px;padding:0 15px;font-size:12px;flex:none;margin-left:auto;
+white-space:nowrap;letter-spacing:.12em}
+/* hero:band — a full-bleed tonal band, ruled top and bottom, headline set inside it */
+.band{background:linear-gradient(180deg,var(--paper),var(--surface) 78%);
+border-bottom:1px solid var(--rule);box-shadow:inset 0 3px 0 var(--accent)}
+.band .wrap{padding:20px 22px 30px}
+.eyebrow{font-size:13px;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);
+margin:0 0 12px;font-weight:600}
+.band h1{font-size:clamp(33px,8.6vw,68px);max-width:14ch}
+.sub{font-size:16px;color:var(--muted);max-width:56ch;margin:15px 0 20px;line-height:1.55}
+.ctas{display:flex;flex-direction:column;gap:10px}
+/* the plate set */
+.plates{margin:26px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.plate{background:var(--paper);border:1px solid var(--hair);padding:9px 9px 6px}
+.plate .fld{display:block;position:relative;aspect-ratio:4/5;background:var(--field);overflow:hidden;
+box-shadow:inset 0 0 0 1px rgba(20,18,15,.07)}
+.plate:nth-child(1) .fld{background:linear-gradient(158deg,#DDD6C8,#F0EBE1 62%,#E3DCCF)}
+.plate:nth-child(2) .fld{background:linear-gradient(20deg,#D6D2C9,#EFEBE2 58%,#DED8CB)}
+.plate:nth-child(3) .fld{background:linear-gradient(200deg,#E4DDD0,#F3EFE6 55%,#D9D3C6)}
+.plate:nth-child(4) .fld{background:linear-gradient(120deg,#DAD6CD,#EEE9DF 60%,#E1DACC)}
+.plate:nth-child(5) .fld{background:linear-gradient(178deg,#E1DACB,#F2EEE5 50%,#D7D1C4)}
+.plate:nth-child(6) .fld{background:linear-gradient(40deg,#D9D3C7,#F1ECE3 64%,#E0D9CB)}
+.plate .fld::before{content:"";position:absolute;left:0;right:0;top:58%;height:1px;
+background:rgba(20,18,15,.16)}
+.plate:nth-child(2) .fld::before{top:auto;bottom:0;left:14%;right:14%;height:34%;
+background:linear-gradient(180deg,rgba(20,18,15,.13),rgba(20,18,15,0))}
+.plate:nth-child(3) .fld::before{left:50%;top:14%;bottom:14%;width:1px;height:auto;right:auto}
+.plate:nth-child(4) .fld::before{top:20%;left:20%;right:20%;bottom:20%;height:auto;
+border:1px solid rgba(20,18,15,.18);background:none}
+.plate:nth-child(5) .fld::before{top:auto;bottom:16%;left:18%;right:18%;height:36%;
+border-radius:50% 50% 0 0;border:1px solid rgba(20,18,15,.2);background:none}
+.plate:nth-child(6) .fld::before{top:34%;left:0;right:46%;height:1px}
+.plate .n{display:block;font-size:13px;letter-spacing:.22em;color:var(--accent);
+padding:7px 1px 0;font-weight:600}
+.badges{list-style:none;margin:24px 0 0;padding:18px 0 0;border-top:1px solid var(--rule);
+display:grid;gap:9px}
+.badges li{font-size:16px;color:var(--muted);letter-spacing:.01em;padding-left:16px;position:relative}
+.badges li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:1px;background:var(--accent)}
+.sec{padding:52px 0;border-top:1px solid var(--hair)}
+.kicker{font-size:13px;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);
+margin:0 0 12px;font-weight:600}
+.sec h2{font-size:clamp(29px,6.6vw,52px);margin-bottom:14px}
+.lede{color:var(--muted);max-width:58ch;margin:0 0 30px;font-size:17px}
+/* services:grid-numbered */
+.gridnum{display:grid;gap:0;border-top:1px solid var(--rule)}
+.gn{padding:26px 0;border-bottom:1px solid var(--hair);display:grid;grid-template-columns:58px 1fr;
+gap:14px;align-items:start}
+.gn .n{font-family:"Abril Fatface",Georgia,serif;font-size:34px;color:var(--accent);line-height:.86}
+.gn h3{font-size:23px;margin-bottom:8px;line-height:1.15}
+.gn p{margin:0;color:var(--muted);font-size:16px}
+.gn.door{background:var(--paper);padding:26px 16px;border-bottom:none;
+box-shadow:inset 3px 0 0 var(--accent)}
+/* proof:stats */
+.stats{background:var(--ink);color:#EFE9DC;border:none}
+.stats .kicker{color:#D2A0A6}
+.stats h2{color:#F4EFE4}
+.statgrid{list-style:none;margin:24px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:1px;
+background:rgba(239,233,220,.22)}
+.statgrid li{background:var(--ink);padding:22px 14px}
+.statgrid b{display:block;font-family:"Abril Fatface",Georgia,serif;font-weight:400;
+font-size:clamp(30px,8vw,46px);line-height:1;color:#F4EFE4}
+.statgrid span{display:block;margin-top:9px;font-size:13px;letter-spacing:.16em;
+text-transform:uppercase;color:#C6BCA9}
+.quote{margin:30px 0 0;padding:24px 0 0;border-top:1px solid rgba(239,233,220,.25);max-width:62ch}
+.quote p{margin:0;font-family:"Abril Fatface",Georgia,serif;font-size:clamp(19px,4.4vw,26px);
+line-height:1.34;color:#F4EFE4}
+.quote cite{display:block;margin-top:14px;font-style:normal;font-size:16px;color:#C6BCA9}
+.steps{list-style:none;margin:28px 0 0;padding:0;counter-reset:s;display:grid;gap:0;
+border-top:1px solid var(--rule)}
+.steps li{counter-increment:s;padding:24px 0;border-bottom:1px solid var(--hair);display:grid;
+grid-template-columns:48px 1fr;gap:14px}
+.steps li::before{content:counter(s,decimal-leading-zero);font-size:13px;letter-spacing:.18em;
+color:var(--accent);padding-top:6px;font-weight:600}
+.steps h3{font-size:20px;margin-bottom:7px}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+.close{background:var(--accent);color:#FBF6EF;padding:54px 0 60px}
+.close h2{font-size:clamp(30px,6.8vw,54px);max-width:16ch;color:#FFF9F2}
+.close p{max-width:56ch;font-size:18px;color:#F1DCDA;margin:16px 0 24px}
+.close .btn-primary{background:#FFF9F2;color:var(--accent);border-color:#FFF9F2}
+.close .btn-ghost{color:#FFF9F2;border-color:rgba(255,249,242,.5)}
+.note{font-size:16px;color:#EFD5D2;margin-top:22px;max-width:56ch}
+.foot{padding:40px 0 34px;font-size:16px;color:var(--muted)}
+.foot .brand{color:var(--ink);display:inline-block;margin-bottom:14px}
+.foot p{margin:0 0 10px;max-width:66ch}
+.foot a{color:var(--accent)}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--surface);padding:8px;
+border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:8px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:60px;
+text-decoration:none;font-weight:500;font-size:13px;letter-spacing:.12em;text-transform:uppercase;
+text-align:center;line-height:1.2;padding:0 10px}
+.callbar .go{background:var(--accent);color:#fff}
+.callbar .tel{border:1px solid var(--rule);color:var(--ink);padding:0 16px;letter-spacing:.03em;
+text-transform:none;font-size:16px}
+@media(max-width:559px){.navact{display:none}}
+@media(min-width:600px){.plates{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:760px){.ctas{flex-direction:row;gap:12px}.badges{grid-template-columns:1fr 1fr}
+.band .wrap{padding:44px 22px 56px}.sub{font-size:19px}.sec{padding:86px 0}
+.plates{grid-template-columns:repeat(6,1fr);gap:14px}
+.gridnum{grid-template-columns:1fr 1fr;column-gap:52px}
+.statgrid{grid-template-columns:repeat(4,1fr)}
+.steps{grid-template-columns:1fr 1fr;column-gap:52px}
+.gn.door{padding:26px 22px}.brand{font-size:24px}.navact{font-size:13px;padding:0 18px}}
+@media(min-width:940px){.navlinks{display:flex}.navact{margin-left:0}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+
+<style>
+  /* Hero backdrop. The photograph sits behind the hero's own composition; the
+     scrim below is the design's own background colour, so nothing about the
+     contrast the layout was built with changes. */
+  .gsw-imaged { position: relative; isolation: isolate; overflow: hidden; }
+  .gsw-imaged > *:not(.gsw-backdrop) { position: relative; z-index: 1; }
+  .gsw-backdrop { position: absolute; inset: 0; z-index: 0; }
+  .gsw-backdrop img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .gsw-backdrop::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(100deg,
+      rgb(245 242 236 / 0.97) 0%, rgb(245 242 236 / 0.95) 38%, rgb(245 242 236 / 0.7) 68%, rgb(245 242 236 / 0.52) 100%);
+  }
+  @media (max-width: 60rem) { .gsw-backdrop::after { background: rgb(245 242 236 / 0.93); } }
+  @media (forced-colors: active) { .gsw-backdrop { display: none; } }
+  @media print { .gsw-backdrop { display: none; } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Private client services · Now recruiting producing agents</div></div>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="#">Rathmore &amp; Finch</a>
+  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+  <a class="btn btn-primary navact" href="#contact">Request a valuation</a>
+</div></header>
+<section class="gsw-imaged band"><div class="gsw-backdrop" aria-hidden="true"><img src="../_assets/hero/luxury-real-estate/a-more-than-six-photographs.jpg" alt="" loading="eager"></div><div class="wrap">
+  <p class="eyebrow">Estates &amp; architectural properties</p>
+  <h1>Photographed the way the house deserves.</h1>
+  <p class="sub">Estate and architectural property representation. Every listing gets professional photography, film, floor plans and a dedicated page — because your buyer is comparing four properties on an iPad at eleven at night.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" data-cta="primary" href="#contact">Request a valuation</a>
+    <a class="btn btn-ghost" href="#results">View portfolio</a>
+  </div>
+  <ul class="plates" aria-hidden="true">
+    <li class="plate"><span class="fld"></span><span class="n">01</span></li>
+    <li class="plate"><span class="fld"></span><span class="n">02</span></li>
+    <li class="plate"><span class="fld"></span><span class="n">03</span></li>
+    <li class="plate"><span class="fld"></span><span class="n">04</span></li>
+    <li class="plate"><span class="fld"></span><span class="n">05</span></li>
+    <li class="plate"><span class="fld"></span><span class="n">06</span></li>
+  </ul>
+  <ul class="badges"><li>Film &amp; photography included</li><li>Dedicated listing pages</li><li>Private off-market network</li><li>Now recruiting agents</li></ul>
+</div></section>
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p><h2>How we represent</h2>
+  <p class="lede">Fewer listings, taken seriously. We turn down more instructions than we accept.</p>
+  <div class="gridnum">
+    <article class="gn"><div class="n">01</div><div><h3>Estate representation</h3><p>Full marketing production on every listing — architectural photography, film, drone, measured floor plans and a standalone property site. Included, never presented later as an optional upgrade.</p></div></article>
+    <article class="gn"><div class="n">02</div><div><h3>Off-market &amp; private sales</h3><p>For sellers who want discretion. A private network of qualified buyers and no public listing at any point.</p></div></article>
+    <article class="gn"><div class="n">03</div><div><h3>Buyer representation</h3><p>Including access to properties never publicly listed. We represent perhaps twelve buyers at a time, deliberately.</p></div></article>
+    <article class="gn door"><div class="n">04</div><div><h3>For agents — join us</h3><p>Producing agents: full marketing production on every listing you take, a real split, and no desk fees. Have a look at what we'd give you.</p></div></article>
+  </div>
+</div></section>
+<section class="sec stats" id="results"><div class="wrap">
+  <p class="kicker">Results</p><h2>The record, plainly</h2>
+  <ul class="statgrid">
+    <li><b>$1.4B</b><span>Lifetime volume</span></li>
+    <li><b>18</b><span>Agents, by choice</span></li>
+    <li><b>43d</b><span>Average days on market</span></li>
+    <li><b>98.4%</b><span>Of asking achieved</span></li>
+  </ul>
+  <blockquote class="quote"><p>"Two other brokerages showed me a comparative market analysis. Rathmore showed me the actual page my house would live on, with the film already storyboarded. That was the decision."</p><cite>Katherine V. — Seller, architectural estate</cite></blockquote>
+</div></section>
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p><h2>Selling with us</h2>
+  <p class="lede">All of it is finished before a single buyer sees the listing, because the first fortnight sets the price everything afterwards negotiates against.</p>
+  <ol class="steps">
+    <li><div><h3>Valuation &amp; strategy</h3><p>A considered opinion of value with the comparable evidence behind it, and a frank view on timing.</p></div></li>
+    <li><div><h3>Production</h3><p>Photography, film, drone, floor plans and copy. Usually ten to fourteen days, and it is the reason the rest works.</p></div></li>
+    <li><div><h3>Launch</h3><p>A dedicated property page, the private network first, then public portals. Sequenced deliberately, not simultaneously.</p></div></li>
+    <li><div><h3>Negotiate &amp; close</h3><p>Qualified buyers only, and we manage inspection and appraisal so the deal survives to closing.</p></div></li>
+  </ol>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>Selling, buying, or thinking about your next move?</h2>
+  <p>A valuation conversation commits you to nothing and is genuinely useful even if you decide to stay put for another five years.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="#contact">Request a valuation</a>
+    <a class="btn btn-ghost" href="tel:+15553804471">(555) 380-4471</a>
+  </div>
+  <p class="note">Producing agents: ask about our marketing production and split structure.</p>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Rathmore &amp; Finch</a>
+  <p><a href="tel:+15553804471">(555) 380-4471</a> · Private client services · Now recruiting producing agents</p>
+  <p>Estate &amp; architectural property · Licensed brokerage · Equal Housing Opportunity</p>
+  <p>5002 Corbin Road, Fairhill, PA 19477</p>
+</div></footer>
+<div class="callbar"><a class="go" href="#contact">Request a valuation</a><a class="tel" href="tel:+15553804471">(555) 380-4471</a></div>
+</body>
+</html>

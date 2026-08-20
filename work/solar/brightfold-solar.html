@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Brightfold Solar — What the incentives actually do</title>
+<meta name="description" content="The savings figure, then the line-by-line working: system cost, federal credit, local incentives, net cost. Own crews, NABCEP certified, since 2011.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* D4 — THE INCENTIVE SHEET ONE. hero:stack nav:minimal services:tiles proof:review-wall
+   ink #16191C · surface #FAFAF8 · accent #96540C · amber #FFB53B · muted #4F585E
+   H1 ramp: 27/31/38/48px · Heebo display / Open Sans body
+   Device: the open figure slot heads a sheet that names each line the estimate
+   returns — production, savings, payback — with nothing gating them.
+   Fixes "incentives unexplained": the federal credit and local incentives are stated
+   on the homepage under the slot, not held back for an appointment. */
+:root{--ink:#16191C;--surface:#FAFAF8;--paper:#FFFFFF;--accent:#96540C;--amber:#FFB53B;
+--muted:#4F585E;--rule:rgba(22,25,28,.22);--hair:rgba(22,25,28,.11);--wrap:1080px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.62 "Open Sans",system-ui,-apple-system,sans-serif;padding-bottom:84px;
+overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 18px}
+h1,h2,h3{font-family:"Heebo",system-ui,sans-serif;font-weight:900;margin:0;line-height:1.12;
+letter-spacing:-.022em}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 20px;
+text-decoration:none;font-weight:700;font-size:16px;border:2px solid transparent;text-align:center;
+line-height:1.2;font-family:"Heebo",system-ui,sans-serif}
+.btn-primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--rule)}
+.topbar{background:var(--ink);color:#DCDFE1;font-size:14px}
+.topbar .wrap{padding:7px 18px;text-align:center}
+/* nav:minimal — brand and one action; the four links live in the footer */
+.nav{background:var(--surface);border-bottom:1px solid var(--hair);position:sticky;top:0;z-index:30}
+.navrow{display:flex;align-items:center;justify-content:space-between;gap:12px;height:54px}
+.brand{font-family:"Heebo",system-ui,sans-serif;font-weight:900;font-size:20px;text-decoration:none;
+letter-spacing:-.03em;line-height:1;white-space:nowrap}
+.navact{min-height:38px;padding:0 14px;font-size:14px;white-space:nowrap}
+/* hero:stack */
+.hero{padding:10px 0 30px;text-align:center}
+.hero .wrap{display:flex;flex-direction:column}
+.hero .eyebrow{order:1}.hero h1{order:2}.sheet{order:3}.hero .ctas{order:4}
+.hero .sheetnote{order:5}.hero .sub{order:6;margin-top:18px}.hero .badges{order:7}
+.eyebrow{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);
+margin:0 0 10px;font-weight:700}
+.hero h1{font-size:clamp(27px,7.2vw,48px);margin:0 auto}
+.sub{font-size:16px;color:var(--muted);max-width:56ch;margin:12px auto 0;line-height:1.5}
+/* the sheet */
+.sheet{background:var(--paper);border:2px solid var(--ink);margin:16px auto 0;max-width:520px;
+text-align:left;width:100%}
+.sheethead{background:var(--ink);color:#fff;padding:13px 16px 14px}
+.sheethead .micro{display:block;font-size:13px;letter-spacing:.16em;text-transform:uppercase;
+color:var(--amber);font-weight:700}
+/* the figure slot stands open at the head of the sheet */
+.sheethead .field{display:block;height:50px;margin:9px 0 0;border-bottom:4px solid var(--amber);
+background:repeating-linear-gradient(135deg,rgba(255,255,255,.07) 0 7px,transparent 7px 14px)}
+.ledger{list-style:none;margin:0;padding:4px 16px 8px}
+.ledger li{display:flex;align-items:baseline;gap:10px;padding:8px 0;border-bottom:1px solid var(--hair);
+font-size:13px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+.ledger li b{margin-left:auto;font-family:"Heebo",system-ui,sans-serif;font-size:19px;color:var(--amber);
+font-weight:900;letter-spacing:0}
+.ledger li.open{border-bottom:none;border-top:2px solid var(--ink);color:var(--ink);
+text-transform:none;letter-spacing:0;font-size:15px;font-weight:600;margin-top:2px;padding-top:11px}
+.sheetnote{margin:16px auto 0;max-width:520px;width:100%;text-align:left;font-size:15px;
+color:var(--muted);line-height:1.45;border-left:5px solid var(--amber);padding:2px 0 2px 14px}
+.sheetnote b{display:block;font-size:13px;letter-spacing:.16em;text-transform:uppercase;
+color:var(--accent);font-weight:700;margin-bottom:5px}
+.ctas{display:flex;flex-direction:column;gap:10px;margin:16px auto 0;max-width:520px;width:100%}
+.badges{list-style:none;margin:18px auto 0;padding:0;display:flex;flex-wrap:wrap;gap:8px;
+justify-content:center;max-width:640px}
+.badges li{font-size:14px;color:var(--muted);border-bottom:3px solid var(--amber);padding:0 2px 5px;
+font-weight:600}
+.sec{padding:46px 0;border-top:1px solid var(--rule)}
+.kicker{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);
+margin:0 0 9px;font-weight:700}
+.sec h2{font-size:clamp(26px,6.2vw,40px)}
+.lede{color:var(--muted);max-width:58ch;margin:11px 0 24px;font-size:17px}
+/* services:tiles */
+.tiles{display:grid;gap:12px}
+.tile{background:var(--paper);border:1px solid var(--hair);border-bottom:5px solid var(--amber);
+padding:20px 16px 18px}
+.tile h3{font-size:21px;margin-bottom:8px}
+.tile p{margin:0;color:var(--muted);font-size:16px}
+/* proof:review-wall — hanging marks on rules, no boxes */
+.wall{display:grid;gap:0;margin:0;border-top:1px solid var(--rule)}
+.rev{margin:0;padding:20px 0 20px 30px;border-bottom:1px solid var(--hair);position:relative}
+.rev::before{content:"\201C";position:absolute;left:0;top:12px;font-family:"Heebo",system-ui,sans-serif;
+font-size:44px;line-height:1;color:var(--amber);font-weight:900}
+.rev p{margin:0 0 8px;font-size:17px;line-height:1.45}
+.rev cite{font-style:normal;font-size:15px;color:var(--muted)}
+.rev cite b{color:var(--ink);font-weight:700}
+.walllabel{font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;
+color:var(--muted);margin:0 0 12px}
+/* process */
+.steps{list-style:none;margin:22px 0 0;padding:0;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:40px 1fr;gap:14px;padding:16px 0}
+.steps li::before{content:counter(s);width:34px;height:34px;background:var(--amber);color:var(--ink);
+font-family:"Heebo",system-ui,sans-serif;font-weight:900;font-size:17px;display:flex;
+align-items:center;justify-content:center}
+.steps h3{font-size:19px;margin-bottom:5px}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+/* close */
+.close{padding:46px 0 50px;border-top:1px solid var(--rule)}
+.closebox{border:2px solid var(--ink);background:var(--paper);padding:24px 18px 26px;
+border-left:10px solid var(--amber)}
+.close h2{font-size:clamp(27px,6.4vw,42px);max-width:17ch}
+.close p{max-width:54ch;font-size:17px;margin:12px 0 18px;color:var(--muted)}
+.close .ctas{margin-left:0;max-width:520px}
+.close .note{font-size:15px;margin:16px 0 0;font-weight:600;color:var(--ink)}
+.foot{padding:32px 0 30px;font-size:15px;color:var(--muted);border-top:1px solid var(--rule)}
+.footnav{display:flex;flex-wrap:wrap;gap:18px;margin:0 0 14px;font-weight:600;color:var(--ink)}
+.footnav a{text-decoration:none}
+.foot .brand{color:var(--ink);display:inline-block;margin-bottom:10px}
+.foot p{margin:0 0 8px;max-width:64ch}
+.foot a{color:var(--accent);font-weight:600}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--paper);padding:8px;
+border-top:2px solid var(--ink);display:grid;grid-template-columns:1fr auto;gap:8px;
+box-shadow:0 -2px 12px rgba(22,25,28,.12)}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:56px;text-decoration:none;
+font-weight:700;font-size:15px;text-align:center;line-height:1.2;padding:0 12px;
+font-family:"Heebo",system-ui,sans-serif}
+.callbar .go{background:var(--accent);color:#fff}
+.callbar .tel{border:2px solid var(--ink);color:var(--ink);padding:0 14px;font-size:16px}
+@media(max-width:559px){.navact{display:none}}
+@media(min-width:720px){
+.wrap{padding:0 24px}.ctas{flex-direction:row;justify-content:center}
+.close .ctas{justify-content:flex-start}
+.tiles{grid-template-columns:1fr 1fr;gap:16px}
+.wall{grid-template-columns:1fr 1fr;column-gap:36px}
+.sec{padding:72px 0}.hero{padding:34px 0 48px}.sub{font-size:19px}
+.hero .sub{order:3;margin-top:12px}.sheet{order:4}.hero .ctas{order:5}.hero .sheetnote{order:6}
+.hero h1{max-width:17ch}
+.sheethead{padding:20px 24px}.ledger{padding:8px 24px 16px}.sheetnote{padding:0 24px 18px}
+.closebox{padding:36px 32px 38px}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}
+.steps{display:grid;grid-template-columns:1fr 1fr;column-gap:48px}}
+</style>
+
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Local installers since 2011 · We do not subcontract · NABCEP certified</div></div>
+
+<header class="nav"><div class="wrap">
+  <div class="navrow">
+    <a class="brand" href="#">Brightfold Solar</a>
+    <a class="btn btn-primary navact" href="#estimate">Estimate my savings</a>
+  </div>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <p class="eyebrow">Local crews · Not a sales floor</p>
+  <h1>Every credit and rebate, with what it's actually worth to you.</h1>
+  <p class="sub">The federal credit, the state rebate and your utility's programme, listed with the amount each is worth on your system and the date each one expires. Nothing is quoted as though it were a discount.</p>
+  <div class="sheet" id="estimate">
+    <div class="sheethead">
+      <span class="micro">Estimate online</span>
+      <div class="field" aria-hidden="true"></div>
+    </div>
+    <ul class="ledger">
+      <li>production <b>&mdash;</b></li>
+      <li>savings <b>&mdash;</b></li>
+      <li>payback <b>&mdash;</b></li>
+      <li class="open">No form gate, no phone call required to see it.</li>
+    </ul>
+  </div>
+  <div class="ctas">
+    <a class="btn btn-primary" data-cta="primary" href="#estimate">Estimate my savings</a>
+    <a class="btn btn-ghost" href="#process">How we're different</a>
+  </div>
+  <p class="sheetnote"><b>Design, incentives, contract</b>Final design with the current federal credit and local incentives applied, and financing if you want it.</p>
+  <ul class="badges">
+    <li>No door knocking, ever</li><li>Our own crews, not subs</li>
+    <li>NABCEP certified</li><li>25-year production warranty</li>
+  </ul>
+</div></section>
+<figure class="gsw-plate"><img src="../_assets/hero/solar/d-cell-grid.jpg" alt="Cell grid — solar" loading="lazy"></figure>
+
+
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p>
+  <h2>What we do</h2>
+  <p class="lede">Residential and commercial, designed around your actual usage rather than a standard package.</p>
+  <div class="tiles">
+    <article class="tile"><h3>Residential solar</h3><p>Designed from twelve months of your real usage, not an average. Roof survey, shading analysis and a production estimate you can hold us to.</p></article>
+    <article class="tile"><h3>Battery storage</h3><p>Backup through an outage and cheaper evening power. We'll tell you honestly whether it pays back in your rate structure — sometimes it doesn't.</p></article>
+    <article class="tile"><h3>Commercial &amp; agricultural</h3><p>Ground-mount, roof and carport arrays, with the depreciation and incentive modelling your accountant will want to see.</p></article>
+    <article class="tile"><h3>Service &amp; repair</h3><p>Including systems we didn't install. A lot of our work is fixing arrays whose installer has since disappeared.</p></article>
+  </div>
+</div></section>
+
+<section class="sec" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <h2>What the working looked like for them</h2>
+  <p class="lede">Certified and accredited: NABCEP Certified · SEIA Member · Tesla Powerwall Certified · Enphase Platinum · BBB A+</p>
+  <p class="walllabel">From our customers</p>
+  <div class="wall">
+    <figure class="rev"><p>The calculator matched our first year's actual production almost exactly.</p><cite><b>Fiona B.</b> · Residential, 7kW</cite></figure>
+    <figure class="rev"><p>They told us the battery wouldn't pay back for us. Cost them the sale, earned our trust.</p><cite><b>Ilya P.</b> · Residential</cite></figure>
+    <figure class="rev"><p>Fixed an array another company abandoned. Nobody else would touch it.</p><cite><b>Wes A.</b> · Service call</cite></figure>
+    <figure class="rev"><p>Still here eight years later when we needed warranty work.</p><cite><b>Dolores M.</b> · Long-term customer</cite></figure>
+  </div>
+</div></section>
+
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p>
+  <h2>How it goes</h2>
+  <p class="lede">No pressure appointments, no one-night-only pricing, no sales manager phoning from the car park.</p>
+  <ol class="steps">
+    <li><div><h3>Estimate online</h3><p>Real numbers from your address and bill, instantly. No form gate, no phone call required to see it.</p></div></li>
+    <li><div><h3>Site survey</h3><p>We come out, get on the roof and check structure, shading and the panel. The estimate firms up or we tell you it doesn't work.</p></div></li>
+    <li><div><h3>Design, incentives, contract</h3><p>Final design with the current federal credit and local incentives applied, and financing if you want it.</p></div></li>
+    <li><div><h3>Install &amp; switch on</h3><p>One to three days with our own crew. We handle interconnection with the utility and stay for monitoring setup.</p></div></li>
+  </ol>
+</div></section>
+
+<section class="close" id="contact"><div class="wrap"><div class="closebox">
+  <h2>Curious what it would actually save you?</h2>
+  <p>Ninety seconds for the real number, with the incentives itemised rather than blended into a headline figure.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="#estimate">Estimate my savings</a>
+    <a class="btn btn-ghost" href="tel:+15552453390">(555) 245-3390</a>
+  </div>
+  <p class="note">No door-to-door sales. No subcontracted installs. Local since 2011.</p>
+</div></div></section>
+
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Brightfold Solar</a>
+  <nav class="footnav" aria-label="Footer"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+  <p><a href="tel:+15552453390">(555) 245-3390</a> · NABCEP certified · Locally owned &amp; operated since 2011</p>
+  <p>4347 Amberside Drive, Lakeview Bend, NY 11514</p>
+</div></footer>
+
+<div class="callbar"><a class="go" href="#estimate">Estimate my savings</a><a class="tel" href="tel:+15552453390">(555) 245-3390</a></div>
+</body>
+</html>

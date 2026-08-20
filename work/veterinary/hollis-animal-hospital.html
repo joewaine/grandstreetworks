@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hollis Animal Hospital — Taking new patients, day or night</title>
+<meta name="description" content="Accepting new patients, with online booking, Saturday hours, refills without phoning and a clear after-hours route.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* D4 — THE AFTER HOURS ONE. hero:fullbleed nav:bar services:tiles proof:review-wall
+   ink #1D2620 · surface #FAF3E7 · accent #8C3B21 · lamp #F0B860 · muted #55605A
+   H1 ramp: 34/40/54/68px · Fredoka display / Rubik body
+   Fixes "emergency path unclear": the page is lit like a practice with the light
+   still on — a full-bleed night ground carrying the yes, and an amber after-hours
+   rail that repeats at the close so the out-of-hours route is never a footnote. */
+:root{--ink:#1D2620;--surface:#FAF3E7;--paper:#FFFFFF;--accent:#8C3B21;--lamp:#F0B860;
+--night:#16241D;--muted:#55605A;--rule:rgba(29,38,32,.16);--wrap:1140px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.6 "Rubik",system-ui,-apple-system,sans-serif;padding-bottom:84px;overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 18px}
+h1,h2,h3{font-family:"Fredoka",system-ui,sans-serif;font-weight:600;margin:0;line-height:1.12;
+letter-spacing:-.01em}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 24px;
+text-decoration:none;font-weight:500;font-size:17px;border:2px solid transparent;text-align:center;
+line-height:1.2;font-family:"Fredoka",system-ui,sans-serif;border-radius:12px}
+.btn-lamp{background:var(--lamp);color:#241A0C;border-color:var(--lamp)}
+.btn-outline{background:transparent;color:#FFF7EA;border-color:rgba(255,247,234,.62)}
+.btn-primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn-ghost{background:var(--paper);color:var(--ink);border-color:var(--ink)}
+.topbar{background:var(--lamp);color:#33240E;font-size:16px;font-weight:500}
+.topbar .wrap{padding:9px 18px;text-align:center}
+/* nav: a solid bar */
+.nav{position:sticky;top:0;z-index:30;background:var(--night);color:#F1EADD}
+.navrow{display:flex;align-items:center;gap:12px;height:54px}
+.brand{font-family:"Fredoka",system-ui,sans-serif;font-weight:600;font-size:18px;text-decoration:none;
+letter-spacing:-.01em;line-height:1.05;margin-right:auto;color:#FFF7EA}
+.navlinks{display:flex;gap:18px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;
+font-weight:500;color:#C4D2C7;padding:0 0 10px;overflow-x:auto;scrollbar-width:none}
+.navlinks::-webkit-scrollbar{display:none}
+.navlinks a{text-decoration:none;white-space:nowrap}
+.navact{min-height:38px;padding:0 15px;font-size:14px;white-space:nowrap;border-radius:9px}
+/* fullbleed night hero */
+.hero{background:var(--night);color:#FFF7EA;padding:26px 0 34px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;left:-70px;top:-120px;width:320px;height:320px;
+border-radius:50%;background:radial-gradient(circle,rgba(240,184,96,.30) 0%,rgba(240,184,96,0) 68%)}
+.hero::after{content:"";position:absolute;right:-90px;bottom:-140px;width:300px;height:300px;
+border-radius:50%;background:radial-gradient(circle,rgba(122,178,146,.22) 0%,rgba(122,178,146,0) 70%)}
+.hero .wrap{position:relative;z-index:1}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:13px;letter-spacing:.18em;
+text-transform:uppercase;font-weight:500;color:var(--lamp);margin:0 0 14px}
+.eyebrow i{width:12px;height:12px;border-radius:50%;background:var(--lamp);display:block;
+box-shadow:0 0 14px 3px rgba(240,184,96,.65);font-style:normal}
+.hero h1{font-size:clamp(34px,9.2vw,68px);max-width:13ch;color:#FFF7EA}
+.sub{font-size:16px;color:#D6E0D6;max-width:52ch;margin:14px 0 0;line-height:1.55}
+.acts{display:flex;flex-direction:column;gap:10px;margin-top:18px}
+.badges{list-style:none;margin:20px 0 0;padding:16px 0 0;display:grid;gap:10px;
+border-top:1px solid rgba(255,247,234,.24)}
+.badges li{font-size:16px;color:#E6EEE6;padding-left:26px;position:relative;font-weight:500}
+.badges li::before{content:"";position:absolute;left:0;top:8px;width:12px;height:12px;
+border-radius:50%;border:2px solid var(--lamp)}
+.sec{padding:48px 0;border-top:1px solid var(--rule)}
+.kicker{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);
+margin:0 0 10px;font-weight:500}
+.sec h2{font-size:clamp(28px,6.6vw,44px)}
+.lede{color:var(--muted);max-width:58ch;margin:12px 0 24px;font-size:17px}
+/* services: solid tiles */
+.tiles{display:grid;gap:10px}
+.tile{padding:22px 18px 24px;border-radius:18px;background:#EFE6D6;color:var(--ink)}
+.tile:nth-child(2){background:#DCE7DC}
+.tile:nth-child(3){background:#E7DED6}
+.tile:nth-child(4){background:#DEE6EC}
+.tile h3{font-size:22px;margin-bottom:8px}
+.tile p{margin:0;font-size:16px;color:#3B453E}
+/* proof: review wall */
+.wall{display:grid;gap:11px;margin-top:22px}
+.rev{background:var(--paper);border-radius:18px;padding:18px 16px;border-bottom:4px solid var(--lamp)}
+.rev:nth-child(2){border-bottom-color:var(--accent)}
+.rev:nth-child(3){border-bottom-color:#3F7052}
+.rev:nth-child(4){border-bottom-color:#4E7C93}
+.rev p{margin:0 0 10px;font-family:"Fredoka",system-ui,sans-serif;font-weight:500;font-size:19px;
+line-height:1.38}
+.rev cite{font-style:normal;font-size:16px;color:var(--muted)}
+.rev cite b{color:var(--ink);font-weight:500}
+.steps{list-style:none;margin:22px 0 0;padding:0;counter-reset:s;display:grid;gap:10px}
+.steps li{counter-increment:s;background:var(--paper);border-radius:18px;padding:20px 18px;
+position:relative;padding-left:64px}
+.steps li::before{content:counter(s);position:absolute;left:18px;top:20px;width:32px;height:32px;
+border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;
+justify-content:center;font-family:"Fredoka",system-ui,sans-serif;font-weight:600;font-size:16px}
+.steps h3{font-size:20px;margin-bottom:5px}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+.close{background:var(--night);color:#FFF7EA;padding:48px 0 52px}
+.close h2{font-size:clamp(28px,6.4vw,46px);max-width:16ch}
+.close p{max-width:54ch;font-size:17px;color:#D6E0D6;margin:14px 0 20px}
+.ctas{display:flex;flex-direction:column;gap:10px}
+/* the after-hours rail */
+.rail{margin-top:24px;border-radius:18px;background:var(--lamp);color:#241A0C;padding:18px 18px 20px}
+.rail p{margin:0;font-size:17px;font-weight:500;max-width:52ch;color:#241A0C}
+.rail a{display:inline-flex;align-items:center;justify-content:center;min-height:52px;
+margin-top:14px;background:#241A0C;color:var(--lamp);text-decoration:none;font-weight:700;
+padding:0 22px;border-radius:12px;font-size:17px}
+.foot{padding:36px 0 30px;font-size:16px;color:var(--muted)}
+.foot .brand{color:var(--ink);display:inline-block;margin-bottom:12px;margin-right:0}
+.foot p{margin:0 0 9px;max-width:62ch}
+.foot a{color:var(--accent);font-weight:500}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--night);padding:8px;
+display:grid;grid-template-columns:1fr auto;gap:8px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:60px;text-decoration:none;
+font-weight:600;font-size:16px;text-align:center;line-height:1.2;padding:0 14px;border-radius:12px;
+font-family:"Fredoka",system-ui,sans-serif}
+.callbar .book{background:var(--lamp);color:#241A0C}
+.callbar .tel{border:2px solid var(--lamp);color:var(--lamp);padding:0 16px}
+@media(max-width:559px){.navact{display:none}}
+@media(min-width:760px){.acts,.ctas{flex-direction:row}
+.tiles{grid-template-columns:1fr 1fr;gap:14px}.wall{grid-template-columns:1fr 1fr;gap:14px}
+.steps{grid-template-columns:1fr 1fr;gap:14px}.badges{grid-template-columns:1fr 1fr;column-gap:26px}
+.hero{padding:56px 0 66px}.sec{padding:78px 0}.sub{font-size:19px}.brand{font-size:22px}
+.navrow{height:64px}.close{padding:76px 0 82px}
+.rail{display:flex;align-items:center;gap:24px;padding:22px 24px}
+.rail a{margin-top:0;flex:none}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">✓ Accepting new patients · Online booking · Saturday hours</div></div>
+<header class="nav"><div class="wrap">
+  <div class="navrow"><a class="brand" href="#">Hollis Animal Hospital</a>
+    <a class="btn btn-lamp navact" href="#contact">Book online</a></div>
+  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+</div></header>
+<section class="hero"><div class="wrap">
+  <p class="eyebrow"><i></i>Accepting new patients</p>
+  <h1>Where to go at 2am, and when it can wait until morning.</h1>
+  <p class="sub">Full-service small animal care with online booking and Saturday hours — and a plainly published answer for nights and weekends, including which emergency hospital to drive to and when you genuinely can wait.</p>
+  <div class="acts">
+    <a class="btn btn-lamp" data-cta="primary" href="#contact">Book online</a>
+    <a class="btn btn-outline" href="#contact">Request a refill</a>
+  </div>
+  <ul class="badges">
+    <li>Accepting new patients</li><li>Online booking</li>
+    <li>Saturday appointments</li><li>First puppy visit free</li>
+  </ul>
+</div></section>
+<figure class="gsw-plate"><img src="../_assets/hero/veterinary/d-soft-texture.jpg" alt="Soft texture — veterinary" loading="lazy"></figure>
+
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p>
+  <h2>Care we provide</h2>
+  <p class="lede">Routine to surgical, with the same team seeing your animal each time wherever we can manage it.</p>
+  <div class="tiles">
+    <article class="tile"><h3>Wellness &amp; vaccination</h3><p>Annual exams, vaccines and parasite prevention on a schedule we track for you, so you get a reminder rather than a guilty realisation.</p></article>
+    <article class="tile"><h3>Puppy &amp; kitten packages</h3><p>First visit free. Everything the first year needs bundled at a set price, including spay or neuter and microchipping.</p></article>
+    <article class="tile"><h3>Dentistry</h3><p>Under anaesthetic with full monitoring and dental radiographs. Most dental disease is invisible above the gumline.</p></article>
+    <article class="tile"><h3>Surgery &amp; diagnostics</h3><p>In-house lab, digital radiography and ultrasound, so most answers come the same visit rather than next week.</p></article>
+  </div>
+</div></section>
+<section class="sec" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <h2>From the waiting room</h2>
+  <div class="wall">
+    <figure class="rev"><p>"Booked online at 10pm. Nobody else let me do that."</p><cite><b>Ines R.</b> · Wellness visit</cite></figure>
+    <figure class="rev"><p>"Refill requests without a phone call is such a small thing and such a relief."</p><cite><b>Paul D.</b> · Long-term client</cite></figure>
+    <figure class="rev"><p>"They explained the dental x-rays instead of just billing for them."</p><cite><b>Cara J.</b> · Dentistry</cite></figure>
+    <figure class="rev"><p>"Saturday hours mean I don't burn a day of leave."</p><cite><b>Miguel T.</b> · Vaccinations</cite></figure>
+  </div>
+</div></section>
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p>
+  <h2>Your first visit</h2>
+  <p class="lede">Especially for a first pet, where nobody tells you what actually happens.</p>
+  <ol class="steps">
+    <li><h3>Book online</h3><p>Pick a real slot on a real calendar, any hour. You get a confirmation, not a promise to call you back.</p></li>
+    <li><h3>Come in</h3><p>Bring any records you have. First visits run long on purpose — we'd rather answer everything now.</p></li>
+    <li><h3>A plan, not a bill</h3><p>You get a written care plan with costs before anything is done, and we'll tell you what can wait.</p></li>
+    <li><h3>Stay in touch</h3><p>Reminders when things are due, refills online, and a direct line for the questions that feel too small to phone about.</p></li>
+  </ol>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>New here, or need a vet today?</h2>
+  <p>Accepting new patients, with same-day sick slots and an after-hours line that tells you where to go rather than leaving a beep.</p>
+  <div class="ctas">
+    <a class="btn btn-lamp" href="#contact">Book online</a>
+    <a class="btn btn-outline" href="tel:+15558503327">(555) 850-3327</a>
+  </div>
+  <div class="rail">
+    <p>Emergencies after hours: call and our recording routes you to the on-call emergency hospital.</p>
+    <a href="tel:+15558503327">(555) 850-3327</a>
+  </div>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Hollis Animal Hospital</a>
+  <p><a href="tel:+15558503327">(555) 850-3327</a> · AAHA accredited · Accepting new patients · Saturday appointments</p>
+  <p>AAHA Accredited · Fear Free Certified · AVMA Member · Cat Friendly Practice</p>
+  <p>4048 Halsey Street, Millbrook Park, NY 16076</p>
+</div></footer>
+<div class="callbar"><a class="book" href="#contact">Book online</a><a class="tel" href="tel:+15558503327">(555) 850-3327</a></div>
+</body>
+</html>

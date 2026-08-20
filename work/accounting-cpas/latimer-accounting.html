@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Latimer Accounting — Stop emailing your tax documents as attachments.</title>
+<meta name="description" content="Business accounting, tax and advisory for owner-managed companies. Your books close by the tenth of the following month, so the numbers you are making decisions on are five weeks old at worst.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chivo:wght@600;700;900&family=Karla:wght@400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* D2 — THE LEDGER ONE. hero:split nav:inline services:grid-numbered proof:stats
+   ink #101418 · surface #F8F9F7 · accent #0F6B4A · muted #52585C
+   Chivo display / Karla body / Space Mono micro-labels
+   Fixes "portal experience miserable": the right half of the split hero is the
+   portal itself, drawn in CSS — a request ledger where every row shows the
+   document, its state and a ticked-off column, so the client sees the screen
+   they would actually live in before they ever book. */
+:root{--ink:#101418;--surface:#F8F9F7;--paper:#FFFFFF;--accent:#0F6B4A;--muted:#52585C;
+--rule:rgba(16,20,24,.18);--hair:rgba(16,20,24,.1);--wrap:1120px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.6 "Karla",system-ui,-apple-system,sans-serif;padding-bottom:80px;overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Chivo","Karla",system-ui,sans-serif;font-weight:700;margin:0;line-height:1.13;
+letter-spacing:-.02em}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 22px;
+text-decoration:none;font-weight:700;font-size:16px;line-height:1.2;text-align:center;
+border:2px solid transparent;font-family:"Chivo","Karla",sans-serif}
+.btn-primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn-ghost{background:var(--paper);color:var(--ink);border-color:var(--ink)}
+.topbar{background:var(--accent);color:#fff;font-family:"Space Mono",monospace;font-size:13px}
+.topbar .wrap{padding:10px 20px;letter-spacing:.02em}
+.nav{position:sticky;top:0;z-index:30;background:var(--surface);border-bottom:2px solid var(--ink)}
+.navrow{display:flex;align-items:center;gap:16px;height:58px;max-width:var(--wrap);margin:0 auto;
+padding:0 20px}
+.brand{font-family:"Chivo",sans-serif;font-weight:900;font-size:19px;text-decoration:none;
+letter-spacing:-.03em;line-height:1;white-space:nowrap}
+.navlinks{display:flex;gap:18px;flex:1;overflow-x:auto;scrollbar-width:none}
+.navlinks::-webkit-scrollbar{display:none}
+.navlinks a{font-family:"Space Mono",monospace;font-size:13px;letter-spacing:.08em;
+text-transform:uppercase;color:var(--muted);text-decoration:none;white-space:nowrap}
+.navact{min-height:38px;padding:0 14px;font-size:14px;white-space:nowrap}
+.hero{padding:24px 0 34px}
+.eyebrow{font-family:"Space Mono",monospace;font-size:13px;letter-spacing:.1em;text-transform:uppercase;
+color:var(--accent);margin:0 0 14px;font-weight:700}
+.hero h1{font-size:clamp(29px,7.4vw,54px);max-width:14ch}
+.sub{font-size:16.5px;color:var(--muted);max-width:50ch;margin:16px 0 0;line-height:1.6}
+.ctas{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.ledger{margin-top:28px;background:var(--paper);border:2px solid var(--ink)}
+.ledhead{display:grid;grid-template-columns:34px 1fr 30px;gap:10px;align-items:center;
+padding:10px 14px;border-bottom:2px solid var(--ink);font-family:"Space Mono",monospace;
+font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.ledhead i{display:block;height:9px;width:9px;background:var(--accent);border-radius:50%;
+font-style:normal}
+.ledrow{display:grid;grid-template-columns:34px 1fr 30px;gap:10px;align-items:center;
+padding:14px;border-bottom:1px solid var(--hair)}
+.ledrow:last-child{border-bottom:0}
+.ledrow .num{font-family:"Space Mono",monospace;font-size:13px;color:var(--muted)}
+.paper{height:34px;border:1.5px solid var(--rule);position:relative;background:var(--surface)}
+.paper::before{content:"";position:absolute;left:9px;right:26px;top:9px;height:16px;
+background:repeating-linear-gradient(180deg,var(--rule) 0 2px,transparent 2px 7px)}
+.tick{width:22px;height:22px;border:1.5px solid var(--accent);position:relative;
+background:var(--accent)}
+.tick::after{content:"";position:absolute;left:6px;top:3px;width:6px;height:11px;
+border:solid #fff;border-width:0 2px 2px 0;transform:rotate(42deg)}
+.ledrow.open .tick{background:transparent}
+.ledrow.open .tick::after{display:none}
+.ledfoot{display:flex;align-items:center;gap:8px;padding:12px 14px;border-top:2px solid var(--ink);
+font-family:"Space Mono",monospace;font-size:13px;color:var(--ink);background:var(--surface)}
+.ledfoot em{font-style:normal;color:var(--accent);font-weight:700}
+.badges{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:8px}
+.badges li{font-family:"Space Mono",monospace;font-size:13.5px;letter-spacing:.02em;
+border:1.5px solid var(--rule);padding:11px 13px;background:var(--paper);position:relative;
+padding-left:34px;line-height:1.4}
+.badges li::before{content:"";position:absolute;left:13px;top:15px;width:9px;height:9px;
+background:var(--accent)}
+.sec{padding:52px 0;border-top:2px solid var(--ink)}
+.kicker{font-family:"Space Mono",monospace;font-size:13px;letter-spacing:.1em;text-transform:uppercase;
+color:var(--accent);margin:0 0 12px;font-weight:700}
+.sec h2{font-size:clamp(27px,6.2vw,42px);max-width:20ch}
+.lede{color:var(--muted);max-width:58ch;margin:14px 0 0;font-size:17px}
+.gridnum{display:grid;gap:14px;margin-top:30px}
+.gn{background:var(--paper);border:1.5px solid var(--rule);padding:20px 18px}
+.gn .n{display:inline-block;font-family:"Space Mono",monospace;font-size:13px;font-weight:700;
+background:var(--ink);color:#fff;padding:4px 9px;letter-spacing:.08em;margin-bottom:12px}
+.gn h3{font-size:21px;margin-bottom:8px}
+.gn p{margin:0;color:var(--muted);font-size:16px}
+.strip{margin-top:28px;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);
+display:grid;grid-template-columns:1fr 1fr}
+.strip div{padding:20px 4px 20px 0}
+.strip div:nth-child(odd){border-right:1px solid var(--hair);padding-right:14px}
+.strip div:nth-child(-n+2){border-bottom:1px solid var(--hair)}
+.strip b{display:block;font-family:"Chivo",sans-serif;font-weight:900;font-size:clamp(28px,7.4vw,42px);
+letter-spacing:-.03em;color:var(--accent);line-height:1}
+.strip span{display:block;font-family:"Space Mono",monospace;font-size:13px;color:var(--muted);
+margin-top:9px;line-height:1.45}
+.steps{list-style:none;margin:30px 0 0;padding:0;counter-reset:s}
+.steps li{counter-increment:s;position:relative;padding:0 0 20px 0}
+.steps li>div{border-left:3px solid var(--accent);padding:4px 0 4px 16px}
+.steps li:nth-child(2)>div{margin-left:14px}
+.steps li:nth-child(3)>div{margin-left:28px}
+.steps li:nth-child(4)>div{margin-left:42px}
+.steps li>div::before{content:counter(s,decimal-leading-zero);display:block;
+font-family:"Space Mono",monospace;font-size:13px;color:var(--accent);font-weight:700;
+letter-spacing:.08em;margin-bottom:6px}
+.steps h3{font-size:20px;margin-bottom:7px}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+.close{background:var(--accent);color:#fff;padding:54px 0 58px}
+.close h2{font-size:clamp(28px,6.4vw,46px);max-width:17ch;color:#fff}
+.close p{max-width:56ch;font-size:17px;color:#D3E6DD;margin:16px 0 22px}
+.close .btn-primary{background:#fff;color:#0B4E36;border-color:#fff}
+.close .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.65)}
+.close .note{font-family:"Space Mono",monospace;font-size:16px;color:#CBE1D8;margin:22px 0 0;
+line-height:1.6}
+.foot{padding:40px 0 34px;font-size:15.5px;color:var(--muted)}
+.foot .brand{color:var(--ink);display:inline-block;margin-bottom:12px}
+.foot p{margin:0 0 9px;max-width:66ch}
+.foot a{color:var(--accent);font-weight:600}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--paper);padding:8px;
+border-top:2px solid var(--ink);display:grid;grid-template-columns:1fr auto;gap:8px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:56px;
+text-decoration:none;font-weight:700;font-size:15px;text-align:center;line-height:1.2;padding:0 12px;
+font-family:"Chivo",sans-serif}
+.callbar .book{background:var(--accent);color:#fff}
+.callbar .tel{border:2px solid var(--ink);color:var(--ink);padding:0 16px;font-size:16px}
+@media(max-width:559px){.navact{display:none}}
+@media(min-width:760px){
+.ctas{flex-direction:row}.hero{padding:44px 0 56px}.sec{padding:80px 0}.sub{font-size:19px}
+.brand{font-size:22px}.navrow{height:66px}
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:start}
+.ledger{margin-top:0}
+.badges{grid-template-columns:1fr 1fr;gap:10px}
+.gridnum{grid-template-columns:1fr 1fr;gap:18px}
+.strip{grid-template-columns:repeat(4,1fr)}
+.strip div{padding:24px 16px 24px 0;border-bottom:0!important}
+.strip div:nth-child(n){border-right:1px solid var(--hair)}
+.strip div:last-child{border-right:0}
+.steps{display:grid;grid-template-columns:1fr 1fr;column-gap:40px}
+.steps li:nth-child(n)>div{margin-left:0}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Now taking business clients for the coming year · Secure client portal →</div></div>
+<header class="nav">
+  <div class="navrow"><a class="brand" href="#">Latimer Accounting</a>
+    <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+    <a class="btn btn-primary navact" href="#contact">Book a discovery call</a></div>
+</header>
+<section class="hero"><div class="wrap"><div class="split">
+  <div>
+    <p class="eyebrow">Business advisory &amp; tax</p>
+    <h1>Books closed by the tenth. Every month.</h1>
+    <p class="sub">Business accounting, tax and advisory for owner-managed companies. Your books close by the tenth of the following month, so the numbers you are making decisions on are five weeks old at worst.</p>
+    <div class="ctas">
+      <a class="btn btn-primary" data-cta="primary" href="#contact">Book a discovery call</a>
+      <a class="btn btn-ghost" href="#packages">See our packages</a>
+    </div>
+    <ul class="badges" id="packages">
+      <li>Fixed monthly fees</li><li>Secure client portal</li><li>Quarterly, not annual</li><li>CPA-led, not outsourced</li>
+    </ul>
+  </div>
+  <div class="ledger" aria-hidden="true">
+    <div class="ledhead"><i></i><span>Secure client portal</span><span>04</span></div>
+    <div class="ledrow"><span class="num">01</span><div class="paper"></div><div class="tick"></div></div>
+    <div class="ledrow"><span class="num">02</span><div class="paper"></div><div class="tick"></div></div>
+    <div class="ledrow"><span class="num">03</span><div class="paper"></div><div class="tick"></div></div>
+    <div class="ledrow open"><span class="num">04</span><div class="paper"></div><div class="tick"></div></div>
+    <div class="ledfoot"><em>Secure</em> Portal, not email</div>
+  </div>
+</div></div></section>
+<figure class="gsw-plate"><img src="../_assets/hero/accounting-cpas/b-everything-in-its-place.jpg" alt="Everything in its place — accounting cpas" loading="lazy"></figure>
+
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p>
+  <h2>What we do</h2>
+  <p class="lede">We work with owner-managed businesses between roughly $500k and $20M in revenue. Below that we'll point you somewhere better suited.</p>
+  <div class="gridnum">
+    <article class="gn"><div class="n">01</div><h3>Business tax &amp; compliance</h3><p>Federal, state and local returns, filed early rather than extended. Extensions are a symptom, not a service.</p></article>
+    <article class="gn"><div class="n">02</div><h3>Monthly accounting</h3><p>Books closed by the tenth, with a short written commentary. You should not be finding out about last quarter in April.</p></article>
+    <article class="gn"><div class="n">03</div><h3>Advisory &amp; CAS</h3><p>Entity structure, owner compensation, cash-flow forecasting and the tax planning that only works if it happens before December.</p></article>
+    <article class="gn"><div class="n">04</div><h3>Personal returns for owners</h3><p>Included for owners of business clients. Your company and personal position are the same problem and should be looked at together.</p></article>
+  </div>
+</div></section>
+<section class="sec" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <h2>Fixed monthly fees</h2>
+  <div class="strip">
+    <div><b>Fixed</b><span>Monthly fees, no hourly</span></div>
+    <div><b>10th</b><span>Books closed by</span></div>
+    <div><b>4x</b><span>Reviews a year</span></div>
+    <div><b>Secure</b><span>Portal, not email</span></div>
+  </div>
+</div></section>
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p>
+  <h2>Switching accountants</h2>
+  <p class="lede">Easier than people think, and best done between May and August rather than in January.</p>
+  <ol class="steps">
+    <li><div><h3>Discovery call</h3><p>Thirty minutes. What your business does, what's currently painful, and whether we're the right size for each other.</p></div></li>
+    <li><div><h3>Review &amp; proposal</h3><p>We look at two years of returns and your current books, then propose a fixed monthly fee. No hourly billing, ever.</p></div></li>
+    <li><div><h3>Transition</h3><p>We request records from your current accountant — you don't have to have that conversation. Usually two to three weeks.</p></div></li>
+    <li><div><h3>Quarterly rhythm</h3><p>Books monthly, a proper conversation quarterly, tax planning in the autumn while it can still change the outcome.</p></div></li>
+  </ol>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>Just finished a rough busy season?</h2>
+  <p>This is the right month to talk. Decisions taken on numbers from last quarter are guesses, however good the guesser is.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="#contact">Book a discovery call</a>
+    <a class="btn btn-ghost" href="tel:+15558062245">(555) 806-2245</a>
+  </div>
+  <p class="note">Fixed monthly fees. Business clients from roughly $500k revenue. Free discovery calls.</p>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Latimer Accounting</a>
+  <p><a href="tel:+15558062245">(555) 806-2245</a> · Licensed CPA firm · AICPA member · Serving owner-managed businesses since 2006</p>
+  <p>Licensed &amp; accredited: Licensed CPA Firm · AICPA Member · State Society of CPAs · QuickBooks ProAdvisor · Xero Certified</p>
+  <p>3229 Delancey Avenue Suite 4B, Eastport Hills, NJ 12063</p>
+</div></footer>
+<div class="callbar"><a class="book" href="#contact">Book a discovery call</a><a class="tel" href="tel:+15558062245">(555) 806-2245</a></div>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Juniper Aesthetics — from our clients</title>
+<meta name="description" content="Published prices, licensed injectors and booking without an account — with what our clients say kept on our own page.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&family=Cormorant+Infant:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* D6 — THE CLIENT ONE. hero:panel nav:centered services:tiles proof:review-wall
+   ink #1B1720 · surface #F5F2F4 · accent #46394F · muted #5C5464 · on-accent #FFFFFF
+   H1 ramp: 32/40/50/60px · Cormorant Infant display / Assistant body
+   Device: the price strip inside a dark hero slab, and a review wall the spa hosts itself —
+   four client quotes as the composition rather than an embedded feed. Fixes "business
+   dependent on Instagram it doesn't own": the social proof is on ground they control. */
+:root{--ink:#1B1720;--surface:#F5F2F4;--accent:#46394F;--muted:#5C5464;--on-accent:#FFFFFF;
+--paper:#FFFFFF;--tint:#EDE7F0;--soft:#CBB0D8;--rule:rgba(27,23,32,.2);--hair:rgba(27,23,32,.1);
+--wrap:1120px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.62 Assistant,system-ui,-apple-system,sans-serif;padding-bottom:82px;overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 22px}
+h1,h2,h3{font-family:"Cormorant Infant",Georgia,serif;font-weight:600;margin:0;line-height:1.08}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 26px;
+text-decoration:none;font-weight:700;font-size:14.5px;letter-spacing:.18em;text-transform:uppercase;
+border:1px solid transparent;text-align:center;line-height:1.2}
+.btn-primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--rule)}
+.topbar{color:var(--muted);font-size:13.5px;letter-spacing:.14em;text-transform:uppercase;
+border-bottom:1px solid var(--hair)}
+.topbar .wrap{padding:9px 22px;text-align:center}
+.nav .wrap{padding-top:14px;padding-bottom:12px;text-align:center}
+.brandline{display:flex;align-items:center;gap:14px;justify-content:center}
+.brandline::before,.brandline::after{content:"";height:1px;background:var(--rule);flex:1 1 auto;
+max-width:90px}
+.brand{font-family:"Cormorant Infant",Georgia,serif;font-weight:600;font-size:22px;
+text-decoration:none;letter-spacing:.22em;text-transform:uppercase;line-height:1;flex:none}
+.navrow{display:flex;align-items:center;justify-content:center;gap:20px;margin-top:12px}
+.navlinks{display:none;gap:24px;font-size:13px;letter-spacing:.2em;text-transform:uppercase;
+color:var(--muted)}
+.navlinks a{text-decoration:none}
+.navlinks a:hover{color:var(--accent)}
+.navbook{min-height:42px;padding:0 18px;font-size:12px;letter-spacing:.16em;white-space:nowrap;
+border:1px solid var(--rule);color:var(--ink);display:inline-flex;align-items:center;
+text-decoration:none;font-weight:700;text-transform:uppercase}
+.hero{padding:12px 0 34px}
+.slab{background:var(--ink);color:#F2EEF3;padding:28px 20px 30px;text-align:center}
+.eyebrow{font-size:13px;letter-spacing:.34em;text-transform:uppercase;color:var(--soft);
+margin:0 0 14px;font-weight:700}
+.slab h1{font-size:clamp(32px,9vw,60px);max-width:15ch;margin:0 auto;letter-spacing:-.005em}
+.sub{font-size:16.5px;color:#B7ADBE;max-width:54ch;margin:16px auto 22px}
+.ctas{display:flex;flex-direction:column;gap:10px;max-width:430px;margin:0 auto}
+.slab .btn-primary{background:var(--soft);color:var(--ink);border-color:var(--soft)}
+.slab .btn-ghost{color:#F2EEF3;border-color:rgba(242,238,243,.45)}
+.strip{list-style:none;margin:26px 0 0;padding:22px 0 0;border-top:1px solid rgba(242,238,243,.24);
+display:grid;gap:12px;text-align:left}
+.strip li{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.strip .sn{font-family:"Cormorant Infant",Georgia,serif;font-size:20px;line-height:1.2}
+.strip .sp{font-size:16px;font-weight:700;color:var(--soft);letter-spacing:.03em;white-space:nowrap}
+.badges{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:8px;text-align:left}
+.badges li{font-size:15.5px;color:#B7ADBE;padding-left:16px;position:relative}
+.badges li::before{content:"—";position:absolute;left:0;color:var(--soft)}
+.sec{padding:52px 0;border-top:1px solid var(--hair)}
+.kicker{font-size:13px;letter-spacing:.34em;text-transform:uppercase;color:var(--accent);
+margin:0 0 12px;font-weight:700}
+.sec h2{font-size:clamp(30px,7.4vw,48px)}
+.lede{color:var(--muted);max-width:58ch;margin:12px 0 26px;font-size:17px}
+.tiles{display:grid;gap:0;border-top:1px solid var(--rule)}
+.tile{border-bottom:1px solid var(--hair);padding:24px 0}
+.tile h3{font-size:clamp(22px,5.6vw,27px);margin-bottom:9px;line-height:1.2;color:var(--accent)}
+.tile p{margin:0;color:var(--muted);font-size:16px}
+.tile.member{background:var(--tint);padding:24px 18px;border-bottom:none;margin-top:14px}
+.wall{background:var(--paper);border-top:1px solid var(--hair)}
+.walllist{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:14px}
+.walllist li{border:1px solid var(--hair);padding:20px 18px;background:var(--surface)}
+.walllist blockquote{margin:0;font-family:"Cormorant Infant",Georgia,serif;font-size:22px;
+line-height:1.34}
+.walllist .who{margin:12px 0 0;font-size:14px;letter-spacing:.14em;text-transform:uppercase;
+color:var(--accent);font-weight:700}
+.steps{list-style:none;margin:24px 0 0;padding:0;counter-reset:s;display:grid;gap:0}
+.steps li{counter-increment:s;padding:22px 0;border-bottom:1px solid var(--hair);
+display:grid;grid-template-columns:40px 1fr;gap:14px}
+.steps li:first-child{border-top:1px solid var(--rule)}
+.steps li::before{content:counter(s);font-family:"Cormorant Infant",Georgia,serif;font-size:28px;
+color:var(--accent);line-height:1}
+.steps h3{font-size:21px;margin-bottom:6px;line-height:1.25}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+.close{background:var(--tint);padding:54px 0 58px;text-align:center;border-top:1px solid var(--hair)}
+.close h2{font-size:clamp(30px,7.4vw,48px);max-width:16ch;margin:0 auto}
+.close p{max-width:56ch;font-size:17.5px;color:var(--muted);margin:16px auto 22px}
+.note{font-size:15.5px;color:var(--muted);margin-top:20px}
+.foot{padding:40px 0 34px;font-size:15.5px;color:var(--muted);text-align:center}
+.foot .brand{color:var(--ink);display:inline-block;margin-bottom:14px}
+.foot p{margin:0 0 10px}
+.foot a{color:var(--accent)}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--ink);padding:8px;
+display:grid;grid-template-columns:1fr auto;gap:8px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:60px;text-decoration:none;
+font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase;text-align:center;padding:0 12px}
+.callbar .book{background:var(--soft);color:var(--ink)}
+.callbar .tel{border:1px solid rgba(242,238,243,.42);color:#F2EEF3;padding:0 16px;letter-spacing:.03em;
+text-transform:none;font-size:16px}
+@media(min-width:760px){.ctas{flex-direction:row;justify-content:center;max-width:none}
+.slab h1{max-width:19ch}
+.slab{padding:56px 46px 52px}.hero{padding:26px 0 56px}.sub{font-size:19px}
+.strip{grid-template-columns:1fr 1fr;column-gap:52px}
+.badges{grid-template-columns:1fr 1fr;max-width:640px;margin-left:auto;margin-right:auto}
+.tiles{grid-template-columns:1fr 1fr;column-gap:48px}.tile.member{grid-column:1/-1}
+.walllist{grid-template-columns:1fr 1fr}
+.steps{grid-template-columns:1fr 1fr;column-gap:48px}
+.steps li:nth-child(2){border-top:1px solid var(--rule)}.sec{padding:82px 0}}
+@media(min-width:940px){.navlinks{display:flex}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Book online in under a minute · Memberships from $149/mo</div></div>
+<header class="nav"><div class="wrap">
+  <div class="brandline"><a class="brand" href="#">Juniper Aesthetics</a></div>
+  <div class="navrow">
+    <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+    <a class="navbook" href="#contact">Book now</a>
+  </div>
+</div></header>
+<section class="hero"><div class="wrap"><div class="slab">
+  <p class="eyebrow">Injectables · Laser · Skin</p>
+  <h1>The same injector, every visit, for years.</h1>
+  <p class="sub">Botox, filler, laser and medical-grade skincare from licensed injectors. You keep the same injector visit after visit, which is why the result stays consistent instead of drifting with whoever happened to be free.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" data-cta="primary" href="#contact">Book now</a>
+    <a class="btn btn-ghost" href="#services">See pricing</a>
+  </div>
+  <ul class="strip">
+    <li><span class="sn">Neurotoxin —</span><span class="sp">from $12/unit</span></li>
+    <li><span class="sn">Dermal filler —</span><span class="sp">from $650/syringe</span></li>
+    <li><span class="sn">Laser &amp; resurfacing —</span><span class="sp">from $300</span></li>
+    <li><span class="sn">Memberships —</span><span class="sp">from $149/mo</span></li>
+  </ul>
+  <ul class="badges"><li>All pricing published</li><li>Book without an account</li><li>Licensed injectors only</li><li>Memberships from $149/mo</li></ul>
+</div></div></section>
+<figure class="gsw-plate"><img src="../_assets/hero/med-spas/a-bright-and-easy.jpg" alt="Bright and easy — med spas" loading="lazy"></figure>
+
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p><h2>Treatments &amp; prices</h2>
+  <p class="lede">No 'call for pricing'. You should be able to work out what your visit costs before you arrive.</p>
+  <div class="tiles">
+    <article class="tile"><h3>Neurotoxin — from $12/unit</h3><p>Botox and Dysport for lines and prevention. Most first-time treatments land between $240 and $420 depending on areas.</p></article>
+    <article class="tile"><h3>Dermal filler — from $650/syringe</h3><p>Lip, cheek and jawline. We are conservative by default and will always start with less than you asked for.</p></article>
+    <article class="tile"><h3>Laser &amp; resurfacing — from $300</h3><p>Pigment, redness, texture and hair. Package pricing published, because a single session is rarely the whole answer.</p></article>
+    <article class="tile member"><h3>Memberships — from $149/mo</h3><p>Monthly credit that rolls over, member pricing on everything, and priority booking. Most regulars save around 20%.</p></article>
+  </div>
+</div></section>
+<section class="sec wall" id="results"><div class="wrap">
+  <p class="kicker">Results</p><h2>From our clients</h2>
+  <ul class="walllist">
+    <li><blockquote>Booked at 11pm on my phone. No account, no password, no callback.</blockquote><p class="who">Tia R. · Neurotoxin</p></li>
+    <li><blockquote>She used less filler than I asked for and was right to.</blockquote><p class="who">Camille D. · Lip filler</p></li>
+    <li><blockquote>The membership genuinely pays. I stopped thinking about the cost.</blockquote><p class="who">Bex H. · Member</p></li>
+    <li><blockquote>Prices on the site meant no awkward surprise at the desk.</blockquote><p class="who">Andrea K. · Laser package</p></li>
+  </ul>
+</div></section>
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p><h2>Your first visit</h2>
+  <p class="lede">About ninety minutes, most of which is talking rather than treating.</p>
+  <ol class="steps">
+    <li><div><h3>Book online</h3><p>Real slots, real availability, no account required. Evenings and Saturdays included.</p></div></li>
+    <li><div><h3>Consultation</h3><p>Photographs, a conversation about what actually bothers you, and a plan. Sometimes the plan is 'not yet'.</p></div></li>
+    <li><div><h3>Treat</h3><p>Same visit where it's appropriate. You'll know the exact cost before anything is drawn up.</p></div></li>
+    <li><div><h3>Two-week review</h3><p>Included, always. Neurotoxin settles over two weeks and small adjustments are free within that window.</p></div></li>
+  </ol>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>Been passed around a rota?</h2>
+  <p>Book a consultation — it's free, there's no obligation, and you'll leave with a written plan and real prices whether or not you treat that day.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="#contact">Book now</a>
+    <a class="btn btn-ghost" href="tel:+15559164471">(555) 916-4471</a>
+  </div>
+  <p class="note">Free consultations, published pricing, and your injector booked by name. Evening and Saturday appointments available.</p>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Juniper Aesthetics</a>
+  <p><a href="tel:+15559164471">(555) 916-4471</a> · Medical director on site · Licensed injectors · Same injector every visit</p>
+  <p>6608 Wexford Lane, Stonebridge, MA 11711</p>
+</div></footer>
+<div class="callbar"><a class="book" href="#contact">Book now</a><a class="tel" href="tel:+15559164471">(555) 916-4471</a></div>
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kettle Ridge Solar — Found us yourself? Good.</title>
+<meta name="description" content="The savings estimate lives on our own homepage, not behind a lead form. Own crews, NABCEP certified, installing since 2011.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;700;800&family=Overpass:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* D6 — THE DIRECT ONE. hero:band nav:inline services:grid-numbered proof:testimonial-lead
+   ink #191713 · surface #EFEFEA · accent #8B5000 · amber #FFC24A · muted #4E564F
+   H1 ramp: 28/32/40/50px · Mukta display / Overpass body
+   Device: the open figure slot is a full-width amber band directly under the nav —
+   the first thing on the page, above the headline and every button, with the four
+   counts we can prove standing beside it.
+   Fixes "buying rented leads instead of owning demand": the estimator sits on the
+   company's own front page as the thing people arrive for, so the demand is owned
+   rather than rented from a lead broker's form. */
+:root{--ink:#191713;--surface:#EFEFEA;--paper:#FFFFFF;--accent:#8B5000;--amber:#FFC24A;
+--muted:#4E564F;--rule:rgba(25,23,19,.22);--hair:rgba(25,23,19,.11);--wrap:1120px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.6 "Overpass",system-ui,-apple-system,sans-serif;padding-bottom:84px;
+overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 18px}
+h1,h2,h3{font-family:"Mukta",system-ui,sans-serif;font-weight:800;margin:0;line-height:1.14;
+letter-spacing:-.018em}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 20px;
+text-decoration:none;font-weight:700;font-size:16px;border:2px solid transparent;text-align:center;
+line-height:1.2;font-family:"Mukta",system-ui,sans-serif}
+.btn-primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.topbar{background:var(--ink);color:#DAD6CC;font-size:14px}
+.topbar .wrap{padding:7px 18px;text-align:center}
+/* nav:inline — links ride the same line as the brand, pushed right */
+.nav{background:var(--surface);border-bottom:2px solid var(--ink);position:sticky;top:0;z-index:30}
+.navrow{display:flex;align-items:center;gap:14px;height:52px}
+.brand{font-family:"Mukta",system-ui,sans-serif;font-weight:800;font-size:19px;text-decoration:none;
+letter-spacing:-.025em;line-height:1;white-space:nowrap;flex:0 0 auto}
+.navlinks{display:flex;gap:16px;margin-left:auto;font-size:14px;font-weight:600;color:var(--muted);
+overflow-x:auto;scrollbar-width:none}
+.navlinks::-webkit-scrollbar{display:none}
+.navlinks a{text-decoration:none;white-space:nowrap}
+.navact{min-height:36px;padding:0 13px;font-size:14px;white-space:nowrap;flex:0 0 auto}
+/* hero:band — the figure is the band */
+.band{background:var(--amber);color:var(--ink);border-bottom:2px solid var(--ink)}
+.band .wrap{padding:10px 18px 12px}
+.band .micro{display:block;font-size:13px;letter-spacing:.18em;text-transform:uppercase;
+font-weight:700;color:#4A3608}
+/* the open figure slot is the band; the counts beside it are the ones we can prove */
+.band .field{display:block;height:clamp(40px,10vw,74px);margin:7px 0 8px;
+border-bottom:4px solid var(--ink)}
+.bandhead{margin:0;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.stamp{font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--ink);
+border:2px solid var(--ink);padding:3px 8px;white-space:nowrap}
+.bandfigs{list-style:none;margin:8px 0 0;padding:8px 0 0;border-top:2px solid rgba(25,23,19,.25);
+display:grid;grid-template-columns:1fr 1fr;gap:5px 18px;font-size:14px;color:#4A3608;font-weight:600}
+.bandfigs b{font-family:"Mukta",system-ui,sans-serif;color:var(--ink);font-weight:800;
+font-size:19px;letter-spacing:-.02em;font-variant-numeric:tabular-nums;margin-right:5px}
+.hero{padding:12px 0 30px}
+.eyebrow{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);
+margin:0 0 9px;font-weight:700}
+.hero h1{font-size:clamp(28px,7.4vw,50px);max-width:16ch}
+.sub{font-size:16px;color:var(--muted);max-width:54ch;margin:10px 0 0;line-height:1.5}
+.ctas{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+.badges{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:8px}
+.badges li{font-size:15px;color:var(--muted);padding-left:26px;position:relative;font-weight:500}
+.badges li::before{content:"";position:absolute;left:0;top:8px;width:16px;height:8px;
+background:var(--amber);border:1px solid var(--ink)}
+.sec{padding:46px 0;border-top:2px solid var(--ink)}
+.kicker{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);
+margin:0 0 9px;font-weight:700}
+.sec h2{font-size:clamp(26px,6.2vw,40px)}
+.lede{color:var(--muted);max-width:58ch;margin:11px 0 24px;font-size:17px}
+/* services:grid-numbered */
+.gridnum{display:grid;gap:0;border-top:1px solid var(--rule)}
+.gn{display:grid;grid-template-columns:52px 1fr;gap:14px;padding:20px 0;
+border-bottom:1px solid var(--hair)}
+.gn .n{font-family:"Mukta",system-ui,sans-serif;font-weight:800;font-size:30px;color:var(--accent);
+line-height:.95;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.gn h3{font-size:21px;margin-bottom:7px}
+.gn p{margin:0;color:var(--muted);font-size:16px}
+/* proof:testimonial-lead */
+.testi{background:var(--ink);color:#F4F1EA;padding:30px 18px 32px;position:relative}
+.testi blockquote{margin:0;font-family:"Mukta",system-ui,sans-serif;font-weight:600;
+font-size:clamp(21px,5.6vw,34px);line-height:1.28;letter-spacing:-.02em;color:#FFFFFF;max-width:22ch}
+.testi cite{display:block;font-style:normal;margin-top:18px;font-size:16px;color:#CFC9BC}
+.testi cite b{color:var(--amber);font-weight:700}
+.testi .mark{display:block;font-family:"Mukta",system-ui,sans-serif;font-size:52px;line-height:.6;
+color:var(--amber);font-weight:800;margin-bottom:10px}
+.accred{list-style:none;margin:22px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.accred li{font-size:14px;font-weight:600;border:1px solid var(--rule);padding:8px 12px;
+background:var(--paper)}
+.accredlabel{font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;
+color:var(--muted);margin:22px 0 0}
+/* process */
+.steps{list-style:none;margin:22px 0 0;padding:0;counter-reset:s;display:grid;gap:12px}
+.steps li{counter-increment:s;background:var(--paper);border:1px solid var(--rule);
+border-top:5px solid var(--amber);padding:16px 16px 18px}
+.steps li::before{content:"Step " counter(s);display:block;font-size:13px;letter-spacing:.16em;
+text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:8px}
+.steps h3{font-size:19px;margin-bottom:5px}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+/* close */
+.close{background:var(--ink);color:#EDE9E0;padding:0 0 48px;border-top:2px solid var(--ink)}
+.closeband{background:var(--amber);height:14px}
+.close .wrap{padding-top:40px}
+.close h2{font-size:clamp(27px,6.4vw,42px);max-width:17ch;color:#fff}
+.close p{max-width:54ch;font-size:17px;margin:12px 0 18px;color:#CFC9BC}
+.close .btn-primary{background:var(--amber);color:var(--ink);border-color:var(--amber)}
+.close .btn-ghost{color:#fff;border-color:rgba(255,255,255,.5)}
+.close .note{font-size:15px;margin:16px 0 0;color:#CFC9BC}
+.foot{padding:32px 0 30px;font-size:15px;color:var(--muted)}
+.foot .brand{color:var(--ink);display:inline-block;margin-bottom:10px}
+.foot p{margin:0 0 8px;max-width:64ch}
+.foot a{color:var(--accent);font-weight:600}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--surface);padding:8px;
+border-top:2px solid var(--ink);display:grid;grid-template-columns:1fr auto;gap:8px;
+box-shadow:0 -2px 12px rgba(25,23,19,.14)}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:56px;text-decoration:none;
+font-weight:700;font-size:15px;text-align:center;line-height:1.2;padding:0 12px;
+font-family:"Mukta",system-ui,sans-serif}
+.callbar .go{background:var(--accent);color:#fff}
+.callbar .tel{border:2px solid var(--ink);color:var(--ink);padding:0 14px;font-size:16px}
+@media(max-width:619px){.navact{display:none}}
+@media(min-width:720px){
+.wrap{padding:0 26px}.ctas{flex-direction:row}
+.band .wrap{padding:20px 26px 22px;display:flex;align-items:flex-end;justify-content:space-between;
+gap:36px;flex-wrap:wrap}
+.bandmain{flex:1 1 380px}.bandfigs{border-top:none;padding:0;margin:0 0 8px;gap:8px 28px;
+grid-template-columns:1fr 1fr;font-size:15px}
+.gridnum{grid-template-columns:1fr 1fr;column-gap:40px}
+.badges{grid-template-columns:1fr 1fr;column-gap:28px}
+.steps{grid-template-columns:1fr 1fr;gap:16px}
+.testi{padding:44px 34px 46px}
+.sec{padding:74px 0}.hero{padding:38px 0 48px}.sub{font-size:19px}
+.navrow{height:60px}.brand{font-size:22px}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}
+.steps{grid-template-columns:repeat(4,1fr)}}
+</style>
+
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Local installers since 2011 · We do not subcontract · NABCEP certified</div></div>
+
+<header class="nav"><div class="wrap">
+  <div class="navrow">
+    <a class="brand" href="#">Kettle Ridge Solar</a>
+    <nav class="navlinks" aria-label="Primary"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+    <a class="btn btn-primary navact" href="#estimate">Estimate my savings</a>
+  </div>
+</div></header>
+
+<div class="band" id="estimate"><div class="wrap">
+  <div class="bandmain">
+    <p class="bandhead"><span class="micro">Estimate online</span><span class="stamp">No form gate</span></p>
+    <div class="field" aria-hidden="true"></div>
+  </div>
+  <ul class="bandfigs">
+    <li><b>2011</b> Installing since</li>
+    <li><b>0</b> Jobs subcontracted</li>
+    <li><b>3,400+</b> Systems installed</li>
+    <li><b>25yr</b> Production warranty</li>
+  </ul>
+</div></div>
+
+<section class="hero"><div class="wrap">
+  <p class="eyebrow">Local crews · Not a sales floor</p>
+  <h1>Our crews. Our electricians. No subcontractors.</h1>
+  <p class="sub">Every install done by our own crews and our own licensed electricians. No subcontractors, which is why the warranty call goes to the people who put the panels up.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" data-cta="primary" href="#estimate">Estimate my savings</a>
+    <a class="btn btn-ghost" href="#results">How we're different</a>
+  </div>
+  <ul class="badges">
+    <li>No door knocking, ever</li><li>Our own crews, not subs</li>
+    <li>NABCEP certified</li><li>25-year production warranty</li>
+  </ul>
+</div></section>
+<figure class="gsw-plate"><img src="../_assets/hero/solar/a-see-the-number.jpg" alt="See the number — solar" loading="lazy"></figure>
+
+
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p>
+  <h2>What we do</h2>
+  <p class="lede">Residential and commercial, designed around your actual usage rather than a standard package.</p>
+  <div class="gridnum">
+    <article class="gn"><div class="n">01</div><div><h3>Residential solar</h3><p>Designed from twelve months of your real usage, not an average. Roof survey, shading analysis and a production estimate you can hold us to.</p></div></article>
+    <article class="gn"><div class="n">02</div><div><h3>Battery storage</h3><p>Backup through an outage and cheaper evening power. We'll tell you honestly whether it pays back in your rate structure — sometimes it doesn't.</p></div></article>
+    <article class="gn"><div class="n">03</div><div><h3>Commercial &amp; agricultural</h3><p>Ground-mount, roof and carport arrays, with the depreciation and incentive modelling your accountant will want to see.</p></div></article>
+    <article class="gn"><div class="n">04</div><div><h3>Service &amp; repair</h3><p>Including systems we didn't install. A lot of our work is fixing arrays whose installer has since disappeared.</p></div></article>
+  </div>
+</div></section>
+
+<section class="sec" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <h2>They found us, not the other way round</h2>
+  <figure class="testi">
+    <span class="mark" aria-hidden="true">&ldquo;</span>
+    <blockquote>Four companies knocked on our door. Kettle was the one we found ourselves, and the only one that showed us the maths before asking for anything.</blockquote>
+    <cite><b>Devon &amp; Ash L.</b> · 9.2 kW + battery</cite>
+  </figure>
+  <p class="accredlabel">Certified and accredited</p>
+  <ul class="accred">
+    <li>NABCEP Certified</li><li>SEIA Member</li><li>Tesla Powerwall Certified</li>
+    <li>Enphase Platinum</li><li>BBB A+</li>
+  </ul>
+</div></section>
+
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p>
+  <h2>How it goes</h2>
+  <p class="lede">No pressure appointments, no one-night-only pricing, no sales manager phoning from the car park.</p>
+  <ol class="steps">
+    <li><h3>Estimate online</h3><p>Real numbers from your address and bill, instantly. No form gate, no phone call required to see it.</p></li>
+    <li><h3>Site survey</h3><p>We come out, get on the roof and check structure, shading and the panel. The estimate firms up or we tell you it doesn't work.</p></li>
+    <li><h3>Design, incentives, contract</h3><p>Final design with the current federal credit and local incentives applied, and financing if you want it.</p></li>
+    <li><h3>Install &amp; switch on</h3><p>One to three days with our own crew. We handle interconnection with the utility and stay for monitoring setup.</p></li>
+  </ol>
+</div></section>
+
+<section class="close" id="contact">
+  <div class="closeband" aria-hidden="true"></div>
+  <div class="wrap">
+    <h2>Curious what it would actually save you?</h2>
+    <p>Ninety seconds for the real number, and the crew who would install it works for us rather than for whoever bid lowest that month.</p>
+    <div class="ctas">
+      <a class="btn btn-primary" href="#estimate">Estimate my savings</a>
+      <a class="btn btn-ghost" href="tel:+15554832216">(555) 483-2216</a>
+    </div>
+    <p class="note">No door-to-door sales. No subcontracted installs. Local since 2011.</p>
+  </div>
+</section>
+
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Kettle Ridge Solar</a>
+  <p><a href="tel:+15554832216">(555) 483-2216</a> · NABCEP certified · Locally owned &amp; operated since 2011</p>
+  <p>1613 Larkspur Street Unit 12, Cedar Reach, NY 10715</p>
+</div></footer>
+
+<div class="callbar"><a class="go" href="#estimate">Estimate my savings</a><a class="tel" href="tel:+15554832216">(555) 483-2216</a></div>
+</body>
+</html>

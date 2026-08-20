@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Palmer Row Med Spa — the treatment menu, priced</title>
+<meta name="description" content="A priced treatment menu for injectables, laser and skin, with booking that needs no account.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600&family=Tenor+Sans&display=swap" rel="stylesheet">
+<style>
+/* D5 — THE MENU ONE. hero:fullbleed nav:bar services:cards proof:testimonial-lead
+   ink #1E2118 · surface #F5F4EC · accent #566334 · muted #5C6152 · on-accent #FFFFFF
+   H1 ramp: 32/40/50/58px · Tenor Sans display / Epilogue body
+   Device: the treatment menu — a paper card lifted out of the full-bleed olive field, each
+   price set on its own line the way a menu prices a dish, membership as the house card.
+   Fixes "no published pricing": the first object below the headline is the price of things. */
+:root{--ink:#1E2118;--surface:#F5F4EC;--accent:#566334;--muted:#5C6152;--on-accent:#FFFFFF;
+--paper:#FCFCF5;--deep:#232A1C;--tint:#EAEBD9;--light:#C6CE9E;
+--rule:rgba(30,33,24,.22);--hair:rgba(30,33,24,.11);--wrap:1100px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.62 Epilogue,system-ui,-apple-system,sans-serif;padding-bottom:82px;overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 22px}
+h1,h2,h3{font-family:"Tenor Sans",Georgia,serif;font-weight:400;margin:0;line-height:1.16}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 26px;
+text-decoration:none;font-weight:600;font-size:14px;letter-spacing:.2em;text-transform:uppercase;
+border:1px solid transparent;text-align:center;line-height:1.2}
+.btn-primary{background:var(--light);color:var(--ink);border-color:var(--light)}
+.btn-ghost{background:transparent;color:#EFEFE2;border-color:rgba(239,239,226,.5)}
+.dark{background:var(--deep);color:#EFEFE2}
+.topbar{background:#171C12;color:#C2C6B0;font-size:13.5px;letter-spacing:.14em;text-transform:uppercase}
+.topbar .wrap{padding:9px 22px;text-align:center}
+.nav{background:var(--deep);border-bottom:1px solid rgba(239,239,226,.16)}
+.nav .wrap{display:flex;align-items:center;gap:12px;min-height:58px}
+.brand{font-family:"Tenor Sans",Georgia,serif;font-size:19px;text-decoration:none;letter-spacing:.16em;
+text-transform:uppercase;line-height:1;flex:none;color:#EFEFE2}
+.navlinks{display:none;gap:26px;margin-left:auto;font-size:13px;letter-spacing:.18em;
+text-transform:uppercase;color:#C2C6B0}
+.navlinks a{text-decoration:none}
+.navlinks a:hover{color:var(--light)}
+.navbook{min-height:42px;padding:0 11px;font-size:12px;letter-spacing:.08em;margin-left:auto;flex:none;
+white-space:nowrap}
+.hero{background:var(--deep);color:#EFEFE2;padding:30px 0 40px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:auto -20% -55% -20%;height:80%;
+background:radial-gradient(ellipse at 50% 100%,rgba(198,206,158,.22),transparent 62%)}
+.hero .wrap{position:relative}
+.eyebrow{font-size:13px;letter-spacing:.34em;text-transform:uppercase;color:var(--light);
+margin:0 0 14px;font-weight:600}
+.hero h1{font-size:clamp(32px,8.6vw,58px);max-width:14ch;letter-spacing:.005em}
+.sub{font-size:16.5px;color:#C2C6B0;max-width:56ch;margin:16px 0 22px}
+.ctas{display:flex;flex-direction:column;gap:10px}
+.badges{list-style:none;margin:24px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.badges li{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#EFEFE2;
+border:1px solid rgba(239,239,226,.4);padding:8px 13px}
+.menuwrap{background:linear-gradient(var(--deep) 46%,var(--surface) 46%)}
+.menu{background:var(--paper);border:1px solid var(--hair);padding:26px 18px 24px;text-align:center}
+.menu .mh{font-size:13px;letter-spacing:.34em;text-transform:uppercase;color:var(--accent);margin:0 0 6px}
+.menu .msub{font-size:16px;color:var(--muted);margin:0 auto 20px;max-width:46ch}
+.mitem{padding:18px 6px;border-top:1px solid var(--hair)}
+.mitem .mn{font-family:"Tenor Sans",Georgia,serif;font-size:clamp(20px,5.4vw,25px);display:block;
+line-height:1.25}
+.mitem .mp{display:block;margin-top:7px;font-size:17px;font-weight:600;letter-spacing:.06em;color:var(--accent)}
+.mitem.house{background:var(--tint);margin-top:12px;border-top:none;padding:20px 12px}
+.sec{padding:52px 0;border-top:1px solid var(--hair)}
+.kicker{font-size:13px;letter-spacing:.34em;text-transform:uppercase;color:var(--accent);
+margin:0 0 12px;font-weight:600}
+.sec h2{font-size:clamp(29px,6.8vw,44px)}
+.lede{color:var(--muted);max-width:58ch;margin:12px 0 26px;font-size:17px}
+.cards{display:grid;gap:12px}
+.card{background:var(--paper);border-left:3px solid var(--accent);padding:22px 20px}
+.card h3{font-size:21px;margin-bottom:9px;line-height:1.28}
+.card p{margin:0;color:var(--muted);font-size:16px}
+.card.house{background:var(--tint);border-left-color:var(--ink)}
+.quote{background:var(--deep);color:#EFEFE2;padding:52px 0 56px}
+.quote .qk{font-size:13px;letter-spacing:.34em;text-transform:uppercase;color:var(--light);margin:0 0 18px}
+.quote blockquote{margin:0;font-family:"Tenor Sans",Georgia,serif;
+font-size:clamp(21px,5.4vw,32px);line-height:1.36;max-width:26ch}
+.quote .who{margin:22px 0 0;font-size:16px;color:#C2C6B0;letter-spacing:.06em}
+.quote .who b{color:#EFEFE2;font-weight:600}
+.steps{list-style:none;margin:24px 0 0;padding:0;counter-reset:s;display:grid;gap:0}
+.steps li{counter-increment:s;padding:22px 0;border-bottom:1px solid var(--hair);
+display:grid;grid-template-columns:38px 1fr;gap:14px}
+.steps li:first-child{border-top:1px solid var(--rule)}
+.steps li::before{content:counter(s);font-family:"Tenor Sans",Georgia,serif;font-size:24px;
+color:var(--accent);line-height:1.15}
+.steps h3{font-size:20px;margin-bottom:6px;line-height:1.28}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+.close{background:var(--accent);color:#F7F8EA;padding:54px 0 58px}
+.close h2{font-size:clamp(30px,7.2vw,48px);max-width:15ch;color:#F7F8EA}
+.close p{max-width:56ch;font-size:17.5px;color:#E6EBCF;margin:16px 0 22px}
+.close .btn-primary{background:#F7F8EA;color:var(--ink);border-color:#F7F8EA}
+.close .btn-ghost{color:#F7F8EA;border-color:rgba(247,248,234,.55)}
+.note{font-size:15.5px;color:#E6EBCF;margin-top:20px;max-width:56ch}
+.foot{padding:40px 0 34px;font-size:15.5px;color:var(--muted)}
+.foot .brand{color:var(--ink);display:inline-block;margin-bottom:14px}
+.foot p{margin:0 0 10px;max-width:66ch}
+.foot a{color:var(--accent)}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--deep);padding:8px;
+display:grid;grid-template-columns:1fr auto;gap:8px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:60px;text-decoration:none;
+font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase;text-align:center;padding:0 12px}
+.callbar .book{background:var(--light);color:var(--ink)}
+.callbar .tel{border:1px solid rgba(239,239,226,.42);color:#EFEFE2;padding:0 16px;letter-spacing:.03em;
+text-transform:none;font-size:16px}
+@media(min-width:760px){.ctas{flex-direction:row;gap:12px}.sub{font-size:19px}
+.hero h1{max-width:20ch}
+.hero{padding:64px 0 96px}.menu{padding:44px 40px 40px}
+.mgrid{display:grid;grid-template-columns:repeat(3,1fr);column-gap:40px}
+.mitem.house{grid-column:1/-1}.menu .mh,.menu .msub{grid-column:1/-1}
+.cards{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr;column-gap:46px}
+.steps li:nth-child(2){border-top:1px solid var(--rule)}.sec{padding:82px 0}
+.quote{padding:88px 0}}
+@media(min-width:960px){.navlinks{display:flex}.navbook{margin-left:26px}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Book online in under a minute · Memberships from $149/mo</div></div>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="#">Palmer Row Med Spa</a>
+  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+  <a class="btn btn-primary navbook" href="#contact">Book now</a>
+</div></header>
+<section class="hero"><div class="wrap">
+  <p class="eyebrow">Injectables · Laser · Skin</p>
+  <h1>Read the whole menu before you sit down.</h1>
+  <p class="sub">Botox, filler, laser and medical-grade skincare from licensed injectors. The full menu is here with prices and packages, because deciding in the chair is how people end up spending more than they meant to.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" data-cta="primary" href="#contact">Book now</a>
+    <a class="btn btn-ghost" href="#services">See pricing</a>
+  </div>
+  <ul class="badges"><li>All pricing published</li><li>Book without an account</li><li>Licensed injectors only</li><li>Memberships from $149/mo</li></ul>
+</div></section>
+<figure class="gsw-plate"><img src="../_assets/hero/med-spas/e-the-whole-space.jpg" alt="The whole space — med spas" loading="lazy"></figure>
+
+<section class="menuwrap"><div class="wrap"><div class="menu">
+  <div class="mgrid">
+    <p class="mh">Treatments &amp; prices</p>
+    <p class="msub">No 'call for pricing'. You should be able to work out what your visit costs before you arrive.</p>
+    <div class="mitem"><span class="mn">Neurotoxin —</span><span class="mp">from $12/unit</span></div>
+    <div class="mitem"><span class="mn">Dermal filler —</span><span class="mp">from $650/syringe</span></div>
+    <div class="mitem"><span class="mn">Laser &amp; resurfacing —</span><span class="mp">from $300</span></div>
+    <div class="mitem house"><span class="mn">Memberships —</span><span class="mp">from $149/mo</span></div>
+  </div>
+</div></div></section>
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p><h2>Treatments &amp; prices</h2>
+  <p class="lede">No 'call for pricing'. You should be able to work out what your visit costs before you arrive.</p>
+  <div class="cards">
+    <article class="card"><h3>Neurotoxin — from $12/unit</h3><p>Botox and Dysport for lines and prevention. Most first-time treatments land between $240 and $420 depending on areas.</p></article>
+    <article class="card"><h3>Dermal filler — from $650/syringe</h3><p>Lip, cheek and jawline. We are conservative by default and will always start with less than you asked for.</p></article>
+    <article class="card"><h3>Laser &amp; resurfacing — from $300</h3><p>Pigment, redness, texture and hair. Package pricing published, because a single session is rarely the whole answer.</p></article>
+    <article class="card house"><h3>Memberships — from $149/mo</h3><p>Monthly credit that rolls over, member pricing on everything, and priority booking. Most regulars save around 20%.</p></article>
+  </div>
+</div></section>
+<section class="quote" id="results"><div class="wrap">
+  <p class="qk">Results</p>
+  <blockquote>Every other place made me ring to find out what Botox cost and then book a 'consultation'. Palmer Row printed the whole menu and let me pick a Thursday evening off the calendar. That was the whole reason I chose them.</blockquote>
+  <p class="who"><b>Simone A.</b> · Member since 2024</p>
+</div></section>
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p><h2>Your first visit</h2>
+  <p class="lede">About ninety minutes, most of which is talking rather than treating.</p>
+  <ol class="steps">
+    <li><div><h3>Book online</h3><p>Real slots, real availability, no account required. Evenings and Saturdays included.</p></div></li>
+    <li><div><h3>Consultation</h3><p>Photographs, a conversation about what actually bothers you, and a plan. Sometimes the plan is 'not yet'.</p></div></li>
+    <li><div><h3>Treat</h3><p>Same visit where it's appropriate. You'll know the exact cost before anything is drawn up.</p></div></li>
+    <li><div><h3>Two-week review</h3><p>Included, always. Neurotoxin settles over two weeks and small adjustments are free within that window.</p></div></li>
+  </ol>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>Not sure what you actually need?</h2>
+  <p>Book a consultation — it's free, there's no obligation, and you'll leave with a written plan and real prices whether or not you treat that day.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="#contact">Book now</a>
+    <a class="btn btn-ghost" href="tel:+15552758804">(555) 275-8804</a>
+  </div>
+  <p class="note">Free consultations. Take the menu away, think about it, and book when you have decided. Evening and Saturday appointments.</p>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Palmer Row Med Spa</a>
+  <p><a href="tel:+15552758804">(555) 275-8804</a> · Medical director on site · Licensed injectors · Full menu published</p>
+  <p>4167 Orchard Row, Westmoor, CT 15176</p>
+</div></footer>
+<div class="callbar"><a class="book" href="#contact">Book now</a><a class="tel" href="tel:+15552758804">(555) 275-8804</a></div>
+</body>
+</html>

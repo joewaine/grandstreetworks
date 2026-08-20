@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calder Aesthetic Surgery — Board certified, accredited suite</title>
+<meta name="description" content="Aesthetic and reconstructive surgery in a private, accredited facility. Every consultation is with the surgeon who will operate.">
+<meta name="theme-color" content="#17141A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* D2 — THE SUITE ONE. hero:fullbleed nav:centered services:tiles proof:testimonial-lead
+   ink #EDE9E1 · surface #17141A · accent #B39B6E · muted #9A948B · on-accent #17141A
+   H1 ramp: 30/36/46/60px · Marcellus display / Public Sans body
+   The dark direction for a practice whose ad spend lands on a weak page: one screen,
+   one claim, one action, and a single patient's sentence doing all the proving. */
+:root{--ink:#EDE9E1;--surface:#17141A;--accent:#B39B6E;--muted:#9A948B;--on-accent:#17141A;
+--raise:#1F1B24;--rule:rgba(237,233,225,.14);--wrap:1120px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.66 "Public Sans",system-ui,-apple-system,sans-serif;padding-bottom:80px;
+overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:Marcellus,Georgia,serif;font-weight:400;margin:0;line-height:1.14;
+letter-spacing:.002em}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 26px;
+text-decoration:none;font-weight:500;font-size:15px;letter-spacing:.08em;text-transform:uppercase;
+border:1px solid transparent;text-align:center;line-height:1.2}
+.btn-primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:rgba(237,233,225,.38)}
+.topbar{color:var(--muted);font-size:15px;border-bottom:1px solid var(--rule)}
+.topbar .wrap{padding:9px 24px;text-align:center;letter-spacing:.05em}
+.nav{position:sticky;top:0;z-index:30;background:rgba(23,20,26,.95);
+backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid var(--rule)}
+.navlinks{border-bottom:1px solid var(--rule)}
+.navlinks .wrap{display:flex;justify-content:center;gap:30px;padding:10px 24px;font-size:13px;
+letter-spacing:.18em;text-transform:uppercase;color:var(--muted);overflow-x:auto;
+scrollbar-width:none}
+.navlinks .wrap::-webkit-scrollbar{display:none}
+.navlinks a{text-decoration:none;white-space:nowrap}
+.navlinks a:hover{color:var(--accent)}
+.navmain .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:56px}
+.brand{font-family:Marcellus,Georgia,serif;font-size:20px;text-decoration:none;line-height:1;
+flex:none;letter-spacing:.22em;text-transform:uppercase}
+.navbook{min-height:40px;padding:0 13px;font-size:12px;flex:none;white-space:nowrap;letter-spacing:.1em}
+.hero{position:relative;overflow:hidden;padding:20px 0 40px;min-height:calc(100svh - 148px);
+display:flex;align-items:flex-start;
+background:radial-gradient(120% 80% at 80% 0%,rgba(179,155,110,.20),transparent 60%),
+radial-gradient(80% 60% at 8% 100%,rgba(237,233,225,.06),transparent 64%),var(--surface)}
+.hero::before{content:"";position:absolute;left:24px;right:24px;top:0;bottom:0;pointer-events:none;
+border-left:1px solid rgba(237,233,225,.07);border-right:1px solid rgba(237,233,225,.07)}
+.hero .wrap{position:relative}
+.eyebrow{font-size:13px;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);
+margin:0 0 12px;font-weight:500}
+.hero h1{font-size:clamp(30px,7.4vw,60px);max-width:15ch}
+.sub{font-size:16px;color:var(--muted);max-width:52ch;margin:14px 0 20px;line-height:1.55}
+.ctas{display:flex;flex-direction:column;gap:10px}
+.badges{list-style:none;margin:26px 0 0;padding:20px 0 0;border-top:1px solid var(--rule);
+display:grid;gap:9px}
+.badges li{font-size:15px;color:var(--muted);letter-spacing:.03em;padding-left:18px;position:relative}
+.badges li::before{content:"";position:absolute;left:0;top:11px;width:7px;height:7px;
+border:1px solid var(--accent);transform:rotate(45deg)}
+.sec{padding:56px 0;border-top:1px solid var(--rule)}
+.sec-head{text-align:center;max-width:62ch;margin:0 auto 32px}
+.kicker{font-size:13px;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);
+margin:0 0 11px;font-weight:500}
+.sec h2{font-size:clamp(28px,6vw,46px);margin-bottom:13px}
+.lede{color:var(--muted);margin:0;font-size:17px}
+.tiles{display:grid;gap:0;border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+.tile{padding:28px 22px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.tile .mark{width:9px;height:9px;border:1px solid var(--accent);transform:rotate(45deg);
+margin-bottom:18px}
+.tile h3{font-size:23px;margin-bottom:10px}
+.tile p{margin:0;color:var(--muted);font-size:16px}
+.quote{background:var(--raise)}
+.quote .kicker{color:var(--accent)}
+.quote blockquote{margin:26px 0 0;max-width:24ch}
+.quote .q{font-family:Marcellus,Georgia,serif;font-size:clamp(23px,5.2vw,42px);line-height:1.3;
+margin:0;max-width:24ch}
+.quote cite{display:block;margin-top:24px;font-style:normal;font-size:16px;color:var(--muted)}
+.quote cite b{color:var(--ink);font-weight:600}
+.steps{list-style:none;margin:28px 0 0;padding:0;counter-reset:s;display:grid;gap:0;
+border-top:1px solid var(--rule)}
+.steps li{counter-increment:s;padding:22px 0;border-bottom:1px solid var(--rule);display:grid;
+grid-template-columns:44px 1fr;gap:16px}
+.steps li::before{content:counter(s,decimal-leading-zero);font-size:13px;letter-spacing:.16em;
+color:var(--accent);padding-top:5px;font-weight:500}
+.steps h3{font-size:20px;margin-bottom:6px}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+.close{padding:60px 0 66px;border-top:1px solid var(--rule);
+background:radial-gradient(100% 130% at 50% 0%,rgba(179,155,110,.15),transparent 62%)}
+.close .wrap{text-align:center;display:flex;flex-direction:column;align-items:center}
+.close h2{font-size:clamp(29px,6.2vw,50px);max-width:17ch}
+.close p{max-width:54ch;font-size:18px;color:var(--muted);margin:14px 0 22px}
+.close .ctas{align-items:center}
+.note{font-size:15px;color:var(--muted);margin-top:20px;max-width:54ch}
+.foot{background:var(--raise);border-top:1px solid var(--rule);padding:42px 0 36px;font-size:15px;
+color:var(--muted);text-align:center}
+.foot .brand{color:var(--ink);display:inline-block;margin-bottom:14px}
+.foot p{margin:0 0 10px}
+.foot a{color:var(--ink)}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--raise);padding:8px;
+border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:8px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:60px;
+text-decoration:none;font-weight:500;font-size:13px;letter-spacing:.1em;text-transform:uppercase;
+text-align:center;line-height:1.2;padding:0 10px}
+.callbar .book{background:var(--accent);color:var(--on-accent)}
+.callbar .tel{border:1px solid rgba(237,233,225,.38);color:var(--ink);padding:0 16px;
+letter-spacing:.04em;text-transform:none;font-size:16px}
+@media(min-width:760px){.ctas{flex-direction:row;gap:12px}.badges{grid-template-columns:1fr 1fr}
+.tiles{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr;column-gap:48px}
+.sec{padding:88px 0}.sub{font-size:19px}.navmain .wrap{height:64px}.brand{font-size:22px}
+.navbook{font-size:13px;padding:0 18px}}
+@media(min-width:1000px){.hero{align-items:center;padding:80px 0 92px}body{padding-bottom:0}
+.callbar{display:none}}
+</style>
+
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">AAAASF accredited · One surgeon · One team</div></div>
+<header class="nav">
+  <div class="navlinks"><div class="wrap"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></div></div>
+  <div class="navmain"><div class="wrap">
+    <a class="brand" href="#">Calder Aesthetic Surgery</a>
+    <a class="btn btn-primary navbook" href="#contact">Request a consultation</a>
+  </div></div>
+</header>
+<section class="hero"><div class="wrap">
+  <p class="eyebrow">Board certified · ABPS</p>
+  <h1>One suite. One surgeon. One team, every time.</h1>
+  <p class="sub">Aesthetic and reconstructive surgery in our own accredited facility. The same anaesthetist, the same nurses and the same surgeon on every case, which is the part of a result nobody photographs.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" data-cta="primary" href="#contact">Request a consultation</a>
+    <a class="btn btn-ghost" href="#results">View results</a>
+  </div>
+  <ul class="badges"><li>ABPS board certified</li><li>AAAASF accredited suite</li><li>Consult with your surgeon</li><li>Financing available</li></ul>
+</div></section>
+<figure class="gsw-plate"><img src="../_assets/hero/plastic-surgeons/b-quiet-gallery.jpg" alt="Quiet gallery — plastic surgeons" loading="lazy"></figure>
+
+<section class="sec" id="services"><div class="wrap">
+  <div class="sec-head"><p class="kicker">Services</p><h2>Procedures</h2>
+  <p class="lede">A short list, deliberately. These are the operations performed often enough to be performed exceptionally.</p></div>
+  <div class="tiles">
+    <article class="tile"><div class="mark" aria-hidden="true"></div><h3>Breast surgery</h3><p>Augmentation, lift, reduction and reconstruction. Sizing done with imaging so you see the projected outcome before deciding.</p></article>
+    <article class="tile"><div class="mark" aria-hidden="true"></div><h3>Body contouring</h3><p>Abdominoplasty, liposuction and post-weight-loss contouring, staged sensibly rather than crammed into one operation.</p></article>
+    <article class="tile"><div class="mark" aria-hidden="true"></div><h3>Facial surgery</h3><p>Facelift, blepharoplasty and rhinoplasty. Conservative by philosophy — the aim is that nobody can tell you've had anything done.</p></article>
+    <article class="tile"><div class="mark" aria-hidden="true"></div><h3>Non-surgical</h3><p>Injectables, resurfacing and skin. Often the right starting point, and we'll say so when surgery isn't warranted yet.</p></article>
+  </div>
+</div></section>
+<section class="sec quote" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <blockquote><p class="q">I consulted with three surgeons. Two put me with a patient coordinator. Dr. Vance spent fifty minutes with me himself and talked me out of one of the two things I came in for.</p>
+  <cite><b>Renata S.</b> · Facial surgery patient</cite></blockquote>
+</div></section>
+<section class="sec" id="process"><div class="wrap">
+  <div class="sec-head"><p class="kicker">Process</p><h2>From consultation to recovery</h2>
+  <p class="lede">Unhurried, private, and with the surgeon throughout. Most people are deciding over months, not days.</p></div>
+  <ol class="steps">
+    <li><div><h3>Private consultation</h3><p>Fifty minutes with the surgeon. Examination, imaging where useful, and a frank conversation about what is and isn't achievable.</p></div></li>
+    <li><div><h3>Plan &amp; quote</h3><p>A written surgical plan and an all-inclusive quote — facility, anaesthesia and follow-up included, no line items appearing later.</p></div></li>
+    <li><div><h3>Pre-operative</h3><p>Medical clearance, photographs and a second sit-down to confirm you're certain. You can change your mind at any point.</p></div></li>
+    <li><div><h3>Surgery &amp; aftercare</h3><p>Accredited suite, board-certified anaesthesia, and a structured follow-up schedule out to one year with photographs at each stage.</p></div></li>
+  </ol>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>Want to see where you'd have it done?</h2>
+  <p>Most of our patients thought about it for a year or more. A consultation commits you to nothing and is the fastest way to replace guesswork with facts.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="#contact">Request a consultation</a>
+    <a class="btn btn-ghost" href="tel:+15557741128">(555) 774-1128</a>
+  </div>
+  <p class="note">Private consultations and a tour of the suite before you commit to anything. Financing available; all enquiries handled confidentially.</p>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Calder Aesthetic Surgery</a>
+  <p><a href="tel:+15557741128">(555) 774-1128</a> · AAAASF accredited · One surgeon · One team</p>
+  <p>Board certified by the American Board of Plastic Surgery · AAAASF accredited facility</p>
+  <p>8902 Wexford Lane, Northfields, CT 15948</p>
+</div></footer>
+<div class="callbar"><a class="book" href="#contact">Request a consultation</a><a class="tel" href="tel:+15557741128">(555) 774-1128</a></div>
+</body>
+</html>

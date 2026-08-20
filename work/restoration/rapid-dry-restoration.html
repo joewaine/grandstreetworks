@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rapid Dry Restoration — crews roll in 60 minutes</title>
+<meta name="description" content="Emergency water, fire and mould restoration. Sixty-minute response, crews on call 24/7/365, insurer billed direct.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Staatliches&display=swap" rel="stylesheet">
+<style>
+/* D4 — THE SIXTY-MINUTE ONE. hero:band nav:centered services:tiles proof:review-wall
+   ink #1E1710 · surface #FFFBF4 · accent #9A4E06 · muted #5A5348 · on-accent #FFFFFF
+   H1 ramp: 34/42/56/72px · Staatliches display / Archivo body
+   Device: the 60-minute dispatch bar drawn as an amber signal band — the response time is
+   the hero itself, with a minute dial, so speed is claimed in the first inch of the page. */
+:root{--ink:#1E1710;--surface:#FFFBF4;--accent:#9A4E06;--muted:#5A5348;--on-accent:#FFFFFF;
+--amber:#F5B335;--paper:#FFFFFF;--rule:rgba(30,23,16,.22);--hair:rgba(30,23,16,.12);--wrap:1150px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.62 Archivo,system-ui,-apple-system,sans-serif;padding-bottom:82px;overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:Staatliches,"Arial Narrow",sans-serif;font-weight:400;margin:0;
+line-height:1.02;letter-spacing:.015em}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:58px;padding:0 24px;
+text-decoration:none;font-size:19px;letter-spacing:.06em;text-transform:uppercase;
+border:2px solid transparent;text-align:center;line-height:1.15;font-family:Staatliches,sans-serif}
+.btn-primary{background:var(--ink);color:var(--amber);border-color:var(--ink)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.topbar{background:var(--ink);color:#F0E7D8;font-size:16px}
+.topbar .wrap{padding:9px 20px;text-align:center;line-height:1.35}
+.nav{position:sticky;top:0;z-index:30;background:var(--surface);border-bottom:2px solid var(--ink)}
+.nav .wrap{padding-top:12px;padding-bottom:11px;text-align:center}
+.brand{font-family:Staatliches,sans-serif;font-size:24px;text-decoration:none;line-height:1;
+letter-spacing:.06em;display:inline-block}
+.navlinks{display:none;justify-content:center;gap:26px;margin-top:9px;font-size:15px;
+letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.navlinks a{text-decoration:none}
+.navlinks a:hover{color:var(--accent)}
+.navact{display:none;min-height:44px;padding:0 16px;font-size:16px;margin-top:10px}
+@media(min-width:560px){.navact{display:inline-flex}}
+/* the amber signal band */
+.band{background:var(--amber);border-bottom:3px solid var(--ink);padding:26px 0 30px}
+.eyebrow{font-family:Staatliches,sans-serif;font-size:17px;letter-spacing:.2em;
+text-transform:uppercase;color:#4A2E05;margin:0 0 12px}
+.band h1{font-size:clamp(34px,9.2vw,72px);max-width:15ch;text-transform:uppercase}
+.sub{font-size:17px;color:#3A2D18;max-width:54ch;margin:14px 0 20px;line-height:1.55}
+.ctas{display:flex;flex-direction:column;gap:10px}
+.dial{margin-top:26px;display:flex;align-items:center;gap:16px}
+.ring{width:74px;height:74px;border-radius:50%;flex:none;
+background:conic-gradient(var(--ink) 0 68%,rgba(30,23,16,.2) 68% 100%);
+display:flex;align-items:center;justify-content:center}
+.ring::after{content:"";width:52px;height:52px;border-radius:50%;background:var(--amber)}
+.badges{list-style:none;margin:0;padding:0;display:grid;gap:7px}
+.badges li{font-size:16px;font-weight:500;color:#2C2213;display:flex;align-items:center;gap:9px}
+.badges li::before{content:"";width:8px;height:8px;background:var(--ink);flex:none;
+border-radius:50%}
+.sec{padding:52px 0}
+.kicker{font-family:Staatliches,sans-serif;font-size:17px;letter-spacing:.2em;
+text-transform:uppercase;color:var(--accent);margin:0 0 8px}
+.sec h2{font-size:clamp(30px,7.4vw,54px);margin-bottom:12px;text-transform:uppercase}
+.lede{color:var(--muted);max-width:58ch;margin:0 0 26px;font-size:17px}
+.tiles{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.tiles li{background:var(--paper);border:2px solid var(--ink);padding:22px 20px 24px;
+box-shadow:7px 7px 0 rgba(30,23,16,.11)}
+.tiles h3{font-size:26px;margin-bottom:8px;text-transform:uppercase}
+.tiles p{margin:0;color:var(--muted);font-size:16px}
+.wall{background:var(--ink);color:#F1E9DC}
+.wall .kicker{color:var(--amber)}
+.wall h2{color:#FFFFFF}
+.reviews{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:14px}
+.reviews li{border:1px solid rgba(241,233,220,.3);padding:20px 18px;background:rgba(255,255,255,.05)}
+.reviews blockquote{margin:0 0 12px;font-size:18px;line-height:1.5;color:#FFFFFF}
+.reviews cite{font-style:normal;font-size:15px;letter-spacing:.1em;text-transform:uppercase;
+color:var(--amber);font-family:Staatliches,sans-serif}
+.reviews cite b{display:block;font-weight:400;letter-spacing:.04em;color:#D8CCB6;
+text-transform:none;font-family:Archivo,sans-serif;font-size:15px;margin-top:4px}
+.partners{margin-top:30px;display:flex;flex-wrap:wrap;gap:8px;padding:0;list-style:none}
+.partners li{border:1px solid rgba(241,233,220,.3);padding:8px 12px;font-size:16px;color:#EDE3D2}
+.ladder{list-style:none;margin:26px 0 0;padding:0;counter-reset:s;display:grid;gap:0;
+border-top:2px solid var(--ink)}
+.ladder li{counter-increment:s;display:grid;grid-template-columns:56px 1fr;gap:14px;
+padding:20px 0;border-bottom:1px solid var(--hair)}
+.ladder li::before{content:counter(s);font-family:Staatliches,sans-serif;font-size:34px;
+line-height:.9;color:var(--accent)}
+.ladder h3{font-size:23px;margin-bottom:5px;text-transform:uppercase}
+.ladder p{margin:0;color:var(--muted);font-size:16px}
+.ladder li.claims{background:rgba(245,179,53,.2);border-bottom-color:var(--ink);
+padding-left:14px;padding-right:14px;margin-left:-14px;margin-right:-14px}
+.close{background:var(--amber);border-top:3px solid var(--ink);padding:52px 0 58px}
+.close h2{font-size:clamp(32px,7.8vw,58px);max-width:13ch;text-transform:uppercase}
+.close p{max-width:52ch;font-size:18px;color:#3A2D18;margin:14px 0 22px}
+.note{font-size:16px;color:#4A3A20;margin-top:20px;max-width:52ch}
+.foot{padding:38px 0 34px;font-size:16px;color:var(--muted);border-top:2px solid var(--ink)}
+.foot .brand{color:var(--ink);margin-bottom:12px}
+.foot p{margin:0 0 9px;max-width:64ch}
+.foot a{color:var(--accent);font-weight:500}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--ink);padding:7px;
+display:grid;grid-template-columns:1fr auto;gap:7px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:60px;
+text-decoration:none;font-size:18px;letter-spacing:.06em;text-transform:uppercase;
+text-align:center;line-height:1.15;padding:0 12px;font-family:Staatliches,sans-serif}
+.callbar .call{background:var(--amber);color:var(--ink)}
+.callbar .tel{border:1px solid rgba(240,231,216,.45);color:#F0E7D8;padding:0 14px;
+letter-spacing:.02em;text-transform:none;font-size:17px;font-family:Archivo,sans-serif;
+font-weight:500}
+@media(min-width:720px){.ctas{flex-direction:row;gap:12px}
+.badges{grid-template-columns:1fr 1fr;column-gap:26px}
+.tiles{grid-template-columns:1fr 1fr}
+.reviews{grid-template-columns:1fr 1fr}
+.ladder{grid-template-columns:1fr 1fr;column-gap:40px}
+.sec{padding:84px 0}.band{padding:46px 0 54px}.sub{font-size:19px}
+.ring{width:96px;height:96px}.ring::after{width:68px;height:68px}}
+@media(min-width:940px){.navlinks{display:flex}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+
+<style>
+  /* Hero backdrop. The photograph sits behind the hero's own composition; the
+     scrim below is the design's own background colour, so nothing about the
+     contrast the layout was built with changes. */
+  .gsw-imaged { position: relative; isolation: isolate; overflow: hidden; }
+  .gsw-imaged > *:not(.gsw-backdrop) { position: relative; z-index: 1; }
+  .gsw-backdrop { position: absolute; inset: 0; z-index: 0; }
+  .gsw-backdrop img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .gsw-backdrop::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(100deg,
+      rgb(245 179 53 / 0.97) 0%, rgb(245 179 53 / 0.95) 38%, rgb(245 179 53 / 0.7) 68%, rgb(245 179 53 / 0.52) 100%);
+  }
+  @media (max-width: 60rem) { .gsw-backdrop::after { background: rgb(245 179 53 / 0.93); } }
+  @media (forced-colors: active) { .gsw-backdrop { display: none; } }
+  @media print { .gsw-backdrop { display: none; } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Emergency crews on call 24/7/365 · We bill your insurer direct</div></div>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="#">Rapid Dry Restoration</a>
+  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+  <a class="btn btn-primary navact" href="tel:+15553841176">Call now — 24/7</a>
+</div></header>
+<section class="gsw-imaged band"><div class="gsw-backdrop" aria-hidden="true"><img src="../_assets/hero/restoration/d-water-on-surface.jpg" alt="" loading="eager"></div><div class="wrap">
+  <p class="eyebrow">Water · Fire · Mould · 24/7</p>
+  <h1>Sixty minutes, or we tell you before the hour is up.</h1>
+  <p class="sub">Emergency water, fire and mould restoration with a sixty-minute metro response. If a crew is not going to make the hour, you get a call before the hour is out rather than an apology afterwards.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" data-cta="primary" href="tel:+15553841176">Call now — 24/7</a>
+    <a class="btn btn-ghost" href="#claims">How claims work</a>
+  </div>
+  <div class="dial">
+    <div class="ring" aria-hidden="true"></div>
+    <ul class="badges">
+      <li>60-minute response</li><li>We bill insurers direct</li>
+      <li>IICRC certified</li><li>Adjuster meetings included</li>
+    </ul>
+  </div>
+</div></section>
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p><h2>Emergency services</h2>
+  <p class="lede">The first sixty minutes decide how much of the floor survives. Everything about how we are set up follows from that.</p>
+  <ul class="tiles">
+    <li><h3>Water extraction &amp; drying</h3><p>Truck-mounted extraction, commercial air movers and moisture mapping so we can prove the structure is genuinely dry, not just dry-feeling.</p></li>
+    <li><h3>Fire &amp; smoke</h3><p>Soot removal, odour neutralisation and contents cleaning. Smoke damage travels far further than the fire itself.</p></li>
+    <li><h3>Mould remediation</h3><p>Containment, HEPA filtration and post-remediation verification by an independent hygienist so the clearance means something.</p></li>
+    <li><h3>Storm &amp; flood</h3><p>Board-up, tarping and full structural drying. We mobilise extra crews before a forecast storm rather than after it.</p></li>
+  </ul>
+</div></section>
+<section class="sec wall" id="results"><div class="wrap">
+  <p class="kicker">Results</p><h2>When it mattered</h2>
+  <ul class="reviews">
+    <li><blockquote>“Answered at 2am and were here inside the hour.”</blockquote><cite>Ruth E.<b>Basement flood</b></cite></li>
+    <li><blockquote>“Handled the adjuster completely. That was worth everything.”</blockquote><cite>Sam I.<b>Kitchen fire</b></cite></li>
+    <li><blockquote>“Independent clearance test at the end. No arguing about it later.”</blockquote><cite>Priya M.<b>Mould remediation</b></cite></li>
+    <li><blockquote>“Showed us moisture readings daily until it was actually dry.”</blockquote><cite>Owen L.<b>Storm damage</b></cite></li>
+  </ul>
+  <ul class="partners">
+    <li>IICRC Certified Firm</li><li>Preferred Vendor — major carriers</li><li>EPA Lead-Safe</li>
+    <li>BBB A+</li><li>OSHA Compliant</li>
+  </ul>
+</div></section>
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p><h2>From your call to your keys</h2>
+  <p class="lede">You are dealing with a disaster and an insurer at the same time. We take the second one off you.</p>
+  <ol class="ladder">
+    <li><div><h3>Call &amp; dispatch</h3><p>A person answers and gives you an arrival time in minutes. If it slips, we ring you — we do not let you sit and wonder.</p></div></li>
+    <li><div><h3>Stabilise</h3><p>Stop the source, extract standing water, tarp or board up. The first hours decide the size of the claim.</p></div></li>
+    <li class="claims" id="claims"><div><h3>Document &amp; bill</h3><p>Full photographic scope and moisture log, submitted to your carrier. We bill them direct and meet the adjuster on site.</p></div></li>
+    <li><div><h3>Dry, verify, restore</h3><p>Daily readings until verified dry, then reconstruction. You get the log, so nothing is disputed months later.</p></div></li>
+  </ol>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>Emergency right now?</h2>
+  <p>Do not wait for business hours. Every hour standing water sits, the cost and the damage climb. Crews are on call this minute.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="tel:+15553841176">Call now — 24/7</a>
+    <a class="btn btn-ghost" href="tel:+15553841176">(555) 384-1176</a>
+  </div>
+  <p class="note">We work with all major insurers and bill direct. Free emergency assessment.</p>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Rapid Dry Restoration</a>
+  <p><a href="tel:+15553841176">(555) 384-1176</a></p>
+  <p>IICRC certified · 24/7/365 emergency response · Licensed &amp; insured</p>
+  <p>6777 Thistle Lane, Lakeview Bend, NY 17215</p>
+</div></footer>
+<div class="callbar"><a class="call" href="tel:+15553841176">Call now — 24/7</a><a class="tel" href="tel:+15553841176">(555) 384-1176</a></div>
+</body>
+</html>

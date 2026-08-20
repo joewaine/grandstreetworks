@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sorrel Studio — Browse our work by style</title>
+<meta name="description" content="Whole homes and substantial renovations. Filter the work by style, then enquire. Projects generally from $60,000 including furnishings.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Literata:wght@500;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* D6 — THE TERRAZZO ONE. hero:fullbleed nav:bar services:tiles proof:review-wall
+   ink #171A17 · surface #F7F3EA · paper #FFFFFF · accent #2B4A3C moss · muted #52584F
+   H1 ramp: 34/40/56/70px · Literata display / Work Sans body
+   Fixes "can't filter by style": the whole page is a sample tray — a full-bleed
+   terrazzo field behind the headline, a run of eight material tiles under it, and the
+   style chips repeated as tags on every client quote, so style is the axis the visitor
+   navigates by from the first screen to the last. */
+:root{--ink:#171A17;--surface:#F7F3EA;--paper:#FFFFFF;--accent:#2B4A3C;--muted:#52584F;
+--plaster:#EFE8D9;--rule:rgba(23,26,23,.15);--wrap:1140px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);overflow-x:hidden;
+font:400 17px/1.62 "Work Sans",system-ui,-apple-system,sans-serif;padding-bottom:80px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Literata",Georgia,serif;font-weight:500;margin:0;line-height:1.14;
+letter-spacing:-.015em}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 24px;
+text-decoration:none;font-weight:600;font-size:16px;line-height:1.2;border:1px solid transparent;
+text-align:center}
+.btn-fill{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn-line{background:var(--paper);color:var(--ink);border-color:var(--ink)}
+.topbar{background:var(--ink);color:#CFD3CB;font-size:15px}
+.topbar .wrap{padding:10px 20px;text-align:center}
+/* nav: bar — two tiers, moss rail over a plaster link shelf */
+.nav{position:sticky;top:0;z-index:30}
+.rail{background:var(--accent);color:#fff}
+.railrow{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:56px}
+.brand{font-family:"Literata",Georgia,serif;font-weight:600;font-size:20px;text-decoration:none;
+color:#fff;line-height:1.15}
+.navact{min-height:38px;padding:0 14px;font-size:14px;white-space:nowrap;background:#fff;
+color:#1F3A2E;border-color:#fff;font-weight:600}
+.shelf{background:var(--plaster);border-bottom:1px solid var(--rule)}
+.navlinks{display:flex;gap:16px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;
+color:var(--muted);font-weight:600;padding:8px 0;max-width:100%}
+.navlinks a{text-decoration:none;white-space:nowrap;padding:4px 0}
+/* hero: fullbleed terrazzo field */
+.hero{position:relative;padding:26px 0 0;background:var(--plaster);overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;opacity:.5;background-color:transparent;
+background-image:
+radial-gradient(circle at 12% 22%,#B9724A 0 5px,transparent 6px),
+radial-gradient(circle at 71% 9%,#3E5A47 0 3px,transparent 4px),
+radial-gradient(circle at 88% 67%,#8A6A2E 0 6px,transparent 7px),
+radial-gradient(circle at 37% 81%,#B4A98D 0 7px,transparent 8px),
+radial-gradient(circle at 55% 44%,#7A4B2A 0 3px,transparent 4px),
+radial-gradient(circle at 23% 57%,#C9BFA6 0 4px,transparent 5px),
+radial-gradient(circle at 64% 74%,#B9724A 0 2px,transparent 3px),
+radial-gradient(circle at 8% 88%,#3E5A47 0 4px,transparent 5px);
+background-size:191px 157px,131px 109px,89px 73px,211px 173px,113px 97px,167px 139px,73px 61px,101px 83px}
+.hero .wrap{position:relative;z-index:1}
+.eyebrow{font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);
+font-weight:600;margin:0 0 14px}
+.hero h1{font-size:clamp(34px,8.6vw,70px);max-width:14ch}
+.sub{font-size:16px;color:var(--muted);max-width:53ch;margin:16px 0 0;line-height:1.6}
+.ctas{display:flex;flex-direction:column;gap:10px;margin-top:22px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:22px 0 26px;padding:0}
+.chips li{font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;
+padding:9px 13px;background:var(--paper);border:1px solid var(--rule);color:var(--muted)}
+.chips li.on{background:var(--accent);border-color:var(--accent);color:#fff}
+/* the tray — eight material tiles, edge to edge */
+.tray{display:grid;grid-template-columns:repeat(4,1fr);position:relative;z-index:1}
+.tray i{display:block;aspect-ratio:1/.86}
+.x-terrazzo{background-color:#EDE6D6;
+background-image:radial-gradient(circle at 22% 30%,#B9724A 0 3px,transparent 4px),
+radial-gradient(circle at 70% 66%,#3E5A47 0 2.5px,transparent 3.5px),
+radial-gradient(circle at 46% 84%,#8A6A2E 0 3px,transparent 4px),
+radial-gradient(circle at 12% 72%,#C9BFA6 0 3.5px,transparent 4.5px);
+background-size:43px 37px,31px 27px,53px 47px,23px 19px}
+.x-oak{background:repeating-linear-gradient(90deg,rgba(60,32,10,.14) 0 1px,transparent 1px 6px),
+linear-gradient(172deg,#BE8B4E,#976539)}
+.x-moss{background:repeating-linear-gradient(0deg,rgba(0,0,0,.07) 0 1px,transparent 1px 3px),
+radial-gradient(80% 70% at 30% 25%,rgba(255,255,255,.16),transparent 62%),#38513F}
+.x-lime{background:radial-gradient(120% 100% at 26% 16%,#FCF8EF,transparent 62%),#E6DDCA}
+.x-clay{background:linear-gradient(168deg,#C0724B,#96502C)}
+.x-brass{background:linear-gradient(102deg,#7A5C24 0 18%,#D6B76E 32%,#A4843C 48%,#EAD79E 62%,#7A5C24)}
+.x-marble{background:linear-gradient(112deg,transparent 0 40%,rgba(104,106,100,.42) 40% 41.4%,transparent 41.4%),
+linear-gradient(96deg,transparent 0 68%,rgba(104,106,100,.28) 68% 69%,transparent 69%),#EEEBE2}
+.x-ink{background:linear-gradient(158deg,#2C312B,#141712)}
+/* sections */
+.sec{padding:56px 0;border-top:1px solid var(--rule)}
+.kicker{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);
+margin:0 0 12px;font-weight:600}
+.sec h2{font-size:clamp(29px,7vw,48px);max-width:18ch}
+.lede{color:var(--muted);max-width:58ch;margin:16px 0 30px;font-size:17px}
+/* services: tiles */
+.tiles{display:grid;gap:12px}
+.tile{background:var(--paper);border:1px solid var(--rule);overflow:hidden}
+.tile .cap{height:64px;display:block}
+.tile .body{padding:18px 18px 22px}
+.tile h3{font-size:22px;margin-bottom:9px}
+.tile p{margin:0;color:var(--muted);font-size:16px}
+/* proof: review-wall */
+.walllabel{font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);
+font-weight:600;margin:0 0 18px}
+.wall{display:grid;gap:12px}
+.rev{background:var(--paper);border:1px solid var(--rule);padding:20px 18px;position:relative}
+.rev::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--accent)}
+.rev p{margin:0 0 14px;font-family:"Literata",Georgia,serif;font-size:18px;line-height:1.44}
+.rev cite{font-style:normal;font-size:15px;color:var(--muted);display:block}
+.rev cite b{color:var(--ink);font-weight:600}
+.rev .tag{display:inline-block;margin-top:12px;font-size:13px;letter-spacing:.08em;
+text-transform:uppercase;font-weight:600;color:var(--accent);border:1px solid var(--accent);
+padding:5px 10px}
+/* process */
+.steps{list-style:none;margin:26px 0 0;padding:0;counter-reset:s;display:grid;gap:0}
+.steps li{counter-increment:s;padding:24px 0 24px 58px;border-bottom:1px solid var(--rule);
+position:relative}
+.steps li:first-child{border-top:2px solid var(--ink)}
+.steps li::before{content:counter(s,decimal-leading-zero);position:absolute;left:0;top:24px;
+font-family:"Literata",Georgia,serif;font-size:30px;font-weight:600;color:transparent;
+-webkit-text-stroke:1px var(--accent);line-height:1}
+.steps h3{font-size:21px;margin-bottom:7px}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+/* close */
+.close{background:var(--accent);color:#fff;padding:56px 0 60px}
+.close h2{font-size:clamp(29px,7.2vw,50px);max-width:17ch;color:#fff}
+.close p{max-width:56ch;font-size:17px;color:#CFE0D6;margin:18px 0 24px}
+.close .btn-fill{background:#fff;color:#1F3A2E;border-color:#fff}
+.close .btn-line{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}
+.note{font-size:15px;color:#CFE0D6;margin-top:20px;max-width:56ch}
+.foot{padding:42px 0 36px;font-size:15px;color:var(--muted)}
+.foot .brand{color:var(--ink);display:inline-block;margin:0 0 14px}
+.foot p{margin:0 0 10px;max-width:66ch}
+.foot a{color:var(--accent);font-weight:600}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--paper);
+border-top:1px solid var(--rule);padding:8px;display:grid;grid-template-columns:1fr auto;gap:8px;
+box-shadow:0 -2px 12px rgba(23,26,23,.12)}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:56px;
+text-decoration:none;font-size:15px;font-weight:600;line-height:1.2;text-align:center;padding:0 14px}
+.callbar .go{background:var(--accent);color:#fff}
+.callbar .tel{border:1px solid var(--ink);color:var(--ink);font-size:16px}
+@media(max-width:439px){.navact{display:none}}
+@media(min-width:760px){
+.ctas{flex-direction:row}.hero{padding:56px 0 0}.sec{padding:88px 0}.sub{font-size:19px}
+.chips{margin-bottom:40px}
+.tray{grid-template-columns:repeat(8,1fr)}
+.tiles{grid-template-columns:1fr 1fr;gap:16px}
+.wall{grid-template-columns:1fr 1fr;gap:16px}
+.steps{grid-template-columns:1fr 1fr;column-gap:46px}
+.navlinks{gap:24px;letter-spacing:.16em}.railrow{min-height:64px}.brand{font-size:23px}
+}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Full-service interiors · Projects from $60,000 · Now booking</div></div>
+
+<header class="nav">
+  <div class="rail"><div class="wrap"><div class="railrow">
+    <a class="brand" href="#">Sorrel Studio</a>
+    <a class="btn navact" href="#contact">Start a project</a>
+  </div></div></div>
+  <div class="shelf"><div class="wrap">
+    <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+  </div></div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Full-service residential interiors</p>
+    <h1>We install it ourselves. Nothing is handed over half-done.</h1>
+    <p class="sub">Full-service interior design for whole homes and substantial renovations, generally from around $60,000 including furnishings. We procure, chase, receive, inspect and install — half a service in this business is worse than none.</p>
+    <div class="ctas">
+      <a class="btn btn-fill" data-cta="primary" href="#contact">Start a project</a>
+      <a class="btn btn-line" href="#results">Browse by style</a>
+    </div>
+    <ul class="chips">
+      <li class="on">Filter work by style</li>
+      <li>Projects from $60,000</li>
+      <li>Trade pricing passed on</li>
+      <li>Full install &amp; styling</li>
+    </ul>
+  </div>
+  <div class="tray" aria-hidden="true">
+    <i class="x-terrazzo"></i><i class="x-oak"></i><i class="x-moss"></i><i class="x-lime"></i>
+    <i class="x-clay"></i><i class="x-brass"></i><i class="x-marble"></i><i class="x-ink"></i>
+  </div>
+</section>
+<figure class="gsw-plate"><img src="../_assets/hero/interior-design/a-rooms-like-people.jpg" alt="Rooms like people — interior design" loading="lazy"></figure>
+
+
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p>
+  <h2>How we work</h2>
+  <p class="lede">Full service, meaning we handle procurement, deliveries, trades and installation. Half a service is worse than none in this business.</p>
+  <div class="tiles">
+    <article class="tile"><span class="cap x-oak"></span><div class="body"><h3>Whole-home design</h3><p>Concept through installation, including everything that gets specified, ordered, chased, received and placed. Usually four to nine months.</p></div></article>
+    <article class="tile"><span class="cap x-marble"></span><div class="body"><h3>Renovation interiors</h3><p>Working alongside your architect and builder on finishes, joinery, lighting and the decisions that get made too late otherwise.</p></div></article>
+    <article class="tile"><span class="cap x-moss"></span><div class="body"><h3>Single rooms, done properly</h3><p>Kitchens, principal bedrooms and living rooms as standalone projects. From about $25,000 including furnishings.</p></div></article>
+    <article class="tile"><span class="cap x-brass"></span><div class="body"><h3>Trade pricing, passed on</h3><p>We buy at trade and pass the discount to you, charging a transparent design fee instead of marking up your sofa.</p></div></article>
+  </div>
+</div></section>
+
+<section class="sec" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <h2>Four houses, four styles</h2>
+  <p class="walllabel">From our clients</p>
+  <div class="wall">
+    <figure class="rev"><p>Being able to filter by style saved me three wasted consultations.</p><cite><b>Yolanda P.</b></cite><span class="tag">Whole home</span></figure>
+    <figure class="rev"><p>No mark-up on furnishings and they showed us the invoices.</p><cite><b>Aaron K.</b></cite><span class="tag">Renovation</span></figure>
+    <figure class="rev"><p>Install day was a single day. Everything arrived, everything fitted.</p><cite><b>Nour E.</b></cite><span class="tag">Principal suite</span></figure>
+    <figure class="rev"><p>Worked with our architect rather than around them.</p><cite><b>The Beltrans</b></cite><span class="tag">New build interiors</span></figure>
+  </div>
+</div></section>
+
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p>
+  <h2>From first visit to install day</h2>
+  <p class="lede">The bit people find hardest is the middle, where nothing seems to be happening and everything is being ordered.</p>
+  <ol class="steps">
+    <li><h3>Consultation</h3><p>We visit, walk the house and talk about how you actually live in it. A fixed fee, credited against the project if you proceed.</p></li>
+    <li><h3>Concept &amp; budget</h3><p>Direction, palette and a realistic furnishing budget room by room. This is where expectations and money get reconciled.</p></li>
+    <li><h3>Specification &amp; procurement</h3><p>Everything specified, ordered and tracked by us. Long lead times are the reality; knowing about them early is the service.</p></li>
+    <li><h3>Install &amp; style</h3><p>Usually a single day. Everything arrives at our warehouse first, gets inspected, and goes in at once rather than in dribs.</p></li>
+  </ol>
+</div></section>
+
+<section class="close" id="contact"><div class="wrap">
+  <h2>Renovating, moving, or finally doing the house properly?</h2>
+  <p>The earliest useful conversation is before the builder starts. Lighting, joinery and layout decisions get very expensive once walls are closed.</p>
+  <div class="ctas">
+    <a class="btn btn-fill" href="#contact">Start a project</a>
+    <a class="btn btn-line" href="tel:+15559162274">(555) 916-2274</a>
+  </div>
+  <p class="note">Projects generally from $60,000 including furnishings. Consultation fee credited against the project.</p>
+</div></section>
+
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Sorrel Studio</a>
+  <p>Full-service residential interiors · Trade pricing passed to clients · Est. 2012</p>
+  <p><a href="tel:+15559162274">(555) 916-2274</a></p>
+  <p>7237 Ashmount Road Suite 4B, Millbrook Park, NY 18541</p>
+</div></footer>
+
+<div class="callbar"><a class="go" href="#contact">Start a project</a><a class="tel" href="tel:+15559162274">(555) 916-2274</a></div>
+</body>
+</html>

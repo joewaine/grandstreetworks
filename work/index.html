@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Work — Grand Street Works</title>
+<meta name="description" content="Reference homepage builds across twenty trades, six directions each. Fictional businesses, real conversion structure.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://grandstreetworks.com/work/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23050505'/%3E%3Ccircle cx='14' cy='14' r='5' fill='%23C2D57D'/%3E%3Ctext x='32' y='50' font-family='Menlo,Consolas,monospace' font-size='26' font-weight='bold' fill='%23E5E5E6' text-anchor='middle'%3EGW%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-color: #E5E5E6;
+    --text-color: #050505;
+    --border-color: #050505;
+    --border-light: rgba(5, 5, 5, 0.15);
+    --font-sans: 'Inter', -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --nav-height: 60px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    line-height: 1.4;
+    padding-top: var(--nav-height);
+  }
+  a { color: inherit; text-decoration: none; }
+  a:focus-visible { outline: 2px solid var(--text-color); outline-offset: 3px; }
+  h1 { font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 500; letter-spacing: -0.03em; line-height: 1.05; }
+  p { font-size: 1.125rem; color: rgba(5, 5, 5, 0.8); line-height: 1.5; }
+  .label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  header {
+    position: fixed; top: 0; left: 0; width: 100%; height: var(--nav-height);
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 2rem; background-color: var(--bg-color);
+    border-bottom: 1px solid var(--border-color); z-index: 100;
+  }
+  .logo-mark { display: flex; align-items: center; gap: 1rem; }
+  .status-dot {
+    width: 8px; height: 8px; background-color: #C2D57D; border-radius: 50%;
+    display: inline-block; box-shadow: 0 0 10px rgba(194, 213, 125, 0.5);
+  }
+  .intro { padding: 4rem 2rem; border-bottom: 1px solid var(--border-color); }
+  .intro p { margin-top: 1.5rem; max-width: 66ch; }
+  .section-header {
+    display: flex; align-items: center; padding: 1rem 2rem;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--text-color); color: var(--bg-color);
+  }
+  .section-header .label { color: var(--bg-color); }
+  .work-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+    background-color: var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+  }
+  .work-grid a {
+    background-color: var(--bg-color); padding: 1.5rem 2rem;
+    display: flex; flex-direction: column; gap: 0.5rem;
+    transition: background-color 0.2s ease;
+  }
+  .work-grid a:hover { background-color: #DEDEDF; }
+  .work-index {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    color: rgba(5, 5, 5, 0.45);
+  }
+  .work-name { font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; }
+  .work-firm { font-family: var(--font-mono); font-size: 0.8125rem; color: rgba(5, 5, 5, 0.6); }
+  footer {
+    display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+    padding: 1.5rem 2rem; border-top: 1px solid var(--border-color);
+  }
+  @media (max-width: 1024px) { .work-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px) {
+    header, .intro, .section-header, footer { padding-left: 1.25rem; padding-right: 1.25rem; }
+    .work-grid { grid-template-columns: 1fr; }
+    .work-grid a { padding-left: 1.25rem; padding-right: 1.25rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { .work-grid a { transition: none; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-mark">
+    <span class="status-dot" aria-hidden="true"></span>
+    <a href="../" class="label" style="font-weight: 600;">Grand Street Works</a>
+  </div>
+  <a href="../#contact" class="label" style="text-decoration: underline;">Get in touch</a>
+</header>
+
+<main>
+  <div class="intro">
+    <h1>Twenty trades. Six directions each.</h1>
+    <p>
+      Reference builds, made to show what the method produces. <strong>The businesses are invented; the structure isn't.</strong>
+      Each set started with the same read — what the best-performing firms in that trade put on a homepage, and what the rest leave off — and every direction fixes a named item from that trade's list.
+    </p>
+    <p>
+      They are six structurally different pages, not one layout in six colours. Open the closest one to your trade on a phone: that is the screen the argument is actually settled on.
+    </p>
+  </div>
+
+  <div class="section-header">
+    <span class="label">[WORK] Reference builds</span>
+  </div>
+
+  <div class="work-grid">
+    <a href="personal-injury/"><span class="work-index">01/</span><span class="work-name">Personal injury</span><span class="work-firm">View →</span></a>
+    <a href="cosmetic-dentists/"><span class="work-index">02/</span><span class="work-name">Cosmetic dentistry</span><span class="work-firm">View →</span></a>
+    <a href="plastic-surgeons/"><span class="work-index">03/</span><span class="work-name">Plastic surgery</span><span class="work-firm">View →</span></a>
+    <a href="med-spas/"><span class="work-index">04/</span><span class="work-name">Med spas</span><span class="work-firm">View →</span></a>
+    <a href="dermatology/"><span class="work-index">05/</span><span class="work-name">Dermatology</span><span class="work-firm">View →</span></a>
+    <a href="roofing/"><span class="work-index">06/</span><span class="work-name">Roofing</span><span class="work-firm">View →</span></a>
+    <a href="hvac/"><span class="work-index">07/</span><span class="work-name">Heating &amp; cooling</span><span class="work-firm">View →</span></a>
+    <a href="restoration/"><span class="work-index">08/</span><span class="work-name">Restoration</span><span class="work-firm">View →</span></a>
+    <a href="general-contractors/"><span class="work-index">09/</span><span class="work-name">General contracting</span><span class="work-firm">View →</span></a>
+    <a href="luxury-real-estate/"><span class="work-index">10/</span><span class="work-name">Luxury real estate</span><span class="work-firm">View →</span></a>
+    <a href="wealth-management/"><span class="work-index">11/</span><span class="work-name">Wealth management</span><span class="work-firm">View →</span></a>
+    <a href="accounting-cpas/"><span class="work-index">12/</span><span class="work-name">Accounting &amp; CPAs</span><span class="work-firm">View →</span></a>
+    <a href="architecture/"><span class="work-index">13/</span><span class="work-name">Architecture</span><span class="work-firm">View →</span></a>
+    <a href="interior-design/"><span class="work-index">14/</span><span class="work-name">Interior design</span><span class="work-firm">View →</span></a>
+    <a href="custom-home-builders/"><span class="work-index">15/</span><span class="work-name">Custom home building</span><span class="work-firm">View →</span></a>
+    <a href="pool-builders/"><span class="work-index">16/</span><span class="work-name">Pool building</span><span class="work-firm">View →</span></a>
+    <a href="solar/"><span class="work-index">17/</span><span class="work-name">Solar</span><span class="work-firm">View →</span></a>
+    <a href="recruiting/"><span class="work-index">18/</span><span class="work-name">Recruiting</span><span class="work-firm">View →</span></a>
+    <a href="property-management/"><span class="work-index">19/</span><span class="work-name">Property management</span><span class="work-firm">View →</span></a>
+    <a href="veterinary/"><span class="work-index">20/</span><span class="work-name">Veterinary</span><span class="work-firm">View →</span></a>
+  </div>
+</main>
+
+<footer>
+  <div class="label"><a href="../" style="text-decoration: underline;">← Back to Grand Street Works</a></div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rowan Property Group — 8% management, no hidden fees, owner portal</title>
+<meta name="description" content="Full-service management for owners of one to two hundred doors. Eight percent, no leasing markup, no maintenance mark-up, and a live owner portal.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* D1 — THE OWNER STATEMENT ONE. hero:split nav:centered services:list proof:logos
+   ink #1B1F24 · surface #F5F2EA · accent #7C5E11 · muted #5A5347 · on-accent #FFFFFF
+   H1 ramp: 29/34/46/60px · Barlow Semi Condensed display / Inter body, tabular numerals
+   Fixes "owner acquisition path absent": the right half of the split is an owner
+   statement — the fee, the mark-up, the door count and the vacancy figure printed as a
+   ruled document before a single word is addressed to a tenant. */
+:root{--ink:#1B1F24;--surface:#F5F2EA;--paper:#FFFDF8;--accent:#7C5E11;--muted:#5A5347;
+--rule:rgba(27,31,36,.22);--hair:rgba(27,31,36,.12);--wrap:1140px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.6 Inter,system-ui,-apple-system,sans-serif;padding-bottom:82px;overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Barlow Semi Condensed",system-ui,sans-serif;font-weight:600;margin:0;
+line-height:1.06;letter-spacing:.004em}
+a{color:inherit}
+.num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 22px;
+text-decoration:none;font-weight:600;font-size:16px;border:1.5px solid transparent;text-align:center;
+line-height:1.2}
+.btn-primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--rule)}
+.topbar{background:var(--ink);color:#EDE7D8;font-size:15px}
+.topbar .wrap{padding:8px 20px;text-align:center;line-height:1.4}
+.topbar b{color:#E3BF6B;font-weight:600}
+.nav{position:sticky;top:0;z-index:30;background:var(--surface);border-bottom:1px solid var(--rule)}
+.navrow{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:54px;gap:8px}
+.brand{font-family:"Barlow Semi Condensed",system-ui,sans-serif;font-weight:700;font-size:23px;
+letter-spacing:.18em;text-transform:uppercase;text-decoration:none;grid-column:2;line-height:1}
+.navact{grid-column:3;justify-self:end;min-height:38px;font-size:14px;padding:0 13px;
+white-space:nowrap}
+.navlinks{display:flex;justify-content:center;gap:15px;padding:0 14px 9px;font-size:13px;
+letter-spacing:.1em;text-transform:uppercase;color:var(--muted);overflow-x:auto;
+scrollbar-width:none}
+.navlinks::-webkit-scrollbar{display:none}
+.navlinks a{text-decoration:none;white-space:nowrap;font-weight:500}
+.navlinks a:hover{color:var(--accent)}
+.hero{padding:20px 0 34px}
+.eyebrow{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);
+font-weight:600;margin:0 0 10px}
+.hero h1{font-size:clamp(29px,7.6vw,60px);max-width:14ch}
+.sub{font-size:16px;color:var(--muted);max-width:50ch;margin:12px 0 18px;line-height:1.55}
+.ctas{display:flex;flex-direction:column;gap:10px}
+.stmt{margin-top:26px;background:var(--paper);border:1px solid var(--rule);
+box-shadow:6px 6px 0 rgba(27,31,36,.06)}
+.stmthead{display:flex;justify-content:space-between;gap:10px;align-items:baseline;
+padding:14px 16px 12px;border-bottom:2px solid var(--ink)}
+.stmthead span{font-family:"Barlow Semi Condensed",system-ui,sans-serif;font-weight:700;
+font-size:17px;letter-spacing:.12em;text-transform:uppercase}
+.stmthead em{font-style:normal;font-size:13px;letter-spacing:.16em;text-transform:uppercase;
+color:var(--accent);font-weight:600}
+.stmtrows{margin:0;padding:0 16px}
+.srow{display:flex;justify-content:space-between;align-items:baseline;gap:14px;
+padding:13px 0;border-bottom:1px dotted var(--rule)}
+.srow dt{font-size:16px;color:var(--muted)}
+.srow dd{margin:0;font-family:"Barlow Semi Condensed",system-ui,sans-serif;font-weight:700;
+font-size:29px;color:var(--accent);line-height:1}
+.badges{list-style:none;margin:0;padding:14px 16px 16px;display:grid;gap:9px}
+.badges li{font-size:15px;font-weight:500;padding-left:20px;position:relative}
+.badges li::before{content:"";position:absolute;left:0;top:6px;width:10px;height:10px;
+background:var(--accent)}
+.sec{padding:48px 0;border-top:1px solid var(--hair)}
+.kicker{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);
+font-weight:600;margin:0 0 10px}
+.sec h2{font-size:clamp(27px,6.4vw,46px)}
+.lede{color:var(--muted);max-width:56ch;margin:12px 0 24px;font-size:17px}
+.list{display:grid;border-top:2px solid var(--ink)}
+.li{padding:20px 0;border-bottom:1px solid var(--hair)}
+.li h3{font-size:22px;margin-bottom:7px}
+.li p{margin:0;color:var(--muted);font-size:16px;max-width:62ch}
+.logos{background:var(--paper);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.logolist{list-style:none;margin:22px 0 0;padding:0;display:grid;border-top:1px solid var(--hair)}
+.logolist li{font-family:"Barlow Semi Condensed",system-ui,sans-serif;font-weight:600;font-size:19px;
+letter-spacing:.06em;text-transform:uppercase;color:var(--accent);padding:15px 0;
+border-bottom:1px solid var(--hair)}
+.steps{list-style:none;margin:24px 0 0;padding:0;counter-reset:s;display:grid;
+border-top:2px solid var(--ink)}
+.steps li{counter-increment:s;padding:20px 0;border-bottom:1px solid var(--hair);display:grid;
+grid-template-columns:52px 1fr;gap:12px}
+.steps li::before{content:counter(s,decimal-leading-zero);font-family:"Barlow Semi Condensed",
+system-ui,sans-serif;font-weight:700;font-size:30px;color:var(--accent);line-height:.95;
+font-variant-numeric:tabular-nums}
+.steps h3{font-size:21px;margin-bottom:6px}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+.close{background:var(--ink);color:#F0EADC;padding:50px 0 54px}
+.close h2{font-size:clamp(28px,6.8vw,50px);max-width:15ch}
+.close p{max-width:52ch;font-size:17px;color:#C4BCA8;margin:14px 0 20px}
+.close .btn-primary{background:#E3BF6B;color:#1B1F24;border-color:#E3BF6B}
+.close .btn-ghost{color:#F0EADC;border-color:rgba(240,234,220,.4)}
+.note{font-size:15px;color:#B0A791;margin-top:20px;max-width:52ch;
+border-left:3px solid #7C6A44;padding-left:12px}
+.foot{padding:36px 0;font-size:15px;color:var(--muted)}
+.foot .brand{color:var(--ink);display:inline-block;margin-bottom:12px;font-size:20px}
+.foot p{margin:0 0 9px;max-width:62ch}
+.foot a{color:var(--accent);font-weight:500}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--surface);
+border-top:2px solid var(--ink);display:grid;grid-template-columns:1fr auto;gap:8px;padding:8px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:58px;
+text-decoration:none;font-weight:600;font-size:15px;text-align:center;line-height:1.2;padding:0 12px}
+.callbar .go{background:var(--accent);color:#fff}
+.callbar .tel{border:1.5px solid var(--rule);color:var(--ink);font-variant-numeric:tabular-nums}
+@media(max-width:559px){.navact{display:none}}
+@media(min-width:760px){
+.ctas{flex-direction:row;gap:12px}.sub{font-size:19px}.sec{padding:76px 0}
+.hero{padding:34px 0 56px}.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;
+align-items:start}.stmt{margin-top:0}.badges{grid-template-columns:1fr 1fr}
+.logolist{grid-template-columns:repeat(5,1fr);border-top:none}
+.logolist li{border-bottom:none;border-left:1px solid var(--hair);padding:16px 14px}
+.logolist li:first-child{border-left:none}
+.li{display:grid;grid-template-columns:1fr 1.7fr;gap:34px;padding:26px 0}
+.steps{grid-template-columns:1fr 1fr;column-gap:44px}
+.srow dd{font-size:34px}.brand{font-size:25px}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap"><b>For owners:</b> 8% management, no hidden fees · Tenant portal →</div></div>
+<header class="nav">
+  <div class="wrap navrow">
+    <a class="brand" href="#">Rowan Property Group</a>
+    <a class="btn btn-primary navact" href="#contact">Get an owner proposal</a>
+  </div>
+  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+</header>
+<section class="hero"><div class="wrap">
+  <div>
+    <p class="eyebrow">For rental property owners</p>
+    <h1>Eight rentals and tired of being the plumber's first call?</h1>
+    <p class="sub">Full-service management for owners of one to two hundred doors. Eight percent, no leasing fee, no mark-up on maintenance, and a statement each month that reconciles to the cent without you asking for it.</p>
+    <div class="ctas">
+      <a class="btn btn-primary" data-cta="primary" href="#contact">Get an owner proposal</a>
+      <a class="btn btn-ghost" href="#results">See our fees</a>
+    </div>
+  </div>
+  <aside class="stmt">
+    <div class="stmthead"><span>Rowan Property Group</span><em>Owner statement</em></div>
+    <dl class="stmtrows">
+      <div class="srow"><dt>Flat management fee</dt><dd class="num">8%</dd></div>
+      <div class="srow"><dt>Maintenance mark-up</dt><dd class="num">0%</dd></div>
+      <div class="srow"><dt>Doors managed</dt><dd class="num">1,900</dd></div>
+      <div class="srow"><dt>Average days vacant</dt><dd class="num">21d</dd></div>
+    </dl>
+    <ul class="badges"><li>8% management fee</li><li>No maintenance mark-up</li><li>Owner portal, live</li><li>24/7 maintenance line</li></ul>
+  </aside>
+</div></section>
+<figure class="gsw-plate"><img src="../_assets/hero/property-management/a-the-asset.jpg" alt="The asset — property management" loading="lazy"></figure>
+
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p>
+  <h2>What we take off you</h2>
+  <p class="lede">Everything you currently do at nine o'clock on a Sunday night.</p>
+  <div class="list">
+    <article class="li"><h3>Leasing &amp; screening</h3><p>Marketing, showings, credit, criminal and income screening, and lease execution. No separate leasing fee — it's in the eight percent.</p></article>
+    <article class="li"><h3>Maintenance coordination</h3><p>24/7 line, vetted trades and our actual cost passed through with no mark-up. You approve anything over your threshold.</p></article>
+    <article class="li"><h3>Rent &amp; delinquency</h3><p>Collection, late notices and the eviction process where it comes to that. You get paid on the same day each month regardless.</p></article>
+    <article class="li"><h3>Owner reporting</h3><p>Live portal with statements, invoices, inspection photographs and year-end tax documents. Not a monthly PDF emailed to you.</p></article>
+  </div>
+</div></section>
+<section class="sec logos" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <h2>Accredited &amp; insured</h2>
+  <ul class="logolist"><li>NARPM Member</li><li>Licensed Brokerage</li><li>$2M E&amp;O Insurance</li><li>Fair Housing Certified</li><li>AppFolio Partner</li></ul>
+</div></section>
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p>
+  <h2>Handing over a portfolio</h2>
+  <p class="lede">Usually about three weeks from first conversation to us taking the calls.</p>
+  <ol class="steps">
+    <li><div><h3>Proposal</h3><p>We look at your properties and current rents and send a written proposal with real numbers. Free, no meeting required first.</p></div></li>
+    <li><div><h3>Onboarding</h3><p>We collect leases, deposits and keys, notify tenants, and inspect every unit with photographs so we have a documented baseline.</p></div></li>
+    <li><div><h3>Stabilise</h3><p>Rent reviews where they're due, deferred maintenance addressed, and any problem tenancies dealt with properly.</p></div></li>
+    <li><div><h3>Run it</h3><p>You look at the portal when you feel like it. We only contact you for approvals above your threshold and for anything genuinely serious.</p></div></li>
+  </ol>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>Own rentals and manage them yourself?</h2>
+  <p>Send us the addresses and we'll come back with what we'd charge and what we think the units should be renting for. No meeting required to get the number.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="#contact">Get an owner proposal</a>
+    <a class="btn btn-ghost num" href="tel:+15553146672">(555) 314-6672</a>
+  </div>
+  <p class="note">Tenants: use the tenant portal for maintenance requests and rent payments.</p>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Rowan Property Group</a>
+  <p><a class="num" href="tel:+15553146672">(555) 314-6672</a> · Licensed brokerage · NARPM member · Equal Housing Opportunity</p>
+  <p>7935 Windmere Avenue, Northfields, CT 10711</p>
+</div></footer>
+<div class="callbar"><a class="go" href="#contact">Get an owner proposal</a><a class="tel" href="tel:+15553146672">(555) 314-6672</a></div>
+</body>
+</html>

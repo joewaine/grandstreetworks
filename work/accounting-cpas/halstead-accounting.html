@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Halstead Accounting — Stop emailing your tax documents as attachments.</title>
+<meta name="description" content="Business accounting, tax and advisory for owner-managed companies. One fixed monthly fee agreed in advance and never billed by the six-minute unit, so ringing your accountant a question stops feeling expensive.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@600;700;800&family=Mulish:wght@400;600&family=Overpass+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* D6 — THE PLAIN ONE. hero:fullbleed nav:centered services:cards proof:review-wall
+   ink #16161A · surface #F7F7F5 · accent #06636F · muted #55595C
+   Darker Grotesque display / Mulish body / Overpass Mono micro-labels
+   Fixes "the constraint is capacity, not leads": the quietest of the six, sized
+   like a firm that is choosing rather than selling — a centred, hairline page
+   whose only drawn object is the three-box document path from desk to portal. */
+:root{--ink:#16161A;--surface:#F7F7F5;--paper:#FFFFFF;--accent:#06636F;--muted:#55595C;
+--rule:rgba(22,22,26,.16);--hair:rgba(22,22,26,.08);--wrap:1000px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.65 "Mulish",system-ui,-apple-system,sans-serif;padding-bottom:80px;overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Darker Grotesque","Mulish",system-ui,sans-serif;font-weight:800;margin:0;
+line-height:1.02;letter-spacing:-.012em}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 24px;
+text-decoration:none;font-weight:600;font-size:16px;line-height:1.2;text-align:center;
+border:1px solid transparent;font-family:"Mulish",sans-serif}
+.btn-primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--rule)}
+.topbar{background:var(--paper);color:var(--muted);font-family:"Overpass Mono",monospace;
+font-size:13px;border-bottom:1px solid var(--hair)}
+.topbar .wrap{padding:9px 20px;text-align:center}
+.nav{position:sticky;top:0;z-index:30;background:var(--surface);border-bottom:1px solid var(--hair)}
+.navrow{position:relative;display:flex;align-items:center;justify-content:center;height:52px;
+padding:0 20px}
+.brand{font-family:"Darker Grotesque",sans-serif;font-weight:800;font-size:25px;text-decoration:none;
+letter-spacing:-.015em;line-height:1}
+.navact{position:absolute;right:20px;top:50%;transform:translateY(-50%);min-height:36px;padding:0 14px;
+font-size:14px;white-space:nowrap}
+.navlinks{display:flex;justify-content:center;gap:24px;padding:0 20px 11px;overflow-x:auto;
+scrollbar-width:none}
+.navlinks::-webkit-scrollbar{display:none}
+.navlinks a{font-family:"Overpass Mono",monospace;font-size:13px;letter-spacing:.12em;
+text-transform:uppercase;color:var(--muted);text-decoration:none;white-space:nowrap}
+.hero{padding:36px 0 44px;text-align:center;border-bottom:1px solid var(--rule);background:var(--paper)}
+.eyebrow{font-family:"Overpass Mono",monospace;font-size:13px;letter-spacing:.18em;
+text-transform:uppercase;color:var(--accent);margin:0 0 18px}
+.hero h1{font-size:clamp(38px,10.4vw,78px);max-width:15ch;margin:0 auto}
+.sub{font-size:16.5px;color:var(--muted);max-width:50ch;margin:20px auto 0;line-height:1.62}
+.ctas{display:flex;flex-direction:column;gap:10px;margin-top:24px;align-items:stretch}
+.path{margin:34px auto 0;max-width:400px}
+.box{border:1px solid var(--rule);background:var(--surface);padding:14px 16px;position:relative}
+.box .k{display:block;font-family:"Overpass Mono",monospace;font-size:13px;letter-spacing:.1em;
+color:var(--accent)}
+.box .sheet{display:block;height:22px;margin-top:9px;
+background:repeating-linear-gradient(180deg,var(--rule) 0 1px,transparent 1px 7px)}
+.box+.box{margin-top:26px}
+.box+.box::before{content:"";position:absolute;left:50%;top:-26px;height:17px;width:1px;
+background:var(--accent)}
+.box+.box::after{content:"";position:absolute;left:50%;top:-10px;margin-left:-5px;width:0;height:0;
+border-left:5px solid transparent;border-right:5px solid transparent;border-top:7px solid var(--accent)}
+.box.end{background:var(--accent);border-color:var(--accent)}
+.box.end .k{color:#CFEAEE}
+.box.end .sheet{background:repeating-linear-gradient(180deg,rgba(255,255,255,.55) 0 1px,transparent 1px 7px)}
+.badges{list-style:none;margin:30px auto 0;padding:0;display:grid;gap:0;max-width:400px;
+border-top:1px solid var(--hair)}
+.badges li{font-family:"Overpass Mono",monospace;font-size:13.5px;padding:11px 0;
+border-bottom:1px solid var(--hair);line-height:1.4}
+.sec{padding:54px 0;border-bottom:1px solid var(--rule);text-align:center}
+.kicker{font-family:"Overpass Mono",monospace;font-size:13px;letter-spacing:.18em;
+text-transform:uppercase;color:var(--accent);margin:0 0 12px}
+.sec h2{font-size:clamp(32px,8vw,54px);max-width:20ch;margin:0 auto}
+.lede{color:var(--muted);max-width:56ch;margin:16px auto 0;font-size:17px}
+.cards{display:grid;gap:14px;margin-top:32px;text-align:left}
+.card{background:var(--paper);border:1px solid var(--rule);padding:22px 20px}
+.card h3{font-size:27px;margin-bottom:8px;line-height:1.06}
+.card p{margin:0;color:var(--muted);font-size:16px}
+.wall{display:grid;gap:0;margin-top:30px;text-align:left;border-top:1px solid var(--rule)}
+.rev{padding:20px 0;border-bottom:1px solid var(--hair)}
+.rev p{margin:0 0 9px;font-family:"Darker Grotesque",sans-serif;font-weight:700;font-size:26px;
+line-height:1.12}
+.rev cite{font-style:normal;font-family:"Overpass Mono",monospace;font-size:13.5px;color:var(--muted)}
+.rev cite b{color:var(--ink);font-weight:600}
+.steps{list-style:none;margin:32px 0 0;padding:0;counter-reset:s;text-align:left;
+border-top:1px solid var(--rule)}
+.steps li{counter-increment:s;padding:20px 0;border-bottom:1px solid var(--hair)}
+.steps li::before{content:counter(s,decimal-leading-zero);display:block;
+font-family:"Overpass Mono",monospace;font-size:13px;color:var(--accent);letter-spacing:.12em;
+margin-bottom:8px}
+.steps h3{font-size:26px;margin-bottom:6px;line-height:1.08}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+.close{padding:56px 0 60px;text-align:center;background:var(--paper)}
+.close h2{font-size:clamp(34px,8.6vw,58px);max-width:17ch;margin:0 auto}
+.close p{max-width:54ch;font-size:17px;color:var(--muted);margin:18px auto 24px}
+.close .ctas{max-width:400px;margin-left:auto;margin-right:auto}
+.close .note{font-family:"Overpass Mono",monospace;font-size:16px;color:var(--muted);
+margin:24px auto 0;line-height:1.6;max-width:48ch}
+.foot{padding:40px 0 34px;font-size:15.5px;color:var(--muted);text-align:center;
+border-top:1px solid var(--rule)}
+.foot .brand{color:var(--ink);display:inline-block;margin-bottom:12px}
+.foot p{margin:0 auto 9px;max-width:64ch}
+.foot a{color:var(--accent);font-weight:600}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--paper);padding:8px;
+border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:8px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:56px;
+text-decoration:none;font-weight:600;font-size:15px;text-align:center;line-height:1.2;padding:0 12px;
+font-family:"Mulish",sans-serif}
+.callbar .book{background:var(--accent);color:#fff}
+.callbar .tel{border:1px solid var(--rule);color:var(--ink);padding:0 16px;font-size:16px}
+@media(max-width:619px){.navact{display:none}}
+@media(min-width:760px){
+.ctas{flex-direction:row;justify-content:center}.hero{padding:64px 0 74px}.sec{padding:88px 0}
+.sub{font-size:19px}.brand{font-size:29px}.navrow{height:60px}
+.path{max-width:820px;display:grid;grid-template-columns:repeat(3,1fr);gap:44px}
+.box+.box{margin-top:0}
+.box+.box::before{left:-44px;top:50%;width:26px;height:1px}
+.box+.box::after{left:-19px;top:50%;margin-left:0;margin-top:-5px;
+border-top:5px solid transparent;border-bottom:5px solid transparent;border-left:7px solid var(--accent);
+border-right:0}
+.badges{max-width:720px;grid-template-columns:1fr 1fr;column-gap:40px}
+.cards{grid-template-columns:1fr 1fr;gap:18px}
+.wall{grid-template-columns:1fr 1fr;column-gap:44px}
+.steps{display:grid;grid-template-columns:1fr 1fr;column-gap:48px}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Now taking business clients for the coming year · Secure client portal →</div></div>
+<header class="nav">
+  <div class="navrow"><a class="brand" href="#">Halstead Accounting</a>
+    <a class="btn btn-primary navact" href="#contact">Book a discovery call</a></div>
+  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+</header>
+<section class="hero"><div class="wrap">
+  <p class="eyebrow">Business advisory &amp; tax</p>
+  <h1>A fixed monthly fee, agreed before we start.</h1>
+  <p class="sub">Business accounting, tax and advisory for owner-managed companies. One fixed monthly fee agreed in advance and never billed by the six-minute unit, so ringing your accountant a question stops feeling expensive.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" data-cta="primary" href="#contact">Book a discovery call</a>
+    <a class="btn btn-ghost" href="#packages">See our packages</a>
+  </div>
+  <div class="path" aria-hidden="true">
+    <div class="box"><span class="k">01</span><span class="sheet"></span></div>
+    <div class="box"><span class="k">02</span><span class="sheet"></span></div>
+    <div class="box end"><span class="k">03</span><span class="sheet"></span></div>
+  </div>
+  <ul class="badges" id="packages">
+    <li>Fixed monthly fees</li><li>Secure client portal</li><li>Quarterly, not annual</li><li>CPA-led, not outsourced</li>
+  </ul>
+</div></section>
+<figure class="gsw-plate"><img src="../_assets/hero/accounting-cpas/a-order-not-chaos.jpg" alt="Order not chaos — accounting cpas" loading="lazy"></figure>
+
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p>
+  <h2>What we do</h2>
+  <p class="lede">We work with owner-managed businesses roughly between $500k and $20M in revenue. Below that the fixed fee stops being good value and we will say so.</p>
+  <div class="cards">
+    <article class="card"><h3>Business tax &amp; compliance</h3><p>Federal, state and local returns, filed early rather than extended. Extensions are a symptom, not a service.</p></article>
+    <article class="card"><h3>Monthly accounting</h3><p>Books closed by the tenth, with a short written commentary. You should not be finding out about last quarter in April.</p></article>
+    <article class="card"><h3>Advisory &amp; CAS</h3><p>Entity structure, owner compensation, cash-flow forecasting and the tax planning that only works if it happens before December.</p></article>
+    <article class="card"><h3>Personal returns for owners</h3><p>Included for owners of business clients. Your company and personal position are the same problem and should be looked at together.</p></article>
+  </div>
+</div></section>
+<section class="sec" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <h2>From business owners</h2>
+  <div class="wall">
+    <figure class="rev"><p>“Fixed monthly fee. I stopped dreading the invoice.”</p><cite><b>Owen R.</b> · Construction, $6M</cite></figure>
+    <figure class="rev"><p>“Tax planning in October instead of a surprise in April.”</p><cite><b>Dilip C.</b> · Professional services</cite></figure>
+    <figure class="rev"><p>“The portal alone was worth the switch.”</p><cite><b>Frances M.</b> · Retail, $2M</cite></figure>
+    <figure class="rev"><p>“They restructured our entity and it paid their fee eight times over.”</p><cite><b>Bryn A.</b> · Manufacturing</cite></figure>
+  </div>
+</div></section>
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p>
+  <h2>Switching accountants</h2>
+  <p class="lede">Easier than people think, and best done between May and August rather than in January.</p>
+  <ol class="steps">
+    <li><h3>Discovery call</h3><p>Thirty minutes. What your business does, what's currently painful, and whether we're the right size for each other.</p></li>
+    <li><h3>Review &amp; proposal</h3><p>We look at two years of returns and your current books, then propose a fixed monthly fee. No hourly billing, ever.</p></li>
+    <li><h3>Transition</h3><p>We request records from your current accountant — you don't have to have that conversation. Usually two to three weeks.</p></li>
+    <li><h3>Quarterly rhythm</h3><p>Books monthly, a proper conversation quarterly, tax planning in the autumn while it can still change the outcome.</p></li>
+  </ol>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>Just finished a rough busy season?</h2>
+  <p>Then this is the right month to talk. Everything worth fixing has to be built between May and August — by January it's too late to change anything.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="#contact">Book a discovery call</a>
+    <a class="btn btn-ghost" href="tel:+15559403362">(555) 940-3362</a>
+  </div>
+  <p class="note">Fixed monthly fees. Business clients from roughly $500k revenue. Free discovery calls.</p>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Halstead Accounting</a>
+  <p><a href="tel:+15559403362">(555) 940-3362</a> · Licensed CPA firm · AICPA member · Serving owner-managed businesses since 2006</p>
+  <p>Licensed &amp; accredited: Licensed CPA Firm · AICPA Member · State Society of CPAs · QuickBooks ProAdvisor · Xero Certified</p>
+  <p>3176 Orchard Row, Ashford Green, NJ 14776</p>
+</div></footer>
+<div class="callbar"><a class="book" href="#contact">Book a discovery call</a><a class="tel" href="tel:+15559403362">(555) 940-3362</a></div>
+</body>
+</html>

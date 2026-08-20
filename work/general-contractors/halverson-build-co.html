@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Halverson Build Co. — Renovations that finish when we said they would.</title>
+<meta name="description" content="Whole-home renovations, additions and structural work, typically from $75,000. You get a dated site diary with photographs every working day, so you can follow the job from your desk without ringing anybody.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Josefin+Slab:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* D3 — THE SITE DIARY ONE. hero:stack nav:inline services:grid-numbered proof:review-wall
+   ink #1E2126 · surface #F4F2ED · accent #3B4650 · muted #55595E · on-accent #FFFFFF
+   H1 ramp: 30/36/46/58px · Josefin Slab display / Inter Tight body
+   Device: the ruled process schedule kept as a site diary — a continuous rail with a
+   dated node per stage, reversed out on graphite so it is the darkest, heaviest block
+   on the page. Answers FIX #3, portfolio without context: what clients say is filed
+   against the kind of job it was, never floated free. */
+:root{--ink:#1E2126;--surface:#F4F2ED;--accent:#3B4650;--muted:#55595E;--on-accent:#FFFFFF;
+--paper:#FFFFFF;--graphite:#252A30;--timber:#7A5A3C;--rule:rgba(30,33,38,.5);
+--hair:rgba(30,33,38,.14);--wrap:1120px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.62 "Inter Tight",system-ui,-apple-system,sans-serif;padding-bottom:82px;
+overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 22px}
+h1,h2,h3{font-family:"Josefin Slab",Georgia,serif;font-weight:700;margin:0;line-height:1.06;
+letter-spacing:0}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 24px;
+text-decoration:none;font-weight:600;font-size:16px;border:1px solid transparent;text-align:center;
+line-height:1.2}
+.btn-primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--rule)}
+.topbar{background:var(--graphite);color:#DDE0E3;font-size:15px}
+.topbar .wrap{padding:9px 22px;letter-spacing:.04em}
+.nav{position:sticky;top:0;z-index:30;background:var(--surface);border-bottom:1px solid var(--rule)}
+.nav .wrap{display:flex;align-items:center;height:62px;gap:14px}
+.brand{font-family:"Josefin Slab",Georgia,serif;font-weight:700;font-size:23px;text-decoration:none;
+line-height:1;flex:none}
+.navlinks{display:none;gap:24px;margin-left:34px;font-size:15px;color:var(--muted)}
+.navlinks a{text-decoration:none;padding-bottom:2px;border-bottom:1px solid transparent}
+.navlinks a:hover{border-bottom-color:var(--accent);color:var(--accent)}
+.navact{margin-left:auto;min-height:42px;padding:0 15px;font-size:14px;white-space:nowrap}
+@media(max-width:559px){.navact{display:none}}
+/* hero: stack on a drafting field */
+.hero{padding:26px 0 34px;background-color:var(--surface);
+background-image:repeating-linear-gradient(90deg,rgba(30,33,38,.07) 0 1px,transparent 1px 34px),
+repeating-linear-gradient(0deg,rgba(30,33,38,.07) 0 1px,transparent 1px 34px)}
+.hero .wrap{position:relative}
+.eyebrow{display:inline-block;font-size:13px;letter-spacing:.18em;text-transform:uppercase;
+color:var(--accent);margin:0 0 14px;font-weight:600;border:1px solid var(--rule);padding:6px 10px}
+.hero h1{font-size:clamp(30px,7.5vw,58px);max-width:15ch;padding-bottom:16px;
+border-bottom:3px solid var(--accent)}
+.sub{font-size:16px;color:var(--muted);max-width:56ch;margin:16px 0 20px;line-height:1.58}
+.ctas{display:flex;flex-direction:column;gap:10px}
+.chips{list-style:none;margin:24px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.chips li{font-size:15px;border:1px solid var(--rule);padding:8px 12px;background:var(--paper);
+color:var(--ink);line-height:1.3}
+.sec{padding:52px 0}
+.kicker{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--timber);
+margin:0 0 10px;font-weight:600}
+.sec h2{font-size:clamp(28px,6.4vw,46px)}
+.lede{color:var(--muted);max-width:58ch;margin:14px 0 30px;font-size:17px}
+/* services: grid-numbered */
+.gnum{display:grid;gap:0;border-top:2px solid var(--ink)}
+.gn{padding:24px 0 26px;border-bottom:1px solid var(--hair);display:grid;
+grid-template-columns:56px minmax(0,1fr);column-gap:16px;counter-increment:g}
+.gnum{counter-reset:g}
+.gn .gnn{font-family:"Josefin Slab",Georgia,serif;font-weight:400;font-size:38px;line-height:.85;
+color:transparent;-webkit-text-stroke:1.5px var(--accent);letter-spacing:-.02em}
+.gn .gnn::before{content:counter(g,decimal-leading-zero)}
+.gn h3{font-size:23px;margin-bottom:8px;line-height:1.14}
+.gn p{margin:0;color:var(--muted);font-size:16px}
+/* proof: review-wall */
+.wall{background:var(--paper);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.walllist{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:0;
+border-top:1px solid var(--hair)}
+.walllist li{padding:22px 0 24px;border-bottom:1px solid var(--hair)}
+.walllist blockquote{margin:0;font-family:"Josefin Slab",Georgia,serif;font-weight:600;
+font-size:21px;line-height:1.32}
+.walllist .who{display:block;margin-top:11px;font-size:15px;color:var(--muted);letter-spacing:.03em}
+.walllist .who b{font-weight:600;color:var(--ink)}
+/* process: the site diary — the heaviest block on the page */
+.process{background:var(--graphite);color:#E7EAEC}
+.process .kicker{color:#C79C6E}
+.process h2{color:#FFFFFF;font-size:clamp(30px,7vw,52px)}
+.process .lede{color:#C3C8CC;max-width:56ch}
+.diary{list-style:none;margin:0;padding:0 0 0 34px;counter-reset:d;position:relative}
+.diary::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:2px;
+background:rgba(231,234,236,.34)}
+.diary li{counter-increment:d;position:relative;padding:0 0 26px}
+.diary li:last-child{padding-bottom:0}
+.diary li::before{content:"";position:absolute;left:-30px;top:8px;width:14px;height:14px;
+background:#C79C6E;border:2px solid var(--graphite);outline:2px solid rgba(231,234,236,.34)}
+.entry{background:#2E343B;border-left:4px solid #C79C6E;padding:18px 18px 20px}
+.entry .dn{font-size:13px;letter-spacing:.22em;color:#C79C6E;font-weight:600;display:block;
+margin-bottom:8px}
+.entry .dn::before{content:counter(d,decimal-leading-zero)}
+.entry h3{font-size:21px;color:#FFFFFF;margin-bottom:8px;line-height:1.18}
+.entry p{margin:0;color:#CBD0D4;font-size:16px}
+.ticks{height:14px;margin:0 0 20px;
+background:repeating-linear-gradient(90deg,rgba(231,234,236,.4) 0 1px,transparent 1px 5%);
+border-bottom:1px solid rgba(231,234,236,.4)}
+/* close */
+.close{padding:52px 0 58px}
+.close .box{border:3px solid var(--ink);background:var(--paper);padding:28px 22px 32px}
+.close h2{font-size:clamp(28px,6.4vw,48px);max-width:14ch}
+.close p{max-width:52ch;font-size:18px;color:var(--muted);margin:14px 0 22px}
+.note{font-size:15px;color:var(--muted);margin-top:20px}
+.foot{padding:36px 0 32px;font-size:15px;color:var(--muted);border-top:1px solid var(--rule)}
+.foot .brand{color:var(--ink);display:block;margin-bottom:12px}
+.foot p{margin:0 0 9px;max-width:66ch}
+.foot a{color:var(--accent)}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--graphite);padding:7px;
+display:grid;grid-template-columns:1fr auto;gap:7px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:60px;
+text-decoration:none;font-weight:600;font-size:15px;text-align:center;line-height:1.2;padding:0 12px}
+.callbar .book{background:#E0B583;color:#1E2126}
+.callbar .tel{border:1px solid rgba(231,234,236,.6);color:#E7EAEC;padding:0 14px}
+@media(min-width:720px){
+ .ctas{flex-direction:row;gap:12px}
+ .gnum{grid-template-columns:1fr 1fr;column-gap:44px}
+ .walllist{grid-template-columns:1fr 1fr;column-gap:44px}
+ .sub{font-size:19px}.sec{padding:80px 0}.hero{padding:44px 0 58px}
+ .close .box{padding:44px 40px 48px}
+}
+@media(min-width:960px){
+ .navlinks{display:flex}
+ .diary{display:grid;grid-template-columns:1fr 1fr;column-gap:40px;row-gap:30px;padding-left:34px}
+ .diary li{padding-bottom:0}
+ .walllist{grid-template-columns:repeat(4,1fr);column-gap:0}
+ .walllist li{padding:22px 22px 24px;border-bottom:0;border-right:1px solid var(--hair)}
+ .walllist li:last-child{border-right:0}
+ .walllist li:first-child{padding-left:0}
+}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+
+<style>
+  /* Hero backdrop. The photograph sits behind the hero's own composition; the
+     scrim below is the design's own background colour, so nothing about the
+     contrast the layout was built with changes. */
+  .gsw-imaged { position: relative; isolation: isolate; overflow: hidden; }
+  .gsw-imaged > *:not(.gsw-backdrop) { position: relative; z-index: 1; }
+  .gsw-backdrop { position: absolute; inset: 0; z-index: 0; }
+  .gsw-backdrop img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .gsw-backdrop::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(100deg,
+      rgb(244 242 237 / 0.97) 0%, rgb(244 242 237 / 0.95) 38%, rgb(244 242 237 / 0.7) 68%, rgb(244 242 237 / 0.52) 100%);
+  }
+  @media (max-width: 60rem) { .gsw-backdrop::after { background: rgb(244 242 237 / 0.93); } }
+  @media (forced-colors: active) { .gsw-backdrop { display: none; } }
+  @media print { .gsw-backdrop { display: none; } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Projects from $75,000 · Licensed #GC-22841 · Fully insured</div></div>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="#">Halverson Build Co.</a>
+  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+  <a class="btn btn-primary navact" href="#contact">Book a consultation</a>
+</div></header>
+
+<section class="gsw-imaged hero"><div class="gsw-backdrop" aria-hidden="true"><img src="../_assets/hero/general-contractors/c-hands-and-level.jpg" alt="" loading="eager"></div><div class="wrap">
+  <p class="eyebrow">Whole-home renovation &amp; additions</p>
+  <h1>Photographs from your site, every single day.</h1>
+  <p class="sub">Whole-home renovations, additions and structural work, typically from $75,000. You get a dated site diary with photographs every working day, so you can follow the job from your desk without ringing anybody.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" data-cta="primary" href="#contact">Book a consultation</a>
+    <a class="btn btn-ghost" href="#process">See our process</a>
+  </div>
+  <ul class="chips">
+    <li>Projects from $75,000</li><li>Licensed &amp; fully insured</li>
+    <li>Weekly written updates</li><li>Fixed schedule commitment</li>
+  </ul>
+</div></section>
+
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p>
+  <h2>What we build</h2>
+  <p class="lede">We take on fewer projects than we could, because running four properly beats running nine badly.</p>
+  <div class="gnum">
+    <article class="gn"><div class="gnn" aria-hidden="true"></div><div><h3>Whole-home renovation</h3><p>Gut renovations and reconfigurations. Structural, mechanical and finish work under one contract and one project manager.</p></div></article>
+    <article class="gn"><div class="gnn" aria-hidden="true"></div><div><h3>Additions &amp; extensions</h3><p>Second storeys, rear extensions and garage conversions — including the survey, engineering and permitting.</p></div></article>
+    <article class="gn"><div class="gnn" aria-hidden="true"></div><div><h3>Kitchens &amp; baths</h3><p>Usually where a bigger project starts. We'll tell you honestly whether it makes sense to do them alone or as part of something larger.</p></div></article>
+    <article class="gn"><div class="gnn" aria-hidden="true"></div><div><h3>Structural &amp; permits</h3><p>Load-bearing changes, foundation work and the permit process. This is the part that derails projects run by others.</p></div></article>
+  </div>
+</div></section>
+
+<section class="sec wall" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <h2>From recent clients</h2>
+  <ul class="walllist">
+    <li><blockquote>Weekly update email every Friday without fail. I never had to chase.</blockquote><span class="who"><b>Nathan V.</b> · Rear extension</span></li>
+    <li><blockquote>They talked us out of a bigger job we didn't need. That's why we trusted the rest.</blockquote><span class="who"><b>Sophie A.</b> · Kitchen &amp; structural</span></li>
+    <li><blockquote>Permits handled entirely. I never spoke to the city once.</blockquote><span class="who"><b>Darren K.</b> · Second storey</span></li>
+    <li><blockquote>Site was swept every single evening. Small thing, huge difference.</blockquote><span class="who"><b>Bea M.</b> · Gut renovation</span></li>
+  </ul>
+</div></section>
+
+<section class="sec process" id="process"><div class="wrap">
+  <p class="kicker">Process</p>
+  <h2>How a project actually runs</h2>
+  <p class="lede">Homeowners aren't anxious about the money so much as about the silence. So we removed the silence.</p>
+  <div class="ticks" aria-hidden="true"></div>
+  <ol class="diary">
+    <li><div class="entry"><span class="dn" aria-hidden="true"></span><h3>Consultation &amp; feasibility</h3><p>We visit, listen, and tell you whether the idea works and roughly what it costs. Free, and sometimes the answer is don't.</p></div></li>
+    <li><div class="entry"><span class="dn" aria-hidden="true"></span><h3>Design &amp; fixed proposal</h3><p>Drawings, engineering where needed, and a line-item proposal. One number, with allowances stated openly.</p></div></li>
+    <li><div class="entry"><span class="dn" aria-hidden="true"></span><h3>Permits &amp; schedule</h3><p>We handle the city. You get a week-by-week schedule before anyone swings a hammer.</p></div></li>
+    <li><div class="entry"><span class="dn" aria-hidden="true"></span><h3>Build &amp; weekly updates</h3><p>A named project manager, a daily photo diary, and a written summary every Friday — none of which you have to ask for.</p></div></li>
+  </ol>
+</div></section>
+
+<section class="sec close" id="contact"><div class="wrap"><div class="box">
+  <h2>Thinking about it for next year?</h2>
+  <p>That's the right time to call. Our calendar fills six to nine months out, and the design and permit stage takes longer than people expect.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="#contact">Book a consultation</a>
+    <a class="btn btn-ghost" href="tel:+15552916673">(555) 291-6673</a>
+  </div>
+  <p class="note">Free consultations. Projects typically start at $75,000.</p>
+</div></div></section>
+
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Halverson Build Co.</a>
+  <p><a href="tel:+15552916673">(555) 291-6673</a> · Licensed #GC-22841 · Bonded &amp; insured · Building here since 2003</p>
+  <p>8296 Thistle Lane Suite 200, Millbrook Park, NY 19543</p>
+</div></footer>
+
+<div class="callbar"><a class="book" href="#contact">Book a consultation</a><a class="tel" href="tel:+15552916673">(555) 291-6673</a></div>
+</body>
+</html>

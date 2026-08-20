@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ellery &amp; Vane — Film, photography and floor plans on every instruction</title>
+<meta name="description" content="Estate and architectural property representation. The film is storyboarded before a single buyer sees the property.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* D3 — THE STORYBOARD ONE. hero:split nav:centered services:cards proof:testimonial-lead
+   ink #131417 · surface #EFEDE7 · accent #2B2F62 · muted #55565E · on-accent #FFFFFF
+   H1 ramp: 32/38/50/64px · Yeseva One display / Work Sans body
+   Device: the storyboard — six numbered plates cut to film ratio on a sprocket rail,
+   so "six photographs" is answered by showing the shot list the film is built from. */
+:root{--ink:#131417;--surface:#EFEDE7;--accent:#2B2F62;--muted:#55565E;--on-accent:#FFFFFF;
+--paper:#F8F7F3;--rule:rgba(19,20,23,.22);--hair:rgba(19,20,23,.1);--wrap:1160px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.64 "Work Sans",system-ui,-apple-system,sans-serif;padding-bottom:82px;
+overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 22px}
+h1,h2,h3{font-family:"Yeseva One",Georgia,serif;font-weight:400;margin:0;line-height:1.14;
+letter-spacing:-.01em}
+a{color:inherit}
+.btn{display:flex;align-items:center;justify-content:center;min-height:56px;padding:0 22px;
+text-decoration:none;font-weight:500;font-size:14px;letter-spacing:.1em;text-transform:uppercase;
+border:2px solid transparent;text-align:center;line-height:1.2}
+.btn-primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.btn-ghost{background:transparent;color:var(--accent);border-color:var(--accent)}
+.topbar{background:var(--accent);color:#DCE0F2;font-size:13px}
+.topbar .wrap{padding:9px 22px;text-align:center;letter-spacing:.12em}
+/* nav:centered — brand on its own centred row, links centred beneath it */
+.nav{position:sticky;top:0;z-index:30;background:var(--surface);border-bottom:1px solid var(--rule)}
+.nav .wrap{display:flex;align-items:center;justify-content:center;gap:10px;
+padding-top:12px;padding-bottom:10px;flex-wrap:wrap;position:relative}
+.brand{font-family:"Yeseva One",Georgia,serif;font-size:21px;text-decoration:none;line-height:1.1;
+text-align:center;width:100%}
+.navlinks{display:none;gap:30px;font-size:13px;letter-spacing:.2em;text-transform:uppercase;
+color:var(--muted);width:100%;justify-content:center}
+.navlinks a{text-decoration:none}
+.navlinks a:hover{color:var(--accent)}
+.navact{min-height:40px;padding:0 14px;font-size:12px;white-space:nowrap;letter-spacing:.1em;
+position:absolute;right:22px;top:12px;border-width:1px}
+/* hero:split — copy column and storyboard column side by side above 900px */
+.hero{padding:22px 0 36px}
+.split{display:grid;gap:28px}
+.eyebrow{font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);
+margin:0 0 12px;font-weight:600}
+.hero h1{font-size:clamp(32px,8vw,64px);max-width:15ch}
+.sub{font-size:16px;color:var(--muted);max-width:52ch;margin:16px 0 20px;line-height:1.6}
+.ctas{display:grid;gap:10px}
+.badges{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:0}
+.badges li{font-size:16px;color:var(--muted);padding:9px 0;border-bottom:1px solid var(--hair)}
+.badges li:first-child{border-top:1px solid var(--hair)}
+/* the storyboard */
+.board{position:relative;padding-left:20px}
+.board::before{content:"";position:absolute;left:0;top:0;bottom:0;width:9px;
+background:repeating-linear-gradient(180deg,var(--accent) 0 7px,transparent 7px 17px);
+opacity:.55}
+.frames{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.frame{background:var(--paper);border:1px solid var(--hair);padding:7px 7px 4px}
+.frame .fld{display:block;position:relative;aspect-ratio:16/9;overflow:hidden;
+background:linear-gradient(160deg,#DEDCD3,#EDEBE4 60%,#E2E0D6)}
+.frame:nth-child(2) .fld{background:linear-gradient(10deg,#D8D9D6,#EBEAE4 58%,#DDDEDA)}
+.frame:nth-child(3) .fld{background:linear-gradient(200deg,#E1DED4,#F0EEE7 55%,#D9D7CE)}
+.frame:nth-child(4) .fld{background:linear-gradient(120deg,#DADCE2,#ECEDEF 62%,#DEDFE4)}
+.frame:nth-child(5) .fld{background:linear-gradient(178deg,#E3E0D6,#F1EFE8 50%,#DBD9D0)}
+.frame:nth-child(6) .fld{background:linear-gradient(45deg,#D7D6D0,#EEEDE7 64%,#E0DFD8)}
+.frame .fld::before{content:"";position:absolute;left:8%;right:8%;top:62%;height:1px;
+background:rgba(19,20,23,.2)}
+.frame:nth-child(2) .fld::before{top:auto;bottom:0;left:0;right:58%;height:52%;
+background:rgba(19,20,23,.09)}
+.frame:nth-child(3) .fld::before{left:auto;right:22%;top:12%;bottom:12%;width:1px;height:auto}
+.frame:nth-child(4) .fld::before{inset:22% 26%;height:auto;border:1px solid rgba(19,20,23,.22);
+background:none}
+.frame:nth-child(5) .fld::before{top:auto;bottom:14%;left:16%;right:16%;height:44%;
+clip-path:polygon(0 100%,50% 0,100% 100%);background:rgba(19,20,23,.13)}
+.frame:nth-child(6) .fld::before{top:70%;left:0;right:0;height:1px}
+.frame .n{display:block;font-size:13px;letter-spacing:.16em;color:var(--accent);padding-top:5px;
+font-weight:600}
+.sec{padding:52px 0;border-top:1px solid var(--hair)}
+.kicker{font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);
+margin:0 0 12px;font-weight:600}
+.sec h2{font-size:clamp(28px,6.4vw,50px);margin-bottom:14px}
+.lede{color:var(--muted);max-width:56ch;margin:0 0 30px;font-size:17px}
+/* services:cards — flat filled cards with a numbered corner tab, no outline */
+.cards{display:grid;gap:12px}
+.card{background:var(--paper);padding:26px 20px 26px;position:relative;overflow:hidden}
+.card::after{content:"";position:absolute;right:0;top:0;width:44px;height:4px;background:var(--accent)}
+.card h3{font-size:22px;margin-bottom:10px;line-height:1.22}
+.card p{margin:0;color:var(--muted);font-size:16px}
+.card.door{background:var(--ink);color:#EDECE6}
+.card.door h3{color:#FFFFFF}
+.card.door p{color:#BFBEB6}
+.card.door::after{background:#8E93C8;width:88px}
+/* proof:testimonial-lead — quote set as a single ruled statement on the page ground */
+.testi{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:36px 0 34px;
+margin-top:8px}
+.testi p{font-family:"Yeseva One",Georgia,serif;font-size:clamp(21px,5vw,36px);line-height:1.32;
+margin:0;max-width:24ch}
+.testi cite{display:block;margin-top:18px;font-style:normal;font-size:16px;color:var(--muted)}
+/* process */
+.steps{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:0}
+.steps li{padding:22px 0 22px 60px;position:relative;border-bottom:1px solid var(--hair)}
+.steps li:first-child{border-top:1px solid var(--rule)}
+.steps .sn{position:absolute;left:0;top:23px;font-family:"Yeseva One",Georgia,serif;font-size:26px;
+color:var(--accent);line-height:1}
+.steps h3{font-size:20px;margin-bottom:7px}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+.close{background:var(--ink);color:#EDECE6;padding:54px 0 60px}
+.close h2{font-size:clamp(29px,6.4vw,52px);max-width:17ch;color:#FFFFFF}
+.close p{max-width:54ch;font-size:18px;color:#B7B6AE;margin:16px 0 24px}
+.close .btn-primary{background:#EDECE6;color:var(--ink);border-color:#EDECE6}
+.close .btn-ghost{color:#EDECE6;border-color:rgba(237,236,230,.5)}
+.note{font-size:16px;color:#9FA4CE;margin-top:22px;max-width:56ch}
+.foot{padding:38px 0 34px;font-size:16px;color:var(--muted)}
+.foot .brand{color:var(--ink);display:inline-block;margin-bottom:14px;width:auto;text-align:left}
+.foot p{margin:0 0 10px;max-width:66ch}
+.foot a{color:var(--accent)}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--surface);padding:8px;
+border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:8px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:60px;
+text-decoration:none;font-weight:500;font-size:13px;letter-spacing:.1em;text-transform:uppercase;
+text-align:center;line-height:1.2;padding:0 10px}
+.callbar .go{background:var(--accent);color:#fff}
+.callbar .tel{border:1px solid var(--rule);color:var(--ink);padding:0 16px;letter-spacing:.03em;
+text-transform:none;font-size:16px}
+@media(max-width:559px){.navact{display:none}}
+@media(min-width:760px){.ctas{grid-template-columns:auto auto;justify-content:start}
+.badges{grid-template-columns:1fr 1fr;column-gap:32px}.cards{grid-template-columns:1fr 1fr}
+.sec{padding:86px 0}.hero{padding:44px 0 62px}.sub{font-size:19px}
+.frames{grid-template-columns:repeat(3,1fr)}.steps{padding-left:0}
+.brand{font-size:26px}}
+@media(min-width:900px){.split{grid-template-columns:1.02fr .98fr;gap:52px;align-items:start}
+.frames{grid-template-columns:1fr 1fr}.navlinks{display:flex}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Private client services · Now recruiting producing agents</div></div>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="#">Ellery &amp; Vane</a>
+  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+  <a class="btn btn-primary navact" href="#contact">Request a valuation</a>
+</div></header>
+<section class="hero"><div class="wrap"><div class="split">
+  <div>
+    <p class="eyebrow">Estates &amp; architectural properties</p>
+    <h1>Every house gets a film, not a slideshow.</h1>
+    <p class="sub">Estate and architectural property representation. Every listing gets professional photography, film, floor plans and a dedicated page — because your buyer is comparing four properties on an iPad at eleven at night.</p>
+    <div class="ctas">
+      <a class="btn btn-primary" data-cta="primary" href="#contact">Request a valuation</a>
+      <a class="btn btn-ghost" href="#results">View portfolio</a>
+    </div>
+    <ul class="badges"><li>Film &amp; photography included</li><li>Dedicated listing pages</li><li>Private off-market network</li><li>Now recruiting agents</li></ul>
+  </div>
+  <div class="board" aria-hidden="true">
+    <ul class="frames">
+      <li class="frame"><span class="fld"></span><span class="n">01</span></li>
+      <li class="frame"><span class="fld"></span><span class="n">02</span></li>
+      <li class="frame"><span class="fld"></span><span class="n">03</span></li>
+      <li class="frame"><span class="fld"></span><span class="n">04</span></li>
+      <li class="frame"><span class="fld"></span><span class="n">05</span></li>
+      <li class="frame"><span class="fld"></span><span class="n">06</span></li>
+    </ul>
+  </div>
+</div></div></section>
+<figure class="gsw-plate"><img src="../_assets/hero/luxury-real-estate/c-the-threshold.jpg" alt="The threshold — luxury real estate" loading="lazy"></figure>
+
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p><h2>How we represent</h2>
+  <p class="lede">Fewer listings, taken seriously. We turn down more instructions than we accept.</p>
+  <div class="cards">
+    <article class="card"><h3>Estate representation</h3><p>Full marketing production — photography, drone, measured plans, a standalone property site, and a properly directed film with a location scout and a shooting schedule rather than a phone on a gimbal.</p></article>
+    <article class="card"><h3>Off-market &amp; private sales</h3><p>For sellers who want discretion. A private network of qualified buyers and no public listing at any point.</p></article>
+    <article class="card"><h3>Buyer representation</h3><p>Including access to properties never publicly listed. We represent perhaps twelve buyers at a time, deliberately.</p></article>
+    <article class="card door"><h3>For agents — join us</h3><p>Producing agents: full marketing production on every listing you take, a real split, and no desk fees. Have a look at what we'd give you.</p></article>
+  </div>
+</div></section>
+<section class="sec" id="results"><div class="wrap">
+  <p class="kicker">Results</p><h2>Why sellers choose us</h2>
+  <blockquote class="testi"><p>"Two other brokerages showed me a comparative market analysis. Ellery showed me the actual page my house would live on, with the film already storyboarded. That was the decision."</p><cite>Katherine V. — Seller, architectural estate</cite></blockquote>
+</div></section>
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p><h2>Selling with us</h2>
+  <p class="lede">Production is complete before the listing goes live. A film shot after the price drops is a film nobody watches.</p>
+  <ol class="steps">
+    <li><span class="sn">1</span><h3>Valuation &amp; strategy</h3><p>A considered opinion of value with the comparable evidence behind it, and a frank view on timing.</p></li>
+    <li><span class="sn">2</span><h3>Production</h3><p>Photography, film, drone, floor plans and copy. Usually ten to fourteen days, and it is the reason the rest works.</p></li>
+    <li><span class="sn">3</span><h3>Launch</h3><p>A dedicated property page, the private network first, then public portals. Sequenced deliberately, not simultaneously.</p></li>
+    <li><span class="sn">4</span><h3>Negotiate &amp; close</h3><p>Qualified buyers only, and we manage inspection and appraisal so the deal survives to closing.</p></li>
+  </ol>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>Selling, buying, or thinking about your next move?</h2>
+  <p>A valuation conversation commits you to nothing and is genuinely useful even if you decide to stay put for another five years.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="#contact">Request a valuation</a>
+    <a class="btn btn-ghost" href="tel:+15552458830">(555) 245-8830</a>
+  </div>
+  <p class="note">Producing agents: ask about our marketing production and split structure.</p>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Ellery &amp; Vane</a>
+  <p><a href="tel:+15552458830">(555) 245-8830</a> · Private client services · Now recruiting producing agents</p>
+  <p>Estate &amp; architectural property · Licensed brokerage · Equal Housing Opportunity</p>
+  <p>7854 Kestrel Way, Westmoor, CT 15375</p>
+</div></footer>
+<div class="callbar"><a class="go" href="#contact">Request a valuation</a><a class="tel" href="tel:+15552458830">(555) 245-8830</a></div>
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Whitfield Build Co. — Renovations that finish when we said they would.</title>
+<meta name="description" content="Whole-home renovations, additions and structural work, typically from $75,000. Before demolition starts you have a week-by-week schedule with every trade's dates on it, and we measure ourselves against it in public.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aleo:wght@400;700&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* D1 — THE SCHEDULE ONE. hero:split nav:centered services:tiles proof:logos
+   ink #221C15 · surface #F6F2E9 · accent #8A4321 · muted #6A5C4C · on-accent #FFFFFF
+   H1 ramp: 29/34/44/56px · Aleo display / Archivo body
+   Device: the ruled process schedule drawn as a dated bar chart — a week scale ruled
+   across the page with a bar per stage. Answers FIX #1, no process page: the schedule
+   is the largest object on the homepage and the hero previews it as a ruled plate. */
+:root{--ink:#221C15;--surface:#F6F2E9;--accent:#8A4321;--muted:#6A5C4C;--on-accent:#FFFFFF;
+--paper:#FFFCF6;--timber:#3A2E22;--rule:rgba(34,28,21,.55);--hair:rgba(34,28,21,.16);--wrap:1120px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.62 Archivo,system-ui,-apple-system,sans-serif;padding-bottom:82px;overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 22px}
+h1,h2,h3{font-family:Aleo,Georgia,serif;font-weight:700;margin:0;line-height:1.08;letter-spacing:-.01em}
+a{color:inherit}
+img{max-width:100%}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 24px;
+text-decoration:none;font-weight:600;font-size:16px;letter-spacing:.02em;border:2px solid transparent;
+text-align:center;line-height:1.2}
+.btn-primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--rule)}
+.topbar{background:var(--timber);color:#E8DECB;font-size:15px}
+.topbar .wrap{padding:9px 22px;text-align:center;letter-spacing:.02em}
+.nav{position:sticky;top:0;z-index:30;background:var(--surface);border-bottom:2px solid var(--ink)}
+.nav .wrap{padding-top:10px;padding-bottom:10px;text-align:center}
+.brandrow{display:flex;align-items:center;justify-content:center;gap:14px}
+.brand{font-family:Aleo,Georgia,serif;font-weight:700;font-size:21px;text-decoration:none;
+line-height:1;letter-spacing:-.01em}
+.navlinks{display:none;justify-content:center;gap:30px;margin-top:9px;font-size:14px;
+letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.navlinks a{text-decoration:none}
+.navlinks a:hover{color:var(--accent)}
+.navact{min-height:40px;padding:0 14px;font-size:14px;white-space:nowrap}
+@media(max-width:559px){.navact{display:none}}
+.hero{padding:22px 0 34px}
+.eyebrow{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);
+margin:0 0 12px;font-weight:600}
+.hero h1{font-size:clamp(29px,7.1vw,56px);max-width:16ch}
+.sub{font-size:16px;color:var(--muted);max-width:54ch;margin:14px 0 20px;line-height:1.56}
+.ctas{display:flex;flex-direction:column;gap:10px}
+/* the hero plate — the schedule motif in miniature */
+.plate{margin-top:26px;background:var(--paper);border:2px solid var(--ink);border-top-width:9px}
+.plate ul{list-style:none;margin:0;padding:0}
+.plate li{position:relative;padding:14px 16px 14px 44px;border-bottom:1px solid var(--hair);
+font-size:16px;line-height:1.35}
+.plate li:last-child{border-bottom:0}
+.plate li::before{content:"";position:absolute;left:16px;top:19px;width:14px;height:14px;
+background:var(--accent)}
+.sec{padding:52px 0;border-top:2px solid var(--ink)}
+.kicker{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);
+margin:0 0 10px;font-weight:600}
+.sec h2{font-size:clamp(27px,6vw,44px)}
+.lede{color:var(--muted);max-width:58ch;margin:14px 0 28px;font-size:17px}
+/* services: tiles */
+.tiles{display:grid;gap:14px}
+.tile{background:var(--paper);border:1px solid var(--hair);border-left:5px solid var(--accent);
+padding:20px 18px 22px}
+.tile h3{font-size:21px;margin-bottom:9px;line-height:1.15}
+.tile p{margin:0;color:var(--muted);font-size:16px}
+/* proof: logos */
+.logos{background:var(--timber);color:#EFE6D5;border-top:0}
+.logos .kicker{color:#D9A56C}
+.logos h2{color:#FFFCF6}
+.loglist{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:0;
+border-top:1px solid rgba(239,230,213,.3)}
+.loglist li{font-family:Aleo,Georgia,serif;font-weight:700;font-size:18px;padding:16px 2px;
+border-bottom:1px solid rgba(239,230,213,.3);letter-spacing:.01em}
+/* process: the ruled schedule */
+.process{background:var(--paper)}
+.scale{margin:6px 0 0;display:grid;grid-template-columns:1fr}
+.scale span{display:block;height:22px;border-bottom:2px solid var(--ink);
+background:repeating-linear-gradient(90deg,var(--rule) 0 1px,transparent 1px 8.3333%)}
+.sched{list-style:none;margin:0;padding:0;counter-reset:s}
+.sched li{counter-increment:s;padding:20px 0 22px;border-bottom:1px solid var(--hair);
+display:grid;grid-template-columns:44px 1fr;column-gap:14px;row-gap:12px}
+.sched .num{font-family:Aleo,Georgia,serif;font-weight:700;font-size:26px;color:var(--accent);
+line-height:1}
+.sched .num::before{content:counter(s,decimal-leading-zero)}
+.sched h3{font-size:20px;margin-bottom:7px}
+.sched p{margin:0;color:var(--muted);font-size:16px}
+.bar{grid-column:1/-1;height:16px;position:relative;
+background:repeating-linear-gradient(90deg,var(--hair) 0 1px,transparent 1px 8.3333%)}
+.bar i{position:absolute;top:0;bottom:0;background:var(--accent);display:block}
+.sched li:nth-child(1) .bar i{left:0;width:16.6%}
+.sched li:nth-child(2) .bar i{left:16.6%;width:25%;background:#A75B31}
+.sched li:nth-child(3) .bar i{left:41.6%;width:16.6%;background:#8A4321}
+.sched li:nth-child(4) .bar i{left:58.3%;width:41.7%;background:#3A2E22}
+/* close */
+.close{background:var(--ink);color:#F0E9DC;border-top:0;padding:54px 0 60px}
+.close h2{font-size:clamp(28px,6.3vw,48px);max-width:15ch;color:#FFFCF6}
+.close p{max-width:52ch;font-size:18px;color:#C6BAA7;margin:14px 0 22px}
+.close .btn-primary{background:#E7B173;color:#221C15;border-color:#E7B173}
+.close .btn-ghost{color:#F0E9DC;border-color:rgba(240,233,220,.5)}
+.note{font-size:15px;color:#BAAE9B;margin-top:20px}
+.foot{padding:38px 0 34px;font-size:15px;color:var(--muted);border-top:2px solid var(--ink)}
+.foot .brand{color:var(--ink);display:inline-block;margin-bottom:12px}
+.foot p{margin:0 0 9px;max-width:66ch}
+.foot a{color:var(--accent)}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--surface);padding:7px;
+border-top:2px solid var(--ink);display:grid;grid-template-columns:1fr auto;gap:7px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:60px;
+text-decoration:none;font-weight:600;font-size:15px;text-align:center;line-height:1.2;padding:0 12px}
+.callbar .book{background:var(--accent);color:#fff}
+.callbar .tel{border:2px solid var(--ink);color:var(--ink);padding:0 14px}
+@media(min-width:720px){
+ .ctas{flex-direction:row;gap:12px}
+ .tiles{grid-template-columns:1fr 1fr}
+ .loglist{grid-template-columns:repeat(5,1fr)}
+ .loglist li{border-bottom:0;border-right:1px solid rgba(239,230,213,.3);padding:22px 12px;
+ text-align:center;font-size:16px}
+ .loglist li:last-child{border-right:0}
+ .sched li{grid-template-columns:52px minmax(0,1.15fr) minmax(0,1fr);column-gap:26px;row-gap:0;
+ align-items:center}
+ .scale{grid-template-columns:52px minmax(0,1.15fr) minmax(0,1fr);column-gap:26px}
+ .scale span{grid-column:3}
+ .bar{grid-column:auto;height:22px}
+ .sub{font-size:19px}.sec{padding:80px 0}.hero{padding:40px 0 56px}
+}
+@media(min-width:960px){
+ .navlinks{display:flex}
+ .hero .wrap{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);
+ column-gap:56px;align-items:start}
+ .plate{margin-top:0}
+ .heroplate{padding-top:6px}
+}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Projects from $75,000 · Licensed #GC-22841 · Fully insured</div></div>
+<header class="nav"><div class="wrap">
+  <div class="brandrow">
+    <a class="brand" href="#">Whitfield Build Co.</a>
+    <a class="btn btn-primary navact" href="#contact">Book a consultation</a>
+  </div>
+  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <div class="herocopy">
+    <p class="eyebrow">Whole-home renovation &amp; additions</p>
+    <h1>You get the schedule before anyone swings a hammer.</h1>
+    <p class="sub">Whole-home renovations, additions and structural work, typically from $75,000. Before demolition starts you have a week-by-week schedule with every trade's dates on it, and we measure ourselves against it in public.</p>
+    <div class="ctas">
+      <a class="btn btn-primary" data-cta="primary" href="#contact">Book a consultation</a>
+      <a class="btn btn-ghost" href="#process">See our process</a>
+    </div>
+  </div>
+  <div class="heroplate"><div class="plate"><ul>
+    <li>Projects from $75,000</li>
+    <li>Licensed &amp; fully insured</li>
+    <li>Weekly written updates</li>
+    <li>Fixed schedule commitment</li>
+  </ul></div></div>
+</div></section>
+<figure class="gsw-plate"><img src="../_assets/hero/general-contractors/a-finished-on-time.jpg" alt="Finished on time — general contractors" loading="lazy"></figure>
+
+
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p>
+  <h2>What we build</h2>
+  <p class="lede">We take on fewer projects than we could, because running four properly beats running nine badly.</p>
+  <div class="tiles">
+    <article class="tile"><h3>Whole-home renovation</h3><p>Gut renovations and reconfigurations. Structural, mechanical and finish work under one contract and one project manager.</p></article>
+    <article class="tile"><h3>Additions &amp; extensions</h3><p>Second storeys, rear extensions and garage conversions — including the survey, engineering and permitting.</p></article>
+    <article class="tile"><h3>Kitchens &amp; baths</h3><p>Usually where a bigger project starts. We'll tell you honestly whether it makes sense to do them alone or as part of something larger.</p></article>
+    <article class="tile"><h3>Structural &amp; permits</h3><p>Load-bearing changes, foundation work and the permit process. This is the part that derails projects run by others.</p></article>
+  </div>
+</div></section>
+
+<section class="sec logos" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <h2>Licensed and accredited</h2>
+  <ul class="loglist">
+    <li>State Licensed #GC-22841</li><li>NAHB Member</li><li>Fully Bonded &amp; Insured</li><li>EPA Lead-Safe</li><li>BBB A+</li>
+  </ul>
+</div></section>
+
+<section class="sec process" id="process"><div class="wrap">
+  <p class="kicker">Process</p>
+  <h2>How a project actually runs</h2>
+  <p class="lede">What actually keeps homeowners awake isn't the number. It's not knowing which week the kitchen comes back.</p>
+  <div class="scale" aria-hidden="true"><span></span></div>
+  <ol class="sched">
+    <li><div class="num"></div><div><h3>Consultation &amp; feasibility</h3><p>We visit, listen, and tell you whether the idea works and roughly what it costs. Free, and sometimes the answer is don't.</p></div><div class="bar" aria-hidden="true"><i></i></div></li>
+    <li><div class="num"></div><div><h3>Design &amp; fixed proposal</h3><p>Drawings, engineering where needed, and a line-item proposal. One number, with allowances stated openly.</p></div><div class="bar" aria-hidden="true"><i></i></div></li>
+    <li><div class="num"></div><div><h3>Permits &amp; schedule</h3><p>We handle the city. You get a week-by-week schedule before anyone swings a hammer.</p></div><div class="bar" aria-hidden="true"><i></i></div></li>
+    <li><div class="num"></div><div><h3>Build &amp; weekly updates</h3><p>A named project manager, a written update every Friday against the published schedule, and a punch list we close rather than abandon.</p></div><div class="bar" aria-hidden="true"><i></i></div></li>
+  </ol>
+</div></section>
+
+<section class="close" id="contact"><div class="wrap">
+  <h2>Thinking about it for next year?</h2>
+  <p>That's the right time to call. Our calendar fills six to nine months out, and the design and permit stage takes longer than people expect.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="#contact">Book a consultation</a>
+    <a class="btn btn-ghost" href="tel:+15554289910">(555) 428-9910</a>
+  </div>
+  <p class="note">Free consultations. Projects typically start at $75,000.</p>
+</div></section>
+
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Whitfield Build Co.</a>
+  <p><a href="tel:+15554289910">(555) 428-9910</a> · Licensed #GC-22841 · Bonded &amp; insured · Building here since 2003</p>
+  <p>3120 Corbin Road Unit 12, Cedar Reach, NY 18905</p>
+</div></footer>
+
+<div class="callbar"><a class="book" href="#contact">Book a consultation</a><a class="tel" href="tel:+15554289910">(555) 428-9910</a></div>
+</body>
+</html>

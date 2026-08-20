@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Anchor Peak Roofing — Emergency response 24/7, same-day tarping</title>
+<meta name="description" content="Storm damage, full replacements and repairs across the metro. Two ways to pay for it: we run the insurance claim end to end, or you finance it from $89 a month with nothing down.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+/* D4 — THE SAFETY YELLOW ONE. hero:stack nav:centered services:cards proof:review-wall
+   ink #17181A · surface #F4F3F0 · accent #F5B301 · muted #52565B · on-accent #17181A
+   H1 ramp: 44/52/68/88px · Bebas Neue display / Barlow body
+   Device: the hazard chevron — a yellow-and-charcoal warning band, plus a yellow dial
+   slab. FIX answered first: the phone number three screens down, so the dial slab is
+   the single loudest object on the page and sits directly under the headline. The
+   financing figure and the claim block are set on the same yellow so they read as
+   equally urgent. Yellow is never used as text — always a ground under charcoal ink. */
+:root{--ink:#17181A;--surface:#F4F3F0;--accent:#F5B301;--muted:#52565B;--on-accent:#17181A;
+--panel:#FFFFFF;--rule:rgba(23,24,26,.18);--hair:rgba(23,24,26,.1);--wrap:1080px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);overflow-x:hidden;padding-bottom:82px;
+font:400 17px/1.6 Barlow,system-ui,-apple-system,sans-serif}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3,.dial b{font-family:"Bebas Neue",Impact,sans-serif;font-weight:400;margin:0;
+line-height:.98;letter-spacing:.012em}
+a{color:inherit}
+p{margin:0}
+.hazard{height:14px;background:repeating-linear-gradient(115deg,var(--accent) 0 16px,var(--ink) 16px 32px)}
+.topbar{background:var(--ink);color:#D8DADC;font-size:14px}
+.topbar .wrap{padding:7px 20px;text-align:center;letter-spacing:.05em}
+.nav{position:sticky;top:0;z-index:30;background:var(--surface);border-bottom:2px solid var(--ink)}
+.nav .wrap{display:flex;flex-direction:column;align-items:center;gap:7px;padding:11px 20px 10px}
+.brand{font-family:"Bebas Neue",Impact,sans-serif;font-size:27px;text-decoration:none;
+letter-spacing:.05em;line-height:1}
+.navlinks{display:none;gap:22px;font-size:13px;letter-spacing:.15em;text-transform:uppercase;
+font-weight:500;color:var(--muted)}
+.navlinks a{text-decoration:none}
+.navlinks a:hover{color:var(--ink)}
+.navact{background:var(--accent);color:var(--on-accent);text-decoration:none;font-weight:700;
+font-size:15px;letter-spacing:.04em;padding:6px 14px;line-height:1.3;white-space:nowrap}
+.hero{padding:26px 0 34px;text-align:center}
+.eyebrow{display:inline-block;font-size:13px;letter-spacing:.2em;text-transform:uppercase;
+font-weight:700;background:var(--accent);color:var(--on-accent);padding:5px 11px;margin:0 0 15px}
+.hero h1{font-size:clamp(44px,11.6vw,88px);max-width:15ch;margin:0 auto}
+.hero .sub{font-size:16px;color:var(--muted);max-width:52ch;margin:14px auto 20px;line-height:1.56}
+.dial{display:block;background:var(--accent);color:var(--on-accent);text-decoration:none;
+padding:14px 16px 16px;border:3px solid var(--ink);text-align:center}
+.dial span{display:block;font-size:14px;letter-spacing:.24em;text-transform:uppercase;font-weight:700}
+.dial b{display:block;font-size:clamp(42px,11.4vw,62px);font-weight:400;line-height:1;margin-top:4px}
+.second{display:flex;align-items:center;justify-content:center;min-height:56px;margin-top:10px;
+border:2px solid var(--ink);text-decoration:none;font-weight:700;font-size:15px;
+letter-spacing:.1em;text-transform:uppercase;background:var(--panel)}
+.badges{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:0;border-top:2px solid var(--ink)}
+.badges li{font-size:15px;font-weight:500;padding:11px 0;border-bottom:1px solid var(--hair);
+letter-spacing:.01em}
+.fin{background:var(--accent);color:var(--on-accent)}
+.fin .wrap{padding:20px;text-align:center}
+.fin .big{font-family:"Bebas Neue",Impact,sans-serif;font-size:clamp(34px,8.6vw,52px);line-height:1}
+.fin .small{font-size:16px;margin-top:6px;font-weight:500}
+.sec{padding:42px 0}
+.kicker{font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;
+color:var(--muted);margin:0 0 9px}
+.sec h2{font-size:clamp(34px,8.4vw,58px);margin-bottom:12px}
+.lede{color:var(--muted);max-width:58ch;margin:0 0 24px;font-size:16px}
+.cards{display:grid;gap:12px}
+.card{background:var(--panel);border:2px solid var(--ink);padding:18px 16px 20px;position:relative}
+.card::before{content:"";position:absolute;left:-2px;right:-2px;top:-2px;height:8px;background:var(--accent)}
+.card h3{font-size:26px;margin:8px 0 7px}
+.card p{color:var(--muted);font-size:16px}
+.claim{background:var(--ink);color:#EDEEEF;padding:38px 0 40px}
+.claim .kicker{color:var(--accent)}
+.claim h2{color:#fff;font-size:clamp(30px,7.4vw,48px)}
+.claim p{color:#BEC2C6;font-size:16px;max-width:58ch;margin-top:12px}
+.claim .pull{border-left:6px solid var(--accent);padding-left:14px;margin-top:18px;color:#fff;
+font-weight:500;font-size:17px;max-width:52ch}
+.wall{display:grid;gap:12px;margin-top:20px}
+.wall article{background:var(--panel);border:2px solid var(--ink);padding:16px 16px 18px}
+.wall q{display:block;quotes:none;font-size:17px;line-height:1.45;font-weight:500}
+.wall cite{display:block;font-style:normal;font-family:"Bebas Neue",Impact,sans-serif;
+font-size:20px;letter-spacing:.06em;margin-top:10px;color:var(--muted)}
+.steps{list-style:none;margin:22px 0 0;padding:0;counter-reset:s;display:grid;gap:0}
+.steps li{counter-increment:s;padding:18px 0;border-top:2px solid var(--ink);display:grid;
+grid-template-columns:44px minmax(0,1fr);gap:12px}
+.steps li::before{content:counter(s);font-family:"Bebas Neue",Impact,sans-serif;font-size:30px;
+line-height:1;background:var(--accent);width:34px;height:34px;display:flex;align-items:center;
+justify-content:center;color:var(--on-accent)}
+.steps h3{font-size:24px;margin-bottom:4px}
+.steps p{color:var(--muted);font-size:16px}
+.close{background:var(--accent);color:var(--on-accent);padding:42px 0 46px;text-align:center}
+.close h2{font-size:clamp(36px,9vw,64px);max-width:15ch;margin:0 auto}
+.close p{max-width:52ch;font-size:17px;margin:12px auto 18px;font-weight:500}
+.close .dial{background:var(--ink);color:var(--accent);border-color:var(--ink);max-width:520px;
+margin:0 auto}
+.note{font-size:15px;margin-top:16px;max-width:52ch;margin-left:auto;margin-right:auto;font-weight:500}
+.foot{background:var(--ink);color:#B4B8BC;padding:32px 0 28px;font-size:15px;text-align:center}
+.foot .brand{color:#fff;display:inline-block;margin-bottom:10px}
+.foot p{margin:0 0 8px}
+.foot a{color:var(--accent)}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--ink);
+display:grid;grid-template-columns:1fr auto;gap:6px;padding:6px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:58px;
+text-decoration:none;text-align:center;font-weight:700;line-height:1.15;padding:0 12px}
+.callbar .tel{background:var(--accent);color:var(--on-accent);
+font-family:"Bebas Neue",Impact,sans-serif;font-weight:400;font-size:28px;letter-spacing:.04em}
+.callbar .alt2{color:#fff;border:2px solid rgba(255,255,255,.5);font-size:13px;
+letter-spacing:.07em;text-transform:uppercase;max-width:124px}
+@media(max-width:559px){.navact{font-size:14px;padding:6px 10px}}
+@media(min-width:760px){.cards{grid-template-columns:1fr 1fr}.wall{grid-template-columns:1fr 1fr}
+.badges{grid-template-columns:1fr 1fr;column-gap:28px}.steps{grid-template-columns:1fr 1fr;column-gap:40px}
+.sec{padding:70px 0}.hero{padding:44px 0 56px}.hero .sub{font-size:19px}
+.dial{padding:20px 24px 22px}.second{max-width:420px;margin-left:auto;margin-right:auto}
+.fin .wrap{display:flex;align-items:baseline;justify-content:center;gap:20px;padding:26px 20px}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}.navlinks{display:flex}
+.cards{grid-template-columns:repeat(4,1fr)}}
+</style>
+
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
+</head>
+<body>
+<div class="hazard" aria-hidden="true"></div>
+<div class="topbar"><div class="wrap">Licensed &amp; insured · Financing approved in minutes</div></div>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="#">Anchor Peak Roofing</a>
+  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+  <a class="navact" href="tel:+15558726604">Call now · (555) 872-6604</a>
+</div></header>
+<section class="hero"><div class="wrap">
+  <p class="eyebrow">Claims handled · Financing on site</p>
+  <h1>Eighty-nine a month, or the whole claim handled. Your choice.</h1>
+  <p class="sub">Storm damage, full replacements and repairs across the metro. Two ways to pay for it: we run the insurance claim end to end, or you finance it from $89 a month with nothing down.</p>
+  <a class="dial" data-cta="primary" href="tel:+15558726604"><span>Call now</span><b>(555) 872-6604</b></a>
+  <a class="second" href="#contact">Get a free inspection</a>
+  <ul class="badges">
+    <li>Insurance claims handled</li><li>From $89/mo, nothing down</li>
+    <li>25-year workmanship warranty</li><li>Same-day emergency tarping</li>
+  </ul>
+</div></section>
+<figure class="gsw-plate"><img src="../_assets/hero/roofing/d-shingle-courses.jpg" alt="Shingle courses — roofing" loading="lazy"></figure>
+
+<div class="hazard" aria-hidden="true"></div>
+<section class="fin"><div class="wrap">
+  <p class="big">From $89/mo, nothing down</p>
+  <p class="small">“The financing made it possible. $110 a month instead of fifteen grand up front.” — Joel B., Riverbend</p>
+</div></section>
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p>
+  <h2>What we do</h2>
+  <p class="lede">Most calls fall into one of these. If yours doesn't, ring us anyway — we'll tell you straight whether it's a repair or a replacement.</p>
+  <div class="cards">
+    <article class="card"><h3>Storm &amp; hail damage</h3><p>Free inspection, full photo report, and we meet the adjuster on site so nothing gets argued about later.</p></article>
+    <article class="card"><h3>Full replacement</h3><p>Architectural shingle, metal or tile. Tear-off, deck inspection, ice-and-water barrier, and the site left clean.</p></article>
+    <article class="card"><h3>Emergency repair</h3><p>Active leak or missing shingles after a storm. Same-day tarping to stop the damage, permanent fix scheduled after.</p></article>
+    <article class="card"><h3>Gutters &amp; ventilation</h3><p>Half the roofs we replace failed early because the attic couldn't breathe. We fix the cause, not just the symptom.</p></article>
+  </div>
+</div></section>
+<section class="claim"><div class="wrap">
+  <p class="kicker">Insurance claims handled</p>
+  <h2>Claim or quote</h2>
+  <p>If it's insurance, we meet your adjuster on the roof and handle the paperwork. If it isn't, you get one fixed written price and a monthly figure beside it.</p>
+  <p class="pull">“Handled the whole insurance claim. I signed two things and that was it.” — Anne-Marie K., Cedar Park</p>
+</div></section>
+<section class="sec" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <h2>What the neighbours said</h2>
+  <div class="wall">
+    <article><q>“Came out at 9pm during the storm and tarped it. Full replacement done in two days flat.”</q><cite>Marcus T. · Northside</cite></article>
+    <article><q>“They caught that our attic ventilation was the real problem. Nobody else even looked.”</q><cite>Priya S. · Elmwood</cite></article>
+    <article><q>“The financing made it possible. $110 a month instead of fifteen grand up front.”</q><cite>Joel B. · Riverbend</cite></article>
+    <article><q>“Handled the whole insurance claim. I signed two things and that was it.”</q><cite>Anne-Marie K. · Cedar Park</cite></article>
+  </div>
+</div></section>
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p>
+  <h2>How a job actually runs</h2>
+  <p class="lede">The part most roofers won't put a figure on, which is the only part most homeowners actually want a figure on.</p>
+  <ol class="steps">
+    <li><div><h3>Free inspection</h3><p>We go up, photograph everything, and tell you whether you need a roof or a repair. No pressure either way.</p></div></li>
+    <li><div><h3>Claim or quote</h3><p>If it's insurance, we meet your adjuster on the roof and handle the paperwork. If it isn't, you get one fixed written price and a monthly figure beside it.</p></div></li>
+    <li><div><h3>Install</h3><p>Most homes are one to two days. Materials delivered the morning of, site cleaned and magnet-swept at the end.</p></div></li>
+    <li><div><h3>Final walkthrough</h3><p>We walk it with you, register your warranty, and you have a direct number if anything ever comes up.</p></div></li>
+  </ol>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>Worried about how you'd pay for it?</h2>
+  <p>Call and a human answers — day, night, weekend, during the storm. Emergency tarping usually the same day.</p>
+  <a class="dial" href="tel:+15558726604"><span>Call now</span><b>(555) 872-6604</b></a>
+  <p class="note">Free inspection and a straight answer on both routes — what the claim would likely cover, and what the monthly would be if it doesn't.</p>
+  <p class="note"><a href="#contact">Get a free inspection</a></p>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Anchor Peak Roofing</a>
+  <p><a href="tel:+15558726604">(555) 872-6604</a> · Licensed, bonded and insured · Financing approved in minutes</p>
+  <p>6170 Sandover Road Unit 12, Cedar Reach, NY 11273</p>
+</div></footer>
+<div class="callbar"><a class="tel" href="tel:+15558726604">Call now (555) 872-6604</a><a class="alt2" href="#contact">Free inspection</a></div>
+</body>
+</html>

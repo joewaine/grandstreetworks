@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wren &amp; Alder — Full-service residential interiors</title>
+<meta name="description" content="Full-service interior design for whole homes and substantial renovations. Projects generally start around $60,000 including furnishings.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Eczar:wght@500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* D1 — THE SWATCH ONE. hero:stack nav:inline services:cards proof:stats
+   ink #1E1B16 · surface #F3EEE4 · paper #FBF8F1 · accent #8C5A0D ochre · muted #5C5347
+   H1 ramp: 36/44/62/78px · Eczar display / Jost body
+   Fixes "presentation quality — they feel this one personally": the hero ends in a
+   six-tile material swatch board drawn entirely in CSS — oak, plaster, moss velvet,
+   brass, linen, lacquer — so the page carries a material point of view with no
+   photography at all, and the style chips sit directly under the headline. */
+:root{--ink:#1E1B16;--surface:#F3EEE4;--paper:#FBF8F1;--accent:#8C5A0D;--muted:#5C5347;
+--rule:rgba(30,27,22,.16);--wrap:1140px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);overflow-x:hidden;
+font:400 17px/1.6 "Jost",system-ui,-apple-system,sans-serif;padding-bottom:80px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Eczar",Georgia,serif;font-weight:500;margin:0;line-height:1.1;
+letter-spacing:-.015em}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;
+padding:0 24px;text-decoration:none;font-weight:500;font-size:16px;line-height:1.2;
+border:1px solid transparent;text-align:center;letter-spacing:.02em}
+.btn-fill{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn-line{background:transparent;color:var(--ink);border-color:var(--ink)}
+.topbar{background:var(--ink);color:#DCD3C2;font-size:15px;letter-spacing:.02em}
+.topbar .wrap{padding:10px 20px}
+/* nav: inline — brand and links share the rule */
+.nav{background:var(--paper);border-bottom:1px solid var(--rule);position:sticky;top:0;z-index:30}
+.navrow{display:flex;align-items:center;gap:14px;min-height:56px;flex-wrap:wrap;padding:8px 0}
+.brand{font-family:"Eczar",Georgia,serif;font-weight:600;font-size:21px;text-decoration:none;
+letter-spacing:-.01em;margin-right:auto;line-height:1.1}
+.navlinks{display:flex;gap:18px;font-size:14px;letter-spacing:.14em;text-transform:uppercase;
+color:var(--muted);order:3;width:100%;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.navlinks::-webkit-scrollbar{display:none}
+.navlinks a{text-decoration:none;white-space:nowrap;padding:6px 0}
+.navact{min-height:38px;padding:0 14px;font-size:14px;white-space:nowrap}
+/* hero: stack */
+.hero{padding:30px 0 8px}
+.eyebrow{font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);
+font-weight:500;margin:0 0 16px}
+.hero h1{font-size:clamp(36px,9.4vw,78px);max-width:15ch}
+.sub{font-size:17px;color:var(--muted);max-width:56ch;margin:18px 0 0;line-height:1.62}
+.ctas{display:flex;flex-direction:column;gap:10px;margin-top:24px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:22px 0 0;padding:0}
+.chips li{font-size:13px;letter-spacing:.1em;text-transform:uppercase;padding:9px 14px;
+border:1px solid var(--rule);border-radius:999px;color:var(--muted);background:var(--paper)}
+.chips li.on{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:500}
+/* the swatch board */
+.board{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:26px 0 0}
+.sw{aspect-ratio:1/1.18;border:1px solid rgba(30,27,22,.12)}
+.sw-oak{background:repeating-linear-gradient(92deg,rgba(60,32,10,.13) 0 1px,transparent 1px 7px),
+linear-gradient(168deg,#C08F52,#9A6A38)}
+.sw-plaster{background:radial-gradient(120% 95% at 18% 12%,#FCF7ED,transparent 62%),
+radial-gradient(95% 85% at 84% 92%,#DCD2BE,transparent 58%),#EDE5D5}
+.sw-moss{background:radial-gradient(85% 70% at 32% 24%,rgba(255,255,255,.17),transparent 62%),
+repeating-linear-gradient(0deg,rgba(0,0,0,.07) 0 1px,transparent 1px 3px),#3D5238}
+.sw-brass{background:linear-gradient(104deg,#7E5F22 0 16%,#D6B76C 30%,#A6853A 46%,#EBD9A0 60%,
+#8A6A28 82%,#6E521C 100%)}
+.sw-linen{background:repeating-linear-gradient(0deg,rgba(80,66,40,.09) 0 1px,transparent 1px 4px),
+repeating-linear-gradient(90deg,rgba(80,66,40,.09) 0 1px,transparent 1px 4px),#DACFB6}
+.sw-lacquer{background:linear-gradient(158deg,#3A2E23 0 46%,#241C15 46%,#1B1510)}
+/* sections */
+.sec{padding:56px 0;border-top:1px solid var(--rule)}
+.kicker{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);
+margin:0 0 12px;font-weight:500}
+.sec h2{font-size:clamp(30px,7.2vw,50px);max-width:18ch}
+.lede{color:var(--muted);max-width:58ch;margin:16px 0 30px;font-size:17px}
+.cards{display:grid;gap:14px}
+.card{background:var(--paper);border:1px solid var(--rule);padding:0 0 22px;overflow:hidden}
+.card .strip{height:56px;border-bottom:1px solid var(--rule)}
+.card h3{font-size:23px;margin:20px 20px 9px}
+.card p{margin:0 20px;color:var(--muted);font-size:16px}
+/* stats */
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:2px solid var(--ink);
+margin-top:8px}
+.stat{padding:22px 0 20px;border-bottom:1px solid var(--rule)}
+.stat:nth-child(odd){border-right:1px solid var(--rule);padding-right:16px}
+.stat:nth-child(even){padding-left:20px}
+.stat b{display:block;font-family:"Eczar",Georgia,serif;font-weight:600;font-size:40px;
+line-height:1;color:var(--accent);letter-spacing:-.02em}
+.stat span{display:block;margin-top:8px;font-size:15px;color:var(--muted);letter-spacing:.04em}
+/* process */
+.steps{list-style:none;margin:26px 0 0;padding:0;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:16px;
+padding:22px 0;border-bottom:1px solid var(--rule)}
+.steps li:first-child{border-top:1px solid var(--rule)}
+.steps li::before{content:counter(s,decimal-leading-zero);font-family:"Eczar",Georgia,serif;
+font-weight:600;font-size:19px;color:var(--accent);line-height:1.4}
+.steps h3{font-size:21px;margin-bottom:7px}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+/* close */
+.close{background:var(--accent);color:#fff;padding:56px 0 60px}
+.close h2{font-size:clamp(30px,7.4vw,52px);max-width:17ch;color:#fff}
+.close p{max-width:56ch;font-size:17px;color:#F6E9D4;margin:18px 0 24px}
+.close .btn-fill{background:#fff;color:#7A4E09;border-color:#fff}
+.close .btn-line{color:#fff;border-color:rgba(255,255,255,.6)}
+.note{font-size:15px;color:#F6E9D4;margin-top:20px;max-width:56ch}
+.foot{padding:44px 0 36px;font-size:15px;color:var(--muted)}
+.foot .brand{color:var(--ink);display:inline-block;margin:0 0 14px}
+.foot p{margin:0 0 10px;max-width:66ch}
+.foot a{color:var(--accent)}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--paper);
+border-top:1px solid var(--rule);padding:8px;display:grid;grid-template-columns:1fr auto;gap:8px;
+box-shadow:0 -2px 12px rgba(30,27,22,.1)}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:56px;
+text-decoration:none;font-size:15px;font-weight:500;line-height:1.2;text-align:center;padding:0 14px}
+.callbar .go{background:var(--accent);color:#fff}
+.callbar .tel{border:1px solid var(--ink);color:var(--ink);font-size:16px}
+@media(max-width:519px){.navact{display:none}}
+@media(min-width:760px){
+.ctas{flex-direction:row}.hero{padding:52px 0 10px}.sec{padding:88px 0}
+.board{grid-template-columns:repeat(6,1fr);gap:8px}
+.cards{grid-template-columns:1fr 1fr;gap:18px}
+.stats{grid-template-columns:repeat(4,1fr)}
+.stat:nth-child(n){border-right:1px solid var(--rule);padding:26px 18px 24px}
+.stat:last-child{border-right:0}
+.stat b{font-size:52px}
+.steps{grid-template-columns:1fr 1fr;column-gap:44px;display:grid}
+.sub{font-size:19px}.navlinks{order:0;width:auto;margin-right:8px}
+.navrow{flex-wrap:nowrap}
+}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Full-service interiors · Projects from $60,000 · Now booking</div></div>
+
+<header class="nav"><div class="wrap"><div class="navrow">
+  <a class="brand" href="#">Wren &amp; Alder</a>
+  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+  <a class="btn btn-fill navact" href="#contact">Start a project</a>
+</div></div></header>
+
+<section class="hero"><div class="wrap">
+  <p class="eyebrow">Full-service residential interiors</p>
+  <h1>Rooms that look like the people who live in them.</h1>
+  <p class="sub">Full-service interior design for whole homes and substantial renovations, generally from around $60,000 including furnishings. We start from your things — the inherited table, the paintings — rather than from a mood board.</p>
+  <div class="ctas">
+    <a class="btn btn-fill" data-cta="primary" href="#contact">Start a project</a>
+    <a class="btn btn-line" href="#results">Browse by style</a>
+  </div>
+  <ul class="chips">
+    <li class="on">Filter work by style</li>
+    <li>Projects from $60,000</li>
+    <li>Trade pricing passed on</li>
+    <li>Full install &amp; styling</li>
+  </ul>
+  <div class="board" aria-hidden="true">
+    <div class="sw sw-oak"></div><div class="sw sw-plaster"></div><div class="sw sw-moss"></div>
+    <div class="sw sw-brass"></div><div class="sw sw-linen"></div><div class="sw sw-lacquer"></div>
+  </div>
+</div></section>
+<figure class="gsw-plate"><img src="../_assets/hero/interior-design/a-rooms-like-people.jpg" alt="Rooms like people — interior design" loading="lazy"></figure>
+
+
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p>
+  <h2>How we work</h2>
+  <p class="lede">Full service, meaning we handle procurement, deliveries, trades and installation. Half a service is worse than none in this business.</p>
+  <div class="cards">
+    <article class="card"><div class="strip sw-oak"></div><h3>Whole-home design</h3><p>Concept through installation, including everything that gets specified, ordered, chased, received and placed. Usually four to nine months.</p></article>
+    <article class="card"><div class="strip sw-plaster"></div><h3>Renovation interiors</h3><p>Working alongside your architect and builder on finishes, joinery, lighting and the decisions that get made too late otherwise.</p></article>
+    <article class="card"><div class="strip sw-moss"></div><h3>Single rooms, done properly</h3><p>Kitchens, principal bedrooms and living rooms as standalone projects. From about $25,000 including furnishings.</p></article>
+    <article class="card"><div class="strip sw-brass"></div><h3>Trade pricing, passed on</h3><p>We buy at trade and pass the discount to you, charging a transparent design fee instead of marking up your sofa.</p></article>
+  </div>
+</div></section>
+
+<section class="sec" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <h2>The numbers behind the rooms</h2>
+  <div class="stats">
+    <div class="stat"><b>$60k+</b><span>Typical project</span></div>
+    <div class="stat"><b>0%</b><span>Mark-up on furnishings</span></div>
+    <div class="stat"><b>240+</b><span>Homes completed</span></div>
+    <div class="stat"><b>6mo</b><span>Average project</span></div>
+  </div>
+</div></section>
+
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p>
+  <h2>From first visit to install day</h2>
+  <p class="lede">The bit people find hardest is the middle, where nothing seems to be happening and everything is being ordered.</p>
+  <ol class="steps">
+    <li><div><h3>Consultation</h3><p>We visit, walk the house and talk about how you actually live in it. A fixed fee, credited against the project if you proceed.</p></div></li>
+    <li><div><h3>Concept &amp; budget</h3><p>Direction, palette and a realistic furnishing budget room by room. This is where expectations and money get reconciled.</p></div></li>
+    <li><div><h3>Specification &amp; procurement</h3><p>Everything specified, ordered and tracked by us. Long lead times are the reality; knowing about them early is the service.</p></div></li>
+    <li><div><h3>Install &amp; style</h3><p>Usually a single day. Everything arrives at our warehouse first, gets inspected, and goes in at once rather than in dribs.</p></div></li>
+  </ol>
+</div></section>
+
+<section class="close" id="contact"><div class="wrap">
+  <h2>Renovating, moving, or finally doing the house properly?</h2>
+  <p>The earliest useful conversation is before the builder starts. Lighting, joinery and layout decisions get very expensive once walls are closed.</p>
+  <div class="ctas">
+    <a class="btn btn-fill" href="#contact">Start a project</a>
+    <a class="btn btn-line" href="tel:+15552638817">(555) 263-8817</a>
+  </div>
+  <p class="note">Projects generally from $60,000 including furnishings. Consultation fee credited against the project.</p>
+</div></section>
+
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Wren &amp; Alder</a>
+  <p>Full-service residential interiors · Trade pricing passed to clients · Est. 2012</p>
+  <p><a href="tel:+15552638817">(555) 263-8817</a></p>
+  <p>3829 Thistle Lane, Cedar Reach, NY 12032</p>
+</div></footer>
+
+<div class="callbar"><a class="go" href="#contact">Start a project</a><a class="tel" href="tel:+15552638817">(555) 263-8817</a></div>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Arbor Restoration Group — the crew adjusters and plumbers refer to</title>
+<meta name="description" content="Emergency water, fire and mould restoration. IICRC certified, preferred vendor to major carriers, on call 24/7/365.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Khand:wght@500;600;700&family=Mulish:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* D3 — THE REFERRAL ONE. hero:split nav:minimal services:list proof:logos
+   ink #10262B · surface #10262B · accent #5EC8C0 · muted #9FB6B8 · on-accent #05201F
+   H1 ramp: 33/40/54/68px · Khand display / Mulish body
+   Device: the referral-partner block — the carrier and certification wall is the whole
+   proof section and the dispatch card sits beside the headline, so the plumber or
+   adjuster sending the job sees who they are handing it to. */
+:root{--ink:#10262B;--surface:#10262B;--accent:#5EC8C0;--muted:#9FB6B8;--on-accent:#05201F;
+--paper:#16323A;--text:#EAF3F2;--rule:rgba(234,243,242,.28);--hair:rgba(234,243,242,.15);
+--wrap:1160px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--text);
+font:400 17px/1.66 Mulish,system-ui,-apple-system,sans-serif;padding-bottom:82px;overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:Khand,"Arial Narrow",sans-serif;font-weight:600;margin:0;line-height:1.02;
+letter-spacing:.005em}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:58px;padding:0 24px;
+text-decoration:none;font-weight:700;font-size:18px;letter-spacing:.06em;text-transform:uppercase;
+border:2px solid transparent;text-align:center;line-height:1.15;font-family:Khand,sans-serif}
+.btn-primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.btn-ghost{background:transparent;color:var(--accent);border-color:var(--rule)}
+.topbar{background:var(--accent);color:var(--on-accent);font-size:16px;font-weight:600}
+.topbar .wrap{padding:10px 20px;line-height:1.35}
+.nav{position:sticky;top:0;z-index:30;background:rgba(16,38,43,.97);
+border-bottom:1px solid var(--hair)}
+.nav .wrap{display:flex;align-items:center;gap:12px;height:62px}
+.brand{font-family:Khand,sans-serif;font-weight:700;font-size:23px;text-decoration:none;
+line-height:1;flex:none;letter-spacing:.05em;text-transform:uppercase}
+.navact{margin-left:auto;font-family:Khand,sans-serif;font-weight:700;font-size:21px;
+text-decoration:none;color:var(--accent);white-space:nowrap;flex:none;letter-spacing:.02em}
+@media(max-width:559px){.navact{display:none}}
+.hero{padding:24px 0 36px}
+.split{display:grid;gap:26px}
+.eyebrow{font-family:Khand,sans-serif;font-size:16px;letter-spacing:.24em;text-transform:uppercase;
+color:var(--accent);margin:0 0 12px;font-weight:600}
+.hero h1{font-size:clamp(33px,8.8vw,68px);max-width:14ch;text-transform:uppercase;color:#FFFFFF}
+.sub{font-size:17px;color:var(--muted);max-width:52ch;margin:14px 0 22px;line-height:1.6}
+.ctas{display:flex;flex-direction:column;gap:10px}
+/* dispatch card — the 60-minute bar, stood on its end */
+.card{border:1px solid var(--rule);background:var(--paper)}
+.card .head{padding:14px 18px;border-bottom:1px solid var(--rule);display:flex;
+align-items:center;gap:10px;font-family:Khand,sans-serif;font-size:21px;letter-spacing:.04em;
+color:var(--accent);font-weight:700;text-decoration:none}
+.pulse{width:10px;height:10px;border-radius:50%;background:var(--accent);flex:none;
+box-shadow:0 0 0 5px rgba(94,200,192,.18)}
+.card ul{list-style:none;margin:0;padding:0}
+.card li{padding:15px 18px;border-bottom:1px solid var(--hair);font-size:16px;
+display:flex;align-items:center;gap:12px;color:var(--text)}
+.card li:last-child{border-bottom:none}
+.card li i{width:22px;height:2px;background:var(--accent);flex:none;font-style:normal}
+.sec{padding:52px 0;border-top:1px solid var(--hair)}
+.kicker{font-family:Khand,sans-serif;font-size:16px;letter-spacing:.24em;text-transform:uppercase;
+color:var(--accent);margin:0 0 8px;font-weight:600}
+.sec h2{font-size:clamp(29px,7vw,50px);margin-bottom:12px;text-transform:uppercase;color:#FFFFFF}
+.lede{color:var(--muted);max-width:58ch;margin:0 0 26px;font-size:17px}
+.list{margin:0;padding:0;list-style:none;display:grid;gap:2px}
+.list li{background:var(--paper);border-left:4px solid var(--accent);padding:20px 18px 22px}
+.list h3{font-size:24px;margin-bottom:6px;text-transform:uppercase;color:#FFFFFF}
+.list p{margin:0;color:var(--muted);font-size:16px;max-width:64ch}
+.logos{background:var(--accent);color:var(--on-accent);border-top:none}
+.logos .kicker{color:#0A3B38}
+.logos h2{color:var(--on-accent)}
+.logos .lede{color:#0B3D3A}
+.logolist{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:10px}
+.logolist li{border:2px solid rgba(5,32,31,.32);padding:16px 16px;
+font-family:Khand,sans-serif;font-weight:600;font-size:21px;text-transform:uppercase;
+letter-spacing:.03em;line-height:1.2;background:rgba(255,255,255,.34)}
+.timeline{list-style:none;margin:26px 0 0;padding:0 0 0 30px;counter-reset:s;position:relative;
+border-left:2px solid var(--hair)}
+.timeline li{counter-increment:s;position:relative;padding:0 0 28px}
+.timeline li:last-child{padding-bottom:0}
+.timeline li::before{content:counter(s);position:absolute;left:-45px;top:-2px;width:30px;height:30px;
+border-radius:50%;background:var(--accent);color:var(--on-accent);font-family:Khand,sans-serif;
+font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center}
+.timeline h3{font-size:23px;margin-bottom:5px;text-transform:uppercase;color:#FFFFFF}
+.timeline p{margin:0;color:var(--muted);font-size:16px;max-width:58ch}
+.timeline li.claims h3{color:var(--accent)}
+.timeline li.claims p{color:var(--text)}
+.close{background:var(--paper);padding:52px 0 58px;border-top:1px solid var(--hair)}
+.close h2{font-size:clamp(31px,7.4vw,54px);max-width:14ch}
+.close p{max-width:52ch;font-size:18px;color:var(--muted);margin:14px 0 22px}
+.note{font-size:16px;color:var(--muted);margin-top:20px;max-width:52ch}
+.foot{padding:36px 0 34px;font-size:16px;color:var(--muted);border-top:1px solid var(--hair)}
+.foot .brand{color:var(--text);display:inline-block;margin-bottom:14px}
+.footnav{display:flex;flex-wrap:wrap;gap:18px;margin:0 0 16px;padding:0;list-style:none;
+font-family:Khand,sans-serif;font-size:17px;letter-spacing:.14em;text-transform:uppercase}
+.footnav a{text-decoration:none;color:var(--accent)}
+.foot p{margin:0 0 9px;max-width:64ch}
+.foot a{color:var(--accent)}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--paper);padding:7px;
+border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:7px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:60px;
+text-decoration:none;font-weight:700;font-size:17px;letter-spacing:.07em;text-transform:uppercase;
+text-align:center;line-height:1.15;padding:0 12px;font-family:Khand,sans-serif}
+.callbar .call{background:var(--accent);color:var(--on-accent)}
+.callbar .tel{border:1px solid var(--rule);color:var(--text);padding:0 14px;letter-spacing:.02em;
+text-transform:none;font-size:17px;font-family:Mulish,sans-serif;font-weight:600}
+@media(min-width:760px){.ctas{flex-direction:row;gap:12px}
+.split{grid-template-columns:1.25fr .85fr;gap:40px;align-items:start}
+.list{grid-template-columns:1fr 1fr;gap:2px}
+.logolist{grid-template-columns:repeat(2,1fr)}
+.sec{padding:86px 0}.hero{padding:44px 0 62px}.sub{font-size:19px}}
+@media(min-width:1040px){.logolist{grid-template-columns:repeat(5,1fr)}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Emergency crews on call 24/7/365 · We bill your insurer direct</div></div>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="#">Arbor Restoration Group</a>
+  <a class="navact" href="tel:+15559473360">(555) 947-3360</a>
+</div></header>
+<section class="hero"><div class="wrap"><div class="split">
+  <div>
+    <p class="eyebrow">Water · Fire · Mould · 24/7</p>
+    <h1>Most of our work comes from plumbers and agents.</h1>
+    <p class="sub">Emergency water, fire and mould restoration. Most of our calls come from plumbers, property managers and insurance agents who have watched us work — which is a harder reputation to buy than advertising.</p>
+    <div class="ctas">
+      <a class="btn btn-primary" data-cta="primary" href="tel:+15559473360">Call now — 24/7</a>
+      <a class="btn btn-ghost" href="#claims">How claims work</a>
+    </div>
+  </div>
+  <div class="card">
+    <a class="head" href="tel:+15559473360"><span class="pulse" aria-hidden="true"></span>(555) 947-3360</a>
+    <ul>
+      <li><i aria-hidden="true"></i>60-minute response</li>
+      <li><i aria-hidden="true"></i>We bill insurers direct</li>
+      <li><i aria-hidden="true"></i>IICRC certified</li>
+      <li><i aria-hidden="true"></i>Adjuster meetings included</li>
+    </ul>
+  </div>
+</div></div></section>
+<figure class="gsw-plate"><img src="../_assets/hero/restoration/c-first-reading.jpg" alt="First reading — restoration" loading="lazy"></figure>
+
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p><h2>Emergency services</h2>
+  <p class="lede">Every hour water sits, the damage and the cost compound. This is why we answer at 3am.</p>
+  <ul class="list">
+    <li><h3>Water extraction &amp; drying</h3><p>Truck-mounted extraction, commercial air movers and moisture mapping so we can prove the structure is genuinely dry, not just dry-feeling.</p></li>
+    <li><h3>Fire &amp; smoke</h3><p>Soot removal, odour neutralisation and contents cleaning. Smoke damage travels far further than the fire itself.</p></li>
+    <li><h3>Mould remediation</h3><p>Containment, HEPA filtration and post-remediation verification by an independent hygienist so the clearance means something.</p></li>
+    <li><h3>Storm &amp; flood</h3><p>Board-up, tarping and full structural drying. We mobilise extra crews before a forecast storm rather than after it.</p></li>
+  </ul>
+</div></section>
+<section class="sec logos" id="results"><div class="wrap">
+  <p class="kicker">Results</p><h2>Certified and approved</h2>
+  <ul class="logolist">
+    <li>IICRC Certified Firm</li>
+    <li>Preferred Vendor — major carriers</li>
+    <li>EPA Lead-Safe</li>
+    <li>BBB A+</li>
+    <li>OSHA Compliant</li>
+  </ul>
+</div></section>
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p><h2>From your call to your keys</h2>
+  <p class="lede">You are dealing with a disaster and an insurer at the same time. We take the second one off you.</p>
+  <ol class="timeline">
+    <li><h3>Call &amp; dispatch</h3><p>A person answers day or night, whether you are the homeowner, the plumber already on site, or the agent who sent us.</p></li>
+    <li><h3>Stabilise</h3><p>Stop the source, extract standing water, tarp or board up. The first hours decide the size of the claim.</p></li>
+    <li class="claims" id="claims"><h3>Document &amp; bill</h3><p>Full photographic scope and moisture log, submitted to your carrier. We bill them direct and meet the adjuster on site.</p></li>
+    <li><h3>Dry, verify, restore</h3><p>Daily readings until independently verified dry, then reconstruction — with the log handed to whoever referred you as well as to you.</p></li>
+  </ol>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>Emergency right now?</h2>
+  <p>Do not wait for business hours. Every hour standing water sits, the cost and the damage climb. Crews are on call this minute.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="tel:+15559473360">Call now — 24/7</a>
+    <a class="btn btn-ghost" href="tel:+15559473360">(555) 947-3360</a>
+  </div>
+  <p class="note">We work with all major insurers and bill direct. Free emergency assessment.</p>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Arbor Restoration Group</a>
+  <ul class="footnav"><li><a href="#services">Services</a></li><li><a href="#results">Results</a></li><li><a href="#process">Process</a></li><li><a href="#contact">Contact</a></li></ul>
+  <p><a href="tel:+15559473360">(555) 947-3360</a></p>
+  <p>IICRC certified · 24/7/365 emergency response · Licensed &amp; insured</p>
+  <p>6961 Pardon Road Suite 200, Riverbend, NY 19588</p>
+</div></footer>
+<div class="callbar"><a class="call" href="tel:+15559473360">Call now — 24/7</a><a class="tel" href="tel:+15559473360">(555) 947-3360</a></div>
+</body>
+</html>

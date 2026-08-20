@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Amberton Residential — Management for owners of one to two hundred doors</title>
+<meta name="description" content="Eight percent, no leasing markup, no maintenance mark-up. 1,900 doors managed for owners who would rather not take the Sunday night call.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700&family=Roboto+Slab:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* D2 — THE DOOR COUNT ONE. hero:panel nav:minimal services:grid-numbered proof:review-wall
+   ink #131A20 · surface #EEF1F3 · accent #23505E · muted #4E5A63 · on-accent #FFFFFF
+   H1 ramp: 28/33/42/54px · Roboto Slab display / Karla body, tabular numerals
+   Fixes "everything on the site talks to tenants": the panel is an owner's ledger — a
+   door run, a four-cell fee grid and a wall of owners named by how many doors they own.
+   The tenant is sent to their portal in one line and nowhere else. */
+:root{--ink:#131A20;--surface:#EEF1F3;--paper:#FFFFFF;--accent:#23505E;--muted:#4E5A63;
+--rule:rgba(19,26,32,.2);--hair:rgba(19,26,32,.1);--tint:#DCE4E8;--wrap:1120px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.6 Karla,system-ui,-apple-system,sans-serif;padding-bottom:82px;overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 16px}
+h1,h2,h3{font-family:"Roboto Slab",Georgia,serif;font-weight:700;margin:0;line-height:1.1;
+letter-spacing:-.012em}
+a{color:inherit}
+.num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 20px;
+text-decoration:none;font-weight:700;font-size:16px;border:2px solid transparent;text-align:center;
+line-height:1.2}
+.btn-primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn-ghost{background:var(--paper);color:var(--accent);border-color:var(--accent)}
+.topbar{background:var(--tint);color:var(--ink);font-size:15px;line-height:1.4}
+.topbar .wrap{padding:8px 16px}
+.nav{position:sticky;top:0;z-index:30;background:var(--surface);border-bottom:3px solid var(--ink)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:10px;height:56px}
+.brand{font-family:"Roboto Slab",Georgia,serif;font-weight:700;font-size:22px;text-decoration:none;
+line-height:1;letter-spacing:-.02em}
+.navact{min-height:38px;font-size:14px;padding:0 12px;white-space:nowrap}
+.hero{padding:14px 0 30px}
+.panel{background:var(--paper);border:2px solid var(--ink)}
+.paneltop{background:var(--ink);color:#DCE4E8;font-size:13px;letter-spacing:.16em;
+text-transform:uppercase;padding:9px 16px;font-weight:700}
+.panelbody{padding:18px 16px 20px}
+.hero h1{font-size:clamp(28px,7vw,54px);max-width:15ch}
+.sub{font-size:16px;color:var(--muted);max-width:52ch;margin:12px 0 18px;line-height:1.55}
+.ctas{display:flex;flex-direction:column;gap:10px}
+.doorrun{display:flex;gap:3px;margin:24px 0 0;height:34px}
+.doorrun i{flex:1;background:var(--tint);border-top:3px solid var(--accent)}
+.doorrun i:nth-child(-n+13){background:var(--accent);border-top-color:var(--ink)}
+.grid4{display:grid;grid-template-columns:1fr 1fr;border-left:1px solid var(--hair);
+border-top:1px solid var(--hair);margin-top:14px}
+.g4{border-right:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:13px 12px}
+.g4 b{display:block;font-family:"Roboto Slab",Georgia,serif;font-weight:700;font-size:30px;
+color:var(--accent);line-height:1}
+.g4 span{display:block;font-size:14px;color:var(--muted);margin-top:5px}
+.badges{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:7px}
+.badges li{font-size:14px;font-weight:700;border:1.5px solid var(--rule);padding:6px 10px;
+color:var(--ink)}
+.panelfoot{border-top:2px solid var(--ink);display:flex;gap:12px;padding:11px 13px;font-size:13px;
+letter-spacing:.07em;text-transform:uppercase;color:var(--muted);overflow-x:auto;
+scrollbar-width:none;font-weight:700}
+.panelfoot::-webkit-scrollbar{display:none}
+.panelfoot a{text-decoration:none;white-space:nowrap}
+.panelfoot a:hover{color:var(--accent)}
+.sec{padding:46px 0}
+.kicker{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);
+font-weight:700;margin:0 0 9px}
+.sec h2{font-size:clamp(26px,6.2vw,42px)}
+.lede{color:var(--muted);max-width:56ch;margin:11px 0 22px;font-size:17px}
+.gnum{display:grid;gap:14px}
+.gn{background:var(--paper);border-left:5px solid var(--accent);padding:18px 16px}
+.gn .n{font-family:"Roboto Slab",Georgia,serif;font-weight:700;font-size:15px;color:var(--accent);
+letter-spacing:.14em;display:block;margin-bottom:7px}
+.gn h3{font-size:21px;margin-bottom:7px}
+.gn p{margin:0;color:var(--muted);font-size:16px}
+.wallsec{background:var(--ink);color:#E3EAEE}
+.wallsec .kicker{color:#8FB6C6}
+.wall{display:grid;margin-top:22px;border-top:1px solid rgba(227,234,238,.24)}
+.w{padding:18px 0;border-bottom:1px solid rgba(227,234,238,.24)}
+.w p{margin:0 0 9px;font-size:17px;line-height:1.5}
+.w cite{font-style:normal;font-size:14px;color:#A9BFC9;display:flex;gap:8px;align-items:baseline;
+letter-spacing:.04em}
+.w cite b{font-family:"Roboto Slab",Georgia,serif;color:#7FC0DC;font-weight:700;font-size:15px}
+.steps{list-style:none;margin:22px 0 0;padding:0;counter-reset:s;display:grid;gap:0}
+.steps li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:12px;padding:18px 0;
+border-bottom:1px solid var(--hair)}
+.steps li:first-child{border-top:1px solid var(--hair)}
+.steps li::before{content:counter(s);font-family:"Roboto Slab",Georgia,serif;font-weight:700;
+font-size:16px;color:#fff;background:var(--accent);width:34px;height:34px;display:flex;
+align-items:center;justify-content:center;font-variant-numeric:tabular-nums}
+.steps h3{font-size:20px;margin-bottom:5px}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+.close{background:var(--accent);color:#EAF2F5;padding:46px 0 50px}
+.close h2{font-size:clamp(27px,6.6vw,46px);max-width:15ch}
+.close p{max-width:52ch;font-size:17px;color:#CBDEE6;margin:13px 0 20px}
+.close .btn-primary{background:#fff;color:var(--accent);border-color:#fff}
+.close .btn-ghost{background:transparent;color:#EAF2F5;border-color:rgba(234,242,245,.5)}
+.note{font-size:15px;color:#B6D0DA;margin-top:20px;max-width:52ch}
+.foot{padding:32px 0;font-size:15px;color:var(--muted)}
+.foot .brand{color:var(--ink);display:inline-block;margin-bottom:11px;font-size:19px}
+.foot p{margin:0 0 9px;max-width:62ch}
+.foot a{color:var(--accent);font-weight:700}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--paper);
+border-top:3px solid var(--ink);display:grid;grid-template-columns:1fr auto;gap:8px;padding:8px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:58px;
+text-decoration:none;font-weight:700;font-size:15px;text-align:center;line-height:1.2;padding:0 12px}
+.callbar .go{background:var(--accent);color:#fff}
+.callbar .tel{border:2px solid var(--accent);color:var(--accent);font-variant-numeric:tabular-nums}
+@media(min-width:760px){
+.ctas{flex-direction:row;gap:12px}.sub{font-size:19px}.sec{padding:74px 0}.hero{padding:28px 0 50px}
+.panelbody{padding:34px 32px 32px;display:grid;grid-template-columns:1.1fr .9fr;gap:36px;
+align-items:start}.doorrun{margin-top:0}.badges{margin-top:14px}
+.gnum{grid-template-columns:1fr 1fr;gap:18px}
+.grid4{grid-template-columns:1fr 1fr}
+.wall{grid-template-columns:1fr 1fr;column-gap:40px}
+.steps{grid-template-columns:1fr 1fr;column-gap:40px}
+.brand{font-size:24px}.wrap{padding:0 24px}.topbar .wrap,.paneltop{padding-left:24px}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">For owners: 8% management, no hidden fees · Tenant portal →</div></div>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="#">Amberton Residential</a>
+  <a class="btn btn-primary navact" href="#contact">Get an owner proposal</a>
+</div></header>
+<section class="hero"><div class="wrap"><div class="panel">
+  <div class="paneltop">For rental property owners</div>
+  <div class="panelbody">
+    <div>
+      <h1>One door or two hundred. Same eight percent.</h1>
+      <p class="sub">Full-service management for owners of one to two hundred doors, at the same eight percent whether you own a single condo or a portfolio. Small owners usually get quoted worse; we could not defend why.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" data-cta="primary" href="#contact">Get an owner proposal</a>
+        <a class="btn btn-ghost" href="#results">See our fees</a>
+      </div>
+    </div>
+    <div>
+      <div class="doorrun" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="grid4">
+        <div class="g4"><b class="num">8%</b><span>Flat management fee</span></div>
+        <div class="g4"><b class="num">0%</b><span>Maintenance mark-up</span></div>
+        <div class="g4"><b class="num">1,900</b><span>Doors managed</span></div>
+        <div class="g4"><b class="num">21d</b><span>Average days vacant</span></div>
+      </div>
+      <ul class="badges"><li>8% management fee</li><li>No maintenance mark-up</li><li>Owner portal, live</li><li>24/7 maintenance line</li></ul>
+    </div>
+  </div>
+  <nav class="panelfoot"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+</div></div></section>
+<figure class="gsw-plate"><img src="../_assets/hero/property-management/b-portfolio.jpg" alt="Portfolio — property management" loading="lazy"></figure>
+
+<section class="sec" id="services"><div class="wrap">
+  <p class="kicker">Services</p>
+  <h2>What we take off you</h2>
+  <p class="lede">Everything you currently do at nine o'clock on a Sunday night.</p>
+  <div class="gnum">
+    <article class="gn"><span class="n num">01</span><h3>Leasing &amp; screening</h3><p>Marketing, showings, credit, criminal and income screening, and lease execution. No separate leasing fee — it's in the eight percent.</p></article>
+    <article class="gn"><span class="n num">02</span><h3>Maintenance coordination</h3><p>24/7 line, vetted trades and our actual cost passed through with no mark-up. You approve anything over your threshold.</p></article>
+    <article class="gn"><span class="n num">03</span><h3>Rent &amp; delinquency</h3><p>Collection, late notices and the eviction process where it comes to that. You get paid on the same day each month regardless.</p></article>
+    <article class="gn"><span class="n num">04</span><h3>Owner reporting</h3><p>Live portal with statements, invoices, inspection photographs and year-end tax documents. Not a monthly PDF emailed to you.</p></article>
+  </div>
+</div></section>
+<section class="sec wallsec" id="results"><div class="wrap">
+  <p class="kicker">Results</p>
+  <h2>From property owners</h2>
+  <div class="wall">
+    <div class="w"><p>“Fees published up front. Nobody else does that.”</p><cite>Renu K. <b class="num">Owner, 6 doors</b></cite></div>
+    <div class="w"><p>“Portal means I never have to email asking how things are.”</p><cite>Gary L. <b class="num">Owner, 34 doors</b></cite></div>
+    <div class="w"><p>“No mark-up on maintenance. I checked the invoices for a year.”</p><cite>Bernice T. <b class="num">Owner, 3 doors</b></cite></div>
+    <div class="w"><p>“Filled a unit in nine days that sat empty for two months before.”</p><cite>Callum W. <b class="num">Owner, 18 doors</b></cite></div>
+  </div>
+</div></section>
+<section class="sec" id="process"><div class="wrap">
+  <p class="kicker">Process</p>
+  <h2>Handing over a portfolio</h2>
+  <p class="lede">Usually about three weeks from first conversation to us taking the calls.</p>
+  <ol class="steps">
+    <li><div><h3>Proposal</h3><p>We look at your properties and current rents and send a written proposal with real numbers. Free, no meeting required first.</p></div></li>
+    <li><div><h3>Onboarding</h3><p>We collect leases, deposits and keys, notify tenants, and inspect every unit with photographs so we have a documented baseline.</p></div></li>
+    <li><div><h3>Stabilise</h3><p>Rent reviews where they're due, deferred maintenance addressed, and any problem tenancies dealt with properly.</p></div></li>
+    <li><div><h3>Run it</h3><p>You look at the portal when you feel like it. We only contact you for approvals above your threshold and for anything genuinely serious.</p></div></li>
+  </ol>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>Own rentals and manage them yourself?</h2>
+  <p>Send the addresses and we will come back with the fee and what we think each unit should rent for. No meeting needed to get a number.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="#contact">Get an owner proposal</a>
+    <a class="btn btn-ghost num" href="tel:+15557824419">(555) 782-4419</a>
+  </div>
+  <p class="note">Tenants: use the tenant portal for maintenance requests and rent payments.</p>
+</div></section>
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Amberton Residential</a>
+  <p><a class="num" href="tel:+15557824419">(555) 782-4419</a> · Licensed brokerage · NARPM member · Equal Housing Opportunity</p>
+  <p>8546 Ashmount Road, Riverbend, NY 14952</p>
+</div></footer>
+<div class="callbar"><a class="go" href="#contact">Get an owner proposal</a><a class="tel" href="tel:+15557824419">(555) 782-4419</a></div>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Copeland Fiduciary — fee-only fiduciary, fee schedule published</title>
+<meta name="description" content="Fee-only fiduciary advice for families and business owners. Our fee schedule is published on this page.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Fira+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* D2 — THE LEDGER ONE. hero:fullbleed nav:centered services:grid-numbered proof:review-wall
+   ink #171A17 · surface #FBFAF7 · accent #2E4739 · muted #55605A · on-accent #FFFFFF
+   H1 ramp: 31/36/46/58px · Source Serif 4 display / Fira Sans body
+   Fixes the broker-network template with the logo swapped: every block is ruled and
+   numbered like the firm's own ledger — hairline frame, tabular figures, no cards, no
+   module grid a network could hand out. Recolouring this would not make it someone else's. */
+:root{--ink:#171A17;--surface:#FBFAF7;--accent:#2E4739;--muted:#55605A;--on-accent:#FFFFFF;
+--field:#EDF0EA;--rule:rgba(23,26,23,.3);--hair:rgba(23,26,23,.14);--wrap:1080px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+font:400 17px/1.72 "Fira Sans",system-ui,-apple-system,sans-serif;padding-bottom:82px;overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Source Serif 4",Georgia,"Times New Roman",serif;font-weight:600;margin:0;
+line-height:1.14;letter-spacing:-.012em}
+a{color:inherit}
+p{margin:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 24px;
+text-decoration:none;font-weight:500;font-size:16px;border:1px solid transparent;text-align:center;
+line-height:1.25}
+.btn-primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.btn-ghost{background:transparent;color:var(--accent);border-color:var(--accent)}
+.micro{font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--accent)}
+.topbar{background:var(--ink);color:#D6DBD5;font-size:15px}
+.topbar .wrap{padding:8px 20px;text-align:center;letter-spacing:.05em}
+/* nav:centered — wordmark on its own centred line, register beneath it */
+.nav{border-bottom:2px solid var(--ink);background:var(--surface)}
+.nav .wrap{padding:14px 20px 12px;text-align:center}
+.brand{font-family:"Source Serif 4",Georgia,serif;font-weight:600;font-size:22px;text-decoration:none;
+display:inline-block;letter-spacing:.01em;line-height:1.15}
+.navlinks{display:none;justify-content:center;gap:30px;margin-top:9px;font-size:16px;color:var(--muted)}
+.navlinks a{text-decoration:none}
+.navlinks a:hover{color:var(--accent)}
+.navact{min-height:42px;padding:0 16px;font-size:15px;margin-top:11px}
+/* hero:fullbleed — one edge-to-edge field, hairline frame inside it */
+.hero{background:var(--field);border-bottom:2px solid var(--ink);padding:0}
+.hero .wrap{padding:26px 20px 34px}
+.frame{border:1px solid var(--rule);padding:24px 18px 22px}
+.hero h1{font-size:clamp(31px,7.8vw,58px);max-width:14ch;margin-top:12px}
+.sub{font-size:16.5px;color:var(--muted);max-width:56ch;margin:16px 0 22px;line-height:1.6}
+.ctas{display:flex;flex-direction:column;gap:10px;max-width:420px}
+.badges{list-style:none;display:grid;grid-template-columns:1fr;margin:24px 0 0;padding:0;
+border-top:1px solid var(--rule)}
+.badges li{font-size:15px;color:var(--muted);padding:10px 0;border-bottom:1px solid var(--hair)}
+/* the fee statement, set as a ledger */
+.ledger{margin-top:26px;border-top:3px double var(--ink);padding-top:4px}
+.ledger .micro{display:block;margin:10px 0 2px}
+.ledger table{width:100%;border-collapse:collapse;font-size:16px}
+.ledger th{text-align:left;font-weight:400;color:var(--muted);padding:11px 0;
+border-bottom:1px solid var(--hair);font-size:16px}
+.ledger td{text-align:right;padding:11px 0;border-bottom:1px solid var(--hair);
+font-family:"Source Serif 4",Georgia,serif;font-weight:700;font-size:20px;color:var(--accent);
+font-variant-numeric:tabular-nums;white-space:nowrap}
+.note{font-size:15px;color:var(--muted);margin-top:13px;line-height:1.55}
+.sec{padding:52px 0;border-bottom:1px solid var(--hair)}
+.sec h2{font-size:clamp(27px,6.2vw,42px);margin:10px 0 0;max-width:20ch}
+.lede{color:var(--muted);max-width:62ch;margin:14px 0 0;font-size:17px}
+/* services:grid-numbered */
+.gridnum{list-style:none;margin:30px 0 0;padding:0;display:grid;gap:0;counter-reset:g}
+.gridnum li{counter-increment:g;border-top:2px solid var(--ink);padding:18px 0 24px}
+.gridnum li::before{content:counter(g,decimal-leading-zero);display:block;
+font-family:"Source Serif 4",Georgia,serif;font-weight:400;font-size:15px;color:var(--accent);
+letter-spacing:.16em;margin-bottom:12px}
+.gridnum h3{font-size:23px;margin-bottom:8px}
+.gridnum p{color:var(--muted);font-size:16px;max-width:52ch}
+.gridnum li.next{background:var(--accent);color:#fff;padding:18px 18px 24px;border-top-color:var(--accent)}
+.gridnum li.next::before{color:#B8C9BB}
+.gridnum li.next h3{color:#fff}
+.gridnum li.next p{color:#D3DED4}
+/* proof:review-wall */
+.wall{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:0}
+.wall li{border-top:1px solid var(--hair);padding:22px 0}
+.wall li:first-child{border-top:2px solid var(--ink)}
+.wall q{display:block;font-family:"Source Serif 4",Georgia,serif;font-size:20px;line-height:1.42;
+quotes:"\201C" "\201D"}
+.wall cite{display:block;font-style:normal;font-size:15px;color:var(--muted);margin-top:10px;
+letter-spacing:.04em}
+.steps{list-style:none;margin:30px 0 0;padding:0;counter-reset:s;border-top:2px solid var(--ink)}
+.steps li{counter-increment:s;display:grid;grid-template-columns:36px 1fr;gap:14px;padding:20px 0;
+border-bottom:1px solid var(--hair)}
+.steps li::before{content:counter(s);font-family:"Source Serif 4",Georgia,serif;font-weight:400;
+font-size:22px;color:var(--accent);line-height:1.35}
+.steps h3{font-size:20px;margin-bottom:6px}
+.steps p{color:var(--muted);font-size:16px}
+.close{background:var(--field);padding:54px 0 58px;border-bottom:2px solid var(--ink)}
+.close h2{font-size:clamp(28px,6.6vw,46px);max-width:18ch}
+.close p{color:var(--muted);max-width:56ch;margin:16px 0 24px;font-size:17px}
+.foot{padding:38px 0 34px;font-size:15px;color:var(--muted)}
+.foot .brand{color:var(--ink);display:block;margin-bottom:12px}
+.foot p{margin:0 0 9px;max-width:70ch}
+.foot a{color:var(--accent)}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--surface);padding:8px;
+border-top:2px solid var(--ink);display:grid;grid-template-columns:1fr auto;gap:8px}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:60px;text-decoration:none;
+font-weight:500;font-size:15px;text-align:center;line-height:1.2;padding:0 12px}
+.callbar .book{background:var(--accent);color:#fff}
+.callbar .tel{border:1px solid var(--accent);color:var(--accent);padding:0 16px;font-size:16px}
+@media(max-width:559px){.navact{display:none}}
+@media(min-width:700px){.ctas{flex-direction:row}.sec{padding:82px 0}
+.hero .wrap{padding:54px 20px 60px}.frame{padding:44px 40px 40px}.sub{font-size:19px}
+.badges{grid-template-columns:1fr 1fr;column-gap:30px}
+.gridnum{grid-template-columns:1fr 1fr;column-gap:40px}
+.wall{grid-template-columns:1fr 1fr;column-gap:44px}
+.wall li:nth-child(2){border-top:2px solid var(--ink)}
+.steps{grid-template-columns:1fr 1fr;column-gap:44px}
+.ledger table{font-size:17px}}
+@media(min-width:860px){.navlinks{display:flex}}
+@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
+</style>
+
+<style>
+  /* Hero plate, added with the photography pass. Full-bleed between the hero
+     and the first content section, with no border of its own: every one of
+     these designs owns a different rule weight and ink colour, and a borrowed
+     hairline reads as a mistake in about half of them. */
+  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
+  .gsw-plate img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 40vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">Fee-only · Fiduciary · Registered Investment Adviser</div></div>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="#">Copeland Fiduciary</a>
+  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+  <a class="btn btn-primary navact" href="#contact">Arrange an introduction</a>
+</div></header>
+
+<section class="hero"><div class="wrap"><div class="frame">
+  <p class="micro">Fee-only fiduciary · RIA</p>
+  <h1>Every dollar we are paid, and who paid it.</h1>
+  <p class="sub">Fee-only fiduciary advice for families and business owners. One page shows every dollar of revenue this firm receives and its source. All of it comes from clients; none of it from products.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" data-cta="primary" href="#contact">Arrange an introduction</a>
+    <a class="btn btn-ghost" href="#fees">See our fees</a>
+  </div>
+  <ul class="badges"><li>Fee-only, always</li><li>Fiduciary at all times</li><li>Fee schedule published</li><li>CFP® professionals</li></ul>
+  <div class="ledger" id="fees">
+    <span class="micro">Fee schedule published</span>
+    <table>
+      <tr><th scope="row">No commissions, ever</th><td>Fee-only</td></tr>
+      <tr><th scope="row">Assets under advice</th><td>$740M</td></tr>
+      <tr><th scope="row">Typical all-in fee</th><td>0.65%</td></tr>
+      <tr><th scope="row">Every adviser</th><td>CFP®</td></tr>
+    </table>
+    <p class="note">Fee-only. Fiduciary. Fee schedule published. No products sold, ever.</p>
+  </div>
+</div></div></section>
+<figure class="gsw-plate"><img src="../_assets/hero/wealth-management/b-calm-geometry.jpg" alt="Calm geometry — wealth management" loading="lazy"></figure>
+
+
+<section class="sec" id="services"><div class="wrap">
+  <span class="micro">Services</span>
+  <h2>How we work with families</h2>
+  <p class="lede">Planning first. Investment management matters, but it is rarely the thing that changes an outcome.</p>
+  <ol class="gridnum">
+    <li><h3>Financial planning</h3><p>Cash flow, tax, insurance and estate structure, reviewed annually. The plan is the product; the portfolio implements it.</p></li>
+    <li><h3>Investment management</h3><p>Low-cost, globally diversified and tax-aware. We do not attempt to time markets and we will tell you why.</p></li>
+    <li><h3>Business owners &amp; exits</h3><p>Concentrated position planning, sale structuring and what happens to a family the year after a liquidity event.</p></li>
+    <li class="next"><h3>The next generation</h3><p>We meet your adult children at no additional cost. Most families lose their adviser at inheritance; that is a failure of relationship, not returns.</p></li>
+  </ol>
+</div></section>
+
+<section class="sec" id="results"><div class="wrap">
+  <span class="micro">Results</span>
+  <h2>What clients say</h2>
+  <ul class="wall">
+    <li><q>Fee schedule on the website. That alone narrowed my search to two firms.</q><cite>H. Nakamura · Business owner</cite></li>
+    <li><q>They talked us out of an annuity our old adviser had recommended.</q><cite>Pat &amp; Jo B. · Retirees</cite></li>
+    <li><q>Sat down with our kids without being asked and without charging.</q><cite>M. Okonkwo · Family client</cite></li>
+    <li><q>Planned the sale of the company three years before it happened.</q><cite>Struan D. · Exit planning</cite></li>
+  </ul>
+</div></section>
+
+<section class="sec" id="process"><div class="wrap">
+  <span class="micro">Process</span>
+  <h2>How a relationship starts</h2>
+  <p class="lede">Three conversations before anyone signs anything, and no cost until you decide to proceed.</p>
+  <ol class="steps">
+    <li><div><h3>Introduction</h3><p>Half an hour, no cost, no preparation needed. Mostly us listening and you deciding whether you like us.</p></div></li>
+    <li><div><h3>Discovery &amp; analysis</h3><p>We gather everything and analyse it properly — tax returns, statements, insurance, estate documents. Two to three weeks.</p></div></li>
+    <li><div><h3>The plan</h3><p>Presented as a plain statement rather than a pitch, including what we think is wrong with your current arrangement. You keep it either way.</p></div></li>
+    <li><div><h3>Ongoing</h3><p>Quarterly reviews, annual deep planning, and access between times without watching a clock.</p></div></li>
+  </ol>
+</div></section>
+
+<section class="close" id="contact"><div class="wrap">
+  <h2>Wondering whether you're being well advised?</h2>
+  <p>A second opinion costs nothing and takes about an hour. Half the people who come for one go back to their existing adviser reassured, and that is a fine outcome.</p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="#contact">Arrange an introduction</a>
+    <a class="btn btn-ghost" href="tel:+15557264408">(555) 726-4408</a>
+  </div>
+  <p class="note">Fee-only. Fiduciary. Fee schedule published. No products sold, ever.</p>
+</div></section>
+
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#">Copeland Fiduciary</a>
+  <p><a href="tel:+15557264408">(555) 726-4408</a> · Services · Results · Process · Contact</p>
+  <p>Registered Investment Adviser · Fee-only fiduciary · Form ADV available on request</p>
+  <p>5352 Delancey Avenue, Ashford Green, NJ 13885</p>
+</div></footer>
+<div class="callbar"><a class="book" href="#contact">Arrange an introduction</a><a class="tel" href="tel:+15557264408">(555) 726-4408</a></div>
+</body>
+</html>
