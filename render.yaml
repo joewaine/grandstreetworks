@@ -8,3 +8,35 @@ services:
     domains:
       - grandstreetworks.com
       - www.grandstreetworks.com
+
+  # Intake endpoint behind /start/ on this site and on grandstreetai.com.
+  # Zero dependencies, so there is nothing to install and the build is a
+  # no-op. Deliberately NOT on the free plan: free services spin down after
+  # inactivity and cold-start in roughly a minute, which on a form submit
+  # means most real prospects would hit the mailto fallback instead of the
+  # form working. Seven dollars a month is cheaper than that.
+  - type: web
+    name: grandstreetworks-intake
+    runtime: node
+    plan: starter
+    rootDir: intake-api
+    buildCommand: ""
+    startCommand: node server.js
+    autoDeploy: true
+    healthCheckPath: /health
+    envVars:
+      # Set in the Render dashboard, never here.
+      - key: RESEND_API_KEY
+        sync: false
+      - key: MAIL_FROM
+        value: intake@send.grandstreetworks.com
+      - key: MAIL_TO
+        value: joe@grandstreetworks.com
+      - key: INTAKE_LOG_PATH
+        value: /var/data/intake.jsonl
+    disk:
+      # So there is a record of every submission that does not depend on a
+      # mailbox. Small on purpose - one JSONL line per enquiry.
+      name: intake-data
+      mountPath: /var/data
+      sizeGB: 1

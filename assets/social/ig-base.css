@@ -1,0 +1,38 @@
+/* Shared Grand Street AI brand styles for Instagram renders */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #E5E5E6;
+  color: #050505;
+  font-family: 'Inter', -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.label {
+  font-family: 'JetBrains Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.dot {
+  background: #C2D57D;
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(194, 213, 125, 0.6);
+  display: inline-block;
+}
+.strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #050505;
+}
+.brand { display: flex; align-items: center; gap: 20px; font-weight: 600; }
+.section-header {
+  background: #050505;
+  color: #E5E5E6;
+  display: flex;
+  align-items: center;
+}
+.gradient {
+  background:
+    radial-gradient(140% 120% at 100% 0%, rgba(194, 213, 125, 0.95) 0%, rgba(194, 213, 125, 0) 52%),
+    radial-gradient(150% 140% at 20% 45%, #147887 0%, rgba(20, 120, 135, 0) 75%),
+    linear-gradient(215deg, #147887 0%, #031426 78%);
+}

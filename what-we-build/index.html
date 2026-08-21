@@ -14,6 +14,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../styles.css">
+<!-- Umami Cloud — privacy-first analytics. No cookies, so no consent banner.
+     grandstreetworks.com and grandstreetai.com are separate Umami sites on
+     separate IDs; this is the Works one, and the noindex trade pages under
+     work/ report into it too. Deferred, ~2KB, and failure is silent — if it
+     is blocked or down the page is unaffected. -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="3107a636-a6b0-416f-bd27-8aaa29c8abc6"></script>
 </head>
 
 <body>
@@ -24,9 +30,9 @@
     <a href="../" class="label" style="font-weight: 600;">Grand Street Works</a>
   </div>
   <nav class="site-nav">
-    <a href="../#work" class="label">Work</a>
-    <a href="./" class="label" style="color: var(--text-color);">What we build</a>
-    <a href="mailto:joe@grandstreetworks.com?subject=Rebuild%20our%20homepage" class="label" style="text-decoration: underline;">Get in touch</a>
+    <a href="../#work" class="label nav-hide-sm">Work</a>
+    <a href="./" class="label nav-hide-sm" style="color: var(--text-color);">What we build</a>
+    <a data-umami-event="start" data-umami-event-place="header" href="../start/" class="label nav-cta">Start here →</a>
   </nav>
 </header>
 
@@ -134,7 +140,7 @@
         <p class="text-large" style="margin-top: 1.5rem; max-width: 52ch;">
           Some businesses have plenty of enquiries and no hours. For those, the useful thing isn't a new site — it's a costed picture of where the manual work lives and what it's worth to fix. Yours to keep either way.
         </p>
-        <a class="callout" href="mailto:joe@grandstreetworks.com?subject=Operations%20audit">Book an operations audit →</a>
+        <a data-umami-event="start" data-umami-event-place="audit" class="callout" href="../start/">Book an operations audit →</a>
       </div>
       <div>
         <ul class="deliverables-list" style="margin-top: 0;">
@@ -183,7 +189,7 @@
         <p class="text-large" style="margin-top: 1.5rem; max-width: 52ch;">
           We stay small on purpose, so we hire rarely and slowly. When we do, it's someone who can sit with an owner in the morning and ship the thing in the afternoon.
         </p>
-        <a class="callout" href="mailto:joe@grandstreetworks.com?subject=Working%20together">Tell us what you build →</a>
+        <a data-umami-event="mailto" data-umami-event-place="join" class="callout" href="mailto:joe@grandstreetworks.com?subject=Working%20together">Tell us what you build →</a>
       </div>
       <div>
         <ul class="deliverables-list" style="margin-top: 0;">
@@ -199,8 +205,11 @@
 
   <section class="footer-cta pad-box-large border-top" id="contact">
     <h2>Send us the URL.</h2>
-    <p>One email with what you do and where. You'll get a straight answer within a business day on whether there's a real problem worth fixing — including if there isn't.</p>
-    <a href="mailto:joe@grandstreetworks.com?subject=Rebuild%20our%20homepage" class="email-link">joe@grandstreetworks.com</a>
+    <p>Six questions about how the business actually runs, and a straight answer within a business day on whether there's a real problem worth fixing — including when there isn't.</p>
+    <a data-umami-event="start" data-umami-event-place="footer" href="../start/" class="email-link">Start here →</a>
+    <p class="footer-cta-alt">
+      Rather just write to us? <a data-umami-event="mailto" data-umami-event-place="footer" href="mailto:joe@grandstreetworks.com?subject=Rebuild%20our%20homepage">joe@grandstreetworks.com</a>
+    </p>
   </section>
 
 </main>

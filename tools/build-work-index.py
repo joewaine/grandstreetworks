@@ -23,6 +23,7 @@ import importlib
 import re
 import sys
 from pathlib import Path
+from urllib.parse import quote
 
 DEFAULT_SOURCE = Path.home() / "fractal" / "cash_rich" / "demos"
 REPO = Path(__file__).resolve().parent.parent
@@ -155,6 +156,17 @@ HEADER_LABELS = {
     "Accounting &amp; CPAs": "Accounting &amp; CPA",
 }
 
+# How a trade reads mid-sentence in the closing CTA ("the best and worst
+# performing ___ sites in your metro"). Most trades are fine lowercased
+# straight from titled(); these few are not. Values are already HTML-safe,
+# same contract as HEADER_LABELS.
+CTA_PHRASES = {
+    "accounting-cpas": "accounting and CPA",
+    "hvac": "heating and cooling",
+    "med-spas": "med spa",
+    "luxury-real-estate": "luxury real estate",
+}
+
 
 
 def slugify(name):
@@ -202,6 +214,15 @@ def render(slug, industry, company, sub, disclaimer, directions):
     """One page per trade: the six builds stacked, each at container width."""
     esc = html.escape
 
+    # Values used by the closing CTA band. trade_slug is the published
+    # directory name, which is also the value /start/ expects for its trade
+    # question — so arriving from a gallery skips that question entirely.
+    trade_slug = trade_dir(slug)
+    lower_industry = CTA_PHRASES.get(trade_slug, titled(industry).lower())
+    # titled() is HTML-escaped; a mailto subject is URL-escaped, not HTML,
+    # so unescape first or the recipient reads a literal "&amp;".
+    mail_subject = quote(f"Rebuild our homepage — {html.unescape(titled(industry))}")
+
     blocks = []
     for i, d in enumerate(directions):
         title = f"C{i + 1} · {d['label']}"
@@ -238,6 +259,10 @@ def render(slug, industry, company, sub, disclaimer, directions):
 <link rel="icon" href="{FAVICON}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Umami, same site ID as the rest of grandstreetworks.com. These pages are
+     noindex, but which trades get browsed is the cheapest read we have on
+     which verticals to point advertising at. -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="UMAMI_ID_GRANDSTREETWORKS"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {{
@@ -361,10 +386,50 @@ def render(slug, industry, company, sub, disclaimer, directions):
     font-family: var(--font-mono); font-size: 0.75rem;
   }}
   footer {{
-    display: flex; justify-content: flex-end; gap: 1rem; flex-wrap: wrap;
+    display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
     padding: 1.5rem 2rem; border-top: 1px solid var(--border-color);
   }}
   footer .label {{ color: rgba(5, 5, 5, 0.7); }}
+
+  /* Closing band. Six finished homepages is the most persuasive moment on
+     the site and it used to end in a back link, so this is where the ask
+     goes. Same URL capture as the home page hero, pre-seeding the trade
+     so the diagnostic opens with question two already answered. */
+  .work-cta {{
+    border-top: 1px solid var(--border-color);
+    background: var(--text-color); color: var(--bg-color);
+    padding: clamp(2.5rem, 6vw, 4.5rem) 2rem;
+  }}
+  .work-cta .label {{ color: rgba(229, 229, 230, 0.62); }}
+  .work-cta h2 {{
+    font-size: clamp(1.75rem, 3.6vw, 3rem); font-weight: 500;
+    letter-spacing: -0.03em; line-height: 1.1; max-width: 20ch;
+    margin: 1.25rem 0 1rem;
+  }}
+  .work-cta p {{ max-width: 56ch; color: rgba(229, 229, 230, 0.78); font-size: 1.0625rem; }}
+  .work-cta form {{ margin-top: 2rem; max-width: 640px; }}
+  .work-cta .row {{ display: flex; flex-wrap: wrap; border: 1px solid var(--bg-color); }}
+  .work-cta input {{
+    flex: 1 1 240px; min-width: 0; font-family: var(--font-mono); font-size: 1rem;
+    padding: 1.0625rem 1.125rem; border: none; background: transparent; color: var(--bg-color);
+  }}
+  .work-cta input::placeholder {{ color: rgba(229, 229, 230, 0.45); }}
+  .work-cta input:focus {{ outline: none; background: rgba(229, 229, 230, 0.08); }}
+  .work-cta button {{
+    flex: 0 0 auto; font-family: var(--font-mono); font-size: 0.875rem;
+    text-transform: uppercase; letter-spacing: 0.05em; padding: 1.0625rem 1.5rem;
+    border: none; border-left: 1px solid var(--bg-color);
+    background: var(--bg-color); color: var(--text-color); cursor: pointer;
+  }}
+  .work-cta button:hover {{ opacity: 0.85; }}
+  .work-cta .alt {{
+    font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.03em;
+    margin-top: 0.875rem; color: rgba(229, 229, 230, 0.6);
+  }}
+  .work-cta .alt a {{ color: var(--bg-color); text-decoration: underline; }}
+  @media (max-width: 560px) {{
+    .work-cta button {{ flex: 1 1 100%; border-left: none; border-top: 1px solid var(--bg-color); }}
+  }}
 
   @media (max-width: 860px) {{
     .bar {{ flex-direction: column; align-items: flex-start; gap: 0.85rem; }}
@@ -410,10 +475,27 @@ def render(slug, industry, company, sub, disclaimer, directions):
   <div class="builds">
 {builds}
   </div>
+
+  <section class="work-cta">
+    <span class="label">Next // Your turn</span>
+    <h2>Those six are invented. Yours wouldn't be.</h2>
+    <p>Same method, your business: we pull the best and worst performing {lower_industry} sites in your metro, read what every winner has and no loser does, and build your homepage on that. The first one is free — no call, no obligation, nothing to cancel.</p>
+    <form action="../../start/" method="get">
+      <input type="hidden" name="trade" value="{trade_slug}">
+      <div class="row">
+        <label for="cta-url" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Your website address</label>
+        <input type="text" id="cta-url" name="url" placeholder="yourfirm.com"
+               autocomplete="url" inputmode="url" spellcheck="false" required>
+        <button type="submit" data-umami-event="start" data-umami-event-place="work-{trade_slug}">Rebuild it free →</button>
+      </div>
+      <p class="alt">Or <a data-umami-event="mailto" data-umami-event-place="work-{trade_slug}" href="mailto:joe@grandstreetworks.com?subject={mail_subject}">email Joe directly</a> — same answer, one fewer step.</p>
+    </form>
+  </section>
 </main>
 
 <footer>
   <div class="label"><a href="../" style="text-decoration: underline;">← All work</a></div>
+  <div class="label"><a data-umami-event="start" data-umami-event-place="work-footer" href="../../start/?trade={trade_slug}" style="text-decoration: underline;">Get yours rebuilt free →</a></div>
 </footer>
 
 <script>

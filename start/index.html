@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Start here — Grand Street Works</title>
+<meta name="description" content="Six questions about how your business actually runs. You get a straight read on what would move the needle — including when the answer is nothing.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://grandstreetworks.com/start/">
+<meta property="og:title" content="Start here — Grand Street Works">
+<meta property="og:description" content="Six questions. A straight read on what would actually move the needle, including when the answer is nothing.">
+<meta property="og:url" content="https://grandstreetworks.com/start/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23050505'/%3E%3Ccircle cx='14' cy='14' r='5' fill='%23C2D57D'/%3E%3Ctext x='32' y='50' font-family='Menlo,Consolas,monospace' font-size='26' font-weight='bold' fill='%23E5E5E6' text-anchor='middle'%3EGW%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- ===================================================================
+     The intake diagnostic. Six questions, then a verdict that is allowed
+     to be "you don't need us" — that branch is the reason the rest of it
+     is believable. Ungated: the recommendation renders before anything is
+     asked for, because the page it came from promises no obligation.
+
+     The engine is start/intake.js and is shared verbatim with
+     grandstreetai as a copy, not a link. Everything below in
+     INTAKE_CONFIG is the only site-specific part.
+
+     Submissions POST to the intake service (intake-api/ in this repo).
+     If that endpoint is down the form degrades to a fully composed
+     mailto rather than losing the lead.
+     =================================================================== -->
+<link rel="stylesheet" href="../styles.css">
+<!-- Umami Cloud — privacy-first analytics. No cookies, so no consent banner.
+     grandstreetworks.com and grandstreetai.com are separate Umami sites on
+     separate IDs; this is the Works one, and the noindex trade pages under
+     work/ report into it too. Deferred, ~2KB, and failure is silent — if it
+     is blocked or down the page is unaffected. -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="3107a636-a6b0-416f-bd27-8aaa29c8abc6"></script>
+</head>
+
+<body>
+
+<header>
+  <div class="logo-mark">
+    <span class="status-dot" aria-hidden="true"></span>
+    <a href="../" class="label" style="font-weight: 600;">Grand Street Works</a>
+  </div>
+  <nav class="site-nav">
+    <a href="../#work" class="label">Work</a>
+    <a href="../what-we-build/" class="label">What we build</a>
+    <a href="mailto:joe@grandstreetworks.com?subject=Rebuild%20our%20homepage" class="label" style="text-decoration: underline;">Get in touch</a>
+  </nav>
+</header>
+
+<main class="intake-shell">
+  <div id="intake"></div>
+  <noscript>
+    <section class="intake-step">
+      <h2>This one needs JavaScript.</h2>
+      <p class="intake-help text-large">
+        Email <a href="mailto:joe@grandstreetworks.com?subject=Rebuild%20our%20homepage" style="text-decoration:underline;">joe@grandstreetworks.com</a>
+        with your website address, what you do and where you do it. Same answer, one fewer step.
+      </p>
+    </section>
+  </noscript>
+</main>
+
+<script>
+window.INTAKE_CONFIG = (function () {
+
+  /* The twenty trades are the same keys as the directories under work/,
+     so the verdict can link someone straight at six homepages in their
+     own trade. Adding a trade here means adding work/<value>/ too. */
+  var TRADES = [
+    ['personal-injury',      'Personal injury'],
+    ['cosmetic-dentists',    'Cosmetic dentistry'],
+    ['plastic-surgeons',     'Plastic surgery'],
+    ['med-spas',             'Med spas'],
+    ['dermatology',          'Dermatology'],
+    ['roofing',              'Roofing'],
+    ['hvac',                 'Heating & cooling'],
+    ['restoration',          'Restoration'],
+    ['general-contractors',  'General contracting'],
+    ['luxury-real-estate',   'Luxury real estate'],
+    ['wealth-management',    'Wealth management'],
+    ['accounting-cpas',      'Accounting & CPAs'],
+    ['architecture',         'Architecture'],
+    ['interior-design',      'Interior design'],
+    ['custom-home-builders', 'Custom home building'],
+    ['pool-builders',        'Pool building'],
+    ['solar',                'Solar'],
+    ['recruiting',           'Recruiting'],
+    ['property-management',  'Property management'],
+    ['veterinary',           'Veterinary'],
+    ['other',                'Something else']
+  ];
+
+  /* Trades where a meaningful part of the job happens away from a desk.
+     Nudges the native-app score without ever being enough to win on
+     its own — the work has to actually be described as broken first. */
+  var FIELD_TRADES = [
+    'roofing', 'hvac', 'restoration', 'general-contractors',
+    'solar', 'pool-builders', 'property-management', 'custom-home-builders'
+  ];
+
+  function tradeLabel(value) {
+    for (var i = 0; i < TRADES.length; i++) {
+      if (TRADES[i][0] === value) return TRADES[i][1].toLowerCase();
+    }
+    return 'your trade';
+  }
+
+  return {
+    site: 'grandstreetworks',
+    homeHref: '../',
+    /* Points at the intake service defined in render.yaml. Changing the
+       Render service name changes this hostname. */
+    endpoint: 'https://grandstreetworks-intake.onrender.com/submit',
+    fallbackEmail: 'joe@grandstreetworks.com',
+    fallbackSubject: 'A question about our setup',
+
+    steps: [
+      {
+        id: 'url',
+        type: 'url',
+        eyebrow: 'Q_01 // The site you have',
+        title: 'What\'s your website address?',
+        help: 'This is the only question that matters for the free rebuild. Everything after it is us working out whether the site is even the right thing to fix.',
+        fieldLabel: 'Website',
+        placeholder: 'yourfirm.com',
+        summaryLabel: 'Website',
+        skipLabel: 'We don\'t have one →',
+        skipValue: 'none'
+      },
+      {
+        id: 'trade',
+        type: 'trades',
+        eyebrow: 'Q_02 // The trade',
+        title: 'What kind of business is it?',
+        help: 'Pick the nearest one. We\'ve read the winners against the losers in each of these, and the closest match is close enough.',
+        summaryLabel: 'Trade',
+        options: TRADES.map(function (t) { return { value: t[0], label: t[1] }; })
+      },
+      {
+        id: 'age',
+        type: 'choice',
+        eyebrow: 'Q_03 // Its age',
+        title: 'When was that site last properly rebuilt?',
+        help: 'Not "when did someone last change the phone number" — when was it last built from scratch by somebody.',
+        summaryLabel: 'Site age',
+        requiredMessage: 'A rough guess is fine.',
+        options: [
+          { value: 'new',     label: 'In the last two years',
+            note: 'Recent enough that the structure was at least considered.',
+            scores: { audit: 1 } },
+          { value: 'mid',     label: 'Three to six years ago',
+            note: 'Built before phones became most of the traffic in most trades.',
+            scores: { website: 2 } },
+          { value: 'old',     label: 'Longer than that, or nobody\'s sure',
+            note: 'The person who built it has usually moved on by this point.',
+            scores: { website: 3 } },
+          { value: 'none',    label: 'We don\'t really have one',
+            note: 'A directory listing, a social page, or a placeholder someone put up.',
+            scores: { website: 4 } }
+        ]
+      },
+      {
+        id: 'pain',
+        type: 'multi',
+        max: 2,
+        columns: 2,
+        eyebrow: 'Q_04 // The leak',
+        title: 'What\'s actually costing you money right now?',
+        help: 'Pick up to two. Pick the biggest one first — the order counts for more than you\'d think.',
+        summaryLabel: 'Biggest problems',
+        requiredMessage: 'Pick at least one, even if none of them is exactly it.',
+        options: [
+          { value: 'invisible', label: 'People don\'t find us — or they find us and don\'t call',
+            note: 'The phone rings less than the quality of the work says it should.',
+            scores: { website: 3 } },
+          { value: 'outdated', label: 'The site looks nothing like the business we\'ve become',
+            note: 'It undersells you to the exact person you most want to impress.',
+            scores: { website: 3 } },
+          { value: 'leaking', label: 'Enquiries come in and fall through the cracks',
+            note: 'Nobody can say how many arrived last month, or how many booked.',
+            scores: { systems: 3, website: 1 } },
+          { value: 'followup', label: 'Follow-up happens when somebody remembers',
+            note: 'Which, most months, is nobody.',
+            scores: { systems: 3 } },
+          { value: 'doubleentry', label: 'The same details get typed into three different systems',
+            note: 'And by Friday the three of them disagree.',
+            scores: { audit: 2, systems: 2 } },
+          { value: 'field', label: 'The crew runs on paper, photos and group chats',
+            note: 'Everything that happens away from the office arrives late and half-legible.',
+            scores: { app: 3, systems: 1 } },
+          { value: 'software', label: 'We pay for software nobody has reviewed in years',
+            note: 'At least one line costs more than a part-time salary.',
+            scores: { audit: 3 } },
+          { value: 'fine', label: 'Honestly? It\'s working. I\'m just having a look.',
+            note: 'A completely reasonable answer, and we\'ll give you a straight one back.',
+            scores: { none: 4 } }
+        ]
+      },
+      {
+        id: 'size',
+        type: 'choice',
+        eyebrow: 'Q_05 // The shape',
+        title: 'How many people are there, including you?',
+        help: 'This changes what\'s worth building. Below a certain size, most systems cost more attention than they give back.',
+        summaryLabel: 'Headcount',
+        requiredMessage: 'Roughly is fine.',
+        options: [
+          { value: 'solo',   label: 'Just me, or me and one other',
+            scores: { website: 1 } },
+          { value: 'small',  label: 'Two to ten',
+            scores: { systems: 1 } },
+          { value: 'mid',    label: 'Eleven to thirty',
+            scores: { systems: 1, audit: 1 } },
+          { value: 'large',  label: 'More than thirty',
+            scores: { audit: 2, app: 1 } }
+        ]
+      },
+      {
+        id: 'result',
+        type: 'result',
+        eyebrow: 'Read // Based on those five answers',
+        title: 'Here\'s what we\'d actually suggest.',
+        help: 'Written by the same logic we\'d use on a first call, which is why it\'s allowed to tell you to do nothing.'
+      }
+    ],
+
+    /* Declaration order is the tie-break, so the honest "nothing" verdict
+       sits first: a set of answers that scores nothing lands there rather
+       than defaulting into a sales pitch. */
+    services: {
+      none: {
+        terminal: true,
+        kicker: 'Our read // Don\'t buy anything',
+        headline: 'Nothing here is worth spending money on yet.',
+        body: function () {
+          return [
+            'Nothing you told us describes a problem worth a project. A site that works and a week that isn\'t drowning is the outcome most of our clients are paying to reach — you\'re already there.',
+            'The honest advice is to leave it alone until something specific starts hurting: enquiries you can\'t account for, a week where the admin beats the actual work, or a competitor whose site plainly outclasses yours in front of a client. Any of those is worth an email. None of them is worth a retainer today.',
+            'Keep the address. We\'ll still answer.'
+          ];
+        }
+      },
+      website: {
+        kicker: 'Our read // Start with the site',
+        headline: 'The site is the thing to fix, and we\'ll rebuild it first for free.',
+        body: function (a) {
+          var trade = tradeLabel(a.trade);
+          var out = [
+            'What you described is a structure problem, not a taste problem. Before anything gets designed we pull the best and worst performing ' + trade + ' sites in your metro and read them the way a customer does — what every winner has on the page, and what none of the losers do. That read becomes the page.',
+            'Because your first answer gave us a URL, this starts as the free rebuild: a complete homepage for your actual business — your services, your locations, your words — plus the written read that produced it, so your own developer could act on it without us. No call required, and nothing to cancel.'
+          ];
+          if (a.size === 'solo') {
+            out.push('At your size that is very likely the whole job. A one or two person firm rarely needs the systems behind the site, and we\'d rather say so now than sell you one later.');
+          }
+          return out;
+        },
+        secondaryLine: 'Once the site is sending you more than you can track by hand, the back-office system behind it is the next rung — not before.',
+        links: function (a) {
+          if (!a.trade || a.trade === 'other') {
+            return [{ label: 'See the reference builds →', href: '../#work' }];
+          }
+          return [{ label: 'See six ' + tradeLabel(a.trade) + ' builds →', href: '../work/' + a.trade + '/' }];
+        }
+      },
+      systems: {
+        kicker: 'Our read // The catching, not the getting',
+        headline: 'You don\'t have a traffic problem. You have a catching problem.',
+        body: function (a) {
+          var out = [
+            'Enquiries arriving and then evaporating is the most expensive failure on this list, because you have already paid for every one of them. A new site would add volume to a bucket with a hole in it.',
+            'What fixes it is the layer behind the site: every enquiry logged, counted and attributed so you know what the site is actually worth; stale ones chased automatically with the follow-up drafted for your approval; and one page showing where the pipeline, the schedule and the money stand. Running inside a week, on your accounts, with nothing given write access until you\'ve watched it work on drafts first.'
+          ];
+          if (a.age === 'old' || a.age === 'none') {
+            out.push('Your site is old enough that it is also costing you, and we would still rebuild it free — but on your answers it is the second problem, not the first.');
+          }
+          return out;
+        },
+        secondaryLine: 'The free homepage rebuild still stands alongside it, and still costs nothing.',
+        links: function () {
+          return [{ label: 'What that includes →', href: '../what-we-build/#services' }];
+        }
+      },
+      app: {
+        kicker: 'Our read // Off the desk',
+        headline: 'The work leaves the building, so the software has to as well.',
+        body: function () {
+          return [
+            'Paper, photos and a group chat is a system — a bad one, and the reason job information arrives late and half-legible. When the job happens on a roof, in a unit or at two in the morning, that is the narrow case where a native app genuinely earns its cost: photos, notes and signatures captured with no signal, synced when the truck has bars again, published under your own developer account.',
+            'The honest caveat: most businesses that ask us for an app do not need one, and for them it is a more expensive way to have a website. We will tell you on the first call which one you are, before there is a deposit involved — that conversation is free and it is genuinely the shortest route to not wasting your money.'
+          ];
+        },
+        secondaryLine: 'The back-office layer usually has to exist first — the app is the window onto it, not a replacement for it.',
+        links: function () {
+          return [{ label: 'What we won\'t build →', href: '../what-we-build/#services' }];
+        }
+      },
+      audit: {
+        kicker: 'Our read // Measure before building',
+        headline: 'Buy the audit, not the build.',
+        body: function () {
+          return [
+            'What you described is manual work and software spend, not a shortage of customers. Building anything before that is costed is how firms end up paying for a system that automates the third most expensive problem.',
+            'The operations audit is a fixed fee with the report inside five business days: a 60–90 minute walkthrough of how the business actually runs, your top five opportunities ranked by hours saved against effort with a fixed price on each, a check of what you rent monthly and use a fifth of with the break-even maths, and a "do not automate" list of what looks automatable but isn\'t worth the money or the risk.',
+            'The fee credits in full against anything you book in the next thirty days, and the report is yours to keep and hand to somebody else either way.'
+          ];
+        },
+        secondaryLine: 'Whatever the audit ranks first is usually the back-office work, quoted fixed once there are numbers under it.',
+        links: function () {
+          return [{ label: 'What the audit covers →', href: '../what-we-build/#services' }];
+        }
+      }
+    },
+
+    /* Trade only ever nudges. It is never enough to change the verdict on
+       its own — the work has to have been described as broken first. */
+    adjust: function (totals, a) {
+      if (FIELD_TRADES.indexOf(a.trade) > -1 && totals.app > 0) totals.app += 1;
+      /* Somebody with no site at all cannot be sold a system that has
+         nothing feeding it. */
+      if (a.url === 'none' || a.age === 'none') totals.website += 1;
+    },
+
+    contact: {
+      title: 'Want us to actually do it?',
+      help: 'The read above is yours either way — nothing was gated and nothing gets sent unless you press the button. If you want it acted on, this is everything we need.',
+      submitLabel: 'Send this to Joe →',
+      mailSubject: 'Intake — Grand Street Works',
+      fields: [
+        { name: 'name',     label: 'Your name',        required: true,  autocomplete: 'name',         placeholder: 'Jane Halloran' },
+        { name: 'business', label: 'Business name',    required: true,  autocomplete: 'organization', placeholder: 'Halloran Roofing' },
+        { name: 'email',    label: 'Email',            required: true,  inputType: 'email', autocomplete: 'email', placeholder: 'jane@halloranroofing.com' },
+        { name: 'metro',    label: 'City or metro you work in', required: true, placeholder: 'Westchester County, NY' },
+        { name: 'phone',    label: 'Phone',            required: false, inputType: 'tel', autocomplete: 'tel', placeholder: '(914) 555-0142' },
+        { name: 'notes',    label: 'Anything the five questions missed', required: false, multiline: true, placeholder: 'Optional. The thing you\'d say out loud that didn\'t fit a checkbox.' }
+      ],
+      doneTitle: 'That\'s in. You\'ll hear back within a business day.',
+      doneBody: 'A real reply from Joe, not an autoresponder sequence — including if the answer is that we don\'t think we\'re what you need. If you asked for the free rebuild, the link usually follows within the week.',
+      doneLinks: [
+        { label: 'See the reference builds →', href: '../#work' },
+        { label: 'Back to the site →', href: '../' }
+      ]
+    }
+  };
+})();
+</script>
+<script src="intake.js"></script>
+</body>
+</html>

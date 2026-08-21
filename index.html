@@ -22,11 +22,20 @@
      argument long. Shared CSS is /styles.css (the generated pages under
      work/ keep their own inline subset).
 
-     Every CTA points at joe@grandstreetworks.com (header, SEC_03 rebuild,
-     footer CTA). Email forwarding + Gmail send-as must be live BEFORE this
-     site is. A live site with a dead mailto is worse than no site.
+     CTAs all funnel into /start/ (the stepped diagnostic): the hero URL
+     capture, the SEC_03 rebuild band, the work-gallery footers and the
+     footer CTA. /start/ POSTs to the intake service and falls back to a
+     composed mailto if that endpoint is unreachable, so
+     joe@grandstreetworks.com still has to be live before this site is —
+     it is now the backstop rather than the front door.
      =================================================================== -->
 <link rel="stylesheet" href="styles.css">
+<!-- Umami Cloud — privacy-first analytics. No cookies, so no consent banner.
+     grandstreetworks.com and grandstreetai.com are separate Umami sites on
+     separate IDs; this is the Works one, and the noindex trade pages under
+     work/ report into it too. Deferred, ~2KB, and failure is silent — if it
+     is blocked or down the page is unaffected. -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="3107a636-a6b0-416f-bd27-8aaa29c8abc6"></script>
 </head>
 
 <body>
@@ -37,9 +46,9 @@
     <a href="/" class="label" style="font-weight: 600;">Grand Street Works</a>
   </div>
   <nav class="site-nav">
-    <a href="#work" class="label">Work</a>
-    <a href="what-we-build/" class="label">What we build</a>
-    <a href="mailto:joe@grandstreetworks.com?subject=Rebuild%20our%20homepage" class="label" style="text-decoration: underline;">Get in touch</a>
+    <a href="#work" class="label nav-hide-sm">Work</a>
+    <a href="what-we-build/" class="label nav-hide-sm">What we build</a>
+    <a data-umami-event="start" data-umami-event-place="header" href="start/" class="label nav-cta">Start here →</a>
   </nav>
 </header>
 
@@ -62,7 +71,18 @@
           <p class="text-large" style="max-width: 820px;">
             Sites and native apps for owner-run practices, firms and contractors — structured around what actually converts in your trade before anything gets designed. A small Brooklyn team. The repository, the hosting and the domain end up in your name.
           </p>
-          <a class="hero-cta" href="#work">See your trade rebuilt →</a>
+          <form class="hero-capture" action="start/" method="get">
+            <div class="hero-capture-row">
+              <label for="hero-url" class="visually-hidden">Your website address</label>
+              <input type="text" id="hero-url" name="url" placeholder="yourfirm.com"
+                     autocomplete="url" inputmode="url" spellcheck="false" required>
+              <button type="submit" data-umami-event="start" data-umami-event-place="hero">Rebuild it free →</button>
+            </div>
+            <p class="hero-capture-note">
+              Free, no call, nothing to cancel. Six questions if you want the longer read.
+              Or <a href="#work">see your trade rebuilt first →</a>
+            </p>
+          </form>
         </div>
       </div>
     </div>
@@ -155,7 +175,7 @@
         <p class="text-large" style="margin-top: 1.5rem; max-width: 52ch;">
           Send the URL. You get back a complete homepage for your actual business — your services, your locations, your words — built on the structure that separates the top performers in your trade from everyone else.
         </p>
-        <a class="callout" href="mailto:joe@grandstreetworks.com?subject=Rebuild%20our%20homepage">Send us your URL →</a>
+        <a data-umami-event="start" data-umami-event-place="rebuild-band" class="callout" href="start/">Send us your URL →</a>
       </div>
       <div>
         <ul class="deliverables-list" style="margin-top: 0;">
@@ -262,8 +282,11 @@
 
   <section class="footer-cta pad-box-large border-top" id="contact">
     <h2>Send us the URL.</h2>
-    <p>One email with what you do and where. You'll get a straight answer within a business day on whether there's a real problem worth fixing — including if there isn't.</p>
-    <a href="mailto:joe@grandstreetworks.com?subject=Rebuild%20our%20homepage" class="email-link">joe@grandstreetworks.com</a>
+    <p>Six questions about how the business actually runs, and a straight answer within a business day on whether there's a real problem worth fixing — including when there isn't.</p>
+    <a data-umami-event="start" data-umami-event-place="footer" href="start/" class="email-link">Start here →</a>
+    <p class="footer-cta-alt">
+      Rather just write to us? <a data-umami-event="mailto" data-umami-event-place="footer" href="mailto:joe@grandstreetworks.com?subject=Rebuild%20our%20homepage">joe@grandstreetworks.com</a>
+    </p>
   </section>
 
 </main>

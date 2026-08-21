@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+<style>
+  /* Instagram / Facebook avatar. Sister file to grandstreetai's sm-pfp.html —
+     same ground, same dot, same face, GW instead of GS. The two practices
+     share a design system on purpose; this is a copy, not an import. */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; height: 1080px; overflow: hidden; }
+  body { background: #050505; position: relative; font-family: 'JetBrains Mono', Menlo, Consolas, monospace; }
+  /* Everything sits inside the circle crop IG/FB apply to avatars */
+  .dot {
+    position: absolute;
+    left: 190px; top: 190px;
+    width: 160px; height: 160px;
+    background: #C2D57D;
+    border-radius: 50%;
+    box-shadow: 0 0 80px rgba(194, 213, 125, 0.5);
+  }
+  .gw {
+    position: absolute;
+    left: 0; right: 0;
+    bottom: 200px;
+    text-align: center;
+    font-size: 400px;
+    font-weight: 700;
+    line-height: 1;
+    color: #E5E5E6;
+    letter-spacing: -0.02em;
+  }
+</style>
+</head>
+<body>
+  <div class="dot"></div>
+  <div class="gw">GW</div>
+</body>
+</html>

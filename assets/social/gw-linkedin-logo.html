@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+<style>
+  /* LinkedIn company logo. LinkedIn renders it at 300x300 and squares the
+     crop rather than circling it, so the mark sits marginally tighter than
+     the IG avatar. 800px source for retina. */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 800px; height: 800px; overflow: hidden; }
+  body {
+    background: #050505;
+    position: relative;
+    font-family: 'JetBrains Mono', Menlo, Consolas, monospace;
+  }
+  .dot {
+    position: absolute;
+    left: 112px; top: 112px;
+    width: 126px; height: 126px;
+    background: #C2D57D;
+    border-radius: 50%;
+    box-shadow: 0 0 60px rgba(194, 213, 125, 0.5);
+  }
+  .gw {
+    position: absolute;
+    left: 0; right: 0;
+    bottom: 118px;
+    text-align: center;
+    font-size: 325px;
+    font-weight: 700;
+    line-height: 1;
+    color: #E5E5E6;
+    letter-spacing: -0.02em;
+  }
+</style>
+</head>
+<body>
+  <div class="dot"></div>
+  <div class="gw">GW</div>
+</body>
+</html>

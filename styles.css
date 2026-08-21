@@ -182,7 +182,11 @@ header {
   pointer-events: none;
 }
 
-.hero-content a { pointer-events: auto; }
+/* The hero blocks pointer events so the shader canvas underneath stays
+   interactive; anything the visitor is meant to touch has to opt back in.
+   Before the capture form existed this was links only. */
+.hero-content a,
+.hero-content .hero-capture { pointer-events: auto; }
 
 .hero-top-grid {
   display: grid;
@@ -566,4 +570,428 @@ footer {
   .tile, .band > div, .refusal-grid > div { padding-left: 1.25rem; padding-right: 1.25rem; }
   .work-grid a { padding-left: 1.25rem; padding-right: 1.25rem; }
   .work-grid { grid-template-columns: 1fr; }
+}
+
+
+/* ===================================================================
+   Intake / CTA components (added with the CTA rework).
+   Used by the hero URL capture on index.html and by the stepped
+   diagnostic at /start/. The visual rule is the same as everywhere
+   else on the site: 1px black borders, no radius, mono for anything
+   that behaves like a label or a control.
+   =================================================================== */
+
+/* ---------- Hero URL capture ---------- */
+.hero-capture {
+  margin-top: 2.5rem;
+  max-width: 720px;
+}
+
+.hero-capture-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  border: 1px solid var(--border-color);
+  background: var(--bg-color);
+}
+
+.hero-capture input[type="text"] {
+  flex: 1 1 260px;
+  min-width: 0;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  padding: 1.125rem 1.25rem;
+  border: none;
+  background: transparent;
+  color: var(--text-color);
+}
+
+.hero-capture input[type="text"]::placeholder {
+  color: rgba(5, 5, 5, 0.4);
+}
+
+.hero-capture input[type="text"]:focus {
+  outline: none;
+  background: rgba(5, 5, 5, 0.04);
+}
+
+.hero-capture button {
+  flex: 0 0 auto;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 1.125rem 1.75rem;
+  border: none;
+  border-left: 1px solid var(--border-color);
+  background: var(--text-color);
+  color: var(--bg-color);
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.hero-capture button:hover { opacity: 0.85; }
+
+.hero-capture-note {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+  margin-top: 0.875rem;
+  color: rgba(5, 5, 5, 0.62);
+}
+
+.hero-capture-note a {
+  color: var(--text-color);
+  text-decoration: underline;
+}
+
+/* ---------- Stepped diagnostic ---------- */
+.intake-shell {
+  padding-top: var(--nav-height);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.intake-progress {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: var(--nav-height);
+  background: var(--bg-color);
+  z-index: 40;
+}
+
+.intake-progress-bar {
+  flex: 1 1 auto;
+  height: 1px;
+  background: var(--border-light);
+  position: relative;
+  max-width: 420px;
+}
+
+.intake-progress-bar span {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: var(--text-color);
+  height: 1px;
+  transition: width 0.35s ease;
+}
+
+.intake-step {
+  padding: clamp(2.5rem, 7vw, 6rem) 2rem;
+  max-width: 1100px;
+  width: 100%;
+}
+
+.intake-step[hidden] { display: none; }
+
+.intake-step h2 {
+  font-size: clamp(1.75rem, 3.6vw, 3.25rem);
+  max-width: 22ch;
+}
+
+.intake-help {
+  margin-top: 1.25rem;
+  max-width: 60ch;
+  color: rgba(5, 5, 5, 0.7);
+}
+
+.intake-field {
+  margin-top: 2.5rem;
+  max-width: 640px;
+}
+
+.intake-field label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.625rem;
+}
+
+.intake-field input[type="text"],
+.intake-field input[type="email"],
+.intake-field input[type="tel"],
+.intake-field textarea,
+.intake-field select {
+  width: 100%;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  padding: 1rem 1.125rem;
+  border: 1px solid var(--border-color);
+  background: var(--bg-color);
+  color: var(--text-color);
+  appearance: none;
+  border-radius: 0;
+}
+
+.intake-field textarea { min-height: 7rem; resize: vertical; line-height: 1.5; }
+
+.intake-field input:focus,
+.intake-field textarea:focus,
+.intake-field select:focus {
+  outline: none;
+  background: rgba(5, 5, 5, 0.05);
+}
+
+.intake-field-error {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+  margin-top: 0.625rem;
+  color: #8A2314;
+}
+
+.intake-field-error[hidden] { display: none; }
+
+/* Option lists — the routing questions */
+.intake-options {
+  display: grid;
+  border-top: 1px solid var(--border-color);
+  border-left: 1px solid var(--border-color);
+  margin-top: 2.5rem;
+}
+
+.intake-options.cols-2 { grid-template-columns: repeat(2, 1fr); }
+
+.intake-option {
+  background: var(--bg-color);
+  border-right: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1.5rem 1.5rem;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.125rem;
+  align-items: start;
+  transition: background 0.15s ease;
+}
+
+.intake-option:hover { background: rgba(5, 5, 5, 0.05); }
+
+.intake-option input { position: absolute; opacity: 0; pointer-events: none; }
+
+.intake-option .marker {
+  width: 1.125rem;
+  height: 1.125rem;
+  border: 1px solid var(--border-color);
+  margin-top: 0.2rem;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  line-height: 1;
+  flex: none;
+}
+
+.intake-option .opt-title {
+  display: block;
+  font-size: 1.0625rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.intake-option .opt-note {
+  display: block;
+  font-size: 0.9375rem;
+  margin-top: 0.375rem;
+  color: rgba(5, 5, 5, 0.65);
+  line-height: 1.45;
+}
+
+.intake-option.is-on {
+  background: var(--text-color);
+  color: var(--bg-color);
+}
+
+.intake-option.is-on .opt-note { color: rgba(229, 229, 230, 0.72); }
+
+.intake-option.is-on .marker {
+  border-color: var(--bg-color);
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Trade picker. Twenty-one trades never divide evenly into four or two
+   columns, so the usual 1px-gap-over-a-dark-background trick painted the
+   empty cells of the last row solid black. Rules live on the cells instead
+   and empty grid slots simply draw nothing. */
+.intake-trades {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--border-color);
+  border-left: 1px solid var(--border-color);
+  margin-top: 2.5rem;
+}
+
+.intake-trades button {
+  background: var(--bg-color);
+  border: none;
+  border-right: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  text-align: left;
+  padding: 1rem 1.125rem;
+  cursor: pointer;
+  color: var(--text-color);
+  transition: background 0.15s ease;
+}
+
+.intake-trades button:hover { background: rgba(5, 5, 5, 0.06); }
+
+.intake-trades button.is-on {
+  background: var(--text-color);
+  color: var(--bg-color);
+}
+
+/* Step navigation */
+.intake-nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+
+.intake-btn {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 1rem 1.75rem;
+  border: 1px solid var(--border-color);
+  background: var(--text-color);
+  color: var(--bg-color);
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.intake-btn:hover { opacity: 0.85; }
+.intake-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+.intake-btn.ghost {
+  background: transparent;
+  color: var(--text-color);
+}
+
+.intake-btn.ghost:hover { background: var(--text-color); color: var(--bg-color); opacity: 1; }
+
+.intake-skip {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: rgba(5, 5, 5, 0.6);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+}
+
+/* ---------- Result ---------- */
+.intake-verdict {
+  border: 1px solid var(--border-color);
+  margin-top: 2.5rem;
+}
+
+.intake-verdict-head {
+  padding: 2rem;
+  background: var(--text-color);
+  color: var(--bg-color);
+}
+
+.intake-verdict-head h3 {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-top: 0.75rem;
+}
+
+.intake-verdict-head .label { color: rgba(229, 229, 230, 0.7); }
+
+.intake-verdict-body { padding: 2rem; }
+.intake-verdict-body p { max-width: 64ch; }
+.intake-verdict-body p + p { margin-top: 1rem; }
+
+.intake-secondary {
+  margin-top: 1px;
+  border-top: 1px solid var(--border-color);
+  padding: 1.75rem 2rem;
+  background: rgba(5, 5, 5, 0.04);
+}
+
+.intake-secondary p { max-width: 64ch; margin-top: 0.5rem; }
+
+@media (max-width: 900px) {
+  .intake-trades { grid-template-columns: repeat(2, 1fr); }
+  .intake-options.cols-2 { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .intake-step { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .intake-progress { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .hero-capture button { flex: 1 1 100%; border-left: none; border-top: 1px solid var(--border-color); }
+  .intake-verdict-head, .intake-verdict-body, .intake-secondary { padding-left: 1.25rem; padding-right: 1.25rem; }
+}
+
+/* Header CTA — the nav needed one thing that looks like an action rather
+   than five links that look identical. */
+.nav-cta {
+  border: 1px solid var(--border-color);
+  padding: 0.5rem 0.875rem;
+  color: var(--text-color) !important;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.nav-cta:hover { background: var(--text-color); color: var(--bg-color) !important; }
+
+@media (max-width: 560px) {
+  .site-nav .nav-hide-sm { display: none; }
+}
+
+/* Labels that exist for screen readers only — the hero capture's input is
+   explained by its placeholder visually, which is not an accessible name. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* The footer CTA keeps the raw address visible under the button — it is a
+   trust signal on a page selling directness — but it is no longer the
+   thing being asked for. */
+.footer-cta-alt {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.03em;
+  margin: 2rem auto 0 !important;
+}
+.footer-cta-alt a { color: var(--bg-color); text-decoration: underline; }
+
+
+/* Short viewports — a 13in laptop is roughly 700px of usable height, and at
+   the default scale the headline pushed the URL capture off screen. The CTA
+   being visible without scrolling is worth more than the headline being
+   as large as it can possibly be. */
+@media (max-height: 900px) and (min-width: 900px) {
+  .hero h1 { font-size: clamp(2.2rem, 4vw, 3.6rem); margin-bottom: 1.5rem; }
+  .hero-main { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+  .hero-top-grid > div { padding-top: 1rem; padding-bottom: 1rem; }
+  .hero-capture { margin-top: 1.75rem; }
+  .stat-item { padding-top: 1.125rem; padding-bottom: 1.125rem; }
 }

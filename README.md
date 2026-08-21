@@ -18,7 +18,7 @@ To update the live site: edit `index.html`, commit, push. Render deploys
 
 ## Structure
 
-Two pages, both sectioned with the shared `[SEC_0x]` header bars, both linking
+Three pages, all sectioned with the shared `[SEC_0x]` header bars, all linking
 `/styles.css`. The split is deliberate: the home page carries one argument
 (here is the problem, here is the proof, here is the free way in) and every
 description of the services themselves lives on the second page, so nobody has
@@ -28,7 +28,7 @@ to scroll past a price list to reach the work.
 
 | Section | Contents |
 |---|---|
-| Hero | Headline, lede, primary CTA (jumps to `#work`), metrics ticker |
+| Hero | Headline, lede, the URL capture that starts the free rebuild, metrics ticker |
 | `SEC_01` | Where it leaks — the three symptoms a website is answerable for |
 | `SEC_02` | Work — the twenty reference industries, linked into `work/` |
 | `SEC_03` | The free homepage rebuild — the way in |
@@ -50,6 +50,36 @@ to scroll past a price list to reach the work.
 
 The home page reaches it from the header nav, from a callout under the work
 intro, and from the `Builds` row of the principal table.
+
+`start/index.html` — the intake diagnostic, and the destination of every CTA
+on both sites:
+
+| Part | Contents |
+|---|---|
+| `Q_01` | The site you have — seeded from the hero and the work-gallery bands |
+| `Q_02` | The trade — the same twenty keys as the `work/` directories |
+| `Q_03` | How old the site is |
+| `Q_04` | What is actually costing money — the routing question, ranked, pick two |
+| `Q_05` | Headcount |
+| Result | The verdict, then the contact capture |
+
+The engine is `start/intake.js`; everything site-specific — questions, options,
+scoring weights, verdict copy — is the `INTAKE_CONFIG` object in the page. The
+same `intake.js` runs grandstreetai.com/start/ as a **copy, not a link**, the
+same rule the design system already follows between the two sites.
+
+Four verdicts plus a fifth that sells nothing. Each option carries a `scores`
+map; the engine sums them, first pick at full weight and second at half, then
+the config's `adjust()` hook nudges for trade and size. `services` declaration
+order breaks ties, and the "don't buy anything" verdict is declared first on
+purpose: a set of answers that scores nothing lands there rather than
+defaulting into a pitch. That branch renders no contact form at all. It is the
+reason the other four read as a diagnosis instead of a funnel.
+
+The verdict is **ungated** — it renders before anything is asked for. That
+costs some leads and it is the right call on a page whose own copy promises
+"no call required, no obligation". Revisit it only if the inbox stays empty
+while `/start/` completions do not.
 
 The old `SEC_03` "How a build runs" — the read / directions / build / handover
 walkthrough — was cut outright rather than moved. It repeated what the
@@ -165,18 +195,68 @@ real browser's device emulation.
 
 ## Contact address
 
-Every CTA on both pages is `mailto:joe@grandstreetworks.com` — three on the home
-page (header, `SEC_03`, footer) and four on `what-we-build/` (header, `SEC_03`
-audit, `SEC_05` join us, footer).
-Mail has to be live **before** the site is — a live site with a dead mailto is
-worse than no site. The route is a Google Workspace user alias domain on the
-existing tenant, so replies leave from the domain rather than from a personal
-Gmail; the step-by-step is in the internal notes under "Email — runbook".
+CTAs funnel into `/start/`, not into a mail client: the hero URL capture, the
+`SEC_03` rebuild band, the closing band on all twenty work-gallery pages, and
+the footer. `mailto:joe@grandstreetworks.com` survives as the secondary
+option under each of them, and as the fallback `/start/` composes for itself
+when the intake endpoint cannot be reached.
+
+That change is the point of the rework. A `mailto:` opens nothing on a lot of
+phones, opens the wrong client for anyone living in webmail, asks a stranger
+to compose a cold email from a blank window, and cannot be measured — which is
+exactly the gap the "no analytics" note complains about. A form fixes all four.
+
+Mail still has to be live **before** the site is — it is now the backstop
+rather than the front door, and a backstop that bounces is worse than none.
+The route is a Google Workspace user alias domain on the existing tenant, so
+replies leave from the domain rather than from a personal Gmail; the
+step-by-step is in the internal notes under "Email — runbook".
+
+## Social
+
+Content pipeline (formats, production recipes, caption skeletons, cadence):
+see `~/fractal/1m/social-pipeline-works.md`. The sibling file
+`social-pipeline.md` in the same folder covers Grand Street AI; the loop is
+shared, the channel order is inverted — Instagram leads here, LinkedIn leads
+there.
+
+Instagram and the LinkedIn company page are **not set up yet**; the doc
+carries the handles, bio copy and setup order. Card templates and the
+`render.sh` screenshot script live in `../grandstreetai/assets/social/` and
+need copying into `assets/social/` here before the first card ships.
+
+Two rules that live in that doc but matter to anyone touching `work/`:
+every reference build is a fictional business and any post using one has to
+say so, and the invented firm names have never been searched against real
+firms — do that before one goes out publicly.
 
 ## Hosting: GitHub → Render
 
-`render.yaml` is a Render blueprint — static site, publish path `.`, no build
-command, auto-deploy on push to `main`.
+`render.yaml` is a Render blueprint carrying **two** services: the static site
+(publish path `.`, no build command) and `grandstreetworks-intake`, the Node
+endpoint in `intake-api/` that `/start/` posts to. Both auto-deploy on push to
+`main`.
+
+The intake service is deliberately **not** on the free plan. Free services
+spin down when idle and cold-start in roughly a minute; on a form submit that
+means most real prospects would hit the mailto fallback instead of the form
+working. It has no dependencies, so its build is a genuine no-op.
+
+Set `RESEND_API_KEY` in the dashboard — it is `sync: false` in the blueprint
+and must never be committed. Everything else has a default in `render.yaml`.
+Without the key the service still accepts, validates and logs submissions and
+still answers 200; it just does not email, so a missing key degrades to
+"silently recorded" rather than "lost". Check `/health` to see which of mail
+and logging are live.
+
+`MAIL_FROM` defaults to `intake@send.grandstreetworks.com`. Resend verifies a
+**subdomain**, so its DNS records sit on `send.` and do not touch the apex MX
+that Google Workspace needs — the two do not collide. See `intake-api/README.md`.
+
+One more consequence of `staticPublishPath: .` — everything in the repo is
+served, so `intake-api/server.js` and `tools/` are publicly readable at their
+paths. That was already true of `tools/`, and there are no secrets in either
+(the service reads everything from the environment), but do not put one there.
 
 1. dashboard.render.com → New → **Blueprint** → connect this repo.
 2. Add both custom domains (Settings → Custom Domains), then create the DNS
