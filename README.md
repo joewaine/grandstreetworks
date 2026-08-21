@@ -2,34 +2,62 @@
 
 Live at **[grandstreetworks.com](https://grandstreetworks.com)** (`www` 301s to the apex).
 
-No build step, no framework. `index.html` is the whole marketing site; `work/`
-is a folder of static reference builds it links into.
+No build step, no framework. `index.html` is the home page, `what-we-build/`
+is the one secondary page, `styles.css` is the design system both share, and
+`work/` is a folder of static reference builds they link into.
 
 ## Working on it
 
 Open `index.html` in a browser. That's the dev loop — there is nothing to
-install and nothing to compile.
+install and nothing to compile. Paths between the pages and to `styles.css`
+are relative, so `file://` works as well as a server; `python3 tools/serve.py`
+serves the repo on :8777 with caching off if you want real URLs.
 
 To update the live site: edit `index.html`, commit, push. Render deploys
 `main` automatically.
 
 ## Structure
 
-One page, sectioned with the shared `[SEC_0x]` header bars:
+Two pages, both sectioned with the shared `[SEC_0x]` header bars, both linking
+`/styles.css`. The split is deliberate: the home page carries one argument
+(here is the problem, here is the proof, here is the free way in) and every
+description of the services themselves lives on the second page, so nobody has
+to scroll past a price list to reach the work.
+
+`index.html` — the home page:
 
 | Section | Contents |
 |---|---|
 | Hero | Headline, lede, primary CTA (jumps to `#work`), metrics ticker |
-| `SEC_01` | Where it leaks — the symptoms owners recognise, site first |
-| `SEC_02` | What we build — websites, native apps, back-office systems |
-| `SEC_03` | How a build runs — read, directions, build, handover |
-| `SEC_04` | Work — the twenty reference industries, linked into `work/` |
-| `SEC_05` | The free homepage rebuild — the way in |
-| `SEC_06` | Operations audit — for businesses whose site isn't the problem |
-| `SEC_07` | What we won't do |
-| `SEC_08` | Principal |
-| `SEC_09` | Fair questions (FAQ) |
+| `SEC_01` | Where it leaks — the three symptoms a website is answerable for |
+| `SEC_02` | Work — the twenty reference industries, linked into `work/` |
+| `SEC_03` | The free homepage rebuild — the way in |
+| `SEC_04` | Principal |
+| `SEC_05` | Fair questions (FAQ) |
 | Footer | Contact CTA |
+
+`what-we-build/index.html` — everything a buyer asks about second:
+
+| Section | Contents |
+|---|---|
+| Intro | What the three services are and the order they come in |
+| `SEC_01` | What we build — websites, native apps, back-office systems |
+| `SEC_02` | Where the hours go — the three back-office symptoms |
+| `SEC_03` | Operations audit — for businesses whose site isn't the problem |
+| `SEC_04` | What we won't do |
+| `SEC_05` | Join us |
+| Footer | Contact CTA |
+
+The home page reaches it from the header nav, from a callout under the work
+intro, and from the `Builds` row of the principal table.
+
+The old `SEC_03` "How a build runs" — the read / directions / build / handover
+walkthrough — was cut outright rather than moved. It repeated what the
+websites card and the free-rebuild section already say.
+
+`styles.css` is the whole design system, lifted verbatim out of the two
+`<style>` blocks `index.html` used to carry. The generated pages under `work/`
+still inline their own subset and are unaffected by it.
 
 ## `work/` — the reference builds
 
@@ -137,10 +165,13 @@ real browser's device emulation.
 
 ## Contact address
 
-Every CTA on the page is `mailto:joe@grandstreetworks.com` — four places (header,
-`SEC_05`, `SEC_06`, footer).
-Email forwarding and Gmail send-as must be live **before** the site is. A live
-site with a dead mailto is worse than no site.
+Every CTA on both pages is `mailto:joe@grandstreetworks.com` — three on the home
+page (header, `SEC_03`, footer) and four on `what-we-build/` (header, `SEC_03`
+audit, `SEC_05` join us, footer).
+Mail has to be live **before** the site is — a live site with a dead mailto is
+worse than no site. The route is a Google Workspace user alias domain on the
+existing tenant, so replies leave from the domain rather than from a personal
+Gmail; the step-by-step is in the internal notes under "Email — runbook".
 
 ## Hosting: GitHub → Render
 

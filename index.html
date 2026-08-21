@@ -16,570 +16,17 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
 <!-- ===================================================================
-     Every CTA points at joe@grandstreetworks.com (5 places: header,
-     SEC_05 free rebuild, SEC_06 audit, SEC_09 join us, footer CTA). The
-     work/ reference builds are self-contained and link nowhere.
-     Email forwarding + Gmail send-as must be live BEFORE this site is.
-     A live site with a dead mailto is worse than no site.
+     Home page. Structure: hero, SEC_01 symptoms, SEC_02 work, SEC_03 free
+     rebuild, SEC_04 principal, SEC_05 FAQ, footer CTA. Everything about the
+     services themselves lives on /what-we-build/ so this page stays one
+     argument long. Shared CSS is /styles.css (the generated pages under
+     work/ keep their own inline subset).
+
+     Every CTA points at joe@grandstreetworks.com (header, SEC_03 rebuild,
+     footer CTA). Email forwarding + Gmail send-as must be live BEFORE this
+     site is. A live site with a dead mailto is worse than no site.
      =================================================================== -->
-<style>
-  :root {
-    --bg-color: #E5E5E6;
-    --text-color: #050505;
-    --border-color: #050505;
-    --border-light: rgba(5, 5, 5, 0.15);
-    --font-sans: 'Inter', -apple-system, sans-serif;
-    --font-mono: 'JetBrains Mono', monospace;
-    --nav-height: 60px;
-  }
-
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
-  body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    font-family: var(--font-sans);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
-    line-height: 1.4;
-  }
-
-  h1 {
-    font-size: clamp(2.6rem, 6vw, 6rem);
-    font-weight: 500;
-    letter-spacing: -0.04em;
-    line-height: 1;
-    margin-bottom: 2rem;
-    max-width: 1400px;
-  }
-
-  h2 {
-    font-size: clamp(2rem, 4vw, 4rem);
-    font-weight: 500;
-    letter-spacing: -0.03em;
-    line-height: 1.1;
-  }
-
-  h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    letter-spacing: -0.02em;
-  }
-
-  .label {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--text-color);
-  }
-
-  p {
-    font-size: 1.125rem;
-    color: rgba(5, 5, 5, 0.8);
-    line-height: 1.5;
-  }
-
-  .text-large {
-    font-size: clamp(1.25rem, 2vw, 1.75rem);
-    font-weight: 400;
-    line-height: 1.3;
-    letter-spacing: -0.01em;
-  }
-
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  a:focus-visible, summary:focus-visible {
-    outline: 2px solid var(--text-color);
-    outline-offset: 3px;
-  }
-
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 0;
-    width: 100%;
-    border-bottom: 1px solid var(--border-color);
-  }
-
-  .col-span-6 { grid-column: span 6; }
-  .col-span-12 { grid-column: 1 / -1; }
-
-  .pad-box-large {
-    padding: 4rem 2rem;
-  }
-
-  .border-right { border-right: 1px solid var(--border-color); }
-  .border-bottom { border-bottom: 1px solid var(--border-color); }
-  .border-top { border-top: 1px solid var(--border-color); }
-
-  .structural-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background-color: var(--border-color);
-    border-bottom: 1px solid var(--border-color);
-  }
-
-  .structural-grid > div {
-    background-color: var(--bg-color);
-  }
-
-  /* ---------- Header ---------- */
-  header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: var(--nav-height);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 2rem;
-    background-color: var(--bg-color);
-    border-bottom: 1px solid var(--border-color);
-    z-index: 100;
-  }
-
-  .logo-mark {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .status-dot {
-    width: 8px;
-    height: 8px;
-    background-color: #C2D57D;
-    border-radius: 50%;
-    display: inline-block;
-    box-shadow: 0 0 10px rgba(194, 213, 125, 0.5);
-  }
-
-  /* ---------- Hero ---------- */
-  .hero {
-    position: relative;
-    min-height: 100vh;
-    padding-top: var(--nav-height);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    border-bottom: 1px solid var(--border-color);
-  }
-
-  #canvas-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    opacity: 0.9;
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 10;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    pointer-events: none;
-  }
-
-  .hero-content a { pointer-events: auto; }
-
-  .hero-top-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    border-bottom: 1px solid var(--border-color);
-  }
-
-  .hero-top-grid > div {
-    padding: 1.5rem 2rem;
-    background: rgba(229, 229, 230, 0.85);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-  }
-
-  .hero-main {
-    padding: 4rem 2rem;
-    flex: 1;
-    display: flex;
-    align-items: center;
-    background: linear-gradient(to right, rgba(229, 229, 230, 0.9) 0%, rgba(229, 229, 230, 0.4) 100%);
-  }
-
-  .hero-cta {
-    font-family: var(--font-mono);
-    font-size: 0.875rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    display: inline-block;
-    margin-top: 2.5rem;
-    padding: 0.875rem 1.5rem;
-    background: var(--text-color);
-    color: var(--bg-color);
-    transition: opacity 0.2s ease;
-  }
-
-  .hero-cta:hover { opacity: 0.85; }
-
-  .stats-ticker {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    border-top: 1px solid var(--border-color);
-    background: var(--bg-color);
-    position: relative;
-    z-index: 10;
-  }
-
-  .stat-item {
-    padding: 1.5rem 2rem;
-    border-right: 1px solid var(--border-color);
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .stat-item:last-child {
-    border-right: none;
-  }
-
-  .stat-value {
-    font-size: 2.5rem;
-    font-weight: 500;
-    letter-spacing: -0.03em;
-    line-height: 1;
-  }
-
-  /* ---------- Section headers ---------- */
-  .section-header {
-    display: flex;
-    align-items: center;
-    padding: 1rem 2rem;
-    border-bottom: 1px solid var(--border-color);
-    background: var(--text-color);
-    color: var(--bg-color);
-  }
-
-  .section-header .label {
-    color: var(--bg-color);
-  }
-
-  /* ---------- Services ---------- */
-  .service-card {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    transition: background-color 0.3s ease;
-  }
-
-  .service-card:hover {
-    /* solid color — the grid parent behind the card is black, so a
-       transparent hover tint would show through as a black card */
-    background-color: #DEDEDF;
-  }
-
-  .service-header {
-    padding: 2rem;
-    border-bottom: 1px solid var(--border-color);
-  }
-
-  .service-note {
-    display: block;
-    margin-top: 0.75rem;
-    color: rgba(5, 5, 5, 0.55);
-    text-transform: none;
-    letter-spacing: 0.02em;
-  }
-
-  .service-body {
-    padding: 2rem;
-    flex: 1;
-  }
-
-  .deliverables-list {
-    list-style: none;
-    margin-top: 2rem;
-    border-top: 1px solid var(--border-color);
-  }
-
-  .deliverables-list li {
-    padding: 1rem 0;
-    border-bottom: 1px solid var(--border-light);
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-
-  .deliverables-list li::before {
-    content: '+';
-    font-family: var(--font-mono);
-    color: var(--text-color);
-  }
-
-  /* ---------- Process ---------- */
-  .process-step {
-    padding: 3rem 2rem;
-    display: grid;
-    grid-template-columns: 80px 1fr;
-    gap: 2rem;
-  }
-
-  .step-number {
-    font-family: var(--font-mono);
-    font-size: 2rem;
-    font-weight: 500;
-    color: var(--border-light);
-    line-height: 1;
-  }
-
-  /* ---------- Principal ---------- */
-  .data-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 2rem;
-  }
-
-  .data-table tr {
-    border-bottom: 1px solid var(--border-light);
-  }
-
-  .data-table td {
-    padding: 1rem 0;
-    font-size: 0.875rem;
-  }
-
-  .data-table td:first-child {
-    font-family: var(--font-mono);
-    color: rgba(5, 5, 5, 0.6);
-    width: 40%;
-  }
-
-  /* ---------- FAQ ---------- */
-  details {
-    border-bottom: 1px solid var(--border-color);
-    background: var(--bg-color);
-  }
-
-  summary {
-    padding: 2rem;
-    font-size: 1.25rem;
-    font-weight: 500;
-    cursor: pointer;
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  summary::-webkit-details-marker {
-    display: none;
-  }
-
-  summary::after {
-    content: '↓';
-    font-family: var(--font-mono);
-    transition: transform 0.3s ease;
-  }
-
-  details[open] summary::after {
-    transform: rotate(180deg);
-  }
-
-  .faq-content {
-    padding: 0 2rem 2rem 2rem;
-  }
-
-  .faq-content p { max-width: 70ch; }
-
-  /* ---------- Contact ---------- */
-  .footer-cta {
-    background-color: var(--text-color);
-    color: var(--bg-color);
-    text-align: center;
-  }
-
-  .footer-cta h2 {
-    margin-bottom: 1.5rem;
-  }
-
-  .footer-cta p {
-    color: rgba(229, 229, 230, 0.7);
-    max-width: 52ch;
-    margin: 0 auto 2.5rem;
-  }
-
-  .email-link {
-    display: inline-block;
-    font-size: clamp(1.25rem, 4vw, 3rem);
-    font-family: var(--font-mono);
-    color: var(--bg-color);
-    border: 1px solid var(--bg-color);
-    padding: 1rem 2rem;
-    transition: all 0.3s ease;
-  }
-
-  .email-link:hover {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-  }
-
-  footer {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    flex-wrap: wrap;
-    padding: 1.5rem 2rem;
-    background-color: var(--bg-color);
-    border-top: 1px solid var(--border-color);
-  }
-
-  /* ---------- Responsive ---------- */
-  @media (max-width: 1024px) {
-    .structural-grid, .stats-ticker {
-      grid-template-columns: 1fr;
-    }
-    .border-right {
-      border-right: none;
-      border-bottom: 1px solid var(--border-color);
-    }
-    .stat-item {
-      border-right: none;
-      border-bottom: 1px solid var(--border-color);
-    }
-    .stat-item:last-child { border-bottom: none; }
-    .grid-container {
-      display: block;
-    }
-    .col-span-6, .col-span-12 {
-      width: 100%;
-      border-right: none;
-      border-bottom: 1px solid var(--border-color);
-    }
-    .hero-top-grid {
-      grid-template-columns: 1fr;
-    }
-    .hero-top-grid > div:first-child {
-      border-bottom: 1px solid var(--border-color);
-      border-right: none;
-    }
-    .process-step {
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-  }
-
-  @media (max-width: 640px) {
-    header { padding: 0 1.25rem; }
-    .hero-main, .pad-box-large { padding-left: 1.25rem; padding-right: 1.25rem; }
-    .hero-top-grid > div, .stat-item, .section-header,
-    .service-header, .service-body, .process-step { padding-left: 1.25rem; padding-right: 1.25rem; }
-    summary { padding: 1.5rem 1.25rem; }
-    .faq-content { padding: 0 1.25rem 1.5rem; }
-    footer { padding: 1.5rem 1.25rem; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    summary::after, .service-card, .email-link, .hero-cta { transition: none; }
-  }
-</style>
-<style>
-  /* ---------- Grand Street Works additions to the shared system ---------- */
-  .tile {
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.85rem;
-    transition: background-color 0.3s ease;
-  }
-  .tile:hover { background-color: #DEDEDF; }
-  .tile p { font-size: 1.0625rem; }
-
-  .band { display: grid; grid-template-columns: 1fr 1fr; }
-  .band > div { padding: 4rem 2rem; }
-  .band > div:first-child { border-right: 1px solid var(--border-color); }
-
-  .refusal-grid { display: grid; grid-template-columns: 1fr 1fr; }
-  .refusal-grid > div {
-    padding: 3rem 2rem;
-    border-bottom: 1px solid var(--border-color);
-  }
-  .refusal-grid > div:nth-child(odd) { border-right: 1px solid var(--border-color); }
-  .refusal-grid > div:nth-last-child(-n+2) { border-bottom: none; }
-  .refusal-grid h3 { margin-bottom: 0.75rem; }
-
-  .callout {
-    font-family: var(--font-mono);
-    font-size: 0.8125rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    display: inline-block;
-    margin-top: 2rem;
-    padding: 0.75rem 1.25rem;
-    border: 1px solid var(--border-color);
-  }
-  .callout:hover { background: var(--text-color); color: var(--bg-color); }
-
-
-  /* ---------- Work grid (added with the build-first rewrite) ---------- */
-  .work-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1px;
-    background-color: var(--border-color);
-    border-bottom: 1px solid var(--border-color);
-  }
-  .work-grid a {
-    background-color: var(--bg-color);
-    padding: 1.5rem 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    transition: background-color 0.2s ease;
-  }
-  .work-grid a:hover { background-color: #DEDEDF; }
-  .work-index {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.05em;
-    color: rgba(5, 5, 5, 0.45);
-  }
-  .work-name {
-    font-size: 1.0625rem;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    line-height: 1.2;
-  }
-  .work-firm {
-    font-family: var(--font-mono);
-    font-size: 0.8125rem;
-    color: rgba(5, 5, 5, 0.6);
-  }
-
-  @media (max-width: 1024px) {
-    .band, .refusal-grid { grid-template-columns: 1fr; }
-    .band > div:first-child { border-right: none; border-bottom: 1px solid var(--border-color); }
-    .refusal-grid > div:nth-child(odd) { border-right: none; }
-    .refusal-grid > div:nth-last-child(2) { border-bottom: 1px solid var(--border-color); }
-    .work-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (max-width: 640px) {
-    .tile, .band > div, .refusal-grid > div { padding-left: 1.25rem; padding-right: 1.25rem; }
-    .work-grid a { padding-left: 1.25rem; padding-right: 1.25rem; }
-    .work-grid { grid-template-columns: 1fr; }
-  }
-</style>
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -587,9 +34,13 @@
 <header>
   <div class="logo-mark">
     <span class="status-dot" aria-hidden="true"></span>
-    <span class="label" style="font-weight: 600;">Grand Street Works</span>
+    <a href="/" class="label" style="font-weight: 600;">Grand Street Works</a>
   </div>
-  <a href="mailto:joe@grandstreetworks.com?subject=Rebuild%20our%20homepage" class="label" style="text-decoration: underline;">Get in touch</a>
+  <nav class="site-nav">
+    <a href="#work" class="label">Work</a>
+    <a href="what-we-build/" class="label">What we build</a>
+    <a href="mailto:joe@grandstreetworks.com?subject=Rebuild%20our%20homepage" class="label" style="text-decoration: underline;">Get in touch</a>
+  </nav>
 </header>
 
 <main>
@@ -651,123 +102,12 @@
         <span class="label">Sym_03 // Follow-up</span>
         <p>Enquiries that didn't book get chased when someone remembers. Most months, nobody remembers.</p>
       </div>
-      <div class="tile border-right">
-        <span class="label">Sym_04 // Quoting</span>
-        <p>Quotes, proposals and engagement letters take two days, because one person writes every one from scratch.</p>
-      </div>
-      <div class="tile border-right">
-        <span class="label">Sym_05 // Double entry</span>
-        <p>The same client details get typed into three systems by three people, and the three systems disagree by Friday.</p>
-      </div>
-      <div class="tile">
-        <span class="label">Sym_06 // The software bill</span>
-        <p>Lines nobody has reviewed since whoever chose them left. One of them costs more than a part-time salary.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="services">
-    <div class="section-header border-top">
-      <span class="label">[SEC_02] What we build</span>
-    </div>
-    <div class="structural-grid">
-      <div class="service-card border-right">
-        <div class="service-header">
-          <span class="label" style="display:block; margin-bottom: 1rem;">Svc_A // Start here</span>
-          <h3>Websites</h3>
-          <span class="label service-note">Fixed fee · structure first, design second</span>
-        </div>
-        <div class="service-body">
-          <p>A site built on the structure that separates the best-performing firms in your trade from the rest — established by reading them, before a single decision about how it looks.</p>
-          <ul class="deliverables-list">
-            <li>The top and bottom performers in your trade in your metro, pulled and read the way a customer reads them</li>
-            <li>What every winner has and no loser has, written down — that becomes the page</li>
-            <li>Several genuinely different directions to choose from, never one comp to approve or reject</li>
-            <li>Fast on a phone in a driveway: no page builder, no plugin stack, no monthly platform fee</li>
-            <li>Repository, hosting and domain in your name at handover</li>
-          </ul>
-        </div>
-      </div>
-      <div class="service-card border-right">
-        <div class="service-header">
-          <span class="label" style="display:block; margin-bottom: 1rem;">Svc_B // Off the desk</span>
-          <h3>Native Apps</h3>
-          <span class="label service-note">iOS, Android and Mac · shipped under your account</span>
-        </div>
-        <div class="service-body">
-          <p>For the part of the job that happens on a roof, in a unit, or at two in the morning. Most businesses don't need one, and we'll tell you if you're one of them.</p>
-          <ul class="deliverables-list">
-            <li>Photos, notes and signatures captured with no signal, synced when the truck has bars again</li>
-            <li>One place for the crew's day instead of a group chat, a clipboard and a whiteboard</li>
-            <li>Native where native earns it — camera, offline storage, notifications — and web where it doesn't</li>
-            <li>Published to your own developer account, under your business's name</li>
-            <li>Same care plan as everything else, or hand it to your own IT</li>
-          </ul>
-        </div>
-      </div>
-      <div class="service-card">
-        <div class="service-header">
-          <span class="label" style="display:block; margin-bottom: 1rem;">Svc_C // Behind the site</span>
-          <h3>Back-Office Systems</h3>
-          <span class="label service-note">Built for you · running inside a week</span>
-        </div>
-        <div class="service-body">
-          <p>A new site sends you more enquiries. This is what catches them — a system that does the work rather than reporting on it, maintained so it doesn't quietly rot six weeks after launch.</p>
-          <ul class="deliverables-list">
-            <li>Every enquiry logged, counted and attributed, so you know what the site is actually worth</li>
-            <li>Follow-up that happens — stale enquiries chased, drafted for your approval</li>
-            <li>Morning brief: the handful of things that genuinely need you, replies drafted</li>
-            <li>One page showing where the pipeline, the schedule and the money stand</li>
-            <li>Monitoring, fixes, and one improvement a month</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="section-header border-top">
-      <span class="label">[SEC_03] How a build runs</span>
-    </div>
-    <div class="grid-container">
-      <div class="col-span-6 border-right" style="padding: 0;">
-        <div class="process-step border-bottom">
-          <div class="step-number">01</div>
-          <div>
-            <h3 style="margin-bottom: 0.5rem;">The read</h3>
-            <p>We pull the strongest and weakest firms in your trade in your metro and read their sites the way a customer would. What every strong one has and no weak one has is the structure. It gets written down before anything is designed.</p>
-          </div>
-        </div>
-        <div class="process-step">
-          <div class="step-number">02</div>
-          <div>
-            <h3 style="margin-bottom: 0.5rem;">The directions</h3>
-            <p>Several complete homepages, structurally different from one another — not one layout in six colours. You tell us which one sounds like you, on the phone, in ten minutes.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-span-6" style="padding: 0;">
-        <div class="process-step border-bottom">
-          <div class="step-number">03</div>
-          <div>
-            <h3 style="margin-bottom: 0.5rem;">The build</h3>
-            <p>The direction you picked becomes the whole site. Your words, edited — never invented. Tested on a real phone at the sizes your customers actually hold, before you see it again.</p>
-          </div>
-        </div>
-        <div class="process-step">
-          <div class="step-number">04</div>
-          <div>
-            <h3 style="margin-bottom: 0.5rem;">The handover</h3>
-            <p>Repository, hosting and domain in your name, documented. Take the care plan or take it to your own IT — the code is yours either way, and that's in the contract rather than in a sales conversation.</p>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
   <section id="work">
     <div class="section-header border-top">
-      <span class="label">[SEC_04] Work</span>
+      <span class="label">[SEC_02] Work</span>
     </div>
     <div class="grid-container" style="border-bottom: none;">
       <div class="col-span-12 pad-box-large" style="padding-bottom: 2.5rem; border-bottom: none;">
@@ -778,6 +118,7 @@
         <p style="margin-top: 1.5rem; max-width: 64ch;">
           The common thread across them isn't a trade, it's a shape: owner-run, healthy margins, a small team wearing several hats each, and nobody whose job is to look at how the work flows. Open the closest one to yours on your phone.
         </p>
+        <a class="callout" href="what-we-build/">What we build, in detail →</a>
       </div>
     </div>
     <div class="work-grid">
@@ -806,7 +147,7 @@
 
   <section>
     <div class="section-header border-top">
-      <span class="label">[SEC_05] Before you pay anything</span>
+      <span class="label">[SEC_03] Before you pay anything</span>
     </div>
     <div class="band">
       <div>
@@ -831,56 +172,7 @@
 
   <section>
     <div class="section-header border-top">
-      <span class="label">[SEC_06] If the site isn't the problem</span>
-    </div>
-    <div class="band">
-      <div>
-        <h2>An operations audit, fixed fee, report inside five business days.</h2>
-        <p class="text-large" style="margin-top: 1.5rem; max-width: 52ch;">
-          Some businesses have plenty of enquiries and no hours. For those, the useful thing isn't a new site — it's a costed picture of where the manual work lives and what it's worth to fix. Yours to keep either way.
-        </p>
-        <a class="callout" href="mailto:joe@grandstreetworks.com?subject=Operations%20audit">Book an operations audit →</a>
-      </div>
-      <div>
-        <ul class="deliverables-list" style="margin-top: 0;">
-          <li>60–90 minute walkthrough of how the business actually runs — bring the software bill</li>
-          <li>Top five opportunities ranked by hours saved against effort, each with a fixed price to fix</li>
-          <li>Software spend check: what you rent monthly and use a fifth of, with break-even maths</li>
-          <li>A "do not automate" list — what looks automatable but isn't worth the money or the risk</li>
-          <li>Optional half-day with the team afterwards, if the fix turns out to be a habit rather than software</li>
-          <li>The fee credits in full against anything booked in the next 30 days</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="section-header border-top">
-      <span class="label">[SEC_07] What we won't do</span>
-    </div>
-    <div class="refusal-grid">
-      <div>
-        <h3>Build you an app you don't need</h3>
-        <p>A native app is right when the work happens away from a desk and away from signal. For most practices and firms it is a more expensive way to have a website, and we'd rather say so on the first call than take the deposit.</p>
-      </div>
-      <div>
-        <h3>Anything compliance-heavy</h3>
-        <p>Payroll, tax filing, accounting of record, clinical records — anything that would put protected health information through a system we built. That stays with the specialists and the software carrying the liability.</p>
-      </div>
-      <div>
-        <h3>Replace software that's good value</h3>
-        <p>Plenty of what you pay for is cheap for what it does, or worth it because everyone else is on it. We'll say so, and it costs you nothing to hear it.</p>
-      </div>
-      <div>
-        <h3>Sell you a build the numbers didn't justify</h3>
-        <p>If your site is working and your week isn't drowning, we'd rather tell you and keep the relationship than invoice you for a project neither of us believed in.</p>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="section-header border-top">
-      <span class="label">[SEC_08] Principal</span>
+      <span class="label">[SEC_04] Principal</span>
     </div>
     <div class="grid-container">
       <div class="col-span-12 pad-box-large">
@@ -904,7 +196,7 @@
             </tr>
             <tr>
               <td>Builds</td>
-              <td>Websites · native iOS, Android and macOS apps · back-office systems</td>
+              <td><a href="what-we-build/" style="text-decoration: underline;">Websites · native iOS, Android and macOS apps · back-office systems</a></td>
             </tr>
             <tr>
               <td>First step</td>
@@ -924,33 +216,9 @@
     </div>
   </section>
 
-  <section id="join">
-    <div class="section-header border-top">
-      <span class="label">[SEC_09] Join us</span>
-    </div>
-    <div class="band">
-      <div>
-        <h2>We read every email, whether or not there's a role open.</h2>
-        <p class="text-large" style="margin-top: 1.5rem; max-width: 52ch;">
-          We stay small on purpose, so we hire rarely and slowly. When we do, it's someone who can sit with an owner in the morning and ship the thing in the afternoon.
-        </p>
-        <a class="callout" href="mailto:joe@grandstreetworks.com?subject=Working%20together">Tell us what you build →</a>
-      </div>
-      <div>
-        <ul class="deliverables-list" style="margin-top: 0;">
-          <li>Designers who can build it, and engineers who care what the type is doing</li>
-          <li>People who can explain a trade-off to a roofer without using the word "stack"</li>
-          <li>Work you can point at — a repository, a live site, a thing you finished</li>
-          <li>Remote is fine; we're in Brooklyn and on site in New York when the work needs it</li>
-          <li>No formal openings most of the time, no application form, and we'll always answer</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
   <section>
     <div class="section-header border-top">
-      <span class="label">[SEC_10] Fair questions</span>
+      <span class="label">[SEC_05] Fair questions</span>
     </div>
     <div class="faq-container">
       <details>
