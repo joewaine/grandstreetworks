@@ -1,2 +1,6 @@
 .DS_Store
 NOTES.internal.md
+
+# Compiled Python from tools/ — these were tracked by mistake and this repo is public.
+__pycache__/
+*.pyc
