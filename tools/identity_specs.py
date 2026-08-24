@@ -82,7 +82,7 @@ BUILDS = {
                 "display_font": "Saira Condensed", "display_css": "Saira+Condensed:wght@600;700",
                 "display_weight": 700, "uppercase": True,
                 "headline": "Tarped tonight. Replaced this week.",
-                "phone": "(555) 208-4417",
+                "phone": "(970) 208-4417",
                 "tagline": "Storm damage, replacements and repairs across the metro",
             },
             "fair-oaks-roofing": {
@@ -96,7 +96,7 @@ BUILDS = {
                 "display_font": "Fjalla One", "display_css": "Fjalla+One",
                 "display_weight": 400, "uppercase": False,
                 "headline": "Ask the four houses on your street we did this year.",
-                "phone": "(555) 331-9075",
+                "phone": "(217) 331-9075",
                 "tagline": "Licensed & insured, serving the metro area since 2004",
             },
             "meridian-roof-co": {
@@ -109,7 +109,7 @@ BUILDS = {
                 "display_font": "Antonio", "display_css": "Antonio:wght@500;700",
                 "display_weight": 700, "uppercase": True,
                 "headline": "Two thousand four hundred roofs. Six crews.",
-                "phone": "(555) 645-2130",
+                "phone": "(463) 645-2130",
                 "tagline": "2,400+ roofs completed, 24hr emergency response",
             },
             "anchor-peak-roofing": {
@@ -122,7 +122,7 @@ BUILDS = {
                 "display_font": "Bebas Neue", "display_css": "Bebas+Neue",
                 "display_weight": 400, "uppercase": True,
                 "headline": "Emergency response 24/7. Same-day tarping.",
-                "phone": "(555) 872-6604",
+                "phone": "(210) 872-6604",
                 "tagline": "Emergency response 24/7, same-day tarping",
             },
             "sentry-roofing-and-restoration": {
@@ -135,7 +135,7 @@ BUILDS = {
                 "display_font": "Big Shoulders Display", "display_css": "Big+Shoulders+Display:wght@600;800",
                 "display_weight": 800, "uppercase": True,
                 "headline": "We meet your adjuster on the roof.",
-                "phone": "(555) 490-7728",
+                "phone": "(620) 490-7728",
                 "tagline": "We meet your adjuster and handle the claim paperwork",
             },
             "northgate-roofing": {
@@ -148,7 +148,7 @@ BUILDS = {
                 "display_font": "Teko", "display_css": "Teko:wght@500;600;700",
                 "display_weight": 700, "uppercase": True,
                 "headline": "Call during the storm. Someone answers.",
-                "phone": "(555) 117-3382",
+                "phone": "(570) 676-3382",
                 "tagline": "Call and a human answers, day or night",
             },
         },

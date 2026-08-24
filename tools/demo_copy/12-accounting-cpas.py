@@ -13,7 +13,7 @@ _PERSONAL = "Included for owners of business clients. Your company and personal 
 
 PAGES = {
     "d1-intake.html": {
-        "firm": "Brandt & Yoo CPAs", "phone": "(555) 471-3328", "tel": "+15554713328",
+        "firm": "Brandt & Yoo CPAs", "phone": "(930) 471-3328", "tel": "+19304713328",
         "h1": "Stop emailing your tax documents as attachments.",
         "copy": {
             _SUB: "Business accounting, tax and advisory for owner-managed companies. Documents go into an encrypted portal with a checklist that tracks itself, so nobody is ever searching an inbox for a K-1 in March.",
@@ -21,7 +21,7 @@ PAGES = {
         },
     },
     "d2-ledger.html": {
-        "firm": "Latimer Accounting", "phone": "(555) 806-2245", "tel": "+15558062245",
+        "firm": "Latimer Accounting", "phone": "(585) 806-2245", "tel": "+15858062245",
         "h1": "Books closed by the tenth. Every month.",
         "copy": {
             _SUB: "Business accounting, tax and advisory for owner-managed companies. Your books close by the tenth of the following month, so the numbers you are making decisions on are five weeks old at worst.",
@@ -29,7 +29,7 @@ PAGES = {
         },
     },
     "d3-advisory.html": {
-        "firm": "Corven CPA Group", "phone": "(555) 358-9917", "tel": "+15553589917",
+        "firm": "Corven CPA Group", "phone": "(402) 358-9917", "tel": "+14023589917",
         "h1": "Compliance is the floor, not the service.",
         "copy": {
             _SUB: "Business accounting, tax and advisory for owner-managed companies. Filing on time is the minimum anyone should expect. What you are actually paying for is entity structure, owner compensation and the planning that only works before December.",
@@ -37,7 +37,7 @@ PAGES = {
         },
     },
     "d4-checklist.html": {
-        "firm": "Ashby & Kerr CPAs", "phone": "(555) 692-4471", "tel": "+15556924471",
+        "firm": "Ashby & Kerr CPAs", "phone": "(269) 692-4471", "tel": "+12696924471",
         "h1": "You will always know what we're waiting on.",
         "copy": {
             _SUB: "Business accounting, tax and advisory for owner-managed companies. A live checklist shows exactly which documents are outstanding and who is holding each one — usually us, and we say so.",
@@ -45,7 +45,7 @@ PAGES = {
         },
     },
     "d5-rhythm.html": {
-        "firm": "Rennick CPA", "phone": "(555) 217-5583", "tel": "+15552175583",
+        "firm": "Rennick CPA", "phone": "(210) 217-5583", "tel": "+12102175583",
         "h1": "Four conversations a year, not one long panic.",
         "copy": {
             _SUB: "Business accounting, tax and advisory for owner-managed companies. Four scheduled conversations a year, booked in advance, so decisions get made in the months when they can still change the outcome.",
@@ -53,7 +53,7 @@ PAGES = {
         },
     },
     "d6-plain.html": {
-        "firm": "Halstead Accounting", "phone": "(555) 940-3362", "tel": "+15559403362",
+        "firm": "Halstead Accounting", "phone": "(660) 940-3362", "tel": "+16609403362",
         "h1": "A fixed monthly fee, agreed before we start.",
         "copy": {
             _SUB: "Business accounting, tax and advisory for owner-managed companies. One fixed monthly fee agreed in advance and never billed by the six-minute unit, so ringing your accountant a question stops feeling expensive.",

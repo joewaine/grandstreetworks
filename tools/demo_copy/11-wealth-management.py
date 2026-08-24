@@ -13,7 +13,7 @@ _GATHER = "We gather everything and analyse it properly — tax returns, stateme
 
 PAGES = {
     "d1-statement.html": {
-        "firm": "Ferrier Wealth Partners", "phone": "(555) 384-2217", "tel": "+15553842217",
+        "firm": "Ferrier Wealth Partners", "phone": "(743) 384-2217", "tel": "+17433842217",
         "h1": "Our fee schedule is on this page. All of it.",
         "copy": {
             _SUB: "Fee-only fiduciary advice for families and business owners. The entire fee schedule is printed on this page — no commissions, no product sales, no third-party payments, and no number you have to book a meeting to hear.",
@@ -21,7 +21,7 @@ PAGES = {
         },
     },
     "d2-ledger.html": {
-        "firm": "Copeland Fiduciary", "phone": "(555) 726-4408", "tel": "+15557264408",
+        "firm": "Copeland Fiduciary", "phone": "(854) 726-4408", "tel": "+18547264408",
         "h1": "Every dollar we are paid, and who paid it.",
         "copy": {
             _SUB: "Fee-only fiduciary advice for families and business owners. One page shows every dollar of revenue this firm receives and its source. All of it comes from clients; none of it from products.",
@@ -29,7 +29,7 @@ PAGES = {
         },
     },
     "d3-handover.html": {
-        "firm": "Winslow Family Wealth", "phone": "(555) 519-6672", "tel": "+15555196672",
+        "firm": "Winslow Family Wealth", "phone": "(607) 519-6672", "tel": "+16075196672",
         "h1": "Your children should know us before they need us.",
         "copy": {
             _SUB: "Fee-only fiduciary advice for families and business owners, built to survive a generation. We meet your adult children years before anyone needs us to, at no additional fee.",
@@ -37,7 +37,7 @@ PAGES = {
         },
     },
     "d4-conversations.html": {
-        "firm": "Bracken & Lowe", "phone": "(555) 240-8853", "tel": "+15552408853",
+        "firm": "Bracken & Lowe", "phone": "(928) 240-8853", "tel": "+19282408853",
         "h1": "Three conversations before anyone signs anything.",
         "copy": {
             _SUB: "Fee-only fiduciary advice for families and business owners. Three unhurried conversations before any paperwork exists: what you have, what you want it to do, and what we would actually change.",
@@ -45,7 +45,7 @@ PAGES = {
         },
     },
     "d5-plain.html": {
-        "firm": "Hartwell Wealth Advisors", "phone": "(555) 967-1134", "tel": "+15559671134",
+        "firm": "Hartwell Wealth Advisors", "phone": "(540) 967-1134", "tel": "+15409671134",
         "h1": "No charts. No jargon. What you have and what it does.",
         "copy": {
             _SUB: "Fee-only fiduciary advice for families and business owners, written in English. If a document needs a glossary to be understood, it has failed before you have read it.",
@@ -53,7 +53,7 @@ PAGES = {
         },
     },
     "d6-letterhead.html": {
-        "firm": "Ostrander Wealth Counsel", "phone": "(555) 631-7790", "tel": "+15556317790",
+        "firm": "Ostrander Wealth Counsel", "phone": "(681) 631-7790", "tel": "+16816317790",
         "h1": "Sixty-one families. Not sixty-two.",
         "copy": {
             _SUB: "Fee-only fiduciary advice for a deliberately small number of families and business owners. Sixty-one households today, and a waiting list rather than a bigger client roster.",

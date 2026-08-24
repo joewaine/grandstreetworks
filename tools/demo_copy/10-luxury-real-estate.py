@@ -13,7 +13,7 @@ _FIRST = "The production work happens before a single buyer sees the property, w
 
 PAGES = {
     "d1-plate.html": {
-        "firm": "Rathmore & Finch", "phone": "(555) 380-4471", "tel": "+15553804471",
+        "firm": "Rathmore & Finch", "phone": "(319) 380-4471", "tel": "+13193804471",
         "h1": "Photographed the way the house deserves.",
         "copy": {
             _SUB: "Full marketing production on every listing — architectural photography, film, drone, measured floor plans and a standalone property site. Included, never presented later as an optional upgrade.",
@@ -21,7 +21,7 @@ PAGES = {
         },
     },
     "d2-prospectus.html": {
-        "firm": "Bellamy Estates", "phone": "(555) 617-2293", "tel": "+15556172293",
+        "firm": "Bellamy Estates", "phone": "(309) 617-2293", "tel": "+13096172293",
         "h1": "A printed prospectus, not a portal listing.",
         "copy": {
             _SUB: "Full marketing production — photography, film, drone, measured plans and a bound prospectus delivered by hand to the buyers most likely to move on it, before anything is published anywhere.",
@@ -29,7 +29,7 @@ PAGES = {
         },
     },
     "d3-storyboard.html": {
-        "firm": "Ellery & Vane", "phone": "(555) 245-8830", "tel": "+15552458830",
+        "firm": "Ellery & Vane", "phone": "(217) 245-8830", "tel": "+12172458830",
         "h1": "Every house gets a film, not a slideshow.",
         "copy": {
             _SUB: "Full marketing production — photography, drone, measured plans, a standalone property site, and a properly directed film with a location scout and a shooting schedule rather than a phone on a gimbal.",
@@ -37,7 +37,7 @@ PAGES = {
         },
     },
     "d4-seconddoor.html": {
-        "firm": "Thornbury Property Group", "phone": "(555) 903-1164", "tel": "+15559031164",
+        "firm": "Thornbury Property Group", "phone": "(719) 903-1164", "tel": "+17199031164",
         "h1": "For sellers, and for the agents who wish they'd joined sooner.",
         "copy": {
             _SUB: "Full marketing production on every listing — photography, film, drone, plans and a property site, included. Two doors here: one for owners selling, one for agents tired of paying for their own marketing.",
@@ -45,7 +45,7 @@ PAGES = {
         },
     },
     "d5-masthead.html": {
-        "firm": "Marlowe & Hart", "phone": "(555) 458-7726", "tel": "+15554587726",
+        "firm": "Marlowe & Hart", "phone": "(458) 458-7726", "tel": "+14584587726",
         "h1": "Forty-one years on the same six streets.",
         "copy": {
             _SUB: "Full marketing production — photography, film, drone, plans and a standalone property site. Forty-one years in this neighbourhood, which is why we know what the house three doors down actually sold for.",
@@ -53,7 +53,7 @@ PAGES = {
         },
     },
     "d6-quiet.html": {
-        "firm": "Ashcroft Residential", "phone": "(555) 172-6649", "tel": "+15551726649",
+        "firm": "Ashcroft Residential", "phone": "(765) 636-6649", "tel": "+17656366649",
         "h1": "Sold quietly, before it was ever listed.",
         "copy": {
             _SUB: "Full marketing production, held in reserve. A good share of our sales close from a private list before anything is published — no sign, no portal, no neighbours counting the viewings.",

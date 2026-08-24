@@ -13,7 +13,7 @@ _PROP = "Drawings, engineering where needed, and a line-item proposal. One numbe
 
 PAGES = {
     "d1-schedule.html": {
-        "firm": "Whitfield Build Co.", "phone": "(555) 428-9910", "tel": "+15554289910",
+        "firm": "Whitfield Build Co.", "phone": "(413) 428-9910", "tel": "+14134289910",
         "h1": "You get the schedule before anyone swings a hammer.",
         "copy": {
             _SUB: "Whole-home renovations, additions and structural work, typically from $75,000. Before demolition starts you have a week-by-week schedule with every trade's dates on it, and we measure ourselves against it in public.",
@@ -22,7 +22,7 @@ PAGES = {
         },
     },
     "d2-plainnumbers.html": {
-        "firm": "Marrant Construction", "phone": "(555) 736-2204", "tel": "+15557362204",
+        "firm": "Marrant Construction", "phone": "(573) 736-2204", "tel": "+15737362204",
         "h1": "One number, and every allowance stated openly.",
         "copy": {
             _SUB: "Whole-home renovations, additions and structural work, typically from $75,000. One line-item proposal with the allowances written where you can see them, because that is where surprise change orders are usually hiding.",
@@ -31,7 +31,7 @@ PAGES = {
         },
     },
     "d3-sitediary.html": {
-        "firm": "Halverson Build Co.", "phone": "(555) 291-6673", "tel": "+15552916673",
+        "firm": "Halverson Build Co.", "phone": "(316) 291-6673", "tel": "+13162916673",
         "h1": "Photographs from your site, every single day.",
         "copy": {
             _SUB: "Whole-home renovations, additions and structural work, typically from $75,000. You get a dated site diary with photographs every working day, so you can follow the job from your desk without ringing anybody.",
@@ -40,7 +40,7 @@ PAGES = {
         },
     },
     "d4-threshold.html": {
-        "firm": "Threshold Builders", "phone": "(555) 863-4417", "tel": "+15558634417",
+        "firm": "Threshold Builders", "phone": "(970) 863-4417", "tel": "+19708634417",
         "h1": "We'll tell you when not to do it.",
         "copy": {
             _SUB: "Whole-home renovations, additions and structural work, typically from $75,000. The first visit is free and a fair share of them end with us saying the project isn't worth doing, or isn't worth doing yet.",
@@ -49,7 +49,7 @@ PAGES = {
         },
     },
     "d5-licence.html": {
-        "firm": "Granby Construction", "phone": "(555) 517-8836", "tel": "+15555178836",
+        "firm": "Granby Construction", "phone": "(915) 517-8836", "tel": "+19155178836",
         "h1": "Licensed, bonded, permitted — and we'll show you all three.",
         "copy": {
             _SUB: "Whole-home renovations, additions and structural work, typically from $75,000. Licence number, bond, insurance certificates and every pulled permit are handed over at signing, not promised and then chased.",
@@ -58,7 +58,7 @@ PAGES = {
         },
     },
     "d6-contract.html": {
-        "firm": "Bexley Build Group", "phone": "(555) 604-2158", "tel": "+15556042158",
+        "firm": "Bexley Build Group", "phone": "(959) 604-2158", "tel": "+19596042158",
         "h1": "Read the contract before you meet the salesman.",
         "copy": {
             _SUB: "Whole-home renovations, additions and structural work, typically from $75,000. Our contract, payment schedule and change-order process are published here to be read at your kitchen table rather than produced at signing.",

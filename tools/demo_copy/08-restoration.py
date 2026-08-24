@@ -14,7 +14,7 @@ _LOG = "Daily readings until verified dry, then reconstruction. You get the log,
 
 PAGES = {
     "d1-dispatch.html": {
-        "firm": "Keystone Restoration", "phone": "(555) 521-7043", "tel": "+15555217043",
+        "firm": "Keystone Restoration", "phone": "(717) 521-7043", "tel": "+17175217043",
         "h1": "Crews roll before we've worked out who's paying.",
         "copy": {
             _SUB: "Emergency water, fire and mould restoration. Crews are dispatched the moment you ring — the questions about carriers, deductibles and coverage happen afterwards, because the water isn't waiting for them.",
@@ -23,7 +23,7 @@ PAGES = {
         },
     },
     "d2-directbill.html": {
-        "firm": "Bluewater Restoration", "phone": "(555) 638-2219", "tel": "+15556382219",
+        "firm": "Bluewater Restoration", "phone": "(559) 638-2219", "tel": "+15596382219",
         "h1": "We bill your insurer. You pay your deductible.",
         "copy": {
             _SUB: "Emergency water, fire and mould restoration, billed direct to your carrier. You pay your deductible and nothing else — no float, no reimbursement paperwork, no waiting on a cheque to pay us.",
@@ -32,7 +32,7 @@ PAGES = {
         },
     },
     "d3-referral.html": {
-        "firm": "Arbor Restoration Group", "phone": "(555) 947-3360", "tel": "+15559473360",
+        "firm": "Arbor Restoration Group", "phone": "(772) 947-3360", "tel": "+17729473360",
         "h1": "Most of our work comes from plumbers and agents.",
         "copy": {
             _SUB: "Emergency water, fire and mould restoration. Most of our calls come from plumbers, property managers and insurance agents who have watched us work — which is a harder reputation to buy than advertising.",
@@ -41,7 +41,7 @@ PAGES = {
         },
     },
     "d4-sixtyminute.html": {
-        "firm": "Rapid Dry Restoration", "phone": "(555) 384-1176", "tel": "+15553841176",
+        "firm": "Rapid Dry Restoration", "phone": "(534) 384-1176", "tel": "+15343841176",
         "h1": "Sixty minutes, or we tell you before the hour is up.",
         "copy": {
             _SUB: "Emergency water, fire and mould restoration with a sixty-minute metro response. If a crew is not going to make the hour, you get a call before the hour is out rather than an apology afterwards.",
@@ -50,7 +50,7 @@ PAGES = {
         },
     },
     "d5-adjuster.html": {
-        "firm": "Claymore Restoration", "phone": "(555) 715-6628", "tel": "+15557156628",
+        "firm": "Claymore Restoration", "phone": "(970) 715-6628", "tel": "+19707156628",
         "h1": "We stand with your adjuster and show the readings.",
         "copy": {
             _SUB: "Emergency water, fire and mould restoration. We document before we touch anything, meet your adjuster on site, and produce the moisture readings when the scope gets argued — which it does.",
@@ -59,7 +59,7 @@ PAGES = {
         },
     },
     "d6-nightline.html": {
-        "firm": "Nightwatch Restoration", "phone": "(555) 209-4482", "tel": "+15552094482",
+        "firm": "Nightwatch Restoration", "phone": "(435) 209-4482", "tel": "+14352094482",
         "h1": "Three in the morning is when most of these start.",
         "copy": {
             _SUB: "Emergency water, fire and mould restoration, staffed overnight because that is when pipes fail. Our own people answer the line at any hour — not a call centre taking a message for the morning.",

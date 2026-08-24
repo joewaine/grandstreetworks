@@ -15,7 +15,7 @@ _REBATE = "There is serious money in federal credits and utility rebates right n
 
 PAGES = {
     "d1-dispatch.html": {
-        "firm": "Ironwood Heating & Air", "phone": "(555) 348-2260", "tel": "+15553482260",
+        "firm": "Ironwood Heating & Air", "phone": "(585) 348-2260", "tel": "+15853482260",
         "h1": "No heat tonight? We dispatch, we don't schedule.",
         "copy": {
             _SUB: "Repair, replacement and maintenance across the metro. Trucks are dispatched from the nearest yard rather than slotted into next week, and you get a written price before anyone opens a panel.",
@@ -24,7 +24,7 @@ PAGES = {
         },
     },
     "d2-thermostat.html": {
-        "firm": "Sutter Heating & Cooling", "phone": "(555) 712-9948", "tel": "+15557129948",
+        "firm": "Sutter Heating & Cooling", "phone": "(302) 712-9948", "tel": "+13027129948",
         "h1": "Half the calls we take aren't a broken system.",
         "copy": {
             _SUB: "Repair, replacement and maintenance across the metro. We diagnose before we quote, and a good share of what gets sold as a failed system turns out to be a thermostat, a filter or a blocked return.",
@@ -33,7 +33,7 @@ PAGES = {
         },
     },
     "d3-hotcold.html": {
-        "firm": "Vantage Air Systems", "phone": "(555) 265-4471", "tel": "+15552654471",
+        "firm": "Vantage Air Systems", "phone": "(225) 265-4471", "tel": "+12252654471",
         "h1": "One room freezing, one room baking. That's fixable.",
         "copy": {
             _SUB: "Repair, replacement and maintenance across the metro. Uneven rooms are usually ductwork and airflow rather than the unit, which is why replacing the unit so often fails to fix them.",
@@ -42,7 +42,7 @@ PAGES = {
         },
     },
     "d4-nightcall.html": {
-        "firm": "Nightingale Heating & Air", "phone": "(555) 889-3305", "tel": "+15558893305",
+        "firm": "Nightingale Heating & Air", "phone": "(878) 889-3305", "tel": "+18788893305",
         "h1": "Nights and weekends cost the same as Tuesday morning.",
         "copy": {
             _SUB: "Repair, replacement and maintenance across the metro. No overtime rate, no weekend premium and no holiday surcharge — a failure at nine on a Sunday is priced exactly as it would be at nine on a Tuesday.",
@@ -51,7 +51,7 @@ PAGES = {
         },
     },
     "d5-plan.html": {
-        "firm": "Beacon Comfort Co.", "phone": "(555) 403-6617", "tel": "+15554036617",
+        "firm": "Beacon Comfort Co.", "phone": "(947) 403-6617", "tel": "+19474036617",
         "h1": "Most emergencies we attend were preventable in April.",
         "copy": {
             _SUB: "Repair, replacement and maintenance across the metro. Two visits a year catches the failures that otherwise arrive at their worst possible moment, at roughly a tenth of what the emergency costs.",
@@ -60,7 +60,7 @@ PAGES = {
         },
     },
     "d6-certified.html": {
-        "firm": "Trueline Heating & Air", "phone": "(555) 176-8823", "tel": "+15551768823",
+        "firm": "Trueline Heating & Air", "phone": "(662) 858-8823", "tel": "+16628588823",
         "h1": "Load-calculated, permitted, and commissioned properly.",
         "copy": {
             _SUB: "Repair, replacement and maintenance across the metro. Every replacement gets a Manual J load calculation, a pulled permit and a commissioning report — the three steps most quotes quietly skip.",

@@ -15,8 +15,8 @@ PAGES = {
         "short": {"Ridgeline": "Halloran"},
 
         "firm": "Halloran Roofing",
-        "phone": "(555) 208-4417",
-        "tel": "+15552084417",
+        "phone": "(970) 208-4417",
+        "tel": "+19702084417",
         "copy": {
             "Hail took out half the neighbourhood. Ridgeline had a tarp on our roof the same afternoon and sat with our adjuster the following Tuesday. The rest of the street was still waiting on callbacks.":
                 "Hail took out half the neighbourhood. Halloran had a tarp on our roof before dark and sat with our adjuster the following Tuesday. The rest of the street was still waiting on callbacks.",
@@ -42,8 +42,8 @@ PAGES = {
     },
     "d2-neighbours.html": {
         "firm": "Fair Oaks Roofing",
-        "phone": "(555) 331-9075",
-        "tel": "+15553319075",
+        "phone": "(217) 331-9075",
+        "tel": "+12173319075",
         "copy": {
             "A roof over your head by the end of the week.":
                 "Ask the four houses on your street we did this year.",
@@ -67,8 +67,8 @@ PAGES = {
     },
     "d3-numbers.html": {
         "firm": "Meridian Roof Co.",
-        "phone": "(555) 645-2130",
-        "tel": "+15556452130",
+        "phone": "(463) 645-2130",
+        "tel": "+14636452130",
         "copy": {
             "A roof over your head by the end of the week.":
                 "Two thousand four hundred roofs. Six crews. One foreman you'll actually meet.",
@@ -92,8 +92,8 @@ PAGES = {
     },
     "d4-safetyyellow.html": {
         "firm": "Anchor Peak Roofing",
-        "phone": "(555) 872-6604",
-        "tel": "+15558726604",
+        "phone": "(210) 872-6604",
+        "tel": "+12108726604",
         "copy": {
             "A roof over your head by the end of the week.":
                 "Eighty-nine a month, or the whole claim handled. Your choice.",
@@ -119,8 +119,8 @@ PAGES = {
         "short": {"Ridgeline": "Sentry"},
 
         "firm": "Sentry Roofing & Restoration",
-        "phone": "(555) 490-7728",
-        "tel": "+15554907728",
+        "phone": "(620) 490-7728",
+        "tel": "+16204907728",
         "copy": {
             "Hail took out half the neighbourhood. Ridgeline had a tarp on our roof the same afternoon and sat with our adjuster the following Tuesday. The rest of the street was still waiting on callbacks.":
                 "The first adjuster wrote it up for four thousand. Sentry filed a supplement with photographs taken before he arrived, and the final cheque was just under nineteen.",
@@ -146,8 +146,8 @@ PAGES = {
     },
     "d6-dispatch.html": {
         "firm": "Northgate Roofing",
-        "phone": "(555) 117-3382",
-        "tel": "+15551173382",
+        "phone": "(570) 676-3382",
+        "tel": "+15706763382",
         "copy": {
             "A roof over your head by the end of the week.":
                 "Call during the storm. Someone answers.",

@@ -13,7 +13,7 @@ _ASK = "Considering something, but not ready to book?"
 
 PAGES = {
     "d1-portfolio.html": {
-        "firm": "Wyeth Plastic Surgery", "phone": "(555) 306-2214", "tel": "+15553062214",
+        "firm": "Wyeth Plastic Surgery", "phone": "(205) 306-2214", "tel": "+12053062214",
         "h1": "Look through the cases before you ring anyone.",
         "copy": {
             _SUB: "Aesthetic and reconstructive surgery in a private, accredited facility. Before you speak to anybody, look through the cases — unretouched, photographed at the same angles under the same light, out to a year.",
@@ -24,7 +24,7 @@ PAGES = {
         },
     },
     "d2-suite.html": {
-        "firm": "Calder Aesthetic Surgery", "phone": "(555) 774-1128", "tel": "+15557741128",
+        "firm": "Calder Aesthetic Surgery", "phone": "(662) 774-1128", "tel": "+16627741128",
         "h1": "One suite. One surgeon. One team, every time.",
         "copy": {
             _SUB: "Aesthetic and reconstructive surgery in our own accredited facility. The same anaesthetist, the same nurses and the same surgeon on every case, which is the part of a result nobody photographs.",
@@ -35,7 +35,7 @@ PAGES = {
         },
     },
     "d3-consultation.html": {
-        "firm": "Rothbury Plastic Surgery", "phone": "(555) 962-8840", "tel": "+15559628840",
+        "firm": "Rothbury Plastic Surgery", "phone": "(251) 962-8840", "tel": "+12519628840",
         "h1": "Fifty unhurried minutes with the surgeon who operates.",
         "copy": {
             _SUB: "Aesthetic and reconstructive surgery in a private, accredited facility. The consultation is with the surgeon, it runs fifty minutes, and it ends with a written plan rather than a deposit request.",
@@ -46,7 +46,7 @@ PAGES = {
         },
     },
     "d4-credential.html": {
-        "firm": "Aldenmore Surgical Aesthetics", "phone": "(555) 445-7702", "tel": "+15554457702",
+        "firm": "Aldenmore Surgical Aesthetics", "phone": "(971) 445-7702", "tel": "+19714457702",
         "h1": "Board certified — and here is what that actually means.",
         "copy": {
             _SUB: "Aesthetic and reconstructive surgery in a private, accredited facility. Certification, hospital privileges and facility accreditation all published here, because almost nobody explains which of the three actually protects you.",
@@ -57,7 +57,7 @@ PAGES = {
         },
     },
     "d5-gallery.html": {
-        "firm": "Marchetti Plastic Surgery", "phone": "(555) 218-6635", "tel": "+15552186635",
+        "firm": "Marchetti Plastic Surgery", "phone": "(573) 218-6635", "tel": "+15732186635",
         "h1": "Nine hundred cases, photographed at every stage.",
         "copy": {
             _SUB: "Aesthetic and reconstructive surgery in a private, accredited facility. Nine hundred cases over eighteen years, each photographed before, at six weeks, at six months and at a year — including the ones that took revision.",
@@ -68,7 +68,7 @@ PAGES = {
         },
     },
     "d6-private.html": {
-        "firm": "Sable Plastic Surgery", "phone": "(555) 583-9917", "tel": "+15555839917",
+        "firm": "Sable Plastic Surgery", "phone": "(564) 583-9917", "tel": "+15645839917",
         "h1": "Discreet from the first phone call onward.",
         "copy": {
             _SUB: "Aesthetic and reconstructive surgery in a private, accredited facility. Separate entrance, no shared waiting room, and appointments scheduled so that you will not pass another patient coming or going.",

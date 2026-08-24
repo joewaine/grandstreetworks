@@ -13,7 +13,7 @@ _STRIP2 = "· Board-certified dermatology · Mohs surgery on site · Accepting n
 
 PAGES = {
     "d1-two-door.html": {
-        "firm": "Harrowgate Dermatology", "phone": "(555) 482-3390", "tel": "+15554823390",
+        "firm": "Harrowgate Dermatology", "phone": "(765) 482-3390", "tel": "+17654823390",
         "h1": "Two clinics, one practice. Pick the right door.",
         "copy": {
             _SUB: "Medical dermatology, skin cancer surgery and a separate cosmetic clinic — different calendars, different money, different front doors. Choosing correctly saves you weeks and an argument with your insurer.",
@@ -24,7 +24,7 @@ PAGES = {
         },
     },
     "d2-two-week.html": {
-        "firm": "Colvin Dermatology", "phone": "(555) 719-6628", "tel": "+15557196628",
+        "firm": "Colvin Dermatology", "phone": "(603) 719-6628", "tel": "+16037196628",
         "h1": "Skin checks inside two weeks. Urgent ones sooner.",
         "copy": {
             _SUB: "Medical dermatology, skin cancer surgery and a separate cosmetic clinic. Routine skin checks book about two weeks out, and we hold urgent slots every single week for the things that shouldn't wait.",
@@ -35,7 +35,7 @@ PAGES = {
         },
     },
     "d3-the-spot.html": {
-        "firm": "Sundial Dermatology", "phone": "(555) 253-4417", "tel": "+15552534417",
+        "firm": "Sundial Dermatology", "phone": "(641) 253-4417", "tel": "+16412534417",
         "h1": "If it changed, don't wait to see whether it changes back.",
         "copy": {
             _SUB: "Medical dermatology, skin cancer surgery and a separate cosmetic clinic. If something has changed shape, colour or size, that is the appointment to make this week — anything suspicious is biopsied at the same visit.",
@@ -46,7 +46,7 @@ PAGES = {
         },
     },
     "d4-calendar.html": {
-        "firm": "Westbrook Skin & Surgery", "phone": "(555) 864-1173", "tel": "+15558641173",
+        "firm": "Westbrook Skin & Surgery", "phone": "(772) 864-1173", "tel": "+17728641173",
         "h1": "Diagnosis and removal without two separate waits.",
         "copy": {
             _SUB: "Medical dermatology, skin cancer surgery and a separate cosmetic clinic. Screening, biopsy and Mohs surgery all happen in this building, so a positive result doesn't mean joining another queue somewhere else.",
@@ -57,7 +57,7 @@ PAGES = {
         },
     },
     "d5-counter.html": {
-        "firm": "Larkin Dermatology", "phone": "(555) 391-7756", "tel": "+15553917756",
+        "firm": "Larkin Dermatology", "phone": "(903) 391-7756", "tel": "+19033917756",
         "h1": "The cosmetic clinic, priced on the page.",
         "copy": {
             _SUB: "Medical dermatology, skin cancer surgery and a separate cosmetic clinic. The cosmetic side runs on its own calendar with every price published, so nothing about it gets tangled up in your insurance.",
@@ -68,7 +68,7 @@ PAGES = {
         },
     },
     "d6-phone.html": {
-        "firm": "Fenmore Dermatology", "phone": "(555) 607-2284", "tel": "+15556072284",
+        "firm": "Fenmore Dermatology", "phone": "(413) 607-2284", "tel": "+14136072284",
         "h1": "Your results, from a person, on the phone.",
         "copy": {
             _SUB: "Medical dermatology, skin cancer surgery and a separate cosmetic clinic. Pathology comes back within a week and you hear it from someone who rings you — with the next appointment already booked before they hang up.",

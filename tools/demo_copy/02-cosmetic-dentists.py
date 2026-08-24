@@ -7,7 +7,7 @@ FORBIDDEN = ["Ardent", "037-1140", "0371140"]
 
 PAGES = {
     "d1-clinic.html": {
-        "firm": "Fairmont Dental Studio", "phone": "(555) 264-8890", "tel": "+15552648890",
+        "firm": "Fairmont Dental Studio", "phone": "(605) 264-8890", "tel": "+16052648890",
         "h1": "Scanned, planned and priced before a tooth is touched.",
         "copy": {
             "Digital preview at your first consult, so you know exactly what you're paying for. Veneers, implants and full-mouth restoration — with financing worked out before treatment begins.":
@@ -22,7 +22,7 @@ PAGES = {
         },
     },
     "d2-preview.html": {
-        "firm": "Belmont Smile Design", "phone": "(555) 419-2205", "tel": "+15554192205",
+        "firm": "Belmont Smile Design", "phone": "(641) 419-2205", "tel": "+16414192205",
         "h1": "Try the smile on before you buy it.",
         "copy": {
             "Digital preview at your first consult, so you know exactly what you're paying for. Veneers, implants and full-mouth restoration — with financing worked out before treatment begins.":
@@ -37,7 +37,7 @@ PAGES = {
         },
     },
     "d3-quiet.html": {
-        "firm": "Aldridge Dental", "phone": "(555) 703-6612", "tel": "+15557036612",
+        "firm": "Aldridge Dental", "phone": "(660) 703-6612", "tel": "+16607036612",
         "h1": "No packages. No pressure. One plan.",
         "copy": {
             "Digital preview at your first consult, so you know exactly what you're paying for. Veneers, implants and full-mouth restoration — with financing worked out before treatment begins.":
@@ -52,7 +52,7 @@ PAGES = {
         },
     },
     "d4-showcase.html": {
-        "firm": "Verano Cosmetic Dentistry", "phone": "(555) 856-3374", "tel": "+15558563374",
+        "firm": "Verano Cosmetic Dentistry", "phone": "(719) 856-3374", "tel": "+17198563374",
         "h1": "Look through the work, then decide.",
         "copy": {
             "Digital preview at your first consult, so you know exactly what you're paying for. Veneers, implants and full-mouth restoration — with financing worked out before treatment begins.":
@@ -67,7 +67,7 @@ PAGES = {
         },
     },
     "d5-warm.html": {
-        "firm": "Havenwood Dental", "phone": "(555) 592-1148", "tel": "+15555921148",
+        "firm": "Havenwood Dental", "phone": "(564) 592-1148", "tel": "+15645921148",
         "h1": "For people who stopped going to the dentist.",
         "copy": {
             "Digital preview at your first consult, so you know exactly what you're paying for. Veneers, implants and full-mouth restoration — with financing worked out before treatment begins.":
@@ -84,7 +84,7 @@ PAGES = {
         },
     },
     "d6-consult.html": {
-        "firm": "Callaway Dental Arts", "phone": "(555) 187-4426", "tel": "+15551874426",
+        "firm": "Callaway Dental Arts", "phone": "(830) 886-4426", "tel": "+18308864426",
         "h1": "One free hour, and you'll know the number.",
         "copy": {
             "Digital preview at your first consult, so you know exactly what you're paying for. Veneers, implants and full-mouth restoration — with financing worked out before treatment begins.":

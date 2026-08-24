@@ -12,7 +12,7 @@ _STRIP = "· Medical director on site · Licensed nurse injectors · Est. 2019"
 
 PAGES = {
     "d1-pricelist.html": {
-        "firm": "Marisol Aesthetics", "phone": "(555) 802-4419", "tel": "+15558024419",
+        "firm": "Marisol Aesthetics", "phone": "(830) 802-4419", "tel": "+18308024419",
         "h1": "Every price on the page. No consultation required to see it.",
         "copy": {
             _SUB: "Botox, filler, laser and medical-grade skincare from licensed nurse injectors. Every price is printed here, per unit and per syringe, so you can work out your visit before you book it.",
@@ -22,7 +22,7 @@ PAGES = {
         },
     },
     "d2-membership.html": {
-        "firm": "Verity Skin & Aesthetics", "phone": "(555) 337-1052", "tel": "+15553371052",
+        "firm": "Verity Skin & Aesthetics", "phone": "(936) 337-1052", "tel": "+19363371052",
         "h1": "A monthly credit that rolls over, and never expires.",
         "copy": {
             _SUB: "Botox, filler, laser and medical-grade skincare from licensed injectors. Members put by a monthly credit that rolls over indefinitely, so treatment gets budgeted rather than deferred.",
@@ -32,7 +32,7 @@ PAGES = {
         },
     },
     "d3-twotaps.html": {
-        "firm": "Bright Hour Med Spa", "phone": "(555) 690-3376", "tel": "+15556903376",
+        "firm": "Bright Hour Med Spa", "phone": "(217) 690-3376", "tel": "+12176903376",
         "h1": "Book in two taps. No account, no callback.",
         "copy": {
             _SUB: "Botox, filler, laser and medical-grade skincare from licensed injectors. Real slots on a real calendar, bookable in about forty seconds, with no account to create and nobody ringing you back to confirm.",
@@ -42,7 +42,7 @@ PAGES = {
         },
     },
     "d4-ownedgrid.html": {
-        "firm": "Onyx & Ivory Aesthetics", "phone": "(555) 148-2263", "tel": "+15551482263",
+        "firm": "Onyx & Ivory Aesthetics", "phone": "(603) 373-2263", "tel": "+16033732263",
         "h1": "Under-treated on purpose. You can always add more.",
         "copy": {
             _SUB: "Botox, filler, laser and medical-grade skincare from licensed injectors. We start below what you asked for and top up at the two-week review, because the correction for too little is easy and the correction for too much is time.",
@@ -53,7 +53,7 @@ PAGES = {
     },
     "d5-menu.html": {
         "short": {"Lumen": "Palmer Row"},
-        "firm": "Palmer Row Med Spa", "phone": "(555) 275-8804", "tel": "+15552758804",
+        "firm": "Palmer Row Med Spa", "phone": "(564) 275-8804", "tel": "+15642758804",
         "h1": "Read the whole menu before you sit down.",
         "copy": {
             "Lumen just put the prices up and let me book a Thursday evening.":
@@ -65,7 +65,7 @@ PAGES = {
         },
     },
     "d6-clients.html": {
-        "firm": "Juniper Aesthetics", "phone": "(555) 916-4471", "tel": "+15559164471",
+        "firm": "Juniper Aesthetics", "phone": "(731) 916-4471", "tel": "+17319164471",
         "h1": "The same injector, every visit, for years.",
         "copy": {
             _SUB: "Botox, filler, laser and medical-grade skincare from licensed injectors. You keep the same injector visit after visit, which is why the result stays consistent instead of drifting with whoever happened to be free.",
