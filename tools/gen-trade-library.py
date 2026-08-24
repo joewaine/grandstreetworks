@@ -53,6 +53,82 @@ NEGATIVE = (
 # `after` names an earlier image in the same set to pass back as a reference, so
 # the before/after pair is demonstrably the same house rather than two houses.
 LIBRARIES = {
+    "cosmetic-dentists": [
+        ("smile-a-before",
+         "Clinical dental photograph cropped to the lower face only — lips and teeth, no eyes, no nose, no full face; the top edge of the frame sits below the nostrils and the ring light is out of shot. The photograph fills the entire frame edge to edge — no border, no letterboxing, no inset. "
+         "Upper front teeth dull and slightly grey-yellow, incisal edges worn unevenly, "
+         "one lateral incisor visibly shorter than the other. Neutral grey backdrop, "
+         "flat clinical lighting, unretouched. 100mm macro, sharp.", "4:3", None),
+        ("smile-a-after",
+         "The same mouth, lips, skin, framing and lighting as the reference image, after "
+         "conservative porcelain veneers: even incisal edges, natural translucency, a "
+         "believable shade that is clearly improved but never opaque or fluorescent. "
+         "Keep the crop and the lip shape identical; change only the teeth.",
+         "4:3", "smile-a-before"),
+        ("smile-b-before",
+         "Clinical dental photograph cropped to the lower face only — lips and teeth, "
+         "no eyes, no full face. Upper front teeth with a visible midline gap between the "
+         "central incisors and mild staining along the gum line. Neutral grey backdrop, "
+         "flat clinical ring light, unretouched. 100mm macro.", "4:3", None),
+        ("smile-b-after",
+         "The same mouth, lips, skin, framing and lighting as the reference image, with "
+         "the midline gap closed and the staining resolved: proportionate central "
+         "incisors, healthy gum line, natural shade with visible translucency. Keep the "
+         "crop and the lip shape identical; change only the teeth.", "4:3", "smile-b-before"),
+        ("smile-c-before",
+         "Clinical dental photograph cropped to the lower face only — lips and teeth, "
+         "no eyes, no full face. A chipped corner on one upper central incisor and "
+         "uneven, slightly crowded lower edges. Neutral grey backdrop, flat clinical ring "
+         "light, unretouched. 100mm macro.", "4:3", None),
+        ("smile-c-after",
+         "The same mouth, lips, skin, framing and lighting as the reference image, with "
+         "the chip restored and the edges evened: an intact incisal edge, natural shade "
+         "and translucency, no fluorescent whitening. Keep the crop and the lip shape "
+         "identical; change only the teeth.", "4:3", "smile-c-before"),
+        ("smile-d-before",
+         "Clinical dental photograph cropped to the lower face only — lips and teeth, no eyes, no nose, no full face; the top edge of the frame sits below the nostrils and the ring light is out of shot. "
+         "Upper front teeth shortened and flattened by years of grinding, the edges square "
+         "and the smile line flat. Neutral grey backdrop, flat clinical lighting, "
+         "unretouched. 100mm macro.", "4:3", None),
+        ("smile-d-after",
+         "The same mouth, lips, skin, framing and lighting as the reference image, with "
+         "the incisal length clearly restored — the front teeth visibly longer and the "
+         "flat edge replaced by a natural curved smile line. The difference must be "
+         "obvious side by side while staying believable. Keep the crop, the lighting "
+         "and the lip shape identical; change only the teeth.", "4:3", "smile-d-before"),
+        ("smile-e-before",
+         "Clinical dental photograph cropped to the lower face only — lips and teeth, no eyes, no nose, no full face; the top edge of the frame sits below the nostrils and the ring light is out of shot. "
+         "Two ageing composite bonding repairs on the central incisors, visibly darker and "
+         "yellower than the surrounding enamel, with a slightly uneven gum line. Neutral "
+         "grey backdrop, flat clinical lighting, unretouched. 100mm macro.", "4:3", None),
+        ("smile-e-after",
+         "The same mouth, lips, skin, framing and lighting as the reference image, with the "
+         "old bonding replaced and the whole upper arch visibly cleaner and brighter — "
+         "the yellow cast gone, the centrals matching their neighbours, the gum line "
+         "even. The improvement must read clearly side by side while staying a "
+         "natural shade. Keep the crop, the lighting and the lip shape identical; "
+         "change only the teeth.",
+         "4:3", "smile-e-before"),
+        ("smile-f-before",
+         "Clinical dental photograph cropped to the lower face only — lips and teeth, no eyes, no nose, no full face; the top edge of the frame sits below the nostrils and the ring light is out of shot. "
+         "Upper teeth with faint grey horizontal banding through the enamel and a dull "
+         "overall tone. Neutral grey backdrop, flat clinical lighting, unretouched. "
+         "100mm macro.", "4:3", None),
+        ("smile-f-after",
+         "The same mouth, lips, skin, framing and lighting as the reference image, with the "
+         "banding masked and the tone lifted conservatively — still a natural shade with "
+         "visible translucency, not fluorescent. Keep the crop and the lip shape identical; "
+         "change only the teeth.", "4:3", "smile-f-before"),
+        ("chairside-preview",
+         "Documentary photograph of a dental surgery: a large monitor on an articulated "
+         "arm showing an abstract, unreadable three-dimensional render, a clinician's "
+         "gloved hands at the edge of frame, no face. Calm oak and off-white room, "
+         "daylight from the left. 35mm, shallow depth of field.", "4:3", None),
+        ("shade-guide",
+         "Close documentary photograph of a porcelain shade guide fanned out on a clean "
+         "white worktop beside a small mirror, tabs graded from warm to bright. Soft "
+         "daylight, strong shallow focus on the middle tabs. 100mm macro.", "4:3", None),
+    ],
     "roofing": [
         ("tear-off",
          "Documentary photograph of a roofing crew stripping old asphalt shingles from "

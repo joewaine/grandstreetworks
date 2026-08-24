@@ -1,0 +1,237 @@
+#!/usr/bin/env python3
+"""Add a drag-to-compare before/after slider to a trade's builds.
+
+Three of the six cosmetic dentistry builds are designed around a smile preview
+that was never actually there — D2 is titled "THE PREVIEW ONE" and puts the
+preview panel beside the headline because "the preview is what this practice is
+selling"; D1's own comment calls its preview frame "abstract CSS geometry
+standing in for the digital smile preview". This replaces the stand-in with the
+thing itself.
+
+No library. The builds make no external requests beyond Google Fonts, and a
+comparison slider is about forty lines of CSS over one `<input type="range">`,
+which is also what makes it keyboard-operable and touch-draggable for free
+rather than through custom pointer handling.
+
+Same borrowing rules as the gallery band: colour from the custom properties each
+build already declares, type from a real <h2>, so a dark build gets a dark band
+with no special case.
+
+    python3 tools/build-compare-slider.py cosmetic-dentists
+    python3 tools/build-compare-slider.py cosmetic-dentists --replace
+
+Run gen-trade-library.py and build-responsive-images.py --kind library first.
+"""
+
+import argparse
+import html
+import re
+import sys
+from pathlib import Path
+
+REPO = Path(__file__).resolve().parent.parent
+WORK = REPO / "work"
+MARKER = "<!-- gsw:compare -->"
+END_MARKER = "<!-- /gsw:compare -->"
+
+AVIF_WIDTHS = (640, 1280)
+JPEG_WIDTH = 720
+
+# One pair per build: six practices should not display the same patient.
+SETS = {
+    "cosmetic-dentists": {
+        "fairmont-dental-studio": {
+            "pair": "b", "label": "The preview",
+            "heading": "See it before it is irreversible.",
+            "note": "This is the same patient, photographed under the same light before "
+                    "and after. Drag the handle — the preview is the point, and it is the "
+                    "only honest way to show one.",
+            "caption": "Midline gap closed · two visits"},
+        "belmont-smile-design": {
+            "pair": "c", "label": "Before we start",
+            "heading": "The preview is the product.",
+            "note": "You approve the result on screen before a single tooth is prepared. "
+                    "Drag to compare — nothing here is a stock photograph of somebody "
+                    "else's work.",
+            "caption": "Chipped central restored · one visit"},
+        "verano-cosmetic-dentistry": {
+            "pair": "a", "label": "Case 041",
+            "heading": "Forty of these, not four.",
+            "note": "Every case in the gallery is shot the same way, on the same "
+                    "background, under the same light. Drag the handle.",
+            "caption": "Conservative veneers · upper six"},
+        "aldridge-dental": {
+            "pair": "d", "label": "A case",
+            "heading": "Length restored, nothing overdone.",
+            "note": "Years of grinding had taken the edges flat. Drag to compare — the "
+                    "aim was the smile line back, not a different set of teeth.",
+            "caption": "Worn edges rebuilt · no whitening"},
+        "havenwood-dental": {
+            "pair": "e", "label": "One of ours",
+            "heading": "Old repairs, quietly replaced.",
+            "note": "Bonding discolours; it is meant to be renewed. Drag the handle to "
+                    "see what changed, and what deliberately did not.",
+            "caption": "Ageing bonding replaced · one appointment"},
+        "callaway-dental-arts": {
+            "pair": "f", "label": "At the consult",
+            "heading": "What we would actually change.",
+            "note": "The consult ends with this, on screen, for your own teeth. Drag to "
+                    "compare a case we treated conservatively.",
+            "caption": "Enamel banding masked · shade lifted one step"},
+    },
+}
+
+CSS = """
+<style>
+  /* Before/after comparison. The control is a real range input, laid over the
+     frame at full size and made invisible: it brings keyboard operation, touch
+     dragging and assistive-tech semantics that a custom pointer handler would
+     have to reimplement badly. */
+  .gsw-cmp-band { background: var(--surface); color: var(--ink);
+                  padding: clamp(38px, 6vw, 74px) 0; }
+  .gsw-cmp-in { max-width: var(--wrap, 1120px); margin: 0 auto; padding: 0 20px; }
+  .gsw-cmp-lab { font-size: 13px; letter-spacing: .18em; text-transform: uppercase;
+                 font-weight: 600; color: var(--accent); margin: 0 0 14px; }
+  .gsw-cmp-band h2 { margin: 0; }
+  .gsw-cmp-note { color: var(--muted); margin: 14px 0 28px; max-width: 58ch; }
+
+  .gsw-cmp { --pos: 50%; margin: 0; max-width: 760px; }
+  /* The overlays position against the image alone. Anchoring them to the
+     figure let the rule and the tags run down over the caption. */
+  .gsw-cmp-frame { position: relative; overflow: hidden; touch-action: pan-y; }
+  .gsw-cmp picture, .gsw-cmp img { display: block; width: 100%; height: auto; }
+  .gsw-cmp img { aspect-ratio: 4 / 3; object-fit: cover; }
+  /* The "before" is the clipped layer, so the handle reveals the past by
+     dragging right — the direction people expect from a slider. */
+  .gsw-cmp-before { position: absolute; inset: 0;
+                    clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
+  .gsw-cmp-line { position: absolute; top: 0; bottom: 0; left: var(--pos);
+                  width: 2px; background: #fff; transform: translateX(-1px);
+                  box-shadow: 0 0 0 1px rgb(0 0 0 / .28); pointer-events: none; }
+  .gsw-cmp-grip { position: absolute; top: 50%; left: 50%; width: 42px; height: 42px;
+                  transform: translate(-50%, -50%); border-radius: 50%;
+                  background: #fff; box-shadow: 0 2px 10px rgb(0 0 0 / .34);
+                  display: grid; place-items: center; }
+  .gsw-cmp-grip::before { content: "‹ ›"; font: 600 15px/1 system-ui, sans-serif;
+                          color: #111; letter-spacing: .06em; }
+  .gsw-cmp-tag { position: absolute; bottom: 12px; font-size: 12px; font-weight: 600;
+                 letter-spacing: .14em; text-transform: uppercase; padding: 6px 11px;
+                 background: rgb(0 0 0 / .62); color: #fff; pointer-events: none; }
+  .gsw-cmp-tag-b { left: 12px; }
+  .gsw-cmp-tag-a { right: 12px; }
+  .gsw-cmp-range { position: absolute; inset: 0; width: 100%; height: 100%;
+                   margin: 0; opacity: 0; cursor: ew-resize;
+                   -webkit-appearance: none; appearance: none; background: transparent; }
+  .gsw-cmp-range::-webkit-slider-thumb { -webkit-appearance: none; width: 44px;
+                                         height: 100%; }
+  .gsw-cmp-range::-moz-range-thumb { width: 44px; height: 100%; border: 0;
+                                     background: transparent; }
+  /* The input is invisible, so the focus ring has to be drawn on the frame. */
+  .gsw-cmp-frame:has(.gsw-cmp-range:focus-visible) { outline: 3px solid var(--accent);
+                                                     outline-offset: 3px; }
+  .gsw-cmp-cap { margin: 12px 0 0; font-size: 14px; color: var(--muted); }
+  /* Without JavaScript the handle cannot move, so it is not offered: the frame
+     falls back to a static half-and-half with both labels still readable. */
+  .gsw-cmp:not([data-live]) .gsw-cmp-range,
+  .gsw-cmp:not([data-live]) .gsw-cmp-grip { display: none; }
+</style>"""
+
+SCRIPT = """
+<script>
+/* One listener per frame. Writing the position to a custom property keeps the
+   clip, the rule and the grip on a single source of truth. */
+(function () {
+  document.querySelectorAll('.gsw-cmp').forEach(function (frame) {
+    var range = frame.querySelector('.gsw-cmp-range');
+    if (!range) return;
+    var apply = function () { frame.style.setProperty('--pos', range.value + '%'); };
+    range.addEventListener('input', apply);
+    frame.setAttribute('data-live', '');
+    apply();
+  });
+})();
+</script>"""
+
+
+def frame(trade: str, spec: dict) -> str:
+    pair = spec["pair"]
+    def pic(side: str, eager: bool) -> str:
+        base = f"../_assets/library/{trade}/smile-{pair}-{side}"
+        srcset = ", ".join(f"{base}-{w}.avif {w}w" for w in AVIF_WIDTHS)
+        alt = ("Before treatment" if side == "before" else "After treatment")
+        return (f'<picture><source type="image/avif" srcset="{srcset}" '
+                f'sizes="(max-width: 800px) 100vw, 760px">'
+                f'<img src="{base}-{JPEG_WIDTH}.jpg" width="1600" height="1200" '
+                f'alt="{alt}" loading="lazy" decoding="async"></picture>')
+    return (
+        '<figure class="gsw-cmp"><div class="gsw-cmp-frame">'
+        + pic("after", False)
+        + f'<div class="gsw-cmp-before">{pic("before", False)}</div>'
+        '<span class="gsw-cmp-line" aria-hidden="true"><span class="gsw-cmp-grip"></span></span>'
+        '<span class="gsw-cmp-tag gsw-cmp-tag-b">Before</span>'
+        '<span class="gsw-cmp-tag gsw-cmp-tag-a">After</span>'
+        '<input class="gsw-cmp-range" type="range" min="0" max="100" value="50" step="0.5" '
+        'aria-label="Drag to compare the before and after photographs">'
+        '</div>'
+        f'<figcaption class="gsw-cmp-cap">{html.escape(spec["caption"])}</figcaption>'
+        '</figure>')
+
+
+def section(trade: str, spec: dict) -> str:
+    return (
+        f'{MARKER}\n<section class="gsw-cmp-band"><div class="gsw-cmp-in">'
+        f'<p class="gsw-cmp-lab">{html.escape(spec["label"])}</p>'
+        f'<h2>{html.escape(spec["heading"])}</h2>'
+        f'<p class="gsw-cmp-note">{html.escape(spec["note"])}</p>'
+        f'{frame(trade, spec)}'
+        f'</div></section>\n{END_MARKER}\n')
+
+
+def patch(page: Path, trade: str, spec: dict, replace: bool) -> str:
+    src = page.read_text()
+    if MARKER in src:
+        if not replace:
+            return "already has a comparison slider"
+        src = re.sub(re.escape(MARKER) + r".*?" + re.escape(END_MARKER) + r"\n?",
+                     "", src, flags=re.S)
+        src = re.sub(r"\n<style>\n  /\* Before/after comparison\..*?</style>", "",
+                     src, flags=re.S)
+        src = re.sub(r"\n<script>\n/\* One listener per frame\..*?</script>", "",
+                     src, flags=re.S)
+
+    if '<section class="close"' not in src:
+        return "no closing section to sit above"
+    src = src.replace("</head>", CSS + "\n</head>", 1)
+    src = src.replace('<section class="close"',
+                      section(trade, spec) + '<section class="close"', 1)
+    src = src.replace("</body>", SCRIPT + "\n</body>", 1)
+    page.write_text(src)
+    return "slider added"
+
+
+def main() -> None:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("trades", nargs="+")
+    ap.add_argument("--replace", action="store_true")
+    args = ap.parse_args()
+
+    for trade in args.trades:
+        sets = SETS.get(trade)
+        if not sets:
+            print(f"  {trade}: no slider sets defined")
+            continue
+        lib = WORK / "_assets" / "library" / trade
+        missing = [f"smile-{s['pair']}-{side}"
+                   for s in sets.values() for side in ("before", "after")
+                   if not (lib / f"smile-{s['pair']}-{side}-{JPEG_WIDTH}.jpg").exists()]
+        if missing:
+            sys.exit("missing encoded images: " + ", ".join(sorted(set(missing))))
+        for slug, spec in sets.items():
+            page = WORK / trade / f"{slug}.html"
+            status = patch(page, trade, spec, args.replace) if page.exists() \
+                else "page missing"
+            print(f"  {slug:<34} {status}")
+
+
+if __name__ == "__main__":
+    main()

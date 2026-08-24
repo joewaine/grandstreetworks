@@ -131,6 +131,62 @@ text-decoration:none;font-weight:600;font-size:18px}
   }
   @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
 </style>
+
+
+
+<style>
+  /* Before/after comparison. The control is a real range input, laid over the
+     frame at full size and made invisible: it brings keyboard operation, touch
+     dragging and assistive-tech semantics that a custom pointer handler would
+     have to reimplement badly. */
+  .gsw-cmp-band { background: var(--surface); color: var(--ink);
+                  padding: clamp(38px, 6vw, 74px) 0; }
+  .gsw-cmp-in { max-width: var(--wrap, 1120px); margin: 0 auto; padding: 0 20px; }
+  .gsw-cmp-lab { font-size: 13px; letter-spacing: .18em; text-transform: uppercase;
+                 font-weight: 600; color: var(--accent); margin: 0 0 14px; }
+  .gsw-cmp-band h2 { margin: 0; }
+  .gsw-cmp-note { color: var(--muted); margin: 14px 0 28px; max-width: 58ch; }
+
+  .gsw-cmp { --pos: 50%; margin: 0; max-width: 760px; }
+  /* The overlays position against the image alone. Anchoring them to the
+     figure let the rule and the tags run down over the caption. */
+  .gsw-cmp-frame { position: relative; overflow: hidden; touch-action: pan-y; }
+  .gsw-cmp picture, .gsw-cmp img { display: block; width: 100%; height: auto; }
+  .gsw-cmp img { aspect-ratio: 4 / 3; object-fit: cover; }
+  /* The "before" is the clipped layer, so the handle reveals the past by
+     dragging right — the direction people expect from a slider. */
+  .gsw-cmp-before { position: absolute; inset: 0;
+                    clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
+  .gsw-cmp-line { position: absolute; top: 0; bottom: 0; left: var(--pos);
+                  width: 2px; background: #fff; transform: translateX(-1px);
+                  box-shadow: 0 0 0 1px rgb(0 0 0 / .28); pointer-events: none; }
+  .gsw-cmp-grip { position: absolute; top: 50%; left: 50%; width: 42px; height: 42px;
+                  transform: translate(-50%, -50%); border-radius: 50%;
+                  background: #fff; box-shadow: 0 2px 10px rgb(0 0 0 / .34);
+                  display: grid; place-items: center; }
+  .gsw-cmp-grip::before { content: "‹ ›"; font: 600 15px/1 system-ui, sans-serif;
+                          color: #111; letter-spacing: .06em; }
+  .gsw-cmp-tag { position: absolute; bottom: 12px; font-size: 12px; font-weight: 600;
+                 letter-spacing: .14em; text-transform: uppercase; padding: 6px 11px;
+                 background: rgb(0 0 0 / .62); color: #fff; pointer-events: none; }
+  .gsw-cmp-tag-b { left: 12px; }
+  .gsw-cmp-tag-a { right: 12px; }
+  .gsw-cmp-range { position: absolute; inset: 0; width: 100%; height: 100%;
+                   margin: 0; opacity: 0; cursor: ew-resize;
+                   -webkit-appearance: none; appearance: none; background: transparent; }
+  .gsw-cmp-range::-webkit-slider-thumb { -webkit-appearance: none; width: 44px;
+                                         height: 100%; }
+  .gsw-cmp-range::-moz-range-thumb { width: 44px; height: 100%; border: 0;
+                                     background: transparent; }
+  /* The input is invisible, so the focus ring has to be drawn on the frame. */
+  .gsw-cmp-frame:has(.gsw-cmp-range:focus-visible) { outline: 3px solid var(--accent);
+                                                     outline-offset: 3px; }
+  .gsw-cmp-cap { margin: 12px 0 0; font-size: 14px; color: var(--muted); }
+  /* Without JavaScript the handle cannot move, so it is not offered: the frame
+     falls back to a static half-and-half with both labels still readable. */
+  .gsw-cmp:not([data-live]) .gsw-cmp-range,
+  .gsw-cmp:not([data-live]) .gsw-cmp-grip { display: none; }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap">Digital previews · Trial smiles · New patients welcome</div></div>
@@ -186,6 +242,9 @@ text-decoration:none;font-weight:600;font-size:18px}
     <li><h3>Treatment &amp; follow-up</h3><p>Most veneer cases are two visits. We review at six months and you have a direct line throughout.</p></li>
   </ol>
 </div></section>
+<!-- gsw:compare -->
+<section class="gsw-cmp-band"><div class="gsw-cmp-in"><p class="gsw-cmp-lab">Before we start</p><h2>The preview is the product.</h2><p class="gsw-cmp-note">You approve the result on screen before a single tooth is prepared. Drag to compare — nothing here is a stock photograph of somebody else&#x27;s work.</p><figure class="gsw-cmp"><div class="gsw-cmp-frame"><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/smile-c-after-640.avif 640w, ../_assets/library/cosmetic-dentists/smile-c-after-1280.avif 1280w" sizes="(max-width: 800px) 100vw, 760px"><img src="../_assets/library/cosmetic-dentists/smile-c-after-720.jpg" width="1600" height="1200" alt="After treatment" loading="lazy" decoding="async"></picture><div class="gsw-cmp-before"><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/smile-c-before-640.avif 640w, ../_assets/library/cosmetic-dentists/smile-c-before-1280.avif 1280w" sizes="(max-width: 800px) 100vw, 760px"><img src="../_assets/library/cosmetic-dentists/smile-c-before-720.jpg" width="1600" height="1200" alt="Before treatment" loading="lazy" decoding="async"></picture></div><span class="gsw-cmp-line" aria-hidden="true"><span class="gsw-cmp-grip"></span></span><span class="gsw-cmp-tag gsw-cmp-tag-b">Before</span><span class="gsw-cmp-tag gsw-cmp-tag-a">After</span><input class="gsw-cmp-range" type="range" min="0" max="100" value="50" step="0.5" aria-label="Drag to compare the before and after photographs"></div><figcaption class="gsw-cmp-cap">Chipped central restored · one visit</figcaption></figure></div></section>
+<!-- /gsw:compare -->
 <section class="close" id="contact"><div class="wrap">
   <h2>Not sure it would suit you?</h2>
   <p>Most of our patients had. The consult is free, there's no pressure, and you'll leave knowing what it would look like and what it would cost.</p>
@@ -202,5 +261,22 @@ text-decoration:none;font-weight:600;font-size:18px}
   <p>4623 Delancey Avenue Suite 4B, Stonebridge, MA 14443</p>
 </div></footer>
 <div class="callbar"><a class="book" href="#contact">Book a consult</a><a class="tel">(641) 419-2205</a></div>
+
+
+
+<script>
+/* One listener per frame. Writing the position to a custom property keeps the
+   clip, the rule and the grip on a single source of truth. */
+(function () {
+  document.querySelectorAll('.gsw-cmp').forEach(function (frame) {
+    var range = frame.querySelector('.gsw-cmp-range');
+    if (!range) return;
+    var apply = function () { frame.style.setProperty('--pos', range.value + '%'); };
+    range.addEventListener('input', apply);
+    frame.setAttribute('data-live', '');
+    apply();
+  });
+})();
+</script>
 </body>
 </html>
