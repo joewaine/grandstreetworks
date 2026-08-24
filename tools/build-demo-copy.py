@@ -110,7 +110,7 @@ def plate_alt(filename, trade):
     """Alt text from the plate's own name: 'a-storm-clearing' -> the phrase."""
     stem = Path(filename).stem
     words = stem.split("-", 1)[1].replace("-", " ") if "-" in stem else stem
-    return f"{words[0].upper()}{words[1:]} — {trade.replace('-', ' ')}"
+    return f"{words[0].upper()}{words[1:]}, {trade.replace('-', ' ')}"
 
 
 PLATE_CSS = """

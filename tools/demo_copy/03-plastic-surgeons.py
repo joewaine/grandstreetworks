@@ -5,7 +5,7 @@ SOURCE_PHONE = "(555) 118-9030"
 SOURCE_TEL = "+15551189030"
 FORBIDDEN = ["Aurelia", "118-9030", "1189030"]
 
-_SUB = "Aesthetic and reconstructive surgery in a private, accredited facility. Every consultation is with the surgeon who will operate — not a coordinator, not an associate."
+_SUB = "Aesthetic and reconstructive surgery in a private, accredited facility. Every consultation is with the surgeon who will operate, not a coordinator, not an associate."
 _CLOSE = "Private consultations. Financing available. All enquiries handled confidentially."
 _STRIP = "Board certified · Private consultations · Accredited surgical suite"
 _STRIP2 = "· Board certified · Private consultations · Accredited surgical suite"
@@ -16,7 +16,7 @@ PAGES = {
         "firm": "Wyeth Plastic Surgery", "phone": "(205) 306-2214", "tel": "+12053062214",
         "h1": "Look through the cases before you ring anyone.",
         "copy": {
-            _SUB: "Aesthetic and reconstructive surgery in a private, accredited facility. Before you speak to anybody, look through the cases — unretouched, photographed at the same angles under the same light, out to a year.",
+            _SUB: "Aesthetic and reconstructive surgery in a private, accredited facility. Before you speak to anybody, look through the cases: unretouched, photographed at the same angles under the same light, out to a year.",
             _ASK: "Want to see the outcomes first?",
             _CLOSE: "Private consultations, and every case shown here was performed by the surgeon you would sit with. All enquiries handled confidentially.",
             _STRIP: "Board certified · Cases photographed to one year",
@@ -47,7 +47,7 @@ PAGES = {
     },
     "d4-credential.html": {
         "firm": "Aldenmore Surgical Aesthetics", "phone": "(971) 445-7702", "tel": "+19714457702",
-        "h1": "Board certified — and here is what that actually means.",
+        "h1": "Board certified, and here is what that actually means.",
         "copy": {
             _SUB: "Aesthetic and reconstructive surgery in a private, accredited facility. Certification, hospital privileges and facility accreditation all published here, because almost nobody explains which of the three actually protects you.",
             _ASK: "Comparing surgeons and finding it opaque?",
@@ -60,7 +60,7 @@ PAGES = {
         "firm": "Marchetti Plastic Surgery", "phone": "(573) 218-6635", "tel": "+15732186635",
         "h1": "Nine hundred cases, photographed at every stage.",
         "copy": {
-            _SUB: "Aesthetic and reconstructive surgery in a private, accredited facility. Nine hundred cases over eighteen years, each photographed before, at six weeks, at six months and at a year — including the ones that took revision.",
+            _SUB: "Aesthetic and reconstructive surgery in a private, accredited facility. Nine hundred cases over eighteen years, each photographed before, at six weeks, at six months and at a year, including the ones that took revision.",
             _ASK: "Want to see a case like yours?",
             _CLOSE: "Private consultations. Tell us what you are considering and we will pull the cases closest to it. All enquiries handled confidentially.",
             _STRIP: "Board certified · 900 cases · 18 years",

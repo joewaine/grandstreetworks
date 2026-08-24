@@ -7,7 +7,7 @@ _SUB = "Full-service small animal care with online booking, Saturday hours and p
 _NEW = "We're accepting new patients and hold same-day slots for sick visits. Book online in about a minute, or call and we'll sort it."
 PAGES = {
     "d1-yes.html": {"firm": "Willowbank Animal Hospital", "phone": "(435) 283-6614", "tel": "+14352836614",
-        "h1": "Yes — we're taking new patients.",
+        "h1": "Yes, we're taking new patients.",
         "copy": {_SUB: "Full-service small animal care with online booking, Saturday hours and refills you can request without phoning. We are open to new patients today, which is not true of most practices near here."}},
     "d2-frontdesk.html": {"firm": "Corner Oak Veterinary", "phone": "(351) 719-2240", "tel": "+13517192240",
         "h1": "Nobody should have to phone to order a refill.",
@@ -18,11 +18,11 @@ PAGES = {
                  _NEW: "We are accepting new patients and we keep same-day sick slots open. Book online in a minute, or ring and we will find you something."}},
     "d4-afterhours.html": {"firm": "Hollis Animal Hospital", "phone": "(534) 850-3327", "tel": "+15348503327",
         "h1": "Where to go at 2am, and when it can wait until morning.",
-        "copy": {_SUB: "Full-service small animal care with online booking and Saturday hours — and a plainly published answer for nights and weekends, including which emergency hospital to drive to and when you genuinely can wait.",
+        "copy": {_SUB: "Full-service small animal care with online booking and Saturday hours, plus a plainly published answer for nights and weekends, including which emergency hospital to drive to and when you genuinely can wait.",
                  _NEW: "Accepting new patients, with same-day sick slots and an after-hours line that tells you where to go rather than leaving a beep."}},
     "d5-samefaces.html": {"firm": "Fernhill Veterinary", "phone": "(765) 375-9948", "tel": "+17653759948",
         "h1": "The same vet and the same nurse, every visit.",
-        "copy": {_SUB: "Full-service small animal care with online booking and Saturday hours. You are booked with your vet by name — anxious animals do considerably better with faces they recognise, and so do their owners."}},
+        "copy": {_SUB: "Full-service small animal care with online booking and Saturday hours. You are booked with your vet by name, because anxious animals do considerably better with faces they recognise, and so do their owners."}},
     "d6-frontdoor.html": {"firm": "Beckett Animal Care", "phone": "(210) 604-1163", "tel": "+12106041163",
         "h1": "Prices for the ordinary things, printed here.",
         "copy": {_SUB: "Full-service small animal care with online booking and Saturday hours. Exams, vaccines, dentals, spays and neuters have their prices printed on this page, because nobody should have to ring to find out what a check-up costs.",

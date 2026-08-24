@@ -3,12 +3,12 @@ SOURCE_FIRM = "Vessel Architecture"
 SOURCE_PHONE = "(555) 183-4410"
 SOURCE_TEL = "+15551834410"
 FORBIDDEN = ["Vessel", "183-4410", "1834410"]
-_SUB = "A twelve-person studio working on houses, small cultural buildings and adaptive reuse. Every project here is shown with the brief, the constraint and what we did about it — not just the finished photograph."
+_SUB = "A twelve-person studio working on houses, small cultural buildings and adaptive reuse. Every project here is shown with the brief, the constraint and what we did about it, not just the finished photograph."
 _FIRST = "A first conversation is free and often clarifies more than people expect. If it isn't a project for us we will say so and suggest who it is for."
 PAGES = {
     "d1-titleblock.html": {"firm": "Ostergaard Architects", "phone": "(520) 236-7714", "tel": "+15202367714",
         "h1": "The drawing is not the work. The thinking is.",
-        "copy": {_SUB: "A twelve-person studio working on houses, small cultural buildings and adaptive reuse. What we publish is the brief, the constraint and the decision — the photograph at the end is the least interesting part of the file."}},
+        "copy": {_SUB: "A twelve-person studio working on houses, small cultural buildings and adaptive reuse. What we publish is the brief, the constraint and the decision. The photograph at the end is the least interesting part of the file."}},
     "d2-index.html": {"firm": "Pell & Marchant", "phone": "(903) 748-2290", "tel": "+19037482290",
         "h1": "Forty-one projects, indexed and open.",
         "copy": {_SUB: "A twelve-person studio working on houses, small cultural buildings and adaptive reuse. Forty-one built projects, indexed by budget, site and constraint, so you can find the one closest to your problem.",

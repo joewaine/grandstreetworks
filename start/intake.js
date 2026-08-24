@@ -671,7 +671,7 @@
         status.hidden = false;
         status.innerHTML = '';
         status.appendChild(document.createTextNode(
-          'That didn\'t go through — our end, not yours. '));
+          'That didn\'t go through. Our end, not yours. '));
         var a = el('a', null, 'Send it as an email instead →');
         a.href = mailtoFallback(verdict);
         a.style.textDecoration = 'underline';

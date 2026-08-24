@@ -197,7 +197,7 @@ def titled(industry):
 def firm_of(page):
     """The business name a build is for, read from its own <title>.
 
-    Every build titles itself "<Firm> — <line>", photographic and CSS-only
+    Every build titles itself "<Firm> · <line>", photographic and CSS-only
     alike, so this picks up distinct names the moment a set gets them. The
     nineteen harness sets still name one firm across all six of their builds.
     """
@@ -207,7 +207,7 @@ def firm_of(page):
         return ""
     if not t:
         return ""
-    return html.unescape(" ".join(t.group(1).split())).split(" — ")[0].strip()
+    return html.unescape(" ".join(t.group(1).split())).split(" · ")[0].strip()
 
 
 def swatch(accent, trade_slug=None, build_slug=None):
@@ -241,7 +241,7 @@ def render(slug, industry, company, sub, disclaimer, directions):
              f'data-website-id="{uid}"></script>') if uid else ""
     # titled() is HTML-escaped; a mailto subject is URL-escaped, not HTML,
     # so unescape first or the recipient reads a literal "&amp;".
-    mail_subject = quote(f"Rebuild our homepage — {html.unescape(titled(industry))}")
+    mail_subject = quote(f"Rebuild our homepage: {html.unescape(titled(industry))}")
 
     blocks = []
     for i, d in enumerate(directions):
@@ -274,7 +274,7 @@ def render(slug, industry, company, sub, disclaimer, directions):
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{titled(industry)} — six builds · Grand Street Works</title>
+<title>{titled(industry)}: six builds · Grand Street Works</title>
 <meta name="description" content="Six reference homepage builds for {industry.lower()}, each for a different business.">
 <link rel="icon" href="{FAVICON}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -487,11 +487,11 @@ def render(slug, industry, company, sub, disclaimer, directions):
 <main>
   <div class="section-header">
     <span class="label">{titled(industry)} Clients</span>
-    <span class="label dim">Scroll — each one in full, desktop or mobile</span>
+    <span class="label dim">Scroll for each one in full, desktop or mobile</span>
   </div>
 
   <noscript>
-    <div class="noscript-note">JavaScript is off, so the width toggles won't switch. Every build below is also a normal link — open them directly.</div>
+    <div class="noscript-note">JavaScript is off, so the width toggles won't switch. Every build below is also a normal link, so you can open them directly.</div>
   </noscript>
 
   <div class="builds">

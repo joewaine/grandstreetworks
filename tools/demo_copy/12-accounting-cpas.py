@@ -6,9 +6,9 @@ SOURCE_TEL = "+15551728845"
 FORBIDDEN = ["Fenwick", "172-8845", "1728845"]
 
 _SUB = "Business accounting, tax and advisory for owner-managed companies. Secure document intake, quarterly conversations rather than one annual scramble, and fixed monthly fees."
-_MAY = "Then this is the right month to talk. Everything worth fixing has to be built between May and August — by January it's too late to change anything."
+_MAY = "Then this is the right month to talk. Everything worth fixing has to be built between May and August. By January it's too late to change anything."
 _SIZE = "We work with owner-managed businesses between roughly $500k and $20M in revenue. Below that we'll point you somewhere better suited."
-_SWITCH = "We request records from your current accountant — you don't have to have that conversation. Usually two to three weeks."
+_SWITCH = "We request records from your current accountant, so you don't have to have that conversation. Usually two to three weeks."
 _PERSONAL = "Included for owners of business clients. Your company and personal position are the same problem and should be looked at together."
 
 PAGES = {
@@ -40,7 +40,7 @@ PAGES = {
         "firm": "Ashby & Kerr CPAs", "phone": "(269) 692-4471", "tel": "+12696924471",
         "h1": "You will always know what we're waiting on.",
         "copy": {
-            _SUB: "Business accounting, tax and advisory for owner-managed companies. A live checklist shows exactly which documents are outstanding and who is holding each one — usually us, and we say so.",
+            _SUB: "Business accounting, tax and advisory for owner-managed companies. A live checklist shows exactly which documents are outstanding and who is holding each one. Usually us, and we say so.",
             _SWITCH: "We request records from your current accountant and the checklist shows you where that request has got to. No chasing on your side.",
         },
     },

@@ -5,18 +5,18 @@ SOURCE_PHONE = "(555) 169-5540"
 SOURCE_TEL = "+15551695540"
 FORBIDDEN = ["Ardsley", "169-5540", "1695540"]
 
-_SUB = "Fee-only fiduciary advice for families and business owners. No commissions, no product sales, no third-party payments — our fee schedule is published on this page."
+_SUB = "Fee-only fiduciary advice for families and business owners. No commissions, no product sales, no third-party payments, and our fee schedule is published on this page."
 _SECOND = "A second opinion costs nothing and takes about an hour. Half the people who come for one go back to their existing adviser reassured, and that is a fine outcome."
 _NEXTGEN = "We meet your adult children at no additional cost. Most families lose their adviser at inheritance; that is a failure of relationship, not returns."
 _PLAIN = "Presented in full, in plain English, including what we think you're doing wrong. You take it away whether or not you engage us."
-_GATHER = "We gather everything and analyse it properly — tax returns, statements, insurance, estate documents. Two to three weeks."
+_GATHER = "We gather everything and analyse it properly: tax returns, statements, insurance, estate documents. Two to three weeks."
 
 PAGES = {
     "d1-statement.html": {
         "firm": "Ferrier Wealth Partners", "phone": "(743) 384-2217", "tel": "+17433842217",
         "h1": "Our fee schedule is on this page. All of it.",
         "copy": {
-            _SUB: "Fee-only fiduciary advice for families and business owners. The entire fee schedule is printed on this page — no commissions, no product sales, no third-party payments, and no number you have to book a meeting to hear.",
+            _SUB: "Fee-only fiduciary advice for families and business owners. The entire fee schedule is printed on this page: no commissions, no product sales, no third-party payments, and no number you have to book a meeting to hear.",
             _PLAIN: "Presented in full and in plain English, including the parts of your current arrangement we think are wrong. Yours to keep whether or not you engage us.",
         },
     },
@@ -57,7 +57,7 @@ PAGES = {
         "h1": "Sixty-one families. Not sixty-two.",
         "copy": {
             _SUB: "Fee-only fiduciary advice for a deliberately small number of families and business owners. Sixty-one households today, and a waiting list rather than a bigger client roster.",
-            _GATHER: "We gather everything and analyse it properly — tax returns, statements, insurance, estate documents — over two to three weeks. That pace is only possible because we take on few families.",
+            _GATHER: "We gather everything and analyse it properly, covering tax returns, statements, insurance and estate documents, over two to three weeks. That pace is only possible because we take on few families.",
         },
     },
 }

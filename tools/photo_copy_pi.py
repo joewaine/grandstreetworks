@@ -24,15 +24,15 @@ PAGES = {
         "initials": "HV",
         "phone": "(231) 204-8810",
         "tel": "+12312048810",
-        "title": "Harlan & Vega — Injury and accident claims, answered day or night",
+        "title": "Harlan & Vega · Injury and accident claims, answered day or night",
         "h1": ["Call at midnight.", "A lawyer picks up."],
         "copy": {
             "Injury and accident claims across the state. No fee unless we recover for you, and you speak to a lawyer in the first 24 hours — not a call centre, not a form.":
-                "Injury and accident claims across the state. No fee unless we recover for you, and the first voice you hear is a lawyer's — not an intake service reading from a script.",
+                "Injury and accident claims across the state. No fee unless we recover for you, and the first voice you hear is a lawyer's, not an intake service reading from a script.",
             "Free consultation": "Free case review",
             "Hablamos español": "Hablamos español",
             "Answering 24/7 · Se habla español": "Answered in person, 24/7 · Se habla español",
-            "Call now — 24/7": "Call now — 24/7",
+            "Call now — 24/7": "Call now, 24/7",
             "Start a free case review": "Start a free case review",
             "Home &amp; hospital visits": "Home &amp; hospital visits",
             "Cases we take": "Cases we take",
@@ -57,19 +57,19 @@ PAGES = {
             "Fee unless we win": "Fee unless we win",
             "\"I called four firms from the hospital. Three gave me voicemail. Vance &amp; Cole picked up at ten at night and had someone at my bedside the next morning.\"":
                 "\"I called four firms from the hospital. Three gave me voicemail. Harlan &amp; Vega picked up at ten at night and had someone at my bedside before breakfast.\"",
-            "— Ray M., Client, truck collision": "— Ray M., truck collision",
+            "— Ray M., Client, truck collision": "Ray M., truck collision",
             "\"Answered on a Sunday. That alone told me everything.\"":
                 "\"Answered on a Sunday. That alone told me everything.\"",
-            "— Teresa L., Rear-end collision": "— Teresa L., rear-end collision",
+            "— Teresa L., Rear-end collision": "Teresa L., rear-end collision",
             "\"They explained the lien situation in plain English. Nobody else had.\"":
                 "\"They explained the lien situation in plain English. Nobody else had bothered.\"",
-            "— Danny O., Workplace injury": "— Danny O., workplace injury",
+            "— Danny O., Workplace injury": "Danny O., workplace injury",
             "\"Todo en español, desde la primera llamada.\"":
                 "\"Todo en español, desde la primera llamada.\"",
-            "— Rosa V., Auto accident": "— Rosa V., auto accident",
+            "— Rosa V., Auto accident": "Rosa V., auto accident",
             "\"Settled for four times the first offer the insurer made me.\"":
                 "\"Settled for four times what the insurer first offered.\"",
-            "— Chris W., Premises liability": "— Chris W., premises liability",
+            "— Chris W., Premises liability": "Chris W., premises liability",
             "What happens after you call": "What happens after you call",
             "Most people have never done this before and are frightened of the process more than the outcome.":
                 "Most people have never done this before, and are more frightened of the process than of the outcome.",
@@ -78,7 +78,7 @@ PAGES = {
                 "Free, no obligation, about fifteen minutes. If we are not the right firm for it, we will tell you who is.",
             "We investigate": "We investigate",
             "Scene evidence, footage, witnesses and medical records — gathered fast, because most of it disappears within weeks.":
-                "Scene evidence, footage, witnesses, medical records — gathered in days, because most of it is gone in weeks.",
+                "Scene evidence, footage, witnesses, medical records, all gathered in days, because most of it is gone in weeks.",
             "We demand": "We demand",
             "A documented demand to the insurer. This is where most cases resolve, and where preparation shows up as money.":
                 "A documented demand to the insurer. Most cases end here, and this is where preparation turns into money.",
@@ -103,7 +103,7 @@ PAGES.update({
         "initials": "OTL",
         "phone": "(743) 316-4020",
         "tel": "+17433164020",
-        "title": "Okonkwo Trial Law — Injury cases tried, not just settled",
+        "title": "Okonkwo Trial Law · Injury cases tried, not just settled",
         "h1": ["Most firms settle.", "We try cases."],
         "copy": {
             "Injury and accident claims across the state. No fee unless we recover for you, and you speak to a lawyer in the first 24 hours — not a call centre, not a form.":
@@ -140,22 +140,22 @@ PAGES.update({
             "Fee unless we win": "Fee unless we win",
             "\"I called four firms from the hospital. Three gave me voicemail. Vance &amp; Cole picked up at ten at night and had someone at my bedside the next morning.\"":
                 "\"The insurer offered forty thousand and told me that was the ceiling. Okonkwo filed. Eleven months later a jury came back with just under two million.\"",
-            "— Ray M., Client, truck collision": "— Ray M., commercial truck collision",
+            "— Ray M., Client, truck collision": "Ray M., commercial truck collision",
             "\"Answered on a Sunday. That alone told me everything.\"":
                 "\"They showed me the verdict sheet from a case like mine on the first call.\"",
-            "— Teresa L., Rear-end collision": "— Teresa L., rear-end collision",
+            "— Teresa L., Rear-end collision": "Teresa L., rear-end collision",
             "\"They explained the lien situation in plain English. Nobody else had.\"":
                 "\"Two other firms wanted to settle it in a fortnight. This one asked what happened.\"",
-            "— Danny O., Workplace injury": "— Danny O., scaffold fall",
+            "— Danny O., Workplace injury": "Danny O., scaffold fall",
             "\"Todo en español, desde la primera llamada.\"":
                 "\"Explicaron el juicio paso a paso, en español, sin prisa.\"",
-            "— Rosa V., Auto accident": "— Rosa V., auto accident",
+            "— Rosa V., Auto accident": "Rosa V., auto accident",
             "\"Settled for four times the first offer the insurer made me.\"":
                 "\"They picked the jury on a Monday. The offer tripled on the Tuesday.\"",
-            "— Chris W., Premises liability": "— Chris W., premises liability",
+            "— Chris W., Premises liability": "Chris W., premises liability",
             "What happens after you call": "How a case gets tried",
             "Most people have never done this before and are frightened of the process more than the outcome.":
-                "Almost everyone who calls us is frightened of a courtroom. Most never see one — but the preparation for it is what pays.",
+                "Almost everyone who calls us is frightened of a courtroom. Most never see one, but the preparation for it is what pays.",
             "You call, we listen": "The case review",
             "Free, no obligation, and it takes about fifteen minutes. If we're not the right firm we'll tell you who is.":
                 "Free, unhurried, and honest about what your case is worth. If it belongs with a different firm we will say so on that call.",
@@ -164,7 +164,7 @@ PAGES.update({
                 "Depositions, maintenance records, black-box data, internal email. This is the stage that separates a nuisance offer from a real one.",
             "We demand": "The demand",
             "A documented demand to the insurer. This is where most cases resolve, and where preparation shows up as money.":
-                "Everything discovery produced, put in front of the carrier with a number attached. Most cases end here — at a price set by what we found.",
+                "Everything discovery produced, put in front of the carrier with a number attached. Most cases end here, at a price set by what we found.",
             "We file if we must": "Trial",
             "If the offer is not serious, we file. We try cases, and insurers price that in.":
                 "If the number is not serious, we pick a jury. Thirty-one times so far, which is precisely why the numbers usually are serious.",
@@ -183,7 +183,7 @@ PAGES.update({
         "initials": "BIL",
         "phone": "(564) 447-1180",
         "tel": "+15644471180",
-        "title": "Brightmoor Injury Law — The evidence is gone in a week. Call today.",
+        "title": "Brightmoor Injury Law · The evidence is gone in a week. Call today.",
         "h1": ["The evidence is gone", "in a week."],
         "copy": {
             "Injury and accident claims across the state. No fee unless we recover for you, and you speak to a lawyer in the first 24 hours — not a call centre, not a form.":
@@ -192,7 +192,7 @@ PAGES.update({
             "No fee unless we win": "No fee unless we win",
             "Hablamos español": "Hablamos español",
             "Answering 24/7 · Se habla español": "Investigators out today · Se habla español",
-            "Call now — 24/7": "Call now — we start today",
+            "Call now — 24/7": "Call now, we start today",
             "Start a free case review": "Send us the details",
             "Free case review": "Free case review",
             "Home &amp; hospital visits": "Home &amp; hospital visits",
@@ -218,34 +218,34 @@ PAGES.update({
             "Fee unless we win": "Fee unless we win",
             "\"I called four firms from the hospital. Three gave me voicemail. Vance &amp; Cole picked up at ten at night and had someone at my bedside the next morning.\"":
                 "\"I called on the Thursday. Someone was at the junction photographing the lights on the Friday morning. The store's camera had already wiped it by Monday.\"",
-            "— Ray M., Client, truck collision": "— Ray M., truck collision",
+            "— Ray M., Client, truck collision": "Ray M., truck collision",
             "\"Answered on a Sunday. That alone told me everything.\"":
                 "\"They had the footage before the shop's system deleted it. That was the case.\"",
-            "— Teresa L., Rear-end collision": "— Teresa L., rear-end collision",
+            "— Teresa L., Rear-end collision": "Teresa L., rear-end collision",
             "\"They explained the lien situation in plain English. Nobody else had.\"":
                 "\"Told me exactly what to photograph while I was still in A&amp;E.\"",
-            "— Danny O., Workplace injury": "— Danny O., workplace injury",
+            "— Danny O., Workplace injury": "Danny O., workplace injury",
             "\"Todo en español, desde la primera llamada.\"":
                 "\"Vinieron el mismo día. En español, sin intérprete.\"",
-            "— Rosa V., Auto accident": "— Rosa V., auto accident",
+            "— Rosa V., Auto accident": "Rosa V., auto accident",
             "\"Settled for four times the first offer the insurer made me.\"":
                 "\"Four times the first offer, because they had the maintenance log and the insurer didn't know it.\"",
-            "— Chris W., Premises liability": "— Chris W., premises liability",
+            "— Chris W., Premises liability": "Chris W., premises liability",
             "What happens after you call": "The first seventy-two hours",
             "Most people have never done this before and are frightened of the process more than the outcome.":
                 "Nearly everything that decides a case is decided in the first three days, usually before anyone has spoken to a lawyer.",
-            "You call, we listen": "Hour one — you call",
+            "You call, we listen": "Hour one: you call",
             "Free, no obligation, and it takes about fifteen minutes. If we're not the right firm we'll tell you who is.":
                 "Fifteen minutes, free, and we will tell you on that call what to photograph and what not to sign.",
-            "We investigate": "Day one — we preserve",
+            "We investigate": "Day one: we preserve",
             "Scene evidence, footage, witnesses and medical records — gathered fast, because most of it disappears within weeks.":
                 "Letters out to everyone holding footage, logs or records, putting them on notice that destroying it now has consequences.",
-            "We demand": "Week one — we gather",
+            "We demand": "Week one: we gather",
             "A documented demand to the insurer. This is where most cases resolve, and where preparation shows up as money.":
                 "Scene photographs, witnesses while they still remember, medical records, and the vehicle before it goes to the yard.",
             "We file if we must": "Then we demand",
             "If the offer is not serious, we file. We try cases, and insurers price that in.":
-                "A documented demand built from what we preserved. If the answer is not serious, we file — and we have the file to do it.",
+                "A documented demand built from what we preserved. If the answer is not serious, we file, and we have the file to do it.",
             "Injured in the last few days?": "Did it happen this week?",
             "Evidence disappears fast and insurers move first. One call, free, and you'll know within fifteen minutes whether you have a case. No fee unless we recover for you. Free consultations, home and hospital visits available.":
                 "Then call today rather than tomorrow. Footage is the first thing to go and it goes on a timer. One free call, fifteen minutes, and you will know whether there is a case worth preserving. No fee unless we recover for you.",
@@ -265,24 +265,24 @@ EXTRA = {
     },
     "35011531-d2": {
         "If your situation isn't listed, ring anyway. We'll tell you honestly whether you have a case — and if you don't, we'll say so.":
-            "If your situation isn't listed, ring anyway. We will tell you what it is worth and whether it needs a courtroom — including when the answer is no.",
+            "If your situation isn't listed, ring anyway. We will tell you what it is worth and whether it needs a courtroom, including when the answer is no.",
         "Evidence disappears fast and insurers move first. One call, free, and you'll know within fifteen minutes whether you have a case.":
             "Get a second read before you sign anything. Free, no obligation, and we will tell you honestly if the offer in front of you is already fair.",
         "No fee unless we recover for you. Free consultations, home and hospital visits available.":
             "No fee unless we recover for you. Consultations at our office, your home, or the hospital.",
         "\"Somebody is always up here.\"": "\"The lights stay on the week before a trial.\"",
-        "Fig. 1 — 02:14, from our floor": "Fig. 1 — 02:14, the week before trial",
+        "Fig. 1 — 02:14, from our floor": "Fig. 1: 02:14, the week before trial",
         "V&amp;C / 24H": "OTL / TRIAL",
     },
     "3cf68118-d2": {
         "If your situation isn't listed, ring anyway. We'll tell you honestly whether you have a case — and if you don't, we'll say so.":
-            "If your situation isn't listed, ring anyway — today rather than next week. We will tell you honestly whether there is anything left to preserve.",
+            "If your situation isn't listed, ring anyway, today rather than next week. We will tell you honestly whether there is anything left to preserve.",
         "Evidence disappears fast and insurers move first. One call, free, and you'll know within fifteen minutes whether you have a case.":
             "Footage goes on a timer and the carrier's investigator is already working. One free call, fifteen minutes, and you will know what is worth preserving.",
         "No fee unless we recover for you. Free consultations, home and hospital visits available.":
             "No fee unless we recover for you. We come to the hospital, the house or the site.",
         "Clients on the record": "Clients on the record",
-        "Desk 01 —": "Desk 01 —",
+        "Desk 01 —": "Desk 01",
         "22:47": "22:47",
     },
 }
@@ -300,7 +300,7 @@ PAGES.update({
         "initials": "SR",
         "phone": "(715) 962-3315",
         "tel": "+17159623315",
-        "title": "Salcedo & Roth — Workplace injury. Hay un segundo reclamo.",
+        "title": "Salcedo & Roth · Workplace injury. Hay un segundo reclamo.",
         "h1": ["Hurt at work?", "There is usually", "a second claim."],
         "copy": {
             "Injury and accident claims across the state. No fee unless we recover for you, and you speak to a lawyer in the first 24 hours — not a call centre, not a form.":
@@ -309,14 +309,14 @@ PAGES.update({
             "No fee unless we win": "No fee unless we win",
             "Hablamos español": "Hablamos español",
             "Answering 24/7 · Se habla español": "Se habla español · Atendemos 24/7",
-            "Call now — 24/7": "Llámenos — 24/7",
+            "Call now — 24/7": "Llámenos, 24/7",
             "Start a free case review": "Start a free case review",
             "Free case review": "Free case review",
             "Se habla español": "Se habla español",
             "Home &amp; hospital visits": "Home &amp; hospital visits",
             "Cases we take": "Where the second claim hides",
             "If your situation isn't listed, ring anyway. We'll tell you honestly whether you have a case — and if you don't, we'll say so.":
-                "Not sure whether yours is one of these? Ring anyway. Si prefiere, llame y hablamos en español — le decimos con franqueza si hay caso.",
+                "Not sure whether yours is one of these? Ring anyway. Si prefiere, llame y hablamos en español, y le decimos con franqueza si hay caso.",
             "Car &amp; truck accidents": "Injured driving for work",
             "From rear-endings to commercial truck collisions. We handle the insurer, the medical liens and the property damage so you handle recovery.":
                 "If you were in a vehicle on the clock, there is a comp claim and there is a claim against the other driver. They are separate files and only one of them is capped.",
@@ -338,19 +338,19 @@ PAGES.update({
             "Fee unless we win": "Fee unless we win",
             "\"I called four firms from the hospital. Three gave me voicemail. Vance &amp; Cole picked up at ten at night and had someone at my bedside the next morning.\"":
                 "\"Comp gave me sixty per cent of my wages and said that was it. Salcedo &amp; Roth went after the scaffold company. That claim was eleven times the comp file.\"",
-            "— Ray M., Client, truck collision": "— Ray M., scaffold collapse",
+            "— Ray M., Client, truck collision": "Ray M., scaffold collapse",
             "\"Answered on a Sunday. That alone told me everything.\"":
                 "\"Nobody had told me I could claim against anyone other than my boss.\"",
-            "— Teresa L., Rear-end collision": "— Teresa L., delivery driver",
+            "— Teresa L., Rear-end collision": "Teresa L., delivery driver",
             "\"They explained the lien situation in plain English. Nobody else had.\"":
                 "\"They appealed the denial. It was overturned in nine weeks.\"",
-            "— Danny O., Workplace injury": "— Danny O., denied comp claim",
+            "— Danny O., Workplace injury": "Danny O., denied comp claim",
             "\"Todo en español, desde la primera llamada.\"":
                 "\"Todo en español, desde la primera llamada hasta el cheque.\"",
-            "— Rosa V., Auto accident": "— Rosa V., accidente de trabajo",
+            "— Rosa V., Auto accident": "Rosa V., accidente de trabajo",
             "\"Settled for four times the first offer the insurer made me.\"":
                 "\"I thought comp was all there was. It was about a fifth of it.\"",
-            "— Chris W., Premises liability": "— Chris W., machinery injury",
+            "— Chris W., Premises liability": "Chris W., machinery injury",
             "What happens after you call": "What happens after you call",
             "Most people have never done this before and are frightened of the process more than the outcome.":
                 "Most people who call us are worried about their job, their status, or both. Neither is a reason a claim gets refused, and neither comes up in a call with us.",
@@ -383,13 +383,13 @@ PAGES.update({
         "initials": "MIG",
         "phone": "(316) 636-7744",
         "tel": "+13166367744",
-        "title": "Merrow Injury Group — The fee agreement, in plain words, before you sign",
+        "title": "Merrow Injury Group · The fee agreement, in plain words, before you sign",
         "h1": ["No fee unless we win.", "In writing, before", "you sign anything."],
         "copy": {
             "Injury and accident claims across the state. No fee unless we recover for you, and you speak to a lawyer in the first 24 hours — not a call centre, not a form.":
                 "Injury and accident claims across the state. One third if we settle it, forty per cent if we have to file, nothing at all if we recover nothing. Costs come out of the recovery, not out of your pocket, and it is all on one page.",
             "Free consultation": "Free consultation",
-            "No fee unless we win": "One third — nothing if we lose",
+            "No fee unless we win": "One third, nothing if we lose",
             "Hablamos español": "Hablamos español",
             "Answering 24/7 · Se habla español": "Plain-English agreement · Se habla español",
             "Call now — 24/7": "Ask us what it costs",
@@ -420,19 +420,19 @@ PAGES.update({
             "Fee unless we win": "Fee if we recover nothing",
             "\"I called four firms from the hospital. Three gave me voicemail. Vance &amp; Cole picked up at ten at night and had someone at my bedside the next morning.\"":
                 "\"Every firm said no fee unless we win. Merrow was the only one that showed me what came out of the settlement before the cheque, on the first call, on one page.\"",
-            "— Ray M., Client, truck collision": "— Ray M., truck collision",
+            "— Ray M., Client, truck collision": "Ray M., truck collision",
             "\"Answered on a Sunday. That alone told me everything.\"":
                 "\"I knew what the fee was before I signed. That was new.\"",
-            "— Teresa L., Rear-end collision": "— Teresa L., rear-end collision",
+            "— Teresa L., Rear-end collision": "Teresa L., rear-end collision",
             "\"They explained the lien situation in plain English. Nobody else had.\"":
                 "\"They explained the lien situation in plain English. Nobody else had.\"",
-            "— Danny O., Workplace injury": "— Danny O., workplace injury",
+            "— Danny O., Workplace injury": "Danny O., workplace injury",
             "\"Todo en español, desde la primera llamada.\"":
                 "\"Me explicaron los honorarios en español, por escrito.\"",
-            "— Rosa V., Auto accident": "— Rosa V., auto accident",
+            "— Rosa V., Auto accident": "Rosa V., auto accident",
             "\"Settled for four times the first offer the insurer made me.\"":
                 "\"An update every two weeks, even the weeks nothing happened.\"",
-            "— Chris W., Premises liability": "— Chris W., premises liability",
+            "— Chris W., Premises liability": "Chris W., premises liability",
             "What happens after you call": "What it costs, and when",
             "Most people have never done this before and are frightened of the process more than the outcome.":
                 "The fee is the part people are most afraid to ask about, so we put it first instead of on page nine.",
@@ -447,7 +447,7 @@ PAGES.update({
                 "Filing means depositions, experts and months of work, so the fee rises to forty per cent. We tell you before we file, not after.",
             "We file if we must": "Nothing if we recover nothing",
             "If the offer is not serious, we file. We try cases, and insurers price that in.":
-                "If we recover nothing you owe us nothing — not the fee, and not the costs we advanced along the way.",
+                "If we recover nothing you owe us nothing: not the fee, and not the costs we advanced along the way.",
             "Injured in the last few days?": "Want to see the agreement first?",
             "Evidence disappears fast and insurers move first. One call, free, and you'll know within fifteen minutes whether you have a case.":
                 "Ask and we will send it before you commit to anything. One page, plain English, no obligation to sign it.",
@@ -465,7 +465,7 @@ PAGES.update({
         "initials": "P&A",
         "phone": "(458) 573-6690",
         "tel": "+14585736690",
-        "title": "Prentice & Aldana — The first offer is never the last offer",
+        "title": "Prentice & Aldana · The first offer is never the last offer",
         "h1": ["The first offer", "is never", "the last offer."],
         "copy": {
             "Injury and accident claims across the state. No fee unless we recover for you, and you speak to a lawyer in the first 24 hours — not a call centre, not a form.":
@@ -502,19 +502,19 @@ PAGES.update({
             "Fee unless we win": "Fee unless we win",
             "\"I called four firms from the hospital. Three gave me voicemail. Vance &amp; Cole picked up at ten at night and had someone at my bedside the next morning.\"":
                 "\"The insurer's cheque was for nine thousand and the adjuster was very nice about it. Prentice &amp; Aldana closed it at eighty-two. I had a pen in my hand for the nine.\"",
-            "— Ray M., Client, truck collision": "— Ray M., truck collision",
+            "— Ray M., Client, truck collision": "Ray M., truck collision",
             "\"Answered on a Sunday. That alone told me everything.\"":
                 "\"They told me the first offer was actually decent. Then they got me more anyway.\"",
-            "— Teresa L., Rear-end collision": "— Teresa L., rear-end collision",
+            "— Teresa L., Rear-end collision": "Teresa L., rear-end collision",
             "\"They explained the lien situation in plain English. Nobody else had.\"":
                 "\"Nobody had counted the physio I would still be paying for next year.\"",
-            "— Danny O., Workplace injury": "— Danny O., workplace injury",
+            "— Danny O., Workplace injury": "Danny O., workplace injury",
             "\"Todo en español, desde la primera llamada.\"":
                 "\"Revisaron la oferta en español antes de que yo firmara nada.\"",
-            "— Rosa V., Auto accident": "— Rosa V., auto accident",
+            "— Rosa V., Auto accident": "Rosa V., auto accident",
             "\"Settled for four times the first offer the insurer made me.\"":
                 "\"Settled for four times the first offer the insurer made me.\"",
-            "— Chris W., Premises liability": "— Chris W., premises liability",
+            "— Chris W., Premises liability": "Chris W., premises liability",
             "What happens after you call": "How the number moves",
             "Most people have never done this before and are frightened of the process more than the outcome.":
                 "An opening offer is a negotiating position dressed up as a valuation. Here is what actually moves it.",

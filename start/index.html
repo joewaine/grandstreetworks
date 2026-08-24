@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Start here — Grand Street Works</title>
-<meta name="description" content="Six questions about how your business actually runs. You get a straight read on what would move the needle — including when the answer is nothing.">
+<title>Start here · Grand Street Works</title>
+<meta name="description" content="Six questions about how your business actually runs. You get a straight read on what would move the needle, including when the answer is nothing.">
 <meta name="robots" content="noindex">
 <link rel="canonical" href="https://grandstreetworks.com/start/">
-<meta property="og:title" content="Start here — Grand Street Works">
+<meta property="og:title" content="Start here · Grand Street Works">
 <meta property="og:description" content="Six questions. A straight read on what would actually move the needle, including when the answer is nothing.">
 <meta property="og:url" content="https://grandstreetworks.com/start/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23050505'/%3E%3Ccircle cx='14' cy='14' r='5' fill='%23C2D57D'/%3E%3Ctext x='32' y='50' font-family='Menlo,Consolas,monospace' font-size='26' font-weight='bold' fill='%23E5E5E6' text-anchor='middle'%3EGW%3C/text%3E%3C/svg%3E">
@@ -146,7 +146,7 @@ window.INTAKE_CONFIG = (function () {
         type: 'choice',
         eyebrow: 'Q_03 // Its age',
         title: 'When was that site last properly rebuilt?',
-        help: 'Not "when did someone last change the phone number" — when was it last built from scratch by somebody.',
+        help: 'Not "when did someone last change the phone number". When was it last built from scratch by somebody.',
         summaryLabel: 'Site age',
         requiredMessage: 'A rough guess is fine.',
         options: [
@@ -171,11 +171,11 @@ window.INTAKE_CONFIG = (function () {
         columns: 2,
         eyebrow: 'Q_04 // The leak',
         title: 'What\'s actually costing you money right now?',
-        help: 'Pick up to two. Pick the biggest one first — the order counts for more than you\'d think.',
+        help: 'Pick up to two. Pick the biggest one first. The order counts for more than you\'d think.',
         summaryLabel: 'Biggest problems',
         requiredMessage: 'Pick at least one, even if none of them is exactly it.',
         options: [
-          { value: 'invisible', label: 'People don\'t find us — or they find us and don\'t call',
+          { value: 'invisible', label: 'People don\'t find us, or they find us and don\'t call',
             note: 'The phone rings less than the quality of the work says it should.',
             scores: { website: 3 } },
           { value: 'outdated', label: 'The site looks nothing like the business we\'ve become',
@@ -239,7 +239,7 @@ window.INTAKE_CONFIG = (function () {
         headline: 'Nothing here is worth spending money on yet.',
         body: function () {
           return [
-            'Nothing you told us describes a problem worth a project. A site that works and a week that isn\'t drowning is the outcome most of our clients are paying to reach — you\'re already there.',
+            'Nothing you told us describes a problem worth a project. A site that works and a week that isn\'t drowning is the outcome most of our clients are paying to reach, and you\'re already there.',
             'The honest advice is to leave it alone until something specific starts hurting: enquiries you can\'t account for, a week where the admin beats the actual work, or a competitor whose site plainly outclasses yours in front of a client. Any of those is worth an email. None of them is worth a retainer today.',
             'Keep the address. We\'ll still answer.'
           ];
@@ -251,15 +251,15 @@ window.INTAKE_CONFIG = (function () {
         body: function (a) {
           var trade = tradeLabel(a.trade);
           var out = [
-            'What you described is a structure problem, not a taste problem. Before anything gets designed we pull the best and worst performing ' + trade + ' sites in your metro and read them the way a customer does — what every winner has on the page, and what none of the losers do. That read becomes the page.',
-            'Because your first answer gave us a URL, this starts as the free rebuild: a complete homepage for your actual business — your services, your locations, your words — plus the written read that produced it, so your own developer could act on it without us. No call required, and nothing to cancel.'
+            'What you described is a structure problem, not a taste problem. Before anything gets designed we pull the best and worst performing ' + trade + ' sites in your metro and read them the way a customer does: what every winner has on the page, and what none of the losers do. That read becomes the page.',
+            'Because your first answer gave us a URL, this starts as the free rebuild: a complete homepage for your actual business, with your services, your locations and your words, plus the written read that produced it, so your own developer could act on it without us. No call required, and nothing to cancel.'
           ];
           if (a.size === 'solo') {
             out.push('At your size that is very likely the whole job. A one or two person firm rarely needs the systems behind the site, and we\'d rather say so now than sell you one later.');
           }
           return out;
         },
-        secondaryLine: 'Once the site is sending you more than you can track by hand, the back-office system behind it is the next rung — not before.',
+        secondaryLine: 'Once the site is sending you more than you can track by hand, the back-office system behind it is the next rung, not before.',
         links: function (a) {
           if (!a.trade || a.trade === 'other') {
             return [{ label: 'See the reference builds →', href: '../#work' }];
@@ -276,7 +276,7 @@ window.INTAKE_CONFIG = (function () {
             'What fixes it is the layer behind the site: every enquiry logged, counted and attributed so you know what the site is actually worth; stale ones chased automatically with the follow-up drafted for your approval; and one page showing where the pipeline, the schedule and the money stand. Running inside a week, on your accounts, with nothing given write access until you\'ve watched it work on drafts first.'
           ];
           if (a.age === 'old' || a.age === 'none') {
-            out.push('Your site is old enough that it is also costing you, and we would still rebuild it free — but on your answers it is the second problem, not the first.');
+            out.push('Your site is old enough that it is also costing you, and we would still rebuild it free, but on your answers it is the second problem, not the first.');
           }
           return out;
         },
@@ -290,11 +290,11 @@ window.INTAKE_CONFIG = (function () {
         headline: 'The work leaves the building, so the software has to as well.',
         body: function () {
           return [
-            'Paper, photos and a group chat is a system — a bad one, and the reason job information arrives late and half-legible. When the job happens on a roof, in a unit or at two in the morning, that is the narrow case where a native app genuinely earns its cost: photos, notes and signatures captured with no signal, synced when the truck has bars again, published under your own developer account.',
-            'The honest caveat: most businesses that ask us for an app do not need one, and for them it is a more expensive way to have a website. We will tell you on the first call which one you are, before there is a deposit involved — that conversation is free and it is genuinely the shortest route to not wasting your money.'
+            'Paper, photos and a group chat is a system, just a bad one, and the reason job information arrives late and half-legible. When the job happens on a roof, in a unit or at two in the morning, that is the narrow case where a native app genuinely earns its cost: photos, notes and signatures captured with no signal, synced when the truck has bars again, published under your own developer account.',
+            'The honest caveat: most businesses that ask us for an app do not need one, and for them it is a more expensive way to have a website. We will tell you on the first call which one you are, before there is a deposit involved. That conversation is free and it is genuinely the shortest route to not wasting your money.'
           ];
         },
-        secondaryLine: 'The back-office layer usually has to exist first — the app is the window onto it, not a replacement for it.',
+        secondaryLine: 'The back-office layer usually has to exist first. The app is the window onto it, not a replacement for it.',
         links: function () {
           return [{ label: 'What we won\'t build →', href: '../what-we-build/#services' }];
         }
@@ -327,9 +327,9 @@ window.INTAKE_CONFIG = (function () {
 
     contact: {
       title: 'Want us to actually do it?',
-      help: 'The read above is yours either way — nothing was gated and nothing gets sent unless you press the button. If you want it acted on, this is everything we need.',
+      help: 'The read above is yours either way. Nothing was gated, and nothing gets sent unless you press the button. If you want it acted on, this is everything we need.',
       submitLabel: 'Send this to Joe →',
-      mailSubject: 'Intake — Grand Street Works',
+      mailSubject: 'Grand Street Works intake',
       fields: [
         { name: 'name',     label: 'Your name',        required: true,  autocomplete: 'name',         placeholder: 'Jane Halloran' },
         { name: 'business', label: 'Business name',    required: true,  autocomplete: 'organization', placeholder: 'Halloran Roofing' },
@@ -339,7 +339,7 @@ window.INTAKE_CONFIG = (function () {
         { name: 'notes',    label: 'Anything the five questions missed', required: false, multiline: true, placeholder: 'Optional. The thing you\'d say out loud that didn\'t fit a checkbox.' }
       ],
       doneTitle: 'That\'s in. You\'ll hear back within a business day.',
-      doneBody: 'A real reply from Joe, not an autoresponder sequence — including if the answer is that we don\'t think we\'re what you need. If you asked for the free rebuild, the link usually follows within the week.',
+      doneBody: 'A real reply from Joe, not an autoresponder sequence, including if the answer is that we don\'t think we\'re what you need. If you asked for the free rebuild, the link usually follows within the week.',
       doneLinks: [
         { label: 'See the reference builds →', href: '../#work' },
         { label: 'Back to the site →', href: '../' }

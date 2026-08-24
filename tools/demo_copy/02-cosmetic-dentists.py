@@ -41,7 +41,7 @@ PAGES = {
         "h1": "No packages. No pressure. One plan.",
         "copy": {
             "Digital preview at your first consult, so you know exactly what you're paying for. Veneers, implants and full-mouth restoration — with financing worked out before treatment begins.":
-                "One dentist, one plan, and a number that does not move. Veneers, implants and full-mouth restoration — and an honest answer when whitening would have done instead.",
+                "One dentist, one plan, and a number that does not move. Veneers, implants and full-mouth restoration, and an honest answer when whitening would have done instead.",
             "Been thinking about it for years?": "Been sold something you didn't need before?",
             "Free consultations. Financing from 0% APR. Evening and Saturday appointments available.":
                 "Free consultations with no treatment coordinator in the room. Financing from 0% APR, and we will tell you when the answer is to do nothing.",
@@ -88,7 +88,7 @@ PAGES = {
         "h1": "One free hour, and you'll know the number.",
         "copy": {
             "Digital preview at your first consult, so you know exactly what you're paying for. Veneers, implants and full-mouth restoration — with financing worked out before treatment begins.":
-                "An hour, free, and you walk out with a written plan and a figure. Veneers, implants and full-mouth restoration — and no obligation to book anything on the day.",
+                "An hour, free, and you walk out with a written plan and a figure. Veneers, implants and full-mouth restoration, with no obligation to book anything on the day.",
             "Been thinking about it for years?": "Just want to know what it would cost?",
             "Free consultations. Financing from 0% APR. Evening and Saturday appointments available.":
                 "The consultation is free and it is genuinely an hour, not a sales appointment in a nice chair. Financing from 0% APR if you decide to go ahead.",

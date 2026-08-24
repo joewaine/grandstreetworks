@@ -161,7 +161,7 @@ def patch(page: Path, spec: dict, trade: dict, slug: str, trade_slug: str) -> st
         f'<meta name="theme-color" content="{spec["card_bg"]}">\n'
         f'<meta property="og:type" content="website">\n'
         f'<meta property="og:site_name" content="{name_esc}">\n'
-        f'<meta property="og:title" content="{name_esc} — {html.escape(spec["tagline"])}">\n'
+        f'<meta property="og:title" content="{name_esc} · {html.escape(spec["tagline"])}">\n'
         f'<meta property="og:description" content="{html.escape(spec["headline"])}">\n'
         f'<meta property="og:image" content="{SITE}/work/_assets/identity/{trade_slug}/{slug}-og.png">\n'
         f'<meta property="og:image:width" content="1200">\n'

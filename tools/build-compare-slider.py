@@ -49,14 +49,14 @@ SETS = {
             "pair": "b", "label": "The preview",
             "heading": "See it before it is irreversible.",
             "note": "The same patient, photographed under the same light before and after. "
-                    "Drag the handle — the preview is the point, and this is the only "
+                    "Drag the handle. The preview is the point, and this is the only "
                     "honest way to show one.",
             "caption": "Staining and tartar removed, gap closed, teeth whitened"},
         "belmont-smile-design": {
             "pair": "c", "label": "Before we start",
             "heading": "The preview is the product.",
             "note": "You approve the result on screen before a single tooth is prepared. "
-                    "Drag to compare — nothing here is a stock photograph of somebody "
+                    "Drag to compare. Nothing here is a stock photograph of somebody "
                     "else's work.",
             "caption": "Deep staining lifted, chipped incisor restored"},
         "verano-cosmetic-dentistry": {
@@ -74,7 +74,7 @@ SETS = {
         "havenwood-dental": {
             "pair": "e", "label": "One of ours",
             "heading": "Nothing here is beyond fixing.",
-            "note": "Old repairs darken and staining builds up — both are routine to put "
+            "note": "Old repairs darken and staining builds up, and both are routine to put "
                     "right. Drag the handle to see the same mouth after treatment.",
             "caption": "Failed old bonding replaced, full clean and whitening"},
         "callaway-dental-arts": {

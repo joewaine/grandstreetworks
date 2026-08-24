@@ -64,7 +64,7 @@ SETS = {
         "fair-oaks-roofing": {
             "label": "On your street", "heading": "Four houses, same postcode.",
             "note": "Every one of these is a house someone can drive past. Ask them what "
-                    "the week was like — that is the only reference that counts.",
+                    "the week was like. That is the only reference that counts.",
             "tiles": ["finished-home", "drip-edge", "courses"]},
         "meridian-roof-co": {
             "label": "Recent work", "heading": "What 2,400 roofs looks like up close.",
@@ -78,7 +78,7 @@ SETS = {
             "tiles": ["tear-off", "underlayment", "flashing"]},
         "sentry-roofing-and-restoration": {
             "label": "Documented", "heading": "Photographed for the adjuster.",
-            "note": "Every job is documented the way a claim needs it — before, during "
+            "note": "Every job is documented the way a claim needs it: before, during "
                     "and after, with the detail shots the adjuster will ask for.",
             "tiles": ["flashing", "drip-edge", "ridge-vent"]},
         "northgate-roofing": {

@@ -62,7 +62,7 @@ PAGES = {
             "The part most roofers don't explain, which is the part homeowners are actually anxious about.":
                 "The part most roofers gloss over, which is exactly what your neighbours will ask you about afterwards.",
             "We walk it with you, register your warranty, and you have a direct number if anything ever comes up.":
-                "We walk it with you, register the warranty, and leave you the mobile number of the person who ran your job — not an office line.",
+                "We walk it with you, register the warranty, and leave you the mobile number of the person who ran your job, not an office line.",
         },
     },
     "d3-numbers.html": {
@@ -102,7 +102,7 @@ PAGES = {
             "Got water coming in right now?":
                 "Worried about how you'd pay for it?",
             "Free inspections. No obligation. We'll tell you if you don't need a roof.":
-                "Free inspection and a straight answer on both routes — what the claim would likely cover, and what the monthly would be if it doesn't.",
+                "Free inspection and a straight answer on both routes: what the claim would likely cover, and what the monthly would be if it doesn't.",
             "Licensed &amp; insured · Serving the metro area since 2004":
                 "Licensed &amp; insured · Financing approved in minutes",
             "· Licensed, bonded and insured · Serving the metro area since 2004":
@@ -127,7 +127,7 @@ PAGES = {
             "A roof over your head by the end of the week.":
                 "We meet your adjuster on the roof.",
             "Storm damage, full replacements and repairs across the metro. We meet your adjuster, handle the claim paperwork, and you get one number to call.":
-                "Storm and hail claims across the metro. We photograph the damage before the adjuster arrives, stand on the roof with them, and put the supplement in writing when they miss something — which they usually do.",
+                "Storm and hail claims across the metro. We photograph the damage before the adjuster arrives, stand on the roof with them, and put the supplement in writing when they miss something, which they usually do.",
             "Got water coming in right now?":
                 "Claim denied or underpaid?",
             "Free inspections. No obligation. We'll tell you if you don't need a roof.":
