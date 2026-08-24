@@ -165,6 +165,42 @@ Deliberately no border on the plate. These designs each own a different rule
 weight and ink colour, and a borrowed hairline reads as a mistake in about half
 of them.
 
+### The finish pass (roofing so far)
+
+The first photography pass shipped one 1600px JPEG per build. Full-bleed, that
+is about 0.55x density on a retina desktop — soft before anyone judges the
+composition — and one photograph is a placeholder pattern rather than a
+finished site. `06-roofing` is the pilot for the pass that fixes both:
+
+    python3 tools/build-responsive-images.py roofing            # AVIF/JPEG ladder
+    python3 tools/wire-responsive-images.py  roofing            # <picture> in the builds
+    python3 tools/gen-trade-library.py       roofing            # ten shared trade photographs
+    python3 tools/build-responsive-images.py roofing --kind library
+    python3 tools/build-gallery.py           roofing            # the recent-work band
+    python3 tools/build-identity-kits.py     roofing            # marks, favicons, cards, JSON-LD
+    python3 tools/build-work-index.py --only roofing            # marks in the index bar
+
+**Resolution.** Plates re-encode from the 2752px originals into AVIF at 1280 and
+2560 with a 1280px JPEG fallback. AVIF q50 was picked by inspecting shingle
+granule texture, the hardest content in the library for a lossy codec. The
+2560px AVIF is *lighter* than the 1600px JPEG it replaced.
+
+**What is shared and what is not.** Trade-generic photography — process, detail,
+job site, before/after — is shared by all six builds in a trade, because a
+private library per build would put the repo past 100MB and a trade index
+already loads six builds at once. What is unique per build is the identity: a
+mark drawn from the device that build's own stylesheet header names, a favicon,
+a social card and a hero plate. Sharing the generic half is invisible; the
+identity half is what makes six builds read as six businesses, and it costs
+about 45KB each.
+
+**The gallery band** sits above each build's closing CTA and borrows rather than
+declares — colour from the custom properties every build already defines, type
+from using a real `<h2>`, so the dark build gets a dark band with no special
+case. Each build shows a different three tiles.
+
+Roofing costs 4.5MB on disk all in, which is about 88MB across twenty trades.
+
 It parses the direction names, the FIX each one answers, the axis picks and the
 accent swatch out of the demo harness's own index pages in
 `~/fractal/cash_rich/demos` and rewrites ours from a template. It always reads

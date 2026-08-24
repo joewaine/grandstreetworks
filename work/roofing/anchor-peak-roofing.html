@@ -123,6 +123,8 @@ letter-spacing:.07em;text-transform:uppercase;max-width:124px}
      and the first content section, with no border of its own: every one of
      these designs owns a different rule weight and ink colour, and a borrowed
      hairline reads as a mistake in about half of them. */
+  .gsw-plate picture { display: block; width: 100%; }
+  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
   .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
   .gsw-plate img {
     display: block;
@@ -133,12 +135,72 @@ letter-spacing:.07em;text-transform:uppercase;max-width:124px}
   }
   @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
 </style>
+<!-- gsw:identity -->
+<link rel="icon" href="../_assets/identity/roofing/anchor-peak-roofing-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../_assets/identity/roofing/anchor-peak-roofing-icon-180.png">
+<meta name="theme-color" content="#17181A">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Anchor Peak Roofing">
+<meta property="og:title" content="Anchor Peak Roofing — Emergency response 24/7, same-day tarping">
+<meta property="og:description" content="Emergency response 24/7. Same-day tarping.">
+<meta property="og:image" content="https://grandstreetworks.com/work/_assets/identity/roofing/anchor-peak-roofing-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"RoofingContractor","name":"Anchor Peak Roofing","description":"Emergency response 24/7, same-day tarping","telephone":"(555) 872-6604","areaServed":"Metro area","image":"https://grandstreetworks.com/work/_assets/identity/roofing/anchor-peak-roofing-og.png","logo":"https://grandstreetworks.com/work/_assets/identity/roofing/anchor-peak-roofing-mark.svg"}</script>
+
+<style>
+  /* Identity pass. The lockup is the mark plus the wordmark the build already
+     had; the mark is sized in em so it tracks whatever display face this build
+     sets its brand in. */
+  .gsw-lockup { display: inline-flex; align-items: center; gap: .46em; }
+  .gsw-lockup svg { height: 1.16em; width: auto; flex: none; display: block; }
+</style>
+
+
+
+<style>
+  /* Recent-work gallery. Everything here is drawn from the properties the build
+     already declares, so the band inherits each design's palette and heading
+     face rather than importing a seventh look. */
+  .gsw-gal { background: var(--surface); color: var(--ink);
+             padding: clamp(38px, 6vw, 74px) 0; }
+  .gsw-gal-in { max-width: var(--wrap, 1140px); margin: 0 auto; padding: 0 20px; }
+  .gsw-gal-lab { font-size: 13px; letter-spacing: .18em; text-transform: uppercase;
+                 font-weight: 600; color: var(--accent); margin: 0 0 14px; }
+  .gsw-gal h2 { margin: 0; }
+  .gsw-gal-note { color: var(--muted); margin: 14px 0 30px; max-width: 58ch; }
+  .gsw-ba { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px; }
+  .gsw-gal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .gsw-gal figure { margin: 0; position: relative; overflow: hidden;
+                    background: var(--rule, rgba(0,0,0,.1)); }
+  .gsw-gal picture { display: block; }
+  /* height:auto matters — the width/height attributes are a presentational
+     hint, and without this the 1200px hint beats aspect-ratio. */
+  .gsw-gal img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3;
+                 object-fit: cover; transition: transform .5s ease; }
+  .gsw-gal figure:hover img { transform: scale(1.035); }
+  .gsw-gal figcaption { position: absolute; left: 0; bottom: 0;
+                        background: var(--ink); color: var(--surface);
+                        font-size: 12px; font-weight: 600; letter-spacing: .14em;
+                        text-transform: uppercase; padding: 7px 12px; }
+  @media (max-width: 720px) {
+    .gsw-ba, .gsw-gal-grid { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .gsw-gal img { transition: none; }
+    .gsw-gal figure:hover img { transform: none; }
+  }
+</style>
 </head>
 <body>
 <div class="hazard" aria-hidden="true"></div>
 <div class="topbar"><div class="wrap">Licensed &amp; insured · Financing approved in minutes</div></div>
 <header class="nav"><div class="wrap">
-  <a class="brand" href="#">Anchor Peak Roofing</a>
+  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="4" y="4" width="56" height="56" rx="2" fill="#17181A"/>
+<g fill="none" stroke="#F5B301" stroke-width="9" stroke-linecap="square" stroke-linejoin="miter">
+<path d="M13 33 L32 16 L51 33"/><path d="M13 50 L32 33 L51 50"/>
+</g></svg><span>Anchor Peak Roofing</span></span></a>
   <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
   <a class="navact" href="tel:+15558726604">Call now · (555) 872-6604</a>
 </div></header>
@@ -153,7 +215,7 @@ letter-spacing:.07em;text-transform:uppercase;max-width:124px}
     <li>25-year workmanship warranty</li><li>Same-day emergency tarping</li>
   </ul>
 </div></section>
-<figure class="gsw-plate"><img src="../_assets/hero/roofing/d-shingle-courses.jpg" alt="Shingle courses — roofing" loading="lazy"></figure>
+<figure class="gsw-plate"><picture><source type="image/avif" srcset="../_assets/hero/roofing/d-shingle-courses-1280.avif 1280w, ../_assets/hero/roofing/d-shingle-courses-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/roofing/d-shingle-courses-1280.jpg" width="2560" height="1429" alt="Shingle courses — roofing" loading="lazy" decoding="async"></picture></figure>
 
 <div class="hazard" aria-hidden="true"></div>
 <section class="fin"><div class="wrap">
@@ -198,6 +260,9 @@ letter-spacing:.07em;text-transform:uppercase;max-width:124px}
     <li><div><h3>Final walkthrough</h3><p>We walk it with you, register your warranty, and you have a direct number if anything ever comes up.</p></div></li>
   </ol>
 </div></section>
+<!-- gsw:gallery -->
+<section class="gsw-gal"><div class="gsw-gal-in"><p class="gsw-gal-lab">On the job</p><h2>Tarped, stripped, replaced.</h2><p class="gsw-gal-note">Emergency work does not mean rough work. The same details get done at two in the morning as at two in the afternoon.</p><div class="gsw-ba"><figure><picture><source type="image/avif" srcset="../_assets/library/roofing/damage-before-640.avif 640w, ../_assets/library/roofing/damage-before-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 50vw"><img src="../_assets/library/roofing/damage-before-720.jpg" width="1600" height="1200" alt="Before" loading="lazy" decoding="async"></picture><figcaption>Before</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/roofing/damage-after-640.avif 640w, ../_assets/library/roofing/damage-after-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 50vw"><img src="../_assets/library/roofing/damage-after-720.jpg" width="1600" height="1200" alt="After" loading="lazy" decoding="async"></picture><figcaption>After</figcaption></figure></div><div class="gsw-gal-grid"><figure><picture><source type="image/avif" srcset="../_assets/library/roofing/tear-off-640.avif 640w, ../_assets/library/roofing/tear-off-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/roofing/tear-off-720.jpg" width="1600" height="1200" alt="Tear-off, down to the deck" loading="lazy" decoding="async"></picture><figcaption>Tear-off, down to the deck</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/roofing/underlayment-640.avif 640w, ../_assets/library/roofing/underlayment-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/roofing/underlayment-720.jpg" width="1600" height="1200" alt="Synthetic underlayment" loading="lazy" decoding="async"></picture><figcaption>Synthetic underlayment</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/roofing/flashing-640.avif 640w, ../_assets/library/roofing/flashing-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/roofing/flashing-720.jpg" width="1600" height="1200" alt="Step flashing at the chimney" loading="lazy" decoding="async"></picture><figcaption>Step flashing at the chimney</figcaption></figure></div></div></section>
+<!-- /gsw:gallery -->
 <section class="close" id="contact"><div class="wrap">
   <h2>Worried about how you'd pay for it?</h2>
   <p>Call and a human answers — day, night, weekend, during the storm. Emergency tarping usually the same day.</p>
@@ -206,7 +271,10 @@ letter-spacing:.07em;text-transform:uppercase;max-width:124px}
   <p class="note"><a href="#contact">Get a free inspection</a></p>
 </div></section>
 <footer class="foot"><div class="wrap">
-  <a class="brand" href="#">Anchor Peak Roofing</a>
+  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="4" y="4" width="56" height="56" rx="2" fill="#17181A"/>
+<g fill="none" stroke="#F5B301" stroke-width="9" stroke-linecap="square" stroke-linejoin="miter">
+<path d="M13 33 L32 16 L51 33"/><path d="M13 50 L32 33 L51 50"/>
+</g></svg><span>Anchor Peak Roofing</span></span></a>
   <p><a href="tel:+15558726604">(555) 872-6604</a> · Licensed, bonded and insured · Financing approved in minutes</p>
   <p>6170 Sandover Road Unit 12, Cedar Reach, NY 11273</p>
 </div></footer>

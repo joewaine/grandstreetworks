@@ -25,6 +25,9 @@ import sys
 from pathlib import Path
 from urllib.parse import quote
 
+# Run as a script, so tools/ is sys.path[0] and this resolves.
+import identity_specs
+
 DEFAULT_SOURCE = Path.home() / "fractal" / "cash_rich" / "demos"
 REPO = Path(__file__).resolve().parent.parent
 WORK = REPO / "work"
@@ -203,8 +206,19 @@ def firm_of(page):
     return html.unescape(" ".join(t.group(1).split())).split(" — ")[0].strip()
 
 
-def swatch(accent):
-    """Accent swatch, when the harness recorded one for that direction."""
+def swatch(accent, trade_slug=None, build_slug=None):
+    """The build's own mark where the identity pass has given it one.
+
+    A row of six colour chips says the six builds differ; a row of six marks
+    shows it, on the page a prospect actually lands on. Falls back to the
+    harness accent chip for trades the identity pass has not reached yet.
+    """
+    spec = (identity_specs.BUILDS.get(trade_slug, {})
+            .get("builds", {}).get(build_slug)) if trade_slug else None
+    if spec:
+        mark = identity_specs.mark_svg(spec).replace(
+            "<svg ", '<svg class="sw sw-mark" aria-hidden="true" ', 1)
+        return re.sub(r' role="img" aria-label="[^"]*"', "", mark)
     if not accent:
         return '<span class="sw sw-none" aria-hidden="true"></span>'
     return f'<span class="sw" style="background:{html.escape(accent)}" aria-hidden="true"></span>'
@@ -229,7 +243,7 @@ def render(slug, industry, company, sub, disclaimer, directions):
         blocks.append(f'''      <section class="build">
         <div class="bar">
           <span class="bar-head">
-            {swatch(d['accent'])}
+            {swatch(d['accent'], trade_slug, Path(d['href']).stem)}
             <span class="label">C{i + 1}</span>
             <span class="bar-name">{esc(firm_of(WORK / trade_dir(slug) / d['href']) or d['label'])}</span>
           </span>
@@ -359,6 +373,8 @@ def render(slug, industry, company, sub, disclaimer, directions):
     white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }}
   .sw {{ width: 12px; height: 12px; flex: none; border: 1px solid rgba(0, 0, 0, 0.25); }}
+  /* The mark carries its own ground, so it takes no chip border. */
+  .sw-mark {{ width: 17px; height: 17px; border: 0; display: block; }}
   /* one trade's harness never recorded accents — drop the slot rather than
      showing six empty boxes */
   .sw-none {{ display: none; }}
@@ -525,11 +541,15 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--source", type=Path, default=DEFAULT_SOURCE,
                     help="demos directory holding the harness index.html files")
+    ap.add_argument("--only", nargs="*", metavar="TRADE",
+                    help="regenerate just these published trade directories")
     args = ap.parse_args()
 
     written = 0
     sys.path.insert(0, str(Path(__file__).resolve().parent))
     for slug, industry in INDUSTRIES.items():
+        if args.only and trade_dir(slug) not in args.only:
+            continue
         src = args.source / slug / "index.html"
         dest = WORK / trade_dir(slug) / "index.html"
         if not src.exists() and slug not in PHOTO_SETS:
@@ -561,7 +581,8 @@ def main():
         print(f"{slug}: {company} — {len(directions)} directions")
 
     print(f"\nwrote {written} index pages")
-    if written != len(INDUSTRIES):
+    expected = len(args.only) if args.only else len(INDUSTRIES)
+    if written != expected:
         sys.exit(1)
 
 

@@ -12,7 +12,7 @@
 <!-- Umami, same site ID as the rest of grandstreetworks.com. These pages are
      noindex, but which trades get browsed is the cheapest read we have on
      which verticals to point advertising at. -->
-<script defer src="https://cloud.umami.is/script.js" data-website-id="3107a636-a6b0-416f-bd27-8aaa29c8abc6"></script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="UMAMI_ID_GRANDSTREETWORKS"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -109,6 +109,8 @@
     white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }
   .sw { width: 12px; height: 12px; flex: none; border: 1px solid rgba(0, 0, 0, 0.25); }
+  /* The mark carries its own ground, so it takes no chip border. */
+  .sw-mark { width: 17px; height: 17px; border: 0; display: block; }
   /* one trade's harness never recorded accents — drop the slot rather than
      showing six empty boxes */
   .sw-none { display: none; }
@@ -226,7 +228,18 @@
       <section class="build">
         <div class="bar">
           <span class="bar-head">
-            <span class="sw" style="background:#C2410C" aria-hidden="true"></span>
+            <svg class="sw sw-mark" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><clipPath id="c"><path d="M6 55 L19 11 L45 11 L58 55 Z"/></clipPath></defs>
+<g clip-path="url(#c)" fill="#A8380A">
+<rect x="-10" y="11" width="12.5" height="13"/><rect x="5" y="11" width="12.5" height="13"/>
+<rect x="20" y="11" width="12.5" height="13"/><rect x="35" y="11" width="12.5" height="13"/>
+<rect x="50" y="11" width="12.5" height="13"/>
+<rect x="-2.5" y="26.5" width="12.5" height="13" opacity=".86"/><rect x="12.5" y="26.5" width="12.5" height="13" opacity=".86"/>
+<rect x="27.5" y="26.5" width="12.5" height="13" opacity=".86"/><rect x="42.5" y="26.5" width="12.5" height="13" opacity=".86"/>
+<rect x="57.5" y="26.5" width="12.5" height="13" opacity=".86"/>
+<rect x="-10" y="42" width="12.5" height="14" opacity=".72"/><rect x="5" y="42" width="12.5" height="14" opacity=".72"/>
+<rect x="20" y="42" width="12.5" height="14" opacity=".72"/><rect x="35" y="42" width="12.5" height="14" opacity=".72"/>
+<rect x="50" y="42" width="12.5" height="14" opacity=".72"/>
+</g></svg>
             <span class="label">C1</span>
             <span class="bar-name">Halloran Roofing</span>
           </span>
@@ -246,7 +259,9 @@
       <section class="build">
         <div class="bar">
           <span class="bar-head">
-            <span class="sw" style="background:#2F4858" aria-hidden="true"></span>
+            <svg class="sw sw-mark" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><g fill="none" stroke="#2F4858" stroke-width="9" stroke-linecap="butt" stroke-linejoin="miter">
+<path d="M2 44 L18 20 L34 44 L50 20 L62 38"/>
+</g></svg>
             <span class="label">C2</span>
             <span class="bar-name">Fair Oaks Roofing</span>
           </span>
@@ -266,7 +281,8 @@
       <section class="build">
         <div class="bar">
           <span class="bar-head">
-            <span class="sw" style="background:#9A3412" aria-hidden="true"></span>
+            <svg class="sw sw-mark" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="6" y="26" width="52" height="32" fill="#2B3238"/>
+<path d="M6 26 L19 8 L32 26 L45 8 L58 26 Z" fill="#9A3412"/></svg>
             <span class="label">C3</span>
             <span class="bar-name">Meridian Roof Co.</span>
           </span>
@@ -286,7 +302,10 @@
       <section class="build">
         <div class="bar">
           <span class="bar-head">
-            <span class="sw" style="background:#F5B301" aria-hidden="true"></span>
+            <svg class="sw sw-mark" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="4" y="4" width="56" height="56" rx="2" fill="#17181A"/>
+<g fill="none" stroke="#F5B301" stroke-width="9" stroke-linecap="square" stroke-linejoin="miter">
+<path d="M13 33 L32 16 L51 33"/><path d="M13 50 L32 33 L51 50"/>
+</g></svg>
             <span class="label">C4</span>
             <span class="bar-name">Anchor Peak Roofing</span>
           </span>
@@ -306,7 +325,11 @@
       <section class="build">
         <div class="bar">
           <span class="bar-head">
-            <span class="sw" style="background:#4C5A63" aria-hidden="true"></span>
+            <svg class="sw sw-mark" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M32 5 L57 14 V33 C57 46 46 55 32 59 C18 55 7 46 7 33 V14 Z" fill="#4C5A63"/>
+<g fill="#E9EBEC">
+<rect x="14" y="28" width="11" height="10"/><rect x="26.5" y="28" width="11" height="10"/>
+<rect x="39" y="28" width="11" height="10"/>
+</g></svg>
             <span class="label">C5</span>
             <span class="bar-name">Sentry Roofing &amp; Restoration</span>
           </span>
@@ -326,7 +349,10 @@
       <section class="build">
         <div class="bar">
           <span class="bar-head">
-            <span class="sw" style="background:#FFC53D" aria-hidden="true"></span>
+            <svg class="sw sw-mark" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="4" y="4" width="56" height="56" fill="#0F1113"/>
+<rect x="11" y="15" width="30" height="6" fill="#FFC53D" opacity=".55"/>
+<rect x="11" y="26" width="42" height="14" fill="#FFC53D"/>
+<rect x="11" y="45" width="36" height="6" fill="#FFC53D" opacity=".55"/></svg>
             <span class="label">C6</span>
             <span class="bar-name">Northgate Roofing</span>
           </span>
