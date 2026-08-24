@@ -188,6 +188,29 @@ header {
 .hero-content a,
 .hero-content .hero-capture { pointer-events: auto; }
 
+/* Principal portrait. The source is 400px square, so it is never asked to
+   render wider than half that: anything larger and the softness shows. */
+.principal {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  margin-bottom: 3rem;
+}
+
+.principal-photo {
+  flex: none;
+  width: 200px;
+  margin: 0;
+  border: 1px solid var(--border-color);
+}
+
+.principal-photo img { display: block; width: 100%; height: auto; }
+
+@media (max-width: 700px) {
+  .principal { flex-direction: column; gap: 1.5rem; }
+  .principal-photo { width: 160px; }
+}
+
 .hero-main {
   padding: 4rem 2rem;
   flex: 1;
