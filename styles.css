@@ -188,19 +188,6 @@ header {
 .hero-content a,
 .hero-content .hero-capture { pointer-events: auto; }
 
-.hero-top-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.hero-top-grid > div {
-  padding: 1.5rem 2rem;
-  background: rgba(229, 229, 230, 0.85);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-
 .hero-main {
   padding: 4rem 2rem;
   flex: 1;
@@ -458,13 +445,6 @@ footer {
     border-right: none;
     border-bottom: 1px solid var(--border-color);
   }
-  .hero-top-grid {
-    grid-template-columns: 1fr;
-  }
-  .hero-top-grid > div:first-child {
-    border-bottom: 1px solid var(--border-color);
-    border-right: none;
-  }
   .process-step {
     grid-template-columns: 1fr;
     gap: 1rem;
@@ -476,7 +456,7 @@ footer {
   .site-nav { gap: 1rem; }
   .logo-mark .label { font-size: 0.6875rem; }
   .hero-main, .pad-box-large { padding-left: 1.25rem; padding-right: 1.25rem; }
-  .hero-top-grid > div, .stat-item, .section-header,
+  .stat-item, .section-header,
   .service-header, .service-body, .process-step { padding-left: 1.25rem; padding-right: 1.25rem; }
   summary { padding: 1.5rem 1.25rem; }
   .faq-content { padding: 0 1.25rem 1.5rem; }
@@ -991,7 +971,6 @@ footer {
 @media (max-height: 900px) and (min-width: 900px) {
   .hero h1 { font-size: clamp(2.2rem, 4vw, 3.6rem); margin-bottom: 1.5rem; }
   .hero-main { padding-top: 2.5rem; padding-bottom: 2.5rem; }
-  .hero-top-grid > div { padding-top: 1rem; padding-bottom: 1rem; }
   .hero-capture { margin-top: 1.75rem; }
   .stat-item { padding-top: 1.125rem; padding-bottom: 1.125rem; }
 }
