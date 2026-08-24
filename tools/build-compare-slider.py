@@ -43,41 +43,41 @@ SETS = {
         "fairmont-dental-studio": {
             "pair": "b", "label": "The preview",
             "heading": "See it before it is irreversible.",
-            "note": "This is the same patient, photographed under the same light before "
-                    "and after. Drag the handle — the preview is the point, and it is the "
-                    "only honest way to show one.",
-            "caption": "Midline gap closed · two visits"},
+            "note": "The same patient, photographed under the same light before and after. "
+                    "Drag the handle — the preview is the point, and this is the only "
+                    "honest way to show one.",
+            "caption": "Staining and tartar removed, gap closed, teeth whitened"},
         "belmont-smile-design": {
             "pair": "c", "label": "Before we start",
             "heading": "The preview is the product.",
             "note": "You approve the result on screen before a single tooth is prepared. "
                     "Drag to compare — nothing here is a stock photograph of somebody "
                     "else's work.",
-            "caption": "Chipped central restored · one visit"},
+            "caption": "Deep staining lifted, chipped incisor restored"},
         "verano-cosmetic-dentistry": {
             "pair": "a", "label": "Case 041",
             "heading": "Forty of these, not four.",
             "note": "Every case in the gallery is shot the same way, on the same "
                     "background, under the same light. Drag the handle.",
-            "caption": "Conservative veneers · upper six"},
+            "caption": "Years of coffee and tea staining, cleaned and whitened"},
         "aldridge-dental": {
             "pair": "d", "label": "A case",
-            "heading": "Length restored, nothing overdone.",
-            "note": "Years of grinding had taken the edges flat. Drag to compare — the "
-                    "aim was the smile line back, not a different set of teeth.",
-            "caption": "Worn edges rebuilt · no whitening"},
+            "heading": "Worn, stained, and put right.",
+            "note": "Years of grinding had flattened the edges and the staining had "
+                    "settled into them. Drag to compare the same mouth before and after.",
+            "caption": "Worn edges rebuilt, staining removed, shade lifted"},
         "havenwood-dental": {
             "pair": "e", "label": "One of ours",
-            "heading": "Old repairs, quietly replaced.",
-            "note": "Bonding discolours; it is meant to be renewed. Drag the handle to "
-                    "see what changed, and what deliberately did not.",
-            "caption": "Ageing bonding replaced · one appointment"},
+            "heading": "Nothing here is beyond fixing.",
+            "note": "Old repairs darken and staining builds up — both are routine to put "
+                    "right. Drag the handle to see the same mouth after treatment.",
+            "caption": "Failed old bonding replaced, full clean and whitening"},
         "callaway-dental-arts": {
             "pair": "f", "label": "At the consult",
             "heading": "What we would actually change.",
             "note": "The consult ends with this, on screen, for your own teeth. Drag to "
-                    "compare a case we treated conservatively.",
-            "caption": "Enamel banding masked · shade lifted one step"},
+                    "compare a case we treated end to end.",
+            "caption": "Grey banding and deposit cleared, teeth whitened"},
     },
 }
 
