@@ -126,6 +126,8 @@ text-decoration:none;font-weight:600;font-size:18px}
 
 
 
+
+
 <style>
   /* Before/after comparison. The control is a real range input, laid over the
      frame at full size and made invisible: it brings keyboard operation, touch
@@ -174,6 +176,14 @@ text-decoration:none;font-weight:600;font-size:18px}
   .gsw-cmp-frame:has(.gsw-cmp-range:focus-visible) { outline: 3px solid var(--accent);
                                                      outline-offset: 3px; }
   .gsw-cmp-cap { margin: 12px 0 0; font-size: 14px; color: var(--muted); }
+  /* Hero placement: the build's own .preview card keeps its radius, border and
+     shadow, and the comparison fills it. Its 16:7 crop is deliberate — it holds
+     the smile and drops the chin. */
+  .gsw-cmp-inset { max-width: none; height: 100%; }
+  .gsw-cmp-inset .gsw-cmp-frame { height: 100%; }
+  .gsw-cmp-inset img { height: 100%; aspect-ratio: auto; object-fit: cover; }
+  .gsw-cmp-herocap { margin: 12px auto 0; max-width: 620px; text-align: center;
+                     font-size: 13px; color: var(--muted); }
   /* Without JavaScript the handle cannot move, so it is not offered: the frame
      falls back to a static half-and-half with both labels still readable. */
   .gsw-cmp:not([data-live]) .gsw-cmp-range,
@@ -250,6 +260,8 @@ text-decoration:none;font-weight:600;font-size:18px}
   <p>4885 Marigold Street Suite 4B, Stonebridge, MA 15755</p>
 </div></footer>
 <div class="callbar"><a class="book" href="#contact">Book a consult</a><a class="tel">(564) 592-1148</a></div>
+
+
 
 
 

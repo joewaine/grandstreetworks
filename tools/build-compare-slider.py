@@ -41,6 +41,11 @@ JPEG_WIDTH = 720
 SETS = {
     "cosmetic-dentists": {
         "fairmont-dental-studio": {
+            # D1 draws a mock slider in its hero: .preview i is a divider rule and
+            # .teeth s:nth-child(n+5) flips the tooth colour from beige to white.
+            # The build was asking for this component; it goes in the hero, in
+            # place of the stand-in, rather than in a band further down.
+            "placement": "hero",
             "pair": "b", "label": "The preview",
             "heading": "See it before it is irreversible.",
             "note": "The same patient, photographed under the same light before and after. "
@@ -130,6 +135,14 @@ CSS = """
   .gsw-cmp-frame:has(.gsw-cmp-range:focus-visible) { outline: 3px solid var(--accent);
                                                      outline-offset: 3px; }
   .gsw-cmp-cap { margin: 12px 0 0; font-size: 14px; color: var(--muted); }
+  /* Hero placement: the build's own .preview card keeps its radius, border and
+     shadow, and the comparison fills it. Its 16:7 crop is deliberate — it holds
+     the smile and drops the chin. */
+  .gsw-cmp-inset { max-width: none; height: 100%; }
+  .gsw-cmp-inset .gsw-cmp-frame { height: 100%; }
+  .gsw-cmp-inset img { height: 100%; aspect-ratio: auto; object-fit: cover; }
+  .gsw-cmp-herocap { margin: 12px auto 0; max-width: 620px; text-align: center;
+                     font-size: 13px; color: var(--muted); }
   /* Without JavaScript the handle cannot move, so it is not offered: the frame
      falls back to a static half-and-half with both labels still readable. */
   .gsw-cmp:not([data-live]) .gsw-cmp-range,
@@ -153,28 +166,33 @@ SCRIPT = """
 </script>"""
 
 
-def frame(trade: str, spec: dict) -> str:
+def frame(trade: str, spec: dict, inset: bool = False) -> str:
     pair = spec["pair"]
-    def pic(side: str, eager: bool) -> str:
+    def pic(side: str) -> str:
         base = f"../_assets/library/{trade}/smile-{pair}-{side}"
         srcset = ", ".join(f"{base}-{w}.avif {w}w" for w in AVIF_WIDTHS)
         alt = ("Before treatment" if side == "before" else "After treatment")
+        # In the hero the comparison is the LCP element, so it is not lazy.
+        load = ('loading="eager" fetchpriority="high"' if inset
+                else 'loading="lazy"')
         return (f'<picture><source type="image/avif" srcset="{srcset}" '
                 f'sizes="(max-width: 800px) 100vw, 760px">'
                 f'<img src="{base}-{JPEG_WIDTH}.jpg" width="1600" height="1200" '
-                f'alt="{alt}" loading="lazy" decoding="async"></picture>')
+                f'alt="{alt}" {load} decoding="async"></picture>')
+    cls = "gsw-cmp gsw-cmp-inset" if inset else "gsw-cmp"
     return (
-        '<figure class="gsw-cmp"><div class="gsw-cmp-frame">'
-        + pic("after", False)
-        + f'<div class="gsw-cmp-before">{pic("before", False)}</div>'
+        f'<figure class="{cls}"><div class="gsw-cmp-frame">'
+        + pic("after")
+        + f'<div class="gsw-cmp-before">{pic("before")}</div>'
         '<span class="gsw-cmp-line" aria-hidden="true"><span class="gsw-cmp-grip"></span></span>'
         '<span class="gsw-cmp-tag gsw-cmp-tag-b">Before</span>'
         '<span class="gsw-cmp-tag gsw-cmp-tag-a">After</span>'
         '<input class="gsw-cmp-range" type="range" min="0" max="100" value="50" step="0.5" '
         'aria-label="Drag to compare the before and after photographs">'
         '</div>'
-        f'<figcaption class="gsw-cmp-cap">{html.escape(spec["caption"])}</figcaption>'
-        '</figure>')
+        + ('' if inset else
+           f'<figcaption class="gsw-cmp-cap">{html.escape(spec["caption"])}</figcaption>')
+        + '</figure>')
 
 
 def section(trade: str, spec: dict) -> str:
@@ -194,14 +212,34 @@ def patch(page: Path, trade: str, spec: dict, replace: bool) -> str:
             return "already has a comparison slider"
         src = re.sub(re.escape(MARKER) + r".*?" + re.escape(END_MARKER) + r"\n?",
                      "", src, flags=re.S)
+        # A hero placement consumed the stand-in; put a bare card back so the
+        # replacement below has something to match.
+        if spec.get("placement") == "hero" and '<div class="preview"' not in src:
+            src = src.replace("</div></section>",
+                              '<div class="preview" aria-hidden="true"></div>\n</div></section>', 1)
         src = re.sub(r"\n<style>\n  /\* Before/after comparison\..*?</style>", "",
                      src, flags=re.S)
         src = re.sub(r"\n<script>\n/\* One listener per frame\..*?</script>", "",
                      src, flags=re.S)
 
+    src = src.replace("</head>", CSS + "\n</head>", 1)
+
+    if spec.get("placement") == "hero":
+        stand_in = re.search(r'<div class="preview"[^>]*>.*?</div>\s*</div>', src, re.S)
+        if not stand_in:
+            return "no .preview stand-in found"
+        # Keep the card (radius, border, shadow) and fill it with the real thing.
+        # The match ends on the stand-in's own closing tag, so nothing is re-added.
+        replacement = (f'{MARKER}<div class="preview">{frame(trade, spec, inset=True)}</div>'
+                       f'<p class="gsw-cmp-herocap">{html.escape(spec["caption"])}</p>'
+                       f'{END_MARKER}')
+        src = src[:stand_in.start()] + replacement + src[stand_in.end():]
+        src = src.replace("</body>", SCRIPT + "\n</body>", 1)
+        page.write_text(src)
+        return "slider replaced the hero stand-in"
+
     if '<section class="close"' not in src:
         return "no closing section to sit above"
-    src = src.replace("</head>", CSS + "\n</head>", 1)
     src = src.replace('<section class="close"',
                       section(trade, spec) + '<section class="close"', 1)
     src = src.replace("</body>", SCRIPT + "\n</body>", 1)
