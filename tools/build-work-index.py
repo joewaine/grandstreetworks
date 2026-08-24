@@ -32,6 +32,23 @@ DEFAULT_SOURCE = Path.home() / "fractal" / "cash_rich" / "demos"
 REPO = Path(__file__).resolve().parent.parent
 WORK = REPO / "work"
 
+
+def umami_id() -> str:
+    """The analytics id, read from the home page so there is one source of truth.
+
+    This template used to carry a literal UMAMI_ID_GRANDSTREETWORKS placeholder
+    and the real id was substituted into the twenty pages by hand afterwards, so
+    every regeneration silently switched analytics off on the highest-intent
+    pages on the site. Reading it here means that cannot happen again.
+    """
+    m = re.search(r'cloud\.umami\.is/script\.js" data-website-id="([^"]+)"',
+                  (REPO / "index.html").read_text())
+    if not m or m.group(1).startswith("UMAMI_ID"):
+        print("warning: no analytics id on the home page; pages will ship without one",
+              file=sys.stderr)
+        return ""
+    return m.group(1)
+
 # Labels must match the SEC_04 work grid on the home page.
 INDUSTRIES = {
     "01-personal-injury": "Personal injury",
@@ -159,19 +176,6 @@ HEADER_LABELS = {
     "Accounting &amp; CPAs": "Accounting &amp; CPA",
 }
 
-# How a trade reads mid-sentence in the closing CTA ("the best and worst
-# performing ___ sites in your metro"). Most trades are fine lowercased
-# straight from titled(); these few are not. Values are already HTML-safe,
-# same contract as HEADER_LABELS.
-CTA_PHRASES = {
-    "accounting-cpas": "accounting and CPA",
-    "hvac": "heating and cooling",
-    "med-spas": "med spa",
-    "luxury-real-estate": "luxury real estate",
-}
-
-
-
 def slugify(name):
     """A business name as a URL segment: 'Fair Oaks Roofing' -> fair-oaks-roofing."""
     s = name.lower().replace("&", "and")
@@ -232,7 +236,9 @@ def render(slug, industry, company, sub, disclaimer, directions):
     # directory name, which is also the value /start/ expects for its trade
     # question — so arriving from a gallery skips that question entirely.
     trade_slug = trade_dir(slug)
-    lower_industry = CTA_PHRASES.get(trade_slug, titled(industry).lower())
+    uid = umami_id()
+    umami = (f'<script defer src="https://cloud.umami.is/script.js" '
+             f'data-website-id="{uid}"></script>') if uid else ""
     # titled() is HTML-escaped; a mailto subject is URL-escaped, not HTML,
     # so unescape first or the recipient reads a literal "&amp;".
     mail_subject = quote(f"Rebuild our homepage — {html.unescape(titled(industry))}")
@@ -276,7 +282,7 @@ def render(slug, industry, company, sub, disclaimer, directions):
 <!-- Umami, same site ID as the rest of grandstreetworks.com. These pages are
      noindex, but which trades get browsed is the cheapest read we have on
      which verticals to point advertising at. -->
-<script defer src="https://cloud.umami.is/script.js" data-website-id="UMAMI_ID_GRANDSTREETWORKS"></script>
+{umami}
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {{
@@ -494,8 +500,8 @@ def render(slug, industry, company, sub, disclaimer, directions):
 
   <section class="work-cta">
     <span class="label">Next // Your turn</span>
-    <h2>Those six are invented. Yours wouldn't be.</h2>
-    <p>Same method, your business: we pull the best and worst performing {lower_industry} sites in your metro, read what every winner has and no loser does, and build your homepage on that. The first one is free — no call, no obligation, nothing to cancel.</p>
+    <h2>Want one of these for yours?</h2>
+    <p>Send your website address and we'll build you a new homepage, free. No call, no obligation, nothing to cancel.</p>
     <form action="../../start/" method="get">
       <input type="hidden" name="trade" value="{trade_slug}">
       <div class="row">
@@ -504,7 +510,7 @@ def render(slug, industry, company, sub, disclaimer, directions):
                autocomplete="url" inputmode="url" spellcheck="false" required>
         <button type="submit" data-umami-event="start" data-umami-event-place="work-{trade_slug}">Rebuild it free →</button>
       </div>
-      <p class="alt">Or <a data-umami-event="mailto" data-umami-event-place="work-{trade_slug}" href="mailto:joe@grandstreetworks.com?subject={mail_subject}">email Joe directly</a> — same answer, one fewer step.</p>
+      <p class="alt">Or <a data-umami-event="mailto" data-umami-event-place="work-{trade_slug}" href="mailto:joe@grandstreetworks.com?subject={mail_subject}">email Joe directly</a>.</p>
     </form>
   </section>
 </main>
