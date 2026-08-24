@@ -123,20 +123,24 @@ font-family:"Nunito",system-ui,sans-serif}
 @media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
 </style>
 
+
 <style>
-  /* Hero plate, added with the photography pass. Full-bleed between the hero
-     and the first content section, with no border of its own: every one of
-     these designs owns a different rule weight and ink colour, and a borrowed
-     hairline reads as a mistake in about half of them. */
-  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
-  .gsw-plate img {
-    display: block;
-    width: 100%;
-    height: clamp(220px, 40vw, 520px);
-    object-fit: cover;
-    object-position: center;
+  /* Hero split. The photograph becomes the panel's right-hand column instead of
+     a full-bleed band below the fold. Everything is scoped to .gsw-hs so the
+     build's own .panel, .pbody and .badges rules keep working untouched. */
+  .gsw-hs-media { margin: 0; }
+  .gsw-hs-media img { display: block; width: 100%;
+                      height: clamp(200px, 52vw, 300px); object-fit: cover; }
+  @media (min-width: 60rem) {
+    .gsw-hs { display: grid; grid-template-columns: 1.02fr 0.98fr;
+              align-items: stretch; }
+    .gsw-hs-copy { display: flex; flex-direction: column; padding-bottom: 20px; }
+    /* The panel's own bottom padding becomes the copy column's job, or the
+       photograph stops short of the card's bottom edge. */
+    .gsw-hs-panel { padding-bottom: 0; }
+    .gsw-hs-media { position: relative; border-left: 2px solid var(--ink); }
+    .gsw-hs-media img { position: absolute; inset: 0; height: 100%; }
   }
-  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
 </style>
 </head>
 <body>
@@ -146,8 +150,8 @@ font-family:"Nunito",system-ui,sans-serif}
   <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
   <a class="btn btn-primary navact" href="#contact">Book online</a>
 </div></div></header>
-<section class="hero"><div class="wrap"><div class="panel">
-  <div class="rail"><span class="lamp"></span>Accepting new patients</div>
+<section class="hero"><div class="wrap"><!-- gsw:herosplit --><div class="panel gsw-hs-panel">
+  <div class="rail"><span class="lamp"></span>Accepting new patients</div><div class="gsw-hs"><div class="gsw-hs-copy">
   <div class="pbody">
     <h1>Yes — we're taking new patients.</h1>
     <p class="sub">Full-service small animal care with online booking, Saturday hours and refills you can request without phoning. We are open to new patients today, which is not true of most practices near here.</p>
@@ -160,9 +164,7 @@ font-family:"Nunito",system-ui,sans-serif}
     <li>Accepting new patients</li><li>Online booking</li>
     <li>Saturday appointments</li><li>First puppy visit free</li>
   </ul>
-</div></div></section>
-<figure class="gsw-plate"><img src="../_assets/hero/veterinary/a-taking-new-patients.jpg" alt="Taking new patients — veterinary" loading="lazy"></figure>
-
+</div><figure class="gsw-hs-media"><picture><source type="image/avif" srcset="../_assets/hero/veterinary/a-taking-new-patients-1280.avif 1280w, ../_assets/hero/veterinary/a-taking-new-patients-2560.avif 2560w" sizes="(max-width: 60rem) 100vw, 50vw"><img src="../_assets/hero/veterinary/a-taking-new-patients-1280.jpg" width="1600" height="893" alt="The waiting room at Willowbank Animal Hospital" loading="eager" fetchpriority="high" decoding="async"></picture></figure></div></div><!-- /gsw:herosplit --></div></section>
 <section class="sec" id="services"><div class="wrap">
   <p class="kicker">Services</p>
   <h2>Care we provide</h2>

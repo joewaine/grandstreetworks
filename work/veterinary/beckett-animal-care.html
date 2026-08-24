@@ -121,6 +121,8 @@ font-family:"Recursive",system-ui,sans-serif}
      and the first content section, with no border of its own: every one of
      these designs owns a different rule weight and ink colour, and a borrowed
      hairline reads as a mistake in about half of them. */
+  .gsw-plate picture { display: block; width: 100%; }
+  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
   .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
   .gsw-plate img {
     display: block;
@@ -143,7 +145,7 @@ font-family:"Recursive",system-ui,sans-serif}
   <p class="eyebrow"><i></i>Accepting new patients</p>
   <h1>Prices for the ordinary things, printed here.</h1>
 </div></section>
-<figure class="gsw-plate"><img src="../_assets/hero/veterinary/a-taking-new-patients.jpg" alt="Taking new patients — veterinary" loading="lazy"></figure>
+<figure class="gsw-plate"><picture><source type="image/avif" srcset="../_assets/hero/veterinary/a-taking-new-patients-1280.avif 1280w, ../_assets/hero/veterinary/a-taking-new-patients-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/veterinary/a-taking-new-patients-1280.jpg" width="2560" height="1429" alt="Taking new patients — veterinary" loading="lazy" decoding="async"></picture></figure>
 
 <section class="hero"><div class="wrap">
   <p class="sub">Full-service small animal care with online booking and Saturday hours. Exams, vaccines, dentals, spays and neuters have their prices printed on this page, because nobody should have to ring to find out what a check-up costs.</p>
