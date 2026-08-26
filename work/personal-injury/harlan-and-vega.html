@@ -143,6 +143,13 @@
         .theme-1 .proc-grid { grid-template-columns: 1fr; }
         .theme-1 .top-bar { display: none; }
         .theme-1 .nav-links { display: none; }
+        /* The brand and the phone share one 60px row; at phone width the
+           brand wrapped to two lines against a taller phone cell. Keep the
+           brand on one line and let the phone take the rest. */
+        .theme-1 .navbar { height: auto; min-height: 56px; }
+        .theme-1 .nav-brand { white-space: nowrap; font-size: 1.125rem; padding: 0 16px; }
+        .theme-1 .nav-cta { flex: 1; justify-content: center; text-align: center;
+                            padding: 12px 14px; font-size: 0.8125rem; line-height: 1.3; }
     }
 
     
