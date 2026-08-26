@@ -64,7 +64,9 @@ def ladder_exists(src_base: str, page: Path) -> bool:
 
 def process(page: Path) -> str:
     html = page.read_text()
-    if "<picture>" in html:
+    # The compare slider and the gallery band also use <picture>; only the
+    # plate's own CSS proves the plate itself has been wired.
+    if ".gsw-plate picture" in html:
         return "already wired"
 
     missing: list[str] = []
