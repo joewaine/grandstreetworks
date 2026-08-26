@@ -156,39 +156,6 @@ display:flex;align-items:baseline;gap:16px}.logolist{grid-template-columns:repea
 
 
 
-<style>
-  /* Recent-work gallery. Everything here is drawn from the properties the build
-     already declares, so the band inherits each design's palette and heading
-     face rather than importing a seventh look. */
-  .gsw-gal { background: #FAF8F5; color: #17201F;
-             padding: clamp(38px, 6vw, 74px) 0; }
-  .gsw-gal-in { max-width: var(--wrap, 1140px); margin: 0 auto; padding: 0 20px; }
-  .gsw-gal-lab { font-size: 13px; letter-spacing: .18em; text-transform: uppercase;
-                 font-weight: 600; color: var(--accent); margin: 0 0 14px; }
-  .gsw-gal h2 { margin: 0; color: inherit; }
-  .gsw-gal-note { color: var(--muted); margin: 14px 0 30px; max-width: 58ch; }
-  .gsw-ba { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px; }
-  .gsw-gal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-  .gsw-gal figure { margin: 0; position: relative; overflow: hidden;
-                    background: var(--rule, rgba(0,0,0,.1)); }
-  .gsw-gal picture { display: block; }
-  /* height:auto matters — the width/height attributes are a presentational
-     hint, and without this the 1200px hint beats aspect-ratio. */
-  .gsw-gal img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3;
-                 object-fit: cover; transition: transform .5s ease; }
-  .gsw-gal figure:hover img { transform: scale(1.035); }
-  .gsw-gal figcaption { position: absolute; left: 0; bottom: 0;
-                        background: #17201F; color: #FAF8F5;
-                        font-size: 12px; font-weight: 600; letter-spacing: .14em;
-                        text-transform: uppercase; padding: 7px 12px; }
-  @media (max-width: 720px) {
-    .gsw-ba, .gsw-gal-grid { grid-template-columns: 1fr; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .gsw-gal img { transition: none; }
-    .gsw-gal figure:hover img { transform: none; }
-  }
-</style>
 <!-- gsw:identity -->
 <link rel="icon" href="../_assets/identity/cosmetic-dentists/fairmont-dental-studio-icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../_assets/identity/cosmetic-dentists/fairmont-dental-studio-icon-180.png">
@@ -272,6 +239,40 @@ display:flex;align-items:baseline;gap:16px}.logolist{grid-template-columns:repea
   .gsw-cmp:not([data-live]) .gsw-cmp-range,
   .gsw-cmp:not([data-live]) .gsw-cmp-grip { display: none; }
 </style>
+
+<style>
+  /* Recent-work gallery. Everything here is drawn from the properties the build
+     already declares, so the band inherits each design's palette and heading
+     face rather than importing a seventh look. */
+  .gsw-gal { background: #FAF8F5; color: #17201F;
+             padding: clamp(38px, 6vw, 74px) 0; }
+  .gsw-gal-in { max-width: var(--wrap, 1140px); margin: 0 auto; padding: 0 20px; }
+  .gsw-gal-lab { font-size: 13px; letter-spacing: .18em; text-transform: uppercase;
+                 font-weight: 600; color: var(--accent); margin: 0 0 14px; }
+  .gsw-gal h2 { margin: 0; color: inherit; }
+  .gsw-gal-note { color: var(--muted); margin: 14px 0 30px; max-width: 58ch; }
+  .gsw-ba { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px; }
+  .gsw-gal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .gsw-gal figure { margin: 0; position: relative; overflow: hidden;
+                    background: var(--rule, rgba(0,0,0,.1)); }
+  .gsw-gal picture { display: block; }
+  /* height:auto matters — the width/height attributes are a presentational
+     hint, and without this the 1200px hint beats aspect-ratio. */
+  .gsw-gal img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3;
+                 object-fit: cover; transition: transform .5s ease; }
+  .gsw-gal figure:hover img { transform: scale(1.035); }
+  .gsw-gal figcaption { position: absolute; left: 0; bottom: 0;
+                        background: #17201F; color: #FAF8F5;
+                        font-size: 12px; font-weight: 600; letter-spacing: .14em;
+                        text-transform: uppercase; padding: 7px 12px; }
+  @media (max-width: 720px) {
+    .gsw-ba, .gsw-gal-grid { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .gsw-gal img { transition: none; }
+    .gsw-gal figure:hover img { transform: none; }
+  }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap">Accepting new patients · Scan and plan at the first visit</div></div>
@@ -320,7 +321,7 @@ display:flex;align-items:baseline;gap:16px}.logolist{grid-template-columns:repea
   </ol>
 </div></section>
 <!-- gsw:gallery -->
-<section class="gsw-gal"><div class="gsw-gal-in"><p class="gsw-gal-lab">Scanned, planned, priced</p><h2>Before a tooth is touched.</h2><p class="gsw-gal-note">The scanner, the preview and the bench where the porcelain is made. Nothing is drilled until all three have been.</p><div class="gsw-gal-grid"><figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/scanner-640.avif 640w, ../_assets/library/cosmetic-dentists/scanner-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/cosmetic-dentists/scanner-720.jpg" width="1600" height="1200" alt="Scanned, not moulded" loading="lazy" decoding="async"></picture><figcaption>Scanned, not moulded</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/chairside-preview-640.avif 640w, ../_assets/library/cosmetic-dentists/chairside-preview-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/cosmetic-dentists/chairside-preview-720.jpg" width="1600" height="1200" alt="Chairside preview" loading="lazy" decoding="async"></picture><figcaption>Chairside preview</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/lab-bench-640.avif 640w, ../_assets/library/cosmetic-dentists/lab-bench-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/cosmetic-dentists/lab-bench-720.jpg" width="1600" height="1200" alt="On the technician&#x27;s bench" loading="lazy" decoding="async"></picture><figcaption>On the technician&#x27;s bench</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/veneer-macro-640.avif 640w, ../_assets/library/cosmetic-dentists/veneer-macro-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/cosmetic-dentists/veneer-macro-720.jpg" width="1600" height="1200" alt="Porcelain, one at a time" loading="lazy" decoding="async"></picture><figcaption>Porcelain, one at a time</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/shade-guide-640.avif 640w, ../_assets/library/cosmetic-dentists/shade-guide-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/cosmetic-dentists/shade-guide-720.jpg" width="1600" height="1200" alt="Shade matched" loading="lazy" decoding="async"></picture><figcaption>Shade matched</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/operatory-640.avif 640w, ../_assets/library/cosmetic-dentists/operatory-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/cosmetic-dentists/operatory-720.jpg" width="1600" height="1200" alt="The treatment room" loading="lazy" decoding="async"></picture><figcaption>The treatment room</figcaption></figure></div></div></section>
+<section class="gsw-gal"><div class="gsw-gal-in"><p class="gsw-gal-lab">Scanned, planned, priced</p><h2>Before a tooth is touched.</h2><p class="gsw-gal-note">The scanner, the preview and the bench where the porcelain is made. Nothing is drilled until all three have been.</p><div class="gsw-gal-grid"><figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/fairmont-dental-studio/scanner-640.avif 640w, ../_assets/library/cosmetic-dentists/fairmont-dental-studio/scanner-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/cosmetic-dentists/fairmont-dental-studio/scanner-720.jpg" width="1600" height="1200" alt="Scanned, not moulded" loading="lazy" decoding="async"></picture><figcaption>Scanned, not moulded</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/fairmont-dental-studio/chairside-preview-640.avif 640w, ../_assets/library/cosmetic-dentists/fairmont-dental-studio/chairside-preview-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/cosmetic-dentists/fairmont-dental-studio/chairside-preview-720.jpg" width="1600" height="1200" alt="Chairside preview" loading="lazy" decoding="async"></picture><figcaption>Chairside preview</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/fairmont-dental-studio/lab-bench-640.avif 640w, ../_assets/library/cosmetic-dentists/fairmont-dental-studio/lab-bench-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/cosmetic-dentists/fairmont-dental-studio/lab-bench-720.jpg" width="1600" height="1200" alt="On the technician&#x27;s bench" loading="lazy" decoding="async"></picture><figcaption>On the technician&#x27;s bench</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/fairmont-dental-studio/veneer-macro-640.avif 640w, ../_assets/library/cosmetic-dentists/fairmont-dental-studio/veneer-macro-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/cosmetic-dentists/fairmont-dental-studio/veneer-macro-720.jpg" width="1600" height="1200" alt="Porcelain, one at a time" loading="lazy" decoding="async"></picture><figcaption>Porcelain, one at a time</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/fairmont-dental-studio/shade-guide-640.avif 640w, ../_assets/library/cosmetic-dentists/fairmont-dental-studio/shade-guide-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/cosmetic-dentists/fairmont-dental-studio/shade-guide-720.jpg" width="1600" height="1200" alt="Shade matched" loading="lazy" decoding="async"></picture><figcaption>Shade matched</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/fairmont-dental-studio/operatory-640.avif 640w, ../_assets/library/cosmetic-dentists/fairmont-dental-studio/operatory-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/cosmetic-dentists/fairmont-dental-studio/operatory-720.jpg" width="1600" height="1200" alt="The treatment room" loading="lazy" decoding="async"></picture><figcaption>The treatment room</figcaption></figure></div></div></section>
 <!-- /gsw:gallery -->
 <section class="close" id="contact"><div class="wrap">
   <h2>Want the plan before the treatment?</h2>
