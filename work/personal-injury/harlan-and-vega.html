@@ -97,8 +97,9 @@
     .theme-1 .h-sub { grid-column: 2 / 3; grid-row: 1 / 2; background: var(--accent-2); display: flex; flex-direction: column; justify-content: space-between; }
     .theme-1 .h-sub p { font-size: 1.125rem; line-height: 1.5; font-weight: 500; }
     .theme-1 .h-sub .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
-    .theme-1 .h-action { grid-column: 2 / 3; grid-row: 2 / 3; background: var(--acc); display: flex; flex-direction: column; gap: 16px; justify-content: center; }
-    .theme-1 .h-action .btn-primary { background: var(--surf); color: var(--ink); font-size: 1.25rem; padding: 24px; border: 2px solid var(--ink); border-radius: 100px; }
+    .theme-1 .h-action { grid-column: 2 / 3; grid-row: 2 / 3; background: transparent; display: flex; flex-direction: column; gap: 16px; justify-content: center; }
+    .theme-1 .h-action .btn-primary { background: var(--muted); color: var(--ink); font-size: 1.25rem; padding: 24px; border: 2px solid var(--ink); border-radius: 100px; }
+    .theme-1 .h-action .btn-secondary { background: var(--acc); }
     
     .theme-1 .services { display: flex; flex-direction: column; }
     .theme-1 .sec-header { padding: 24px 48px; border-bottom: 1px solid var(--ink); font-size: 2rem; background: var(--surf); }
@@ -130,6 +131,10 @@
 
     @container (max-width: 800px) {
         .theme-1 .hero { grid-template-columns: 1fr; }
+        /* The children were placed with grid-column: 2 / 3 for the two-column
+           hero; left in place they open an implicit second column and push
+           the headline column off-screen (seen in Safari). */
+        .theme-1 .hero > * { grid-column: auto !important; grid-row: auto !important; }
         .theme-1 .h-main h1 { font-size: 3.5rem; }
         .theme-1 .services-grid { grid-template-columns: 1fr; }
         .theme-1 .svc-item { aspect-ratio: auto; padding: 32px; }
