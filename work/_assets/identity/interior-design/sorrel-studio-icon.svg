@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="Sorrel Studio"><rect width="80" height="80" rx="10" fill="#171A17"/><g transform="translate(8 8)"><rect x="6" y="6" width="52" height="52" rx="4" fill="#F7F3EA" opacity=".12"/>
+<circle cx="18" cy="18" r="6" fill="#F7F3EA"/>
+<path d="M38 12 L50 16 L44 28 L32 24 Z" fill="#F7F3EA" opacity=".75"/>
+<path d="M12 40 L24 36 L28 50 L14 52 Z" fill="#F7F3EA" opacity=".55"/>
+<circle cx="44" cy="44" r="7" fill="#F7F3EA" opacity=".5"/></g></svg>

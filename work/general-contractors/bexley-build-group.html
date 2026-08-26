@@ -135,6 +135,8 @@ text-decoration:none;font-weight:700;font-size:15px;text-align:center;line-heigh
      and the first content section, with no border of its own: every one of
      these designs owns a different rule weight and ink colour, and a borrowed
      hairline reads as a mistake in about half of them. */
+  .gsw-plate picture { display: block; width: 100%; }
+  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
   .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
   .gsw-plate img {
     display: block;
@@ -145,11 +147,70 @@ text-decoration:none;font-weight:700;font-size:15px;text-align:center;line-heigh
   }
   @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
 </style>
+
+
+<style>
+  /* Recent-work gallery. Everything here is drawn from the properties the build
+     already declares, so the band inherits each design's palette and heading
+     face rather than importing a seventh look. */
+  .gsw-gal { background: #F2EDE3; color: #1F1A14;
+             padding: clamp(38px, 6vw, 74px) 0; }
+  .gsw-gal-in { max-width: var(--wrap, 1140px); margin: 0 auto; padding: 0 20px; }
+  .gsw-gal-lab { font-size: 13px; letter-spacing: .18em; text-transform: uppercase;
+                 font-weight: 600; color: var(--accent); margin: 0 0 14px; }
+  .gsw-gal h2 { margin: 0; color: inherit; }
+  .gsw-gal-note { color: var(--muted); margin: 14px 0 30px; max-width: 58ch; }
+  .gsw-ba { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px; }
+  .gsw-gal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .gsw-gal figure { margin: 0; position: relative; overflow: hidden;
+                    background: var(--rule, rgba(0,0,0,.1)); }
+  .gsw-gal picture { display: block; }
+  /* height:auto matters — the width/height attributes are a presentational
+     hint, and without this the 1200px hint beats aspect-ratio. */
+  .gsw-gal img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3;
+                 object-fit: cover; transition: transform .5s ease; }
+  .gsw-gal figure:hover img { transform: scale(1.035); }
+  .gsw-gal figcaption { position: absolute; left: 0; bottom: 0;
+                        background: #1F1A14; color: #F2EDE3;
+                        font-size: 12px; font-weight: 600; letter-spacing: .14em;
+                        text-transform: uppercase; padding: 7px 12px; }
+  @media (max-width: 720px) {
+    .gsw-ba, .gsw-gal-grid { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .gsw-gal img { transition: none; }
+    .gsw-gal figure:hover img { transform: none; }
+  }
+</style>
+<!-- gsw:identity -->
+<link rel="icon" href="../_assets/identity/general-contractors/bexley-build-group-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../_assets/identity/general-contractors/bexley-build-group-icon-180.png">
+<meta name="theme-color" content="#1F1A14">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bexley Build Group">
+<meta property="og:title" content="Bexley Build Group · Projects from $75,000 · Licensed #GC-22841 · Fully insured">
+<meta property="og:description" content="Read the contract before you meet the salesman.">
+<meta property="og:image" content="https://grandstreetworks.com/work/_assets/identity/general-contractors/bexley-build-group-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"GeneralContractor","name":"Bexley Build Group","description":"Projects from $75,000 \u00b7 Licensed #GC-22841 \u00b7 Fully insured","telephone":"(959) 604-2158","areaServed":"Metro area","image":"https://grandstreetworks.com/work/_assets/identity/general-contractors/bexley-build-group-og.png","logo":"https://grandstreetworks.com/work/_assets/identity/general-contractors/bexley-build-group-mark.svg"}</script>
+
+<style>
+  /* Identity pass. The lockup is the mark plus the wordmark the build already
+     had; the mark is sized in em so it tracks whatever display face this build
+     sets its brand in. */
+  .gsw-lockup { display: inline-flex; align-items: center; gap: .46em; }
+  .gsw-lockup svg { height: 1.16em; width: auto; flex: none; display: block; }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap">Projects from $75,000 · Licensed #GC-22841 · Fully insured</div></div>
 <header class="nav"><div class="wrap">
-  <a class="brand" href="#">Bexley Build Group</a>
+  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="6" y="30" width="52" height="5" fill="#1F1A14" opacity=".6"/>
+<rect x="10" y="18" width="8" height="28" fill="#A34A1C"/>
+<rect x="28" y="18" width="8" height="28" fill="#A34A1C" opacity=".7"/>
+<rect x="46" y="18" width="8" height="28" fill="#A34A1C" opacity=".45"/></svg><span>Bexley Build Group</span></span></a>
   <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
   <a class="btn btn-primary navact" href="#contact">Book a consultation</a>
 </div></header>
@@ -167,7 +228,7 @@ text-decoration:none;font-weight:700;font-size:15px;text-align:center;line-heigh
     <li>Weekly written updates</li><li>Fixed schedule commitment</li>
   </ul>
 </div></section>
-<figure class="gsw-plate"><img src="../_assets/hero/general-contractors/a-finished-on-time.jpg" alt="Finished on time, general contractors" loading="lazy"></figure>
+<figure class="gsw-plate"><picture><source type="image/avif" srcset="../_assets/hero/general-contractors/a-finished-on-time-1280.avif 1280w, ../_assets/hero/general-contractors/a-finished-on-time-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/general-contractors/a-finished-on-time-1280.jpg" width="2560" height="1429" alt="Finished on time, general contractors" loading="lazy" decoding="async"></picture></figure>
 
 
 <section class="sec" id="services"><div class="wrap">
@@ -202,6 +263,9 @@ text-decoration:none;font-weight:700;font-size:15px;text-align:center;line-heigh
   </ol>
 </div></section>
 
+<!-- gsw:gallery -->
+<section class="gsw-gal"><div class="gsw-gal-in"><p class="gsw-gal-lab">In the contract</p><h2>Every stage on this page is a line in the schedule.</h2><p class="gsw-gal-note">Demolition, framing, rough-in, close-up and finish, each with a date next to it before the deposit is paid.</p><div class="gsw-ba"><figure><picture><source type="image/avif" srcset="../_assets/library/general-contractors/kitchen-before-640.avif 640w, ../_assets/library/general-contractors/kitchen-before-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 50vw"><img src="../_assets/library/general-contractors/kitchen-before-720.jpg" width="1600" height="1200" alt="Before" loading="lazy" decoding="async"></picture><figcaption>Before</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/general-contractors/kitchen-after-640.avif 640w, ../_assets/library/general-contractors/kitchen-after-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 50vw"><img src="../_assets/library/general-contractors/kitchen-after-720.jpg" width="1600" height="1200" alt="After" loading="lazy" decoding="async"></picture><figcaption>After</figcaption></figure></div><div class="gsw-gal-grid"><figure><picture><source type="image/avif" srcset="../_assets/library/general-contractors/kitchen-demo-640.avif 640w, ../_assets/library/general-contractors/kitchen-demo-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/general-contractors/kitchen-demo-720.jpg" width="1600" height="1200" alt="Demolition, floors protected" loading="lazy" decoding="async"></picture><figcaption>Demolition, floors protected</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/general-contractors/framing-640.avif 640w, ../_assets/library/general-contractors/framing-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/general-contractors/framing-720.jpg" width="1600" height="1200" alt="Framing the new opening" loading="lazy" decoding="async"></picture><figcaption>Framing the new opening</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/general-contractors/finished-kitchen-640.avif 640w, ../_assets/library/general-contractors/finished-kitchen-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/general-contractors/finished-kitchen-720.jpg" width="1600" height="1200" alt="Finished" loading="lazy" decoding="async"></picture><figcaption>Finished</figcaption></figure></div></div></section>
+<!-- /gsw:gallery -->
 <section class="close" id="contact"><div class="wrap">
   <h2>Thinking about it for next year?</h2>
   <p>That's the right time to call. Our calendar fills six to nine months out, and the design and permit stage takes longer than people expect.</p>
@@ -213,11 +277,54 @@ text-decoration:none;font-weight:700;font-size:15px;text-align:center;line-heigh
 </div></section>
 
 <footer class="foot"><div class="wrap">
-  <a class="brand" href="#">Bexley Build Group</a>
+  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="6" y="30" width="52" height="5" fill="#1F1A14" opacity=".6"/>
+<rect x="10" y="18" width="8" height="28" fill="#A34A1C"/>
+<rect x="28" y="18" width="8" height="28" fill="#A34A1C" opacity=".7"/>
+<rect x="46" y="18" width="8" height="28" fill="#A34A1C" opacity=".45"/></svg><span>Bexley Build Group</span></span></a>
   <p><a>(959) 604-2158</a> · Licensed #GC-22841 · Bonded &amp; insured · Building here since 2003</p>
   <p>1146 Orchard Row, Cedar Reach, NY 17696</p>
 </div></footer>
 
 <div class="callbar"><a class="book" href="#contact">Book a consultation</a><a class="tel">(959) 604-2158</a></div>
+<!-- gsw:motion -->
+<style>
+  /* Motion pass. Everything here is gated on .gsw-m, which only the script
+     below adds, so a page without JavaScript never hides anything. */
+  .gsw-m [data-gsw-reveal] {
+    opacity: 0; transform: translateY(14px);
+    transition: opacity .7s cubic-bezier(.2,.6,.2,1), transform .7s cubic-bezier(.2,.6,.2,1);
+  }
+  .gsw-m [data-gsw-reveal].gsw-in { opacity: 1; transform: none; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(2) { transition-delay: .08s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(3) { transition-delay: .16s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(4) { transition-delay: .24s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(5) { transition-delay: .32s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(6) { transition-delay: .40s; }
+  @keyframes gsw-hero-in { from { opacity: 0; transform: scale(1.025); } to { opacity: 1; transform: none; } }
+  .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: gsw-hero-in 1s ease-out both; }
+  @media (prefers-reduced-motion: reduce) {
+    .gsw-m [data-gsw-reveal] { opacity: 1; transform: none; transition: none; }
+    .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: none; }
+  }
+</style>
+<script>
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  var targets = [].slice.call(document.querySelectorAll('body > section, .gsw-gal figure'));
+  // The first section is the hero; it is on screen already and owns its own entrance.
+  var first = document.querySelector('body > section');
+  targets = targets.filter(function (el) { return el !== first; });
+  if (!targets.length) return;
+  document.documentElement.classList.add('gsw-m');
+  targets.forEach(function (el) { el.setAttribute('data-gsw-reveal', ''); });
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('gsw-in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+  targets.forEach(function (el) { io.observe(el); });
+})();
+</script>
+<!-- /gsw:motion -->
 </body>
 </html>

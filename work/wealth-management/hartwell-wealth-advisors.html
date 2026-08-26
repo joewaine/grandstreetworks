@@ -105,6 +105,8 @@ font-weight:700;font-size:15px;text-align:center;line-height:1.2;padding:0 12px}
      and the first content section, with no border of its own: every one of
      these designs owns a different rule weight and ink colour, and a borrowed
      hairline reads as a mistake in about half of them. */
+  .gsw-plate picture { display: block; width: 100%; }
+  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
   .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
   .gsw-plate img {
     display: block;
@@ -115,11 +117,68 @@ font-weight:700;font-size:15px;text-align:center;line-height:1.2;padding:0 12px}
   }
   @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
 </style>
+
+<style>
+  /* Recent-work gallery. Everything here is drawn from the properties the build
+     already declares, so the band inherits each design's palette and heading
+     face rather than importing a seventh look. */
+  .gsw-gal { background: #FDFDFB; color: #15181D;
+             padding: clamp(38px, 6vw, 74px) 0; }
+  .gsw-gal-in { max-width: var(--wrap, 1140px); margin: 0 auto; padding: 0 20px; }
+  .gsw-gal-lab { font-size: 13px; letter-spacing: .18em; text-transform: uppercase;
+                 font-weight: 600; color: var(--accent); margin: 0 0 14px; }
+  .gsw-gal h2 { margin: 0; color: inherit; }
+  .gsw-gal-note { color: var(--muted); margin: 14px 0 30px; max-width: 58ch; }
+  .gsw-ba { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px; }
+  .gsw-gal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .gsw-gal figure { margin: 0; position: relative; overflow: hidden;
+                    background: var(--rule, rgba(0,0,0,.1)); }
+  .gsw-gal picture { display: block; }
+  /* height:auto matters — the width/height attributes are a presentational
+     hint, and without this the 1200px hint beats aspect-ratio. */
+  .gsw-gal img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3;
+                 object-fit: cover; transition: transform .5s ease; }
+  .gsw-gal figure:hover img { transform: scale(1.035); }
+  .gsw-gal figcaption { position: absolute; left: 0; bottom: 0;
+                        background: #15181D; color: #FDFDFB;
+                        font-size: 12px; font-weight: 600; letter-spacing: .14em;
+                        text-transform: uppercase; padding: 7px 12px; }
+  @media (max-width: 720px) {
+    .gsw-ba, .gsw-gal-grid { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .gsw-gal img { transition: none; }
+    .gsw-gal figure:hover img { transform: none; }
+  }
+</style>
+<!-- gsw:identity -->
+<link rel="icon" href="../_assets/identity/wealth-management/hartwell-wealth-advisors-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../_assets/identity/wealth-management/hartwell-wealth-advisors-icon-180.png">
+<meta name="theme-color" content="#15181D">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hartwell Wealth Advisors">
+<meta property="og:title" content="Hartwell Wealth Advisors · Fee-only · Fiduciary · Registered Investment Adviser">
+<meta property="og:description" content="No charts. No jargon. What you have and what it does.">
+<meta property="og:image" content="https://grandstreetworks.com/work/_assets/identity/wealth-management/hartwell-wealth-advisors-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FinancialService","name":"Hartwell Wealth Advisors","description":"Fee-only \u00b7 Fiduciary \u00b7 Registered Investment Adviser","telephone":"(540) 967-1134","areaServed":"Metro area","image":"https://grandstreetworks.com/work/_assets/identity/wealth-management/hartwell-wealth-advisors-og.png","logo":"https://grandstreetworks.com/work/_assets/identity/wealth-management/hartwell-wealth-advisors-mark.svg"}</script>
+
+<style>
+  /* Identity pass. The lockup is the mark plus the wordmark the build already
+     had; the mark is sized in em so it tracks whatever display face this build
+     sets its brand in. */
+  .gsw-lockup { display: inline-flex; align-items: center; gap: .46em; }
+  .gsw-lockup svg { height: 1.16em; width: auto; flex: none; display: block; }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap">Fee-only · Fiduciary · Registered Investment Adviser</div></div>
 <header class="nav"><div class="wrap">
-  <a class="brand" href="#">Hartwell Wealth Advisors</a>
+  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="8" y="29" width="16" height="6" fill="#15181D" opacity=".7"/>
+<circle cx="30" cy="32" r="2" fill="#15181D" opacity=".45"/><circle cx="37" cy="32" r="2" fill="#15181D" opacity=".45"/><circle cx="44" cy="32" r="2" fill="#15181D" opacity=".45"/>
+<rect x="50" y="29" width="8" height="6" fill="#3B4250"/></svg><span>Hartwell Wealth Advisors</span></span></a>
   <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
   <a class="btn btn-primary navact" href="#contact">Arrange an introduction</a>
 </div></header>
@@ -134,7 +193,7 @@ font-weight:700;font-size:15px;text-align:center;line-height:1.2;padding:0 12px}
   </div>
   <ul class="badges"><li>Fee-only, always</li><li>Fiduciary at all times</li><li>Fee schedule published</li><li>CFP® professionals</li></ul>
 </div></section>
-<figure class="gsw-plate"><img src="../_assets/hero/wealth-management/e-permanence.jpg" alt="Permanence, wealth management" loading="lazy"></figure>
+<figure class="gsw-plate"><picture><source type="image/avif" srcset="../_assets/hero/wealth-management/e-permanence-1280.avif 1280w, ../_assets/hero/wealth-management/e-permanence-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/wealth-management/e-permanence-1280.jpg" width="2560" height="1429" alt="Permanence, wealth management" loading="lazy" decoding="async"></picture></figure>
 
 
 <section class="sec" id="services"><div class="wrap">
@@ -173,6 +232,9 @@ font-weight:700;font-size:15px;text-align:center;line-height:1.2;padding:0 12px}
   </ol>
 </div></section>
 
+<!-- gsw:gallery -->
+<section class="gsw-gal"><div class="gsw-gal-in"><p class="gsw-gal-lab">No charts</p><h2>What you have and what it does.</h2><p class="gsw-gal-note">Worked out in pencil, on paper, in a room with a window. Then bound and given to you.</p><div class="gsw-gal-grid"><figure><picture><source type="image/avif" srcset="../_assets/library/wealth-management/graphite-640.avif 640w, ../_assets/library/wealth-management/graphite-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/wealth-management/graphite-720.jpg" width="1600" height="1200" alt="Worked out in pencil" loading="lazy" decoding="async"></picture><figcaption>Worked out in pencil</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/wealth-management/ruled-sheet-640.avif 640w, ../_assets/library/wealth-management/ruled-sheet-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/wealth-management/ruled-sheet-720.jpg" width="1600" height="1200" alt="The fee, on one page" loading="lazy" decoding="async"></picture><figcaption>The fee, on one page</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/wealth-management/bound-plan-640.avif 640w, ../_assets/library/wealth-management/bound-plan-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/wealth-management/bound-plan-720.jpg" width="1600" height="1200" alt="The plan, bound" loading="lazy" decoding="async"></picture><figcaption>The plan, bound</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/wealth-management/window-light-640.avif 640w, ../_assets/library/wealth-management/window-light-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/wealth-management/window-light-720.jpg" width="1600" height="1200" alt="Afternoon" loading="lazy" decoding="async"></picture><figcaption>Afternoon</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/wealth-management/two-chairs-640.avif 640w, ../_assets/library/wealth-management/two-chairs-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/wealth-management/two-chairs-720.jpg" width="1600" height="1200" alt="Two chairs" loading="lazy" decoding="async"></picture><figcaption>Two chairs</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/wealth-management/family-table-640.avif 640w, ../_assets/library/wealth-management/family-table-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/wealth-management/family-table-720.jpg" width="1600" height="1200" alt="The family table" loading="lazy" decoding="async"></picture><figcaption>The family table</figcaption></figure></div></div></section>
+<!-- /gsw:gallery -->
 <section class="close" id="contact"><div class="wrap">
   <span class="micro">Contact</span>
   <h2>Wondering whether you're being well advised?</h2>
@@ -185,11 +247,53 @@ font-weight:700;font-size:15px;text-align:center;line-height:1.2;padding:0 12px}
 </div></section>
 
 <footer class="foot"><div class="wrap">
-  <a class="brand" href="#">Hartwell Wealth Advisors</a>
+  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="8" y="29" width="16" height="6" fill="#15181D" opacity=".7"/>
+<circle cx="30" cy="32" r="2" fill="#15181D" opacity=".45"/><circle cx="37" cy="32" r="2" fill="#15181D" opacity=".45"/><circle cx="44" cy="32" r="2" fill="#15181D" opacity=".45"/>
+<rect x="50" y="29" width="8" height="6" fill="#3B4250"/></svg><span>Hartwell Wealth Advisors</span></span></a>
   <p><a>(540) 967-1134</a></p>
   <p>Registered Investment Adviser · Fee-only fiduciary · Form ADV available on request</p>
   <p>475 Ridgeway Avenue, Cedar Reach, NY 19175</p>
 </div></footer>
 <div class="callbar"><a class="book" href="#contact">Arrange an introduction</a><a class="tel">(540) 967-1134</a></div>
+<!-- gsw:motion -->
+<style>
+  /* Motion pass. Everything here is gated on .gsw-m, which only the script
+     below adds, so a page without JavaScript never hides anything. */
+  .gsw-m [data-gsw-reveal] {
+    opacity: 0; transform: translateY(14px);
+    transition: opacity .7s cubic-bezier(.2,.6,.2,1), transform .7s cubic-bezier(.2,.6,.2,1);
+  }
+  .gsw-m [data-gsw-reveal].gsw-in { opacity: 1; transform: none; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(2) { transition-delay: .08s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(3) { transition-delay: .16s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(4) { transition-delay: .24s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(5) { transition-delay: .32s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(6) { transition-delay: .40s; }
+  @keyframes gsw-hero-in { from { opacity: 0; transform: scale(1.025); } to { opacity: 1; transform: none; } }
+  .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: gsw-hero-in 1s ease-out both; }
+  @media (prefers-reduced-motion: reduce) {
+    .gsw-m [data-gsw-reveal] { opacity: 1; transform: none; transition: none; }
+    .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: none; }
+  }
+</style>
+<script>
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  var targets = [].slice.call(document.querySelectorAll('body > section, .gsw-gal figure'));
+  // The first section is the hero; it is on screen already and owns its own entrance.
+  var first = document.querySelector('body > section');
+  targets = targets.filter(function (el) { return el !== first; });
+  if (!targets.length) return;
+  document.documentElement.classList.add('gsw-m');
+  targets.forEach(function (el) { el.setAttribute('data-gsw-reveal', ''); });
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('gsw-in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+  targets.forEach(function (el) { io.observe(el); });
+})();
+</script>
+<!-- /gsw:motion -->
 </body>
 </html>

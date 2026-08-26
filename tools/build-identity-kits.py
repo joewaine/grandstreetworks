@@ -34,6 +34,7 @@ import tempfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import identity_specs  # noqa: E402
 from identity_specs import BUILDS, mark_svg  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
@@ -95,9 +96,10 @@ def og_card(spec: dict, trade_label: str) -> str:
 
 def favicon_svg(spec: dict) -> str:
     """The mark on its own ground, with breathing room so it survives 16px."""
-    inner = spec["mark"].format(
-        **{**spec["palette"],
-           **({"accent": spec["card_mark"]} if spec.get("card_mark") else {})})
+    # Same colour remap as the social card: the icon sits on the card ground,
+    # so a mark drawn in the page's text colour would vanish on it.
+    on_card = mark_svg(spec, None, spec["card_bg"])
+    inner = re.search(r"<svg[^>]*>(?:<rect[^>]*/>)?(.*)</svg>", on_card, re.S).group(1)
     return (
         '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" '
         f'role="img" aria-label="{html.escape(spec["name"])}">'
@@ -116,8 +118,8 @@ def jsonld(spec: dict, trade: dict, slug: str) -> str:
         "description": spec["tagline"],
         "telephone": spec["phone"],
         "areaServed": "Metro area",
-        "image": f"{SITE}/work/_assets/identity/roofing/{slug}-og.png",
-        "logo": f"{SITE}/work/_assets/identity/roofing/{slug}-mark.svg",
+        "image": f"{SITE}/work/_assets/identity/{trade['slug']}/{slug}-og.png",
+        "logo": f"{SITE}/work/_assets/identity/{trade['slug']}/{slug}-mark.svg",
     }
     return ('<script type="application/ld+json">'
             + json.dumps(data, separators=(",", ":")) + "</script>")
@@ -149,8 +151,11 @@ def patch(page: Path, spec: dict, trade: dict, slug: str, trade_slug: str) -> st
         return (f'{m.group("open")}<span class="gsw-lockup">{mark_inline}'
                 f'<span>{m.group("text")}</span></span></a>')
 
+    # Some brands carry inner markup — a split wordmark in a <span>, or a
+    # decorative element before the name — so the lockup wraps whatever is
+    # inside the anchor rather than insisting on bare text.
     src, n = re.subn(
-        r'(?P<open><a class="brand"[^>]*>)(?P<text>[^<]+)</a>', brand_repl, src)
+        r'(?P<open><a class="brand"[^>]*>)(?P<text>.*?)</a>', brand_repl, src, flags=re.S)
     if not n:
         return "no .brand lockup found"
 
@@ -185,10 +190,11 @@ def main() -> None:
         if not trade:
             print(f"  {trade_slug}: no specs, skipped")
             continue
+        trade = {**trade, "slug": trade_slug}
         out_dir = IDENTITY / trade_slug
         out_dir.mkdir(parents=True, exist_ok=True)
 
-        for slug, spec in trade["builds"].items():
+        for slug, spec in identity_specs.resolved_builds(trade_slug).items():
             (out_dir / f"{slug}-mark.svg").write_text(mark_svg(spec))
             (out_dir / f"{slug}-icon.svg").write_text(favicon_svg(spec))
 

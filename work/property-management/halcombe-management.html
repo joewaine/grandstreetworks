@@ -134,6 +134,8 @@ border-radius:2px}
      and the first content section, with no border of its own: every one of
      these designs owns a different rule weight and ink colour, and a borrowed
      hairline reads as a mistake in about half of them. */
+  .gsw-plate picture { display: block; width: 100%; }
+  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
   .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
   .gsw-plate img {
     display: block;
@@ -144,11 +146,67 @@ border-radius:2px}
   }
   @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
 </style>
+
+<style>
+  /* Recent-work gallery. Everything here is drawn from the properties the build
+     already declares, so the band inherits each design's palette and heading
+     face rather than importing a seventh look. */
+  .gsw-gal { background: #15191D; color: #F0F2F3;
+             padding: clamp(38px, 6vw, 74px) 0; }
+  .gsw-gal-in { max-width: var(--wrap, 1140px); margin: 0 auto; padding: 0 20px; }
+  .gsw-gal-lab { font-size: 13px; letter-spacing: .18em; text-transform: uppercase;
+                 font-weight: 600; color: var(--accent); margin: 0 0 14px; }
+  .gsw-gal h2 { margin: 0; color: inherit; }
+  .gsw-gal-note { color: var(--muted); margin: 14px 0 30px; max-width: 58ch; }
+  .gsw-ba { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px; }
+  .gsw-gal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .gsw-gal figure { margin: 0; position: relative; overflow: hidden;
+                    background: var(--rule, rgba(0,0,0,.1)); }
+  .gsw-gal picture { display: block; }
+  /* height:auto matters — the width/height attributes are a presentational
+     hint, and without this the 1200px hint beats aspect-ratio. */
+  .gsw-gal img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3;
+                 object-fit: cover; transition: transform .5s ease; }
+  .gsw-gal figure:hover img { transform: scale(1.035); }
+  .gsw-gal figcaption { position: absolute; left: 0; bottom: 0;
+                        background: #F0F2F3; color: #15191D;
+                        font-size: 12px; font-weight: 600; letter-spacing: .14em;
+                        text-transform: uppercase; padding: 7px 12px; }
+  @media (max-width: 720px) {
+    .gsw-ba, .gsw-gal-grid { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .gsw-gal img { transition: none; }
+    .gsw-gal figure:hover img { transform: none; }
+  }
+</style>
+<!-- gsw:identity -->
+<link rel="icon" href="../_assets/identity/property-management/halcombe-management-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../_assets/identity/property-management/halcombe-management-icon-180.png">
+<meta name="theme-color" content="#15191D">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Halcombe Management">
+<meta property="og:title" content="Halcombe Management · For owners: 8% management, no hidden fees · Tenant portal →">
+<meta property="og:description" content="The nine o&#x27;clock Sunday call comes to us now.">
+<meta property="og:image" content="https://grandstreetworks.com/work/_assets/identity/property-management/halcombe-management-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"RealEstateAgent","name":"Halcombe Management","description":"For owners: 8% management, no hidden fees \u00b7 Tenant portal \u2192","telephone":"(970) 269-8837","areaServed":"Metro area","image":"https://grandstreetworks.com/work/_assets/identity/property-management/halcombe-management-og.png","logo":"https://grandstreetworks.com/work/_assets/identity/property-management/halcombe-management-mark.svg"}</script>
+
+<style>
+  /* Identity pass. The lockup is the mark plus the wordmark the build already
+     had; the mark is sized in em so it tracks whatever display face this build
+     sets its brand in. */
+  .gsw-lockup { display: inline-flex; align-items: center; gap: .46em; }
+  .gsw-lockup svg { height: 1.16em; width: auto; flex: none; display: block; }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap"><b>For owners:</b> 8% management, no hidden fees · Tenant portal →</div></div>
 <header class="nav"><div class="wrap">
-  <a class="brand" href="#">Halcombe Management</a>
+  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="6" y="6" width="52" height="52" rx="4" fill="#F0F2F3" opacity=".15"/>
+<rect x="6" y="28" width="52" height="10" fill="#D3A03A"/></svg><span>Halcombe Management</span></span></a>
   <a class="btn btn-primary navact" href="#contact">Get an owner proposal</a>
 </div></header>
 <section class="bleed">
@@ -170,7 +228,7 @@ border-radius:2px}
     <nav class="bleedfoot"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
   </div>
 </section>
-<figure class="gsw-plate"><img src="../_assets/hero/property-management/c-keys-handed-over.jpg" alt="Keys handed over, property management" loading="lazy"></figure>
+<figure class="gsw-plate"><picture><source type="image/avif" srcset="../_assets/hero/property-management/c-keys-handed-over-1280.avif 1280w, ../_assets/hero/property-management/c-keys-handed-over-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/property-management/c-keys-handed-over-1280.jpg" width="2560" height="1429" alt="Keys handed over, property management" loading="lazy" decoding="async"></picture></figure>
 
 <section class="sec" id="services"><div class="wrap">
   <p class="kicker">Services</p>
@@ -204,6 +262,9 @@ border-radius:2px}
     <li><h3>Run it</h3><p>You look at the portal when you feel like it. We only contact you for approvals above your threshold and for anything genuinely serious.</p></li>
   </ol>
 </div></section>
+<!-- gsw:gallery -->
+<section class="gsw-gal"><div class="gsw-gal-in"><p class="gsw-gal-lab">Sunday night</p><h2>The call that comes to us.</h2><p class="gsw-gal-note">The van, the plumber and the follow-up. You hear about it on the statement, not at nine on a Sunday.</p><div class="gsw-gal-grid"><figure><picture><source type="image/avif" srcset="../_assets/library/property-management/maintenance-van-640.avif 640w, ../_assets/library/property-management/maintenance-van-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/property-management/maintenance-van-720.jpg" width="1600" height="1200" alt="Maintenance, dispatched" loading="lazy" decoding="async"></picture><figcaption>Maintenance, dispatched</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/property-management/work-order-640.avif 640w, ../_assets/library/property-management/work-order-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/property-management/work-order-720.jpg" width="1600" height="1200" alt="The work order, done" loading="lazy" decoding="async"></picture><figcaption>The work order, done</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/property-management/inspection-640.avif 640w, ../_assets/library/property-management/inspection-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/property-management/inspection-720.jpg" width="1600" height="1200" alt="Inspected" loading="lazy" decoding="async"></picture><figcaption>Inspected</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/property-management/lockbox-640.avif 640w, ../_assets/library/property-management/lockbox-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/property-management/lockbox-720.jpg" width="1600" height="1200" alt="Lockbox, not a phone call" loading="lazy" decoding="async"></picture><figcaption>Lockbox, not a phone call</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/property-management/brick-facade-640.avif 640w, ../_assets/library/property-management/brick-facade-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/property-management/brick-facade-720.jpg" width="1600" height="1200" alt="The asset" loading="lazy" decoding="async"></picture><figcaption>The asset</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/property-management/unit-ready-640.avif 640w, ../_assets/library/property-management/unit-ready-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/property-management/unit-ready-720.jpg" width="1600" height="1200" alt="Ready to let" loading="lazy" decoding="async"></picture><figcaption>Ready to let</figcaption></figure></div></div></section>
+<!-- /gsw:gallery -->
 <section class="close" id="contact"><div class="wrap">
   <h2>Own rentals and manage them yourself?</h2>
   <p>Send us the addresses and we'll come back with what we'd charge and what we think the units should be renting for. No meeting required to get the number.</p>
@@ -214,10 +275,51 @@ border-radius:2px}
   <p class="note">Tenants: use the tenant portal for maintenance requests and rent payments.</p>
 </div></section>
 <footer class="foot"><div class="wrap">
-  <a class="brand" href="#">Halcombe Management</a>
+  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="6" y="6" width="52" height="52" rx="4" fill="#F0F2F3" opacity=".15"/>
+<rect x="6" y="28" width="52" height="10" fill="#D3A03A"/></svg><span>Halcombe Management</span></span></a>
   <p><a class="num">(970) 269-8837</a> · Licensed brokerage · NARPM member · Equal Housing Opportunity</p>
   <p>7327 Pardon Road Floor 2, Northfields, CT 19959</p>
 </div></footer>
 <div class="callbar"><a class="go" href="#contact">Get an owner proposal</a><a class="tel">(970) 269-8837</a></div>
+<!-- gsw:motion -->
+<style>
+  /* Motion pass. Everything here is gated on .gsw-m, which only the script
+     below adds, so a page without JavaScript never hides anything. */
+  .gsw-m [data-gsw-reveal] {
+    opacity: 0; transform: translateY(14px);
+    transition: opacity .7s cubic-bezier(.2,.6,.2,1), transform .7s cubic-bezier(.2,.6,.2,1);
+  }
+  .gsw-m [data-gsw-reveal].gsw-in { opacity: 1; transform: none; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(2) { transition-delay: .08s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(3) { transition-delay: .16s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(4) { transition-delay: .24s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(5) { transition-delay: .32s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(6) { transition-delay: .40s; }
+  @keyframes gsw-hero-in { from { opacity: 0; transform: scale(1.025); } to { opacity: 1; transform: none; } }
+  .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: gsw-hero-in 1s ease-out both; }
+  @media (prefers-reduced-motion: reduce) {
+    .gsw-m [data-gsw-reveal] { opacity: 1; transform: none; transition: none; }
+    .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: none; }
+  }
+</style>
+<script>
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  var targets = [].slice.call(document.querySelectorAll('body > section, .gsw-gal figure'));
+  // The first section is the hero; it is on screen already and owns its own entrance.
+  var first = document.querySelector('body > section');
+  targets = targets.filter(function (el) { return el !== first; });
+  if (!targets.length) return;
+  document.documentElement.classList.add('gsw-m');
+  targets.forEach(function (el) { el.setAttribute('data-gsw-reveal', ''); });
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('gsw-in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+  targets.forEach(function (el) { io.observe(el); });
+})();
+</script>
+<!-- /gsw:motion -->
 </body>
 </html>

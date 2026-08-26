@@ -133,11 +133,67 @@ font-family:"Recursive",system-ui,sans-serif}
   }
   @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
 </style>
+
+<style>
+  /* Recent-work gallery. Everything here is drawn from the properties the build
+     already declares, so the band inherits each design's palette and heading
+     face rather than importing a seventh look. */
+  .gsw-gal { background: #FBF6EC; color: #1E2A2E;
+             padding: clamp(38px, 6vw, 74px) 0; }
+  .gsw-gal-in { max-width: var(--wrap, 1140px); margin: 0 auto; padding: 0 20px; }
+  .gsw-gal-lab { font-size: 13px; letter-spacing: .18em; text-transform: uppercase;
+                 font-weight: 600; color: var(--accent); margin: 0 0 14px; }
+  .gsw-gal h2 { margin: 0; color: inherit; }
+  .gsw-gal-note { color: var(--muted); margin: 14px 0 30px; max-width: 58ch; }
+  .gsw-ba { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px; }
+  .gsw-gal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .gsw-gal figure { margin: 0; position: relative; overflow: hidden;
+                    background: var(--rule, rgba(0,0,0,.1)); }
+  .gsw-gal picture { display: block; }
+  /* height:auto matters — the width/height attributes are a presentational
+     hint, and without this the 1200px hint beats aspect-ratio. */
+  .gsw-gal img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3;
+                 object-fit: cover; transition: transform .5s ease; }
+  .gsw-gal figure:hover img { transform: scale(1.035); }
+  .gsw-gal figcaption { position: absolute; left: 0; bottom: 0;
+                        background: #1E2A2E; color: #FBF6EC;
+                        font-size: 12px; font-weight: 600; letter-spacing: .14em;
+                        text-transform: uppercase; padding: 7px 12px; }
+  @media (max-width: 720px) {
+    .gsw-ba, .gsw-gal-grid { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .gsw-gal img { transition: none; }
+    .gsw-gal figure:hover img { transform: none; }
+  }
+</style>
+<!-- gsw:identity -->
+<link rel="icon" href="../_assets/identity/veterinary/beckett-animal-care-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../_assets/identity/veterinary/beckett-animal-care-icon-180.png">
+<meta name="theme-color" content="#1E2A2E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Beckett Animal Care">
+<meta property="og:title" content="Beckett Animal Care · ✓ Accepting new patients · Online booking · Saturday hours">
+<meta property="og:description" content="Prices for the ordinary things, printed here.">
+<meta property="og:image" content="https://grandstreetworks.com/work/_assets/identity/veterinary/beckett-animal-care-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VeterinaryCare","name":"Beckett Animal Care","description":"\u2713 Accepting new patients \u00b7 Online booking \u00b7 Saturday hours","telephone":"(210) 604-1163","areaServed":"Metro area","image":"https://grandstreetworks.com/work/_assets/identity/veterinary/beckett-animal-care-og.png","logo":"https://grandstreetworks.com/work/_assets/identity/veterinary/beckett-animal-care-mark.svg"}</script>
+
+<style>
+  /* Identity pass. The lockup is the mark plus the wordmark the build already
+     had; the mark is sized in em so it tracks whatever display face this build
+     sets its brand in. */
+  .gsw-lockup { display: inline-flex; align-items: center; gap: .46em; }
+  .gsw-lockup svg { height: 1.16em; width: auto; flex: none; display: block; }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap">✓ Accepting new patients · Online booking · Saturday hours</div></div>
 <header class="nav"><div class="wrap"><div class="navrow">
-  <a class="brand" href="#">Beckett Animal Care</a>
+  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="16" y="6" width="32" height="52" rx="3" fill="#2C6270"/>
+<rect x="22" y="20" width="20" height="6" fill="#FBF6EC"/><rect x="22" y="32" width="14" height="6" fill="#FBF6EC"/></svg><span>Beckett Animal Care</span></span></a>
   <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
   <a class="btn btn-primary navact" href="#contact">Book online</a>
 </div></div></header>
@@ -189,6 +245,9 @@ font-family:"Recursive",system-ui,sans-serif}
     <li><h3>Stay in touch</h3><p>Reminders when things are due, refills online, and a direct line for the questions that feel too small to phone about.</p></li>
   </ol>
 </div></section>
+<!-- gsw:gallery -->
+<section class="gsw-gal"><div class="gsw-gal-in"><p class="gsw-gal-lab">Priced on the page</p><h2>The ordinary things, and where they happen.</h2><p class="gsw-gal-note">Vaccinations, dental, the puppy visit. The rooms the prices at the top refer to.</p><div class="gsw-gal-grid"><figure><picture><source type="image/avif" srcset="../_assets/library/veterinary/exam-table-640.avif 640w, ../_assets/library/veterinary/exam-table-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/veterinary/exam-table-720.jpg" width="1600" height="1200" alt="The exam room" loading="lazy" decoding="async"></picture><figcaption>The exam room</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/veterinary/dental-640.avif 640w, ../_assets/library/veterinary/dental-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/veterinary/dental-720.jpg" width="1600" height="1200" alt="Dental" loading="lazy" decoding="async"></picture><figcaption>Dental</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/veterinary/puppy-visit-640.avif 640w, ../_assets/library/veterinary/puppy-visit-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/veterinary/puppy-visit-720.jpg" width="1600" height="1200" alt="Puppy visit" loading="lazy" decoding="async"></picture><figcaption>Puppy visit</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/veterinary/lab-640.avif 640w, ../_assets/library/veterinary/lab-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/veterinary/lab-720.jpg" width="1600" height="1200" alt="Lab, results the same visit" loading="lazy" decoding="async"></picture><figcaption>Lab, results the same visit</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/veterinary/reception-640.avif 640w, ../_assets/library/veterinary/reception-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/veterinary/reception-720.jpg" width="1600" height="1200" alt="Reception" loading="lazy" decoding="async"></picture><figcaption>Reception</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/veterinary/pharmacy-640.avif 640w, ../_assets/library/veterinary/pharmacy-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/veterinary/pharmacy-720.jpg" width="1600" height="1200" alt="Pharmacy and refills" loading="lazy" decoding="async"></picture><figcaption>Pharmacy and refills</figcaption></figure></div></div></section>
+<!-- /gsw:gallery -->
 <section class="close" id="contact"><div class="wrap">
   <h2>New here, or need a vet today?</h2>
   <p>Accepting new patients, same-day sick slots held daily, and the routine prices published so there is no surprise at the desk.</p>
@@ -199,11 +258,52 @@ font-family:"Recursive",system-ui,sans-serif}
   <p class="note">Emergencies after hours: call and our recording routes you to the on-call emergency hospital.</p>
 </div></section>
 <footer class="foot"><div class="wrap">
-  <a class="brand" href="#">Beckett Animal Care</a>
+  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="16" y="6" width="32" height="52" rx="3" fill="#2C6270"/>
+<rect x="22" y="20" width="20" height="6" fill="#FBF6EC"/><rect x="22" y="32" width="14" height="6" fill="#FBF6EC"/></svg><span>Beckett Animal Care</span></span></a>
   <p><a>(210) 604-1163</a> · AAHA accredited · Accepting new patients · Saturday appointments</p>
   <p>AAHA Accredited · Fear Free Certified · AVMA Member · Cat Friendly Practice</p>
   <p>8426 Orchard Row Suite 200, Ashford Green, NJ 13396</p>
 </div></footer>
 <div class="callbar"><a class="book" href="#contact">Book online</a><a class="tel">(210) 604-1163</a></div>
+<!-- gsw:motion -->
+<style>
+  /* Motion pass. Everything here is gated on .gsw-m, which only the script
+     below adds, so a page without JavaScript never hides anything. */
+  .gsw-m [data-gsw-reveal] {
+    opacity: 0; transform: translateY(14px);
+    transition: opacity .7s cubic-bezier(.2,.6,.2,1), transform .7s cubic-bezier(.2,.6,.2,1);
+  }
+  .gsw-m [data-gsw-reveal].gsw-in { opacity: 1; transform: none; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(2) { transition-delay: .08s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(3) { transition-delay: .16s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(4) { transition-delay: .24s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(5) { transition-delay: .32s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(6) { transition-delay: .40s; }
+  @keyframes gsw-hero-in { from { opacity: 0; transform: scale(1.025); } to { opacity: 1; transform: none; } }
+  .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: gsw-hero-in 1s ease-out both; }
+  @media (prefers-reduced-motion: reduce) {
+    .gsw-m [data-gsw-reveal] { opacity: 1; transform: none; transition: none; }
+    .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: none; }
+  }
+</style>
+<script>
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  var targets = [].slice.call(document.querySelectorAll('body > section, .gsw-gal figure'));
+  // The first section is the hero; it is on screen already and owns its own entrance.
+  var first = document.querySelector('body > section');
+  targets = targets.filter(function (el) { return el !== first; });
+  if (!targets.length) return;
+  document.documentElement.classList.add('gsw-m');
+  targets.forEach(function (el) { el.setAttribute('data-gsw-reveal', ''); });
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('gsw-in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+  targets.forEach(function (el) { io.observe(el); });
+})();
+</script>
+<!-- /gsw:motion -->
 </body>
 </html>

@@ -53,6 +53,16 @@ SETS = {
                     "honest way to show one.",
             "caption": "Staining and tartar removed, gap closed, teeth whitened"},
         "belmont-smile-design": {
+            # D2 is "THE PREVIEW ONE" and puts a CSS mock of the preview beside
+            # the headline: .pv-frame is a 5:3 card split down the middle with
+            # eight tooth shapes flipping colour across the divider. Same
+            # situation as Fairmont — the build drew the component it wanted.
+            "placement": "hero",
+            "stand_in": r'<div class="pv-frame"[^>]*>.*?</div>\s*</div>',
+            "wrap": ('<div class="pv-frame">', '</div>'),
+            "restore": ('<div class="pv-frame" aria-hidden="true"><i></i><div class="arc">'
+                        + "<s></s>" * 8 + '</div></div>'),
+            "herocap": False,
             "pair": "c", "label": "Before we start",
             "heading": "The preview is the product.",
             "note": "You approve the result on screen before a single tooth is prepared. "
@@ -207,16 +217,23 @@ def section(trade: str, spec: dict) -> str:
 
 def patch(page: Path, trade: str, spec: dict, replace: bool) -> str:
     src = page.read_text()
+    hero = spec.get("placement") == "hero"
+    # Each hero build names the stand-in it drew, how to wrap the real frame in
+    # its place, and what to put back if the slider is ever removed.
+    stand_in_re = spec.get("stand_in", r'<div class="preview"[^>]*>.*?</div>\s*</div>')
+    wrap_open, wrap_close = spec.get("wrap", ('<div class="preview">', '</div>'))
+    restore = spec.get("restore", '<div class="preview" aria-hidden="true"><div></div></div>')
+
     if MARKER in src:
         if not replace:
             return "already has a comparison slider"
+        # A hero block sits where the stand-in was, so it is swapped for the
+        # stand-in in place; a band is simply removed.
+        hole = "\x00gsw-hole\x00"
         src = re.sub(re.escape(MARKER) + r".*?" + re.escape(END_MARKER) + r"\n?",
-                     "", src, flags=re.S)
-        # A hero placement consumed the stand-in; put a bare card back so the
-        # replacement below has something to match.
-        if spec.get("placement") == "hero" and '<div class="preview"' not in src:
-            src = src.replace("</div></section>",
-                              '<div class="preview" aria-hidden="true"></div>\n</div></section>', 1)
+                     hole, src, flags=re.S)
+        needs_restore = hero and not re.search(stand_in_re, src.replace(hole, ""), re.S)
+        src = src.replace(hole, restore if needs_restore else "")
         src = re.sub(r"\n<style>\n  /\* Before/after comparison\..*?</style>", "",
                      src, flags=re.S)
         src = re.sub(r"\n<script>\n/\* One listener per frame\..*?</script>", "",
@@ -224,15 +241,16 @@ def patch(page: Path, trade: str, spec: dict, replace: bool) -> str:
 
     src = src.replace("</head>", CSS + "\n</head>", 1)
 
-    if spec.get("placement") == "hero":
-        stand_in = re.search(r'<div class="preview"[^>]*>.*?</div>\s*</div>', src, re.S)
+    if hero:
+        stand_in = re.search(stand_in_re, src, re.S)
         if not stand_in:
-            return "no .preview stand-in found"
+            return "no hero stand-in found"
         # Keep the card (radius, border, shadow) and fill it with the real thing.
         # The match ends on the stand-in's own closing tag, so nothing is re-added.
-        replacement = (f'{MARKER}<div class="preview">{frame(trade, spec, inset=True)}</div>'
-                       f'<p class="gsw-cmp-herocap">{html.escape(spec["caption"])}</p>'
-                       f'{END_MARKER}')
+        cap = (f'<p class="gsw-cmp-herocap">{html.escape(spec["caption"])}</p>'
+               if spec.get("herocap", True) else "")
+        replacement = (f'{MARKER}{wrap_open}{frame(trade, spec, inset=True)}{wrap_close}'
+                       f'{cap}{END_MARKER}')
         src = src[:stand_in.start()] + replacement + src[stand_in.end():]
         src = src.replace("</body>", SCRIPT + "\n</body>", 1)
         page.write_text(src)

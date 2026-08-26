@@ -125,6 +125,8 @@ font-weight:600;font-size:15px;text-align:center;line-height:1.15;padding:0 12px
      and the first content section, with no border of its own: every one of
      these designs owns a different rule weight and ink colour, and a borrowed
      hairline reads as a mistake in about half of them. */
+  .gsw-plate picture { display: block; width: 100%; }
+  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
   .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
   .gsw-plate img {
     display: block;
@@ -135,11 +137,67 @@ font-weight:600;font-size:15px;text-align:center;line-height:1.15;padding:0 12px
   }
   @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
 </style>
+
+<style>
+  /* Recent-work gallery. Everything here is drawn from the properties the build
+     already declares, so the band inherits each design's palette and heading
+     face rather than importing a seventh look. */
+  .gsw-gal { background: #0A0A0B; color: #F3F4EE;
+             padding: clamp(38px, 6vw, 74px) 0; }
+  .gsw-gal-in { max-width: var(--wrap, 1140px); margin: 0 auto; padding: 0 20px; }
+  .gsw-gal-lab { font-size: 13px; letter-spacing: .18em; text-transform: uppercase;
+                 font-weight: 600; color: var(--accent); margin: 0 0 14px; }
+  .gsw-gal h2 { margin: 0; color: inherit; }
+  .gsw-gal-note { color: var(--muted); margin: 14px 0 30px; max-width: 58ch; }
+  .gsw-ba { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px; }
+  .gsw-gal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .gsw-gal figure { margin: 0; position: relative; overflow: hidden;
+                    background: var(--rule, rgba(0,0,0,.1)); }
+  .gsw-gal picture { display: block; }
+  /* height:auto matters — the width/height attributes are a presentational
+     hint, and without this the 1200px hint beats aspect-ratio. */
+  .gsw-gal img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3;
+                 object-fit: cover; transition: transform .5s ease; }
+  .gsw-gal figure:hover img { transform: scale(1.035); }
+  .gsw-gal figcaption { position: absolute; left: 0; bottom: 0;
+                        background: #F3F4EE; color: #0A0A0B;
+                        font-size: 12px; font-weight: 600; letter-spacing: .14em;
+                        text-transform: uppercase; padding: 7px 12px; }
+  @media (max-width: 720px) {
+    .gsw-ba, .gsw-gal-grid { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .gsw-gal img { transition: none; }
+    .gsw-gal figure:hover img { transform: none; }
+  }
+</style>
+<!-- gsw:identity -->
+<link rel="icon" href="../_assets/identity/recruiting/brandt-yates-recruitment-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../_assets/identity/recruiting/brandt-yates-recruitment-icon-180.png">
+<meta name="theme-color" content="#0A0A0B">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Brandt Yates Recruitment">
+<meta property="og:title" content="Brandt Yates Recruitment · Specialist search: manufacturing &amp; industrial engineering">
+<meta property="og:description" content="Four candidates. Not a stack of twelve.">
+<meta property="og:image" content="https://grandstreetworks.com/work/_assets/identity/recruiting/brandt-yates-recruitment-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"EmploymentAgency","name":"Brandt Yates Recruitment","description":"Specialist search: manufacturing & industrial engineering","telephone":"(316) 803-4417","areaServed":"Metro area","image":"https://grandstreetworks.com/work/_assets/identity/recruiting/brandt-yates-recruitment-og.png","logo":"https://grandstreetworks.com/work/_assets/identity/recruiting/brandt-yates-recruitment-mark.svg"}</script>
+
+<style>
+  /* Identity pass. The lockup is the mark plus the wordmark the build already
+     had; the mark is sized in em so it tracks whatever display face this build
+     sets its brand in. */
+  .gsw-lockup { display: inline-flex; align-items: center; gap: .46em; }
+  .gsw-lockup svg { height: 1.16em; width: auto; flex: none; display: block; }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap">Specialist search: manufacturing &amp; industrial engineering</div></div>
 <header class="nav"><div class="wrap">
-  <a class="brand" href="#">Brandt Yates Recruitment</a>
+  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="16" cy="22" r="9" fill="#CCFF00"/><circle cx="48" cy="22" r="9" fill="#CCFF00"/>
+<circle cx="16" cy="44" r="9" fill="#CCFF00"/><circle cx="48" cy="44" r="9" fill="#CCFF00"/></svg><span>Brandt Yates Recruitment</span></span></a>
   <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
   <a class="btn btn-primary navact" href="#roles">See open roles</a>
 </div></header>
@@ -153,7 +211,7 @@ font-weight:600;font-size:15px;text-align:center;line-height:1.15;padding:0 12px
   </div>
   <ul class="badges"><li>Salary bands on every role</li><li>One-tap apply</li><li>One sector only</li><li>90-day placement guarantee</li></ul>
 </div></section>
-<figure class="gsw-plate"><img src="../_assets/hero/recruiting/d-steel-macro.jpg" alt="Steel macro, recruiting" loading="lazy"></figure>
+<figure class="gsw-plate"><picture><source type="image/avif" srcset="../_assets/hero/recruiting/d-steel-macro-1280.avif 1280w, ../_assets/hero/recruiting/d-steel-macro-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/recruiting/d-steel-macro-1280.jpg" width="2560" height="1429" alt="Steel macro, recruiting" loading="lazy" decoding="async"></picture></figure>
 
 <section class="roles" id="roles"><div class="wrap">
   <p class="rlabel">Salary bands on every role</p>
@@ -190,6 +248,9 @@ font-weight:600;font-size:15px;text-align:center;line-height:1.15;padding:0 12px
     <li><div><h3>Offer &amp; aftercare</h3><p>We manage the offer, the counter-offer and the resignation. We check in at 30, 60 and 90 days, which is when placements actually fail.</p></div></li>
   </ol>
 </div></section>
+<!-- gsw:gallery -->
+<section class="gsw-gal"><div class="gsw-gal-in"><p class="gsw-gal-lab">Four, not twelve</p><h2>The kind of floor the four have worked.</h2><p class="gsw-gal-note">Every shortlist comes from people who have stood on a floor like this one. That is why it is four names and not a stack.</p><div class="gsw-gal-grid"><figure><picture><source type="image/avif" srcset="../_assets/library/recruiting/shop-floor-640.avif 640w, ../_assets/library/recruiting/shop-floor-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/recruiting/shop-floor-720.jpg" width="1600" height="1200" alt="The floor" loading="lazy" decoding="async"></picture><figcaption>The floor</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/recruiting/control-panel-640.avif 640w, ../_assets/library/recruiting/control-panel-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/recruiting/control-panel-720.jpg" width="1600" height="1200" alt="At the panel" loading="lazy" decoding="async"></picture><figcaption>At the panel</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/recruiting/welding-640.avif 640w, ../_assets/library/recruiting/welding-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/recruiting/welding-720.jpg" width="1600" height="1200" alt="Second shift" loading="lazy" decoding="async"></picture><figcaption>Second shift</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/recruiting/precision-parts-640.avif 640w, ../_assets/library/recruiting/precision-parts-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/recruiting/precision-parts-720.jpg" width="1600" height="1200" alt="Precision parts" loading="lazy" decoding="async"></picture><figcaption>Precision parts</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/recruiting/plant-exterior-640.avif 640w, ../_assets/library/recruiting/plant-exterior-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/recruiting/plant-exterior-720.jpg" width="1600" height="1200" alt="Shift change" loading="lazy" decoding="async"></picture><figcaption>Shift change</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/recruiting/interview-room-640.avif 640w, ../_assets/library/recruiting/interview-room-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/recruiting/interview-room-720.jpg" width="1600" height="1200" alt="The interview" loading="lazy" decoding="async"></picture><figcaption>The interview</figcaption></figure></div></div></section>
+<!-- /gsw:gallery -->
 <section class="close" id="contact"><div class="wrap">
   <h2>Hiring, or quietly looking?</h2>
   <p>Either conversation is confidential and neither commits you to anything. Candidates: we'll tell you what you're worth right now even if you don't move.</p>
@@ -200,11 +261,52 @@ font-weight:600;font-size:15px;text-align:center;line-height:1.15;padding:0 12px
   <p class="note">20% contingent, 90-day replacement guarantee. Retained terms available for leadership roles.</p>
 </div></section>
 <footer class="foot"><div class="wrap">
-  <a class="brand" href="#">Brandt Yates Recruitment</a>
+  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="16" cy="22" r="9" fill="#CCFF00"/><circle cx="48" cy="22" r="9" fill="#CCFF00"/>
+<circle cx="16" cy="44" r="9" fill="#CCFF00"/><circle cx="48" cy="44" r="9" fill="#CCFF00"/></svg><span>Brandt Yates Recruitment</span></span></a>
   <p><a>(316) 803-4417</a></p>
   <p>Specialist search in manufacturing &amp; industrial engineering · Est. 2014</p>
   <p>8051 Thistle Lane Floor 2, Riverbend, NY 13188</p>
 </div></footer>
 <div class="callbar"><a class="go" href="#roles">See open roles</a><a class="tel">(316) 803-4417</a></div>
+<!-- gsw:motion -->
+<style>
+  /* Motion pass. Everything here is gated on .gsw-m, which only the script
+     below adds, so a page without JavaScript never hides anything. */
+  .gsw-m [data-gsw-reveal] {
+    opacity: 0; transform: translateY(14px);
+    transition: opacity .7s cubic-bezier(.2,.6,.2,1), transform .7s cubic-bezier(.2,.6,.2,1);
+  }
+  .gsw-m [data-gsw-reveal].gsw-in { opacity: 1; transform: none; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(2) { transition-delay: .08s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(3) { transition-delay: .16s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(4) { transition-delay: .24s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(5) { transition-delay: .32s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(6) { transition-delay: .40s; }
+  @keyframes gsw-hero-in { from { opacity: 0; transform: scale(1.025); } to { opacity: 1; transform: none; } }
+  .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: gsw-hero-in 1s ease-out both; }
+  @media (prefers-reduced-motion: reduce) {
+    .gsw-m [data-gsw-reveal] { opacity: 1; transform: none; transition: none; }
+    .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: none; }
+  }
+</style>
+<script>
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  var targets = [].slice.call(document.querySelectorAll('body > section, .gsw-gal figure'));
+  // The first section is the hero; it is on screen already and owns its own entrance.
+  var first = document.querySelector('body > section');
+  targets = targets.filter(function (el) { return el !== first; });
+  if (!targets.length) return;
+  document.documentElement.classList.add('gsw-m');
+  targets.forEach(function (el) { el.setAttribute('data-gsw-reveal', ''); });
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('gsw-in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+  targets.forEach(function (el) { io.observe(el); });
+})();
+</script>
+<!-- /gsw:motion -->
 </body>
 </html>

@@ -217,8 +217,7 @@ def swatch(accent, trade_slug=None, build_slug=None):
     shows it, on the page a prospect actually lands on. Falls back to the
     harness accent chip for trades the identity pass has not reached yet.
     """
-    spec = (identity_specs.BUILDS.get(trade_slug, {})
-            .get("builds", {}).get(build_slug)) if trade_slug else None
+    spec = identity_specs.resolve(trade_slug, build_slug) if trade_slug else None
     if spec:
         mark = identity_specs.mark_svg(spec).replace(
             "<svg ", '<svg class="sw sw-mark" aria-hidden="true" ', 1)

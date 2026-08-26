@@ -165,12 +165,12 @@ Deliberately no border on the plate. These designs each own a different rule
 weight and ink colour, and a borrowed hairline reads as a mistake in about half
 of them.
 
-### The finish pass (roofing so far)
+### The finish pass (all nineteen CSS-only trades)
 
 The first photography pass shipped one 1600px JPEG per build. Full-bleed, that
 is about 0.55x density on a retina desktop — soft before anyone judges the
 composition — and one photograph is a placeholder pattern rather than a
-finished site. `06-roofing` is the pilot for the pass that fixes both:
+finished site. `06-roofing` was the pilot for the pass that fixes both; on 2026-08-26 it was rolled across all nineteen CSS-only trades (personal-injury has no high-resolution source and stays as it is). Per trade:
 
     python3 tools/build-responsive-images.py roofing            # AVIF/JPEG ladder
     python3 tools/wire-responsive-images.py  roofing            # <picture> in the builds
@@ -199,7 +199,7 @@ declares — colour from the custom properties every build already defines, type
 from using a real `<h2>`, so the dark build gets a dark band with no special
 case. Each build shows a different three tiles.
 
-Roofing costs 4.5MB on disk all in, which is about 88MB across twenty trades.
+All nineteen CSS-only trades carry the full pass as of 2026-08-26: `work/_assets` is 82MB (hero 45MB, library 29MB, identity 6MB).
 
 It parses the direction names, the FIX each one answers, the axis picks and the
 accent swatch out of the demo harness's own index pages in
@@ -207,6 +207,13 @@ accent swatch out of the demo harness's own index pages in
 the harness format, never the page it last wrote, so running it twice is a no-op.
 It is a maintenance tool, **not** a build step — Render still publishes the repo
 exactly as committed.
+
+### Motion
+
+`tools/build-motion.py` adds a once-only scroll reveal on sections and gallery
+tiles and a fade-in on the hero plate. Gated on a class the script adds, so
+without JavaScript nothing is hidden; off under `prefers-reduced-motion`.
+Idempotent; `--replace` to regenerate.
 
 ## Look and feel
 

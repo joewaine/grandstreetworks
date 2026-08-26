@@ -140,6 +140,8 @@ padding:28px 14px}
   /* Hero backdrop. The photograph sits behind the hero's own composition; the
      scrim below is the design's own background colour, so nothing about the
      contrast the layout was built with changes. */
+  .gsw-plate picture { display: block; width: 100%; }
+  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
   .gsw-imaged { position: relative; isolation: isolate; overflow: hidden; }
   .gsw-imaged > *:not(.gsw-backdrop) { position: relative; z-index: 1; }
   .gsw-backdrop { position: absolute; inset: 0; z-index: 0; }
@@ -153,15 +155,71 @@ padding:28px 14px}
   @media (forced-colors: active) { .gsw-backdrop { display: none; } }
   @media print { .gsw-backdrop { display: none; } }
 </style>
+
+<style>
+  /* Recent-work gallery. Everything here is drawn from the properties the build
+     already declares, so the band inherits each design's palette and heading
+     face rather than importing a seventh look. */
+  .gsw-gal { background: #F6F4EF; color: #121614;
+             padding: clamp(38px, 6vw, 74px) 0; }
+  .gsw-gal-in { max-width: var(--wrap, 1140px); margin: 0 auto; padding: 0 20px; }
+  .gsw-gal-lab { font-size: 13px; letter-spacing: .18em; text-transform: uppercase;
+                 font-weight: 600; color: var(--accent); margin: 0 0 14px; }
+  .gsw-gal h2 { margin: 0; color: inherit; }
+  .gsw-gal-note { color: var(--muted); margin: 14px 0 30px; max-width: 58ch; }
+  .gsw-ba { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px; }
+  .gsw-gal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .gsw-gal figure { margin: 0; position: relative; overflow: hidden;
+                    background: var(--rule, rgba(0,0,0,.1)); }
+  .gsw-gal picture { display: block; }
+  /* height:auto matters — the width/height attributes are a presentational
+     hint, and without this the 1200px hint beats aspect-ratio. */
+  .gsw-gal img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3;
+                 object-fit: cover; transition: transform .5s ease; }
+  .gsw-gal figure:hover img { transform: scale(1.035); }
+  .gsw-gal figcaption { position: absolute; left: 0; bottom: 0;
+                        background: #121614; color: #F6F4EF;
+                        font-size: 12px; font-weight: 600; letter-spacing: .14em;
+                        text-transform: uppercase; padding: 7px 12px; }
+  @media (max-width: 720px) {
+    .gsw-ba, .gsw-gal-grid { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .gsw-gal img { transition: none; }
+    .gsw-gal figure:hover img { transform: none; }
+  }
+</style>
+<!-- gsw:identity -->
+<link rel="icon" href="../_assets/identity/luxury-real-estate/ashcroft-residential-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../_assets/identity/luxury-real-estate/ashcroft-residential-icon-180.png">
+<meta name="theme-color" content="#121614">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ashcroft Residential">
+<meta property="og:title" content="Ashcroft Residential · Private client services · Now recruiting producing agents">
+<meta property="og:description" content="Sold quietly, before it was ever listed.">
+<meta property="og:image" content="https://grandstreetworks.com/work/_assets/identity/luxury-real-estate/ashcroft-residential-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"RealEstateAgent","name":"Ashcroft Residential","description":"Private client services \u00b7 Now recruiting producing agents","telephone":"(765) 636-6649","areaServed":"Metro area","image":"https://grandstreetworks.com/work/_assets/identity/luxury-real-estate/ashcroft-residential-og.png","logo":"https://grandstreetworks.com/work/_assets/identity/luxury-real-estate/ashcroft-residential-mark.svg"}</script>
+
+<style>
+  /* Identity pass. The lockup is the mark plus the wordmark the build already
+     had; the mark is sized in em so it tracks whatever display face this build
+     sets its brand in. */
+  .gsw-lockup { display: inline-flex; align-items: center; gap: .46em; }
+  .gsw-lockup svg { height: 1.16em; width: auto; flex: none; display: block; }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap">Private client services · Now recruiting producing agents</div></div>
 <header class="nav"><div class="wrap">
-  <a class="brand" href="#">Ashcroft Residential</a>
+  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="18" y="6" width="28" height="52" fill="#14494E"/>
+<circle cx="39" cy="34" r="3" fill="#F6F4EF"/></svg><span>Ashcroft Residential</span></span></a>
   <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
   <a class="btn navact" href="#contact">Request a valuation</a>
 </div></header>
-<section class="gsw-imaged hero"><div class="gsw-backdrop" aria-hidden="true"><img src="../_assets/hero/luxury-real-estate/a-more-than-six-photographs.jpg" alt="" loading="eager"></div><div class="wrap"><div class="split">
+<section class="gsw-imaged hero"><div class="gsw-backdrop" aria-hidden="true"><picture><source type="image/avif" srcset="../_assets/hero/luxury-real-estate/a-more-than-six-photographs-1280.avif 1280w, ../_assets/hero/luxury-real-estate/a-more-than-six-photographs-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/luxury-real-estate/a-more-than-six-photographs-1280.jpg" width="2560" height="1429" alt="" loading="eager" fetchpriority="high" decoding="async"></picture></div><div class="wrap"><div class="split">
   <div>
     <p class="eyebrow">Estates &amp; architectural properties</p>
     <h1>Sold quietly, before it was ever listed.</h1>
@@ -206,6 +264,9 @@ padding:28px 14px}
     <li><span class="sn">04</span><h3>Negotiate &amp; close</h3><p>Qualified buyers only, and we manage inspection and appraisal so the deal survives to closing.</p></li>
   </ol>
 </div></section>
+<!-- gsw:gallery -->
+<section class="gsw-gal"><div class="gsw-gal-in"><p class="gsw-gal-lab">Sold quietly</p><h2>Never listed. Photographed anyway.</h2><p class="gsw-gal-note">Every one of these changed hands without a portal listing. The photography was for the four buyers who saw it, not the four thousand.</p><div class="gsw-gal-grid"><figure><picture><source type="image/avif" srcset="../_assets/library/luxury-real-estate/threshold-640.avif 640w, ../_assets/library/luxury-real-estate/threshold-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/luxury-real-estate/threshold-720.jpg" width="1600" height="1200" alt="The threshold" loading="lazy" decoding="async"></picture><figcaption>The threshold</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/luxury-real-estate/library-room-640.avif 640w, ../_assets/library/luxury-real-estate/library-room-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/luxury-real-estate/library-room-720.jpg" width="1600" height="1200" alt="The study" loading="lazy" decoding="async"></picture><figcaption>The study</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/luxury-real-estate/garden-path-640.avif 640w, ../_assets/library/luxury-real-estate/garden-path-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/luxury-real-estate/garden-path-720.jpg" width="1600" height="1200" alt="The garden" loading="lazy" decoding="async"></picture><figcaption>The garden</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/luxury-real-estate/entry-hall-640.avif 640w, ../_assets/library/luxury-real-estate/entry-hall-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/luxury-real-estate/entry-hall-720.jpg" width="1600" height="1200" alt="The entry" loading="lazy" decoding="async"></picture><figcaption>The entry</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/luxury-real-estate/twilight-facade-640.avif 640w, ../_assets/library/luxury-real-estate/twilight-facade-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/luxury-real-estate/twilight-facade-720.jpg" width="1600" height="1200" alt="Twilight, from the drive" loading="lazy" decoding="async"></picture><figcaption>Twilight, from the drive</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/luxury-real-estate/bathroom-640.avif 640w, ../_assets/library/luxury-real-estate/bathroom-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/luxury-real-estate/bathroom-720.jpg" width="1600" height="1200" alt="Principal bath" loading="lazy" decoding="async"></picture><figcaption>Principal bath</figcaption></figure></div></div></section>
+<!-- /gsw:gallery -->
 <section class="close" id="contact"><div class="wrap">
   <h2>Selling, buying, or thinking about your next move?</h2>
   <p>A valuation conversation commits you to nothing and is genuinely useful even if you decide to stay put for another five years.</p>
@@ -216,11 +277,52 @@ padding:28px 14px}
   <p class="note">Producing agents: ask about our marketing production and split structure.</p>
 </div></section>
 <footer class="foot"><div class="wrap">
-  <a class="brand" href="#">Ashcroft Residential</a>
+  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="18" y="6" width="28" height="52" fill="#14494E"/>
+<circle cx="39" cy="34" r="3" fill="#F6F4EF"/></svg><span>Ashcroft Residential</span></span></a>
   <p><a>(765) 636-6649</a> · Private client services · Now recruiting producing agents</p>
   <p>Estate &amp; architectural property · Licensed brokerage · Equal Housing Opportunity</p>
   <p>8033 Corbin Road, Fairhill, PA 15005</p>
 </div></footer>
 <div class="callbar"><a class="go" href="#contact">Request a valuation</a><a class="tel">(765) 636-6649</a></div>
+<!-- gsw:motion -->
+<style>
+  /* Motion pass. Everything here is gated on .gsw-m, which only the script
+     below adds, so a page without JavaScript never hides anything. */
+  .gsw-m [data-gsw-reveal] {
+    opacity: 0; transform: translateY(14px);
+    transition: opacity .7s cubic-bezier(.2,.6,.2,1), transform .7s cubic-bezier(.2,.6,.2,1);
+  }
+  .gsw-m [data-gsw-reveal].gsw-in { opacity: 1; transform: none; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(2) { transition-delay: .08s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(3) { transition-delay: .16s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(4) { transition-delay: .24s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(5) { transition-delay: .32s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(6) { transition-delay: .40s; }
+  @keyframes gsw-hero-in { from { opacity: 0; transform: scale(1.025); } to { opacity: 1; transform: none; } }
+  .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: gsw-hero-in 1s ease-out both; }
+  @media (prefers-reduced-motion: reduce) {
+    .gsw-m [data-gsw-reveal] { opacity: 1; transform: none; transition: none; }
+    .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: none; }
+  }
+</style>
+<script>
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  var targets = [].slice.call(document.querySelectorAll('body > section, .gsw-gal figure'));
+  // The first section is the hero; it is on screen already and owns its own entrance.
+  var first = document.querySelector('body > section');
+  targets = targets.filter(function (el) { return el !== first; });
+  if (!targets.length) return;
+  document.documentElement.classList.add('gsw-m');
+  targets.forEach(function (el) { el.setAttribute('data-gsw-reveal', ''); });
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('gsw-in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+  targets.forEach(function (el) { io.observe(el); });
+})();
+</script>
+<!-- /gsw:motion -->
 </body>
 </html>

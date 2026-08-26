@@ -125,6 +125,63 @@ text-decoration:none;font-weight:600;font-size:18px}
 
 
 
+
+<style>
+  /* Recent-work gallery. Everything here is drawn from the properties the build
+     already declares, so the band inherits each design's palette and heading
+     face rather than importing a seventh look. */
+  .gsw-gal { background: #F1EEE7; color: #221F1B;
+             padding: clamp(38px, 6vw, 74px) 0; }
+  .gsw-gal-in { max-width: var(--wrap, 1140px); margin: 0 auto; padding: 0 20px; }
+  .gsw-gal-lab { font-size: 13px; letter-spacing: .18em; text-transform: uppercase;
+                 font-weight: 600; color: var(--accent); margin: 0 0 14px; }
+  .gsw-gal h2 { margin: 0; color: inherit; }
+  .gsw-gal-note { color: var(--muted); margin: 14px 0 30px; max-width: 58ch; }
+  .gsw-ba { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px; }
+  .gsw-gal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .gsw-gal figure { margin: 0; position: relative; overflow: hidden;
+                    background: var(--rule, rgba(0,0,0,.1)); }
+  .gsw-gal picture { display: block; }
+  /* height:auto matters — the width/height attributes are a presentational
+     hint, and without this the 1200px hint beats aspect-ratio. */
+  .gsw-gal img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3;
+                 object-fit: cover; transition: transform .5s ease; }
+  .gsw-gal figure:hover img { transform: scale(1.035); }
+  .gsw-gal figcaption { position: absolute; left: 0; bottom: 0;
+                        background: #221F1B; color: #F1EEE7;
+                        font-size: 12px; font-weight: 600; letter-spacing: .14em;
+                        text-transform: uppercase; padding: 7px 12px; }
+  @media (max-width: 720px) {
+    .gsw-ba, .gsw-gal-grid { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .gsw-gal img { transition: none; }
+    .gsw-gal figure:hover img { transform: none; }
+  }
+</style>
+<!-- gsw:identity -->
+<link rel="icon" href="../_assets/identity/cosmetic-dentists/aldridge-dental-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../_assets/identity/cosmetic-dentists/aldridge-dental-icon-180.png">
+<meta name="theme-color" content="#221F1B">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Aldridge Dental">
+<meta property="og:title" content="Aldridge Dental · One dentist · No treatment coordinators · New patients welcome">
+<meta property="og:description" content="No packages. No pressure. One plan.">
+<meta property="og:image" content="https://grandstreetworks.com/work/_assets/identity/cosmetic-dentists/aldridge-dental-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Dentist","name":"Aldridge Dental","description":"One dentist \u00b7 No treatment coordinators \u00b7 New patients welcome","telephone":"(660) 703-6612","areaServed":"Metro area","image":"https://grandstreetworks.com/work/_assets/identity/cosmetic-dentists/aldridge-dental-og.png","logo":"https://grandstreetworks.com/work/_assets/identity/cosmetic-dentists/aldridge-dental-mark.svg"}</script>
+
+<style>
+  /* Identity pass. The lockup is the mark plus the wordmark the build already
+     had; the mark is sized in em so it tracks whatever display face this build
+     sets its brand in. */
+  .gsw-lockup { display: inline-flex; align-items: center; gap: .46em; }
+  .gsw-lockup svg { height: 1.16em; width: auto; flex: none; display: block; }
+</style>
+
+
 <style>
   /* Before/after comparison. The control is a real range input, laid over the
      frame at full size and made invisible: it brings keyboard operation, touch
@@ -190,7 +247,8 @@ text-decoration:none;font-weight:600;font-size:18px}
 <body>
 <div class="topbar"><div class="wrap">One dentist · No treatment coordinators · New patients welcome</div></div>
 <header class="nav"><div class="wrap">
-  <a class="brand" href="#">Aldridge Dental</a>
+  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="12" y="18" width="40" height="28" rx="4" fill="#4F6B52"/>
+<rect x="20" y="30" width="24" height="4" fill="#F1EEE7"/></svg><span>Aldridge Dental</span></span></a>
   <a class="btn btn-primary navbook" href="#contact">Book a consult</a>
 </div></header>
 <nav class="navlinks"><div class="wrap"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></div></nav>
@@ -233,6 +291,9 @@ text-decoration:none;font-weight:600;font-size:18px}
     <li><div><h3>Treatment &amp; follow-up</h3><p>Most veneer cases are two visits. We review at six months and you have a direct line throughout.</p></div></li>
   </ol>
 </div></section>
+<!-- gsw:gallery -->
+<section class="gsw-gal"><div class="gsw-gal-in"><p class="gsw-gal-lab">One plan</p><h2>The rooms the plan is made in.</h2><p class="gsw-gal-note">A scan, a shade match and a conversation. Then one written plan, which is the only thing you are asked to decide on.</p><div class="gsw-gal-grid"><figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/scanner-640.avif 640w, ../_assets/library/cosmetic-dentists/scanner-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/cosmetic-dentists/scanner-720.jpg" width="1600" height="1200" alt="Scanned, not moulded" loading="lazy" decoding="async"></picture><figcaption>Scanned, not moulded</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/shade-guide-640.avif 640w, ../_assets/library/cosmetic-dentists/shade-guide-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/cosmetic-dentists/shade-guide-720.jpg" width="1600" height="1200" alt="Shade matched" loading="lazy" decoding="async"></picture><figcaption>Shade matched</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/operatory-640.avif 640w, ../_assets/library/cosmetic-dentists/operatory-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/cosmetic-dentists/operatory-720.jpg" width="1600" height="1200" alt="The treatment room" loading="lazy" decoding="async"></picture><figcaption>The treatment room</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/veneer-macro-640.avif 640w, ../_assets/library/cosmetic-dentists/veneer-macro-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/cosmetic-dentists/veneer-macro-720.jpg" width="1600" height="1200" alt="Porcelain, one at a time" loading="lazy" decoding="async"></picture><figcaption>Porcelain, one at a time</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/lab-bench-640.avif 640w, ../_assets/library/cosmetic-dentists/lab-bench-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/cosmetic-dentists/lab-bench-720.jpg" width="1600" height="1200" alt="On the technician&#x27;s bench" loading="lazy" decoding="async"></picture><figcaption>On the technician&#x27;s bench</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/reception-640.avif 640w, ../_assets/library/cosmetic-dentists/reception-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/cosmetic-dentists/reception-720.jpg" width="1600" height="1200" alt="Reception" loading="lazy" decoding="async"></picture><figcaption>Reception</figcaption></figure></div></div></section>
+<!-- /gsw:gallery -->
 <!-- gsw:compare -->
 <section class="gsw-cmp-band"><div class="gsw-cmp-in"><p class="gsw-cmp-lab">A case</p><h2>Worn, stained, and put right.</h2><p class="gsw-cmp-note">Years of grinding had flattened the edges and the staining had settled into them. Drag to compare the same mouth before and after.</p><figure class="gsw-cmp"><div class="gsw-cmp-frame"><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/smile-d-after-640.avif 640w, ../_assets/library/cosmetic-dentists/smile-d-after-1280.avif 1280w" sizes="(max-width: 800px) 100vw, 760px"><img src="../_assets/library/cosmetic-dentists/smile-d-after-720.jpg" width="1600" height="1200" alt="After treatment" loading="lazy" decoding="async"></picture><div class="gsw-cmp-before"><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/smile-d-before-640.avif 640w, ../_assets/library/cosmetic-dentists/smile-d-before-1280.avif 1280w" sizes="(max-width: 800px) 100vw, 760px"><img src="../_assets/library/cosmetic-dentists/smile-d-before-720.jpg" width="1600" height="1200" alt="Before treatment" loading="lazy" decoding="async"></picture></div><span class="gsw-cmp-line" aria-hidden="true"><span class="gsw-cmp-grip"></span></span><span class="gsw-cmp-tag gsw-cmp-tag-b">Before</span><span class="gsw-cmp-tag gsw-cmp-tag-a">After</span><input class="gsw-cmp-range" type="range" min="0" max="100" value="50" step="0.5" aria-label="Drag to compare the before and after photographs"></div><figcaption class="gsw-cmp-cap">Worn edges rebuilt, staining removed, shade lifted</figcaption></figure></div></section>
 <!-- /gsw:compare -->
@@ -246,7 +307,8 @@ text-decoration:none;font-weight:600;font-size:18px}
   <p class="note">Free consultations with no treatment coordinator in the room. Financing from 0% APR, and we will tell you when the answer is to do nothing.</p>
 </div></div></section>
 <footer class="foot"><div class="wrap">
-  <a class="brand" href="#">Aldridge Dental</a>
+  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="12" y="18" width="40" height="28" rx="4" fill="#4F6B52"/>
+<rect x="20" y="30" width="24" height="4" fill="#F1EEE7"/></svg><span>Aldridge Dental</span></span></a>
   <p><a>(660) 703-6612</a> · One dentist · No treatment coordinators · New patients welcome</p>
   <p>General and cosmetic dentistry · Accepting new patients</p>
   <p>1834 Ridgeway Avenue Suite 4B, Lakeview Bend, NY 17673</p>
@@ -256,6 +318,48 @@ text-decoration:none;font-weight:600;font-size:18px}
 
 
 
+
+
+<!-- gsw:motion -->
+<style>
+  /* Motion pass. Everything here is gated on .gsw-m, which only the script
+     below adds, so a page without JavaScript never hides anything. */
+  .gsw-m [data-gsw-reveal] {
+    opacity: 0; transform: translateY(14px);
+    transition: opacity .7s cubic-bezier(.2,.6,.2,1), transform .7s cubic-bezier(.2,.6,.2,1);
+  }
+  .gsw-m [data-gsw-reveal].gsw-in { opacity: 1; transform: none; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(2) { transition-delay: .08s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(3) { transition-delay: .16s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(4) { transition-delay: .24s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(5) { transition-delay: .32s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(6) { transition-delay: .40s; }
+  @keyframes gsw-hero-in { from { opacity: 0; transform: scale(1.025); } to { opacity: 1; transform: none; } }
+  .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: gsw-hero-in 1s ease-out both; }
+  @media (prefers-reduced-motion: reduce) {
+    .gsw-m [data-gsw-reveal] { opacity: 1; transform: none; transition: none; }
+    .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: none; }
+  }
+</style>
+<script>
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  var targets = [].slice.call(document.querySelectorAll('body > section, .gsw-gal figure'));
+  // The first section is the hero; it is on screen already and owns its own entrance.
+  var first = document.querySelector('body > section');
+  targets = targets.filter(function (el) { return el !== first; });
+  if (!targets.length) return;
+  document.documentElement.classList.add('gsw-m');
+  targets.forEach(function (el) { el.setAttribute('data-gsw-reveal', ''); });
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('gsw-in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+  targets.forEach(function (el) { io.observe(el); });
+})();
+</script>
+<!-- /gsw:motion -->
 
 
 <script>

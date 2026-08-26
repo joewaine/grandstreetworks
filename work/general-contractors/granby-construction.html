@@ -148,6 +148,8 @@ text-decoration:none;font-weight:700;font-size:15px;text-align:center;line-heigh
   /* Hero backdrop. The photograph sits behind the hero's own composition; the
      scrim below is the design's own background colour, so nothing about the
      contrast the layout was built with changes. */
+  .gsw-plate picture { display: block; width: 100%; }
+  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
   .gsw-imaged { position: relative; isolation: isolate; overflow: hidden; }
   .gsw-imaged > *:not(.gsw-backdrop) { position: relative; z-index: 1; }
   .gsw-backdrop { position: absolute; inset: 0; z-index: 0; }
@@ -161,16 +163,74 @@ text-decoration:none;font-weight:700;font-size:15px;text-align:center;line-heigh
   @media (forced-colors: active) { .gsw-backdrop { display: none; } }
   @media print { .gsw-backdrop { display: none; } }
 </style>
+
+
+<style>
+  /* Recent-work gallery. Everything here is drawn from the properties the build
+     already declares, so the band inherits each design's palette and heading
+     face rather than importing a seventh look. */
+  .gsw-gal { background: #1C1A17; color: #F2EDE2;
+             padding: clamp(38px, 6vw, 74px) 0; }
+  .gsw-gal-in { max-width: var(--wrap, 1140px); margin: 0 auto; padding: 0 20px; }
+  .gsw-gal-lab { font-size: 13px; letter-spacing: .18em; text-transform: uppercase;
+                 font-weight: 600; color: var(--accent); margin: 0 0 14px; }
+  .gsw-gal h2 { margin: 0; color: inherit; }
+  .gsw-gal-note { color: var(--muted); margin: 14px 0 30px; max-width: 58ch; }
+  .gsw-ba { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px; }
+  .gsw-gal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .gsw-gal figure { margin: 0; position: relative; overflow: hidden;
+                    background: var(--rule, rgba(0,0,0,.1)); }
+  .gsw-gal picture { display: block; }
+  /* height:auto matters — the width/height attributes are a presentational
+     hint, and without this the 1200px hint beats aspect-ratio. */
+  .gsw-gal img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3;
+                 object-fit: cover; transition: transform .5s ease; }
+  .gsw-gal figure:hover img { transform: scale(1.035); }
+  .gsw-gal figcaption { position: absolute; left: 0; bottom: 0;
+                        background: #F2EDE2; color: #1C1A17;
+                        font-size: 12px; font-weight: 600; letter-spacing: .14em;
+                        text-transform: uppercase; padding: 7px 12px; }
+  @media (max-width: 720px) {
+    .gsw-ba, .gsw-gal-grid { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .gsw-gal img { transition: none; }
+    .gsw-gal figure:hover img { transform: none; }
+  }
+</style>
+<!-- gsw:identity -->
+<link rel="icon" href="../_assets/identity/general-contractors/granby-construction-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../_assets/identity/general-contractors/granby-construction-icon-180.png">
+<meta name="theme-color" content="#1C1A17">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Granby Construction">
+<meta property="og:title" content="Granby Construction · Projects from $75,000 · Licensed #GC-22841 · Fully insured">
+<meta property="og:description" content="Licensed, bonded, permitted, and we&#x27;ll show you all three.">
+<meta property="og:image" content="https://grandstreetworks.com/work/_assets/identity/general-contractors/granby-construction-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"GeneralContractor","name":"Granby Construction","description":"Projects from $75,000 \u00b7 Licensed #GC-22841 \u00b7 Fully insured","telephone":"(915) 517-8836","areaServed":"Metro area","image":"https://grandstreetworks.com/work/_assets/identity/general-contractors/granby-construction-og.png","logo":"https://grandstreetworks.com/work/_assets/identity/general-contractors/granby-construction-mark.svg"}</script>
+
+<style>
+  /* Identity pass. The lockup is the mark plus the wordmark the build already
+     had; the mark is sized in em so it tracks whatever display face this build
+     sets its brand in. */
+  .gsw-lockup { display: inline-flex; align-items: center; gap: .46em; }
+  .gsw-lockup svg { height: 1.16em; width: auto; flex: none; display: block; }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap">Projects from $75,000 · Licensed #GC-22841 · Fully insured</div></div>
 <header class="nav"><div class="wrap">
-  <a class="brand" href="#">Granby Construction</a>
+  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="6" y="16" width="52" height="32" rx="4" fill="#D19A3C"/>
+<circle cx="14" cy="24" r="3" fill="#1C1A17"/><circle cx="50" cy="24" r="3" fill="#1C1A17"/>
+<rect x="16" y="33" width="32" height="6" fill="#1C1A17"/></svg><span>Granby Construction</span></span></a>
   <a class="btn btn-primary navact" href="#contact">Book a consultation</a>
   <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
 </div></header>
 
-<section class="gsw-imaged hero"><div class="gsw-backdrop" aria-hidden="true"><img src="../_assets/hero/general-contractors/e-finished-street.jpg" alt="" loading="eager"></div><div class="wrap">
+<section class="gsw-imaged hero"><div class="gsw-backdrop" aria-hidden="true"><picture><source type="image/avif" srcset="../_assets/hero/general-contractors/e-finished-street-1280.avif 1280w, ../_assets/hero/general-contractors/e-finished-street-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/general-contractors/e-finished-street-1280.jpg" width="2560" height="1429" alt="" loading="eager" fetchpriority="high" decoding="async"></picture></div><div class="wrap">
   <p class="eyebrow">Whole-home renovation &amp; additions</p>
   <h1>Licensed, bonded, permitted, and we'll show you all three.</h1>
   <p class="sub">Whole-home renovations, additions and structural work, typically from $75,000. Licence number, bond, insurance certificates and every pulled permit are handed over at signing, not promised and then chased.</p>
@@ -217,6 +277,9 @@ text-decoration:none;font-weight:700;font-size:15px;text-align:center;line-heigh
   </ol>
 </div></section>
 
+<!-- gsw:gallery -->
+<section class="gsw-gal"><div class="gsw-gal-in"><p class="gsw-gal-lab">Permitted and inspected</p><h2>The inspections, and what they are inspecting.</h2><p class="gsw-gal-note">Rough-in stays open until the inspector has seen it. The permit card is on the door and the photographs are in your folder.</p><div class="gsw-ba"><figure><picture><source type="image/avif" srcset="../_assets/library/general-contractors/kitchen-before-640.avif 640w, ../_assets/library/general-contractors/kitchen-before-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 50vw"><img src="../_assets/library/general-contractors/kitchen-before-720.jpg" width="1600" height="1200" alt="Before" loading="lazy" decoding="async"></picture><figcaption>Before</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/general-contractors/kitchen-after-640.avif 640w, ../_assets/library/general-contractors/kitchen-after-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 50vw"><img src="../_assets/library/general-contractors/kitchen-after-720.jpg" width="1600" height="1200" alt="After" loading="lazy" decoding="async"></picture><figcaption>After</figcaption></figure></div><div class="gsw-gal-grid"><figure><picture><source type="image/avif" srcset="../_assets/library/general-contractors/rough-in-640.avif 640w, ../_assets/library/general-contractors/rough-in-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/general-contractors/rough-in-720.jpg" width="1600" height="1200" alt="Rough-in, inspected before it closes" loading="lazy" decoding="async"></picture><figcaption>Rough-in, inspected before it closes</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/general-contractors/framing-640.avif 640w, ../_assets/library/general-contractors/framing-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/general-contractors/framing-720.jpg" width="1600" height="1200" alt="Framing the new opening" loading="lazy" decoding="async"></picture><figcaption>Framing the new opening</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/general-contractors/drywall-640.avif 640w, ../_assets/library/general-contractors/drywall-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/general-contractors/drywall-720.jpg" width="1600" height="1200" alt="Drywall, taped and mudded" loading="lazy" decoding="async"></picture><figcaption>Drywall, taped and mudded</figcaption></figure></div></div></section>
+<!-- /gsw:gallery -->
 <section class="close" id="contact"><div class="wrap">
   <h2>Thinking about it for next year?</h2>
   <p>That's the right time to call. Our calendar fills six to nine months out, and the design and permit stage takes longer than people expect.</p>
@@ -228,11 +291,53 @@ text-decoration:none;font-weight:700;font-size:15px;text-align:center;line-heigh
 </div></section>
 
 <footer class="foot"><div class="wrap">
-  <a class="brand" href="#">Granby Construction</a>
+  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="6" y="16" width="52" height="32" rx="4" fill="#D19A3C"/>
+<circle cx="14" cy="24" r="3" fill="#1C1A17"/><circle cx="50" cy="24" r="3" fill="#1C1A17"/>
+<rect x="16" y="33" width="32" height="6" fill="#1C1A17"/></svg><span>Granby Construction</span></span></a>
   <p><a>(915) 517-8836</a> · Licensed #GC-22841 · Bonded &amp; insured · Building here since 2003</p>
   <p>5995 Pardon Road Suite 200, Stonebridge, MA 15996</p>
 </div></footer>
 
 <div class="callbar"><a class="book" href="#contact">Book a consultation</a><a class="tel">(915) 517-8836</a></div>
+<!-- gsw:motion -->
+<style>
+  /* Motion pass. Everything here is gated on .gsw-m, which only the script
+     below adds, so a page without JavaScript never hides anything. */
+  .gsw-m [data-gsw-reveal] {
+    opacity: 0; transform: translateY(14px);
+    transition: opacity .7s cubic-bezier(.2,.6,.2,1), transform .7s cubic-bezier(.2,.6,.2,1);
+  }
+  .gsw-m [data-gsw-reveal].gsw-in { opacity: 1; transform: none; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(2) { transition-delay: .08s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(3) { transition-delay: .16s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(4) { transition-delay: .24s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(5) { transition-delay: .32s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(6) { transition-delay: .40s; }
+  @keyframes gsw-hero-in { from { opacity: 0; transform: scale(1.025); } to { opacity: 1; transform: none; } }
+  .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: gsw-hero-in 1s ease-out both; }
+  @media (prefers-reduced-motion: reduce) {
+    .gsw-m [data-gsw-reveal] { opacity: 1; transform: none; transition: none; }
+    .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: none; }
+  }
+</style>
+<script>
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  var targets = [].slice.call(document.querySelectorAll('body > section, .gsw-gal figure'));
+  // The first section is the hero; it is on screen already and owns its own entrance.
+  var first = document.querySelector('body > section');
+  targets = targets.filter(function (el) { return el !== first; });
+  if (!targets.length) return;
+  document.documentElement.classList.add('gsw-m');
+  targets.forEach(function (el) { el.setAttribute('data-gsw-reveal', ''); });
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('gsw-in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+  targets.forEach(function (el) { io.observe(el); });
+})();
+</script>
+<!-- /gsw:motion -->
 </body>
 </html>

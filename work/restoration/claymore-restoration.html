@@ -125,6 +125,8 @@ margin-right:-44px;border-top:1px solid var(--hair)}
      and the first content section, with no border of its own: every one of
      these designs owns a different rule weight and ink colour, and a borrowed
      hairline reads as a mistake in about half of them. */
+  .gsw-plate picture { display: block; width: 100%; }
+  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
   .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
   .gsw-plate img {
     display: block;
@@ -135,12 +137,71 @@ margin-right:-44px;border-top:1px solid var(--hair)}
   }
   @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
 </style>
+
+
+<style>
+  /* Recent-work gallery. Everything here is drawn from the properties the build
+     already declares, so the band inherits each design's palette and heading
+     face rather than importing a seventh look. */
+  .gsw-gal { background: #F5F7F6; color: #0F1F1D;
+             padding: clamp(38px, 6vw, 74px) 0; }
+  .gsw-gal-in { max-width: var(--wrap, 1140px); margin: 0 auto; padding: 0 20px; }
+  .gsw-gal-lab { font-size: 13px; letter-spacing: .18em; text-transform: uppercase;
+                 font-weight: 600; color: var(--accent); margin: 0 0 14px; }
+  .gsw-gal h2 { margin: 0; color: inherit; }
+  .gsw-gal-note { color: var(--muted); margin: 14px 0 30px; max-width: 58ch; }
+  .gsw-ba { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px; }
+  .gsw-gal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .gsw-gal figure { margin: 0; position: relative; overflow: hidden;
+                    background: var(--rule, rgba(0,0,0,.1)); }
+  .gsw-gal picture { display: block; }
+  /* height:auto matters — the width/height attributes are a presentational
+     hint, and without this the 1200px hint beats aspect-ratio. */
+  .gsw-gal img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3;
+                 object-fit: cover; transition: transform .5s ease; }
+  .gsw-gal figure:hover img { transform: scale(1.035); }
+  .gsw-gal figcaption { position: absolute; left: 0; bottom: 0;
+                        background: #0F1F1D; color: #F5F7F6;
+                        font-size: 12px; font-weight: 600; letter-spacing: .14em;
+                        text-transform: uppercase; padding: 7px 12px; }
+  @media (max-width: 720px) {
+    .gsw-ba, .gsw-gal-grid { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .gsw-gal img { transition: none; }
+    .gsw-gal figure:hover img { transform: none; }
+  }
+</style>
+<!-- gsw:identity -->
+<link rel="icon" href="../_assets/identity/restoration/claymore-restoration-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../_assets/identity/restoration/claymore-restoration-icon-180.png">
+<meta name="theme-color" content="#0F1F1D">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Claymore Restoration">
+<meta property="og:title" content="Claymore Restoration · Emergency crews on call 24/7/365 · We bill your insurer direct">
+<meta property="og:description" content="We stand with your adjuster and show the readings.">
+<meta property="og:image" content="https://grandstreetworks.com/work/_assets/identity/restoration/claymore-restoration-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"Claymore Restoration","description":"Emergency crews on call 24/7/365 \u00b7 We bill your insurer direct","telephone":"(970) 715-6628","areaServed":"Metro area","image":"https://grandstreetworks.com/work/_assets/identity/restoration/claymore-restoration-og.png","logo":"https://grandstreetworks.com/work/_assets/identity/restoration/claymore-restoration-mark.svg"}</script>
+
+<style>
+  /* Identity pass. The lockup is the mark plus the wordmark the build already
+     had; the mark is sized in em so it tracks whatever display face this build
+     sets its brand in. */
+  .gsw-lockup { display: inline-flex; align-items: center; gap: .46em; }
+  .gsw-lockup svg { height: 1.16em; width: auto; flex: none; display: block; }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap">Emergency crews on call 24/7/365 · We bill your insurer direct</div></div>
 <header class="nav"><div class="wrap">
   <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
-  <a class="brand" href="#">Claymore Restoration</a>
+  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="10" y="36" width="9" height="18" fill="#0F1F1D" opacity=".5"/>
+<rect x="23" y="26" width="9" height="28" fill="#0F1F1D" opacity=".75"/>
+<rect x="36" y="14" width="9" height="40" fill="#16746B"/>
+<rect x="49" y="30" width="7" height="24" fill="#0F1F1D" opacity=".35"/></svg><span>Claymore Restoration</span></span></a>
   <a class="navtel">(970) 715-6628</a>
 </div></header>
 <section class="hero"><div class="wrap"><div class="panel">
@@ -159,7 +220,7 @@ margin-right:-44px;border-top:1px solid var(--hair)}
     </ul>
   </div>
 </div></div></section>
-<figure class="gsw-plate"><img src="../_assets/hero/restoration/e-put-right.jpg" alt="Put right, restoration" loading="lazy"></figure>
+<figure class="gsw-plate"><picture><source type="image/avif" srcset="../_assets/hero/restoration/e-put-right-1280.avif 1280w, ../_assets/hero/restoration/e-put-right-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/restoration/e-put-right-1280.jpg" width="2560" height="1429" alt="Put right, restoration" loading="lazy" decoding="async"></picture></figure>
 
 <section class="sec" id="services"><div class="wrap">
   <p class="kicker">Services</p><h2>Emergency services</h2>
@@ -191,6 +252,9 @@ margin-right:-44px;border-top:1px solid var(--hair)}
     <li><h3>Dry, verify, restore</h3><p>Daily readings until verified dry, then reconstruction. You get the log, so nothing is disputed months later.</p></li>
   </ol>
 </div></section>
+<!-- gsw:gallery -->
+<section class="gsw-gal"><div class="gsw-gal-in"><p class="gsw-gal-lab">With the adjuster</p><h2>The readings we show the adjuster.</h2><p class="gsw-gal-note">Moisture logged at the same points every day until the structure reads dry, and the drying plan the adjuster signs off against.</p><div class="gsw-ba"><figure><picture><source type="image/avif" srcset="../_assets/library/restoration/flood-before-640.avif 640w, ../_assets/library/restoration/flood-before-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 50vw"><img src="../_assets/library/restoration/flood-before-720.jpg" width="1600" height="1200" alt="Before" loading="lazy" decoding="async"></picture><figcaption>Before</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/restoration/flood-after-640.avif 640w, ../_assets/library/restoration/flood-after-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 50vw"><img src="../_assets/library/restoration/flood-after-720.jpg" width="1600" height="1200" alt="After" loading="lazy" decoding="async"></picture><figcaption>After</figcaption></figure></div><div class="gsw-gal-grid"><figure><picture><source type="image/avif" srcset="../_assets/library/restoration/moisture-meter-640.avif 640w, ../_assets/library/restoration/moisture-meter-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/restoration/moisture-meter-720.jpg" width="1600" height="1200" alt="Moisture readings, logged daily" loading="lazy" decoding="async"></picture><figcaption>Moisture readings, logged daily</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/restoration/air-movers-640.avif 640w, ../_assets/library/restoration/air-movers-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/restoration/air-movers-720.jpg" width="1600" height="1200" alt="Air movers and dehumidifiers set" loading="lazy" decoding="async"></picture><figcaption>Air movers and dehumidifiers set</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/restoration/containment-640.avif 640w, ../_assets/library/restoration/containment-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/restoration/containment-720.jpg" width="1600" height="1200" alt="Containment for mould work" loading="lazy" decoding="async"></picture><figcaption>Containment for mould work</figcaption></figure></div></div></section>
+<!-- /gsw:gallery -->
 <section class="close" id="contact"><div class="wrap">
   <h2>Emergency right now?</h2>
   <p>Do not wait for business hours. Every hour standing water sits, the cost and the damage climb. Crews are on call this minute.</p>
@@ -201,11 +265,54 @@ margin-right:-44px;border-top:1px solid var(--hair)}
   <p class="note">We work with all major insurers and bill direct. Free emergency assessment.</p>
 </div></section>
 <footer class="foot"><div class="wrap">
-  <a class="brand" href="#">Claymore Restoration</a>
+  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="10" y="36" width="9" height="18" fill="#0F1F1D" opacity=".5"/>
+<rect x="23" y="26" width="9" height="28" fill="#0F1F1D" opacity=".75"/>
+<rect x="36" y="14" width="9" height="40" fill="#16746B"/>
+<rect x="49" y="30" width="7" height="24" fill="#0F1F1D" opacity=".35"/></svg><span>Claymore Restoration</span></span></a>
   <p><a>(970) 715-6628</a></p>
   <p>IICRC certified · 24/7/365 emergency response · Licensed &amp; insured</p>
   <p>3309 Thistle Lane Suite 4B, Westmoor, CT 18321</p>
 </div></footer>
 <div class="callbar"><a class="call">Call now, 24/7</a><a class="tel">(970) 715-6628</a></div>
+<!-- gsw:motion -->
+<style>
+  /* Motion pass. Everything here is gated on .gsw-m, which only the script
+     below adds, so a page without JavaScript never hides anything. */
+  .gsw-m [data-gsw-reveal] {
+    opacity: 0; transform: translateY(14px);
+    transition: opacity .7s cubic-bezier(.2,.6,.2,1), transform .7s cubic-bezier(.2,.6,.2,1);
+  }
+  .gsw-m [data-gsw-reveal].gsw-in { opacity: 1; transform: none; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(2) { transition-delay: .08s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(3) { transition-delay: .16s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(4) { transition-delay: .24s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(5) { transition-delay: .32s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(6) { transition-delay: .40s; }
+  @keyframes gsw-hero-in { from { opacity: 0; transform: scale(1.025); } to { opacity: 1; transform: none; } }
+  .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: gsw-hero-in 1s ease-out both; }
+  @media (prefers-reduced-motion: reduce) {
+    .gsw-m [data-gsw-reveal] { opacity: 1; transform: none; transition: none; }
+    .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: none; }
+  }
+</style>
+<script>
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  var targets = [].slice.call(document.querySelectorAll('body > section, .gsw-gal figure'));
+  // The first section is the hero; it is on screen already and owns its own entrance.
+  var first = document.querySelector('body > section');
+  targets = targets.filter(function (el) { return el !== first; });
+  if (!targets.length) return;
+  document.documentElement.classList.add('gsw-m');
+  targets.forEach(function (el) { el.setAttribute('data-gsw-reveal', ''); });
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('gsw-in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+  targets.forEach(function (el) { io.observe(el); });
+})();
+</script>
+<!-- /gsw:motion -->
 </body>
 </html>

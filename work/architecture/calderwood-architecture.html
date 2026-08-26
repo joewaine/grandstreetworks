@@ -128,6 +128,8 @@ text-decoration:none;font-weight:600;font-size:15px;line-height:1.2;padding:0 14
      and the first content section, with no border of its own: every one of
      these designs owns a different rule weight and ink colour, and a borrowed
      hairline reads as a mistake in about half of them. */
+  .gsw-plate picture { display: block; width: 100%; }
+  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
   .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
   .gsw-plate img {
     display: block;
@@ -138,11 +140,68 @@ text-decoration:none;font-weight:600;font-size:15px;line-height:1.2;padding:0 14
   }
   @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
 </style>
+
+<style>
+  /* Recent-work gallery. Everything here is drawn from the properties the build
+     already declares, so the band inherits each design's palette and heading
+     face rather than importing a seventh look. */
+  .gsw-gal { background: #F2F1ED; color: #111214;
+             padding: clamp(38px, 6vw, 74px) 0; }
+  .gsw-gal-in { max-width: var(--wrap, 1140px); margin: 0 auto; padding: 0 20px; }
+  .gsw-gal-lab { font-size: 13px; letter-spacing: .18em; text-transform: uppercase;
+                 font-weight: 600; color: var(--accent); margin: 0 0 14px; }
+  .gsw-gal h2 { margin: 0; color: inherit; }
+  .gsw-gal-note { color: var(--muted); margin: 14px 0 30px; max-width: 58ch; }
+  .gsw-ba { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px; }
+  .gsw-gal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .gsw-gal figure { margin: 0; position: relative; overflow: hidden;
+                    background: var(--rule, rgba(0,0,0,.1)); }
+  .gsw-gal picture { display: block; }
+  /* height:auto matters — the width/height attributes are a presentational
+     hint, and without this the 1200px hint beats aspect-ratio. */
+  .gsw-gal img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3;
+                 object-fit: cover; transition: transform .5s ease; }
+  .gsw-gal figure:hover img { transform: scale(1.035); }
+  .gsw-gal figcaption { position: absolute; left: 0; bottom: 0;
+                        background: #111214; color: #F2F1ED;
+                        font-size: 12px; font-weight: 600; letter-spacing: .14em;
+                        text-transform: uppercase; padding: 7px 12px; }
+  @media (max-width: 720px) {
+    .gsw-ba, .gsw-gal-grid { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .gsw-gal img { transition: none; }
+    .gsw-gal figure:hover img { transform: none; }
+  }
+</style>
+<!-- gsw:identity -->
+<link rel="icon" href="../_assets/identity/architecture/calderwood-architecture-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../_assets/identity/architecture/calderwood-architecture-icon-180.png">
+<meta name="theme-color" content="#111214">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Calderwood Architecture">
+<meta property="og:title" content="Calderwood Architecture · Residential &amp; cultural work · Enquiries for 2027 open">
+<meta property="og:description" content="Drawings a builder can actually build from.">
+<meta property="og:image" content="https://grandstreetworks.com/work/_assets/identity/architecture/calderwood-architecture-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Calderwood Architecture","description":"Residential & cultural work \u00b7 Enquiries for 2027 open","telephone":"(205) 890-4426","areaServed":"Metro area","image":"https://grandstreetworks.com/work/_assets/identity/architecture/calderwood-architecture-og.png","logo":"https://grandstreetworks.com/work/_assets/identity/architecture/calderwood-architecture-mark.svg"}</script>
+
+<style>
+  /* Identity pass. The lockup is the mark plus the wordmark the build already
+     had; the mark is sized in em so it tracks whatever display face this build
+     sets its brand in. */
+  .gsw-lockup { display: inline-flex; align-items: center; gap: .46em; }
+  .gsw-lockup svg { height: 1.16em; width: auto; flex: none; display: block; }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap">Residential &amp; cultural work · Enquiries for 2027 open</div></div>
 <header class="nav"><div class="wrap"><div class="navrow">
-  <a class="brand" href="#">Calderwood Architecture</a>
+  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="14" y="6" width="40" height="44" fill="none" stroke="#111214" stroke-width="3" opacity=".5"/>
+<rect x="10" y="10" width="40" height="44" fill="none" stroke="#111214" stroke-width="3" opacity=".75"/>
+<rect x="6" y="14" width="40" height="44" fill="#F2F1ED" stroke="#B02318" stroke-width="4"/></svg><span>Calderwood Architecture</span></span></a>
   <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
   <a class="btn btn-primary navact" href="#contact">Discuss a project</a>
 </div></div></header>
@@ -166,7 +225,7 @@ text-decoration:none;font-weight:600;font-size:15px;line-height:1.2;padding:0 14
     </div>
   </div>
 </div></div></section>
-<figure class="gsw-plate"><img src="../_assets/hero/architecture/d-drawing-macro.jpg" alt="Drawing macro, architecture" loading="lazy"></figure>
+<figure class="gsw-plate"><picture><source type="image/avif" srcset="../_assets/hero/architecture/d-drawing-macro-1280.avif 1280w, ../_assets/hero/architecture/d-drawing-macro-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/architecture/d-drawing-macro-1280.jpg" width="2560" height="1429" alt="Drawing macro, architecture" loading="lazy" decoding="async"></picture></figure>
 
 
 <section class="sec" id="services"><div class="wrap">
@@ -204,6 +263,9 @@ text-decoration:none;font-weight:600;font-size:15px;line-height:1.2;padding:0 14
   </ol>
 </div></section>
 
+<!-- gsw:gallery -->
+<section class="gsw-gal"><div class="gsw-gal-in"><p class="gsw-gal-lab">From the sheet set</p><h2>Drawn to be built from.</h2><p class="gsw-gal-note">The detail on the sheet and the detail on site, side by side. A builder can put a tape on either one.</p><div class="gsw-gal-grid"><figure><picture><source type="image/avif" srcset="../_assets/library/architecture/drawing-macro-640.avif 640w, ../_assets/library/architecture/drawing-macro-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/architecture/drawing-macro-720.jpg" width="1600" height="1200" alt="The section, drawn" loading="lazy" decoding="async"></picture><figcaption>The section, drawn</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/architecture/construction-640.avif 640w, ../_assets/library/architecture/construction-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/architecture/construction-720.jpg" width="1600" height="1200" alt="Under construction" loading="lazy" decoding="async"></picture><figcaption>Under construction</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/architecture/concrete-detail-640.avif 640w, ../_assets/library/architecture/concrete-detail-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/architecture/concrete-detail-720.jpg" width="1600" height="1200" alt="Concrete meets oak" loading="lazy" decoding="async"></picture><figcaption>Concrete meets oak</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/architecture/stair-640.avif 640w, ../_assets/library/architecture/stair-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/architecture/stair-720.jpg" width="1600" height="1200" alt="The stair" loading="lazy" decoding="async"></picture><figcaption>The stair</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/architecture/facade-640.avif 640w, ../_assets/library/architecture/facade-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/architecture/facade-720.jpg" width="1600" height="1200" alt="The built work" loading="lazy" decoding="async"></picture><figcaption>The built work</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/architecture/adaptive-reuse-640.avif 640w, ../_assets/library/architecture/adaptive-reuse-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/architecture/adaptive-reuse-720.jpg" width="1600" height="1200" alt="New steel in an old shell" loading="lazy" decoding="async"></picture><figcaption>New steel in an old shell</figcaption></figure></div></div></section>
+<!-- /gsw:gallery -->
 <section class="close" id="contact"><div class="wrap">
   <h2>Have a site, or a building you don't know what to do with?</h2>
   <p>A first conversation is free. Bring a set of drawings from anyone and we will show you what a contractor is guessing at in them.</p>
@@ -215,11 +277,53 @@ text-decoration:none;font-weight:600;font-size:15px;line-height:1.2;padding:0 14
 </div></section>
 
 <footer class="foot"><div class="wrap">
-  <a class="brand" href="#">Calderwood Architecture</a>
+  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="14" y="6" width="40" height="44" fill="none" stroke="#111214" stroke-width="3" opacity=".5"/>
+<rect x="10" y="10" width="40" height="44" fill="none" stroke="#111214" stroke-width="3" opacity=".75"/>
+<rect x="6" y="14" width="40" height="44" fill="#F2F1ED" stroke="#B02318" stroke-width="4"/></svg><span>Calderwood Architecture</span></span></a>
   <p>AIA registered practice · Residential, cultural and adaptive reuse · Est. 2007</p>
   <p><a>(205) 890-4426</a></p>
   <p>5956 Larkspur Street Suite 200, Stonebridge, MA 15304</p>
 </div></footer>
 <div class="callbar"><a class="go" href="#contact">Discuss a project</a><a class="tel">(205) 890-4426</a></div>
+<!-- gsw:motion -->
+<style>
+  /* Motion pass. Everything here is gated on .gsw-m, which only the script
+     below adds, so a page without JavaScript never hides anything. */
+  .gsw-m [data-gsw-reveal] {
+    opacity: 0; transform: translateY(14px);
+    transition: opacity .7s cubic-bezier(.2,.6,.2,1), transform .7s cubic-bezier(.2,.6,.2,1);
+  }
+  .gsw-m [data-gsw-reveal].gsw-in { opacity: 1; transform: none; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(2) { transition-delay: .08s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(3) { transition-delay: .16s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(4) { transition-delay: .24s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(5) { transition-delay: .32s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(6) { transition-delay: .40s; }
+  @keyframes gsw-hero-in { from { opacity: 0; transform: scale(1.025); } to { opacity: 1; transform: none; } }
+  .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: gsw-hero-in 1s ease-out both; }
+  @media (prefers-reduced-motion: reduce) {
+    .gsw-m [data-gsw-reveal] { opacity: 1; transform: none; transition: none; }
+    .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: none; }
+  }
+</style>
+<script>
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  var targets = [].slice.call(document.querySelectorAll('body > section, .gsw-gal figure'));
+  // The first section is the hero; it is on screen already and owns its own entrance.
+  var first = document.querySelector('body > section');
+  targets = targets.filter(function (el) { return el !== first; });
+  if (!targets.length) return;
+  document.documentElement.classList.add('gsw-m');
+  targets.forEach(function (el) { el.setAttribute('data-gsw-reveal', ''); });
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('gsw-in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+  targets.forEach(function (el) { io.observe(el); });
+})();
+</script>
+<!-- /gsw:motion -->
 </body>
 </html>

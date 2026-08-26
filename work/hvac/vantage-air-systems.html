@@ -154,6 +154,8 @@ text-align:center;line-height:1.15;padding:0 8px;color:#fff}
      and the first content section, with no border of its own: every one of
      these designs owns a different rule weight and ink colour, and a borrowed
      hairline reads as a mistake in about half of them. */
+  .gsw-plate picture { display: block; width: 100%; }
+  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
   .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
   .gsw-plate img {
     display: block;
@@ -164,11 +166,68 @@ text-align:center;line-height:1.15;padding:0 8px;color:#fff}
   }
   @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
 </style>
+
+
+<style>
+  /* Recent-work gallery. Everything here is drawn from the properties the build
+     already declares, so the band inherits each design's palette and heading
+     face rather than importing a seventh look. */
+  .gsw-gal { background: #F4F2F0; color: #1A1618;
+             padding: clamp(38px, 6vw, 74px) 0; }
+  .gsw-gal-in { max-width: var(--wrap, 1140px); margin: 0 auto; padding: 0 20px; }
+  .gsw-gal-lab { font-size: 13px; letter-spacing: .18em; text-transform: uppercase;
+                 font-weight: 600; color: var(--accent); margin: 0 0 14px; }
+  .gsw-gal h2 { margin: 0; color: inherit; }
+  .gsw-gal-note { color: var(--muted); margin: 14px 0 30px; max-width: 58ch; }
+  .gsw-ba { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px; }
+  .gsw-gal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .gsw-gal figure { margin: 0; position: relative; overflow: hidden;
+                    background: var(--rule, rgba(0,0,0,.1)); }
+  .gsw-gal picture { display: block; }
+  /* height:auto matters — the width/height attributes are a presentational
+     hint, and without this the 1200px hint beats aspect-ratio. */
+  .gsw-gal img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3;
+                 object-fit: cover; transition: transform .5s ease; }
+  .gsw-gal figure:hover img { transform: scale(1.035); }
+  .gsw-gal figcaption { position: absolute; left: 0; bottom: 0;
+                        background: #1A1618; color: #F4F2F0;
+                        font-size: 12px; font-weight: 600; letter-spacing: .14em;
+                        text-transform: uppercase; padding: 7px 12px; }
+  @media (max-width: 720px) {
+    .gsw-ba, .gsw-gal-grid { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .gsw-gal img { transition: none; }
+    .gsw-gal figure:hover img { transform: none; }
+  }
+</style>
+<!-- gsw:identity -->
+<link rel="icon" href="../_assets/identity/hvac/vantage-air-systems-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../_assets/identity/hvac/vantage-air-systems-icon-180.png">
+<meta name="theme-color" content="#1A1618">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Vantage Air Systems">
+<meta property="og:title" content="Vantage Air Systems · 24/7 emergency service · Financing available · Licensed &amp; insured">
+<meta property="og:description" content="One room freezing, one room baking. That&#x27;s fixable.">
+<meta property="og:image" content="https://grandstreetworks.com/work/_assets/identity/hvac/vantage-air-systems-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HVACBusiness","name":"Vantage Air Systems","description":"24/7 emergency service \u00b7 Financing available \u00b7 Licensed & insured","telephone":"(225) 265-4471","areaServed":"Metro area","image":"https://grandstreetworks.com/work/_assets/identity/hvac/vantage-air-systems-og.png","logo":"https://grandstreetworks.com/work/_assets/identity/hvac/vantage-air-systems-mark.svg"}</script>
+
+<style>
+  /* Identity pass. The lockup is the mark plus the wordmark the build already
+     had; the mark is sized in em so it tracks whatever display face this build
+     sets its brand in. */
+  .gsw-lockup { display: inline-flex; align-items: center; gap: .46em; }
+  .gsw-lockup svg { height: 1.16em; width: auto; flex: none; display: block; }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap">24/7 emergency service · Financing available · Licensed &amp; insured</div></div>
 <header class="nav"><div class="wrap">
-  <a class="brand" href="#">Vantage Air Systems</a>
+  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M6 8 H37 L27 56 H6 Z" fill="#97121E"/>
+<path d="M43 8 H58 V56 H33 Z" fill="#1A1618" opacity=".78"/></svg><span>Vantage Air Systems</span></span></a>
   <nav class="links"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
   <a class="pill">Call now</a>
 </div></header>
@@ -187,7 +246,7 @@ text-align:center;line-height:1.15;padding:0 8px;color:#fff}
     <a class="btn" href="#contact">Book a tune-up</a>
   </div></div>
 </section>
-<figure class="gsw-plate"><img src="../_assets/hero/hvac/c-hands-on-gauges.jpg" alt="Hands on gauges, hvac" loading="lazy"></figure>
+<figure class="gsw-plate"><picture><source type="image/avif" srcset="../_assets/hero/hvac/c-hands-on-gauges-1280.avif 1280w, ../_assets/hero/hvac/c-hands-on-gauges-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/hvac/c-hands-on-gauges-1280.jpg" width="2560" height="1429" alt="Hands on gauges, hvac" loading="lazy" decoding="async"></picture></figure>
 
 <section class="sec sec--paper" id="services"><div class="wrap">
   <p class="kicker">Services</p>
@@ -228,6 +287,9 @@ text-align:center;line-height:1.15;padding:0 8px;color:#fff}
     <a class="btn" href="#contact">Book a tune-up</a>
   </div>
 </div></section>
+<!-- gsw:gallery -->
+<section class="gsw-gal"><div class="gsw-gal-in"><p class="gsw-gal-lab">Hot side, cold side</p><h2>Where the uneven rooms come from.</h2><p class="gsw-gal-note">Leaking joints and crushed runs in the attic, more often than the unit itself. We seal what we find and show you the photographs.</p><div class="gsw-ba"><figure><picture><source type="image/avif" srcset="../_assets/library/hvac/unit-before-640.avif 640w, ../_assets/library/hvac/unit-before-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 50vw"><img src="../_assets/library/hvac/unit-before-720.jpg" width="1600" height="1200" alt="Before" loading="lazy" decoding="async"></picture><figcaption>Before</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/hvac/unit-after-640.avif 640w, ../_assets/library/hvac/unit-after-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 50vw"><img src="../_assets/library/hvac/unit-after-720.jpg" width="1600" height="1200" alt="After" loading="lazy" decoding="async"></picture><figcaption>After</figcaption></figure></div><div class="gsw-gal-grid"><figure><picture><source type="image/avif" srcset="../_assets/library/hvac/ductwork-640.avif 640w, ../_assets/library/hvac/ductwork-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/hvac/ductwork-720.jpg" width="1600" height="1200" alt="Duct joints sealed with mastic" loading="lazy" decoding="async"></picture><figcaption>Duct joints sealed with mastic</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/hvac/attic-run-640.avif 640w, ../_assets/library/hvac/attic-run-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/hvac/attic-run-720.jpg" width="1600" height="1200" alt="Attic runs, strapped and insulated" loading="lazy" decoding="async"></picture><figcaption>Attic runs, strapped and insulated</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/hvac/thermostat-640.avif 640w, ../_assets/library/hvac/thermostat-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/hvac/thermostat-720.jpg" width="1600" height="1200" alt="Thermostat set up before we leave" loading="lazy" decoding="async"></picture><figcaption>Thermostat set up before we leave</figcaption></figure></div></div></section>
+<!-- /gsw:gallery -->
 <section class="close" id="contact"><div class="wrap">
   <h2>System down right now?</h2>
   <p>Call and someone picks up: nights, weekends, holidays. Same-day emergency slots held back every day for exactly this.</p>
@@ -238,11 +300,52 @@ text-align:center;line-height:1.15;padding:0 8px;color:#fff}
   <p class="note">Free second opinions on replacement quotes. Financing subject to approval.</p>
 </div></section>
 <footer class="foot"><div class="wrap">
-  <a class="brand" href="#">Vantage Air Systems</a>
+  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M6 8 H37 L27 56 H6 Z" fill="#97121E"/>
+<path d="M43 8 H58 V56 H33 Z" fill="#1A1618" opacity=".78"/></svg><span>Vantage Air Systems</span></span></a>
   <p><a>(225) 265-4471</a> &middot; Licensed, bonded and insured · Serving the metro since 1998</p>
   <p>24/7 emergency service · Financing available · Licensed &amp; insured</p>
   <p>1034 Bellamy Street Unit 12, Eastport Hills, NJ 15813</p>
 </div></footer>
 <div class="callbar"><a class="call">Call now</a><a class="tune" href="#contact">Book a tune-up</a></div>
+<!-- gsw:motion -->
+<style>
+  /* Motion pass. Everything here is gated on .gsw-m, which only the script
+     below adds, so a page without JavaScript never hides anything. */
+  .gsw-m [data-gsw-reveal] {
+    opacity: 0; transform: translateY(14px);
+    transition: opacity .7s cubic-bezier(.2,.6,.2,1), transform .7s cubic-bezier(.2,.6,.2,1);
+  }
+  .gsw-m [data-gsw-reveal].gsw-in { opacity: 1; transform: none; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(2) { transition-delay: .08s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(3) { transition-delay: .16s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(4) { transition-delay: .24s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(5) { transition-delay: .32s; }
+  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(6) { transition-delay: .40s; }
+  @keyframes gsw-hero-in { from { opacity: 0; transform: scale(1.025); } to { opacity: 1; transform: none; } }
+  .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: gsw-hero-in 1s ease-out both; }
+  @media (prefers-reduced-motion: reduce) {
+    .gsw-m [data-gsw-reveal] { opacity: 1; transform: none; transition: none; }
+    .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: none; }
+  }
+</style>
+<script>
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  var targets = [].slice.call(document.querySelectorAll('body > section, .gsw-gal figure'));
+  // The first section is the hero; it is on screen already and owns its own entrance.
+  var first = document.querySelector('body > section');
+  targets = targets.filter(function (el) { return el !== first; });
+  if (!targets.length) return;
+  document.documentElement.classList.add('gsw-m');
+  targets.forEach(function (el) { el.setAttribute('data-gsw-reveal', ''); });
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('gsw-in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+  targets.forEach(function (el) { io.observe(el); });
+})();
+</script>
+<!-- /gsw:motion -->
 </body>
 </html>

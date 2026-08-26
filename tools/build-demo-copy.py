@@ -51,7 +51,11 @@ def trade_dir(source_slug):
     """Published directory for a trade: '06-roofing' -> 'roofing'."""
     return re.sub(r"^\d+-", "", source_slug)
 
-BRAND_RE = re.compile(r'(<(?:a|div|span)[^>]*class="[^"]*\bbrand\b[^"]*"[^>]*>)(.*?)(</(?:a|div|span)>)', re.S)
+# The closing tag has to be the *same* element as the opening one. A lazy
+# `.*?` up to any closing tag stopped at the first inner `</span>` of
+# `Ardent<span>.</span>Smile Studio`, which left a stray `</span>` and the
+# source firm's name on the page (cosmetic dentistry D2 and D6, 2026-08-26).
+BRAND_RE = re.compile(r'(<(a|div|span)[^>]*class="[^"]*\bbrand\b[^"]*"[^>]*>)(.*?)(</\2>)', re.S)
 
 
 def rebrand_split(page, source_firm, new_firm):
@@ -66,18 +70,21 @@ def rebrand_split(page, source_firm, new_firm):
     first, _, rest = new_firm.partition(" ")
 
     def swap(m):
-        inner = m.group(2)
+        inner = m.group(3)
         if head not in re.sub(r"<[^>]+>", "", inner):
             return m.group(0)
         sep = re.search(r"<span[^>]*>([^<]{1,3})</span>", inner)
         e = lambda t: html.escape(t, quote=False)
+        # A decorative element ahead of the name (D1's `.arch`) is kept.
+        lead = re.match(r"(\s*<span[^>]*></span>\s*)", inner)
+        lead = lead.group(1) if lead else ""
         if sep and not sep.group(1).strip().isalnum():
             built = f"{e(first)}<span>{sep.group(1)}</span>{e(rest)}"
-        elif "<span" in inner:
+        elif "<span" in inner[len(lead):]:
             built = f"{e(first)} <span>{e(rest)}</span>"
         else:
             built = e(new_firm)
-        return m.group(1) + built + m.group(3)
+        return m.group(1) + lead + built + m.group(4)
 
     return BRAND_RE.sub(swap, page)
 
