@@ -185,14 +185,12 @@ finished site. `06-roofing` was the pilot for the pass that fixes both; on 2026-
 granule texture, the hardest content in the library for a lossy codec. The
 2560px AVIF is *lighter* than the 1600px JPEG it replaced.
 
-**What is shared and what is not.** Trade-generic photography — process, detail,
-job site, before/after — is shared by all six builds in a trade, because a
-private library per build would put the repo past 100MB and a trade index
-already loads six builds at once. What is unique per build is the identity: a
-mark drawn from the device that build's own stylesheet header names, a favicon,
-a social card and a hero plate. Sharing the generic half is invisible; the
-identity half is what makes six builds read as six businesses, and it costs
-about 45KB each.
+**Every build has its own photographs.** The first pass shared one library per
+trade, which put the same six photographs on six builds down one index page.
+Each build now has its own set under `work/_assets/library/<trade>/<slug>/`,
+generated with a per-build variation clause (a different property, room or
+layout) and its own before/after pair. The identity — mark, favicon, social
+card, hero plate — is per build as well. The library is about 120MB.
 
 **The gallery band** sits above each build's closing CTA and borrows rather than
 declares — colour from the custom properties every build already defines, type

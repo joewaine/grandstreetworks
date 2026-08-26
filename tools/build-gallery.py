@@ -1071,8 +1071,11 @@ def css_for(src: str) -> str:
     return CSS.replace("__SURFACE__", surface).replace("__TEXT__", text)
 
 
-def picture(trade: str, name: str, caption: str, sizes: str, aspect: str) -> str:
-    base = f"../_assets/library/{trade}/{name}"
+def picture(trade: str, name: str, caption: str, sizes: str, aspect: str,
+            slug: str) -> str:
+    # Each build has its own set under the trade's library folder, so six
+    # builds on one trade index do not show the same photograph six times.
+    base = f"../_assets/library/{trade}/{slug}/{name}"
     srcset = ", ".join(f"{base}-{w}.avif {w}w" for w in AVIF_WIDTHS)
     w, h = (1600, 1200) if aspect == "4:3" else (1600, 900)
     return (
@@ -1083,17 +1086,17 @@ def picture(trade: str, name: str, caption: str, sizes: str, aspect: str) -> str
         f'</picture><figcaption>{html.escape(caption)}</figcaption></figure>')
 
 
-def section(trade: str, spec: dict) -> str:
+def section(trade: str, spec: dict, slug: str) -> str:
     caps = CAPTIONS[trade]
     # Trades with a real before/after lead with the pair over three tiles; the
     # rest carry six tiles, because a manufactured "before" on a wealth
     # manager's page is worse than none.
     pair = PAIRS.get(trade)
     ba = "".join(
-        picture(trade, n, caps[n][0], "(max-width: 720px) 100vw, 50vw", caps[n][1])
+        picture(trade, n, caps[n][0], "(max-width: 720px) 100vw, 50vw", caps[n][1], slug)
         for n in pair) if pair else ""
     tiles = "".join(
-        picture(trade, n, caps[n][0], "(max-width: 720px) 100vw, 33vw", caps[n][1])
+        picture(trade, n, caps[n][0], "(max-width: 720px) 100vw, 33vw", caps[n][1], slug)
         for n in spec["tiles"])
     return (
         f'{MARKER}\n<section class="gsw-gal"><div class="gsw-gal-in">'
@@ -1105,7 +1108,7 @@ def section(trade: str, spec: dict) -> str:
         f'</div></section>\n{END_MARKER}\n')
 
 
-def patch(page: Path, trade: str, spec: dict, replace: bool) -> str:
+def patch(page: Path, trade: str, spec: dict, replace: bool, slug: str) -> str:
     src = page.read_text()
     if MARKER in src:
         if not replace:
@@ -1121,7 +1124,7 @@ def patch(page: Path, trade: str, spec: dict, replace: bool) -> str:
         return "no closing section to sit above"
     src = src.replace("</head>", css_for(src) + "\n</head>", 1)
     close = CLOSE_RE.search(src)
-    src = src[:close.start()] + section(trade, spec) + src[close.start():]
+    src = src[:close.start()] + section(trade, spec, slug) + src[close.start():]
     page.write_text(src)
     return "gallery added"
 
@@ -1138,14 +1141,16 @@ def main() -> None:
         if not sets:
             print(f"  {trade}: no gallery sets defined")
             continue
-        missing = [n for n in CAPTIONS[trade]
-                   if not (WORK / "_assets" / "library" / trade /
-                           f"{n}-{JPEG_WIDTH}.jpg").exists()]
-        if missing:
-            sys.exit(f"missing encoded library images: {', '.join(missing)}")
         for slug, spec in sets.items():
+            needed = list(PAIRS.get(trade, ())) + list(spec["tiles"])
+            missing = [n for n in needed
+                       if not (WORK / "_assets" / "library" / trade / slug /
+                               f"{n}-{JPEG_WIDTH}.jpg").exists()]
+            if missing:
+                print(f"  {slug:<34} missing encoded images: {', '.join(missing)}")
+                continue
             page = WORK / trade / f"{slug}.html"
-            status = patch(page, trade, spec, args.replace) if page.exists() \
+            status = patch(page, trade, spec, args.replace, slug) if page.exists() \
                 else "page missing"
             print(f"  {slug:<34} {status}")
 

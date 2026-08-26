@@ -840,8 +840,9 @@ LIBRARIES = {
          "text. 35mm.", "4:3", None),
         ("office-morning",
          "Photograph of a small professional office at seven in the morning, one desk "
-         "lamp on, the rest of the room in blue dawn light from tall windows. No "
-         "people, no text. 35mm.", "4:3", None),
+         "lamp on over a closed laptop and a single folder, the rest of the room in "
+         "blue dawn light from tall windows. Modern, tidy. No people, no text. 35mm.",
+         "4:3", None),
         ("signing",
          "Close photograph of a hand with a fountain pen resting on a blank ruled "
          "sheet on a desk, no face in frame. Warm light. 85mm, shallow depth of "
@@ -1016,13 +1017,115 @@ def request(parts: list, size: str, aspect: str, key: str, retries: int = 3):
     return None, "exhausted retries"
 
 
+# --- one library per build ---------------------------------------------------
+# The first pass shared one library across the six builds in a trade, so a
+# visitor scrolling the trade index saw the same six photographs six times.
+# `--per-build` gives each build its own set under <trade>/<build-slug>/.
+# Build one keeps the shared images; the other five are generated fresh with a
+# clause that moves the scene — building, light, angle — so they are different
+# places rather than the same scene re-rolled.
+VARIANTS = [
+    "",
+    "A single full-frame photograph, set somewhere different from the other photographs: an older brick "
+    "building in an established, leafy neighbourhood, soft overcast light, the "
+    "camera slightly lower than eye level.",
+    "A single full-frame photograph, set somewhere different from the other photographs: a newer "
+    "development with pale siding, bright clear midday sun, a slightly wider "
+    "framing that shows more of the surroundings.",
+    "A single full-frame photograph, set somewhere different from the other photographs: a mid-century "
+    "property with dark timber and stone, late golden-hour light with long "
+    "shadows, a tighter crop on the subject.",
+    "A single full-frame photograph, set somewhere different from the other photographs: a coastal or "
+    "lakeside property in white and grey, cool overcast morning light, a "
+    "three-quarter angle from the right.",
+    "A single full-frame photograph, set somewhere different from the other photographs: a rural or "
+    "wooded property, warm early-evening light, the camera slightly above the "
+    "subject.",
+]
+
+
+# Indoor subjects get a different room, not a different property: a biopsy
+# tray "at a coastal property" came back on a sea wall.
+INDOOR_VARIANTS = [
+    "",
+    "A single full-frame photograph, in a different room from the other photographs: "
+    "an older building with tall sash windows and exposed brick, soft overcast "
+    "light, the camera slightly lower than eye level.",
+    "A single full-frame photograph, in a different room from the other photographs: a "
+    "new-build with white walls and pale wood, bright midday light through "
+    "blinds, a slightly wider framing.",
+    "A single full-frame photograph, in a different room from the other photographs: a "
+    "converted mid-century space with dark timber and stone, warm late-afternoon "
+    "light, a tighter crop on the subject.",
+    "A single full-frame photograph, in a different room from the other photographs: a "
+    "light room in white and grey with a window onto water, cool morning light, "
+    "a three-quarter angle from the right.",
+    "A single full-frame photograph, in a different room from the other photographs: a "
+    "room with a window onto woodland, warm early-evening light, the camera "
+    "slightly above the subject.",
+]
+EXTERIOR_HINTS = ("roof", "house", "yard", "garden", "street", "exterior", "aerial",
+                  "drone", "van", "truck", "driveway", "facade", "pool", "terrace",
+                  "condenser", "solar", "fence", "kerb", "curb", "porch",
+                  "neighbourhood", "lawn", "plant exterior", "meadow", "loading yard")
+
+
+# Clinical rooms vary in layout and light only. An operating theatre in a
+# brick loft is not a different clinic, it is an implausible one.
+CLINICAL_VARIANTS = [
+    "",
+    "A single full-frame photograph of a different room from the other "
+    "photographs: a larger room with pale grey-green walls and two ceiling "
+    "lights, cool even light, the camera slightly lower than eye level.",
+    "A single full-frame photograph of a different room from the other "
+    "photographs: a compact white room with pale blue accents, bright light, "
+    "a slightly wider framing.",
+    "A single full-frame photograph of a different room from the other "
+    "photographs: a room with warm wood cabinetry and a frosted window, soft "
+    "afternoon light, a tighter crop on the subject.",
+    "A single full-frame photograph of a different room from the other "
+    "photographs: a room in white and light grey with a tall frosted window, "
+    "cool morning light, a three-quarter angle from the right.",
+    "A single full-frame photograph of a different room from the other "
+    "photographs: a room with a high window, pale walls and stainless fittings, "
+    "warm light, the camera slightly above the subject.",
+]
+CLINICAL_HINTS = ("operating", "surgical", "suite", "lab", "exam", "clinic",
+                  "treatment", "dental", "sterile", "instrument", "biopsy",
+                  "dermatoscope", "scanner", "recovery", "imaging", "kennel",
+                  "veterinary", "pharmacy", "dispensary", "anaesthetic")
+
+
+def variant_for(prompt: str, idx: int) -> str:
+    p = prompt.lower()
+    if any(h in p for h in EXTERIOR_HINTS):
+        table = VARIANTS
+    elif any(h in p for h in CLINICAL_HINTS):
+        table = CLINICAL_VARIANTS
+    else:
+        table = INDOOR_VARIANTS
+    return table[idx % len(table)]
+
+
+def build_sets(trade: str):
+    """Which image names each build shows, in the order build-gallery lists them."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location(
+        "build_gallery", Path(__file__).resolve().parent / "build-gallery.py")
+    g = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(g)
+    pair = list(g.PAIRS.get(trade, ()))
+    return [(slug, pair + list(s["tiles"])) for slug, s in g.SETS.get(trade, {}).items()]
+
+
 def generate(trade: str, name: str, prompt: str, aspect: str, ref: str | None,
-             key: str, force: bool) -> str:
-    out_dir = OUT / trade
+             key: str, force: bool, sub: str | None = None) -> str:
+    out_dir = OUT / trade / sub if sub else OUT / trade
     out_dir.mkdir(parents=True, exist_ok=True)
     dest = out_dir / f"{name}.jpg"
+    label = f"{sub}/{name}" if sub else name
     if dest.exists() and not force:
-        return f"{name}: skipped (exists)"
+        return f"{label}: skipped (exists)"
 
     parts: list = [{"text": f"{prompt} {NEGATIVE}"}]
     if ref:
@@ -1035,17 +1138,40 @@ def generate(trade: str, name: str, prompt: str, aspect: str, ref: str | None,
 
     data, err = request(parts, SIZE, aspect, key)
     if err:
-        return f"{name}: {err}"
+        return f"{label}: {err}"
     dest.write_bytes(data)
-    return f"{name}: {len(data) // 1024}KB"
+    return f"{label}: {len(data) // 1024}KB"
+
+
+def run(tasks: list, key: str, force: bool) -> None:
+    """tasks: (sub, name, prompt, aspect, ref). Chained entries run after
+    everything they could point at."""
+    independent = [t for t in tasks if not t[4]]
+    dependent = [t for t in tasks if t[4]]
+    for batch in (independent, dependent):
+        if not batch:
+            continue
+        with ThreadPoolExecutor(max_workers=4) as pool:
+            for line in pool.map(
+                    lambda t: generate(args_trade, t[1], t[2], t[3], t[4], key, force, t[0]),
+                    batch):
+                print(f"  {line}")
 
 
 def main() -> None:
+    global args_trade
     ap = argparse.ArgumentParser()
     ap.add_argument("trade")
     ap.add_argument("--only", nargs="*", help="generate just these names")
     ap.add_argument("--force", action="store_true")
+    ap.add_argument("--plain", action="store_true",
+                    help="with --per-build: no variation clause (for an image the "
+                         "clause keeps turning into a diptych)")
+    ap.add_argument("--per-build", action="store_true",
+                    help="one library per build under <trade>/<slug>/; build one "
+                         "keeps the shared images, the rest are generated")
     args = ap.parse_args()
+    args_trade = args.trade
 
     key = os.environ.get("GEMINI_API_KEY")
     if not key:
@@ -1053,21 +1179,35 @@ def main() -> None:
     items = LIBRARIES.get(args.trade)
     if not items:
         sys.exit(f"no library defined for {args.trade}")
-    if args.only:
-        items = [i for i in items if i[0] in args.only]
+    by_name = {i[0]: i for i in items}
 
-    # Reference-chained entries have to run after what they point at.
-    independent = [i for i in items if not i[3]]
-    dependent = [i for i in items if i[3]]
+    if not args.per_build:
+        if args.only:
+            items = [i for i in items if i[0] in args.only]
+        run([(None, *i) for i in items], key, args.force)
+        return
 
-    for batch in (independent, dependent):
-        if not batch:
+    import shutil
+    tasks = []
+    for idx, (slug, names) in enumerate(build_sets(args.trade)):
+        if args.only and slug not in args.only:
             continue
-        with ThreadPoolExecutor(max_workers=4) as pool:
-            for line in pool.map(
-                    lambda i: generate(args.trade, i[0], i[1], i[2], i[3],
-                                       key, args.force), batch):
-                print(f"  {line}")
+        sub_dir = OUT / args.trade / slug
+        sub_dir.mkdir(parents=True, exist_ok=True)
+        for name in names:
+            if name not in by_name:
+                sys.exit(f"{args.trade}: no prompt for {name}")
+            if idx == 0:
+                src = OUT / args.trade / f"{name}.jpg"
+                dst = sub_dir / f"{name}.jpg"
+                if src.exists() and not dst.exists():
+                    shutil.copy2(src, dst)
+                    print(f"  {slug}/{name}: kept the shared image")
+                continue
+            _, prompt, aspect, ref = by_name[name]
+            clause = "" if args.plain else variant_for(prompt, idx)
+            tasks.append((slug, name, f"{prompt} {clause}".strip(), aspect, ref))
+    run(tasks, key, args.force)
 
 
 if __name__ == "__main__":

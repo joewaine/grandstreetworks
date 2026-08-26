@@ -140,13 +140,16 @@ def main() -> None:
                 print(f"  {trade:<24} no library, skipped")
                 continue
             d.mkdir(parents=True, exist_ok=True)
-            for img in sorted(src_dir.glob("*.jpg")):
-                w, s_ = encode_plate(img, d, args.force,
+            # The shared set sits at the trade root; per-build sets one level down.
+            for img in sorted(list(src_dir.glob("*.jpg")) + list(src_dir.glob("*/*.jpg"))):
+                out = d / img.parent.name if img.parent != src_dir else d
+                out.mkdir(parents=True, exist_ok=True)
+                w, s_ = encode_plate(img, out, args.force,
                                      LIBRARY_AVIF_WIDTHS, LIBRARY_JPEG_WIDTH)
                 total_w += w
                 total_s += s_
-            kb = sum(f.stat().st_size for f in d.glob("*.avif")) // 1024
-            print(f"  {trade:<24} {len(list(d.glob('*.avif')))} avif, {kb}KB")
+            kb = sum(f.stat().st_size for f in d.rglob("*.avif")) // 1024
+            print(f"  {trade:<24} {len(list(d.rglob('*.avif')))} avif, {kb}KB")
         print(f"\nwrote {total_w}, skipped {total_s}")
         return
 

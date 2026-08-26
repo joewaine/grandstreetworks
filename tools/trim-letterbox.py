@@ -85,8 +85,10 @@ def main() -> None:
             print(f"  {trade}: no library")
             continue
         groups: dict[str, list[Path]] = defaultdict(list)
-        for p in sorted(d.glob("*.jpg")):
-            groups[pair_key(p.stem)].append(p)
+        # Per-build sets live one level down; a pair is only a pair within
+        # the same folder.
+        for p in sorted(list(d.glob("*.jpg")) + list(d.glob("*/*.jpg"))):
+            groups[f"{p.parent.name}/{pair_key(p.stem)}"].append(p)
 
         for key, paths in groups.items():
             boxes = []
