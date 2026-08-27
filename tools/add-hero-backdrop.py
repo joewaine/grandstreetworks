@@ -30,12 +30,15 @@ END_MARKER = "<!-- /gsw:backdrop -->"
 AVIF_WIDTHS = (1280, 2560)
 JPEG_WIDTH = 1280
 
-# build slug -> (plate stem, ink rgb for the scrim, "left" | "centre")
+# build slug -> (plate stem, scrim rgb, "left" | "centre")
 # `side` says where the copy sits, which is the side the scrim stays opaque on.
+# The scrim colour must be the build's *ground*, not its ink: a light build with
+# dark copy needs a light scrim. Getting this backwards puts grey text on a grey
+# photograph, which is what happened to Brightfold first time round.
 BACKDROPS = {
     "solar": {
         # D4 opened on a wall of white beside the incentive sheet.
-        "brightfold-solar": ("e-street-of-roofs", "20 28 22", "left"),
+        "brightfold-solar": ("e-street-of-roofs", "250 250 248", "left"),
     },
     "interior-design": {
         "ivory-lane-interiors": ("a-rooms-like-people", "92 44 28", "left"),
@@ -49,8 +52,8 @@ BACKDROPS = {
 def scrim(rgb: str, side: str) -> str:
     if side == "centre":
         return f"rgb({rgb} / 0.78)"
-    return (f"linear-gradient(100deg, rgb({rgb} / 0.92) 0%, rgb({rgb} / 0.86) 38%, "
-            f"rgb({rgb} / 0.62) 68%, rgb({rgb} / 0.44) 100%)")
+    return (f"linear-gradient(100deg, rgb({rgb} / 0.96) 0%, rgb({rgb} / 0.92) 42%, "
+            f"rgb({rgb} / 0.70) 72%, rgb({rgb} / 0.48) 100%)")
 
 
 def css(rgb: str, side: str) -> str:
