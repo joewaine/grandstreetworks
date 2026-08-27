@@ -211,6 +211,32 @@ padding:28px 14px}
     .gsw-gal figure:hover img { transform: none; }
   }
 </style>
+
+<style>
+  /* gsw-cellfill: photographs in the hero's index cells. The cell keeps its own
+     border, ratio and number; the image sits behind them and the design's
+     gradient stays as the loading colour. */
+  .gsw-cellfill { position: absolute; inset: 0; display: block; }
+  /* The overlay needs a positioned parent; several of these cells have none. */
+  .gsw-cellfill-host { position: relative; overflow: hidden; }
+  /* Slideshow: the plates stack, the register switches them. Without
+     JavaScript the first plate is simply the one that shows. */
+  .gsw-cellfill-slide { position: absolute; inset: 0; opacity: 0; transition: opacity .45s ease; }
+  .gsw-cellfill-slide:first-of-type { opacity: 1; }
+  .gsw-cellfill-slide[data-on] { opacity: 1; }
+  .gsw-cellfill-live .gsw-cellfill-slide:first-of-type:not([data-on]) { opacity: 0; }
+  .gsw-cellfill-reg button { font: inherit; color: inherit; background: none; border: 0;
+                          padding: 0; cursor: pointer; opacity: .45;
+                          transition: opacity .2s ease; }
+  .gsw-cellfill-reg button[aria-current="true"] { opacity: 1; }
+  .gsw-cellfill-reg button:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce) {
+    .gsw-cellfill-slide { transition: none; }
+  }
+  .gsw-cellfill img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .gsw-sr { position: absolute; width: 1px; height: 1px; overflow: hidden;
+             clip-path: inset(50%); white-space: nowrap; }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap">Private client services · Now recruiting producing agents</div></div>
@@ -232,8 +258,8 @@ padding:28px 14px}
     <ul class="badges"><li>Film &amp; photography included</li><li>Dedicated listing pages</li><li>Private off-market network</li><li>Now recruiting agents</li></ul>
   </div>
   <div aria-hidden="true">
-    <div class="plateone"><span class="fld"></span><span class="n">01</span></div>
-    <ul class="register"><li>01</li><li>02</li><li>03</li><li>04</li><li>05</li><li>06</li></ul>
+    <div class="plateone"><span class="fld gsw-cellfill-host"><span class="gsw-cellfill-slide"><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/luxury-real-estate/ashcroft-residential/threshold-640.avif 640w, ../_assets/library/luxury-real-estate/ashcroft-residential/threshold-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/luxury-real-estate/ashcroft-residential/threshold-720.jpg" alt="The threshold" loading="lazy" decoding="async"></picture></span></span><span class="gsw-cellfill-slide"><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/luxury-real-estate/ashcroft-residential/entry-hall-640.avif 640w, ../_assets/library/luxury-real-estate/ashcroft-residential/entry-hall-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/luxury-real-estate/ashcroft-residential/entry-hall-720.jpg" alt="The entry" loading="lazy" decoding="async"></picture></span></span><span class="gsw-cellfill-slide"><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/luxury-real-estate/ashcroft-residential/library-room-640.avif 640w, ../_assets/library/luxury-real-estate/ashcroft-residential/library-room-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/luxury-real-estate/ashcroft-residential/library-room-720.jpg" alt="The study" loading="lazy" decoding="async"></picture></span></span><span class="gsw-cellfill-slide"><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/luxury-real-estate/ashcroft-residential/garden-path-640.avif 640w, ../_assets/library/luxury-real-estate/ashcroft-residential/garden-path-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/luxury-real-estate/ashcroft-residential/garden-path-720.jpg" alt="The garden" loading="lazy" decoding="async"></picture></span></span><span class="gsw-cellfill-slide"><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/luxury-real-estate/ashcroft-residential/bathroom-640.avif 640w, ../_assets/library/luxury-real-estate/ashcroft-residential/bathroom-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/luxury-real-estate/ashcroft-residential/bathroom-720.jpg" alt="Principal bath" loading="lazy" decoding="async"></picture></span></span><span class="gsw-cellfill-slide"><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/luxury-real-estate/ashcroft-residential/twilight-facade-640.avif 640w, ../_assets/library/luxury-real-estate/ashcroft-residential/twilight-facade-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/luxury-real-estate/ashcroft-residential/twilight-facade-720.jpg" alt="Twilight, from the drive" loading="lazy" decoding="async"></picture></span></span></span><span class="n gsw-cellfill-num">01</span></div>
+    <ul class="gsw-cellfill-reg register"><li><button type="button" aria-current="true">01<span class="gsw-sr">, show plate 01</span></button></li><li><button type="button" aria-current="false">02<span class="gsw-sr">, show plate 02</span></button></li><li><button type="button" aria-current="false">03<span class="gsw-sr">, show plate 03</span></button></li><li><button type="button" aria-current="false">04<span class="gsw-sr">, show plate 04</span></button></li><li><button type="button" aria-current="false">05<span class="gsw-sr">, show plate 05</span></button></li><li><button type="button" aria-current="false">06<span class="gsw-sr">, show plate 06</span></button></li></ul>
   </div>
 </div></div></section>
 <section class="sec" id="services"><div class="wrap">
@@ -325,5 +351,32 @@ padding:28px 14px}
 })();
 </script>
 <!-- /gsw:motion -->
+
+<script>
+/* One slideshow per page. The register buttons drive `data-on`; the CSS does
+   the rest, so a plate is visible before this runs and stays visible if it
+   never does. */
+(function () {
+  var reg = document.querySelector('.gsw-cellfill-reg');
+  if (!reg) return;
+  var slides = document.querySelectorAll('.gsw-cellfill-slide');
+  var num = document.querySelector('.gsw-cellfill-num');
+  if (!slides.length) return;
+  document.documentElement.classList.add('gsw-cellfill-live');
+  var show = function (i) {
+    slides.forEach(function (s, k) {
+      if (k === i) { s.setAttribute('data-on', ''); } else { s.removeAttribute('data-on'); }
+    });
+    reg.querySelectorAll('button').forEach(function (b, k) {
+      b.setAttribute('aria-current', k === i ? 'true' : 'false');
+    });
+    if (num) num.textContent = String(i + 1).padStart(2, '0');
+  };
+  reg.querySelectorAll('button').forEach(function (b, k) {
+    b.addEventListener('click', function () { show(k); });
+  });
+  show(0);
+})();
+</script>
 </body>
 </html>

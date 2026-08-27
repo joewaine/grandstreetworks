@@ -223,6 +223,16 @@ align-items:center}.brand{font-size:26px}}
     .gsw-gal figure:hover img { transform: none; }
   }
 </style>
+
+<style>
+  /* gsw-cellfill: photographs in the hero's index cells. The cell keeps its own
+     border, ratio and number; the image sits behind them and the design's
+     gradient stays as the loading colour. */
+  .gsw-cellfill { position: absolute; inset: 0; display: block; }
+  /* The overlay needs a positioned parent; several of these cells have none. */
+  .gsw-cellfill-host { position: relative; overflow: hidden; }
+  .gsw-cellfill img { width: 100%; height: 100%; object-fit: cover; display: block; }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap">Private client services · Now recruiting producing agents</div></div>
@@ -243,12 +253,12 @@ align-items:center}.brand{font-size:26px}}
     <a class="btn btn-ghost" href="#results">View portfolio</a>
   </div>
   <ul class="gauge" aria-hidden="true">
-    <li><span class="fld"></span><span class="n">01</span></li>
-    <li><span class="fld"></span><span class="n">02</span></li>
-    <li><span class="fld"></span><span class="n">03</span></li>
-    <li><span class="fld"></span><span class="n">04</span></li>
-    <li><span class="fld"></span><span class="n">05</span></li>
-    <li><span class="fld"></span><span class="n">06</span></li>
+    <li><span class="fld gsw-cellfill-host"><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/luxury-real-estate/bellamy-estates/twilight-facade-640.avif 640w, ../_assets/library/luxury-real-estate/bellamy-estates/twilight-facade-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/luxury-real-estate/bellamy-estates/twilight-facade-720.jpg" alt="Twilight, from the drive" loading="lazy" decoding="async"></picture></span></span><span class="n">01</span></li>
+    <li><span class="fld gsw-cellfill-host"><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/luxury-real-estate/bellamy-estates/entry-hall-640.avif 640w, ../_assets/library/luxury-real-estate/bellamy-estates/entry-hall-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/luxury-real-estate/bellamy-estates/entry-hall-720.jpg" alt="The entry" loading="lazy" decoding="async"></picture></span></span><span class="n">02</span></li>
+    <li><span class="fld gsw-cellfill-host"><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/luxury-real-estate/bellamy-estates/kitchen-640.avif 640w, ../_assets/library/luxury-real-estate/bellamy-estates/kitchen-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/luxury-real-estate/bellamy-estates/kitchen-720.jpg" alt="Kitchen at twilight" loading="lazy" decoding="async"></picture></span></span><span class="n">03</span></li>
+    <li><span class="fld gsw-cellfill-host"><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/luxury-real-estate/bellamy-estates/pool-terrace-640.avif 640w, ../_assets/library/luxury-real-estate/bellamy-estates/pool-terrace-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/luxury-real-estate/bellamy-estates/pool-terrace-720.jpg" alt="Terrace and pool" loading="lazy" decoding="async"></picture></span></span><span class="n">04</span></li>
+    <li><span class="fld gsw-cellfill-host"><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/luxury-real-estate/bellamy-estates/library-room-640.avif 640w, ../_assets/library/luxury-real-estate/bellamy-estates/library-room-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/luxury-real-estate/bellamy-estates/library-room-720.jpg" alt="The study" loading="lazy" decoding="async"></picture></span></span><span class="n">05</span></li>
+    <li><span class="fld gsw-cellfill-host"><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/luxury-real-estate/bellamy-estates/drone-estate-640.avif 640w, ../_assets/library/luxury-real-estate/bellamy-estates/drone-estate-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/luxury-real-estate/bellamy-estates/drone-estate-720.jpg" alt="The estate from above" loading="lazy" decoding="async"></picture></span></span><span class="n">06</span></li>
   </ul>
   <ul class="badges"><li>Film &amp; photography included</li><li>Dedicated listing pages</li><li>Private off-market network</li><li>Now recruiting agents</li></ul>
 </div></section>

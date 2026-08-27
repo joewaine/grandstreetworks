@@ -227,6 +227,16 @@ font-weight:600;font-size:15px;text-align:center;line-height:1.2;padding:0 12px}
     .gsw-gal figure:hover img { transform: none; }
   }
 </style>
+
+<style>
+  /* gsw-cellfill: photographs in the hero's index cells. The cell keeps its own
+     border, ratio and number; the image sits behind them and the design's
+     gradient stays as the loading colour. */
+  .gsw-cellfill { position: absolute; inset: 0; display: block; }
+  /* The overlay needs a positioned parent; several of these cells have none. */
+  .gsw-cellfill-host { position: relative; overflow: hidden; }
+  .gsw-cellfill img { width: 100%; height: 100%; object-fit: cover; display: block; }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap">Now booking 2027 · Serving the valley &amp; foothills</div></div>
@@ -270,25 +280,25 @@ font-weight:600;font-size:15px;text-align:center;line-height:1.2;padding:0 12px}
   <p class="kicker">Homeowners &amp; architects</p>
   <div class="plates">
     <figure class="plate">
-      <div class="pdraw" aria-hidden="true"><span class="rf"></span><span class="bx"></span><span class="wn"></span><span class="wn2"></span></div>
+      <div class="gsw-cellfill-host pdraw" aria-hidden="true"><span class="rf"></span><span class="bx"></span><span class="wn"></span><span class="wn2"></span><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/custom-home-builders/kingsmere-build/exterior-evening-640.avif 640w, ../_assets/library/custom-home-builders/kingsmere-build/exterior-evening-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/custom-home-builders/kingsmere-build/exterior-evening-720.jpg" alt="Evening, from the drive" loading="lazy" decoding="async"></picture></span></div>
       <figcaption class="pbody"><span class="pnum">Architect, valley</span>
         <p>"They protected the design when the budget got tight. That's rare."</p>
         <cite><b>M. Delacroix</b></cite></figcaption>
     </figure>
     <figure class="plate">
-      <div class="pdraw" aria-hidden="true"><span class="rf"></span><span class="bx"></span><span class="wn"></span><span class="wn2"></span></div>
+      <div class="gsw-cellfill-host pdraw" aria-hidden="true"><span class="rf"></span><span class="bx"></span><span class="wn"></span><span class="wn2"></span><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/custom-home-builders/kingsmere-build/interior-finish-640.avif 640w, ../_assets/library/custom-home-builders/kingsmere-build/interior-finish-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/custom-home-builders/kingsmere-build/interior-finish-720.jpg" alt="The great room, finished" loading="lazy" decoding="async"></picture></span></div>
       <figcaption class="pbody"><span class="pnum">New build</span>
         <p>"Weekly walkthrough, weekly numbers. No surprises at the end."</p>
         <cite><b>Jen &amp; Ro P.</b></cite></figcaption>
     </figure>
     <figure class="plate">
-      <div class="pdraw" aria-hidden="true"><span class="rf"></span><span class="bx"></span><span class="wn"></span><span class="wn2"></span></div>
+      <div class="gsw-cellfill-host pdraw" aria-hidden="true"><span class="rf"></span><span class="bx"></span><span class="wn"></span><span class="wn2"></span><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/custom-home-builders/kingsmere-build/kitchen-640.avif 640w, ../_assets/library/custom-home-builders/kingsmere-build/kitchen-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/custom-home-builders/kingsmere-build/kitchen-720.jpg" alt="Kitchen, handed over" loading="lazy" decoding="async"></picture></span></div>
       <figcaption class="pbody"><span class="pnum">Estate build</span>
         <p>"The site work on acreage was handled better than we'd been warned to expect."</p>
         <cite><b>Alan S.</b></cite></figcaption>
     </figure>
     <figure class="plate">
-      <div class="pdraw" aria-hidden="true"><span class="rf"></span><span class="bx"></span><span class="wn"></span><span class="wn2"></span></div>
+      <div class="gsw-cellfill-host pdraw" aria-hidden="true"><span class="rf"></span><span class="bx"></span><span class="wn"></span><span class="wn2"></span><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/custom-home-builders/kingsmere-build/house-finished-640.avif 640w, ../_assets/library/custom-home-builders/kingsmere-build/house-finished-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/custom-home-builders/kingsmere-build/house-finished-720.jpg" alt="Move-in" loading="lazy" decoding="async"></picture></span></div>
       <figcaption class="pbody"><span class="pnum">Repeat client</span>
         <p>"Second home we've built with them. That should say it."</p>
         <cite><b>The Kestrels</b></cite></figcaption>
