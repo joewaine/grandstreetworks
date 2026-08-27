@@ -220,6 +220,9 @@ padding:28px 14px}
   .gsw-cellfill { position: absolute; inset: 0; display: block; }
   /* The overlay needs a positioned parent; several of these cells have none. */
   .gsw-cellfill-host { position: relative; overflow: hidden; }
+  /* A covered device keeps its frame but not its drawing: the shapes were
+     absolutely positioned siblings and painted over the photograph. */
+  .gsw-cellfill-cover > *:not(.gsw-cellfill) { display: none; }
   /* Slideshow: the plates stack, the register switches them. Without
      JavaScript the first plate is simply the one that shows. */
   .gsw-cellfill-slide { position: absolute; inset: 0; opacity: 0; transition: opacity .45s ease; }

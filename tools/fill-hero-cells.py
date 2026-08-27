@@ -111,6 +111,13 @@ CELLS = {
             ("house-finished", "Move-in"),
         ]),
     },
+    "pool-builders": {
+        # D2 draws the 3D render, D5 the site plan, D6 a rippling water band —
+        # all three stand in for a photograph of a finished pool.
+        "marlin-pool-co": ("cover", "frame", [("night-lights", "Lit for the evening")]),
+        "verdant-pools-and-gardens": ("cover", "plan", [("outdoor-living", "The whole garden")]),
+        "clearwater-pool-group": ("cover", "ripple", [("coping", "Coping at the waterline")]),
+    },
     "interior-design": {
         # The sample tray is the build's whole device: eight materials, edge to
         # edge. Drawn flat it is eight colour swatches.
@@ -150,6 +157,9 @@ CSS = f"""
   .{MARKER} {{ position: absolute; inset: 0; display: block; }}
   /* The overlay needs a positioned parent; several of these cells have none. */
   .{MARKER}-host {{ position: relative; overflow: hidden; }}
+  /* A covered device keeps its frame but not its drawing: the shapes were
+     absolutely positioned siblings and painted over the photograph. */
+  .{MARKER}-cover > *:not(.{MARKER}) {{ display: none; }}
   /* Slideshow: the plates stack, the register switches them. Without
      JavaScript the first plate is simply the one that shows. */
   .{MARKER}-slide {{ position: absolute; inset: 0; opacity: 0; transition: opacity .45s ease; }}
@@ -282,7 +292,8 @@ def patch(page: Path, trade: str, slug: str, spec, replace: bool) -> str:
             if i >= len(images):
                 return m.group(0)
             name, alt = images[i]
-            opener = m.group(1).replace('<div class="', f'<div class="{MARKER}-host ', 1)
+            opener = m.group(1).replace(
+                '<div class="', f'<div class="{MARKER}-host {MARKER}-cover ', 1)
             return opener + m.group(2) + picture(trade, slug, name, alt) + m.group(3)
 
         src = cover_re.sub(fill_cover, src)

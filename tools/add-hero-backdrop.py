@@ -33,6 +33,10 @@ JPEG_WIDTH = 1280
 # build slug -> (plate stem, ink rgb for the scrim, "left" | "centre")
 # `side` says where the copy sits, which is the side the scrim stays opaque on.
 BACKDROPS = {
+    "solar": {
+        # D4 opened on a wall of white beside the incentive sheet.
+        "brightfold-solar": ("e-street-of-roofs", "20 28 22", "left"),
+    },
     "interior-design": {
         "ivory-lane-interiors": ("a-rooms-like-people", "92 44 28", "left"),
         "nocturne-interiors": ("f-after-dark", "18 20 22", "left"),

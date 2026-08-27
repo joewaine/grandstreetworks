@@ -222,6 +222,43 @@ font-family:"Urbanist",system-ui,sans-serif}
     .gsw-gal figure:hover img { transform: none; }
   }
 </style>
+
+<style>
+  /* gsw-drawn-off */
+  .frame > span:not(.gsw-cellfill):not(.chip) { display: none !important; }
+  .frame::before, .frame::after { content: none !important; }
+</style>
+
+<style>
+  /* gsw-cellfill: photographs in the hero's index cells. The cell keeps its own
+     border, ratio and number; the image sits behind them and the design's
+     gradient stays as the loading colour. */
+  .gsw-cellfill { position: absolute; inset: 0; display: block; }
+  /* The overlay needs a positioned parent; several of these cells have none. */
+  .gsw-cellfill-host { position: relative; overflow: hidden; }
+  /* A covered device keeps its frame but not its drawing: the shapes were
+     absolutely positioned siblings and painted over the photograph. */
+  .gsw-cellfill-cover > *:not(.gsw-cellfill) { display: none; }
+  /* Slideshow: the plates stack, the register switches them. Without
+     JavaScript the first plate is simply the one that shows. */
+  .gsw-cellfill-slide { position: absolute; inset: 0; opacity: 0; transition: opacity .45s ease; }
+  .gsw-cellfill-slide:first-of-type { opacity: 1; }
+  .gsw-cellfill-slide[data-on] { opacity: 1; }
+  .gsw-cellfill-live .gsw-cellfill-slide:first-of-type:not([data-on]) { opacity: 0; }
+  .gsw-cellfill-reg button { font: inherit; color: inherit; background: none; border: 0;
+                          padding: 0; cursor: pointer; opacity: .45;
+                          transition: opacity .2s ease; }
+  .gsw-cellfill-reg button[aria-current="true"] { opacity: 1; }
+  .gsw-cellfill-reg button:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce) {
+    .gsw-cellfill-slide { transition: none; }
+  }
+  /* <picture> is inline by default, so the image inside it collapses. */
+  .gsw-cellfill picture { display: block; width: 100%; height: 100%; }
+  .gsw-cellfill img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .gsw-sr { position: absolute; width: 1px; height: 1px; overflow: hidden;
+             clip-path: inset(50%); white-space: nowrap; }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap">Booking spring installs now · 3D design included · Financing available</div></div>
@@ -244,13 +281,13 @@ font-family:"Urbanist",system-ui,sans-serif}
     <a class="btn btn-ghost" href="#results">See finished pools</a>
   </div>
   <div class="viewport">
-    <div class="frame">
+    <div class="gsw-cellfill-host gsw-cellfill-cover frame">
       <span class="chip"><i></i>3D design included</span>
       <span class="spa"></span>
       <span class="pool"></span>
       <span class="tick t1"></span><span class="tick t2"></span>
       <span class="tick t3"></span><span class="tick t4"></span>
-    </div>
+    <span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/pool-builders/marlin-pool-co/night-lights-640.avif 640w, ../_assets/library/pool-builders/marlin-pool-co/night-lights-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/pool-builders/marlin-pool-co/night-lights-720.jpg" alt="Lit for the evening" loading="lazy" decoding="async"></picture></span></div>
     <div class="vfoot"><span>Booking spring now</span><span>Marlin Pool Co.</span></div>
   </div>
   <ul class="badges">
