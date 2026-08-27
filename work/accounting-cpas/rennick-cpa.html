@@ -198,6 +198,23 @@ font-family:"Anybody",sans-serif}
     .gsw-gal figure:hover img { transform: none; }
   }
 </style>
+
+<style>
+  /* gsw-seq: the hero device arrives a part at a time. Gated on .gsw-seq-on,
+     which only the script adds, so without JavaScript the device is simply
+     there. */
+  .gsw-seq-on .track .station {
+    opacity: 0; transform: translateY(9px);
+    transition: opacity .5s cubic-bezier(.2,.6,.2,1), transform .5s cubic-bezier(.2,.6,.2,1);
+  }
+  .gsw-seq-on .track .station.gsw-seq-in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .gsw-seq-on .track .station,
+    .gsw-seq-on .track .station * {
+      opacity: 1; transform: none; transition: none;
+    }
+  }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap">Now taking business clients for the coming year · Secure client portal →</div></div>
@@ -321,5 +338,28 @@ font-family:"Anybody",sans-serif}
 })();
 </script>
 <!-- /gsw:motion -->
+
+<script>
+/* One device per page. Parts land left to right (or top to bottom) 110ms
+   apart, once, the first time the device is on screen. */
+(function () {
+  var box = document.querySelector('.track');
+  if (!box || !('IntersectionObserver' in window)) return;
+  var parts = box.querySelectorAll('.station');
+  if (!parts.length) return;
+  document.documentElement.classList.add('gsw-seq-on');
+  var run = function () {
+    parts.forEach(function (p, i) {
+      setTimeout(function () { p.classList.add('gsw-seq-in'); }, i * 110);
+    });
+  };
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { run(); io.disconnect(); }
+    });
+  }, { threshold: 0.35 });
+  io.observe(box);
+})();
+</script>
 </body>
 </html>
