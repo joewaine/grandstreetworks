@@ -228,6 +228,7 @@ font-weight:600;font-size:15px;text-align:center;line-height:1.2;padding:0 12px}
   }
 </style>
 
+
 <style>
   /* gsw-cellfill: photographs in the hero's index cells. The cell keeps its own
      border, ratio and number; the image sits behind them and the design's
@@ -235,7 +236,31 @@ font-weight:600;font-size:15px;text-align:center;line-height:1.2;padding:0 12px}
   .gsw-cellfill { position: absolute; inset: 0; display: block; }
   /* The overlay needs a positioned parent; several of these cells have none. */
   .gsw-cellfill-host { position: relative; overflow: hidden; }
+  /* Slideshow: the plates stack, the register switches them. Without
+     JavaScript the first plate is simply the one that shows. */
+  .gsw-cellfill-slide { position: absolute; inset: 0; opacity: 0; transition: opacity .45s ease; }
+  .gsw-cellfill-slide:first-of-type { opacity: 1; }
+  .gsw-cellfill-slide[data-on] { opacity: 1; }
+  .gsw-cellfill-live .gsw-cellfill-slide:first-of-type:not([data-on]) { opacity: 0; }
+  .gsw-cellfill-reg button { font: inherit; color: inherit; background: none; border: 0;
+                          padding: 0; cursor: pointer; opacity: .45;
+                          transition: opacity .2s ease; }
+  .gsw-cellfill-reg button[aria-current="true"] { opacity: 1; }
+  .gsw-cellfill-reg button:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce) {
+    .gsw-cellfill-slide { transition: none; }
+  }
+  /* <picture> is inline by default, so the image inside it collapses. */
+  .gsw-cellfill picture { display: block; width: 100%; height: 100%; }
   .gsw-cellfill img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .gsw-sr { position: absolute; width: 1px; height: 1px; overflow: hidden;
+             clip-path: inset(50%); white-space: nowrap; }
+</style>
+
+<style>
+  /* The filmstrip minis were drawn shapes with no box of their own. */
+  .strip .gsw-cellfill-host { aspect-ratio: 4 / 3; }
+  .strip .gsw-cellfill-host > *:not(.gsw-cellfill) { display: none; }
 </style>
 </head>
 <body>
@@ -261,7 +286,7 @@ font-weight:600;font-size:15px;text-align:center;line-height:1.2;padding:0 12px}
     <li>Homes from $1.2M</li><li>15 builds a year</li>
     <li>Architect-led welcome</li><li>Fixed-schedule contracts</li>
   </ul>
-  <div class="strip" aria-hidden="true"><div class="mini"></div><div class="mini"></div><div class="mini"></div><div class="mini"></div></div>
+  <div class="strip" aria-hidden="true"><div class="mini gsw-cellfill-host"><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/custom-home-builders/kingsmere-build/exterior-evening-640.avif 640w, ../_assets/library/custom-home-builders/kingsmere-build/exterior-evening-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/custom-home-builders/kingsmere-build/exterior-evening-720.jpg" alt="Evening, from the drive" loading="lazy" decoding="async"></picture></span></div><div class="mini gsw-cellfill-host"><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/custom-home-builders/kingsmere-build/interior-finish-640.avif 640w, ../_assets/library/custom-home-builders/kingsmere-build/interior-finish-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/custom-home-builders/kingsmere-build/interior-finish-720.jpg" alt="The great room, finished" loading="lazy" decoding="async"></picture></span></div><div class="mini gsw-cellfill-host"><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/custom-home-builders/kingsmere-build/kitchen-640.avif 640w, ../_assets/library/custom-home-builders/kingsmere-build/kitchen-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/custom-home-builders/kingsmere-build/kitchen-720.jpg" alt="Kitchen, handed over" loading="lazy" decoding="async"></picture></span></div><div class="mini gsw-cellfill-host"><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/custom-home-builders/kingsmere-build/house-finished-640.avif 640w, ../_assets/library/custom-home-builders/kingsmere-build/house-finished-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/custom-home-builders/kingsmere-build/house-finished-720.jpg" alt="Move-in" loading="lazy" decoding="async"></picture></span></div></div>
 </div></section>
 
 <section class="sec" id="services"><div class="wrap">

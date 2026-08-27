@@ -209,6 +209,24 @@ text-decoration:none;font-size:15px;font-weight:600;line-height:1.2;text-align:c
     .gsw-gal figure:hover img { transform: none; }
   }
 </style>
+
+<style>
+  /* gsw:backdrop — the hero opens on the work. The scrim is this build's own
+     ink, heavy where the copy sits and thinning away from it, so the text
+     never depends on what the photograph happens to be doing. */
+  .gsw-imaged { position: relative; isolation: isolate; overflow: hidden; }
+  .gsw-imaged > *:not(.gsw-backdrop) { position: relative; z-index: 1; }
+  .gsw-backdrop { position: absolute; inset: 0; z-index: 0; }
+  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
+  .gsw-backdrop img { width: 100%; height: 100%; object-fit: cover;
+                       object-position: center; }
+  .gsw-backdrop::after { content: ""; position: absolute; inset: 0;
+                          background: linear-gradient(100deg, rgb(92 44 28 / 0.92) 0%, rgb(92 44 28 / 0.86) 38%, rgb(92 44 28 / 0.62) 68%, rgb(92 44 28 / 0.44) 100%); }
+  /* Below the breakpoint the copy spans the full width, so the scrim goes flat. */
+  @media (max-width: 760px) {
+    .gsw-backdrop::after { background: rgb(92 44 28 / 0.9); }
+  }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap">Full-service interiors · Projects from $60,000 · Now booking</div></div>
@@ -221,7 +239,7 @@ text-decoration:none;font-size:15px;font-weight:600;line-height:1.2;text-align:c
   <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
 </div></div></header>
 
-<section class="band"><div class="wrap">
+<section class="gsw-imaged band"><!-- gsw:backdrop --><div class="gsw-backdrop" aria-hidden="true"><picture><source type="image/avif" srcset="../_assets/hero/interior-design/a-rooms-like-people-1280.avif 1280w, ../_assets/hero/interior-design/a-rooms-like-people-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/interior-design/a-rooms-like-people-1280.jpg" width="2560" height="1429" alt="" loading="eager" fetchpriority="high" decoding="async"></picture></div><!-- /gsw:backdrop --><div class="wrap">
   <p class="eyebrow">Full-service residential interiors</p>
   <h1>Filter the work by what you actually like.</h1>
   <p class="sub">Full-service interior design for whole homes and substantial renovations, generally from around $60,000 including furnishings. Filter the portfolio by style, budget and room so you are not scrolling through work you would never want.</p>
@@ -236,7 +254,7 @@ text-decoration:none;font-size:15px;font-weight:600;line-height:1.2;text-align:c
     <li>Full install &amp; styling</li>
   </ul></div>
 </div></section>
-<figure class="gsw-plate"><picture><source type="image/avif" srcset="../_assets/hero/interior-design/b-materials-1280.avif 1280w, ../_assets/hero/interior-design/b-materials-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/interior-design/b-materials-1280.jpg" width="2560" height="1429" alt="Materials, interior design" loading="lazy" decoding="async"></picture></figure>
+<figure class="gsw-plate"><picture><source type="image/avif" srcset="../_assets/hero/interior-design/e-the-whole-room-1280.avif 1280w, ../_assets/hero/interior-design/e-the-whole-room-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/interior-design/e-the-whole-room-1280.jpg" width="2560" height="1429" alt="Materials, interior design" loading="lazy" decoding="async"></picture></figure>
 
 <div class="deck" aria-hidden="true">
   <i class="m-ink"></i><i class="m-clay"></i><i class="m-oak"></i><i class="m-moss"></i>

@@ -91,6 +91,17 @@ CELLS = {
         ]),
     },
     "custom-home-builders": {
+        # D2's "architect-led welcome" panel was a CSS elevation drawing.
+        # The hero filmstrip: four homes, drawn.
+        "kingsmere-build-strip": ("child", "strip", {
+            0: ("exterior-evening", "Evening, from the drive"),
+            1: ("interior-finish", "The great room, finished"),
+            2: ("kitchen", "Kitchen, handed over"),
+            3: ("house-finished", "Move-in"),
+        }),
+        "farrow-ridge-builders": ("cover", "draw", [
+            ("interior-finish", "The great room, finished"),
+        ]),
         # "the portfolio is the product and it's underbuilt" — four numbered
         # plates drawn in CSS as the index.
         "kingsmere-build": ("cover", "pdraw", [
@@ -99,6 +110,16 @@ CELLS = {
             ("kitchen", "Kitchen, handed over"),
             ("house-finished", "Move-in"),
         ]),
+    },
+    "interior-design": {
+        # The sample tray is the build's whole device: eight materials, edge to
+        # edge. Drawn flat it is eight colour swatches.
+        "sorrel-studio": ("child", "tray", {
+            0: ("mat-terrazzo", "Terrazzo"), 1: ("mat-oak", "White oak"),
+            2: ("mat-moss", "Moss velvet"), 3: ("mat-lime", "Limewash plaster"),
+            4: ("mat-clay", "Clay tile"), 5: ("mat-brass", "Unlacquered brass"),
+            6: ("mat-marble", "Honed marble"), 7: ("mat-ink", "Ink lacquer"),
+        }),
     },
     "med-spas": {
         "onyx-and-ivory-aesthetics": ("child", "lattice", {
@@ -134,6 +155,8 @@ CSS = f"""
   @media (prefers-reduced-motion: reduce) {{
     .{MARKER}-slide {{ transition: none; }}
   }}
+  /* <picture> is inline by default, so the image inside it collapses. */
+  .{MARKER} picture {{ display: block; width: 100%; height: 100%; }}
   .{MARKER} img {{ width: 100%; height: 100%; object-fit: cover; display: block; }}
   .gsw-sr {{ position: absolute; width: 1px; height: 1px; overflow: hidden;
              clip-path: inset(50%); white-space: nowrap; }}
@@ -181,7 +204,11 @@ def picture(trade: str, slug: str, name: str, alt: str) -> str:
 
 def patch(page: Path, trade: str, slug: str, spec, replace: bool) -> str:
     src = page.read_text()
-    if MARKER in src:
+    target_cls = target[0] if isinstance(target, tuple) else target
+    already = re.search(rf'class="[^"]*\b{target_cls}\b[^"]*"[^>]*>(?:(?!</).)*?{MARKER}',
+                        src, re.S) or (f'{MARKER}-host {target_cls}' in src) \
+        or (f'{target_cls} {MARKER}-host' in src)
+    if already:
         if not replace:
             return "cells already filled"
         src = re.sub(rf'<span class="{MARKER}-slide">.*?</span></span>', "", src, flags=re.S)
@@ -312,7 +339,7 @@ def patch(page: Path, trade: str, slug: str, spec, replace: bool) -> str:
         if not parent:
             return f"no .{target} found"
         inner = parent.group(2)
-        child_re = re.compile(r"(<div[^>]*>)(</div>)")
+        child_re = re.compile(r"(<(?:div|i|span)[^>]*>)(</(?:div|i|span)>)")
 
         def fill_child(m: re.Match) -> str:
             i = counter["i"]
@@ -348,8 +375,9 @@ def main() -> None:
             print(f"  {trade}: no cells defined")
             continue
         for slug, build_spec in spec.items():
-            page = WORK / trade / f"{slug}.html"
-            status = patch(page, trade, slug, build_spec, args.replace) \
+            base = slug.split("-strip")[0]
+            page = WORK / trade / f"{base}.html"
+            status = patch(page, trade, base, build_spec, args.replace) \
                 if page.exists() else "page missing"
             print(f"  {slug:<34} {status}")
 

@@ -48,6 +48,8 @@ color:var(--muted);font-weight:600;padding:8px 0;max-width:100%}
 .navlinks a{text-decoration:none;white-space:nowrap;padding:4px 0}
 /* hero: fullbleed terrazzo field */
 .hero{position:relative;padding:26px 0 0;background:var(--plaster);overflow:hidden}
+/* the terrazzo field is replaced by the backdrop photograph */
+.hero > .terr, .hero .terrazzo, .hero > i{display:none!important}
 .hero::before{content:"";position:absolute;inset:0;opacity:.5;background-color:transparent;
 background-image:
 radial-gradient(circle at 12% 22%,#B9724A 0 5px,transparent 6px),
@@ -227,6 +229,53 @@ text-decoration:none;font-size:15px;font-weight:600;line-height:1.2;text-align:c
     .gsw-gal figure:hover img { transform: none; }
   }
 </style>
+
+
+<style>
+  /* gsw:backdrop — the hero opens on the work. The scrim is this build's own
+     ink, heavy where the copy sits and thinning away from it, so the text
+     never depends on what the photograph happens to be doing. */
+  .gsw-imaged { position: relative; isolation: isolate; overflow: hidden; }
+  .gsw-imaged > *:not(.gsw-backdrop) { position: relative; z-index: 1; }
+  .gsw-backdrop { position: absolute; inset: 0; z-index: 0; }
+  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
+  .gsw-backdrop img { width: 100%; height: 100%; object-fit: cover;
+                       object-position: center; }
+  .gsw-backdrop::after { content: ""; position: absolute; inset: 0;
+                          background: linear-gradient(100deg, rgb(31 41 34 / 0.92) 0%, rgb(31 41 34 / 0.86) 38%, rgb(31 41 34 / 0.62) 68%, rgb(31 41 34 / 0.44) 100%); }
+  /* Below the breakpoint the copy spans the full width, so the scrim goes flat. */
+  @media (max-width: 760px) {
+    .gsw-backdrop::after { background: rgb(31 41 34 / 0.9); }
+  }
+</style>
+
+<style>
+  /* gsw-cellfill: photographs in the hero's index cells. The cell keeps its own
+     border, ratio and number; the image sits behind them and the design's
+     gradient stays as the loading colour. */
+  .gsw-cellfill { position: absolute; inset: 0; display: block; }
+  /* The overlay needs a positioned parent; several of these cells have none. */
+  .gsw-cellfill-host { position: relative; overflow: hidden; }
+  /* Slideshow: the plates stack, the register switches them. Without
+     JavaScript the first plate is simply the one that shows. */
+  .gsw-cellfill-slide { position: absolute; inset: 0; opacity: 0; transition: opacity .45s ease; }
+  .gsw-cellfill-slide:first-of-type { opacity: 1; }
+  .gsw-cellfill-slide[data-on] { opacity: 1; }
+  .gsw-cellfill-live .gsw-cellfill-slide:first-of-type:not([data-on]) { opacity: 0; }
+  .gsw-cellfill-reg button { font: inherit; color: inherit; background: none; border: 0;
+                          padding: 0; cursor: pointer; opacity: .45;
+                          transition: opacity .2s ease; }
+  .gsw-cellfill-reg button[aria-current="true"] { opacity: 1; }
+  .gsw-cellfill-reg button:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce) {
+    .gsw-cellfill-slide { transition: none; }
+  }
+  /* <picture> is inline by default, so the image inside it collapses. */
+  .gsw-cellfill picture { display: block; width: 100%; height: 100%; }
+  .gsw-cellfill img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .gsw-sr { position: absolute; width: 1px; height: 1px; overflow: hidden;
+             clip-path: inset(50%); white-space: nowrap; }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap">Full-service interiors · Projects from $60,000 · Now booking</div></div>
@@ -245,7 +294,7 @@ text-decoration:none;font-size:15px;font-weight:600;line-height:1.2;text-align:c
   </div></div>
 </header>
 
-<section class="hero">
+<section class="gsw-imaged hero"><!-- gsw:backdrop --><div class="gsw-backdrop" aria-hidden="true"><picture><source type="image/avif" srcset="../_assets/hero/interior-design/e-the-whole-room-1280.avif 1280w, ../_assets/hero/interior-design/e-the-whole-room-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/interior-design/e-the-whole-room-1280.jpg" width="2560" height="1429" alt="" loading="eager" fetchpriority="high" decoding="async"></picture></div><!-- /gsw:backdrop -->
   <div class="wrap">
     <p class="eyebrow">Full-service residential interiors</p>
     <h1>We install it ourselves. Nothing is handed over half-done.</h1>
@@ -262,8 +311,8 @@ text-decoration:none;font-size:15px;font-weight:600;line-height:1.2;text-align:c
     </ul>
   </div>
   <div class="tray" aria-hidden="true">
-    <i class="x-terrazzo"></i><i class="x-oak"></i><i class="x-moss"></i><i class="x-lime"></i>
-    <i class="x-clay"></i><i class="x-brass"></i><i class="x-marble"></i><i class="x-ink"></i>
+    <i class="x-terrazzo"><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/interior-design/sorrel-studio/mat-terrazzo-640.avif 640w, ../_assets/library/interior-design/sorrel-studio/mat-terrazzo-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/interior-design/sorrel-studio/mat-terrazzo-720.jpg" alt="Terrazzo" loading="lazy" decoding="async"></picture></span></i><i class="x-oak"><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/interior-design/sorrel-studio/mat-oak-640.avif 640w, ../_assets/library/interior-design/sorrel-studio/mat-oak-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/interior-design/sorrel-studio/mat-oak-720.jpg" alt="White oak" loading="lazy" decoding="async"></picture></span></i><i class="x-moss"><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/interior-design/sorrel-studio/mat-moss-640.avif 640w, ../_assets/library/interior-design/sorrel-studio/mat-moss-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/interior-design/sorrel-studio/mat-moss-720.jpg" alt="Moss velvet" loading="lazy" decoding="async"></picture></span></i><i class="x-lime"><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/interior-design/sorrel-studio/mat-lime-640.avif 640w, ../_assets/library/interior-design/sorrel-studio/mat-lime-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/interior-design/sorrel-studio/mat-lime-720.jpg" alt="Limewash plaster" loading="lazy" decoding="async"></picture></span></i>
+    <i class="x-clay"><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/interior-design/sorrel-studio/mat-clay-640.avif 640w, ../_assets/library/interior-design/sorrel-studio/mat-clay-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/interior-design/sorrel-studio/mat-clay-720.jpg" alt="Clay tile" loading="lazy" decoding="async"></picture></span></i><i class="x-brass"><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/interior-design/sorrel-studio/mat-brass-640.avif 640w, ../_assets/library/interior-design/sorrel-studio/mat-brass-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/interior-design/sorrel-studio/mat-brass-720.jpg" alt="Unlacquered brass" loading="lazy" decoding="async"></picture></span></i><i class="x-marble"><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/interior-design/sorrel-studio/mat-marble-640.avif 640w, ../_assets/library/interior-design/sorrel-studio/mat-marble-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/interior-design/sorrel-studio/mat-marble-720.jpg" alt="Honed marble" loading="lazy" decoding="async"></picture></span></i><i class="x-ink"><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/interior-design/sorrel-studio/mat-ink-640.avif 640w, ../_assets/library/interior-design/sorrel-studio/mat-ink-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/interior-design/sorrel-studio/mat-ink-720.jpg" alt="Ink lacquer" loading="lazy" decoding="async"></picture></span></i>
   </div>
 </section>
 <figure class="gsw-plate"><picture><source type="image/avif" srcset="../_assets/hero/interior-design/a-rooms-like-people-1280.avif 1280w, ../_assets/hero/interior-design/a-rooms-like-people-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/interior-design/a-rooms-like-people-1280.jpg" width="2560" height="1429" alt="Rooms like people, interior design" loading="lazy" decoding="async"></picture></figure>
