@@ -44,7 +44,7 @@ BACKDROPS = {
         "ivory-lane-interiors": ("a-rooms-like-people", "92 44 28", "left"),
         "nocturne-interiors": ("f-after-dark", "18 20 22", "left"),
         # The terrazzo speckle field ran straight under the headline.
-        "sorrel-studio": ("e-the-whole-room", "31 41 34", "left"),
+        "sorrel-studio": ("e-the-whole-room", "247 243 234", "left"),
     },
 }
 

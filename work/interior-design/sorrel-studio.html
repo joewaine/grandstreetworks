@@ -231,23 +231,6 @@ text-decoration:none;font-size:15px;font-weight:600;line-height:1.2;text-align:c
 </style>
 
 
-<style>
-  /* gsw:backdrop — the hero opens on the work. The scrim is this build's own
-     ink, heavy where the copy sits and thinning away from it, so the text
-     never depends on what the photograph happens to be doing. */
-  .gsw-imaged { position: relative; isolation: isolate; overflow: hidden; }
-  .gsw-imaged > *:not(.gsw-backdrop) { position: relative; z-index: 1; }
-  .gsw-backdrop { position: absolute; inset: 0; z-index: 0; }
-  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
-  .gsw-backdrop img { width: 100%; height: 100%; object-fit: cover;
-                       object-position: center; }
-  .gsw-backdrop::after { content: ""; position: absolute; inset: 0;
-                          background: linear-gradient(100deg, rgb(31 41 34 / 0.92) 0%, rgb(31 41 34 / 0.86) 38%, rgb(31 41 34 / 0.62) 68%, rgb(31 41 34 / 0.44) 100%); }
-  /* Below the breakpoint the copy spans the full width, so the scrim goes flat. */
-  @media (max-width: 760px) {
-    .gsw-backdrop::after { background: rgb(31 41 34 / 0.9); }
-  }
-</style>
 
 <style>
   /* gsw-cellfill: photographs in the hero's index cells. The cell keeps its own
@@ -278,6 +261,24 @@ text-decoration:none;font-size:15px;font-weight:600;line-height:1.2;text-align:c
   .gsw-cellfill img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .gsw-sr { position: absolute; width: 1px; height: 1px; overflow: hidden;
              clip-path: inset(50%); white-space: nowrap; }
+</style>
+
+<style>
+  /* gsw:backdrop — the hero opens on the work. The scrim is this build's own
+     ink, heavy where the copy sits and thinning away from it, so the text
+     never depends on what the photograph happens to be doing. */
+  .gsw-imaged { position: relative; isolation: isolate; overflow: hidden; }
+  .gsw-imaged > *:not(.gsw-backdrop) { position: relative; z-index: 1; }
+  .gsw-backdrop { position: absolute; inset: 0; z-index: 0; }
+  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
+  .gsw-backdrop img { width: 100%; height: 100%; object-fit: cover;
+                       object-position: center; }
+  .gsw-backdrop::after { content: ""; position: absolute; inset: 0;
+                          background: linear-gradient(100deg, rgb(247 243 234 / 0.96) 0%, rgb(247 243 234 / 0.92) 42%, rgb(247 243 234 / 0.70) 72%, rgb(247 243 234 / 0.48) 100%); }
+  /* Below the breakpoint the copy spans the full width, so the scrim goes flat. */
+  @media (max-width: 760px) {
+    .gsw-backdrop::after { background: rgb(247 243 234 / 0.9); }
+  }
 </style>
 </head>
 <body>
