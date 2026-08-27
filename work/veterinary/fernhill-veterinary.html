@@ -166,6 +166,42 @@ font-weight:700;font-size:16px;text-align:center;line-height:1.2;padding:0 14px;
   .gsw-lockup svg { height: 1.16em; width: auto; flex: none; display: block; }
 </style>
 
+
+
+<style>
+  /* gsw-cellfill: photographs in the hero's index cells. The cell keeps its own
+     border, ratio and number; the image sits behind them and the design's
+     gradient stays as the loading colour. */
+  .gsw-cellfill { position: absolute; inset: 0; display: block; }
+  /* The overlay needs a positioned parent; several of these cells have none. */
+  .gsw-cellfill-host { position: relative; overflow: hidden; }
+  /* Slideshow: the plates stack, the register switches them. Without
+     JavaScript the first plate is simply the one that shows. */
+  .gsw-cellfill-slide { position: absolute; inset: 0; opacity: 0; transition: opacity .45s ease; }
+  .gsw-cellfill-slide:first-of-type { opacity: 1; }
+  .gsw-cellfill-slide[data-on] { opacity: 1; }
+  .gsw-cellfill-live .gsw-cellfill-slide:first-of-type:not([data-on]) { opacity: 0; }
+  .gsw-cellfill-reg button { font: inherit; color: inherit; background: none; border: 0;
+                          padding: 0; cursor: pointer; opacity: .45;
+                          transition: opacity .2s ease; }
+  .gsw-cellfill-reg button[aria-current="true"] { opacity: 1; }
+  .gsw-cellfill-reg button:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce) {
+    .gsw-cellfill-slide { transition: none; }
+  }
+  /* <picture> is inline by default, so the image inside it collapses. */
+  .gsw-cellfill picture { display: block; width: 100%; height: 100%; }
+  .gsw-cellfill img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .gsw-sr { position: absolute; width: 1px; height: 1px; overflow: hidden;
+             clip-path: inset(50%); white-space: nowrap; }
+</style>
+
+<style>
+  /* The portraits are photographs now; the drawn head-and-shoulders shapes
+     underneath would show through at the circle's edge. */
+  .faces .gsw-cellfill-host { background: none; border-radius: 50%; overflow: hidden; }
+</style>
+
 <style>
   /* Recent-work gallery. Everything here is drawn from the properties the build
      already declares, so the band inherits each design's palette and heading
@@ -226,8 +262,8 @@ font-weight:700;font-size:16px;text-align:center;line-height:1.2;padding:0 14px;
   <p class="kicker">Services</p>
   <h2>Care we provide</h2>
   <div class="faces" aria-hidden="true">
-    <span class="face"></span><span class="face"></span><span class="face"></span>
-    <span class="face"></span><span class="face"></span><span class="face"></span>
+    <span class="gsw-cellfill-host face"><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/veterinary/fernhill-veterinary/team-1-640.avif 640w, ../_assets/library/veterinary/fernhill-veterinary/team-1-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/veterinary/fernhill-veterinary/team-1-720.jpg" alt="A veterinary surgeon" loading="lazy" decoding="async"></picture></span></span><span class="gsw-cellfill-host face"><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/veterinary/fernhill-veterinary/team-2-640.avif 640w, ../_assets/library/veterinary/fernhill-veterinary/team-2-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/veterinary/fernhill-veterinary/team-2-720.jpg" alt="A veterinary surgeon" loading="lazy" decoding="async"></picture></span></span><span class="gsw-cellfill-host face"><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/veterinary/fernhill-veterinary/team-3-640.avif 640w, ../_assets/library/veterinary/fernhill-veterinary/team-3-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/veterinary/fernhill-veterinary/team-3-720.jpg" alt="A veterinary nurse" loading="lazy" decoding="async"></picture></span></span>
+    <span class="gsw-cellfill-host face"><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/veterinary/fernhill-veterinary/team-4-640.avif 640w, ../_assets/library/veterinary/fernhill-veterinary/team-4-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/veterinary/fernhill-veterinary/team-4-720.jpg" alt="A veterinary nurse" loading="lazy" decoding="async"></picture></span></span><span class="gsw-cellfill-host face"><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/veterinary/fernhill-veterinary/team-5-640.avif 640w, ../_assets/library/veterinary/fernhill-veterinary/team-5-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/veterinary/fernhill-veterinary/team-5-720.jpg" alt="A veterinary surgeon" loading="lazy" decoding="async"></picture></span></span><span class="gsw-cellfill-host face"><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/veterinary/fernhill-veterinary/team-6-640.avif 640w, ../_assets/library/veterinary/fernhill-veterinary/team-6-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/veterinary/fernhill-veterinary/team-6-720.jpg" alt="A practice manager" loading="lazy" decoding="async"></picture></span></span>
   </div>
   <p class="lede">Routine to surgical, with the same team seeing your animal each time wherever we can manage it.</p>
   <div class="tiles">

@@ -121,6 +121,15 @@ CELLS = {
             6: ("mat-marble", "Honed marble"), 7: ("mat-ink", "Ink lacquer"),
         }),
     },
+    "veterinary": {
+        # The team block was six CSS portraits under the standing face ban;
+        # Joe asked for people, so these are generated faces — nobody real.
+        "fernhill-veterinary": ("child", "faces", {
+            0: ("team-1", "A veterinary surgeon"), 1: ("team-2", "A veterinary surgeon"),
+            2: ("team-3", "A veterinary nurse"),   3: ("team-4", "A veterinary nurse"),
+            4: ("team-5", "A veterinary surgeon"), 5: ("team-6", "A practice manager"),
+        }),
+    },
     "med-spas": {
         "onyx-and-ivory-aesthetics": ("child", "lattice", {
             0: ("treatment-room", "A treatment room"),
@@ -204,6 +213,7 @@ def picture(trade: str, slug: str, name: str, alt: str) -> str:
 
 def patch(page: Path, trade: str, slug: str, spec, replace: bool) -> str:
     src = page.read_text()
+    mode, target, images = spec
     target_cls = target[0] if isinstance(target, tuple) else target
     already = re.search(rf'class="[^"]*\b{target_cls}\b[^"]*"[^>]*>(?:(?!</).)*?{MARKER}',
                         src, re.S) or (f'{MARKER}-host {target_cls}' in src) \
@@ -220,7 +230,6 @@ def patch(page: Path, trade: str, slug: str, spec, replace: bool) -> str:
         src = re.sub(rf"\n<style>\n  /\* {MARKER}:.*?</style>", "", src, flags=re.S)
         src = re.sub(rf"\n<script>\n/\* One slideshow per page\..*?</script>", "", src, flags=re.S)
 
-    mode, target, images = spec
     wanted = [n for n, _ in (images.values() if isinstance(images, dict) else images)]
     missing = [n for n in wanted
                if not (WORK / "_assets" / "library" / trade / slug /
@@ -347,9 +356,12 @@ def patch(page: Path, trade: str, slug: str, spec, replace: bool) -> str:
             if i not in images:
                 return m.group(0)
             name, alt = images[i]
+            # Any tag, not just <div>: these cells are <i>, <span> and <div>.
             opener = m.group(1)
-            opener = (opener.replace('<div class="', f'<div class="{MARKER}-host ', 1)
-                      if 'class="' in opener else f'<div class="{MARKER}-host"')
+            if 'class="' in opener:
+                opener = re.sub(r'class="', f'class="{MARKER}-host ', opener, count=1)
+            else:
+                opener = opener[:-1] + f' class="{MARKER}-host">'
             return opener + picture(trade, slug, name, alt) + m.group(2)
 
         new_inner = child_re.sub(fill_child, inner)
