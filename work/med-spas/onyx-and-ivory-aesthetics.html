@@ -193,6 +193,17 @@ text-transform:none;font-size:16px}
     .gsw-gal figure:hover img { transform: none; }
   }
 </style>
+
+
+<style>
+  /* gsw-cellfill: photographs in the hero's index cells. The cell keeps its own
+     border, ratio and number; the image sits behind them and the design's
+     gradient stays as the loading colour. */
+  .gsw-cellfill { position: absolute; inset: 0; display: block; }
+  /* The overlay needs a positioned parent; several of these cells have none. */
+  .gsw-cellfill-host { position: relative; overflow: hidden; }
+  .gsw-cellfill img { width: 100%; height: 100%; object-fit: cover; display: block; }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap">Book online in under a minute · Memberships from $149/mo</div></div>
@@ -214,7 +225,7 @@ text-transform:none;font-size:16px}
     </div>
     <ul class="badges"><li>All pricing published</li><li>Book without an account</li><li>Licensed injectors only</li><li>Memberships from $149/mo</li></ul>
   </div>
-  <div class="lattice" aria-hidden="true"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  <div class="lattice" aria-hidden="true"><div class="gsw-cellfill-host"<span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/med-spas/onyx-and-ivory-aesthetics/treatment-room-640.avif 640w, ../_assets/library/med-spas/onyx-and-ivory-aesthetics/treatment-room-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/med-spas/onyx-and-ivory-aesthetics/treatment-room-720.jpg" alt="A treatment room" loading="lazy" decoding="async"></picture></span></div><div></div><div class="gsw-cellfill-host"<span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/med-spas/onyx-and-ivory-aesthetics/flatlay-640.avif 640w, ../_assets/library/med-spas/onyx-and-ivory-aesthetics/flatlay-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/med-spas/onyx-and-ivory-aesthetics/flatlay-720.jpg" alt="Set out for the appointment" loading="lazy" decoding="async"></picture></span></div><div class="gsw-cellfill-host"<span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/med-spas/onyx-and-ivory-aesthetics/injector-hands-640.avif 640w, ../_assets/library/med-spas/onyx-and-ivory-aesthetics/injector-hands-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/med-spas/onyx-and-ivory-aesthetics/injector-hands-720.jpg" alt="Drawn up in front of you" loading="lazy" decoding="async"></picture></span></div><div></div><div class="gsw-cellfill-host"<span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/med-spas/onyx-and-ivory-aesthetics/lounge-640.avif 640w, ../_assets/library/med-spas/onyx-and-ivory-aesthetics/lounge-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/med-spas/onyx-and-ivory-aesthetics/lounge-720.jpg" alt="The lounge" loading="lazy" decoding="async"></picture></span></div><div class="gsw-cellfill-host"<span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/med-spas/onyx-and-ivory-aesthetics/towel-detail-640.avif 640w, ../_assets/library/med-spas/onyx-and-ivory-aesthetics/towel-detail-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/med-spas/onyx-and-ivory-aesthetics/towel-detail-720.jpg" alt="Ready for the next appointment" loading="lazy" decoding="async"></picture></span></div><div></div><div class="gsw-cellfill-host"<span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/med-spas/onyx-and-ivory-aesthetics/evening-window-640.avif 640w, ../_assets/library/med-spas/onyx-and-ivory-aesthetics/evening-window-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/med-spas/onyx-and-ivory-aesthetics/evening-window-720.jpg" alt="An evening appointment" loading="lazy" decoding="async"></picture></span></div></div>
 </div></div></section>
 <figure class="gsw-plate"><picture><source type="image/avif" srcset="../_assets/hero/med-spas/d-light-on-water-1280.avif 1280w, ../_assets/hero/med-spas/d-light-on-water-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/med-spas/d-light-on-water-1280.jpg" width="2560" height="1429" alt="Light on water, med spas" loading="lazy" decoding="async"></picture></figure>
 

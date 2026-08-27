@@ -139,6 +139,16 @@ PLATE_CSS = """
 """
 
 
+# Where a plate's subject sits, as an object-position, for plates whose subject
+# is not in the middle of the frame. The band shows roughly the middle 70% of
+# a 16:9 plate on a wide screen, so a sofa along the bottom edge needs the
+# focus pulled down or the band shows a wall.
+PLATE_FOCUS = {
+    "hvac/e-comfort-inside.jpg": "center 78%",
+    "plastic-surgeons/c-gloved-precision.jpg": "center 62%",
+}
+
+
 def add_hero_plate(page, trade, index):
     """Drop one photographic plate in under the hero."""
     plates = sorted(q.name for q in (HERO_DIR / trade).glob("*.jpg"))
@@ -148,9 +158,11 @@ def add_hero_plate(page, trade, index):
     cut = first_section_end(page)
     if cut == -1:
         return page, "no <section> to place the plate after"
+    focus = PLATE_FOCUS.get(f"{trade}/{name}")
+    style = f' style="object-position: {focus}"' if focus else ""
     fig = (f'\n<figure class="gsw-plate">'
            f'<img src="../_assets/hero/{trade}/{name}" '
-           f'alt="{html.escape(plate_alt(name, trade), quote=True)}" loading="lazy">'
+           f'alt="{html.escape(plate_alt(name, trade), quote=True)}" loading="lazy"{style}>'
            f'</figure>\n')
     page = page[:cut] + fig + page[cut:]
     if "gsw-plate" not in page.split("</head>")[0]:

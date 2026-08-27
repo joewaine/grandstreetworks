@@ -188,6 +188,18 @@ border-right:1px solid var(--hair);padding:26px 12px}.logolist li:last-child{bor
     .gsw-gal figure:hover img { transform: none; }
   }
 </style>
+
+
+
+<style>
+  /* gsw-cellfill: photographs in the hero's index cells. The cell keeps its own
+     border, ratio and number; the image sits behind them and the design's
+     gradient stays as the loading colour. */
+  .gsw-cellfill { position: absolute; inset: 0; display: block; }
+  /* The overlay needs a positioned parent; several of these cells have none. */
+  .gsw-cellfill-host { position: relative; overflow: hidden; }
+  .gsw-cellfill img { width: 100%; height: 100%; object-fit: cover; display: block; }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap">Board certified · Cases photographed to one year</div></div>
@@ -206,8 +218,8 @@ border-right:1px solid var(--hair);padding:26px 12px}.logolist li:last-child{bor
     <a class="btn btn-ghost" href="#results">View results</a>
   </div>
   <div class="index" aria-hidden="true">
-    <div class="cell" data-n="01"><i></i></div><div class="cell" data-n="02"><i></i></div>
-    <div class="cell" data-n="03"><i></i></div><div class="cell" data-n="04"><i></i></div>
+    <div class="gsw-cellfill-host cell" data-n="01"><i></i><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/wyeth-plastic-surgery/operating-suite-640.avif 640w, ../_assets/library/plastic-surgeons/wyeth-plastic-surgery/operating-suite-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/plastic-surgeons/wyeth-plastic-surgery/operating-suite-720.jpg" alt="The operating suite" loading="lazy" decoding="async"></picture></span></div><div class="gsw-cellfill-host cell" data-n="02"><i></i><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/wyeth-plastic-surgery/imaging-room-640.avif 640w, ../_assets/library/plastic-surgeons/wyeth-plastic-surgery/imaging-room-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/plastic-surgeons/wyeth-plastic-surgery/imaging-room-720.jpg" alt="Imaging before surgery" loading="lazy" decoding="async"></picture></span></div>
+    <div class="gsw-cellfill-host cell" data-n="03"><i></i><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/wyeth-plastic-surgery/recovery-room-640.avif 640w, ../_assets/library/plastic-surgeons/wyeth-plastic-surgery/recovery-room-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/plastic-surgeons/wyeth-plastic-surgery/recovery-room-720.jpg" alt="A private recovery room" loading="lazy" decoding="async"></picture></span></div><div class="gsw-cellfill-host cell" data-n="04"><i></i><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/wyeth-plastic-surgery/consult-room-640.avif 640w, ../_assets/library/plastic-surgeons/wyeth-plastic-surgery/consult-room-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/plastic-surgeons/wyeth-plastic-surgery/consult-room-720.jpg" alt="The consultation room" loading="lazy" decoding="async"></picture></span></div>
   </div>
   <ul class="badges"><li>ABPS board certified</li><li>AAAASF accredited suite</li><li>Consult with your surgeon</li><li>Financing available</li></ul>
 </div></div></section>
