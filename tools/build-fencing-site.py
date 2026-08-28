@@ -348,6 +348,8 @@ PAGE = Template(r"""<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>/* Relative asset paths need the directory URL: send /sites/x to /sites/x/. */
+if(!/\/$|\.[a-z0-9]+$/i.test(location.pathname))location.replace(location.pathname+'/'+location.search+location.hash)</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>$name · $tagline in $area_short</title>
 <meta name="description" content="$description">
