@@ -77,7 +77,7 @@ JPEG_Q = "62"
 # name -> kind. "wide" images are full-bleed backdrops, "tile" images sit in
 # the gallery grid or beside copy.
 IMAGES = {
-    "hero": "wide", "finished-street": "wide",
+    "hero": "wide", "farmhouse": "wide", "finished-street": "wide",
     "storm-before": "tile", "storm-after": "tile", "post-setting": "tile",
     "cedar-detail": "tile", "gate": "tile", "chain-link": "tile",
     "ranch": "tile", "ornamental": "tile", "horizontal": "tile",
@@ -417,7 +417,7 @@ font-weight:700;letter-spacing:.05em;font-family:"Barlow Condensed",Impact,sans-
 .hero>*:not(.backdrop){position:relative;z-index:1}
 .backdrop{position:absolute;inset:0;z-index:0}
 .backdrop picture{display:block;width:100%;height:100%}
-.backdrop img{width:100%;height:100%;object-fit:cover;object-position:center 60%}
+.backdrop img{width:100%;height:100%;object-fit:cover;object-position:center 70%}
 .backdrop::after{content:"";position:absolute;inset:0;
 background:linear-gradient(100deg,rgb(27 34 30/.92) 0%,rgb(27 34 30/.84) 40%,rgb(27 34 30/.5) 72%,rgb(27 34 30/.3) 100%)}
 @media(max-width:60rem){.backdrop::after{background:rgb(27 34 30/.84)}}
@@ -840,7 +840,7 @@ def build_page() -> None:
         lni=html.escape(c["lni"]), hours=html.escape(c["hours"]), since=c["since"],
         url=c["url"], dark=PALETTE["dark"], jsonld=jsonld(), mark=mark,
         hero_pic=picture("hero", "", "100vw", eager=True),
-        close_pic=picture("finished-street", "", "100vw"),
+        close_pic=picture("farmhouse", "", "100vw"),
         post_pic=picture("post-setting", "A fence post standing in a fresh hole with a level clamped to it", "(max-width: 900px) 100vw, 45vw"),
         before_pic=picture("storm-before", "Before: a grey fence blown down across a wet lawn", "(max-width: 700px) 100vw, 1140px"),
         after_pic=picture("storm-after", "After: a new cedar privacy fence in the same yard", "(max-width: 700px) 100vw, 1140px"),

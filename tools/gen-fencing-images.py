@@ -47,6 +47,38 @@ IMAGES = [
      "a rot board at the base, running along the edge of a suburban backyard. "
      "The fence recedes from the lower left toward the middle distance. " + PNW +
      " 35mm, camera at chest height, the fence sharp end to end.", "16:9", None),
+    # Hero candidates: the first hero was a fence in a back yard with no house.
+    # These put a beautiful Pacific Northwest home in the frame; the best one
+    # is copied to hero.jpg.
+    ("hero-a",
+     "Wide photograph of a beautiful craftsman-style home in western Washington, "
+     "dark green board-and-batten siding with white trim, a deep covered porch with "
+     "tapered stone columns, warm light in the windows, fronted by a brand-new "
+     "four-foot western red cedar picket fence with a cap rail and a matching "
+     "cedar arbor gate over the front path. Fresh salmon-pink cedar. Mature Douglas "
+     "firs and a big-leaf maple behind the house, rhododendrons and ferns along the "
+     "fence line, soft overcast light after rain, wet path glistening. Documentary "
+     "photograph, natural colour, 35mm, from the sidewalk at a three-quarter angle, "
+     "the fence running from the lower left corner toward the house.", "16:9", None),
+    ("hero-b",
+     "Wide photograph of a modern Pacific Northwest home, cedar-clad with black "
+     "window frames and a low-pitched metal roof, on a wooded lot in western "
+     "Washington, with a brand-new six-foot horizontal-board western red cedar "
+     "fence with black steel posts running along the front of the property and a "
+     "matching horizontal cedar driveway gate. Tall Douglas firs and hemlocks "
+     "behind, sword ferns and moss at the base of the fence, soft overcast light, "
+     "a little mist in the trees. Documentary photograph, natural colour, 35mm, "
+     "from across the quiet street, the fence sharp along its whole length.", "16:9", None),
+    ("hero-c",
+     "Wide photograph of a handsome two-storey farmhouse-style home in western "
+     "Washington, white siding with a grey standing-seam roof and a wraparound "
+     "porch, set on a large green lawn, with a brand-new six-foot western red "
+     "cedar privacy fence with a cap rail running along the side of the property "
+     "and a cedar walk gate with black hardware near the corner. Fresh cedar "
+     "colour against the white house. A line of Douglas firs and the faint "
+     "Cascade foothills behind, broken overcast sky with a little late-afternoon "
+     "sun, wet grass. Documentary photograph, natural colour, 35mm, camera at "
+     "chest height, the fence leading the eye to the house.", "16:9", None),
     ("storm-before",
      "Photograph of an old grey weathered wooden fence in a suburban backyard after a "
      "windstorm: two panels blown over and lying on the wet lawn, a snapped rotten "
