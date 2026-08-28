@@ -153,7 +153,7 @@ domain unchanged. Each has its own README with a go-live checklist.
 
 | Site | Built by | Images |
 |---|---|---|
-| `northline-fence/` — a fencing contractor in Washington | `tools/build-fencing-site.py` | `tools/gen-fencing-images.py` |
+| `essential-fence-center/` — Essential Fence Center, Snohomish WA | `tools/build-fencing-site.py` | their own job photos, plus two Gemini backdrops from `tools/gen-fencing-images.py` |
 
 Same rule as `work/`: the pages are generated, so edit the build script's
 `CONFIG` and copy tables, not the HTML.

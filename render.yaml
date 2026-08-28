@@ -14,8 +14,16 @@ services:
       # browser resolves assets/ against /sites/ and every image 404s, and
       # Render serves the slash-less URL as 200 rather than redirecting it.
       - type: redirect
+        source: /sites/essential-fence-center
+        destination: /sites/essential-fence-center/
+      # The site was first published under a placeholder name; the old link
+      # was shared, so it keeps working.
+      - type: redirect
         source: /sites/northline-fence
-        destination: /sites/northline-fence/
+        destination: /sites/essential-fence-center/
+      - type: redirect
+        source: /sites/northline-fence/*
+        destination: /sites/essential-fence-center/
 
   # Intake endpoint behind /start/ on this site and on grandstreetai.com.
   # Zero dependencies, so there is nothing to install and the build is a

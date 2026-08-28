@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the photography for the fencing client site (sites/northline-fence).
+"""Generate Gemini backdrops for the fencing client site (sites/essential-fence-center).
 
 Same model, request shape and negative prompt as gen-trade-library.py, but a
 client site rather than a reference build: one library, Washington-specific
@@ -24,7 +24,7 @@ import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
-SLUG = "northline-fence"
+SLUG = "essential-fence-center"
 OUT = Path.home() / "fractal" / "clients" / SLUG / "originals"
 MODEL = "gemini-3-pro-image"
 URL = "https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent?key={k}"
