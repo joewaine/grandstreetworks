@@ -144,6 +144,20 @@ index generator reads the firm names out of the pages the other two write:
     python3 tools/build-demo-copy.py      # the nineteen CSS-only trades
     python3 tools/build-work-index.py     # the twenty index pages
 
+## `sites/` — client sites
+
+`sites/<slug>/` holds real client sites, as opposed to the invented reference
+builds under `work/`. They are indexable, carry no "fictional" footer, and are
+self-contained (`index.html` + `assets/`) so a folder can be moved onto its own
+domain unchanged. Each has its own README with a go-live checklist.
+
+| Site | Built by | Images |
+|---|---|---|
+| `northline-fence/` — a fencing contractor in Washington | `tools/build-fencing-site.py` | `tools/gen-fencing-images.py` |
+
+Same rule as `work/`: the pages are generated, so edit the build script's
+`CONFIG` and copy tables, not the HTML.
+
 ## Imagery
 
 Every build carries one photographic plate, full-bleed, immediately under its
