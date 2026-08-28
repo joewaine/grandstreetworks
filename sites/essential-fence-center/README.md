@@ -34,8 +34,10 @@ Everything factual is theirs, lifted from essentialfencecenter.com on
   contractor-index listing (active, issued 2021-02-19, expires 2027-02-19).
   Confirm it once against lni.wa.gov before launch; it is on the page and
   Washington requires it in advertising.
-- The mark: their red "EFC" roundel (`logo.png` on their site, 200px),
-  redrawn as SVG. The accent colour is sampled from it.
+- The mark: their "EFC" roundel (`logo.png` on their site, 200px, red),
+  redrawn as SVG. The palette is a Pacific Northwest evergreen rather than
+  their red, by request; the roundel follows the palette. `PALETTE` in the
+  build script is the one place to change it back.
 
 ## Photographs
 

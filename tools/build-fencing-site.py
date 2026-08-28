@@ -164,10 +164,11 @@ def picture(name: str, alt: str, sizes: str, eager: bool = False) -> str:
 
 
 # --- identity -------------------------------------------------------------
-# The client's own mark is a red roundel with "EFC" in it (logo.png on their
-# site, 200px). Redrawn as SVG so it survives a favicon and a social card.
-PALETTE = {"ink": "#1C1C1E", "surface": "#F5F1E9", "accent": "#8F2429",
-           "flare": "#E7787C", "dark": "#1C1C1E", "white": "#FFFFFF"}
+# The client's own mark is a roundel with "EFC" in it (logo.png on their site,
+# 200px, red). Redrawn as SVG in the site's evergreen so it survives a favicon
+# and a social card and matches the palette.
+PALETTE = {"ink": "#16211B", "surface": "#F5F1E9", "accent": "#2E5E3E",
+           "flare": "#9CC59A", "dark": "#16211B", "white": "#FFFFFF"}
 
 MARK_INNER = """\
 <circle cx="32" cy="32" r="30" fill="{ring}"/>
@@ -422,13 +423,13 @@ $jsonld
 <style>
 /* THE FENCE LINE ONE, for Essential Fence Center. hero:backdrop nav:bar
    services:grid-numbered proof:about + the client's own photographs
-   ink #1C1C1E · surface #F5F1E9 · accent #8F2429 (the EFC roundel red) · muted #5C6360
+   ink #16211B · surface #F5F1E9 · accent #2E5E3E (Pacific Northwest evergreen) · muted #5C6360
    Barlow Condensed display / Barlow body
    Device: the board band, a run of vertical cedar boards with two rails, closing the
    hero and signing the footer. The phone is the hero's largest object; the estimate
    form is the second CTA everywhere. Built from the Grand Street Works trade set. */
-:root{--ink:#1C1C1E;--surface:#F5F1E9;--accent:#8F2429;--accent-2:#7A1D22;--muted:#5C6360;--dark:#1C1C1E;
---ondark:#EFEAE0;--dim:#B9BDB6;--flare:#E7787C;--rule:rgba(28,28,30,.16);--hair:rgba(28,28,30,.09);
+:root{--ink:#16211B;--surface:#F5F1E9;--accent:#2E5E3E;--accent-2:#244B31;--muted:#5C6360;--dark:#16211B;
+--ondark:#EFEAE0;--dim:#B9BDB6;--flare:#9CC59A;--rule:rgba(22,33,27,.16);--hair:rgba(22,33,27,.09);
 --board:#3B3F3A;--gap:#22282A;--alt:#ECE7DD;--wrap:1140px}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
@@ -475,8 +476,8 @@ font-weight:700;letter-spacing:.05em;font-family:"Barlow Condensed",Impact,sans-
 .backdrop picture{display:block;width:100%;height:100%}
 .backdrop img{width:100%;height:100%;object-fit:cover;object-position:center 70%}
 .backdrop::after{content:"";position:absolute;inset:0;
-background:linear-gradient(100deg,rgb(28 28 30/.92) 0%,rgb(28 28 30/.84) 40%,rgb(28 28 30/.5) 72%,rgb(28 28 30/.3) 100%)}
-@media(max-width:60rem){.backdrop::after{background:rgb(28 28 30/.84)}}
+background:linear-gradient(100deg,rgb(22 33 27/.92) 0%,rgb(22 33 27/.84) 40%,rgb(22 33 27/.5) 72%,rgb(22 33 27/.3) 100%)}
+@media(max-width:60rem){.backdrop::after{background:rgb(22 33 27/.84)}}
 @media(forced-colors:active),print{.backdrop{display:none}}
 .eyebrow{font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;
 color:var(--flare);margin:0 0 12px}
@@ -583,7 +584,7 @@ background:#fff;color:var(--ink);border-radius:0;width:100%}
 /* Close and footer. */
 .close{position:relative;isolation:isolate;overflow:hidden;background:var(--dark);color:#fff;padding:52px 0 56px}
 .close>*:not(.backdrop){position:relative;z-index:1}
-.close .backdrop::after{background:linear-gradient(100deg,rgb(28 28 30/.92) 0%,rgb(28 28 30/.8) 45%,rgb(28 28 30/.45) 100%)}
+.close .backdrop::after{background:linear-gradient(100deg,rgb(22 33 27/.92) 0%,rgb(22 33 27/.8) 45%,rgb(22 33 27/.45) 100%)}
 .close h2{max-width:14ch;color:#fff}
 .close p{max-width:52ch;font-size:17px;margin:12px 0 22px;color:var(--dim)}
 .close .btn-primary{background:#fff;color:var(--accent)}
