@@ -40,6 +40,18 @@ BACKDROPS = {
         # D4 opened on a wall of white beside the incentive sheet.
         "brightfold-solar": ("e-street-of-roofs", "250 250 248", "left"),
     },
+    # Stock-video builds: the plate is the first frame of the loop, so the
+    # still and the clip are the same picture. Grounds measured in-browser
+    # 2026-08-29 (Verano rgb(20,22,26) dark; Onyx & Ivory rgb(248,241,236) light).
+    "cosmetic-dentists": {
+        "verano-cosmetic-dentistry": ("f-the-chair", "20 22 26", "left"),
+    },
+    "med-spas": {
+        # Onyx & Ivory was tried first and pulled: its hero is a 3x3 photo grid,
+        # so the clip showed as a blur at the edges (the pool-builders rule).
+        "palmer-row-med-spa": ("g-candlelit", "35 42 28", "left"),
+        "bright-hour-med-spa": ("f-serum", "246 238 225", "left"),
+    },
     "interior-design": {
         "ivory-lane-interiors": ("a-rooms-like-people", "92 44 28", "left"),
         "nocturne-interiors": ("f-after-dark", "18 20 22", "left"),

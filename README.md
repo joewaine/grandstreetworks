@@ -220,6 +220,31 @@ the harness format, never the page it last wrote, so running it twice is a no-op
 It is a maintenance tool, **not** a build step — Render still publishes the repo
 exactly as committed.
 
+### Video heroes
+
+A build can open on a looping clip behind its copy instead of a still. The
+pilot is `work/roofing/halloran-roofing.html`. Three tools, in order:
+
+    python3 tools/gen-hero-video.py roofing a-storm-clearing --motion "clouds drift, light moves across the shingles"
+    python3 tools/encode-hero-video.py ~/fractal/cash_rich/hero_video/roofing/a-storm-clearing.mp4 \
+        --name a-storm-clearing --dest work/_assets/hero/roofing --seamless 1
+    python3 tools/add-hero-video.py roofing halloran-roofing a-storm-clearing
+
+The first animates the build's own Gemini plate with Veo 3.1 image-to-video
+(same `GEMINI_API_KEY`, about $1 a take, locked-off camera by default so the
+loop's head and tail match). The second cuts it to a 7-second H.264 loop under
+2MB with the tail crossfaded into the head. The third drops the `<video>` into
+the existing `.gsw-backdrop`, so the AVIF plate stays the poster and the scrim,
+contrast and reduced-motion fallbacks are untouched. Re-run the third after a
+rebuild; it is idempotent. Originals live outside the repo in
+`~/fractal/cash_rich/hero_video/`.
+
+For the people-led trades (dentists, med spas, PI) a no-face plate has nothing
+to animate, so the clip comes from stock instead: `tools/fetch-stock-video.py
+--search "dental clinic"` lists landscape Pexels clips at 1920px+ and 8s+, and
+`--get <id> --out <trade>/<stem>` pulls one into `~/fractal/cash_rich/stock/video/`
+for the same encode and wiring steps. Pexels is commercial use, no attribution.
+
 ### Motion
 
 `tools/build-motion.py` adds a once-only scroll reveal on sections and gallery

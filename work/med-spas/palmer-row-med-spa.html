@@ -191,6 +191,34 @@ text-transform:none;font-size:16px}
     .gsw-gal figure:hover img { transform: none; }
   }
 </style>
+
+<style>
+  /* gsw:backdrop — the hero opens on the work. The scrim is this build's own
+     ink, heavy where the copy sits and thinning away from it, so the text
+     never depends on what the photograph happens to be doing. */
+  .gsw-imaged { position: relative; isolation: isolate; overflow: hidden; }
+  .gsw-imaged > *:not(.gsw-backdrop) { position: relative; z-index: 1; }
+  .gsw-backdrop { position: absolute; inset: 0; z-index: 0; }
+  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
+  .gsw-backdrop img { width: 100%; height: 100%; object-fit: cover;
+                       object-position: center; }
+  .gsw-backdrop::after { content: ""; position: absolute; inset: 0;
+                          background: linear-gradient(100deg, rgb(35 42 28 / 0.96) 0%, rgb(35 42 28 / 0.92) 42%, rgb(35 42 28 / 0.70) 72%, rgb(35 42 28 / 0.48) 100%); }
+  /* Below the breakpoint the copy spans the full width, so the scrim goes flat. */
+  @media (max-width: 760px) {
+    .gsw-backdrop::after { background: rgb(35 42 28 / 0.9); }
+  }
+</style>
+
+<style>
+  /* gsw:video - the still plate is the poster; the loop fades in over it. */
+  .gsw-backdrop video { position: absolute; inset: 0; width: 100%; height: 100%;
+                        object-fit: cover; object-position: center;
+                        opacity: 0; transition: opacity 1.2s ease-out; }
+  .gsw-backdrop video.gsw-playing { opacity: 1; }
+  @media (prefers-reduced-motion: reduce) { .gsw-backdrop video { display: none; } }
+  @media print { .gsw-backdrop video { display: none; } }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap">Book online in under a minute · Memberships from $149/mo</div></div>
@@ -201,7 +229,7 @@ text-transform:none;font-size:16px}
   <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
   <a class="btn btn-primary navbook" href="#contact">Book now</a>
 </div></header>
-<section class="hero"><div class="wrap">
+<section class="gsw-imaged hero"><!-- gsw:backdrop --><div class="gsw-backdrop" aria-hidden="true"><picture><source type="image/avif" srcset="../_assets/hero/med-spas/g-candlelit-1280.avif 1280w, ../_assets/hero/med-spas/g-candlelit-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/med-spas/g-candlelit-1280.jpg" width="2560" height="1429" alt="" loading="eager" fetchpriority="high" decoding="async"></picture><!-- gsw:video --><video autoplay muted loop playsinline preload="metadata" disablepictureinpicture disableremoteplayback aria-hidden="true" tabindex="-1"><source src="../_assets/hero/med-spas/g-candlelit.mp4" type="video/mp4"></video><!-- /gsw:video --></div><!-- /gsw:backdrop --><div class="wrap">
   <p class="eyebrow">Injectables · Laser · Skin</p>
   <h1>Read the whole menu before you sit down.</h1>
   <p class="sub">Botox, filler, laser and medical-grade skincare from licensed injectors. The full menu is here with prices and packages, because deciding in the chair is how people end up spending more than they meant to.</p>
@@ -308,5 +336,11 @@ text-transform:none;font-size:16px}
 })();
 </script>
 <!-- /gsw:motion -->
+<script>
+(function(){var v=document.querySelector('.gsw-backdrop video');if(!v)return;
+var on=function(){v.classList.add('gsw-playing')};
+v.addEventListener('canplay',on,{once:true});if(v.readyState>=3)on();
+if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){v.pause();v.removeAttribute('autoplay');}})();
+</script>
 </body>
 </html>

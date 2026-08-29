@@ -11,10 +11,16 @@ because a backdrop sitting under a scrim is never inspected closely.
     python3 tools/encode-hero-video.py SOURCE.mov --name workshop \\
         --start 00:00:12 --duration 8 --tint 1C2B33 --saturation 0.35
 
-Writes assets/hero/<name>.mp4, <name>.webm and <name>-poster.jpg. The webm is
-what modern browsers actually take; the mp4 is the Safari fallback. Audio is
-stripped unconditionally - an autoplaying hero is muted by policy anyway, and
-the track is dead weight.
+--seamless N crossfades the last N seconds into the first N, so a clip whose
+camera drifts (every Veo clip does, whatever the prompt says) loops without a
+visible jump. The output is N seconds shorter than --duration.
+
+Writes <name>.mp4 and <name>-poster.jpg under assets/hero (or --dest, e.g.
+work/_assets/hero/roofing for a reference build). H.264 plays in every
+browser; --webm adds a VP9 copy, which on Veo output came out *larger* than
+the mp4 at matching quality and so is off by default. Audio is stripped
+unconditionally - an autoplaying hero is muted by policy anyway, and the
+track is dead weight.
 """
 
 import argparse
@@ -30,11 +36,15 @@ DEST = REPO / "assets" / "hero"
 # it sits behind a scrim at 90% opacity.
 WIDTH = 1920
 DURATION = 8
-# CRF chosen so a typical graded interior lands near 2MB at 8s. Grain-heavy or
-# high-motion sources will overshoot - the script says so rather than guessing.
-H264_CRF = 26
+# CRF chosen so a 7-second Veo 1080p clip lands under 2MB (33 gave 1.78MB on
+# the roofing pilot; 26, the first setting, gave 7.3MB). A backdrop under a
+# scrim is never inspected closely. Grain-heavy or high-motion sources will
+# still overshoot - the script says so rather than guessing.
+H264_CRF = 33
 VP9_CRF = 36
 BUDGET_MB = 2.0
+# Veo and most stock render at 24; a backdrop gains nothing from more.
+LOOP_FPS = 24
 # Hue offsets survive the trip to colorbalance small; without a multiplier a
 # muted tint like 1C2B33 moves the midtones by a couple of percent and reads
 # as no grade at all.
@@ -71,31 +81,57 @@ def grade_filter(tint, saturation):
     return ",".join(steps)
 
 
-def encode(source, name, start, duration, vf):
-    DEST.mkdir(parents=True, exist_ok=True)
-    mp4 = DEST / ("%s.mp4" % name)
-    webm = DEST / ("%s.webm" % name)
-    poster = DEST / ("%s-poster.jpg" % name)
+def loop_filter(vf, duration, seamless):
+    """Crossfade the tail into the head so the loop point disappears.
+
+    A = seconds [seamless, duration) of the cut, B = seconds [0, seamless).
+    xfade blends A's last `seamless` seconds into B, so the final frame is
+    (nearly) the frame at t=seamless - which is exactly where A began.
+    """
+    body = duration - seamless
+    # xfade refuses input it cannot prove is constant-rate, and trim strips
+    # that proof - so fps is pinned *after* each trim, not before the split.
+    return ("[0:v]%s,split[x][y];"
+            "[x]trim=%f:%f,setpts=PTS-STARTPTS,fps=%d[a];"
+            "[y]trim=0:%f,setpts=PTS-STARTPTS,fps=%d[b];"
+            "[a][b]xfade=transition=fade:duration=%f:offset=%f[v]"
+            % (vf, seamless, duration, LOOP_FPS, seamless, LOOP_FPS,
+               seamless, body - seamless))
+
+
+def encode(source, name, start, duration, vf, dest, seamless, h264_crf, vp9_crf,
+           want_webm):
+    dest.mkdir(parents=True, exist_ok=True)
+    mp4 = dest / ("%s.mp4" % name)
+    webm = dest / ("%s.webm" % name)
+    poster = dest / ("%s-poster.jpg" % name)
 
     # -ss before -i seeks on keyframes, which is fast and accurate enough for a
     # backdrop; putting it after would decode everything up to the in point.
     cut = ["-ss", start, "-t", str(duration)]
+    if seamless:
+        picture = ["-filter_complex", loop_filter(vf, duration, seamless), "-map", "[v]"]
+    else:
+        picture = ["-vf", vf]
 
     run(["ffmpeg", "-v", "error", "-y", *cut, "-i", str(source),
-         "-an", "-vf", vf, "-c:v", "libx264", "-profile:v", "high",
-         "-crf", str(H264_CRF), "-preset", "slow", "-pix_fmt", "yuv420p",
+         "-an", *picture, "-c:v", "libx264", "-profile:v", "high",
+         "-crf", str(h264_crf), "-preset", "slow", "-pix_fmt", "yuv420p",
          "-movflags", "+faststart", str(mp4)])
 
-    run(["ffmpeg", "-v", "error", "-y", *cut, "-i", str(source),
-         "-an", "-vf", vf, "-c:v", "libvpx-vp9", "-crf", str(VP9_CRF),
-         "-b:v", "0", "-row-mt", "1", "-deadline", "good", str(webm)])
+    outputs = [mp4]
+    if want_webm:
+        run(["ffmpeg", "-v", "error", "-y", *cut, "-i", str(source),
+             "-an", *picture, "-c:v", "libvpx-vp9", "-crf", str(vp9_crf),
+             "-b:v", "0", "-row-mt", "1", "-deadline", "good", str(webm)])
+        outputs.append(webm)
 
     # Poster is pulled from the graded mp4, not the source, so it matches the
     # first frame the visitor sees instead of flashing an ungraded plate.
     run(["ffmpeg", "-v", "error", "-y", "-i", str(mp4),
          "-frames:v", "1", "-q:v", "6", str(poster)])
 
-    return mp4, webm, poster
+    return outputs + [poster]
 
 
 def main():
@@ -107,7 +143,16 @@ def main():
     ap.add_argument("--tint", help="6-digit hex to push midtones toward, e.g. 1C2B33")
     ap.add_argument("--saturation", type=float, default=None,
                     help="0 is greyscale, 1 leaves it alone. Try 0.3-0.5.")
+    ap.add_argument("--dest", type=Path, default=DEST,
+                    help="output folder (default assets/hero)")
+    ap.add_argument("--seamless", type=float, default=0,
+                    help="crossfade this many seconds of tail into head")
+    ap.add_argument("--webm", action="store_true", help="also write a VP9 webm")
+    ap.add_argument("--h264-crf", type=int, default=H264_CRF)
+    ap.add_argument("--vp9-crf", type=int, default=VP9_CRF)
     args = ap.parse_args()
+    if args.seamless and args.seamless * 2 >= args.duration:
+        sys.exit("--seamless must be under half of --duration")
 
     if not shutil.which("ffmpeg"):
         sys.exit("ffmpeg not on PATH: brew install ffmpeg")
@@ -120,7 +165,9 @@ def main():
 
     vf = grade_filter(args.tint, args.saturation)
     print("filter: %s" % vf)
-    outputs = encode(args.source, args.name, args.start, args.duration, vf)
+    outputs = encode(args.source, args.name, args.start, args.duration, vf,
+                     args.dest.resolve(), args.seamless, args.h264_crf, args.vp9_crf,
+                     args.webm)
 
     over = False
     for path in outputs:
@@ -128,7 +175,8 @@ def main():
         flag = ""
         if path.suffix in (".mp4", ".webm") and mb > BUDGET_MB:
             flag, over = "  OVER BUDGET", True
-        print("%-42s %6.2f MB%s" % (path.relative_to(REPO), mb, flag))
+        shown = path.relative_to(REPO) if path.is_relative_to(REPO) else path
+        print("%-42s %6.2f MB%s" % (shown, mb, flag))
 
     if over:
         print("\nRaise H264_CRF/VP9_CRF or shorten --duration. High-motion and "
