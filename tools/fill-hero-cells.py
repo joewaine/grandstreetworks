@@ -167,7 +167,7 @@ CSS = f"""
   .{MARKER}-cover > *:not(.{MARKER}) {{ display: none; }}
   /* Slideshow: the plates stack, the register switches them. Without
      JavaScript the first plate is simply the one that shows. */
-  .{MARKER}-slide {{ position: absolute; inset: 0; opacity: 0; transition: opacity .45s ease; }}
+  .{MARKER}-slide {{ position: absolute; inset: 0; opacity: 0; transition: opacity .9s ease; }}
   .{MARKER}-slide:first-of-type {{ opacity: 1; }}
   .{MARKER}-slide[data-on] {{ opacity: 1; }}
   .{MARKER}-live .{MARKER}-slide:first-of-type:not([data-on]) {{ opacity: 0; }}
@@ -191,7 +191,9 @@ SCRIPT = f"""
 <script>
 /* One slideshow per page. The register buttons drive `data-on`; the CSS does
    the rest, so a plate is visible before this runs and stays visible if it
-   never does. */
+   never does. It also advances on its own every few seconds, dissolving
+   between plates; a click picks a plate and restarts the clock, hovering
+   pauses it, and reduced motion or a hidden tab stops it. */
 (function () {{
   var reg = document.querySelector('.{MARKER}-reg');
   if (!reg) return;
@@ -199,7 +201,11 @@ SCRIPT = f"""
   var num = document.querySelector('.{MARKER}-num');
   if (!slides.length) return;
   document.documentElement.classList.add('{MARKER}-live');
+  var HOLD_MS = 4200;
+  var current = 0, timer = null, paused = false;
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var show = function (i) {{
+    current = i;
     slides.forEach(function (s, k) {{
       if (k === i) {{ s.setAttribute('data-on', ''); }} else {{ s.removeAttribute('data-on'); }}
     }});
@@ -208,10 +214,25 @@ SCRIPT = f"""
     }});
     if (num) num.textContent = String(i + 1).padStart(2, '0');
   }};
+  var tick = function () {{
+    if (!paused && !document.hidden) show((current + 1) % slides.length);
+  }};
+  var restart = function () {{
+    if (timer) clearInterval(timer);
+    timer = still ? null : setInterval(tick, HOLD_MS);
+  }};
   reg.querySelectorAll('button').forEach(function (b, k) {{
-    b.addEventListener('click', function () {{ show(k); }});
+    b.addEventListener('click', function () {{ show(k); restart(); }});
+  }});
+  var stage = slides[0].parentNode;
+  [stage, reg].forEach(function (el) {{
+    el.addEventListener('mouseenter', function () {{ paused = true; }});
+    el.addEventListener('mouseleave', function () {{ paused = false; }});
+    el.addEventListener('focusin', function () {{ paused = true; }});
+    el.addEventListener('focusout', function () {{ paused = false; }});
   }});
   show(0);
+  restart();
 }})();
 </script>"""
 
@@ -239,6 +260,10 @@ def patch(page: Path, trade: str, slug: str, spec, replace: bool) -> str:
         src = re.sub(rf'<span class="{MARKER}-slide">.*?</span></span>', "", src, flags=re.S)
         src = re.sub(rf'<span class="{MARKER}">.*?</span>', "", src, flags=re.S)
         src = src.replace(f'{MARKER}-reg ', "").replace(f'{MARKER}-host ', "")
+        # The host class can also trail the design's own class (Ashcroft's
+        # "fld gsw-cellfill-host"); left in place, the slides never re-fill
+        # and the register drives nothing, which is how they went missing.
+        src = src.replace(f' {MARKER}-host', "").replace(f' {MARKER}-reg', "")
         src = src.replace(f' {MARKER}-num', "")
         src = re.sub(r'<li><button type="button"[^>]*>(.*?)<span class="gsw-sr">.*?</span></button></li>',
                      r"<li>\1</li>", src, flags=re.S)

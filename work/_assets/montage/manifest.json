@@ -137,7 +137,9 @@
    "firm": "Marlin Pool Co.",
    "domain": "marlinpool.com",
    "url": "work/pool-builders/marlin-pool-co.html",
-   "plate": "work/_assets/hero/pool-builders/b-clean-geometry-1280.avif"
+   "plate": "work/_assets/hero/pool-builders/b-clean-geometry-1280.avif",
+   "video": "work/_assets/hero/pool-builders/b-clean-geometry.mp4",
+   "poster": "work/_assets/hero/pool-builders/b-clean-geometry-1280.avif"
   },
   {
    "slug": "halcombe-management",
@@ -146,7 +148,9 @@
    "firm": "Halcombe Management",
    "domain": "halcombemanagement.com",
    "url": "work/property-management/halcombe-management.html",
-   "plate": "work/_assets/hero/property-management/c-keys-handed-over-1280.avif"
+   "plate": "work/_assets/hero/property-management/c-keys-handed-over-1280.avif",
+   "video": "work/_assets/hero/property-management/c-keys-handed-over.mp4",
+   "poster": "work/_assets/hero/property-management/c-keys-handed-over-1280.avif"
   },
   {
    "slug": "brandt-yates-recruitment",
@@ -178,8 +182,8 @@
    "domain": "meridianroofco.com",
    "url": "work/roofing/meridian-roof-co.html",
    "plate": "work/_assets/hero/roofing/c-hands-on-the-roof-1280.avif",
-   "video": "work/_assets/hero/roofing/a-storm-clearing.mp4",
-   "poster": "work/_assets/hero/roofing/a-storm-clearing-1280.avif"
+   "video": "work/_assets/hero/roofing/c-hands-on-the-roof.mp4",
+   "poster": "work/_assets/hero/roofing/c-hands-on-the-roof-1280.avif"
   },
   {
    "slug": "ansonia-solar",
@@ -210,7 +214,7 @@
    "firm": "Bracken & Lowe",
    "domain": "brackenandlowe.com",
    "url": "work/wealth-management/bracken-and-lowe.html",
-   "plate": "work/_assets/hero/wealth-management/d-paper-and-graphite-1280.avif",
+   "plate": "work/_assets/hero/wealth-management/b-calm-geometry-1280.avif",
    "video": "work/_assets/hero/wealth-management/d-paper-and-graphite.mp4",
    "poster": "work/_assets/hero/wealth-management/d-paper-and-graphite-1280.avif"
   }
@@ -492,8 +496,8 @@
   {
    "trade": "wealth-management",
    "label": "Wealth management",
-   "firm": "Copeland Fiduciary",
-   "url": "work/wealth-management/copeland-fiduciary.html",
+   "firm": "Bracken & Lowe",
+   "url": "work/wealth-management/bracken-and-lowe.html",
    "tile": "work/_assets/montage/wealth-management--b-calm-geometry-640.avif"
   },
   {

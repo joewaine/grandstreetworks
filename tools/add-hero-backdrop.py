@@ -63,6 +63,15 @@ BACKDROPS = {
         "marrant-construction": ("b-the-detail", "250 246 236", "left", True),
         "whitfield-build-co": ("a-finished-on-time", "246 242 233", "left", True),
     },
+    "wealth-management": {
+        "ferrier-wealth-partners": ("a-not-a-sailboat", "247 246 242", "left", True),
+    },
+    "accounting-cpas": {
+        "rennick-cpa": ("e-the-practice", "168 27 98", "flat:0.5", True),
+    },
+    "architecture": {
+        "calderwood-architecture": ("d-drawing-macro", "242 241 237", "left", True),
+    },
     "solar": {
         # D4 opened on a wall of white beside the incentive sheet.
         "brightfold-solar": ("e-street-of-roofs", "250 250 248", "left"),
