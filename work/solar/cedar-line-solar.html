@@ -204,6 +204,24 @@ font-family:"Open Sans",system-ui,sans-serif}
     .gsw-gal figure:hover img { transform: none; }
   }
 </style>
+
+<style>
+  /* gsw:backdrop — the section opens on the work. The scrim is this build's own
+     ink, heavy where the copy sits and thinning away from it, so the text
+     never depends on what the photograph happens to be doing. */
+  .gsw-imaged { position: relative; isolation: isolate; overflow: hidden; }
+  .gsw-imaged > *:not(.gsw-backdrop) { position: relative; z-index: 1; }
+  .gsw-backdrop { position: absolute; inset: 0; z-index: 0; }
+  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
+  .gsw-backdrop img { width: 100%; height: 100%; object-fit: cover;
+                       object-position: center; }
+  .gsw-backdrop::after { content: ""; position: absolute; inset: 0;
+                          background: linear-gradient(100deg, rgb(247 246 242 / 0.96) 0%, rgb(247 246 242 / 0.92) 42%, rgb(247 246 242 / 0.70) 72%, rgb(247 246 242 / 0.48) 100%); }
+  /* Below the breakpoint the copy spans the full width, so the scrim goes flat. */
+  @media (max-width: 760px) {
+    .gsw-backdrop::after { background: rgb(247 246 242 / 0.9); }
+  }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap">Local installers since 2011 · We do not subcontract · NABCEP certified</div></div>
@@ -216,7 +234,7 @@ font-family:"Open Sans",system-ui,sans-serif}
   <nav class="navlinks" aria-label="Primary"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
 </div></header>
 
-<section class="hero"><div class="wrap"><div class="panel" id="estimate">
+<section class="gsw-imaged hero"><!-- gsw:backdrop --><div class="gsw-backdrop" aria-hidden="true"><picture><source type="image/avif" srcset="../_assets/hero/solar/b-plain-daylight-1280.avif 1280w, ../_assets/hero/solar/b-plain-daylight-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/solar/b-plain-daylight-1280.jpg" width="2560" height="1429" alt="" loading="eager" fetchpriority="high" decoding="async"></picture></div><!-- /gsw:backdrop --><div class="wrap"><div class="panel" id="estimate">
   <div class="strip">
     <div class="stripmain">
       <span class="micro">Estimate online</span>
@@ -242,7 +260,6 @@ font-family:"Open Sans",system-ui,sans-serif}
     </ul>
   </div>
 </div></div></section>
-<figure class="gsw-plate"><picture><source type="image/avif" srcset="../_assets/hero/solar/b-plain-daylight-1280.avif 1280w, ../_assets/hero/solar/b-plain-daylight-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/solar/b-plain-daylight-1280.jpg" width="2560" height="1429" alt="Plain daylight, solar" loading="lazy" decoding="async"></picture></figure>
 
 
 <section class="sec" id="services"><div class="wrap">

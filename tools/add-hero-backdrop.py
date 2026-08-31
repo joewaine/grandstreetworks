@@ -82,6 +82,7 @@ BACKDROPS = {
         "hollis-animal-hospital": ("d-soft-texture", "22 36 29", "flat:0.5", True),
     },
     "solar": {
+        "cedar-line-solar": ("b-plain-daylight", "247 246 242", "left", True),
         # D4 opened on a wall of white beside the incentive sheet.
         "brightfold-solar": ("e-street-of-roofs", "250 250 248", "left"),
     },
