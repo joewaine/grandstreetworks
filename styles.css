@@ -567,12 +567,15 @@ footer {
   .band > div:first-child { border-right: none; border-bottom: 1px solid var(--border-color); }
   .refusal-grid > div:nth-child(odd) { border-right: none; }
   .refusal-grid > div:nth-last-child(2) { border-bottom: 1px solid var(--border-color); }
+  /* Two across from tablet down: twenty single-width rows was a long scroll
+     of mostly white space. Cells tighten with the viewport. */
   .work-grid { grid-template-columns: repeat(2, 1fr); }
+  .work-grid a { padding: 1.125rem 1.5rem; gap: 0.35rem; }
 }
 @media (max-width: 640px) {
   .tile, .band > div, .refusal-grid > div { padding-left: 1.25rem; padding-right: 1.25rem; }
-  .work-grid a { padding-left: 1.25rem; padding-right: 1.25rem; }
-  .work-grid { grid-template-columns: 1fr; }
+  .work-grid a { padding: 0.875rem 1rem; gap: 0.25rem; }
+  .work-name { font-size: 0.9375rem; }
 }
 
 
