@@ -124,6 +124,12 @@ text-decoration:none;font-weight:600;font-size:15px;line-height:1.2;padding:0 14
  .stages li:nth-child(2){border-top:1px solid var(--rule)}
  .band h1{max-width:20ch}
 }
+/* Desktop: the headline turns on the comma, one clause per line. Below
+   1000px the span is inline and the line breaks where it naturally falls. */
+@media(min-width:1000px){
+ .band h1{max-width:24ch}
+ .h1-turn{display:block}
+}
 @media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
 </style>
 
@@ -213,7 +219,7 @@ text-decoration:none;font-weight:600;font-size:15px;line-height:1.2;padding:0 14
 <section class="band"><div class="wrap">
   <div class="cut"><i></i><span></span><i></i></div>
   <span class="lbl">Residential · Cultural · Adaptive reuse</span>
-  <h1>We design in section, not in plan.</h1>
+  <h1>We design in section, <span class="h1-turn">not in plan.</span></h1>
   <p class="sub">A twelve-person studio working on houses, small cultural buildings and adaptive reuse. Light, height and the way a room feels are section decisions, which is where we start and where most drawings never go.</p>
   <div class="acts">
     <a class="btn btn-primary" data-cta="primary" href="#contact">Discuss a project</a>
