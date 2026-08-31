@@ -212,6 +212,24 @@ text-transform:uppercase;max-width:124px}
     .gsw-gal figure:hover img { transform: none; }
   }
 </style>
+
+<style>
+  /* gsw:backdrop — the section opens on the work. The scrim is this build's own
+     ink, heavy where the copy sits and thinning away from it, so the text
+     never depends on what the photograph happens to be doing. */
+  .gsw-imaged { position: relative; isolation: isolate; overflow: hidden; }
+  .gsw-imaged > *:not(.gsw-backdrop) { position: relative; z-index: 1; }
+  .gsw-backdrop { position: absolute; inset: 0; z-index: 0; }
+  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
+  .gsw-backdrop img { width: 100%; height: 100%; object-fit: cover;
+                       object-position: center; }
+  .gsw-backdrop::after { content: ""; position: absolute; inset: 0;
+                          background: rgb(233 235 236 / 0.3); }
+  /* Below the breakpoint the copy spans the full width, so the scrim goes flat. */
+  @media (max-width: 760px) {
+    .gsw-backdrop::after { background: rgb(233 235 236 / 0.6); }
+  }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap">Licensed &amp; insured · Haag-certified inspectors</div></div>
@@ -224,7 +242,7 @@ text-transform:uppercase;max-width:124px}
   <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
   <a class="navact">Call now (620) 490-7728</a>
 </div></header>
-<section class="hero"><div class="wrap"><div class="docket">
+<section class="gsw-imaged hero"><!-- gsw:backdrop --><div class="gsw-backdrop" aria-hidden="true"><picture><source type="image/avif" srcset="../_assets/hero/roofing/e-whole-neighbourhood-1280.avif 1280w, ../_assets/hero/roofing/e-whole-neighbourhood-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/roofing/e-whole-neighbourhood-1280.jpg" width="2560" height="1429" alt="" loading="eager" fetchpriority="high" decoding="async"></picture></div><!-- /gsw:backdrop --><div class="wrap"><div class="docket">
   <div class="dhead"><p class="eyebrow">Adjuster meetings · Claims &amp; supplements</p><i class="tiles-band" aria-hidden="true"></i></div>
   <div class="dbody">
     <h1>We meet your adjuster on the roof.</h1>
@@ -244,7 +262,6 @@ text-transform:uppercase;max-width:124px}
     <li>Same-day emergency tarping<span>Yes</span></li>
   </ul>
 </div></div></section>
-<figure class="gsw-plate"><picture><source type="image/avif" srcset="../_assets/hero/roofing/e-whole-neighbourhood-1280.avif 1280w, ../_assets/hero/roofing/e-whole-neighbourhood-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/roofing/e-whole-neighbourhood-1280.jpg" width="2560" height="1429" alt="Whole neighbourhood, roofing" loading="lazy" decoding="async"></picture></figure>
 
 <section class="sec" id="services"><div class="wrap">
   <p class="kicker">Services</p>

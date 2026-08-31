@@ -181,6 +181,24 @@ border-right:1px solid var(--rule);padding:14px 16px 14px 0}
     .gsw-gal figure:hover img { transform: none; }
   }
 </style>
+
+<style>
+  /* gsw:backdrop — the hero opens on the work. The scrim is this build's own
+     ink, heavy where the copy sits and thinning away from it, so the text
+     never depends on what the photograph happens to be doing. */
+  .gsw-imaged { position: relative; isolation: isolate; overflow: hidden; }
+  .gsw-imaged > *:not(.gsw-backdrop) { position: relative; z-index: 1; }
+  .gsw-backdrop { position: absolute; inset: 0; z-index: 0; }
+  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
+  .gsw-backdrop img { width: 100%; height: 100%; object-fit: cover;
+                       object-position: center 62%; }
+  .gsw-backdrop::after { content: ""; position: absolute; inset: 0;
+                          background: rgb(44 58 49 / 0.5); }
+  /* Below the breakpoint the copy spans the full width, so the scrim goes flat. */
+  @media (max-width: 760px) {
+    .gsw-backdrop::after { background: rgb(44 58 49 / 0.8); }
+  }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap">Board certified · Fifty-minute consultations · No coordinators</div></div>
@@ -190,7 +208,7 @@ border-right:1px solid var(--rule);padding:14px 16px 14px 0}
   <a class="btn btn-primary navbook" href="#contact">Request a consultation</a>
 </div></header>
 <nav class="navlinks"><div class="wrap"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></div></nav>
-<section class="hero"><div class="wrap">
+<section class="gsw-imaged hero"><!-- gsw:backdrop --><div class="gsw-backdrop" aria-hidden="true"><picture><source type="image/avif" srcset="../_assets/hero/plastic-surgeons/c-gloved-precision-1280.avif 1280w, ../_assets/hero/plastic-surgeons/c-gloved-precision-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/plastic-surgeons/c-gloved-precision-1280.jpg" width="2560" height="1429" alt="" loading="eager" fetchpriority="high" decoding="async"></picture></div><!-- /gsw:backdrop --><div class="wrap">
   <p class="eyebrow">Board certified · ABPS</p>
   <h1>Fifty unhurried minutes with the surgeon who operates.</h1>
   <p class="sub">Aesthetic and reconstructive surgery in a private, accredited facility. The consultation is with the surgeon, it runs fifty minutes, and it ends with a written plan rather than a deposit request.</p>
@@ -199,7 +217,6 @@ border-right:1px solid var(--rule);padding:14px 16px 14px 0}
     <a class="btn btn-ghost" href="#results">View results</a>
   </div>
 </div></section>
-<figure class="gsw-plate"><picture><source type="image/avif" srcset="../_assets/hero/plastic-surgeons/c-gloved-precision-1280.avif 1280w, ../_assets/hero/plastic-surgeons/c-gloved-precision-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/plastic-surgeons/c-gloved-precision-1280.jpg" width="2560" height="1429" alt="Gloved precision, plastic surgeons" loading="lazy" decoding="async" style="object-position: center 62%"></picture></figure>
 
 <div class="badgeband"><div class="wrap"><ul>
   <li>ABPS board certified</li><li>AAAASF accredited suite</li><li>Consult with your surgeon</li><li>Financing available</li>

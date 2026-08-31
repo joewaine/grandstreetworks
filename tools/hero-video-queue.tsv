@@ -1,17 +1,10 @@
 # Flagship hero clips still to render: trade <TAB> plate stem <TAB> --motion phrase.
 # One line per take, ~$0.96 each on veo-3.1-fast. Run two at a time: six
-# concurrent submits hit Veo's per-minute cap. Blocked 2026-08-31 on Gemini
-# API prepayment credits. The last two are retakes: the first take panned.
+# concurrent submits hit Veo's per-minute cap. Credits topped up 2026-08-31; Gemini
+# API prepayment credits. All three are retakes: the first takes zoomed, dollied, or read as smoke.
 #   python3 tools/gen-hero-video.py <trade> <stem> --motion "<phrase>"
 #   python3 tools/encode-hero-video.py ~/fractal/cash_rich/hero_video/<trade>/<stem>.mp4 --name <stem> --dest work/_assets/hero/<trade> --seamless 1
 #   python3 tools/build-hero-montage.py
-pool-builders	b-clean-geometry	the water surface ripples gently, sunlight caustics shimmer across the pool floor, the shadow edge creeps slowly, the hedges stir faintly
-property-management	c-keys-handed-over	dust motes drift in the sunlight, warm light slowly shifts across the counter and the floor beyond, the trees outside the far window sway faintly
-recruiting	d-steel-macro	a slow highlight travels along the machined steel thread as the light source moves, a subtle shimmer in the bokeh, nothing else moves
-restoration	e-put-right	the warm sunlight on the wall slowly brightens and drifts, the trees outside the window sway gently in a breeze, faint dust in the light
-roofing	c-hands-on-the-roof	the hands and the nail gun hold completely still, the low sun flares and shifts softly across the shingles, the treeline behind sways faintly, a slight heat shimmer
-solar	e-street-of-roofs	leaves on the trees move in a breeze, clouds drift slowly across the sky, sunlight on the solar panels brightens and glints
-veterinary	a-taking-new-patients	the dog holds its pose and breathes gently, its fur stirs in a light breeze, it blinks once, the soft bokeh behind it shifts, the mouth stays as it is
-wealth-management	d-paper-and-graphite	the raking light slowly sweeps across the paper texture, the graphite line glints as the light angle changes, the shadow at the top edge drifts
-luxury-real-estate	c-the-threshold	the door and the gloved hand stay exactly where they are in frame, the door does not swing, sea light shimmers outside, warm haze drifts, the cypress and shrubs sway faintly in a breeze
-general-contractors	a-finished-on-time	the doorway on the left stays in frame, afternoon sunlight moves slowly across the plaster wall, dust motes drift in the light from the windows, the trees outside sway faintly
+pool-builders	b-clean-geometry	the water surface ripples very gently and sunlight caustics shimmer across the pool floor; the framing, the hedges and the paving stay exactly where they are, no zoom
+property-management	c-keys-handed-over	dust motes drift in the sunlight and warm light shifts slowly across the counter; the keys and the card stay exactly where they are in frame, no dolly, no drift
+roofing	c-hands-on-the-roof	the hands and the nail gun hold completely still, the low sun flares softly across the shingles and the treeline behind sways faintly; clear air, no dust, no smoke, no haze

@@ -212,6 +212,37 @@ text-decoration:none;font-weight:600;font-size:15px;text-align:center;line-heigh
     .gsw-gal figure:hover img { transform: none; }
   }
 </style>
+
+
+
+<style>
+  /* gsw:backdrop — the section opens on the work. The scrim is this build's own
+     ink, heavy where the copy sits and thinning away from it, so the text
+     never depends on what the photograph happens to be doing. */
+  .gsw-imaged { position: relative; isolation: isolate; overflow: hidden; }
+  .gsw-imaged > *:not(.gsw-backdrop) { position: relative; z-index: 1; }
+  .gsw-backdrop { position: absolute; inset: 0; z-index: 0; }
+  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
+  .gsw-backdrop img { width: 100%; height: 100%; object-fit: cover;
+                       object-position: center; }
+  .gsw-backdrop::after { content: ""; position: absolute; inset: 0;
+                          background: linear-gradient(100deg, rgb(246 242 233 / 0.96) 0%, rgb(246 242 233 / 0.92) 42%, rgb(246 242 233 / 0.70) 72%, rgb(246 242 233 / 0.48) 100%); }
+  /* Below the breakpoint the copy spans the full width, so the scrim goes flat. */
+  @media (max-width: 760px) {
+    .gsw-backdrop::after { background: rgb(246 242 233 / 0.9); }
+  }
+</style>
+
+
+<style>
+  /* gsw:video - the still plate is the poster; the loop fades in over it. */
+  .gsw-backdrop video { position: absolute; inset: 0; width: 100%; height: 100%;
+                        object-fit: cover; object-position: center;
+                        opacity: 0; transition: opacity 1.2s ease-out; }
+  .gsw-backdrop video.gsw-playing { opacity: 1; }
+  @media (prefers-reduced-motion: reduce) { .gsw-backdrop video { display: none; } }
+  @media print { .gsw-backdrop video { display: none; } }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap">Projects from $75,000 · Licensed #GC-22841 · Fully insured</div></div>
@@ -225,7 +256,7 @@ text-decoration:none;font-weight:600;font-size:15px;text-align:center;line-heigh
   <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
 </div></header>
 
-<section class="hero"><div class="wrap">
+<section class="gsw-imaged hero"><!-- gsw:backdrop --><div class="gsw-backdrop" aria-hidden="true"><picture><source type="image/avif" srcset="../_assets/hero/general-contractors/a-finished-on-time-1280.avif 1280w, ../_assets/hero/general-contractors/a-finished-on-time-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/general-contractors/a-finished-on-time-1280.jpg" width="2560" height="1429" alt="" loading="eager" fetchpriority="high" decoding="async"></picture><!-- gsw:video --><video autoplay muted loop playsinline preload="metadata" disablepictureinpicture disableremoteplayback aria-hidden="true" tabindex="-1"><source src="../_assets/hero/general-contractors/a-finished-on-time.mp4" type="video/mp4"></video><!-- /gsw:video --></div><!-- /gsw:backdrop --><div class="wrap">
   <div class="herocopy">
     <p class="eyebrow">Whole-home renovation &amp; additions</p>
     <h1>You get the schedule before anyone swings a hammer.</h1>
@@ -242,7 +273,6 @@ text-decoration:none;font-weight:600;font-size:15px;text-align:center;line-heigh
     <li>Fixed schedule commitment</li>
   </ul></div></div>
 </div></section>
-<figure class="gsw-plate"><picture><source type="image/avif" srcset="../_assets/hero/general-contractors/a-finished-on-time-1280.avif 1280w, ../_assets/hero/general-contractors/a-finished-on-time-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/general-contractors/a-finished-on-time-1280.jpg" width="2560" height="1429" alt="Finished on time, general contractors" loading="lazy" decoding="async"></picture></figure>
 
 
 <section class="sec" id="services"><div class="wrap">
@@ -340,5 +370,11 @@ text-decoration:none;font-weight:600;font-size:15px;text-align:center;line-heigh
 })();
 </script>
 <!-- /gsw:motion -->
+<script>
+(function(){var v=document.querySelector('.gsw-backdrop video');if(!v)return;
+var on=function(){v.classList.add('gsw-playing')};
+v.addEventListener('canplay',on,{once:true});if(v.readyState>=3)on();
+if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){v.pause();v.removeAttribute('autoplay');}})();
+</script>
 </body>
 </html>

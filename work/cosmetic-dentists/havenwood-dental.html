@@ -249,6 +249,24 @@ text-decoration:none;font-weight:600;font-size:18px}
     .gsw-gal figure:hover img { transform: none; }
   }
 </style>
+
+<style>
+  /* gsw:backdrop — the section opens on the work. The scrim is this build's own
+     ink, heavy where the copy sits and thinning away from it, so the text
+     never depends on what the photograph happens to be doing. */
+  .gsw-imaged { position: relative; isolation: isolate; overflow: hidden; }
+  .gsw-imaged > *:not(.gsw-backdrop) { position: relative; z-index: 1; }
+  .gsw-backdrop { position: absolute; inset: 0; z-index: 0; }
+  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
+  .gsw-backdrop img { width: 100%; height: 100%; object-fit: cover;
+                       object-position: center; }
+  .gsw-backdrop::after { content: ""; position: absolute; inset: 0;
+                          background: rgb(46 36 31 / 0.5); }
+  /* Below the breakpoint the copy spans the full width, so the scrim goes flat. */
+  @media (max-width: 760px) {
+    .gsw-backdrop::after { background: rgb(46 36 31 / 0.8); }
+  }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap">Sedation available · No lectures · New patients welcome</div></div>
@@ -258,7 +276,7 @@ text-decoration:none;font-weight:600;font-size:18px}
   <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
   <a class="btn btn-primary navbook" href="#contact">Book a consult</a>
 </div></header>
-<section class="hero"><div class="wrap">
+<section class="gsw-imaged hero"><!-- gsw:backdrop --><div class="gsw-backdrop" aria-hidden="true"><picture><source type="image/avif" srcset="../_assets/hero/cosmetic-dentists/e-the-practice-1280.avif 1280w, ../_assets/hero/cosmetic-dentists/e-the-practice-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/cosmetic-dentists/e-the-practice-1280.jpg" width="2560" height="1429" alt="" loading="eager" fetchpriority="high" decoding="async"></picture></div><!-- /gsw:backdrop --><div class="wrap">
   <p class="eyebrow">Veneers · Implants · Full-mouth restoration</p>
   <h1>For people who stopped going to the dentist.</h1>
   <p class="sub">Most of our new patients haven't been in years and are braced for a lecture. There isn't one. Veneers, implants and full-mouth restoration, at whatever pace you can stand.</p>
@@ -267,7 +285,6 @@ text-decoration:none;font-weight:600;font-size:18px}
     <a class="btn btn-ghost" href="#results">See real results</a>
   </div>
 </div></section>
-<figure class="gsw-plate"><picture><source type="image/avif" srcset="../_assets/hero/cosmetic-dentists/e-the-practice-1280.avif 1280w, ../_assets/hero/cosmetic-dentists/e-the-practice-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/cosmetic-dentists/e-the-practice-1280.jpg" width="2560" height="1429" alt="The practice, cosmetic dentists" loading="lazy" decoding="async"></picture></figure>
 
 <div class="badgeband"><div class="wrap"><ul>
   <li>Digital smile preview</li><li>0% financing available</li><li>Sedation available</li><li>Evening appointments</li>

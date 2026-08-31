@@ -195,6 +195,25 @@ text-transform:none;font-size:16px}
 </style>
 
 
+
+<style>
+  /* gsw:backdrop:services — the section opens on the work. The scrim is this build's own
+     ink, heavy where the copy sits and thinning away from it, so the text
+     never depends on what the photograph happens to be doing. */
+  .gsw-imaged { position: relative; isolation: isolate; overflow: hidden; }
+  .gsw-imaged > *:not(.gsw-backdrop) { position: relative; z-index: 1; }
+  .gsw-backdrop { position: absolute; inset: 0; z-index: 0; }
+  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
+  .gsw-imaged--services .gsw-backdrop img { width: 100%; height: 100%; object-fit: cover;
+                       object-position: center; }
+  .gsw-imaged--services .gsw-backdrop::after { content: ""; position: absolute; inset: 0;
+                          background: rgb(248 241 236 / 0.8); }
+  /* Below the breakpoint the copy spans the full width, so the scrim goes flat. */
+  @media (max-width: 760px) {
+    .gsw-imaged--services .gsw-backdrop::after { background: rgb(248 241 236 / 0.95); }
+  }
+</style>
+
 <style>
   /* gsw-cellfill: photographs in the hero's index cells. The cell keeps its own
      border, ratio and number; the image sits behind them and the design's
@@ -205,9 +224,25 @@ text-transform:none;font-size:16px}
   /* A covered device keeps its frame but not its drawing: the shapes were
      absolutely positioned siblings and painted over the photograph. */
   .gsw-cellfill-cover > *:not(.gsw-cellfill) { display: none; }
+  /* Slideshow: the plates stack, the register switches them. Without
+     JavaScript the first plate is simply the one that shows. */
+  .gsw-cellfill-slide { position: absolute; inset: 0; opacity: 0; transition: opacity .45s ease; }
+  .gsw-cellfill-slide:first-of-type { opacity: 1; }
+  .gsw-cellfill-slide[data-on] { opacity: 1; }
+  .gsw-cellfill-live .gsw-cellfill-slide:first-of-type:not([data-on]) { opacity: 0; }
+  .gsw-cellfill-reg button { font: inherit; color: inherit; background: none; border: 0;
+                          padding: 0; cursor: pointer; opacity: .45;
+                          transition: opacity .2s ease; }
+  .gsw-cellfill-reg button[aria-current="true"] { opacity: 1; }
+  .gsw-cellfill-reg button:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce) {
+    .gsw-cellfill-slide { transition: none; }
+  }
   /* <picture> is inline by default, so the image inside it collapses. */
   .gsw-cellfill picture { display: block; width: 100%; height: 100%; }
   .gsw-cellfill img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .gsw-sr { position: absolute; width: 1px; height: 1px; overflow: hidden;
+             clip-path: inset(50%); white-space: nowrap; }
 </style>
 </head>
 <body>
@@ -230,11 +265,10 @@ text-transform:none;font-size:16px}
     </div>
     <ul class="badges"><li>All pricing published</li><li>Book without an account</li><li>Licensed injectors only</li><li>Memberships from $149/mo</li></ul>
   </div>
-  <div class="lattice" aria-hidden="true"><div class="gsw-cellfill-host"<span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/med-spas/onyx-and-ivory-aesthetics/treatment-room-640.avif 640w, ../_assets/library/med-spas/onyx-and-ivory-aesthetics/treatment-room-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/med-spas/onyx-and-ivory-aesthetics/treatment-room-720.jpg" alt="A treatment room" loading="lazy" decoding="async"></picture></span></div><div></div><div class="gsw-cellfill-host"<span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/med-spas/onyx-and-ivory-aesthetics/flatlay-640.avif 640w, ../_assets/library/med-spas/onyx-and-ivory-aesthetics/flatlay-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/med-spas/onyx-and-ivory-aesthetics/flatlay-720.jpg" alt="Set out for the appointment" loading="lazy" decoding="async"></picture></span></div><div class="gsw-cellfill-host"<span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/med-spas/onyx-and-ivory-aesthetics/injector-hands-640.avif 640w, ../_assets/library/med-spas/onyx-and-ivory-aesthetics/injector-hands-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/med-spas/onyx-and-ivory-aesthetics/injector-hands-720.jpg" alt="Drawn up in front of you" loading="lazy" decoding="async"></picture></span></div><div></div><div class="gsw-cellfill-host"<span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/med-spas/onyx-and-ivory-aesthetics/lounge-640.avif 640w, ../_assets/library/med-spas/onyx-and-ivory-aesthetics/lounge-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/med-spas/onyx-and-ivory-aesthetics/lounge-720.jpg" alt="The lounge" loading="lazy" decoding="async"></picture></span></div><div class="gsw-cellfill-host"<span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/med-spas/onyx-and-ivory-aesthetics/towel-detail-640.avif 640w, ../_assets/library/med-spas/onyx-and-ivory-aesthetics/towel-detail-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/med-spas/onyx-and-ivory-aesthetics/towel-detail-720.jpg" alt="Ready for the next appointment" loading="lazy" decoding="async"></picture></span></div><div></div><div class="gsw-cellfill-host"<span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/med-spas/onyx-and-ivory-aesthetics/evening-window-640.avif 640w, ../_assets/library/med-spas/onyx-and-ivory-aesthetics/evening-window-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/med-spas/onyx-and-ivory-aesthetics/evening-window-720.jpg" alt="An evening appointment" loading="lazy" decoding="async"></picture></span></div></div>
+  <div class="lattice" aria-hidden="true"><div class="gsw-cellfill-host"></div><div class="gsw-cellfill-host"><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/med-spas/onyx-and-ivory-aesthetics/treatment-room-640.avif 640w, ../_assets/library/med-spas/onyx-and-ivory-aesthetics/treatment-room-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/med-spas/onyx-and-ivory-aesthetics/treatment-room-720.jpg" alt="A treatment room" loading="lazy" decoding="async"></picture></span></div><div class="gsw-cellfill-host"></div><div class="gsw-cellfill-host"></div><div class="gsw-cellfill-host"><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/med-spas/onyx-and-ivory-aesthetics/bright-room-640.avif 640w, ../_assets/library/med-spas/onyx-and-ivory-aesthetics/bright-room-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/med-spas/onyx-and-ivory-aesthetics/bright-room-720.jpg" alt="The front room" loading="lazy" decoding="async"></picture></span></div><div class="gsw-cellfill-host"></div><div class="gsw-cellfill-host"></div><div class="gsw-cellfill-host"><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/med-spas/onyx-and-ivory-aesthetics/flatlay-640.avif 640w, ../_assets/library/med-spas/onyx-and-ivory-aesthetics/flatlay-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/med-spas/onyx-and-ivory-aesthetics/flatlay-720.jpg" alt="Set out for the appointment" loading="lazy" decoding="async"></picture></span></div><div class="gsw-cellfill-host"></div></div>
 </div></div></section>
-<figure class="gsw-plate"><picture><source type="image/avif" srcset="../_assets/hero/med-spas/d-light-on-water-1280.avif 1280w, ../_assets/hero/med-spas/d-light-on-water-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/med-spas/d-light-on-water-1280.jpg" width="2560" height="1429" alt="Light on water, med spas" loading="lazy" decoding="async"></picture></figure>
 
-<section class="sec" id="services"><div class="wrap">
+<section class="gsw-imaged gsw-imaged--services sec" id="services"><!-- gsw:backdrop:services --><div class="gsw-backdrop" aria-hidden="true"><picture><source type="image/avif" srcset="../_assets/hero/med-spas/d-light-on-water-1280.avif 1280w, ../_assets/hero/med-spas/d-light-on-water-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/med-spas/d-light-on-water-1280.jpg" width="2560" height="1429" alt="" loading="lazy" decoding="async"></picture></div><!-- /gsw:backdrop:services --><div class="wrap">
   <p class="kicker">Services</p><h2>Treatments &amp; prices</h2>
   <p class="lede">No 'call for pricing'. You should be able to work out what your visit costs before you arrive.</p>
   <div class="tiles">

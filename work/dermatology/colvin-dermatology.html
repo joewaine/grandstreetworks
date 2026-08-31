@@ -195,6 +195,36 @@ font-family:"Nunito Sans",system-ui,sans-serif}
     .gsw-gal figure:hover img { transform: none; }
   }
 </style>
+
+
+
+<style>
+  /* gsw:backdrop — the section opens on the work. The scrim is this build's own
+     ink, heavy where the copy sits and thinning away from it, so the text
+     never depends on what the photograph happens to be doing. */
+  .gsw-imaged { position: relative; isolation: isolate; overflow: hidden; }
+  .gsw-imaged > *:not(.gsw-backdrop) { position: relative; z-index: 1; }
+  .gsw-backdrop { position: absolute; inset: 0; z-index: 0; }
+  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
+  .gsw-backdrop img { width: 100%; height: 100%; object-fit: cover;
+                       object-position: center 70%; }
+  .gsw-backdrop::after { content: ""; position: absolute; inset: 0;
+                          background: rgb(239 243 246 / 0.3); }
+  /* Below the breakpoint the copy spans the full width, so the scrim goes flat. */
+  @media (max-width: 760px) {
+    .gsw-backdrop::after { background: rgb(239 243 246 / 0.6); }
+  }
+</style>
+
+<style>
+  /* gsw:video - the still plate is the poster; the loop fades in over it. */
+  .gsw-backdrop video { position: absolute; inset: 0; width: 100%; height: 100%;
+                        object-fit: cover; object-position: center;
+                        opacity: 0; transition: opacity 1.2s ease-out; }
+  .gsw-backdrop video.gsw-playing { opacity: 1; }
+  @media (prefers-reduced-motion: reduce) { .gsw-backdrop video { display: none; } }
+  @media print { .gsw-backdrop video { display: none; } }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap">Skin checks within 2 weeks · Urgent slots held weekly</div></div>
@@ -206,7 +236,7 @@ font-family:"Nunito Sans",system-ui,sans-serif}
   <a class="btn btn-primary navact" href="#contact">Book a skin check</a>
 </div></header>
 <div class="waitrail"><b>2wk</b><span>Typical skin check wait</span></div>
-<section class="hero"><div class="wrap"><div class="split">
+<section class="gsw-imaged hero"><!-- gsw:backdrop --><div class="gsw-backdrop" aria-hidden="true"><picture><source type="image/avif" srcset="../_assets/hero/dermatology/b-precision-instrument-1280.avif 1280w, ../_assets/hero/dermatology/b-precision-instrument-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/dermatology/b-precision-instrument-1280.jpg" width="2560" height="1429" alt="" loading="eager" fetchpriority="high" decoding="async"></picture><!-- gsw:video --><video autoplay muted loop playsinline preload="metadata" disablepictureinpicture disableremoteplayback aria-hidden="true" tabindex="-1"><source src="../_assets/hero/dermatology/b-precision-instrument.mp4" type="video/mp4"></video><!-- /gsw:video --></div><!-- /gsw:backdrop --><div class="wrap"><div class="split">
   <div class="hcopy">
     <p class="eyebrow">Medical · Surgical · Cosmetic</p>
     <h1>Skin checks inside two weeks. Urgent ones sooner.</h1>
@@ -226,7 +256,6 @@ font-family:"Nunito Sans",system-ui,sans-serif}
     </ul>
   </div>
 </div></div></section>
-<figure class="gsw-plate"><picture><source type="image/avif" srcset="../_assets/hero/dermatology/b-precision-instrument-1280.avif 1280w, ../_assets/hero/dermatology/b-precision-instrument-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/dermatology/b-precision-instrument-1280.jpg" width="2560" height="1429" alt="Precision instrument, dermatology" loading="lazy" decoding="async"></picture></figure>
 
 <section class="sec" id="services"><div class="wrap">
   <p class="kicker">Services</p>
@@ -315,5 +344,11 @@ font-family:"Nunito Sans",system-ui,sans-serif}
 })();
 </script>
 <!-- /gsw:motion -->
+<script>
+(function(){var v=document.querySelector('.gsw-backdrop video');if(!v)return;
+var on=function(){v.classList.add('gsw-playing')};
+v.addEventListener('canplay',on,{once:true});if(v.readyState>=3)on();
+if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){v.pause();v.removeAttribute('autoplay');}})();
+</script>
 </body>
 </html>

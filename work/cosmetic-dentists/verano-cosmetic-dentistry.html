@@ -284,6 +284,24 @@ text-decoration:none;font-weight:600;font-size:18px}
   @media (prefers-reduced-motion: reduce) { .gsw-backdrop video { display: none; } }
   @media print { .gsw-backdrop video { display: none; } }
 </style>
+
+<style>
+  /* gsw:backdrop:close — the section opens on the work. The scrim is this build's own
+     ink, heavy where the copy sits and thinning away from it, so the text
+     never depends on what the photograph happens to be doing. */
+  .gsw-imaged { position: relative; isolation: isolate; overflow: hidden; }
+  .gsw-imaged > *:not(.gsw-backdrop) { position: relative; z-index: 1; }
+  .gsw-backdrop { position: absolute; inset: 0; z-index: 0; }
+  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
+  .gsw-imaged--close .gsw-backdrop img { width: 100%; height: 100%; object-fit: cover;
+                       object-position: center; }
+  .gsw-imaged--close .gsw-backdrop::after { content: ""; position: absolute; inset: 0;
+                          background: rgb(20 22 26 / 0.72); }
+  /* Below the breakpoint the copy spans the full width, so the scrim goes flat. */
+  @media (max-width: 760px) {
+    .gsw-imaged--close .gsw-backdrop::after { background: rgb(20 22 26 / 0.95); }
+  }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap">Fourteen years of cases · Photographed at every stage</div></div>
@@ -303,7 +321,6 @@ text-decoration:none;font-weight:600;font-size:18px}
   </div>
   <ul class="badges"><li>Digital smile preview</li><li>0% financing available</li><li>Sedation available</li><li>Evening appointments</li></ul>
 </div></section>
-<figure class="gsw-plate"><picture><source type="image/avif" srcset="../_assets/hero/cosmetic-dentists/d-porcelain-macro-1280.avif 1280w, ../_assets/hero/cosmetic-dentists/d-porcelain-macro-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/cosmetic-dentists/d-porcelain-macro-1280.jpg" width="2560" height="1429" alt="Porcelain macro, cosmetic dentists" loading="lazy" decoding="async"></picture></figure>
 
 <section class="sec" id="services"><div class="wrap">
   <p class="kicker">Services</p><h2>Treatments</h2>
@@ -341,7 +358,7 @@ text-decoration:none;font-weight:600;font-size:18px}
 <!-- gsw:gallery -->
 <section class="gsw-gal"><div class="gsw-gal-in"><p class="gsw-gal-lab">The work</p><h2>Look through it, then decide.</h2><p class="gsw-gal-note">Porcelain from the bench, the shade matched in daylight, and the preview that came before all of it.</p><div class="gsw-gal-grid"><figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/verano-cosmetic-dentistry/veneer-macro-640.avif 640w, ../_assets/library/cosmetic-dentists/verano-cosmetic-dentistry/veneer-macro-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/cosmetic-dentists/verano-cosmetic-dentistry/veneer-macro-720.jpg" width="1600" height="1200" alt="Porcelain, one at a time" loading="lazy" decoding="async"></picture><figcaption>Porcelain, one at a time</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/verano-cosmetic-dentistry/lab-bench-640.avif 640w, ../_assets/library/cosmetic-dentists/verano-cosmetic-dentistry/lab-bench-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/cosmetic-dentists/verano-cosmetic-dentistry/lab-bench-720.jpg" width="1600" height="1200" alt="On the technician&#x27;s bench" loading="lazy" decoding="async"></picture><figcaption>On the technician&#x27;s bench</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/verano-cosmetic-dentistry/shade-guide-640.avif 640w, ../_assets/library/cosmetic-dentists/verano-cosmetic-dentistry/shade-guide-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/cosmetic-dentists/verano-cosmetic-dentistry/shade-guide-720.jpg" width="1600" height="1200" alt="Shade matched" loading="lazy" decoding="async"></picture><figcaption>Shade matched</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/verano-cosmetic-dentistry/chairside-preview-640.avif 640w, ../_assets/library/cosmetic-dentists/verano-cosmetic-dentistry/chairside-preview-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/cosmetic-dentists/verano-cosmetic-dentistry/chairside-preview-720.jpg" width="1600" height="1200" alt="Chairside preview" loading="lazy" decoding="async"></picture><figcaption>Chairside preview</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/verano-cosmetic-dentistry/scanner-640.avif 640w, ../_assets/library/cosmetic-dentists/verano-cosmetic-dentistry/scanner-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/cosmetic-dentists/verano-cosmetic-dentistry/scanner-720.jpg" width="1600" height="1200" alt="Scanned, not moulded" loading="lazy" decoding="async"></picture><figcaption>Scanned, not moulded</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/verano-cosmetic-dentistry/operatory-640.avif 640w, ../_assets/library/cosmetic-dentists/verano-cosmetic-dentistry/operatory-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/cosmetic-dentists/verano-cosmetic-dentistry/operatory-720.jpg" width="1600" height="1200" alt="The treatment room" loading="lazy" decoding="async"></picture><figcaption>The treatment room</figcaption></figure></div></div></section>
 <!-- /gsw:gallery -->
-<section class="close" id="contact"><div class="wrap">
+<section class="gsw-imaged gsw-imaged--close close" id="contact"><!-- gsw:backdrop:close --><div class="gsw-backdrop" aria-hidden="true"><picture><source type="image/avif" srcset="../_assets/hero/cosmetic-dentists/d-porcelain-macro-1280.avif 1280w, ../_assets/hero/cosmetic-dentists/d-porcelain-macro-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/cosmetic-dentists/d-porcelain-macro-1280.jpg" width="2560" height="1429" alt="" loading="lazy" decoding="async"></picture></div><!-- /gsw:backdrop:close --><div class="wrap">
   <h2>Want to see cases like yours?</h2>
   <p>Most of our patients had. The consult is free, there's no pressure, and you'll leave knowing what it would look like and what it would cost.</p>
   <div class="ctas">

@@ -189,6 +189,25 @@ letter-spacing:.03em;text-transform:none;font-size:16px}
     .gsw-gal figure:hover img { transform: none; }
   }
 </style>
+
+
+<style>
+  /* gsw:backdrop — the section opens on the work. The scrim is this build's own
+     ink, heavy where the copy sits and thinning away from it, so the text
+     never depends on what the photograph happens to be doing. */
+  .gsw-imaged { position: relative; isolation: isolate; overflow: hidden; }
+  .gsw-imaged > *:not(.gsw-backdrop) { position: relative; z-index: 1; }
+  .gsw-backdrop { position: absolute; inset: 0; z-index: 0; }
+  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
+  .gsw-backdrop img { width: 100%; height: 100%; object-fit: cover;
+                       object-position: center; }
+  .gsw-backdrop::after { content: ""; position: absolute; inset: 0;
+                          background: rgb(246 242 245 / 0.35); }
+  /* Below the breakpoint the copy spans the full width, so the scrim goes flat. */
+  @media (max-width: 760px) {
+    .gsw-backdrop::after { background: rgb(246 242 245 / 0.65); }
+  }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap">Book online in under a minute · Memberships from $149/mo</div></div>
@@ -198,7 +217,7 @@ letter-spacing:.03em;text-transform:none;font-size:16px}
   <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
   <a class="navbook" href="#contact">Book now</a>
 </div></header>
-<section class="hero"><div class="wrap">
+<section class="gsw-imaged hero"><!-- gsw:backdrop --><div class="gsw-backdrop" aria-hidden="true"><picture><source type="image/avif" srcset="../_assets/hero/med-spas/b-clean-flatlay-1280.avif 1280w, ../_assets/hero/med-spas/b-clean-flatlay-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/med-spas/b-clean-flatlay-1280.jpg" width="2560" height="1429" alt="" loading="eager" fetchpriority="high" decoding="async"></picture></div><!-- /gsw:backdrop --><div class="wrap">
   <p class="eyebrow">Injectables · Laser · Skin</p>
   <h1>A monthly credit that rolls over, and never expires.</h1>
   <p class="sub">Botox, filler, laser and medical-grade skincare from licensed injectors. Members put by a monthly credit that rolls over indefinitely, so treatment gets budgeted rather than deferred.</p>
@@ -208,7 +227,6 @@ letter-spacing:.03em;text-transform:none;font-size:16px}
   </div>
   <ul class="badges"><li>All pricing published</li><li>Book without an account</li><li>Licensed injectors only</li><li>Memberships from $149/mo</li></ul>
 </div></section>
-<figure class="gsw-plate"><picture><source type="image/avif" srcset="../_assets/hero/med-spas/b-clean-flatlay-1280.avif 1280w, ../_assets/hero/med-spas/b-clean-flatlay-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/med-spas/b-clean-flatlay-1280.jpg" width="2560" height="1429" alt="Clean flatlay, med spas" loading="lazy" decoding="async"></picture></figure>
 
 <section class="cardwrap"><div class="wrap"><div class="mcard">
   <p class="mb">Verity Skin &amp; Aesthetics</p>

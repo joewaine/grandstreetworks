@@ -138,12 +138,17 @@ CELLS = {
         }),
     },
     "med-spas": {
+        # All nine filled: the three colour blocks read as gaps once the rest
+        # were photographs. The extra three are trade plates cut to library size.
         "onyx-and-ivory-aesthetics": ("child", "lattice", {
             0: ("treatment-room", "A treatment room"),
+            1: ("bright-room", "The front room"),
             2: ("flatlay", "Set out for the appointment"),
             3: ("injector-hands", "Drawn up in front of you"),
+            4: ("hands-prepare", "Prepared for you"),
             5: ("lounge", "The lounge"),
             6: ("towel-detail", "Ready for the next appointment"),
+            7: ("the-whole-space", "The whole space"),
             8: ("evening-window", "An evening appointment"),
         }),
     },
@@ -378,6 +383,9 @@ def patch(page: Path, trade: str, slug: str, spec, replace: bool) -> str:
         new_inner = child_re.sub(fill_child, inner)
         if new_inner == inner:
             return f"no empty children in .{target}"
+        # A bare <div> opener once came out as <div class="...-host" with no
+        # closing bracket; browsers recover, validators do not.
+        new_inner = new_inner.replace(f'class="{MARKER}-host"<', f'class="{MARKER}-host"><')
         src = src[:parent.start(2)] + new_inner + src[parent.end(2):]
         filled = sum(1 for i in images if i < counter["i"])
 

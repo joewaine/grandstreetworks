@@ -62,7 +62,9 @@
    "firm": "Bexley Build Group",
    "domain": "bexleybuildgroup.com",
    "url": "work/general-contractors/bexley-build-group.html",
-   "plate": "work/_assets/hero/general-contractors/a-finished-on-time-1280.avif"
+   "plate": "work/_assets/hero/general-contractors/a-finished-on-time-1280.avif",
+   "video": "work/_assets/hero/general-contractors/a-finished-on-time.mp4",
+   "poster": "work/_assets/hero/general-contractors/a-finished-on-time-1280.avif"
   },
   {
    "slug": "beacon-comfort-co",
@@ -93,7 +95,9 @@
    "firm": "Ellery & Vane",
    "domain": "elleryandvane.com",
    "url": "work/luxury-real-estate/ellery-and-vane.html",
-   "plate": "work/_assets/hero/luxury-real-estate/c-the-threshold-1280.avif"
+   "plate": "work/_assets/hero/luxury-real-estate/c-the-threshold-1280.avif",
+   "video": "work/_assets/hero/luxury-real-estate/c-the-threshold.mp4",
+   "poster": "work/_assets/hero/luxury-real-estate/c-the-threshold-1280.avif"
   },
   {
    "slug": "palmer-row-med-spa",
@@ -151,7 +155,9 @@
    "firm": "Brandt Yates Recruitment",
    "domain": "brandtyates.com",
    "url": "work/recruiting/brandt-yates-recruitment.html",
-   "plate": "work/_assets/hero/recruiting/d-steel-macro-1280.avif"
+   "plate": "work/_assets/hero/recruiting/d-steel-macro-1280.avif",
+   "video": "work/_assets/hero/recruiting/d-steel-macro.mp4",
+   "poster": "work/_assets/hero/recruiting/d-steel-macro-1280.avif"
   },
   {
    "slug": "claymore-restoration",
@@ -160,7 +166,9 @@
    "firm": "Claymore Restoration",
    "domain": "claymorerestoration.com",
    "url": "work/restoration/claymore-restoration.html",
-   "plate": "work/_assets/hero/restoration/e-put-right-1280.avif"
+   "plate": "work/_assets/hero/restoration/e-put-right-1280.avif",
+   "video": "work/_assets/hero/restoration/e-put-right.mp4",
+   "poster": "work/_assets/hero/restoration/e-put-right-1280.avif"
   },
   {
    "slug": "meridian-roof-co",
@@ -180,7 +188,9 @@
    "firm": "Ansonia Solar",
    "domain": "ansoniasolar.com",
    "url": "work/solar/ansonia-solar.html",
-   "plate": "work/_assets/hero/solar/e-street-of-roofs-1280.avif"
+   "plate": "work/_assets/hero/solar/e-street-of-roofs-1280.avif",
+   "video": "work/_assets/hero/solar/e-street-of-roofs.mp4",
+   "poster": "work/_assets/hero/solar/e-street-of-roofs-1280.avif"
   },
   {
    "slug": "beckett-animal-care",
@@ -189,7 +199,9 @@
    "firm": "Beckett Animal Care",
    "domain": "beckettanimalcare.com",
    "url": "work/veterinary/beckett-animal-care.html",
-   "plate": "work/_assets/hero/veterinary/a-taking-new-patients-1280.avif"
+   "plate": "work/_assets/hero/veterinary/a-taking-new-patients-1280.avif",
+   "video": "work/_assets/hero/veterinary/a-taking-new-patients.mp4",
+   "poster": "work/_assets/hero/veterinary/a-taking-new-patients-1280.avif"
   },
   {
    "slug": "bracken-and-lowe",
@@ -198,7 +210,9 @@
    "firm": "Bracken & Lowe",
    "domain": "brackenandlowe.com",
    "url": "work/wealth-management/bracken-and-lowe.html",
-   "plate": "work/_assets/hero/wealth-management/d-paper-and-graphite-1280.avif"
+   "plate": "work/_assets/hero/wealth-management/d-paper-and-graphite-1280.avif",
+   "video": "work/_assets/hero/wealth-management/d-paper-and-graphite.mp4",
+   "poster": "work/_assets/hero/wealth-management/d-paper-and-graphite-1280.avif"
   }
  ],
  "wall": [
