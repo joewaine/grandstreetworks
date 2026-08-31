@@ -1,0 +1,121 @@
+vertical,page_slug,domain,action
+accounting-cpas,ashby-and-kerr-cpas,ashbyandkerr.com,keep name
+accounting-cpas,brandt-and-yoo-cpas,brandtandyoo.com,keep name
+accounting-cpas,corven-cpa-group,corvencpagroup.com,keep name
+accounting-cpas,halstead-accounting,halsteadaccounting.com,keep name
+accounting-cpas,latimer-accounting,aldrichcpagroup.com,RENAME
+accounting-cpas,rennick-cpa,rennickcpa.com,keep name
+architecture,ansel-row-studio,anselrow.com,keep name
+architecture,calderwood-architecture,calderwoodarchitecture.com,keep name
+architecture,halloway-and-prentiss,hallowayandprentiss.com,keep name
+architecture,merton-field-architects,mertonfield.com,keep name
+architecture,ostergaard-architects,ostergaardarchitects.com,keep name
+architecture,pell-and-marchant,pellandmarchant.com,keep name
+cosmetic-dentists,aldridge-dental,aldridgedental.com,keep name
+cosmetic-dentists,belmont-smile-design,belmontsmile.com,keep name
+cosmetic-dentists,callaway-dental-arts,callawaydentalarts.com,keep name
+cosmetic-dentists,fairmont-dental-studio,fairmontdentalstudio.com,keep name
+cosmetic-dentists,havenwood-dental,havenwooddental.com,keep name
+cosmetic-dentists,verano-cosmetic-dentistry,veranocosmetic.com,keep name
+custom-home-builders,coulter-and-vane-homes,coulterandvane.com,keep name
+custom-home-builders,farrow-ridge-builders,farrowridge.com,keep name
+custom-home-builders,kingsmere-build,kingsmerebuild.com,keep name
+custom-home-builders,latham-homes,bexfordhomes.com,RENAME
+custom-home-builders,sable-creek-homes,sablecreekhomes.com,keep name
+custom-home-builders,wyndham-custom-homes,wyndhamcustom.com,keep name
+dermatology,colvin-dermatology,colvindermatology.com,keep name
+dermatology,fenmore-dermatology,fenmoredermatology.com,keep name
+dermatology,harrowgate-dermatology,harrowgatedermatology.com,keep name
+dermatology,larkin-dermatology,larkindermatology.com,keep name
+dermatology,sundial-dermatology,sundialdermatology.com,keep name
+dermatology,westbrook-skin-and-surgery,westbrookskinandsurgery.com,keep name
+general-contractors,bexley-build-group,bexleybuildgroup.com,keep name
+general-contractors,granby-construction,carrowbuildgroup.com,RENAME
+general-contractors,halverson-build-co,halversonbuildco.com,keep name
+general-contractors,marrant-construction,marrantconstruction.com,keep name
+general-contractors,threshold-builders,denbybuilders.com,RENAME
+general-contractors,whitfield-build-co,whitfieldbuildco.com,keep name
+hvac,beacon-comfort-co,beaconcomfortco.com,keep name
+hvac,ironwood-heating-and-air,ironwoodheatingandair.com,keep name
+hvac,nightingale-heating-and-air,nightingaleheatingandair.com,keep name
+hvac,sutter-heating-and-cooling,sutterheatingandcooling.com,keep name
+hvac,trueline-heating-and-air,truelineheatingandair.com,keep name
+hvac,vantage-air-systems,vantageairsystems.com,keep name
+interior-design,bramble-and-stone,fenwickandyates.com,RENAME
+interior-design,fairholme-design-co,fairholmedesignco.com,keep name
+interior-design,ivory-lane-interiors,garrickinteriors.com,RENAME
+interior-design,nocturne-interiors,havelockdesignhouse.com,RENAME
+interior-design,sorrel-studio,jarrowstudio.com,RENAME
+interior-design,wren-and-alder,morrowandkell.com,RENAME
+luxury-real-estate,ashcroft-residential,ashcroftresidential.com,keep name
+luxury-real-estate,bellamy-estates,kelsdonestates.com,RENAME
+luxury-real-estate,ellery-and-vane,elleryandvane.com,keep name
+luxury-real-estate,marlowe-and-hart,penroseandhale.com,RENAME
+luxury-real-estate,rathmore-and-finch,rathmoreandfinch.com,keep name
+luxury-real-estate,thornbury-property-group,thornburypropertygroup.com,keep name
+med-spas,bright-hour-med-spa,brighthourmed.com,keep name
+med-spas,juniper-aesthetics,linfieldaesthetics.com,RENAME
+med-spas,marisol-aesthetics,marisolaesthetics.com,keep name
+med-spas,onyx-and-ivory-aesthetics,netherbyaesthetics.com,RENAME
+med-spas,palmer-row-med-spa,palmerrowmed.com,keep name
+med-spas,verity-skin-and-aesthetics,verityskinandaesthetics.com,keep name
+personal-injury,brightmoor-injury-law,brightmoorinjurylaw.com,keep name
+personal-injury,harlan-and-vega,harlanandvega.com,keep name
+personal-injury,merrow-injury-group,merrowinjurygroup.com,keep name
+personal-injury,okonkwo-trial-law,okonkwotriallaw.com,keep name
+personal-injury,prentice-and-aldana,prenticeandaldana.com,keep name
+personal-injury,salcedo-and-roth,salcedoandroth.com,keep name
+plastic-surgeons,aldenmore-surgical-aesthetics,aldenmore.com,keep name
+plastic-surgeons,calder-aesthetic-surgery,calderaestheticsurgery.com,keep name
+plastic-surgeons,marchetti-plastic-surgery,marchettiplastic.com,keep name
+plastic-surgeons,rothbury-plastic-surgery,rothburyplastic.com,keep name
+plastic-surgeons,sable-plastic-surgery,sableplastic.com,keep name
+plastic-surgeons,wyeth-plastic-surgery,wyethplastic.com,keep name
+pool-builders,anvil-bay-pools,anvilbaypools.com,keep name
+pool-builders,blue-harbor-pools,oakhurstpools.com,RENAME
+pool-builders,clearwater-pool-group,clearwaterpoolgroup.com,keep name
+pool-builders,cold-spring-pools,coldspringpools.com,keep name
+pool-builders,marlin-pool-co,marlinpool.com,keep name
+pool-builders,verdant-pools-and-gardens,verdantpoolsandgardens.com,keep name
+property-management,amberton-residential,ambertonresidential.com,keep name
+property-management,colvert-property-group,colvertpropertygroup.com,keep name
+property-management,halcombe-management,halcombemanagement.com,keep name
+property-management,ridgemont-property-services,ridgemontpropertyservices.com,keep name
+property-management,rowan-property-group,rowanpropertygroup.com,keep name
+property-management,weatherby-property-co,weatherbypropertyco.com,keep name
+recruiting,brandt-yates-recruitment,brandtyates.com,keep name
+recruiting,copperfield-industrial-search,copperfieldindustrial.com,keep name
+recruiting,ellings-search-group,ellingssearchgroup.com,keep name
+recruiting,halbrook-search,halbrooksearch.com,keep name
+recruiting,ironvale-partners,pemberlypartners.com,RENAME
+recruiting,kirkwall-talent,kirkwalltalent.com,keep name
+restoration,arbor-restoration-group,arborrestorationgroup.com,keep name
+restoration,bluewater-restoration,redversrestoration.com,RENAME
+restoration,claymore-restoration,claymorerestoration.com,keep name
+restoration,keystone-restoration,stanburyrestoration.com,RENAME
+restoration,nightwatch-restoration,nightwatchrestoration.com,keep name
+restoration,rapid-dry-restoration,underhillrestoration.com,RENAME
+roofing,anchor-peak-roofing,anchorpeakroofing.com,keep name
+roofing,fair-oaks-roofing,fairoaksroofing.com,keep name
+roofing,halloran-roofing,halloranroofing.com,keep name
+roofing,meridian-roof-co,meridianroofco.com,keep name
+roofing,northgate-roofing,wexleyroofing.com,RENAME
+roofing,sentry-roofing-and-restoration,sentryroofingandrestoration.com,keep name
+solar,ansonia-solar,ansoniasolar.com,keep name
+solar,brightfold-solar,brightfoldsolar.com,keep name
+solar,cedar-line-solar,cedarlinesolar.com,keep name
+solar,fairhaven-solar,yarrowsolar.com,RENAME
+solar,halgrove-energy,halgroveenergy.com,keep name
+solar,kettle-ridge-solar,kettleridgesolar.com,keep name
+veterinary,beckett-animal-care,beckettanimalcare.com,keep name
+veterinary,corner-oak-veterinary,corneroakveterinary.com,keep name
+veterinary,fernhill-veterinary,fernhillveterinary.com,keep name
+veterinary,hollis-animal-hospital,hollisanimalhospital.com,keep name
+veterinary,marlow-veterinary-clinic,marlowveterinaryclinic.com,keep name
+veterinary,willowbank-animal-hospital,willowbankanimalhospital.com,keep name
+wealth-management,bracken-and-lowe,brackenandlowe.com,keep name
+wealth-management,copeland-fiduciary,copelandfiduciary.com,keep name
+wealth-management,ferrier-wealth-partners,ferrierwealthpartners.com,keep name
+wealth-management,hartwell-wealth-advisors,hartwellwealthadvisors.com,keep name
+wealth-management,ostrander-wealth-counsel,ostranderwealthcounsel.com,keep name
+wealth-management,winslow-family-wealth,winslowfamilywealth.com,keep name

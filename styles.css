@@ -997,3 +997,122 @@ footer {
   .hero-capture { margin-top: 1.75rem; }
   .stat-item { padding-top: 1.125rem; padding-bottom: 1.125rem; }
 }
+
+/* ---------- Hero montage prototypes (?hero=dissolve | wall | mix) ---------- */
+/* Sits where the shader canvas sits, under .hero-content and its scrim. The
+   left-heavy gradient on .hero-main already keeps the copy legible, so the
+   images run at full strength and the composition lives in the right half. */
+.hero-montage {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: var(--bg-color);
+}
+.hero-montage[hidden] { display: none; }
+.hero-montage img,
+.hero-montage video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Firm and trade for whichever build is up. Under the nav, clear of the copy. */
+.hero-montage-caption {
+  position: absolute;
+  top: calc(var(--nav-height) + 1.5rem);
+  right: 2rem;
+  z-index: 11;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  color: var(--text-color);
+  padding: 0.6rem 0.8rem;
+  background: rgba(229, 229, 230, 0.85);
+  border: 1px solid var(--border-light);
+}
+.hero-montage-caption[hidden] { display: none; }
+.hero-montage-trade { opacity: 0.55; }
+
+/* A single build, full bleed. Two of these stack so one can fade over the
+   other; in mix mode they sit over the wall. */
+.hero-montage-layer {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.4s ease;
+}
+.hero-montage-layer.is-on { opacity: 1; }
+.hero-montage-layer.is-on img {
+  animation: hero-montage-drift 6s linear both;
+}
+@keyframes hero-montage-drift {
+  from { transform: scale(1.02); }
+  to   { transform: scale(1.08); }
+}
+
+/* The wall: every build at once, five across, tiles trading places. */
+.hero-montage-wall {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 2px;
+}
+.hero-montage-tile {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background: var(--bg-color);
+}
+.hero-montage-tile img {
+  position: absolute;
+  inset: 0;
+  transition: opacity 1s ease;
+}
+.hero-montage-tile img.is-out { opacity: 0; }
+.hero-montage-tile-name {
+  position: absolute;
+  left: 0.6rem;
+  bottom: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-color);
+  background: rgba(229, 229, 230, 0.85);
+  padding: 0.2rem 0.4rem;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.hero-montage-tile:hover .hero-montage-tile-name { opacity: 1; }
+/* Wall-only mode has a name on every tile, so the single caption is redundant. */
+.hero-montage--wall ~ .hero-montage-caption { display: none; }
+/* While a build covers the wall, the tiles under it must not take the click. */
+.hero-montage--mix .hero-montage-layer.is-on ~ .hero-montage-wall,
+.hero-montage--mix .hero-montage-layer.is-on + .hero-montage-layer { pointer-events: none; }
+
+@media (max-width: 700px) {
+  /* At phone width the caption lands on the headline; the plate has to speak for itself. */
+  .hero-montage-caption { display: none; }
+  /* Eight tiles, not twenty: at phone width twenty becomes texture. */
+  .hero-montage-wall {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+  .hero-montage-wall .hero-montage-tile:nth-child(n+9) { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-montage-layer,
+  .hero-montage-tile img { transition: none; }
+  .hero-montage-layer.is-on img { animation: none; }
+}

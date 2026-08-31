@@ -1,0 +1,208 @@
+[
+ {
+  "slug": "rennick-cpa",
+  "trade": "accounting-cpas",
+  "label": "Accounting",
+  "firm": "Rennick CPA",
+  "domain": "rennickcpa.com",
+  "url": "work/accounting-cpas/rennick-cpa.html",
+  "plate": "work/_assets/hero/accounting-cpas/e-the-practice-1280.avif",
+  "tile": "work/_assets/montage/rennick-cpa-640.avif"
+ },
+ {
+  "slug": "ansel-row-studio",
+  "trade": "architecture",
+  "label": "Architecture",
+  "firm": "Ansel Row Studio",
+  "domain": "anselrow.com",
+  "url": "work/architecture/ansel-row-studio.html",
+  "plate": "work/_assets/hero/architecture/c-hands-and-model-1280.avif",
+  "tile": "work/_assets/montage/ansel-row-studio-640.avif"
+ },
+ {
+  "slug": "belmont-smile-design",
+  "trade": "cosmetic-dentists",
+  "label": "Cosmetic dentistry",
+  "firm": "Belmont Smile Design",
+  "domain": "belmontsmile.com",
+  "url": "work/cosmetic-dentists/belmont-smile-design.html",
+  "plate": "work/_assets/hero/cosmetic-dentists/b-craft-and-precision-1280.avif",
+  "tile": "work/_assets/montage/belmont-smile-design-640.avif",
+  "video": "work/_assets/hero/cosmetic-dentists/f-the-chair.mp4",
+  "poster": "work/_assets/hero/cosmetic-dentists/f-the-chair-1280.avif"
+ },
+ {
+  "slug": "farrow-ridge-builders",
+  "trade": "custom-home-builders",
+  "label": "Custom homes",
+  "firm": "Farrow Ridge Builders",
+  "domain": "farrowridge.com",
+  "url": "work/custom-home-builders/farrow-ridge-builders.html",
+  "plate": "work/_assets/hero/custom-home-builders/b-honest-frame-1280.avif",
+  "tile": "work/_assets/montage/farrow-ridge-builders-640.avif"
+ },
+ {
+  "slug": "colvin-dermatology",
+  "trade": "dermatology",
+  "label": "Dermatology",
+  "firm": "Colvin Dermatology",
+  "domain": "colvindermatology.com",
+  "url": "work/dermatology/colvin-dermatology.html",
+  "plate": "work/_assets/hero/dermatology/b-precision-instrument-1280.avif",
+  "tile": "work/_assets/montage/colvin-dermatology-640.avif"
+ },
+ {
+  "slug": "bexley-build-group",
+  "trade": "general-contractors",
+  "label": "General contracting",
+  "firm": "Bexley Build Group",
+  "domain": "bexleybuildgroup.com",
+  "url": "work/general-contractors/bexley-build-group.html",
+  "plate": "work/_assets/hero/general-contractors/a-finished-on-time-1280.avif",
+  "tile": "work/_assets/montage/bexley-build-group-640.avif"
+ },
+ {
+  "slug": "beacon-comfort-co",
+  "trade": "hvac",
+  "label": "Heating & cooling",
+  "firm": "Beacon Comfort Co.",
+  "domain": "beaconcomfortco.com",
+  "url": "work/hvac/beacon-comfort-co.html",
+  "plate": "work/_assets/hero/hvac/e-comfort-inside-1280.avif",
+  "tile": "work/_assets/montage/beacon-comfort-co-640.avif"
+ },
+ {
+  "slug": "fairholme-design-co",
+  "trade": "interior-design",
+  "label": "Interior design",
+  "firm": "Fairholme Design Co.",
+  "domain": "fairholmedesignco.com",
+  "url": "work/interior-design/fairholme-design-co.html",
+  "plate": "work/_assets/hero/interior-design/e-the-whole-room-1280.avif",
+  "tile": "work/_assets/montage/fairholme-design-co-640.avif"
+ },
+ {
+  "slug": "ellery-and-vane",
+  "trade": "luxury-real-estate",
+  "label": "Luxury real estate",
+  "firm": "Ellery & Vane",
+  "domain": "elleryandvane.com",
+  "url": "work/luxury-real-estate/ellery-and-vane.html",
+  "plate": "work/_assets/hero/luxury-real-estate/c-the-threshold-1280.avif",
+  "tile": "work/_assets/montage/ellery-and-vane-640.avif"
+ },
+ {
+  "slug": "palmer-row-med-spa",
+  "trade": "med-spas",
+  "label": "Med spas",
+  "firm": "Palmer Row Med Spa",
+  "domain": "palmerrowmed.com",
+  "url": "work/med-spas/palmer-row-med-spa.html",
+  "plate": "work/_assets/hero/med-spas/g-candlelit-1280.avif",
+  "tile": "work/_assets/montage/palmer-row-med-spa-640.avif",
+  "video": "work/_assets/hero/med-spas/g-candlelit.mp4",
+  "poster": "work/_assets/hero/med-spas/g-candlelit-1280.avif"
+ },
+ {
+  "slug": "harlan-and-vega",
+  "trade": "personal-injury",
+  "label": "Personal injury",
+  "firm": "Harlan & Vega",
+  "domain": "harlanandvega.com",
+  "url": "work/personal-injury/harlan-and-vega.html",
+  "plate": "work/_assets/montage/harlan-and-vega-1280.avif",
+  "tile": "work/_assets/montage/harlan-and-vega-640.avif"
+ },
+ {
+  "slug": "aldenmore-surgical-aesthetics",
+  "trade": "plastic-surgeons",
+  "label": "Plastic surgery",
+  "firm": "Aldenmore Surgical Aesthetics",
+  "domain": "aldenmore.com",
+  "url": "work/plastic-surgeons/aldenmore-surgical-aesthetics.html",
+  "plate": "work/_assets/hero/plastic-surgeons/d-alabaster-form-1280.avif",
+  "tile": "work/_assets/montage/aldenmore-surgical-aesthetics-640.avif"
+ },
+ {
+  "slug": "marlin-pool-co",
+  "trade": "pool-builders",
+  "label": "Pool building",
+  "firm": "Marlin Pool Co.",
+  "domain": "marlinpool.com",
+  "url": "work/pool-builders/marlin-pool-co.html",
+  "plate": "work/_assets/hero/pool-builders/b-clean-geometry-1280.avif",
+  "tile": "work/_assets/montage/marlin-pool-co-640.avif"
+ },
+ {
+  "slug": "halcombe-management",
+  "trade": "property-management",
+  "label": "Property management",
+  "firm": "Halcombe Management",
+  "domain": "halcombemanagement.com",
+  "url": "work/property-management/halcombe-management.html",
+  "plate": "work/_assets/hero/property-management/c-keys-handed-over-1280.avif",
+  "tile": "work/_assets/montage/halcombe-management-640.avif"
+ },
+ {
+  "slug": "brandt-yates-recruitment",
+  "trade": "recruiting",
+  "label": "Recruiting",
+  "firm": "Brandt Yates Recruitment",
+  "domain": "brandtyates.com",
+  "url": "work/recruiting/brandt-yates-recruitment.html",
+  "plate": "work/_assets/hero/recruiting/d-steel-macro-1280.avif",
+  "tile": "work/_assets/montage/brandt-yates-recruitment-640.avif"
+ },
+ {
+  "slug": "claymore-restoration",
+  "trade": "restoration",
+  "label": "Restoration",
+  "firm": "Claymore Restoration",
+  "domain": "claymorerestoration.com",
+  "url": "work/restoration/claymore-restoration.html",
+  "plate": "work/_assets/hero/restoration/e-put-right-1280.avif",
+  "tile": "work/_assets/montage/claymore-restoration-640.avif"
+ },
+ {
+  "slug": "meridian-roof-co",
+  "trade": "roofing",
+  "label": "Roofing",
+  "firm": "Meridian Roof Co.",
+  "domain": "meridianroofco.com",
+  "url": "work/roofing/meridian-roof-co.html",
+  "plate": "work/_assets/hero/roofing/c-hands-on-the-roof-1280.avif",
+  "tile": "work/_assets/montage/meridian-roof-co-640.avif",
+  "video": "work/_assets/hero/roofing/a-storm-clearing.mp4",
+  "poster": "work/_assets/hero/roofing/a-storm-clearing-1280.avif"
+ },
+ {
+  "slug": "ansonia-solar",
+  "trade": "solar",
+  "label": "Solar",
+  "firm": "Ansonia Solar",
+  "domain": "ansoniasolar.com",
+  "url": "work/solar/ansonia-solar.html",
+  "plate": "work/_assets/hero/solar/e-street-of-roofs-1280.avif",
+  "tile": "work/_assets/montage/ansonia-solar-640.avif"
+ },
+ {
+  "slug": "beckett-animal-care",
+  "trade": "veterinary",
+  "label": "Veterinary",
+  "firm": "Beckett Animal Care",
+  "domain": "beckettanimalcare.com",
+  "url": "work/veterinary/beckett-animal-care.html",
+  "plate": "work/_assets/hero/veterinary/a-taking-new-patients-1280.avif",
+  "tile": "work/_assets/montage/beckett-animal-care-640.avif"
+ },
+ {
+  "slug": "bracken-and-lowe",
+  "trade": "wealth-management",
+  "label": "Wealth management",
+  "firm": "Bracken & Lowe",
+  "domain": "brackenandlowe.com",
+  "url": "work/wealth-management/bracken-and-lowe.html",
+  "plate": "work/_assets/hero/wealth-management/d-paper-and-graphite-1280.avif",
+  "tile": "work/_assets/montage/bracken-and-lowe-640.avif"
+ }
+]

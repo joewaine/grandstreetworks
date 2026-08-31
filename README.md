@@ -245,6 +245,42 @@ to animate, so the clip comes from stock instead: `tools/fetch-stock-video.py
 `--get <id> --out <trade>/<stem>` pulls one into `~/fractal/cash_rich/stock/video/`
 for the same encode and wiring steps. Pexels is commercial use, no attribution.
 
+### Home hero montage
+
+The home hero is the twenty flagship builds' own hero plates behind the copy,
+in one of two variants, split 50/50 per browser:
+
+- **dissolve** — one build at a time, full bleed, 4.2s hold, 1.4s crossfade,
+  a slow drift on stills. Builds whose trade has a hero clip lead and play
+  it; the rest show the still.
+- **wall** — all twenty as a 5×4 grid, two tiles trading places every 0.9s;
+  eight tiles under 700px.
+
+The draw is stored in `localStorage` (`gsw-hero`) so a return visit gets the
+same hero, and it is written onto every `data-umami-event="start"` element
+as `data-umami-event-hero`, so in Umami the **start** event splits by `hero`
+for the comparison. `/?hero=dissolve`, `wall`, `mix` (the two alternating)
+or `off` (the old shader) forces one without changing the stored draw. The
+shader also stays as the fallback when the script cannot run. Reduced motion
+freezes both.
+
+    python3 tools/build-hero-montage.py
+
+reads `work/domains-flagship-20.txt`, finds each build's plate, encodes a
+640px AVIF tile per build into `work/_assets/montage/` (all twenty come to
+about 240KB), and writes the manifest — firm, trade, build URL, plate, tile,
+clip — to `manifest.json` and inline into `index.html` between the
+`gsw:montage-manifest` markers. Re-run it after a rebuild changes a plate or
+a clip lands. The dissolve reuses the builds' existing 1280 AVIFs. Harlan &
+Vega has no AVIF ladder so its plate is encoded here at both widths.
+
+A clip is preferred when cut from the build's own plate; otherwise the
+trade's first clip stands in with that clip's plate as poster, since poster
+and loop have to be the same picture. Today that is Palmer Row (its own),
+Belmont Smile (Verano's chair) and Meridian Roof (Halloran's storm); the other
+seventeen dissolve as stills. `tools/gen-hero-video.py` on each flagship
+plate is what turns the dissolve into a full video reel.
+
 ### Motion
 
 `tools/build-motion.py` adds a once-only scroll reveal on sections and gallery

@@ -56,7 +56,19 @@
 <main>
 
   <section class="hero">
+    <!-- Hero montage: the twenty flagship builds' own plates (and clips,
+         where a trade has one) behind the copy. Two variants, split 50/50
+         per browser and tagged onto the "start" event in Umami:
+           dissolve   one build at a time, full bleed, crossfading
+           wall       all twenty as a grid, tiles trading places
+         ?hero=dissolve|wall|mix|off forces one. Built by the script at the
+         foot of the page from the inline manifest that
+         tools/build-hero-montage.py maintains; the shader canvas is the
+         fallback when the script cannot run. -->
+    <div id="hero-montage" class="hero-montage" hidden></div>
+    <a id="hero-montage-caption" class="hero-montage-caption" hidden></a>
     <div id="canvas-container" aria-hidden="true"></div>
+    <!-- gsw:montage-manifest --><script type="application/json" id="hero-montage-manifest">[{"slug":"rennick-cpa","trade":"accounting-cpas","label":"Accounting","firm":"Rennick CPA","domain":"rennickcpa.com","url":"work/accounting-cpas/rennick-cpa.html","plate":"work/_assets/hero/accounting-cpas/e-the-practice-1280.avif","tile":"work/_assets/montage/rennick-cpa-640.avif"},{"slug":"ansel-row-studio","trade":"architecture","label":"Architecture","firm":"Ansel Row Studio","domain":"anselrow.com","url":"work/architecture/ansel-row-studio.html","plate":"work/_assets/hero/architecture/c-hands-and-model-1280.avif","tile":"work/_assets/montage/ansel-row-studio-640.avif"},{"slug":"belmont-smile-design","trade":"cosmetic-dentists","label":"Cosmetic dentistry","firm":"Belmont Smile Design","domain":"belmontsmile.com","url":"work/cosmetic-dentists/belmont-smile-design.html","plate":"work/_assets/hero/cosmetic-dentists/b-craft-and-precision-1280.avif","tile":"work/_assets/montage/belmont-smile-design-640.avif","video":"work/_assets/hero/cosmetic-dentists/f-the-chair.mp4","poster":"work/_assets/hero/cosmetic-dentists/f-the-chair-1280.avif"},{"slug":"farrow-ridge-builders","trade":"custom-home-builders","label":"Custom homes","firm":"Farrow Ridge Builders","domain":"farrowridge.com","url":"work/custom-home-builders/farrow-ridge-builders.html","plate":"work/_assets/hero/custom-home-builders/b-honest-frame-1280.avif","tile":"work/_assets/montage/farrow-ridge-builders-640.avif"},{"slug":"colvin-dermatology","trade":"dermatology","label":"Dermatology","firm":"Colvin Dermatology","domain":"colvindermatology.com","url":"work/dermatology/colvin-dermatology.html","plate":"work/_assets/hero/dermatology/b-precision-instrument-1280.avif","tile":"work/_assets/montage/colvin-dermatology-640.avif"},{"slug":"bexley-build-group","trade":"general-contractors","label":"General contracting","firm":"Bexley Build Group","domain":"bexleybuildgroup.com","url":"work/general-contractors/bexley-build-group.html","plate":"work/_assets/hero/general-contractors/a-finished-on-time-1280.avif","tile":"work/_assets/montage/bexley-build-group-640.avif"},{"slug":"beacon-comfort-co","trade":"hvac","label":"Heating & cooling","firm":"Beacon Comfort Co.","domain":"beaconcomfortco.com","url":"work/hvac/beacon-comfort-co.html","plate":"work/_assets/hero/hvac/e-comfort-inside-1280.avif","tile":"work/_assets/montage/beacon-comfort-co-640.avif"},{"slug":"fairholme-design-co","trade":"interior-design","label":"Interior design","firm":"Fairholme Design Co.","domain":"fairholmedesignco.com","url":"work/interior-design/fairholme-design-co.html","plate":"work/_assets/hero/interior-design/e-the-whole-room-1280.avif","tile":"work/_assets/montage/fairholme-design-co-640.avif"},{"slug":"ellery-and-vane","trade":"luxury-real-estate","label":"Luxury real estate","firm":"Ellery & Vane","domain":"elleryandvane.com","url":"work/luxury-real-estate/ellery-and-vane.html","plate":"work/_assets/hero/luxury-real-estate/c-the-threshold-1280.avif","tile":"work/_assets/montage/ellery-and-vane-640.avif"},{"slug":"palmer-row-med-spa","trade":"med-spas","label":"Med spas","firm":"Palmer Row Med Spa","domain":"palmerrowmed.com","url":"work/med-spas/palmer-row-med-spa.html","plate":"work/_assets/hero/med-spas/g-candlelit-1280.avif","tile":"work/_assets/montage/palmer-row-med-spa-640.avif","video":"work/_assets/hero/med-spas/g-candlelit.mp4","poster":"work/_assets/hero/med-spas/g-candlelit-1280.avif"},{"slug":"harlan-and-vega","trade":"personal-injury","label":"Personal injury","firm":"Harlan & Vega","domain":"harlanandvega.com","url":"work/personal-injury/harlan-and-vega.html","plate":"work/_assets/montage/harlan-and-vega-1280.avif","tile":"work/_assets/montage/harlan-and-vega-640.avif"},{"slug":"aldenmore-surgical-aesthetics","trade":"plastic-surgeons","label":"Plastic surgery","firm":"Aldenmore Surgical Aesthetics","domain":"aldenmore.com","url":"work/plastic-surgeons/aldenmore-surgical-aesthetics.html","plate":"work/_assets/hero/plastic-surgeons/d-alabaster-form-1280.avif","tile":"work/_assets/montage/aldenmore-surgical-aesthetics-640.avif"},{"slug":"marlin-pool-co","trade":"pool-builders","label":"Pool building","firm":"Marlin Pool Co.","domain":"marlinpool.com","url":"work/pool-builders/marlin-pool-co.html","plate":"work/_assets/hero/pool-builders/b-clean-geometry-1280.avif","tile":"work/_assets/montage/marlin-pool-co-640.avif"},{"slug":"halcombe-management","trade":"property-management","label":"Property management","firm":"Halcombe Management","domain":"halcombemanagement.com","url":"work/property-management/halcombe-management.html","plate":"work/_assets/hero/property-management/c-keys-handed-over-1280.avif","tile":"work/_assets/montage/halcombe-management-640.avif"},{"slug":"brandt-yates-recruitment","trade":"recruiting","label":"Recruiting","firm":"Brandt Yates Recruitment","domain":"brandtyates.com","url":"work/recruiting/brandt-yates-recruitment.html","plate":"work/_assets/hero/recruiting/d-steel-macro-1280.avif","tile":"work/_assets/montage/brandt-yates-recruitment-640.avif"},{"slug":"claymore-restoration","trade":"restoration","label":"Restoration","firm":"Claymore Restoration","domain":"claymorerestoration.com","url":"work/restoration/claymore-restoration.html","plate":"work/_assets/hero/restoration/e-put-right-1280.avif","tile":"work/_assets/montage/claymore-restoration-640.avif"},{"slug":"meridian-roof-co","trade":"roofing","label":"Roofing","firm":"Meridian Roof Co.","domain":"meridianroofco.com","url":"work/roofing/meridian-roof-co.html","plate":"work/_assets/hero/roofing/c-hands-on-the-roof-1280.avif","tile":"work/_assets/montage/meridian-roof-co-640.avif","video":"work/_assets/hero/roofing/a-storm-clearing.mp4","poster":"work/_assets/hero/roofing/a-storm-clearing-1280.avif"},{"slug":"ansonia-solar","trade":"solar","label":"Solar","firm":"Ansonia Solar","domain":"ansoniasolar.com","url":"work/solar/ansonia-solar.html","plate":"work/_assets/hero/solar/e-street-of-roofs-1280.avif","tile":"work/_assets/montage/ansonia-solar-640.avif"},{"slug":"beckett-animal-care","trade":"veterinary","label":"Veterinary","firm":"Beckett Animal Care","domain":"beckettanimalcare.com","url":"work/veterinary/beckett-animal-care.html","plate":"work/_assets/hero/veterinary/a-taking-new-patients-1280.avif","tile":"work/_assets/montage/beckett-animal-care-640.avif"},{"slug":"bracken-and-lowe","trade":"wealth-management","label":"Wealth management","firm":"Bracken & Lowe","domain":"brackenandlowe.com","url":"work/wealth-management/bracken-and-lowe.html","plate":"work/_assets/hero/wealth-management/d-paper-and-graphite-1280.avif","tile":"work/_assets/montage/bracken-and-lowe-640.avif"}]</script><!-- /gsw:montage-manifest -->
     <div class="hero-content">
       <div class="hero-main">
         <div>
@@ -261,8 +273,297 @@
 
 <script>
 (function () {
+  // Hero montage. Runs before the shader so it can stand the canvas down.
+  //   dissolve  one build at a time, full bleed, crossfading
+  //   wall      all twenty as a grid, tiles trading places
+  //   mix       the two alternating: wall, one build, wall, the next build
+  // A build with a hero clip in the manifest plays it; the rest show the still.
+  //
+  // Visitors are split 50/50 between dissolve and wall. The draw is stored
+  // per browser so the hero is the same on a return visit, and the variant
+  // rides on every "start" event as data-umami-event-hero so the two can be
+  // compared in Umami. ?hero= forces a variant (or "off" for the shader)
+  // without touching the stored draw.
+  var VARIANTS = ['dissolve', 'wall'];
+  var STORE_KEY = 'gsw-hero';
+  var forced = new URLSearchParams(location.search).get('hero');
+  var mode = null;
+  if (forced === 'off') return;
+  if (forced === 'dissolve' || forced === 'wall' || forced === 'mix') {
+    mode = forced;
+  } else {
+    // Storage can throw (private mode, blocked site data); then it is a
+    // fresh draw every visit, which is still a fair split.
+    try { mode = localStorage.getItem(STORE_KEY); } catch (e) {}
+    if (VARIANTS.indexOf(mode) === -1) {
+      mode = VARIANTS[Math.random() < 0.5 ? 0 : 1];
+      try { localStorage.setItem(STORE_KEY, mode); } catch (e) {}
+    }
+  }
+
+  var host = document.getElementById('hero-montage');
+  var caption = document.getElementById('hero-montage-caption');
+  var canvas = document.getElementById('canvas-container');
+  var manifestEl = document.getElementById('hero-montage-manifest');
+  if (!host || !caption || !canvas || !manifestEl) return;
+
+  var entries;
+  try { entries = JSON.parse(manifestEl.textContent); } catch (e) { entries = null; }
+  if (!entries || !entries.length) return; // manifest not built: shader stays
+
+  canvas.hidden = true;
+  document.documentElement.setAttribute('data-hero', mode);
+  var starts = document.querySelectorAll('[data-umami-event="start"]');
+  for (var i = 0; i < starts.length; i++) starts[i].setAttribute('data-umami-event-hero', mode);
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var HOLD_MS = 4200;      // dissolve: how long each build sits before the next fades in
+  var FADE_MS = 1400;      // crossfade length, matches the CSS transition
+  var SWAP_MS = 900;       // wall: interval between tile swaps
+  var WALL_MS = 4000;      // mix: how long the wall holds between builds
+  var SINGLE_MS = 5000;    // mix: how long one build holds over the wall
+
+  function setCaption(entry) {
+    caption.textContent = '';
+    var firm = document.createElement('span');
+    firm.className = 'hero-montage-firm';
+    firm.textContent = entry.firm;
+    var trade = document.createElement('span');
+    trade.className = 'hero-montage-trade';
+    trade.textContent = entry.label;
+    caption.appendChild(firm);
+    caption.appendChild(trade);
+    caption.href = entry.url;
+    caption.hidden = false;
+  }
+
+  function hideCaption() { caption.hidden = true; }
+
+  // ---- the wall: a grid of every build, two tiles trading places at a time
+  function buildWall(entries) {
+    var wall = document.createElement('div');
+    wall.className = 'hero-montage-wall';
+    var tiles = entries.map(function (entry, i) {
+      var tile = document.createElement('a');
+      tile.className = 'hero-montage-tile';
+      tile.href = entry.url;
+      tile.tabIndex = -1; // twenty tab stops before the form would be hostile
+      tile.setAttribute('aria-hidden', 'true');
+      tile.dataset.entry = i;
+      [0, 1].forEach(function (k) {
+        var img = document.createElement('img');
+        img.alt = '';
+        img.decoding = 'async';
+        if (k === 0) img.src = entry.tile;
+        else img.className = 'is-out';
+        tile.appendChild(img);
+      });
+      var name = document.createElement('span');
+      name.className = 'hero-montage-tile-name';
+      name.textContent = entry.firm;
+      tile.appendChild(name);
+      wall.appendChild(tile);
+      return tile;
+    });
+
+    function fadeTo(tile, entryIndex) {
+      var entry = entries[entryIndex];
+      var imgs = tile.querySelectorAll('img');
+      var shown = imgs[0].classList.contains('is-out') ? imgs[1] : imgs[0];
+      var hidden = shown === imgs[0] ? imgs[1] : imgs[0];
+      hidden.src = entry.tile;
+      tile.dataset.entry = entryIndex;
+      tile.href = entry.url;
+      tile.lastChild.textContent = entry.firm;
+      var go = function () {
+        hidden.classList.remove('is-out');
+        shown.classList.add('is-out');
+      };
+      if (hidden.complete) go(); else hidden.onload = go;
+    }
+
+    // Two tiles trade plates, so all twenty stay on the wall at all times.
+    function swap() {
+      if (document.hidden) return;
+      var a = Math.floor(Math.random() * tiles.length);
+      var b = Math.floor(Math.random() * (tiles.length - 1));
+      if (b >= a) b += 1;
+      var ea = Number(tiles[a].dataset.entry), eb = Number(tiles[b].dataset.entry);
+      fadeTo(tiles[a], eb);
+      fadeTo(tiles[b], ea);
+    }
+
+    var timer = null;
+    return {
+      el: wall,
+      start: function () {
+        if (reduceMotion || timer || tiles.length < 2) return;
+        timer = setInterval(swap, SWAP_MS);
+      },
+      stop: function () { clearInterval(timer); timer = null; }
+    };
+  }
+
+  // ---- a single build, full bleed: its clip if it has one, else its still
+  function buildLayer() {
+    var layer = document.createElement('div');
+    layer.className = 'hero-montage-layer';
+    return layer;
+  }
+
+  function fillLayer(layer, entry) {
+    layer.textContent = '';
+    var media;
+    if (entry.video && !reduceMotion) {
+      media = document.createElement('video');
+      media.muted = true;
+      media.loop = true;
+      media.playsInline = true;
+      media.preload = 'auto';
+      media.poster = entry.poster;
+      media.setAttribute('disablepictureinpicture', '');
+      media.setAttribute('disableremoteplayback', '');
+      var source = document.createElement('source');
+      source.src = entry.video;
+      source.type = 'video/mp4';
+      media.appendChild(source);
+      media.load();
+    } else {
+      media = document.createElement('img');
+      media.alt = '';
+      media.decoding = 'async';
+      media.src = entry.poster || entry.plate;
+    }
+    layer.appendChild(media);
+    return media;
+  }
+
+  function layerOn(layer) {
+    var media = layer.firstChild;
+    if (media && media.tagName === 'VIDEO') {
+      var p = media.play();
+      if (p && p.catch) p.catch(function () { /* autoplay refused: poster stays */ });
+    } else if (media) {
+      // Restart the drift from the plate's first frame on every swap.
+      media.style.animation = 'none';
+      void media.offsetWidth;
+      media.style.animation = '';
+    }
+    layer.classList.add('is-on');
+  }
+
+  function layerOff(layer) {
+    layer.classList.remove('is-on');
+    var media = layer.firstChild;
+    if (media && media.tagName === 'VIDEO') setTimeout(function () { media.pause(); }, FADE_MS);
+  }
+
+  function whenReady(media, cb) {
+    if (media.tagName === 'VIDEO') {
+      if (media.readyState >= 3) return cb();
+      var done = function () { media.removeEventListener('canplay', done); cb(); };
+      media.addEventListener('canplay', done);
+      // A slow clip should not stall the sequence: go with the poster.
+      setTimeout(done, 2500);
+    } else {
+      if (media.complete) return cb();
+      media.onload = media.onerror = cb;
+    }
+  }
+
+  // ---- 1. dissolve: one build after another
+  function runDissolve(entries) {
+    host.className = 'hero-montage hero-montage--dissolve';
+    // Lead with the builds that have a clip, so the variant opens on motion.
+    entries = entries.filter(function (e) { return e.video; })
+      .concat(entries.filter(function (e) { return !e.video; }));
+    var layers = [buildLayer(), buildLayer()];
+    layers.forEach(function (l) { host.appendChild(l); });
+    host.hidden = false;
+
+    var current = 0, index = 0;
+    fillLayer(layers[0], entries[0]);
+    layerOn(layers[0]);
+    setCaption(entries[0]);
+    if (reduceMotion || entries.length < 2) return;
+
+    function advance() {
+      index = (index + 1) % entries.length;
+      var incoming = layers[1 - current], outgoing = layers[current];
+      var media = fillLayer(incoming, entries[index]);
+      whenReady(media, function () {
+        layerOn(incoming);
+        setCaption(entries[index]);
+        layerOff(outgoing);
+        current = 1 - current;
+        setTimeout(advance, HOLD_MS);
+      });
+    }
+    setTimeout(advance, HOLD_MS);
+  }
+
+  // ---- 2. wall only
+  function runWall(entries) {
+    host.className = 'hero-montage hero-montage--wall';
+    var wall = buildWall(entries);
+    host.appendChild(wall.el);
+    host.hidden = false;
+    wall.start();
+  }
+
+  // ---- 3. mix: the wall underneath, one build at a time fading over it
+  function runMix(entries) {
+    host.className = 'hero-montage hero-montage--mix';
+    var wall = buildWall(entries);
+    host.appendChild(wall.el);
+    var layers = [buildLayer(), buildLayer()];
+    layers.forEach(function (l) { host.appendChild(l); });
+    host.hidden = false;
+    wall.start();
+    if (reduceMotion || !entries.length) return;
+
+    var current = 0, index = -1;
+
+    function showSingle() {
+      index = (index + 1) % entries.length;
+      var layer = layers[current];
+      var media = fillLayer(layer, entries[index]);
+      whenReady(media, function () {
+        layerOn(layer);
+        setCaption(entries[index]);
+        setTimeout(wall.stop, FADE_MS); // nothing to see under an opaque plate
+        setTimeout(showWall, SINGLE_MS);
+      });
+    }
+
+    function showWall() {
+      wall.start();
+      layerOff(layers[current]);
+      hideCaption();
+      current = 1 - current;
+      setTimeout(showSingle, WALL_MS);
+    }
+
+    setTimeout(showSingle, WALL_MS);
+  }
+
+  try {
+    if (mode === 'wall') runWall(entries);
+    else if (mode === 'mix') runMix(entries);
+    else runDissolve(entries);
+  } catch (err) {
+    // Fall back to the shader rather than a blank hero.
+    host.hidden = true;
+    canvas.hidden = false;
+    console.warn('hero montage: ' + err.message);
+  }
+})();
+</script>
+
+<script>
+(function () {
   var container = document.getElementById('canvas-container');
-  if (!window.THREE || !container) return;
+  if (!window.THREE || !container || container.hidden) return;
 
   var scene = new THREE.Scene();
   var camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 10);
