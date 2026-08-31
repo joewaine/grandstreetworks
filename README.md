@@ -253,8 +253,13 @@ in one of two variants, split 50/50 per browser:
 - **dissolve** — one build at a time, full bleed, 4.2s hold, 1.4s crossfade,
   a slow drift on stills. Builds whose trade has a hero clip lead and play
   it; the rest show the still.
-- **wall** — all twenty as a 5×4 grid, two tiles trading places every 0.9s;
-  eight tiles under 700px.
+- **wall** — a 5×4 grid of plates, one tile giving way to another every
+  0.9s; eight tiles under 700px. The pool is curated by hand: every plate in
+  the library sits in `~/fractal/cash_rich/montage_picks/` as
+  `<trade>--<stem>.jpg`, and deleting a file there takes it off the wall on
+  the next build. Twenty show at a time; a larger pool rotates through, and
+  only the twenty on screen load up front. Without the folder the wall falls
+  back to the flagship plates.
 
 The draw is stored in `localStorage` (`gsw-hero`) so a return visit gets the
 same hero, and it is written onto every `data-umami-event="start"` element
@@ -266,13 +271,16 @@ freezes both.
 
     python3 tools/build-hero-montage.py
 
-reads `work/domains-flagship-20.txt`, finds each build's plate, encodes a
-640px AVIF tile per build into `work/_assets/montage/` (all twenty come to
-about 240KB), and writes the manifest — firm, trade, build URL, plate, tile,
-clip — to `manifest.json` and inline into `index.html` between the
-`gsw:montage-manifest` markers. Re-run it after a rebuild changes a plate or
-a clip lands. The dissolve reuses the builds' existing 1280 AVIFs. Harlan &
-Vega has no AVIF ladder so its plate is encoded here at both widths.
+reads `work/domains-flagship-20.txt` for the singles and the picks folder
+for the wall, encodes a 640px AVIF tile per pick into `work/_assets/montage/`
+(about 13KB each; tiles for plates no longer picked are removed), and writes
+the manifest — `{singles, wall}`: firm, trade, build URL, plate, tile, clip —
+to `manifest.json` and inline into `index.html` between the
+`gsw:montage-manifest` markers. A pick that is a build's hero plate links to
+that build; otherwise it links to the trade index. Re-run it after a rebuild
+changes a plate, a clip lands, or the picks change. The dissolve reuses the
+builds' existing 1280 AVIFs. Harlan & Vega has no AVIF ladder so its plate is
+encoded here at both widths.
 
 A clip is preferred when cut from the build's own plate; otherwise the
 trade's first clip stands in with that clip's plate as poster, since poster

@@ -1,27 +1,32 @@
 #!/usr/bin/env python3
 """Build the asset manifest for the home-page hero montage.
 
-The home hero can run one of two montages of the twenty flagship builds
-(`work/domains-flagship-20.txt`), sourced from the plate each build already
-opens on — so the images are the ones picked as best for that trade, not a
-second library:
+The home hero runs one of two variants (split per browser by the page):
 
-    dissolve   one plate at a time, slow crossfade with a drift
-    wall       all twenty at once as a grid, tiles shuffling
-    mix        the two alternating: wall, one build, wall, the next build
+    dissolve   one flagship build at a time, full bleed, crossfading; a build
+               whose trade has a hero clip plays it, the rest show the still
+    wall       a grid of plates, tiles trading places
+    mix        the two alternating (view only, ?hero=mix)
+
+Singles come from `work/domains-flagship-20.txt`, one build per trade, each
+opening on the plate its page already uses. The wall draws from a curated
+folder, `~/fractal/cash_rich/montage_picks/`, holding `<trade>--<stem>.jpg`
+copies of every plate in the library: delete what should not be on the wall
+and re-run. Twenty tiles show at a time; a larger pool rotates through. With
+no picks folder the wall falls back to the twenty flagship plates.
+
+The manifest — `{"singles": [...], "wall": [...]}` — is written to
+`work/_assets/montage/manifest.json` and inlined into `index.html` between
+the `gsw:montage-manifest` markers, so the first plate does not wait on a
+second request. Wall tiles are 640px AVIFs encoded here from the full-size
+plates; the dissolve reuses each build's existing 1280 AVIF. Harlan & Vega
+is the photographic trade and has no AVIF ladder, so its plate is encoded
+here at both widths.
 
 Where a trade has a hero video loop (`work/_assets/hero/<trade>/*.mp4`) the
 single is the clip rather than the still. A clip cut from the build's own
 plate is preferred; otherwise the trade's first clip stands in and its own
 plate is the poster, since poster and loop have to be the same picture.
-
-All are driven by one manifest — firm, trade, build URL, plate, tile and any
-clip — which this script writes to `work/_assets/montage/manifest.json` and
-also inlines into `index.html` between the `gsw:montage-manifest` markers, so
-the first plate does not wait on a second request. It also encodes a 640px
-AVIF tile per build for the wall (the full-width dissolve reuses each build's
-existing 1280 AVIF). Harlan & Vega is the photographic
-trade and has no AVIF ladder, so its plate is encoded here at both widths.
 
     python3 tools/build-hero-montage.py            # write what is missing
     python3 tools/build-hero-montage.py --force    # re-encode everything
@@ -53,8 +58,11 @@ PLATE_WIDTH = 1280        # matches the smallest rung of the hero ladder
 AVIF_QUALITY = "50"       # same as build-responsive-images.py
 AVIF_SPEED = "6"
 
-# The photographic trade keeps its plate outside the AVIF ladder.
+# The photographic trade keeps its plates outside the AVIF ladder.
+PI = "personal-injury"
 PI_PLATE = WORK / "_assets" / "hero" / "record.jpg"
+# The wall's curated pool: <trade>--<stem>.jpg, one per plate the wall may show.
+PICKS = Path.home() / "fractal" / "cash_rich" / "montage_picks"
 
 # Display names as they appear in the home page's work grid.
 TRADE_LABELS = {
@@ -147,7 +155,7 @@ MARK_OPEN = "<!-- gsw:montage-manifest -->"
 MARK_CLOSE = "<!-- /gsw:montage-manifest -->"
 
 
-def inline_manifest(entries: list[dict]) -> None:
+def inline_manifest(entries: dict) -> None:
     """Replace the manifest script in index.html; idempotent."""
     s = INDEX.read_text()
     start, end = s.find(MARK_OPEN), s.find(MARK_CLOSE)
@@ -159,6 +167,100 @@ def inline_manifest(entries: list[dict]) -> None:
     block = (f'{MARK_OPEN}<script type="application/json" id="hero-montage-manifest">'
              f"{body}</script>")
     INDEX.write_text(s[:start] + block + s[end:])
+
+
+def plate_source(trade: str, stem: str) -> Path:
+    """The best on-disk original for a plate: the 2560 AVIF, or PI's JPEG."""
+    if trade == PI:
+        return WORK / "_assets" / "hero" / f"{stem}.jpg"
+    return WORK / "_assets" / "hero" / trade / f"{stem}-2560.avif"
+
+
+def builds_by_plate(trade: str) -> dict[str, tuple[str, Path]]:
+    """stem -> (firm, page) for every build in the trade, first page wins."""
+    out: dict[str, tuple[str, Path]] = {}
+    for page in sorted((WORK / trade).glob("*.html")):
+        if page.name == "index.html":
+            continue
+        text = page.read_text()
+        m = PLATE_RE.search(text)
+        stem = m.group(2) if m else None
+        if trade == PI:
+            pm = re.search(r"_assets/hero/([a-z0-9_-]+)\.jpg", text)
+            stem = pm.group(1) if pm else None
+        if stem and stem not in out:
+            out[stem] = (firm_name(page), page)
+    return out
+
+
+def wall_entries(singles: list[dict], force: bool) -> tuple[list[dict], int]:
+    """The wall's pool from the picks folder, or the flagship plates without one."""
+    picks = sorted(PICKS.glob("*.jpg")) if PICKS.is_dir() else []
+    written = 0
+    if not picks:
+        print(f"no picks in {PICKS}: wall falls back to the flagship plates")
+        picks = None
+
+    wanted = []
+    if picks is None:
+        for e in singles:
+            wanted.append((e["trade"], e["plate_stem"]))
+    else:
+        for f in picks:
+            if "--" not in f.stem:
+                sys.exit(f"{f.name}: expected <trade>--<stem>.jpg")
+            trade, stem = f.stem.split("--", 1)
+            if trade not in TRADE_LABELS:
+                sys.exit(f"{f.name}: unknown trade {trade!r}")
+            wanted.append((trade, stem))
+
+    by_trade: dict[str, dict[str, tuple[str, Path]]] = {}
+    flagship = {(e["trade"], e["plate_stem"]): e for e in singles}
+    entries = []
+    for trade, stem in wanted:
+        src = plate_source(trade, stem)
+        if not src.exists():
+            sys.exit(f"{src}: missing (picked as {trade}--{stem})")
+        tile = OUT / f"{trade}--{stem}-{TILE_WIDTH}.avif"
+        written += encode_avif(src, tile, TILE_WIDTH, force)
+
+        if (trade, stem) in flagship:
+            e = flagship[(trade, stem)]
+            firm, url = e["firm"], e["url"]
+        else:
+            by_trade.setdefault(trade, builds_by_plate(trade))
+            hit = by_trade[trade].get(stem)
+            if hit:
+                firm, url = hit[0], f"work/{hit[1].relative_to(WORK)}"
+            else:
+                firm, url = TRADE_LABELS[trade], f"work/{trade}/"
+        entries.append({
+            "trade": trade,
+            "label": TRADE_LABELS[trade],
+            "firm": firm,
+            "url": url,
+            "tile": f"work/{tile.relative_to(WORK)}",
+        })
+
+    # The first twenty are what a visitor sees before any tile has turned, so
+    # deal the pool out one trade at a time rather than alphabetically, which
+    # would open on a wall of accountants.
+    by_trade_order: dict[str, list[dict]] = {}
+    for e in entries:
+        by_trade_order.setdefault(e["trade"], []).append(e)
+    dealt = []
+    while any(by_trade_order.values()):
+        for trade in list(by_trade_order):
+            if by_trade_order[trade]:
+                dealt.append(by_trade_order[trade].pop(0))
+    entries = dealt
+
+    # Tiles for plates no longer picked would otherwise linger in the repo.
+    keep = {ROOT / e["tile"] for e in entries}
+    for stale in OUT.glob(f"*-{TILE_WIDTH}.avif"):
+        if stale not in keep:
+            stale.unlink()
+    return entries, written
 
 
 def main() -> None:
@@ -180,10 +282,7 @@ def main() -> None:
         if not src.exists():
             sys.exit(f"{src}: missing")
 
-        tile = OUT / f"{slug}-{TILE_WIDTH}.avif"
-        written += encode_avif(src, tile, TILE_WIDTH, args.force)
-
-        if trade == "personal-injury":
+        if trade == PI:
             plate = OUT / f"{slug}-{PLATE_WIDTH}.avif"
             written += encode_avif(src, plate, PLATE_WIDTH, args.force)
             plate_rel = plate.relative_to(WORK)
@@ -191,7 +290,7 @@ def main() -> None:
             plate_rel = Path(str(src.relative_to(WORK)).replace("-2560.avif", f"-{PLATE_WIDTH}.avif"))
 
         video = None
-        if trade != "personal-injury":
+        if trade != PI:
             video = trade_video(trade, src.stem.replace("-2560", ""))
         if video:
             clip, poster_stem = video
@@ -213,17 +312,24 @@ def main() -> None:
             "domain": domain,
             "url": f"work/{trade}/{slug}.html",
             "plate": f"work/{plate_rel}",
-            "tile": f"work/{tile.relative_to(WORK)}",
+            "plate_stem": src.stem.replace("-2560", "") if trade != PI else src.stem,
             **video_fields,
         })
 
+    wall, wall_written = wall_entries(entries, args.force)
+    written += wall_written
+    for e in entries:
+        del e["plate_stem"]
+
+    manifest_data = {"singles": entries, "wall": wall}
     manifest = OUT / "manifest.json"
-    manifest.write_text(json.dumps(entries, indent=1) + "\n")
-    inline_manifest(entries)
-    tiles_kb = sum((OUT / f"{e['slug']}-{TILE_WIDTH}.avif").stat().st_size for e in entries) // 1024
+    manifest.write_text(json.dumps(manifest_data, indent=1) + "\n")
+    inline_manifest(manifest_data)
+    tiles_kb = sum((ROOT / e["tile"]).stat().st_size for e in wall) // 1024
     plates_kb = sum((ROOT / e["plate"]).stat().st_size for e in entries) // 1024
     clips = [e for e in entries if "video" in e]
-    print(f"{len(entries)} builds, {written} files encoded, tiles {tiles_kb}KB, plates {plates_kb}KB")
+    print(f"{len(entries)} singles ({plates_kb}KB of plates), "
+          f"{len(wall)} wall tiles ({tiles_kb}KB), {written} files encoded")
     for e in clips:
         kb = (ROOT / e["video"]).stat().st_size // 1024
         print(f"  video  {e['slug']:<32} {Path(e['video']).name} ({kb}KB)")
