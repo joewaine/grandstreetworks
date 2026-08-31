@@ -222,6 +222,26 @@ font-family:"Open Sans",system-ui,sans-serif}
     .gsw-backdrop::after { background: rgb(247 246 242 / 0.9); }
   }
 </style>
+
+<style>
+  /* gsw:estimator — the strip's three slots were drawn as empty boxes; they
+     now hold numbers worked from the bill and the roof. */
+  .est { display: flex; gap: 10px; flex-wrap: wrap; margin: 0 0 10px; }
+  .est-field { display: flex; flex-direction: column; gap: 4px; font-size: 11px;
+               font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
+  .est-in { display: flex; align-items: center; background: var(--paper);
+            border: 2px solid var(--ink); padding: 0 0 0 8px; }
+  .est-in i { font-style: normal; font-weight: 700; font-size: 16px; }
+  .est input, .est select { font: inherit; font-size: 16px; font-weight: 600; color: var(--ink);
+                            border: 0; background: transparent; padding: 7px 6px; width: 120px; }
+  .est input:focus, .est select:focus { outline: 2px solid var(--ink); outline-offset: 2px; }
+  .est select { border: 2px solid var(--ink); background: var(--paper); padding: 7px 8px; width: auto; }
+  .q b { display: block; height: 44px; line-height: 40px; box-sizing: border-box; padding: 0 6px;
+         background: var(--paper); border: 2px dashed rgba(20,24,27,.45); text-align: center;
+         font-size: 16px; font-weight: 800; white-space: nowrap; overflow: hidden; }
+  .q b.is-set { border-style: solid; border-color: var(--ink); }
+  .est-note { margin: 8px 0 0; font-size: 12px; line-height: 1.4; opacity: .8; max-width: 60ch; }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap">Local installers since 2011 · We do not subcontract · NABCEP certified</div></div>
@@ -238,11 +258,18 @@ font-family:"Open Sans",system-ui,sans-serif}
   <div class="strip">
     <div class="stripmain">
       <span class="micro">Estimate online</span>
-      <div class="slots">
-        <span class="q"><i aria-hidden="true"></i><span>production</span></span>
-        <span class="q"><i aria-hidden="true"></i><span>savings</span></span>
-        <span class="q"><i aria-hidden="true"></i><span>payback</span></span>
+      <!-- gsw:estimator -->
+      <form class="est" id="est-form" autocomplete="off">
+        <label class="est-field"><span>Monthly electric bill</span><span class="est-in"><i aria-hidden="true">$</i><input type="number" name="bill" inputmode="decimal" min="20" max="3000" step="5" placeholder="180" aria-label="Monthly electric bill in dollars"></span></label>
+        <label class="est-field"><span>Your roof</span><select name="sun" aria-label="How much sun the roof gets"><option value="1450">Full sun</option><option value="1250" selected>Some shade</option><option value="1050">Mostly shaded</option></select></label>
+      </form>
+      <div class="slots" aria-live="polite">
+        <span class="q"><b data-est="production">—</b><span>production</span></span>
+        <span class="q"><b data-est="savings">—</b><span>savings</span></span>
+        <span class="q"><b data-est="payback">—</b><span>payback</span></span>
       </div>
+      <p class="est-note">An estimate, not a quote: $0.17/kWh, $3.00 a watt installed, the 30% federal credit, a system sized to your usage. The site survey firms it up.</p>
+      <!-- /gsw:estimator -->
     </div>
     <p class="unlock">No form gate, no phone call required to see it.</p>
   </div>
@@ -362,5 +389,43 @@ font-family:"Open Sans",system-ui,sans-serif}
 })();
 </script>
 <!-- /gsw:motion -->
+
+<!-- gsw:estimator -->
+<script>
+/* The estimate strip. Rough US averages: yield in kWh per kW a year by roof,
+   $0.17/kWh, $3.00/W installed, 30% federal credit, system capped at 14 kW.
+   Nothing is sent anywhere; the numbers are worked in the page. */
+(function () {
+  var f = document.getElementById('est-form');
+  if (!f) return;
+  var RATE = 0.17, COST_PER_W = 3.0, CREDIT = 0.30, MAX_KW = 14;
+  var out = {};
+  f.parentNode.querySelectorAll('[data-est]').forEach(function (b) { out[b.dataset.est] = b; });
+  var fmt = function (n) { return Math.round(n).toLocaleString('en-US'); };
+  var calc = function () {
+    var bill = parseFloat(f.bill.value), yieldKw = parseFloat(f.sun.value);
+    if (!(bill > 0)) {
+      Object.keys(out).forEach(function (k) { out[k].textContent = '\u2014'; out[k].classList.remove('is-set'); });
+      return;
+    }
+    var usage = bill * 12 / RATE;
+    var kw = Math.min(MAX_KW, usage / yieldKw);
+    var production = kw * yieldKw;
+    var savings = Math.min(production, usage) * RATE;
+    var net = kw * 1000 * COST_PER_W * (1 - CREDIT);
+    out.production.textContent = fmt(production) + ' kWh/yr';
+    out.savings.textContent = '$' + fmt(savings) + '/yr';
+    out.payback.textContent = (net / savings).toFixed(1) + ' yrs';
+    Object.keys(out).forEach(function (k) { out[k].classList.add('is-set'); });
+  };
+  f.addEventListener('input', calc);
+  f.addEventListener('submit', function (e) { e.preventDefault(); calc(); });
+  // "Estimate my savings" lands the cursor in the bill box, not just on the panel.
+  document.querySelectorAll('a[href="#estimate"]').forEach(function (a) {
+    a.addEventListener('click', function () { setTimeout(function () { f.bill.focus(); }, 60); });
+  });
+})();
+</script>
+<!-- /gsw:estimator -->
 </body>
 </html>
