@@ -44,6 +44,9 @@ SETS = {
             "full_width_lead": "rail",
             "image": "veterinary/a-taking-new-patients",
             "alt": "The waiting room at Willowbank Animal Hospital",
+            # The lab looks up and to the right: anchored right so the snout
+            # stays in frame when the column crops the photograph.
+            "focus": "right center",
         },
     },
 }
@@ -76,7 +79,9 @@ def picture(spec: dict) -> str:
             f'sizes="(max-width: 60rem) 100vw, 50vw">'
             f'<img src="{base}-{JPEG_WIDTH}.jpg" width="1600" height="893" '
             f'alt="{html.escape(spec["alt"])}" loading="eager" '
-            f'fetchpriority="high" decoding="async"></picture>')
+            f'fetchpriority="high" decoding="async"'
+            + (f' style="object-position: {spec["focus"]}"' if spec.get("focus") else "")
+            + '></picture>')
 
 
 def close_of(src: str, start: int) -> int:

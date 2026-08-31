@@ -202,6 +202,24 @@ font-family:"Fredoka",system-ui,sans-serif}
     .gsw-gal figure:hover img { transform: none; }
   }
 </style>
+
+<style>
+  /* gsw:backdrop — the section opens on the work. The scrim is this build's own
+     ink, heavy where the copy sits and thinning away from it, so the text
+     never depends on what the photograph happens to be doing. */
+  .gsw-imaged { position: relative; isolation: isolate; overflow: hidden; }
+  .gsw-imaged > *:not(.gsw-backdrop) { position: relative; z-index: 1; }
+  .gsw-backdrop { position: absolute; inset: 0; z-index: 0; }
+  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
+  .gsw-backdrop img { width: 100%; height: 100%; object-fit: cover;
+                       object-position: center; }
+  .gsw-backdrop::after { content: ""; position: absolute; inset: 0;
+                          background: rgb(22 36 29 / 0.5); }
+  /* Below the breakpoint the copy spans the full width, so the scrim goes flat. */
+  @media (max-width: 760px) {
+    .gsw-backdrop::after { background: rgb(22 36 29 / 0.8); }
+  }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap">✓ Accepting new patients · Online booking · Saturday hours</div></div>
@@ -212,7 +230,7 @@ font-family:"Fredoka",system-ui,sans-serif}
     <a class="btn btn-lamp navact" href="#contact">Book online</a></div>
   <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
 </div></header>
-<section class="hero"><div class="wrap">
+<section class="gsw-imaged hero"><!-- gsw:backdrop --><div class="gsw-backdrop" aria-hidden="true"><picture><source type="image/avif" srcset="../_assets/hero/veterinary/d-soft-texture-1280.avif 1280w, ../_assets/hero/veterinary/d-soft-texture-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/veterinary/d-soft-texture-1280.jpg" width="2560" height="1429" alt="" loading="eager" fetchpriority="high" decoding="async"></picture></div><!-- /gsw:backdrop --><div class="wrap">
   <p class="eyebrow"><i></i>Accepting new patients</p>
   <h1>Where to go at 2am, and when it can wait until morning.</h1>
   <p class="sub">Full-service small animal care with online booking and Saturday hours, plus a plainly published answer for nights and weekends, including which emergency hospital to drive to and when you genuinely can wait.</p>
@@ -225,7 +243,6 @@ font-family:"Fredoka",system-ui,sans-serif}
     <li>Saturday appointments</li><li>First puppy visit free</li>
   </ul>
 </div></section>
-<figure class="gsw-plate"><picture><source type="image/avif" srcset="../_assets/hero/veterinary/d-soft-texture-1280.avif 1280w, ../_assets/hero/veterinary/d-soft-texture-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/veterinary/d-soft-texture-1280.jpg" width="2560" height="1429" alt="Soft texture, veterinary" loading="lazy" decoding="async"></picture></figure>
 
 <section class="sec" id="services"><div class="wrap">
   <p class="kicker">Services</p>

@@ -3,4 +3,4 @@
 #   python3 tools/gen-hero-video.py <trade> <stem> --motion "<phrase>"
 #   python3 tools/encode-hero-video.py ~/fractal/cash_rich/hero_video/<trade>/<stem>.mp4 --name <stem> --dest work/_assets/hero/<trade> --seamless 1
 #   python3 tools/build-hero-montage.py
-# (empty: all twenty flagship plates have a clip as of 2026-08-31)
+# (Bracken & Lowe, b-calm-geometry: two Veo takes pushed in on this plate; it shows as a still until a take holds the framing)

@@ -125,7 +125,8 @@ CELLS = {
             0: ("mat-terrazzo", "Terrazzo"), 1: ("mat-oak", "White oak"),
             2: ("mat-moss", "Moss velvet"), 3: ("mat-lime", "Limewash plaster"),
             4: ("mat-clay", "Clay tile"), 5: ("mat-brass", "Unlacquered brass"),
-            6: ("mat-marble", "Honed marble"), 7: ("mat-ink", "Ink lacquer"),
+            6: ("mat-marble", "Honed marble"),
+            # 7 (ink lacquer) reads as a black square at cell size; it keeps its own colour block.
         }),
     },
     "veterinary": {
@@ -237,11 +238,17 @@ SCRIPT = f"""
 </script>"""
 
 
-def picture(trade: str, slug: str, name: str, alt: str) -> str:
+# A grid cell is about a fifth of the viewport; a single covered device or a
+# slideshow plate is closer to half of it, and the 640 rung goes soft there.
+SIZES_CELL = "(max-width: 760px) 45vw, 22vw"
+SIZES_PLATE = "(max-width: 760px) 92vw, 44vw"
+
+
+def picture(trade: str, slug: str, name: str, alt: str, sizes: str = SIZES_CELL) -> str:
     base = f"../_assets/library/{trade}/{slug}/{name}"
     srcset = ", ".join(f"{base}-{w}.avif {w}w" for w in AVIF_WIDTHS)
     return (f'<span class="{MARKER}"><picture>'
-            f'<source type="image/avif" srcset="{srcset}" sizes="(max-width: 760px) 45vw, 22vw">'
+            f'<source type="image/avif" srcset="{srcset}" sizes="{sizes}">'
             f'<img src="{base}-{JPEG_WIDTH}.jpg" alt="{html.escape(alt, quote=True)}" '
             f'loading="lazy" decoding="async">'
             f'</picture></span>')
@@ -253,7 +260,7 @@ def patch(page: Path, trade: str, slug: str, spec, replace: bool) -> str:
     target_cls = target[0] if isinstance(target, tuple) else target
     already = re.search(rf'class="[^"]*\b{target_cls}\b[^"]*"[^>]*>(?:(?!</).)*?{MARKER}',
                         src, re.S) or (f'{MARKER}-host {target_cls}' in src) \
-        or (f'{target_cls} {MARKER}-host' in src)
+        or (f'{target_cls} {MARKER}-host' in src) or (f'{MARKER}-cover {target_cls}' in src)
     if already:
         if not replace:
             return "cells already filled"
@@ -264,6 +271,7 @@ def patch(page: Path, trade: str, slug: str, spec, replace: bool) -> str:
         # "fld gsw-cellfill-host"); left in place, the slides never re-fill
         # and the register drives nothing, which is how they went missing.
         src = src.replace(f' {MARKER}-host', "").replace(f' {MARKER}-reg', "")
+        src = src.replace(f'{MARKER}-cover ', "")
         src = src.replace(f' {MARKER}-num', "")
         src = re.sub(r'<li><button type="button"[^>]*>(.*?)<span class="gsw-sr">.*?</span></button></li>',
                      r"<li>\1</li>", src, flags=re.S)
@@ -324,7 +332,7 @@ def patch(page: Path, trade: str, slug: str, spec, replace: bool) -> str:
             name, alt = images[i]
             opener = m.group(1).replace(
                 '<div class="', f'<div class="{MARKER}-host {MARKER}-cover ', 1)
-            return opener + m.group(2) + picture(trade, slug, name, alt) + m.group(3)
+            return opener + m.group(2) + picture(trade, slug, name, alt, SIZES_PLATE) + m.group(3)
 
         src = cover_re.sub(fill_cover, src)
         filled = min(counter["i"], len(images))

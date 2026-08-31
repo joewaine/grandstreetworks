@@ -23,10 +23,9 @@ plates; the dissolve reuses each build's existing 1280 AVIF. Harlan & Vega
 is the photographic trade and has no AVIF ladder, so its plate is encoded
 here at both widths.
 
-Where a trade has a hero video loop (`work/_assets/hero/<trade>/*.mp4`) the
-single is the clip rather than the still. A clip cut from the build's own
-plate is preferred; otherwise the trade's first clip stands in and its own
-plate is the poster, since poster and loop have to be the same picture.
+Where the build's own plate has a hero video loop
+(`work/_assets/hero/<trade>/<stem>.mp4`) the single is the clip rather than
+the still, with the plate as its poster.
 
     python3 tools/build-hero-montage.py            # write what is missing
     python3 tools/build-hero-montage.py --force    # re-encode everything
@@ -141,13 +140,13 @@ def source_plate(trade: str, page: Path) -> Path:
 
 
 def trade_video(trade: str, plate_stem: str | None) -> tuple[Path, str] | None:
-    """(clip, poster stem) for the trade, favouring a clip of the build's own plate."""
-    clips = sorted((WORK / "_assets" / "hero" / trade).glob("*.mp4"))
-    if not clips:
-        return None
-    own = [c for c in clips if c.stem == plate_stem]
-    clip = own[0] if own else clips[0]
-    return clip, clip.stem
+    """(clip, poster stem): only a clip cut from the build's own plate.
+
+    Borrowing a sibling's clip was the bridge while the flagships had no
+    clips of their own; it put a different picture in the single from the
+    one on the wall. A plate with no clip of its own shows as a still."""
+    clip = WORK / "_assets" / "hero" / trade / f"{plate_stem}.mp4"
+    return (clip, clip.stem) if clip.exists() else None
 
 
 INDEX = ROOT / "index.html"

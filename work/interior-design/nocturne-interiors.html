@@ -242,6 +242,24 @@ text-decoration:none;font-size:15px;font-weight:700;line-height:1.2;text-align:c
     .gsw-backdrop::after { background: rgb(18 20 22 / 0.9); }
   }
 </style>
+
+<style>
+  /* gsw:backdrop:services — the section opens on the work. The scrim is this build's own
+     ink, heavy where the copy sits and thinning away from it, so the text
+     never depends on what the photograph happens to be doing. */
+  .gsw-imaged { position: relative; isolation: isolate; overflow: hidden; }
+  .gsw-imaged > *:not(.gsw-backdrop) { position: relative; z-index: 1; }
+  .gsw-backdrop { position: absolute; inset: 0; z-index: 0; }
+  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
+  .gsw-imaged--services .gsw-backdrop img { width: 100%; height: 100%; object-fit: cover;
+                       object-position: center; }
+  .gsw-imaged--services .gsw-backdrop::after { content: ""; position: absolute; inset: 0;
+                          background: rgb(20 21 15 / 0.78); }
+  /* Below the breakpoint the copy spans the full width, so the scrim goes flat. */
+  @media (max-width: 760px) {
+    .gsw-imaged--services .gsw-backdrop::after { background: rgb(20 21 15 / 0.95); }
+  }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap">Full-service interiors · Projects from $60,000 · Now booking</div></div>
@@ -269,16 +287,11 @@ text-decoration:none;font-size:15px;font-weight:700;line-height:1.2;text-align:c
       <li><i class="c4"></i>Full install &amp; styling</li>
     </ul>
   </div>
-  <div class="elev" aria-hidden="true">
-    <div class="wall"></div><div class="panel"></div><div class="panel two"></div>
-    <div class="dado"></div><div class="sconce"></div><div class="lamp"></div>
-    <div class="floor"></div><div class="rug"></div>
-  </div>
+  <!-- gsw: drawn elevation removed 2026-08-31; the hero opens on the photograph -->
 </section>
-<figure class="gsw-plate"><picture><source type="image/avif" srcset="../_assets/hero/interior-design/d-weave-macro-1280.avif 1280w, ../_assets/hero/interior-design/d-weave-macro-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/interior-design/d-weave-macro-1280.jpg" width="2560" height="1429" alt="Weave macro, interior design" loading="lazy" decoding="async"></picture></figure>
 
 
-<section class="sec" id="services"><div class="wrap">
+<section class="gsw-imaged gsw-imaged--services sec" id="services"><!-- gsw:backdrop:services --><div class="gsw-backdrop" aria-hidden="true"><picture><source type="image/avif" srcset="../_assets/hero/interior-design/d-weave-macro-1280.avif 1280w, ../_assets/hero/interior-design/d-weave-macro-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/interior-design/d-weave-macro-1280.jpg" width="2560" height="1429" alt="" loading="lazy" decoding="async"></picture></div><!-- /gsw:backdrop:services --><div class="wrap">
   <p class="kicker">Services</p>
   <h2>How we work</h2>
   <p class="lede">Full service, meaning we handle procurement, deliveries, trades and installation. Half a service is worse than none in this business.</p>

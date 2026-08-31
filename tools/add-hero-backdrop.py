@@ -72,6 +72,13 @@ BACKDROPS = {
     "architecture": {
         "calderwood-architecture": ("d-drawing-macro", "242 241 237", "left", True),
     },
+    "recruiting": {
+        "brandt-yates-recruitment": ("d-steel-macro", "10 10 11", "left", True),
+    },
+    "veterinary": {
+        "fernhill-veterinary": ("e-exam-room", "245 242 230", "left", True),
+        "hollis-animal-hospital": ("d-soft-texture", "22 36 29", "flat:0.5", True),
+    },
     "solar": {
         # D4 opened on a wall of white beside the incentive sheet.
         "brightfold-solar": ("e-street-of-roofs", "250 250 248", "left"),
@@ -120,6 +127,11 @@ BACKDROPS = {
     "interior-design": {
         "ivory-lane-interiors": ("a-rooms-like-people", "92 44 28", "left"),
         "nocturne-interiors": ("f-after-dark", "18 20 22", "left"),
+        # The weave macro that sat under the hero as a crop moves behind
+        # "How we work", diffused into the page's ink.
+        "nocturne-interiors:services": {"stem": "d-weave-macro", "rgb": "20 21 15",
+                                        "side": "flat:0.78", "drop_plate": True,
+                                        "target": "#services"},
         # The terrazzo speckle field ran straight under the headline.
         "sorrel-studio": ("e-the-whole-room", "247 243 234", "left"),
     },

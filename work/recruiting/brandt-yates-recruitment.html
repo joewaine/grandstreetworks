@@ -193,6 +193,34 @@ font-weight:600;font-size:15px;text-align:center;line-height:1.15;padding:0 12px
     .gsw-gal figure:hover img { transform: none; }
   }
 </style>
+
+<style>
+  /* gsw:backdrop — the section opens on the work. The scrim is this build's own
+     ink, heavy where the copy sits and thinning away from it, so the text
+     never depends on what the photograph happens to be doing. */
+  .gsw-imaged { position: relative; isolation: isolate; overflow: hidden; }
+  .gsw-imaged > *:not(.gsw-backdrop) { position: relative; z-index: 1; }
+  .gsw-backdrop { position: absolute; inset: 0; z-index: 0; }
+  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
+  .gsw-backdrop img { width: 100%; height: 100%; object-fit: cover;
+                       object-position: center; }
+  .gsw-backdrop::after { content: ""; position: absolute; inset: 0;
+                          background: linear-gradient(100deg, rgb(10 10 11 / 0.96) 0%, rgb(10 10 11 / 0.92) 42%, rgb(10 10 11 / 0.70) 72%, rgb(10 10 11 / 0.48) 100%); }
+  /* Below the breakpoint the copy spans the full width, so the scrim goes flat. */
+  @media (max-width: 760px) {
+    .gsw-backdrop::after { background: rgb(10 10 11 / 0.9); }
+  }
+</style>
+
+<style>
+  /* gsw:video - the still plate is the poster; the loop fades in over it. */
+  .gsw-backdrop video { position: absolute; inset: 0; width: 100%; height: 100%;
+                        object-fit: cover; object-position: center;
+                        opacity: 0; transition: opacity 1.2s ease-out; }
+  .gsw-backdrop video.gsw-playing { opacity: 1; }
+  @media (prefers-reduced-motion: reduce) { .gsw-backdrop video { display: none; } }
+  @media print { .gsw-backdrop video { display: none; } }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap">Specialist search: manufacturing &amp; industrial engineering</div></div>
@@ -202,7 +230,7 @@ font-weight:600;font-size:15px;text-align:center;line-height:1.15;padding:0 12px
   <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
   <a class="btn btn-primary navact" href="#roles">See open roles</a>
 </div></header>
-<section class="hero"><div class="wrap">
+<section class="gsw-imaged hero"><!-- gsw:backdrop --><div class="gsw-backdrop" aria-hidden="true"><picture><source type="image/avif" srcset="../_assets/hero/recruiting/d-steel-macro-1280.avif 1280w, ../_assets/hero/recruiting/d-steel-macro-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/recruiting/d-steel-macro-1280.jpg" width="2560" height="1429" alt="" loading="eager" fetchpriority="high" decoding="async"></picture><!-- gsw:video --><video autoplay muted loop playsinline preload="metadata" disablepictureinpicture disableremoteplayback aria-hidden="true" tabindex="-1"><source src="../_assets/hero/recruiting/d-steel-macro.mp4" type="video/mp4"></video><!-- /gsw:video --></div><!-- /gsw:backdrop --><div class="wrap">
   <p class="eyebrow">Manufacturing &amp; industrial engineering</p>
   <h1>Four candidates. Not a stack of twelve.</h1>
   <p class="sub">Engineers and operations leaders in manufacturing and industrial businesses. A mapped market and a shortlist of four people who will actually take the job. Sending twelve is a way of transferring the work back to you.</p>
@@ -212,7 +240,6 @@ font-weight:600;font-size:15px;text-align:center;line-height:1.15;padding:0 12px
   </div>
   <ul class="badges"><li>Salary bands on every role</li><li>One-tap apply</li><li>One sector only</li><li>90-day placement guarantee</li></ul>
 </div></section>
-<figure class="gsw-plate"><picture><source type="image/avif" srcset="../_assets/hero/recruiting/d-steel-macro-1280.avif 1280w, ../_assets/hero/recruiting/d-steel-macro-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/recruiting/d-steel-macro-1280.jpg" width="2560" height="1429" alt="Steel macro, recruiting" loading="lazy" decoding="async"></picture></figure>
 
 <section class="roles" id="roles"><div class="wrap">
   <p class="rlabel">Salary bands on every role</p>
@@ -309,5 +336,11 @@ font-weight:600;font-size:15px;text-align:center;line-height:1.15;padding:0 12px
 })();
 </script>
 <!-- /gsw:motion -->
+<script>
+(function(){var v=document.querySelector('.gsw-backdrop video');if(!v)return;
+var on=function(){v.classList.add('gsw-playing')};
+v.addEventListener('canplay',on,{once:true});if(v.readyState>=3)on();
+if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){v.pause();v.removeAttribute('autoplay');}})();
+</script>
 </body>
 </html>
