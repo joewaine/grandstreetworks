@@ -51,7 +51,9 @@
    "firm": "Colvin Dermatology",
    "domain": "colvindermatology.com",
    "url": "work/dermatology/colvin-dermatology.html",
-   "plate": "work/_assets/hero/dermatology/b-precision-instrument-1280.avif"
+   "plate": "work/_assets/hero/dermatology/b-precision-instrument-1280.avif",
+   "video": "work/_assets/hero/dermatology/b-precision-instrument.mp4",
+   "poster": "work/_assets/hero/dermatology/b-precision-instrument-1280.avif"
   },
   {
    "slug": "bexley-build-group",
@@ -69,7 +71,9 @@
    "firm": "Beacon Comfort Co.",
    "domain": "beaconcomfortco.com",
    "url": "work/hvac/beacon-comfort-co.html",
-   "plate": "work/_assets/hero/hvac/e-comfort-inside-1280.avif"
+   "plate": "work/_assets/hero/hvac/e-comfort-inside-1280.avif",
+   "video": "work/_assets/hero/hvac/e-comfort-inside.mp4",
+   "poster": "work/_assets/hero/hvac/e-comfort-inside-1280.avif"
   },
   {
    "slug": "fairholme-design-co",
@@ -78,7 +82,9 @@
    "firm": "Fairholme Design Co.",
    "domain": "fairholmedesignco.com",
    "url": "work/interior-design/fairholme-design-co.html",
-   "plate": "work/_assets/hero/interior-design/e-the-whole-room-1280.avif"
+   "plate": "work/_assets/hero/interior-design/e-the-whole-room-1280.avif",
+   "video": "work/_assets/hero/interior-design/e-the-whole-room.mp4",
+   "poster": "work/_assets/hero/interior-design/e-the-whole-room-1280.avif"
   },
   {
    "slug": "ellery-and-vane",
@@ -116,7 +122,9 @@
    "firm": "Aldenmore Surgical Aesthetics",
    "domain": "aldenmore.com",
    "url": "work/plastic-surgeons/aldenmore-surgical-aesthetics.html",
-   "plate": "work/_assets/hero/plastic-surgeons/d-alabaster-form-1280.avif"
+   "plate": "work/_assets/hero/plastic-surgeons/d-alabaster-form-1280.avif",
+   "video": "work/_assets/hero/plastic-surgeons/d-alabaster-form.mp4",
+   "poster": "work/_assets/hero/plastic-surgeons/d-alabaster-form-1280.avif"
   },
   {
    "slug": "marlin-pool-co",
