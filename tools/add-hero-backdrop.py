@@ -64,6 +64,7 @@ BACKDROPS = {
         "whitfield-build-co": ("a-finished-on-time", "246 242 233", "left", True),
     },
     "wealth-management": {
+        "bracken-and-lowe": ("b-calm-geometry", "250 248 244", "left", True),
         "ferrier-wealth-partners": ("a-not-a-sailboat", "247 246 242", "left", True),
     },
     "accounting-cpas": {
