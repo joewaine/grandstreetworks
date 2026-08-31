@@ -68,6 +68,7 @@ BACKDROPS = {
         "ferrier-wealth-partners": ("a-not-a-sailboat", "247 246 242", "left", True),
     },
     "accounting-cpas": {
+        "latimer-accounting": ("b-everything-in-its-place", "248 249 247", "left", True),
         "rennick-cpa": ("e-the-practice", "168 27 98", "flat:0.5", True),
     },
     "architecture": {
