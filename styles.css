@@ -528,6 +528,13 @@ footer {
 
 
 /* ---------- Work grid (added with the build-first rewrite) ---------- */
+/* The intro above the grid centres on wide screens: left-aligned under a
+   64ch cap it sat in the left third with the rest of the row empty. Tablet
+   and phone keep the left alignment the rest of the page uses. */
+@media (min-width: 1025px) {
+  .work-intro { text-align: center; }
+  .work-intro p { margin-left: auto; margin-right: auto; }
+}
 .work-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
