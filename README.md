@@ -289,6 +289,18 @@ Belmont Smile (Verano's chair) and Meridian Roof (Halloran's storm); the other
 seventeen dissolve as stills. `tools/gen-hero-video.py` on each flagship
 plate is what turns the dissolve into a full video reel.
 
+### Contact forms
+
+Every build's closing section takes a name: `tools/add-contact-form.py --all`
+drops a short enquiry form (name, phone or email, an optional note) after the
+buttons, confirming in place on submit — nothing is sent, they are reference
+builds. It borrows the section's colour through `currentColor` and the
+build's own `.btn.btn-primary`, and gives the href-less "Call now" buttons
+`#contact` to point at. Phone numbers stay non-links on purpose; see
+`renumber-phones.py`. The photographic trade's "closing" sections (and one
+with no classes at all) gain an `id="contact"` on the way. Idempotent, with
+`--replace`; everything sits between `gsw:contact-form` markers.
+
 ### Motion
 
 `tools/build-motion.py` adds a once-only scroll reveal on sections and gallery

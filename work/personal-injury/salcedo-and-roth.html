@@ -175,6 +175,33 @@ body > * { margin: 0; }
   .d5-hero-stamp b { color: #FFCC00; }
   @media(max-width: 767px) { .d5-hero-stamp { display: none; } }
 </style>
+
+<style>
+  /* gsw:contact-form — the closing section takes a name. Borrows the section's
+     colour through currentColor and the build's own .btn for the button. */
+  .gsw-cf { max-width: 640px; margin: 28px 0 0; text-align: left; }
+  .gsw-cf--centred { margin-left: auto; margin-right: auto; }
+  .gsw-cf-lead { margin: 0 0 12px; font-size: 15px; opacity: .85; }
+  .gsw-cf-grid { display: grid; gap: 10px; }
+  .gsw-cf label { display: flex; flex-direction: column; gap: 5px; font-size: 11px;
+                  font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+  .gsw-cf label em { font-style: normal; font-weight: 400; text-transform: none; letter-spacing: 0; opacity: .7; }
+  .gsw-cf input, .gsw-cf textarea { font: inherit; font-size: 16px; color: inherit; background: transparent;
+                                    border: 1.5px solid currentColor; border-radius: 0; padding: 10px 12px; width: 100%;
+                                    box-sizing: border-box; letter-spacing: 0; text-transform: none; font-weight: 400; }
+  .gsw-cf input:focus, .gsw-cf textarea:focus { outline: 2px solid currentColor; outline-offset: 2px; }
+  .gsw-cf textarea { resize: vertical; min-height: 84px; }
+  .gsw-cf-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 14px; }
+  .gsw-cf button.btn { font: inherit; cursor: pointer; appearance: none; }
+  .gsw-cf-err { font-size: 14px; font-weight: 600; }
+  .gsw-cf-done { margin: 0; font-size: 17px; font-weight: 600; }
+  .gsw-cf[data-sent] .gsw-cf-lead, .gsw-cf[data-sent] .gsw-cf-grid, .gsw-cf[data-sent] .gsw-cf-row { display: none; }
+  @media (min-width: 640px) {
+    .gsw-cf-grid { grid-template-columns: 1fr 1fr; }
+    .gsw-cf-wide { grid-column: 1 / -1; }
+  }
+  .gsw-cf button.btn { border: 1.5px solid currentColor; background: transparent; color: inherit; padding: 12px 20px; font-weight: 700; }
+</style>
 </head>
 <body>
 <div class="demo-frame d5">
@@ -194,7 +221,7 @@ body > * { margin: 0; }
 <h1 class="d5-h1">Hurt at work?<br/>There is usually<br/>a second claim.</h1>
 <p style="font-size: 20px; max-width: 800px; margin-bottom: 40px; font-weight: 500;">Workplace and accident claims across the state. Comp pays your wages at a discount and closes the file. The claim against whoever actually caused it is separate, larger, and nobody at the comp office is going to mention it.</p>
 <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 40px;">
-<a class="d5-btn">Llámenos, 24/7</a>
+<a class="d5-btn" href="#contact">Llámenos, 24/7</a>
 <a class="d5-btn" href="#" style="background: transparent; color: #FFCC00; border: 2px solid #FFCC00;">Start a free case review</a>
 </div>
 <div style="display: flex; gap: 24px; flex-wrap: wrap; font-family: 'Oswald', sans-serif; text-transform: uppercase; font-size: 18px; color: #888;">
@@ -238,7 +265,7 @@ body > * { margin: 0; }
 </div>
 </div>
 </section>
-<section style="padding: 80px 40px; border-bottom: 1px solid #333;">
+<section class="gsw-cf-last" id="contact" style="padding: 80px 40px; border-bottom: 1px solid #333;">
 <h2 style="font-family: 'Oswald', sans-serif; font-size: 4rem; text-transform: uppercase; color: #FFCC00; margin-bottom: 16px;">What happens after you call</h2>
 <p style="font-size: 18px; max-width: 600px; color: #aaa; margin-bottom: 60px;">Most people who call us are worried about their job, their status, or both. Neither is a reason a claim gets refused, and neither comes up in a call with us.</p>
 <div style="display: grid; gap: 40px;">
@@ -270,12 +297,27 @@ body > * { margin: 0; }
 <p style="color: #aaa;">If the offer is not serious, we file. Your employer is not the defendant and cannot be the one to punish you for it.</p>
 </div>
 </div>
-</div>
+<!-- gsw:contact-form -->
+    <form class="gsw-cf" novalidate>
+      <p class="gsw-cf-lead">Or leave your details and we'll call you back.</p>
+      <div class="gsw-cf-grid">
+        <label><span>Name</span><input type="text" name="name" autocomplete="name" required></label>
+        <label><span>Phone or email</span><input type="text" name="contact" autocomplete="tel" required></label>
+        <label class="gsw-cf-wide"><span>What can we help with? <em>(optional)</em></span><textarea name="message" rows="3"></textarea></label>
+      </div>
+      <div class="gsw-cf-row">
+        <button type="submit" class="btn btn-primary">Request a call back</button>
+        <span class="gsw-cf-err" role="alert" hidden>Add your name and a way to reach you.</span>
+      </div>
+      <p class="gsw-cf-done" role="status" hidden>Thanks. Someone will call you back within one business day.</p>
+    </form>
+    <!-- /gsw:contact-form -->
+    </div>
 </section>
 <div style="padding: 100px 40px; text-align: center; background: #FFCC00; color: #000;">
 <h2 style="font-family: 'Oswald', sans-serif; font-size: 5rem; text-transform: uppercase; margin-bottom: 24px; line-height: 1;">¿Se lastimó en el trabajo?</h2>
 <p style="max-width: 800px; margin: 0 auto 40px; font-size: 20px; font-weight: 500;">Llame y le decimos en quince minutos si hay un segundo reclamo. Free, in English or Spanish, and no obligation either way.</p>
-<a class="d5-btn" style="background: #000; color: #FFCC00; font-size: 2rem; padding: 20px 60px;">Call now: (715) 962-3315</a>
+<a class="d5-btn" style="background: #000; color: #FFCC00; font-size: 2rem; padding: 20px 60px;" href="#contact">Call now: (715) 962-3315</a>
 <p style="margin-top: 24px; font-weight: bold; text-transform: uppercase;">No fee unless we recover for you. Visitas a domicilio y al hospital disponibles.</p>
 </div>
 <div style="text-align: center; padding: 20px; font-size: 12px; text-transform: uppercase; color: #555;">Salcedo &amp; Roth · 7927 Cobblewood Road, Millbrook Park, NY 10392 · (715) 962-3315 · Attorney advertising. Prior results do not guarantee a similar outcome.</div>
@@ -283,5 +325,24 @@ body > * { margin: 0; }
 <a style="display:block; color:#000; font-family:'Oswald', sans-serif; font-size:24px; text-transform:uppercase; text-decoration:none;">Call Now, 24/7</a>
 </div>
 </div>
+
+<!-- gsw:contact-form -->
+<script>
+/* The enquiry form confirms in place. Nothing is sent: a reference build. */
+(function () {
+  var form = document.querySelector('.gsw-cf');
+  if (!form) return;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = form.name.value.trim(), contact = form.contact.value.trim();
+    var err = form.querySelector('.gsw-cf-err');
+    if (!name || !contact) { err.hidden = false; (name ? form.contact : form.name).focus(); return; }
+    err.hidden = true;
+    form.setAttribute('data-sent', '');
+    form.querySelector('.gsw-cf-done').hidden = false;
+  });
+})();
+</script>
+<!-- /gsw:contact-form -->
 </body>
 </html>

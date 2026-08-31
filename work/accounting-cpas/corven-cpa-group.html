@@ -201,6 +201,32 @@ border-top:5px solid transparent;border-bottom:5px solid transparent;border-left
     .gsw-gal figure:hover img { transform: none; }
   }
 </style>
+
+<style>
+  /* gsw:contact-form — the closing section takes a name. Borrows the section's
+     colour through currentColor and the build's own .btn for the button. */
+  .gsw-cf { max-width: 640px; margin: 28px 0 0; text-align: left; }
+  .gsw-cf--centred { margin-left: auto; margin-right: auto; }
+  .gsw-cf-lead { margin: 0 0 12px; font-size: 15px; opacity: .85; }
+  .gsw-cf-grid { display: grid; gap: 10px; }
+  .gsw-cf label { display: flex; flex-direction: column; gap: 5px; font-size: 11px;
+                  font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+  .gsw-cf label em { font-style: normal; font-weight: 400; text-transform: none; letter-spacing: 0; opacity: .7; }
+  .gsw-cf input, .gsw-cf textarea { font: inherit; font-size: 16px; color: inherit; background: transparent;
+                                    border: 1.5px solid currentColor; border-radius: 0; padding: 10px 12px; width: 100%;
+                                    box-sizing: border-box; letter-spacing: 0; text-transform: none; font-weight: 400; }
+  .gsw-cf input:focus, .gsw-cf textarea:focus { outline: 2px solid currentColor; outline-offset: 2px; }
+  .gsw-cf textarea { resize: vertical; min-height: 84px; }
+  .gsw-cf-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 14px; }
+  .gsw-cf button.btn { font: inherit; cursor: pointer; appearance: none; }
+  .gsw-cf-err { font-size: 14px; font-weight: 600; }
+  .gsw-cf-done { margin: 0; font-size: 17px; font-weight: 600; }
+  .gsw-cf[data-sent] .gsw-cf-lead, .gsw-cf[data-sent] .gsw-cf-grid, .gsw-cf[data-sent] .gsw-cf-row { display: none; }
+  @media (min-width: 640px) {
+    .gsw-cf-grid { grid-template-columns: 1fr 1fr; }
+    .gsw-cf-wide { grid-column: 1 / -1; }
+  }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap">Now taking business clients for the coming year · Secure client portal →</div></div>
@@ -269,7 +295,22 @@ border-top:5px solid transparent;border-bottom:5px solid transparent;border-left
     <a class="btn btn-primary" href="#contact">Book a discovery call</a>
     <a class="btn btn-ghost">(402) 358-9917</a>
   </div>
-  <p class="note">Fixed monthly fees. Business clients from roughly $500k revenue. Free discovery calls.</p>
+  <!-- gsw:contact-form -->
+    <form class="gsw-cf" novalidate>
+      <p class="gsw-cf-lead">Or leave your details and we'll call you back.</p>
+      <div class="gsw-cf-grid">
+        <label><span>Name</span><input type="text" name="name" autocomplete="name" required></label>
+        <label><span>Phone or email</span><input type="text" name="contact" autocomplete="tel" required></label>
+        <label class="gsw-cf-wide"><span>What can we help with? <em>(optional)</em></span><textarea name="message" rows="3"></textarea></label>
+      </div>
+      <div class="gsw-cf-row">
+        <button type="submit" class="btn btn-primary">Request a call back</button>
+        <span class="gsw-cf-err" role="alert" hidden>Add your name and a way to reach you.</span>
+      </div>
+      <p class="gsw-cf-done" role="status" hidden>Thanks. Someone will call you back within one business day.</p>
+    </form>
+    <!-- /gsw:contact-form -->
+    <p class="note">Fixed monthly fees. Business clients from roughly $500k revenue. Free discovery calls.</p>
 </div></section>
 <footer class="foot"><div class="wrap">
   <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="8" y="30" width="48" height="4" fill="#0E0E12" opacity=".45"/>
@@ -320,5 +361,24 @@ border-top:5px solid transparent;border-bottom:5px solid transparent;border-left
 })();
 </script>
 <!-- /gsw:motion -->
+
+<!-- gsw:contact-form -->
+<script>
+/* The enquiry form confirms in place. Nothing is sent: a reference build. */
+(function () {
+  var form = document.querySelector('.gsw-cf');
+  if (!form) return;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = form.name.value.trim(), contact = form.contact.value.trim();
+    var err = form.querySelector('.gsw-cf-err');
+    if (!name || !contact) { err.hidden = false; (name ? form.contact : form.name).focus(); return; }
+    err.hidden = true;
+    form.setAttribute('data-sent', '');
+    form.querySelector('.gsw-cf-done').hidden = false;
+  });
+})();
+</script>
+<!-- /gsw:contact-form -->
 </body>
 </html>

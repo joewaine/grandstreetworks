@@ -259,6 +259,32 @@ text-align:center;line-height:1.15;padding:0 8px}
   @media (prefers-reduced-motion: reduce) { .gsw-backdrop video { display: none; } }
   @media print { .gsw-backdrop video { display: none; } }
 </style>
+
+<style>
+  /* gsw:contact-form — the closing section takes a name. Borrows the section's
+     colour through currentColor and the build's own .btn for the button. */
+  .gsw-cf { max-width: 640px; margin: 28px 0 0; text-align: left; }
+  .gsw-cf--centred { margin-left: auto; margin-right: auto; }
+  .gsw-cf-lead { margin: 0 0 12px; font-size: 15px; opacity: .85; }
+  .gsw-cf-grid { display: grid; gap: 10px; }
+  .gsw-cf label { display: flex; flex-direction: column; gap: 5px; font-size: 11px;
+                  font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+  .gsw-cf label em { font-style: normal; font-weight: 400; text-transform: none; letter-spacing: 0; opacity: .7; }
+  .gsw-cf input, .gsw-cf textarea { font: inherit; font-size: 16px; color: inherit; background: transparent;
+                                    border: 1.5px solid currentColor; border-radius: 0; padding: 10px 12px; width: 100%;
+                                    box-sizing: border-box; letter-spacing: 0; text-transform: none; font-weight: 400; }
+  .gsw-cf input:focus, .gsw-cf textarea:focus { outline: 2px solid currentColor; outline-offset: 2px; }
+  .gsw-cf textarea { resize: vertical; min-height: 84px; }
+  .gsw-cf-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 14px; }
+  .gsw-cf button.btn { font: inherit; cursor: pointer; appearance: none; }
+  .gsw-cf-err { font-size: 14px; font-weight: 600; }
+  .gsw-cf-done { margin: 0; font-size: 17px; font-weight: 600; }
+  .gsw-cf[data-sent] .gsw-cf-lead, .gsw-cf[data-sent] .gsw-cf-grid, .gsw-cf[data-sent] .gsw-cf-row { display: none; }
+  @media (min-width: 640px) {
+    .gsw-cf-grid { grid-template-columns: 1fr 1fr; }
+    .gsw-cf-wide { grid-column: 1 / -1; }
+  }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="wrap">24/7 emergency service · Financing available · Licensed &amp; insured</div></div>
@@ -266,7 +292,7 @@ text-align:center;line-height:1.15;padding:0 8px}
   <div class="wrap"><div class="row">
     <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="11" y="8" width="42" height="48" rx="3" fill="none" stroke="#10181C" stroke-width="5"/>
 <rect x="11" y="8" width="10" height="48" rx="2" fill="#0A5A75"/></svg><span>Beacon Comfort Co.</span></span></a>
-    <a class="btn btn-hot navact">Call now</a>
+    <a class="btn btn-hot navact" href="#contact">Call now</a>
   </div></div>
   <div class="navrow2"><div class="wrap"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></div></div>
 </header>
@@ -276,7 +302,7 @@ text-align:center;line-height:1.15;padding:0 8px}
     <h1>Most emergencies we attend were preventable in April.</h1>
     <p class="sub">Repair, replacement and maintenance across the metro. Two visits a year catches the failures that otherwise arrive at their worst possible moment, at roughly a tenth of what the emergency costs.</p>
     <div class="ctas">
-      <a class="btn btn-hot" data-cta="primary">Call now</a>
+      <a class="btn btn-hot" data-cta="primary" href="#contact">Call now</a>
       <a class="btn btn-line" href="#contact">Book a tune-up</a>
     </div>
     <ul class="chips"><li>24/7 emergency</li><li>Financing from $89/mo</li><li>Heat pump rebates handled</li><li>Upfront flat pricing</li></ul>
@@ -312,7 +338,7 @@ text-align:center;line-height:1.15;padding:0 8px}
 </div></section>
 <section class="emerg"><div class="wrap">
   <div><p>Emergency service · 24 hours</p><a class="tel">(947) 403-6617</a></div>
-  <a class="btn btn-hot">Call now</a>
+  <a class="btn btn-hot" href="#contact">Call now</a>
 </div></section>
 <section class="sec" id="process"><div class="wrap">
   <p class="kicker">Process</p>
@@ -332,10 +358,25 @@ text-align:center;line-height:1.15;padding:0 8px}
   <h2>System down right now?</h2>
   <p>Call and someone picks up: nights, weekends, holidays. Same-day emergency slots held back every day for exactly this.</p>
   <div class="ctas">
-    <a class="btn btn-hot">Call now</a>
+    <a class="btn btn-hot" href="#contact">Call now</a>
     <a class="btn btn-line">(947) 403-6617</a>
   </div>
-  <p class="note">Free second opinions on replacement quotes. Financing subject to approval.</p>
+  <!-- gsw:contact-form -->
+    <form class="gsw-cf" novalidate>
+      <p class="gsw-cf-lead">Or leave your details and we'll call you back.</p>
+      <div class="gsw-cf-grid">
+        <label><span>Name</span><input type="text" name="name" autocomplete="name" required></label>
+        <label><span>Phone or email</span><input type="text" name="contact" autocomplete="tel" required></label>
+        <label class="gsw-cf-wide"><span>What can we help with? <em>(optional)</em></span><textarea name="message" rows="3"></textarea></label>
+      </div>
+      <div class="gsw-cf-row">
+        <button type="submit" class="btn btn-primary">Request a call back</button>
+        <span class="gsw-cf-err" role="alert" hidden>Add your name and a way to reach you.</span>
+      </div>
+      <p class="gsw-cf-done" role="status" hidden>Thanks. Someone will call you back within one business day.</p>
+    </form>
+    <!-- /gsw:contact-form -->
+    <p class="note">Free second opinions on replacement quotes. Financing subject to approval.</p>
 </div></section>
 <footer class="foot"><div class="wrap">
   <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="11" y="8" width="42" height="48" rx="3" fill="none" stroke="#10181C" stroke-width="5"/>
@@ -391,5 +432,24 @@ var on=function(){v.classList.add('gsw-playing')};
 v.addEventListener('canplay',on,{once:true});if(v.readyState>=3)on();
 if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){v.pause();v.removeAttribute('autoplay');}})();
 </script>
+
+<!-- gsw:contact-form -->
+<script>
+/* The enquiry form confirms in place. Nothing is sent: a reference build. */
+(function () {
+  var form = document.querySelector('.gsw-cf');
+  if (!form) return;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = form.name.value.trim(), contact = form.contact.value.trim();
+    var err = form.querySelector('.gsw-cf-err');
+    if (!name || !contact) { err.hidden = false; (name ? form.contact : form.name).focus(); return; }
+    err.hidden = true;
+    form.setAttribute('data-sent', '');
+    form.querySelector('.gsw-cf-done').hidden = false;
+  });
+})();
+</script>
+<!-- /gsw:contact-form -->
 </body>
 </html>
