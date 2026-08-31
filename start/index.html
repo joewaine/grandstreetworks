@@ -125,7 +125,7 @@ window.INTAKE_CONFIG = (function () {
         type: 'url',
         eyebrow: 'Q_01 // The site you have',
         title: 'What\'s your website address?',
-        help: 'The only one that matters for the free rebuild. The rest is us working out whether the site is even the right thing to fix.',
+        help: 'The only one that matters for the rebuild. The rest is us working out whether the site is even the right thing to fix.',
         fieldLabel: 'Website',
         placeholder: 'yourfirm.com',
         summaryLabel: 'Website',
@@ -247,12 +247,12 @@ window.INTAKE_CONFIG = (function () {
       },
       website: {
         kicker: 'Our read // Start with the site',
-        headline: 'The site is the thing to fix, and we\'ll rebuild it first for free.',
+        headline: 'The site is the thing to fix, and we\'ll rebuild it first.',
         body: function (a) {
           var trade = tradeLabel(a.trade);
           var out = [
             'What you described is structure, not taste. Before anything gets designed we pull the best and worst ' + trade + ' sites in your metro and read them the way a customer does: what every good one has on the page, and what none of the bad ones do. That read becomes the page.',
-            'Your first answer gave us a URL, so this starts as the free rebuild: a real homepage for your business, plus the written read behind it, so your own developer could use it without us. No call, nothing to cancel.'
+            'Your first answer gave us a URL, so this starts as the homepage rebuild: a real homepage for your business, plus the written read behind it, so your own developer could use it without us. No call, nothing to cancel.'
           ];
           if (a.size === 'solo') {
             out.push('At your size that is probably the whole job. A one or two person firm rarely needs the systems behind the site, and we\'d rather say so now than sell you one later.');
@@ -276,11 +276,11 @@ window.INTAKE_CONFIG = (function () {
             'What fixes it is the layer behind the site: every enquiry logged and attributed so you know what the site is worth, stale ones chased with the follow-up drafted for your approval, and one page showing where the pipeline, the schedule and the money stand. Running inside a week, on your accounts, with nothing given write access until you\'ve watched it work on drafts.'
           ];
           if (a.age === 'old' || a.age === 'none') {
-            out.push('Your site is old enough to be costing you too, and we would still rebuild it free, but on your answers it is the second problem.');
+            out.push('Your site is old enough to be costing you too, and we would still rebuild it first, but on your answers it is the second problem.');
           }
           return out;
         },
-        secondaryLine: 'The free homepage rebuild still stands alongside it, and still costs nothing.',
+        secondaryLine: 'The homepage rebuild still stands alongside it.',
         links: function () {
           return [{ label: 'What that includes →', href: '../what-we-build/#services' }];
         }
@@ -339,7 +339,7 @@ window.INTAKE_CONFIG = (function () {
         { name: 'notes',    label: 'Anything the five questions missed', required: false, multiline: true, placeholder: 'Optional. The thing you\'d say out loud that didn\'t fit a checkbox.' }
       ],
       doneTitle: 'That\'s in. You\'ll hear back within a business day.',
-      doneBody: 'A real reply from Joe, not an autoresponder, including if the answer is that we aren\'t what you need. If you asked for the free rebuild, the link usually follows within the week.',
+      doneBody: 'A real reply from Joe, not an autoresponder, including if the answer is that we aren\'t what you need. If you asked for the rebuild, the link usually follows within the week.',
       doneLinks: [
         { label: 'See the reference builds →', href: '../#work' },
         { label: 'Back to the site →', href: '../' }
