@@ -494,7 +494,7 @@ p{margin:0}
 text-decoration:none;text-align:center;border:1px solid transparent;line-height:1.1;font-weight:600;font-size:13px;
 letter-spacing:.2em;text-transform:uppercase;cursor:pointer;font-family:var(--sans);transition:background .2s,color .2s,border-color .2s}
 .btn-primary{background:var(--accent-2);color:#fff}
-.btn-primary:hover{background:var(--accent)}
+.btn-primary:hover{background:var(--teal)}
 .btn-ghost{background:transparent;color:var(--ondark);border-color:rgba(237,232,221,.42)}
 .btn-ghost:hover{border-color:var(--flare);color:var(--flare)}
 .btn-ink{background:var(--ink);color:var(--surface)}
@@ -519,7 +519,8 @@ text-transform:uppercase;font-weight:500;color:var(--dim)}
 .navact{margin-left:auto;flex:none;min-height:42px;padding:0 18px;white-space:nowrap;display:flex;align-items:center;
 border:1px solid var(--accent);color:var(--flare);text-decoration:none;font-weight:600;letter-spacing:.16em;
 text-transform:uppercase;font-size:12px}
-.navact:hover{background:var(--accent);color:#fff}
+.navact:hover{background:var(--teal);color:#fff}
+.brand:hover,.navtel:hover{color:var(--flare)}
 .navtel{display:none;color:#fff;text-decoration:none;font-weight:600;letter-spacing:.04em;font-size:15px;margin-left:22px;white-space:nowrap}
 /* Hero: the client's own drone reel, looping under a scrim in the page's ground
    colour. The still frame is the poster and carries first paint; the loop fades
@@ -649,10 +650,14 @@ background:var(--paper);color:var(--ink);border-radius:0;width:100%;letter-spaci
 .form .btn{margin-top:6px;min-height:58px}
 .form .fine{font-size:13.5px;color:var(--muted);line-height:1.5}
 .form .fine a{color:var(--ink);font-weight:600;text-decoration:none;border-bottom:1px solid var(--accent)}
+.gal .more a:hover,.revlink a:hover,.form .fine a:hover{color:var(--teal);border-color:var(--teal)}
+/* Deep brass reads on both the ivory and the charcoal sections. */
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent-2);outline-offset:3px}
 .form .status{font-size:15px;font-weight:600;color:var(--teal);min-height:1.2em}
 .contactcard{border-top:1px solid var(--ink);padding-top:22px;display:grid;gap:14px;align-content:start;font-size:15.5px}
 .contactcard strong{font-family:var(--sans);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;display:block;margin-bottom:3px;color:var(--muted);font-weight:600}
 .contactcard a{text-decoration:none;color:var(--ink);font-weight:600}
+.contactcard a:hover{color:var(--teal);text-decoration:underline;text-underline-offset:3px}
 .contactcard .big{font-family:var(--serif);font-size:30px;font-weight:500;line-height:1.1}
 /* Close and footer. */
 .close{position:relative;isolation:isolate;overflow:hidden;background:var(--dark);color:#fff;padding:96px 0 104px}
@@ -676,6 +681,8 @@ display:grid;grid-template-columns:1fr auto;gap:6px;padding:6px}
 .callbar a{display:flex;align-items:center;justify-content:center;min-height:58px;text-decoration:none;text-align:center;
 font-weight:600;line-height:1.1;padding:0 12px;letter-spacing:.14em;text-transform:uppercase;font-size:12.5px}
 .callbar .tel{background:var(--accent-2);color:#fff}
+.callbar .tel:hover{background:var(--teal)}
+.callbar .alt2:hover{border-color:var(--flare);color:var(--flare)}
 .callbar .alt2{color:var(--ondark);border:1px solid rgba(237,232,221,.42);max-width:150px}
 @media(max-width:559px){.navact{display:none}}
 @media(min-width:700px){.topbar .wrap span+span{display:inline}

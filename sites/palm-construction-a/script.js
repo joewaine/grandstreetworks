@@ -3,18 +3,36 @@
   const menu = document.querySelector("[data-mobile-menu]");
   const menuLabel = document.querySelector("[data-menu-label]");
 
+  const MENU_TRANSITION_MS = 300; // a little over the longest CSS transition
+
   const setMenu = (open, returnFocus = false) => {
     if (!menuToggle || !menu || !menuLabel) return;
-    menu.hidden = !open;
     menuToggle.setAttribute("aria-expanded", String(open));
     menuLabel.textContent = open ? "Close ×" : "Menu";
     document.body.classList.toggle("menu-open", open);
 
     if (open) {
-      menu.querySelector("a")?.focus();
-    } else if (returnFocus) {
-      menuToggle.focus();
+      menu.hidden = false;
+      // Two frames: the first lets the browser paint the menu at opacity 0,
+      // so adding the class on the second actually transitions it in.
+      requestAnimationFrame(() =>
+        requestAnimationFrame(() => {
+          menu.classList.add("is-open");
+          menu.querySelector("a")?.focus();
+        })
+      );
+      return;
     }
+
+    menu.classList.remove("is-open");
+    if (returnFocus) menuToggle.focus();
+    // Hide once the fade-out finishes. The timeout covers reduced-motion
+    // (no transition, so no transitionend) and any missed event.
+    const hideWhenDone = () => {
+      if (!menu.classList.contains("is-open")) menu.hidden = true;
+    };
+    menu.addEventListener("transitionend", hideWhenDone, { once: true });
+    window.setTimeout(hideWhenDone, MENU_TRANSITION_MS);
   };
 
   menuToggle?.addEventListener("click", () => {

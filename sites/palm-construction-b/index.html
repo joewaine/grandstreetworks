@@ -66,6 +66,9 @@ p{margin:0 0 1em}
 .site-header .wrap{display:flex;align-items:center;gap:24px;min-height:var(--nav-h)}
 .brand{display:flex;align-items:center;gap:12px;color:var(--paper);text-decoration:none;font-weight:600;font-size:1.05rem;letter-spacing:.005em;margin-right:auto}
 .brand img{width:44px;height:44px}
+/* The global a:hover goes to ink, which vanishes on the ink header. */
+.site-header .brand:hover,.skip:hover{color:#fff}
+.site-header .brand:hover span{text-decoration:underline;text-underline-offset:.2em}
 .site-nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0}
 .site-nav a{display:inline-block;padding:10px 12px;color:var(--paper);text-decoration:none;font-weight:500;border-radius:var(--radius)}
 .site-nav a:hover,.site-nav a[aria-current=page]{color:#fff;background:var(--ink-2)}
@@ -75,11 +78,22 @@ p{margin:0 0 1em}
 .hdr-cta{display:none}
 .nav-toggle{display:none;background:none;border:1.5px solid var(--sand);color:var(--paper);border-radius:var(--radius);min-width:48px;min-height:44px;font:600 .95rem var(--font-body);padding:0 12px;cursor:pointer}
 @media(max-width:1023px){
-  .site-header .wrap{flex-wrap:wrap;gap:10px 16px}
+  /* align-content: with the collapsed nav as a third flex line, the default
+     stretch split the height between lines and pushed the top row flush
+     against the viewport. Centre the lines and pad the header instead. */
+  .site-header .wrap{flex-wrap:wrap;gap:0 16px;align-content:center;padding:12px 0}
   .hdr-tel{margin-left:auto}
   .js .nav-toggle{display:inline-flex;align-items:center;gap:8px}
-  .js .site-nav{display:none;width:100%;padding-bottom:10px}
-  .js .site-nav.open{display:block}
+  .nav-toggle:hover{background:var(--ink-2);color:#fff}
+  /* Closed, the nav is a 0fr grid row clipped to nothing; opening animates
+     the row to 1fr so the list slides down. Row gap on .wrap is 0 and the
+     spacing lives in the nav's own padding, so a closed nav adds no height. */
+  .js .site-nav{display:grid;grid-template-rows:0fr;width:100%;order:10;overflow:hidden;opacity:0;visibility:hidden;padding:0;
+    transition:grid-template-rows .32s cubic-bezier(.2,.7,.2,1),opacity .22s ease,padding .32s cubic-bezier(.2,.7,.2,1),visibility 0s .32s}
+  .js .site-nav.open{grid-template-rows:1fr;opacity:1;visibility:visible;padding:18px 0 10px;transition-delay:0s}
+  /* The list's top padding and rule would keep the closed track 9px tall,
+     so the space moves to the nav's open padding and the rule is a shadow. */
+  .js .site-nav>ul{min-height:0;padding-top:0;border-top:0;box-shadow:0 -1px 0 var(--line-dark)}
   .site-nav ul{flex-direction:column;gap:0;border-top:1px solid var(--line-dark);padding-top:8px}
   .site-nav a{display:block;padding:14px 8px;font-size:1.1rem}
 }
@@ -254,6 +268,7 @@ body{padding-bottom:72px}}
 .faq details p{color:var(--moss);margin:0 0 16px;max-width:65ch}
 /* motion */
 @media(prefers-reduced-motion:reduce){
+  .js .site-nav{transition:none}
   html{scroll-behavior:auto}
   .gallery img,.btn{transition:none}
   .gallery figure:hover img{transform:none}

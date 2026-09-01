@@ -296,8 +296,17 @@ h3 {
   text-decoration: none;
 }
 
-.header-phone:hover {
+.menu-button:hover {
+  border-color: var(--color-text);
   text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.header-phone:hover,
+.wordmark:hover,
+.mobile-call:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
 }
 
 .menu-button,
@@ -931,10 +940,26 @@ h3 {
     border-radius: var(--radius-sm);
     background: var(--color-surface);
     box-shadow: var(--shadow-floating);
+    /* Enters by fading in while sliding down; script.js removes [hidden]
+       first, waits a frame, then adds .is-open so the transition runs. */
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.22s ease, transform 0.28s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  .mobile-menu.is-open {
+    opacity: 1;
+    transform: none;
   }
 
   .mobile-menu[hidden] {
     display: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mobile-menu {
+      transition: none;
+    }
   }
 
   .mobile-menu nav {
