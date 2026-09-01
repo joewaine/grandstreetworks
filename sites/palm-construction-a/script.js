@@ -63,9 +63,19 @@
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const saveData = Boolean(navigator.connection?.saveData);
 
+  // Two cuts of the same 8 s loop: 1920px at ~6 Mbps for laptops and up,
+  // 960px at ~1.3 Mbps for phones. Stretching the 960 cut across a desktop
+  // is what made the hero look soft.
+  const wideScreen = window.matchMedia("(min-width: 900px)");
+
   const loadHeroVideo = () => {
     if (!video || reducedMotion.matches || saveData || video.src) return;
-    video.src = video.dataset.src;
+    if (wideScreen.matches && video.dataset.srcWide) {
+      if (video.dataset.posterWide) video.poster = video.dataset.posterWide;
+      video.src = video.dataset.srcWide;
+    } else {
+      video.src = video.dataset.src;
+    }
     video.addEventListener(
       "canplay",
       () => {
