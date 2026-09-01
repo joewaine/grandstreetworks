@@ -58,14 +58,14 @@ def run(cmd):
     return proc
 
 
-def grade_filter(tint, saturation):
+def grade_filter(tint, saturation, width=WIDTH):
     """Pull toward a single hue, which is the whole trick behind the reference.
 
     Saturation comes down first, then colorbalance pushes the midtones toward
     the tint. Doing it in that order keeps skin from going magenta, which is
     what happens if you tint a fully saturated frame.
     """
-    steps = ["scale=%d:-2:flags=lanczos" % WIDTH]
+    steps = ["scale=%d:-2:flags=lanczos" % width]
     if saturation is not None:
         steps.append("eq=saturation=%.3f" % saturation)
     if tint:
@@ -148,6 +148,8 @@ def main():
     ap.add_argument("--seamless", type=float, default=0,
                     help="crossfade this many seconds of tail into head")
     ap.add_argument("--webm", action="store_true", help="also write a VP9 webm")
+    ap.add_argument("--width", type=int, default=WIDTH,
+                    help="output width; 1280 makes a phone cut of a 1920 hero")
     ap.add_argument("--h264-crf", type=int, default=H264_CRF)
     ap.add_argument("--vp9-crf", type=int, default=VP9_CRF)
     args = ap.parse_args()
@@ -163,7 +165,7 @@ def main():
         if len(args.tint) != 6:
             sys.exit("--tint wants 6 hex digits, got %r" % args.tint)
 
-    vf = grade_filter(args.tint, args.saturation)
+    vf = grade_filter(args.tint, args.saturation, args.width)
     print("filter: %s" % vf)
     outputs = encode(args.source, args.name, args.start, args.duration, vf,
                      args.dest.resolve(), args.seamless, args.h264_crf, args.vp9_crf,

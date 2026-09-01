@@ -154,6 +154,8 @@ domain unchanged. Each has its own README with a go-live checklist.
 | Site | Built by | Images |
 |---|---|---|
 | `essential-fence-center/` — Essential Fence Center, Snohomish WA | `tools/build-fencing-site.py` | their own job photos, plus two Gemini backdrops from `tools/gen-fencing-images.py` |
+| `palm-construction/` — Palm Construction WA, Federal Way WA | `tools/build-palm-site.py` | frames from their own drone reels (the hero loops one of them, cut by `tools/encode-hero-video.py`), four of their photos, three Gemini plates from `tools/gen-palm-images.py` |
+| `palm-construction-a/`, `palm-construction-b/` — two alternate directions for the same client, hand-built and static (no build script); previewed alongside the first so the owners can pick one | — | same client media, re-cut per direction |
 
 Same rule as `work/`: the pages are generated, so edit the build script's
 `CONFIG` and copy tables, not the HTML.
