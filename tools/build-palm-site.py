@@ -184,10 +184,6 @@ def picture(name: str, alt: str, sizes: str, eager: bool = False) -> str:
             f'alt="{html.escape(alt)}" {load} decoding="async"></picture>')
 
 
-def jpeg_path(name: str) -> str:
-    _, jpeg_w = ladder(name)
-    return f"assets/img/{name}-{jpeg_w}.jpg"
-
 
 # --- identity -------------------------------------------------------------
 # Their mark is a teal-and-gold palm-and-house lockup. The site's palette is
@@ -458,7 +454,9 @@ if(!/\/$$|\.[a-z0-9]+$$/i.test(location.pathname))location.replace(location.path
 <meta name="description" content="$description">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap"></noscript>
 <link rel="icon" href="assets/identity/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/identity/icon-180.png">
 <meta name="theme-color" content="$dark">
@@ -495,8 +493,8 @@ p{margin:0}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:10px 28px;
 text-decoration:none;text-align:center;border:1px solid transparent;line-height:1.1;font-weight:600;font-size:13px;
 letter-spacing:.2em;text-transform:uppercase;cursor:pointer;font-family:var(--sans);transition:background .2s,color .2s,border-color .2s}
-.btn-primary{background:var(--accent);color:#fff}
-.btn-primary:hover{background:var(--accent-2)}
+.btn-primary{background:var(--accent-2);color:#fff}
+.btn-primary:hover{background:var(--accent)}
 .btn-ghost{background:transparent;color:var(--ondark);border-color:rgba(237,232,221,.42)}
 .btn-ghost:hover{border-color:var(--flare);color:var(--flare)}
 .btn-ink{background:var(--ink);color:var(--surface)}
@@ -670,13 +668,14 @@ background:var(--paper);color:var(--ink);border-radius:0;width:100%;letter-spaci
 .foot .brand{display:inline-block;margin-bottom:16px}
 .foot p{margin:0 0 9px;max-width:66ch;line-height:1.6}
 .foot a{color:var(--ondark);text-decoration:none}
+.foot p a{text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(237,232,221,.5)}
 .foot a:hover{color:var(--flare)}
 .foot .fine{font-size:12.5px;color:#7F847E;margin-top:18px}
 .callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--dark);border-top:1px solid var(--accent);
 display:grid;grid-template-columns:1fr auto;gap:6px;padding:6px}
 .callbar a{display:flex;align-items:center;justify-content:center;min-height:58px;text-decoration:none;text-align:center;
 font-weight:600;line-height:1.1;padding:0 12px;letter-spacing:.14em;text-transform:uppercase;font-size:12.5px}
-.callbar .tel{background:var(--accent);color:#fff}
+.callbar .tel{background:var(--accent-2);color:#fff}
 .callbar .alt2{color:var(--ondark);border:1px solid rgba(237,232,221,.42);max-width:150px}
 @media(max-width:559px){.navact{display:none}}
 @media(min-width:700px){.topbar .wrap span+span{display:inline}
@@ -717,7 +716,7 @@ font-weight:600;line-height:1.1;padding:0 12px;letter-spacing:.14em;text-transfo
   <a class="navact" href="#consult">Request a consultation</a>
 </div></header>
 <section class="hero" id="top">
-  <div class="backdrop" aria-hidden="true">$hero_pic<video muted loop playsinline autoplay preload="metadata" poster="$hero_poster" data-phone="assets/hero/lakefront-1280.mp4"><source src="assets/hero/lakefront.mp4" type="video/mp4"></video></div>
+  <div class="backdrop" aria-hidden="true">$hero_pic<video muted loop playsinline autoplay preload="metadata" data-phone="assets/hero/lakefront-1280.mp4"><source src="assets/hero/lakefront.mp4" type="video/mp4"></video></div>
   <div class="wrap">
     <p class="eyebrow">$tagline · Puget Sound</p>
     <h1>Built to the standard <i>of the home.</i></h1>
@@ -822,7 +821,7 @@ $towns
     <p class="lede">Rough numbers are fine. We will come back to you to set up a visit, walk the property and talk it through. No charge, no obligation.</p>
   </div>
   <div class="quotegrid">
-    <form class="form" id="quoteform" action="$form_action" method="post" enctype="text/plain">
+    <form class="form" id="quoteform"$form_action method="post" enctype="text/plain">
       <div class="row">
         <label>Name<input name="name" autocomplete="name" required></label>
         <label>Phone<input name="phone" type="tel" autocomplete="tel" required></label>
@@ -1001,9 +1000,11 @@ def build_page() -> None:
     email_row = (f'      <div><strong>Email</strong><a href="mailto:{html.escape(c["email"])}">{html.escape(c["email"])}</a></div>'
                  if c["email"] else "")
     email_foot = f' · <a href="mailto:{html.escape(c["email"])}">{html.escape(c["email"])}</a>' if c["email"] else ""
-    # Without JavaScript the form still goes somewhere: the mailbox if there
-    # is one, otherwise the office number as an SMS link (phones honour it).
-    form_action = f"mailto:{c['email']}" if c["email"] else f"sms:{tel}"
+    # Without JavaScript the form still goes to the mailbox if there is one.
+    # An sms: action was tried for the no-mailbox case and dropped: Chrome
+    # reports a non-https form action as mixed content. The script handles
+    # submit either way and tells desktop visitors to call.
+    form_action = f' action="mailto:{c["email"]}"' if c["email"] else ""
 
     page = PAGE.substitute(
         name=html.escape(c["name"]), legal=html.escape(c["legal"]),
@@ -1017,7 +1018,7 @@ def build_page() -> None:
         yelp=html.escape(c["yelp"]), google=html.escape(c["google"]),
         careers=html.escape(c["careers"]), blog=html.escape(c["blog"]),
         url=c["url"], dark=PALETTE["dark"], jsonld=jsonld(), mark=mark,
-        hero_pic=picture("hero", "", "100vw", eager=True), hero_poster=jpeg_path("hero"),
+        hero_pic=picture("hero", "", "100vw", eager=True),
         close_pic=picture("dusk", "", "100vw"),
         fin_pic=picture("kitchen", "", "100vw"),
         about_pic=picture("plans", "Deck and patio drawings on a table with a composite decking sample and a white oak flooring sample", "(max-width: 900px) 100vw, 50vw"),
