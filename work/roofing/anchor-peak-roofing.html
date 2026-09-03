@@ -6,135 +6,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Anchor Peak Roofing · Emergency response 24/7, same-day tarping</title>
 <meta name="description" content="Storm damage, full replacements and repairs across the metro. Two ways to pay for it: we run the insurance claim end to end, or you finance it from $89 a month with nothing down.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
-<style>
-/* D4 — THE SAFETY YELLOW ONE. hero:stack nav:centered services:cards proof:review-wall
-   ink #17181A · surface #F4F3F0 · accent #F5B301 · muted #52565B · on-accent #17181A
-   H1 ramp: 44/52/68/88px · Bebas Neue display / Barlow body
-   Device: the hazard chevron — a yellow-and-charcoal warning band, plus a yellow dial
-   slab. FIX answered first: the phone number three screens down, so the dial slab is
-   the single loudest object on the page and sits directly under the headline. The
-   financing figure and the claim block are set on the same yellow so they read as
-   equally urgent. Yellow is never used as text — always a ground under charcoal ink. */
-:root{--ink:#17181A;--surface:#F4F3F0;--accent:#F5B301;--muted:#52565B;--on-accent:#17181A;
---panel:#FFFFFF;--rule:rgba(23,24,26,.18);--hair:rgba(23,24,26,.1);--wrap:1080px}
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--surface);color:var(--ink);overflow-x:hidden;padding-bottom:82px;
-font:400 17px/1.6 Barlow,system-ui,-apple-system,sans-serif}
-.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
-h1,h2,h3,.dial b{font-family:"Bebas Neue",Impact,sans-serif;font-weight:400;margin:0;
-line-height:.98;letter-spacing:.012em}
-a{color:inherit}
-p{margin:0}
-.hazard{height:14px;background:repeating-linear-gradient(115deg,var(--accent) 0 16px,var(--ink) 16px 32px)}
-.topbar{background:var(--ink);color:#D8DADC;font-size:14px}
-.topbar .wrap{padding:7px 20px;text-align:center;letter-spacing:.05em}
-.nav{position:sticky;top:0;z-index:30;background:var(--surface);border-bottom:2px solid var(--ink)}
-.nav .wrap{display:flex;flex-direction:column;align-items:center;gap:7px;padding:11px 20px 10px}
-.brand{font-family:"Bebas Neue",Impact,sans-serif;font-size:27px;text-decoration:none;
-letter-spacing:.05em;line-height:1}
-.navlinks{display:none;gap:22px;font-size:13px;letter-spacing:.15em;text-transform:uppercase;
-font-weight:500;color:var(--muted)}
-.navlinks a{text-decoration:none}
-.navlinks a:hover{color:var(--ink)}
-.navact{background:var(--accent);color:var(--on-accent);text-decoration:none;font-weight:700;
-font-size:15px;letter-spacing:.04em;padding:6px 14px;line-height:1.3;white-space:nowrap}
-.hero{padding:26px 0 34px;text-align:center}
-.eyebrow{display:inline-block;font-size:13px;letter-spacing:.2em;text-transform:uppercase;
-font-weight:700;background:var(--accent);color:var(--on-accent);padding:5px 11px;margin:0 0 15px}
-.hero h1{font-size:clamp(44px,11.6vw,88px);max-width:15ch;margin:0 auto}
-.hero .sub{font-size:16px;color:var(--muted);max-width:52ch;margin:14px auto 20px;line-height:1.56}
-.dial{display:block;background:var(--accent);color:var(--on-accent);text-decoration:none;
-padding:14px 16px 16px;border:3px solid var(--ink);text-align:center}
-.dial span{display:block;font-size:14px;letter-spacing:.24em;text-transform:uppercase;font-weight:700}
-.dial b{display:block;font-size:clamp(42px,11.4vw,62px);font-weight:400;line-height:1;margin-top:4px}
-.second{display:flex;align-items:center;justify-content:center;min-height:56px;margin-top:10px;
-border:2px solid var(--ink);text-decoration:none;font-weight:700;font-size:15px;
-letter-spacing:.1em;text-transform:uppercase;background:var(--panel)}
-.badges{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:0;border-top:2px solid var(--ink)}
-.badges li{font-size:15px;font-weight:500;padding:11px 0;border-bottom:1px solid var(--hair);
-letter-spacing:.01em}
-.fin{background:var(--accent);color:var(--on-accent)}
-.fin .wrap{padding:20px;text-align:center}
-.fin .big{font-family:"Bebas Neue",Impact,sans-serif;font-size:clamp(34px,8.6vw,52px);line-height:1}
-.fin .small{font-size:16px;margin-top:6px;font-weight:500}
-.sec{padding:42px 0}
-.kicker{font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;
-color:var(--muted);margin:0 0 9px}
-.sec h2{font-size:clamp(34px,8.4vw,58px);margin-bottom:12px}
-.lede{color:var(--muted);max-width:58ch;margin:0 0 24px;font-size:16px}
-.cards{display:grid;gap:12px}
-.card{background:var(--panel);border:2px solid var(--ink);padding:18px 16px 20px;position:relative}
-.card::before{content:"";position:absolute;left:-2px;right:-2px;top:-2px;height:8px;background:var(--accent)}
-.card h3{font-size:26px;margin:8px 0 7px}
-.card p{color:var(--muted);font-size:16px}
-.claim{background:var(--ink);color:#EDEEEF;padding:38px 0 40px}
-.claim .kicker{color:var(--accent)}
-.claim h2{color:#fff;font-size:clamp(30px,7.4vw,48px)}
-.claim p{color:#BEC2C6;font-size:16px;max-width:58ch;margin-top:12px}
-.claim .pull{border-left:6px solid var(--accent);padding-left:14px;margin-top:18px;color:#fff;
-font-weight:500;font-size:17px;max-width:52ch}
-.wall{display:grid;gap:12px;margin-top:20px}
-.wall article{background:var(--panel);border:2px solid var(--ink);padding:16px 16px 18px}
-.wall q{display:block;quotes:none;font-size:17px;line-height:1.45;font-weight:500}
-.wall cite{display:block;font-style:normal;font-family:"Bebas Neue",Impact,sans-serif;
-font-size:20px;letter-spacing:.06em;margin-top:10px;color:var(--muted)}
-.steps{list-style:none;margin:22px 0 0;padding:0;counter-reset:s;display:grid;gap:0}
-.steps li{counter-increment:s;padding:18px 0;border-top:2px solid var(--ink);display:grid;
-grid-template-columns:44px minmax(0,1fr);gap:12px}
-.steps li::before{content:counter(s);font-family:"Bebas Neue",Impact,sans-serif;font-size:30px;
-line-height:1;background:var(--accent);width:34px;height:34px;display:flex;align-items:center;
-justify-content:center;color:var(--on-accent)}
-.steps h3{font-size:24px;margin-bottom:4px}
-.steps p{color:var(--muted);font-size:16px}
-.close{background:var(--accent);color:var(--on-accent);padding:42px 0 46px;text-align:center}
-.close h2{font-size:clamp(36px,9vw,64px);max-width:15ch;margin:0 auto}
-.close p{max-width:52ch;font-size:17px;margin:12px auto 18px;font-weight:500}
-.close .dial{background:var(--ink);color:var(--accent);border-color:var(--ink);max-width:520px;
-margin:0 auto}
-.note{font-size:15px;margin-top:16px;max-width:52ch;margin-left:auto;margin-right:auto;font-weight:500}
-.foot{background:var(--ink);color:#B4B8BC;padding:32px 0 28px;font-size:15px;text-align:center}
-.foot .brand{color:#fff;display:inline-block;margin-bottom:10px}
-.foot p{margin:0 0 8px}
-.foot a{color:var(--accent)}
-.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--ink);
-display:grid;grid-template-columns:1fr auto;gap:6px;padding:6px}
-.callbar a{display:flex;align-items:center;justify-content:center;min-height:58px;
-text-decoration:none;text-align:center;font-weight:700;line-height:1.15;padding:0 12px}
-.callbar .tel{background:var(--accent);color:var(--on-accent);
-font-family:"Bebas Neue",Impact,sans-serif;font-weight:400;font-size:28px;letter-spacing:.04em}
-.callbar .alt2{color:#fff;border:2px solid rgba(255,255,255,.5);font-size:13px;
-letter-spacing:.07em;text-transform:uppercase;max-width:124px}
-@media(max-width:559px){.navact{font-size:14px;padding:6px 10px}}
-@media(min-width:760px){.cards{grid-template-columns:1fr 1fr}.wall{grid-template-columns:1fr 1fr}
-.badges{grid-template-columns:1fr 1fr;column-gap:28px}.steps{grid-template-columns:1fr 1fr;column-gap:40px}
-.sec{padding:70px 0}.hero{padding:44px 0 56px}.hero .sub{font-size:19px}
-.dial{padding:20px 24px 22px}.second{max-width:420px;margin-left:auto;margin-right:auto}
-.fin .wrap{display:flex;align-items:baseline;justify-content:center;gap:20px;padding:26px 20px}}
-@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}.navlinks{display:flex}
-.cards{grid-template-columns:repeat(4,1fr)}}
-</style>
-
-<style>
-  /* Hero plate, added with the photography pass. Full-bleed between the hero
-     and the first content section, with no border of its own: every one of
-     these designs owns a different rule weight and ink colour, and a borrowed
-     hairline reads as a mistake in about half of them. */
-  .gsw-plate picture { display: block; width: 100%; }
-  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
-  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
-  .gsw-plate img {
-    display: block;
-    width: 100%;
-    height: clamp(220px, 40vw, 520px);
-    object-fit: cover;
-    object-position: center;
-  }
-  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
-</style>
 <!-- gsw:identity -->
 <link rel="icon" href="../_assets/identity/roofing/anchor-peak-roofing-icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../_assets/identity/roofing/anchor-peak-roofing-icon-180.png">
@@ -147,239 +18,410 @@ letter-spacing:.07em;text-transform:uppercase;max-width:124px}
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"RoofingContractor","name":"Anchor Peak Roofing","description":"Emergency response 24/7, same-day tarping","telephone":"(210) 872-6604","areaServed":"Metro area","image":"https://grandstreetworks.com/work/_assets/identity/roofing/anchor-peak-roofing-og.png","logo":"https://grandstreetworks.com/work/_assets/identity/roofing/anchor-peak-roofing-mark.svg"}</script>
-
+<!-- /gsw:identity -->
+<link rel="preload" href="../_assets/fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-  /* Identity pass. The lockup is the mark plus the wordmark the build already
-     had; the mark is sized in em so it tracks whatever display face this build
-     sets its brand in. */
-  .gsw-lockup { display: inline-flex; align-items: center; gap: .46em; }
-  .gsw-lockup svg { height: 1.16em; width: auto; flex: none; display: block; }
-</style>
+/* D4 — THE JOB SHEET. hero:stack nav:centered services:cards proof:review-wall
+   ink #17181A · paper #F4F3F0 · yellow #F5B301 · muted #52565B · on-dark #F4F3F0
+   H1 ramp: 48/64/88/108px · Archivo variable (wdth 62 condensed display, wdth 125
+   expanded labels and titles, wdth 100 text) — one family, three widths, three weights
+   Device: the dial slab — a yellow block with the number set condensed at display size
+   directly under the headline; yellow appears exactly three times on the page (the hazard
+   band, the dial slab, the rule under each title) and is never text. FIX answered first:
+   financing invisible on a $20k purchase — the monthly figure is the headline and the
+   financing strip is the second screen. Photographs are square crops with ink keylines.
+   Seven sizes, one family, three weights. No motion. */
 
+@font-face { font-family: "Archivo"; src: url("../_assets/fonts/archivo-var.woff2") format("woff2"); font-weight: 100 900; font-stretch: 62% 125%; font-style: normal; font-display: swap; }
+@font-face { font-family: "Archivo"; src: url("../_assets/fonts/archivo-italic-var.woff2") format("woff2"); font-weight: 100 900; font-stretch: 62% 125%; font-style: italic; font-display: swap; }
+@font-face { font-family: "Archivo Fallback"; src: local("Arial"); size-adjust: 101%; ascent-override: 88%; descent-override: 21%; }
 
+:root {
+  --ink: #17181A; --ink-2: #24262A; --paper: #F4F3F0; --panel: #FFFFFF; --yellow: #F5B301;
+  --muted: #52565B; --muted-i: #B4B8BD; --line: #C9C6C0; --line-i: #3A3D42;
+  --font: "Archivo", "Archivo Fallback", Arial, sans-serif;
+  --t-label: 0.8125rem; --t-small: 0.9375rem; --t-body: 1.0625rem;
+  --t-lede: clamp(1.125rem, 1rem + 0.5vw, 1.3125rem);
+  --t-h3: clamp(1.375rem, 1.1rem + 1.1vw, 1.75rem);
+  --t-h2: clamp(1.875rem, 1.3rem + 2.3vw, 2.75rem);
+  --t-display: clamp(2.5rem, 1rem + 7.4vw, 6.75rem);
+  --s1: 8px; --s2: 16px; --s3: 24px; --s4: 32px; --s6: 48px; --s8: 64px; --s12: 96px; --s16: 128px;
+  --wrap: 1120px; --gutter: clamp(20px, 4vw, 48px); --bar-h: 64px;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 var(--t-body)/1.6 var(--font); font-stretch: 100%; overflow-x: hidden; padding-bottom: var(--bar-h); }
+h1, h2, h3, p, ul, ol, figure, blockquote { margin: 0; }
+p { text-wrap: pretty; }
+h1, h2, h3 { text-wrap: balance; }
+a { color: inherit; }
+img { display: block; max-width: 100%; height: auto; }
+ul, ol { list-style: none; padding: 0; }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+.center { text-align: center; }
+/* the three registers of one family */
+.cond { font-stretch: 62%; font-weight: 900; line-height: 0.92; letter-spacing: 0.005em; text-transform: uppercase; }
+.exp { font-stretch: 125%; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; font-size: var(--t-label); line-height: 1.3; }
+.lede { font-size: var(--t-lede); line-height: 1.45; max-width: 52ch; }
+.muted { color: var(--muted); }
+.on-ink { background: var(--ink); color: var(--paper); }
+.on-ink .muted { color: var(--muted-i); }
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+.on-ink :focus-visible, .bar :focus-visible { outline-color: var(--yellow); }
+.skip { position: absolute; left: -999px; top: 0; background: var(--ink); color: var(--paper); padding: var(--s1) var(--s2); z-index: 100; }
+.skip:focus { left: var(--s2); top: var(--s2); }
 
+/* ---------- Buttons ---------- */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5em; min-height: 56px; padding: 0.7em 1.5em; border: 2px solid var(--ink); font: 700 var(--t-body)/1.2 var(--font); font-stretch: 100%; text-decoration: none; cursor: pointer; transition: background-color 140ms, color 140ms, border-color 140ms; }
+.btn-ink { background: var(--ink); color: var(--paper); }
+.btn-ink:hover { background: var(--ink-2); border-color: var(--ink-2); }
+.btn-outline { background: transparent; color: var(--ink); }
+.btn-outline:hover { background: var(--ink); color: var(--paper); }
+.btn-paper { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+.btn-paper:hover { background: #FFFFFF; border-color: #FFFFFF; }
+.btn-outline-paper { background: transparent; color: var(--paper); border-color: var(--paper); }
+.btn-outline-paper:hover { background: var(--paper); color: var(--ink); }
 
+/* ---------- Band + header ---------- */
+.hazard { height: 12px; background: repeating-linear-gradient(-45deg, var(--yellow) 0 18px, var(--ink) 18px 30px); }
+.topline { padding: var(--s1) 0; font-size: var(--t-small); color: var(--muted); border-bottom: 1px solid var(--line); }
+.top { padding: var(--s4) 0 var(--s3); border-bottom: 2px solid var(--ink); }
+.top .wrap { display: grid; gap: var(--s3); justify-items: center; }
+.brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
+.brand img { width: 34px; height: 34px; }
+.brand span { font-size: var(--t-lede); }
+.nav { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--s3) var(--s4); font-size: var(--t-small); font-weight: 700; }
+.nav a { text-decoration: none; padding: 4px 0; border-bottom: 2px solid transparent; transition: border-color 140ms; }
+.nav a:hover { border-bottom-color: var(--ink); }
+.nav .tel { border-bottom-color: var(--ink); }
 
-<style>
-  /* Recent-work gallery. Everything here is drawn from the properties the build
-     already declares, so the band inherits each design's palette and heading
-     face rather than importing a seventh look. */
-  .gsw-gal { background: #F4F3F0; color: #17181A;
-             padding: clamp(38px, 6vw, 74px) 0; }
-  .gsw-gal-in { max-width: var(--wrap, 1140px); margin: 0 auto; padding: 0 20px; }
-  .gsw-gal-lab { font-size: 13px; letter-spacing: .18em; text-transform: uppercase;
-                 font-weight: 600; color: var(--accent); margin: 0 0 14px; }
-  .gsw-gal h2 { margin: 0; color: inherit; }
-  .gsw-gal-note { color: var(--muted); margin: 14px 0 30px; max-width: 58ch; }
-  .gsw-ba { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px; }
-  .gsw-gal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-  .gsw-gal figure { margin: 0; position: relative; overflow: hidden;
-                    background: var(--rule, rgba(0,0,0,.1)); }
-  .gsw-gal picture { display: block; }
-  /* height:auto matters — the width/height attributes are a presentational
-     hint, and without this the 1200px hint beats aspect-ratio. */
-  .gsw-gal img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3;
-                 object-fit: cover; transition: transform .5s ease; }
-  .gsw-gal figure:hover img { transform: scale(1.035); }
-  .gsw-gal figcaption { position: absolute; left: 0; bottom: 0;
-                        background: #17181A; color: #F4F3F0;
-                        font-size: 12px; font-weight: 600; letter-spacing: .14em;
-                        text-transform: uppercase; padding: 7px 12px; }
-  @media (max-width: 720px) {
-    .gsw-ba, .gsw-gal-grid { grid-template-columns: 1fr; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .gsw-gal img { transition: none; }
-    .gsw-gal figure:hover img { transform: none; }
-  }
-</style>
+/* ---------- Hero ---------- */
+.hero { padding: var(--s12) 0 var(--s8); }
+.hero .wrap { display: grid; justify-items: center; gap: var(--s4); }
+.hero .exp { color: var(--muted); }
+.hero h1 { font-size: var(--t-display); max-width: 15ch; overflow-wrap: anywhere; }
+.hero .lede { text-align: center; }
+.dial { display: inline-grid; justify-items: center; gap: 2px; background: var(--yellow); color: var(--ink); text-decoration: none; padding: var(--s3) var(--s6) var(--s4); margin-top: var(--s2); transition: transform 140ms; }
+.dial:hover { transform: translateY(-2px); }
+.dial .exp { font-size: var(--t-small); color: var(--ink); }
+.dial b { font-size: var(--t-display); font-variant-numeric: tabular-nums; max-width: 100%; }
+.hero .also { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--s2); }
+.badges { display: grid; grid-template-columns: repeat(4, 1fr); width: 100%; border-top: 2px solid var(--ink); border-bottom: 1px solid var(--line); margin-top: var(--s4); }
+.badges li { padding: var(--s3) var(--s2); text-align: center; font-size: var(--t-small); font-weight: 700; }
+.badges li + li { border-left: 1px solid var(--line); }
 
-<style>
-  /* gsw:contact-form — the closing section takes a name. Borrows the section's
-     colour through currentColor and the build's own .btn for the button. */
-  .gsw-cf { max-width: 640px; margin: 28px 0 0; text-align: left; }
-  .gsw-cf--centred { margin-left: auto; margin-right: auto; }
-  .gsw-cf-lead { margin: 0 0 12px; font-size: 15px; opacity: .85; }
-  .gsw-cf-grid { display: grid; gap: 10px; }
-  .gsw-cf label { display: flex; flex-direction: column; gap: 5px; font-size: 11px;
-                  font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
-  .gsw-cf label em { font-style: normal; font-weight: 400; text-transform: none; letter-spacing: 0; opacity: .7; }
-  .gsw-cf input, .gsw-cf textarea { font: inherit; font-size: 16px; color: inherit; background: transparent;
-                                    border: 1.5px solid currentColor; border-radius: 0; padding: 10px 12px; width: 100%;
-                                    box-sizing: border-box; letter-spacing: 0; text-transform: none; font-weight: 400; }
-  .gsw-cf input:focus, .gsw-cf textarea:focus { outline: 2px solid currentColor; outline-offset: 2px; }
-  .gsw-cf textarea { resize: vertical; min-height: 84px; }
-  .gsw-cf-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 14px; }
-  .gsw-cf button.btn { font: inherit; cursor: pointer; appearance: none; }
-  .gsw-cf-err { font-size: 14px; font-weight: 600; }
-  .gsw-cf-done { margin: 0; font-size: 17px; font-weight: 600; }
-  .gsw-cf[data-sent] .gsw-cf-lead, .gsw-cf[data-sent] .gsw-cf-grid, .gsw-cf[data-sent] .gsw-cf-row { display: none; }
-  @media (min-width: 640px) {
-    .gsw-cf-grid { grid-template-columns: 1fr 1fr; }
-    .gsw-cf-wide { grid-column: 1 / -1; }
-  }
+/* ---------- Sections ---------- */
+.sec { padding: var(--s12) 0; }
+.head { display: grid; justify-items: center; text-align: center; gap: var(--s3); margin-bottom: var(--s8); }
+.head > * { min-width: 0; }
+.head .lede { max-width: min(52ch, 100%); }
+.head .exp { color: var(--muted); }
+.on-ink .head .exp { color: var(--muted-i); }
+h2.title { font-stretch: 125%; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; font-size: var(--t-h2); line-height: 1.05; max-width: 30ch; }
+/* the one rule: yellow, under every title */
+.rule { width: 72px; height: 6px; background: var(--yellow); }
+h3 { font-size: var(--t-h3); font-weight: 700; line-height: 1.2; }
+
+/* ---------- Financing strip ---------- */
+.fin { padding: var(--s8) 0; }
+.fin .wrap { display: grid; grid-template-columns: auto 1fr; gap: var(--s3) var(--s8); align-items: center; }
+.fin .cond { font-size: var(--t-h2); font-variant-numeric: tabular-nums; }
+.fin blockquote { font-size: var(--t-lede); font-style: italic; line-height: 1.45; max-width: 46ch; font-variant-numeric: tabular-nums; }
+.fin cite { display: block; font-style: normal; font-size: var(--t-small); color: var(--muted-i); margin-top: var(--s1); }
+
+/* ---------- Services (cards) ---------- */
+.cards { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s3); }
+.cards li { background: var(--panel); border: 2px solid var(--ink); padding: var(--s4); display: grid; gap: var(--s2); align-content: start; }
+.cards .exp { color: var(--muted); }
+.cards p { max-width: 44ch; color: var(--muted); }
+
+/* ---------- Claim ---------- */
+.claim .panel { background: var(--panel); border: 2px solid var(--ink); padding: var(--s6); display: grid; grid-template-columns: 1fr 1fr; gap: var(--s6); align-items: center; }
+.claim .panel .exp { color: var(--muted); margin-bottom: var(--s2); }
+.claim h2 { font-size: var(--t-h2); font-stretch: 125%; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; line-height: 1.05; margin-bottom: var(--s3); }
+.claim .lede { max-width: 40ch; }
+.claim blockquote { font-size: var(--t-h3); font-style: italic; font-weight: 400; line-height: 1.3; border-left: 6px solid var(--yellow); padding-left: var(--s3); }
+.claim cite { display: block; font-style: normal; font-size: var(--t-small); color: var(--muted); margin-top: var(--s2); }
+
+/* ---------- Review wall ---------- */
+.wall { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--line-i); border: 2px solid var(--line-i); }
+.wall figure { background: var(--ink); padding: var(--s4); display: grid; gap: var(--s3); align-content: space-between; }
+.wall blockquote { font-size: var(--t-lede); font-style: italic; line-height: 1.45; max-width: 40ch; font-variant-numeric: tabular-nums; }
+.wall figcaption { font-size: var(--t-small); color: var(--muted-i); }
+.wall figcaption b { color: var(--paper); font-weight: 700; }
+
+/* ---------- Process ---------- */
+.steps { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4) var(--s8); }
+.steps li { display: grid; grid-template-columns: 2.5ch 1fr; column-gap: var(--s3); border-top: 2px solid var(--ink); padding-top: var(--s3); }
+.steps .n { font-size: var(--t-h2); font-variant-numeric: tabular-nums; grid-row: span 2; }
+.steps h3 { margin-bottom: var(--s1); }
+.steps p { color: var(--muted); max-width: 44ch; }
+
+/* ---------- On the job (keyline grid) ---------- */
+.grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--s3); }
+.grid figure { grid-column: span 2; }
+.grid figure:nth-child(-n + 2) { grid-column: span 3; }
+.grid img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border: 2px solid var(--ink); background: var(--panel); }
+.grid figure:nth-child(-n + 2) img { aspect-ratio: 4 / 3; }
+.grid figcaption { margin-top: var(--s2); display: flex; gap: var(--s2); align-items: baseline; }
+.grid figcaption .n { font-variant-numeric: tabular-nums; }
+
+/* ---------- Closing ---------- */
+.close .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s8); align-items: start; }
+.close h2 { font-size: var(--t-display); max-width: 11ch; }
+.close .lede { margin-top: var(--s3); color: var(--muted-i); }
+.close .cta { display: flex; flex-wrap: wrap; gap: var(--s2); margin-top: var(--s4); }
+.close .note { margin-top: var(--s4); font-size: var(--t-small); color: var(--muted-i); max-width: 48ch; }
+.form { border-top: 2px solid var(--paper); padding-top: var(--s3); }
+.form .intro { margin-bottom: var(--s3); }
+.field { display: grid; gap: 6px; margin-bottom: var(--s2); }
+.field label { color: var(--muted-i); }
+.field input, .field textarea { width: 100%; font: 400 var(--t-body)/1.4 var(--font); color: var(--ink); background: var(--paper); border: 2px solid var(--paper); padding: 12px 14px; }
+.field input:focus, .field textarea:focus { outline: none; border-color: var(--yellow); }
+.field.is-invalid input { border-color: var(--yellow); box-shadow: inset 0 0 0 2px var(--yellow); }
+.form .actions { display: flex; align-items: center; gap: var(--s2); flex-wrap: wrap; margin-top: var(--s3); }
+.form .hint { font-size: var(--t-small); font-weight: 700; }
+.form .hint[hidden], .form .done[hidden] { display: none; }
+.form .done { font-size: var(--t-lede); padding: var(--s3) 0; }
+.form.is-sent .field, .form.is-sent .actions { display: none; }
+.close .after { margin-top: var(--s6); padding-top: var(--s4); border-top: 1px solid var(--line-i); display: grid; gap: var(--s3); justify-items: start; }
+.close .after p { max-width: 62ch; color: var(--muted-i); }
+
+/* ---------- Footer ---------- */
+.foot { border-top: 1px solid var(--line-i); padding: var(--s6) 0; font-size: var(--t-small); }
+.foot .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s3) var(--s8); align-items: start; }
+.foot p { color: var(--muted-i); max-width: 50ch; }
+.foot .fine { grid-column: 1 / -1; padding-top: var(--s3); border-top: 1px solid var(--line-i); font-size: var(--t-label); }
+
+/* ---------- Mobile bar ---------- */
+.bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: grid; grid-template-columns: 1fr auto; gap: 2px; background: var(--line-i); border-top: 2px solid var(--ink); }
+.bar .btn { min-height: var(--bar-h); border: 0; white-space: nowrap; }
+.bar .btn-ink { flex-direction: column; gap: 1px; line-height: 1.1; }
+.bar .btn-ink span { font-size: var(--t-label); letter-spacing: 0.1em; text-transform: uppercase; font-stretch: 125%; }
+
+/* ---------- Responsive ---------- */
+@media (min-width: 1000px) { body { padding-bottom: 0; } .bar { display: none; } }
+@media (max-width: 999px) {
+  .grid { grid-template-columns: 1fr 1fr; }
+  .grid figure, .grid figure:nth-child(-n + 2) { grid-column: span 1; }
+  .claim .panel, .close .grid2 { grid-template-columns: 1fr; }
+}
+@media (max-width: 759px) {
+  .sec { padding: var(--s8) 0; }
+  .hero { padding-top: var(--s8); }
+  .hero h1 { max-width: 12ch; }
+  .dial { width: 100%; padding-left: var(--s2); padding-right: var(--s2); }
+  .hero .also .btn { width: 100%; }
+  .badges { grid-template-columns: 1fr 1fr; }
+  .badges li + li { border-left: 0; } .badges li:nth-child(2n) { border-left: 1px solid var(--line); } .badges li:nth-child(-n + 2) { border-bottom: 1px solid var(--line); }
+  .fin .wrap { grid-template-columns: 1fr; }
+  .cards, .wall, .steps, .grid { grid-template-columns: 1fr; }
+  .foot .wrap { grid-template-columns: 1fr; }
+  .nav .tel { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } .dial:hover { transform: none; } }
+@media (forced-colors: active) { .rule, .hazard { border: 1px solid CanvasText; } .btn { border: 2px solid ButtonText; } }
+@media print { .bar, .hazard { display: none; } }
+.tnum, .tnum * { font-variant-numeric: tabular-nums; }
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 <div class="hazard" aria-hidden="true"></div>
-<div class="topbar"><div class="wrap">Licensed &amp; insured · Financing approved in minutes</div></div>
-<header class="nav"><div class="wrap">
-  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="4" y="4" width="56" height="56" rx="2" fill="#17181A"/>
-<g fill="none" stroke="#F5B301" stroke-width="9" stroke-linecap="square" stroke-linejoin="miter">
-<path d="M13 33 L32 16 L51 33"/><path d="M13 50 L32 33 L51 50"/>
-</g></svg><span>Anchor Peak Roofing</span></span></a>
-  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
-  <a class="navact">Call now · (210) 872-6604</a>
-</div></header>
-<section class="hero"><div class="wrap">
-  <p class="eyebrow">Claims handled · Financing on site</p>
-  <h1>Eighty-nine a month, or the whole claim handled. Your choice.</h1>
-  <p class="sub">Storm damage, full replacements and repairs across the metro. Two ways to pay for it: we run the insurance claim end to end, or you finance it from $89 a month with nothing down.</p>
-  <a class="dial" data-cta="primary"><span>Call now</span><b>(210) 872-6604</b></a>
-  <a class="second" href="#contact">Get a free inspection</a>
-  <ul class="badges">
-    <li>Insurance claims handled</li><li>From $89/mo, nothing down</li>
-    <li>25-year workmanship warranty</li><li>Same-day emergency tarping</li>
-  </ul>
-</div></section>
-<figure class="gsw-plate"><picture><source type="image/avif" srcset="../_assets/hero/roofing/d-shingle-courses-1280.avif 1280w, ../_assets/hero/roofing/d-shingle-courses-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/roofing/d-shingle-courses-1280.jpg" width="2560" height="1429" alt="Shingle courses, roofing" loading="lazy" decoding="async"></picture></figure>
+<p class="topline center tnum"><span class="wrap">Licensed &amp; insured · Financing approved in minutes</span></p>
 
-<div class="hazard" aria-hidden="true"></div>
-<section class="fin"><div class="wrap">
-  <p class="big">From $89/mo, nothing down</p>
-  <p class="small">“The financing made it possible. $110 a month instead of fifteen grand up front.” · Joel B., Riverbend</p>
-</div></section>
-<section class="sec" id="services"><div class="wrap">
-  <p class="kicker">Services</p>
-  <h2>What we do</h2>
-  <p class="lede">Most calls fall into one of these. If yours doesn't, ring us anyway. We'll tell you straight whether it's a repair or a replacement.</p>
-  <div class="cards">
-    <article class="card"><h3>Storm &amp; hail damage</h3><p>Free inspection, full photo report, and we meet the adjuster on site so nothing gets argued about later.</p></article>
-    <article class="card"><h3>Full replacement</h3><p>Architectural shingle, metal or tile. Tear-off, deck inspection, ice-and-water barrier, and the site left clean.</p></article>
-    <article class="card"><h3>Emergency repair</h3><p>Active leak or missing shingles after a storm. Same-day tarping to stop the damage, permanent fix scheduled after.</p></article>
-    <article class="card"><h3>Gutters &amp; ventilation</h3><p>Half the roofs we replace failed early because the attic couldn't breathe. We fix the cause, not just the symptom.</p></article>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#"><img src="../_assets/identity/roofing/anchor-peak-roofing-mark.svg" alt="" width="34" height="34"><span class="exp">Anchor Peak Roofing</span></a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#services">Services</a>
+      <a href="#results">Results</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+      <a class="tel tnum" href="tel:+12108726604">Call now · (210)&nbsp;872-6604</a>
+    </nav>
   </div>
-</div></section>
-<section class="claim"><div class="wrap">
-  <p class="kicker">Insurance claims handled</p>
-  <h2>Claim or quote</h2>
-  <p>If it's insurance, we meet your adjuster on the roof and handle the paperwork. If it isn't, you get one fixed written price and a monthly figure beside it.</p>
-  <p class="pull">“Handled the whole insurance claim. I signed two things and that was it.” · Anne-Marie K., Cedar Park</p>
-</div></section>
-<section class="sec" id="results"><div class="wrap">
-  <p class="kicker">Results</p>
-  <h2>What the neighbours said</h2>
-  <div class="wall">
-    <article><q>“Came out at 9pm during the storm and tarped it. Full replacement done in two days flat.”</q><cite>Marcus T. · Northside</cite></article>
-    <article><q>“They caught that our attic ventilation was the real problem. Nobody else even looked.”</q><cite>Priya S. · Elmwood</cite></article>
-    <article><q>“The financing made it possible. $110 a month instead of fifteen grand up front.”</q><cite>Joel B. · Riverbend</cite></article>
-    <article><q>“Handled the whole insurance claim. I signed two things and that was it.”</q><cite>Anne-Marie K. · Cedar Park</cite></article>
+</header>
+
+<main id="main">
+<section class="hero" aria-labelledby="promise">
+  <div class="wrap">
+    <p class="exp">Claims handled · Financing on site</p>
+    <h1 id="promise" class="cond center">Eighty-nine a month, or the whole claim handled. Your&nbsp;choice.</h1>
+    <p class="lede muted tnum">Storm damage, full replacements and repairs across the metro. Two ways to pay for it: we run the insurance claim end to end, or you finance it from $89 a month with nothing&nbsp;down.</p>
+    <a class="dial" href="tel:+12108726604" data-cta="primary"><span class="exp">Call now</span><b class="cond">(210)&nbsp;872-6604</b></a>
+    <div class="also">
+      <a class="btn btn-outline" href="#contact">Get a free inspection</a>
+    </div>
+    <ul class="badges" aria-label="What you get">
+      <li>Insurance claims handled</li>
+      <li class="tnum">From $89/mo, nothing down</li>
+      <li class="tnum">25-year workmanship warranty</li>
+      <li>Same-day emergency tarping</li>
+    </ul>
   </div>
-</div></section>
-<section class="sec" id="process"><div class="wrap">
-  <p class="kicker">Process</p>
-  <h2>How a job actually runs</h2>
-  <p class="lede">The part most roofers won't put a figure on, which is the only part most homeowners actually want a figure on.</p>
-  <ol class="steps">
-    <li><div><h3>Free inspection</h3><p>We go up, photograph everything, and tell you whether you need a roof or a repair. No pressure either way.</p></div></li>
-    <li><div><h3>Claim or quote</h3><p>If it's insurance, we meet your adjuster on the roof and handle the paperwork. If it isn't, you get one fixed written price and a monthly figure beside it.</p></div></li>
-    <li><div><h3>Install</h3><p>Most homes are one to two days. Materials delivered the morning of, site cleaned and magnet-swept at the end.</p></div></li>
-    <li><div><h3>Final walkthrough</h3><p>We walk it with you, register your warranty, and you have a direct number if anything ever comes up.</p></div></li>
-  </ol>
-</div></section>
-<!-- gsw:gallery -->
-<section class="gsw-gal"><div class="gsw-gal-in"><p class="gsw-gal-lab">On the job</p><h2>Tarped, stripped, replaced.</h2><p class="gsw-gal-note">Emergency work does not mean rough work. The same details get done at two in the morning as at two in the afternoon.</p><div class="gsw-ba"><figure><picture><source type="image/avif" srcset="../_assets/library/roofing/anchor-peak-roofing/damage-before-640.avif 640w, ../_assets/library/roofing/anchor-peak-roofing/damage-before-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 50vw"><img src="../_assets/library/roofing/anchor-peak-roofing/damage-before-720.jpg" width="1600" height="1200" alt="Before" loading="lazy" decoding="async"></picture><figcaption>Before</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/roofing/anchor-peak-roofing/damage-after-640.avif 640w, ../_assets/library/roofing/anchor-peak-roofing/damage-after-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 50vw"><img src="../_assets/library/roofing/anchor-peak-roofing/damage-after-720.jpg" width="1600" height="1200" alt="After" loading="lazy" decoding="async"></picture><figcaption>After</figcaption></figure></div><div class="gsw-gal-grid"><figure><picture><source type="image/avif" srcset="../_assets/library/roofing/anchor-peak-roofing/tear-off-640.avif 640w, ../_assets/library/roofing/anchor-peak-roofing/tear-off-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/roofing/anchor-peak-roofing/tear-off-720.jpg" width="1600" height="1200" alt="Tear-off, down to the deck" loading="lazy" decoding="async"></picture><figcaption>Tear-off, down to the deck</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/roofing/anchor-peak-roofing/underlayment-640.avif 640w, ../_assets/library/roofing/anchor-peak-roofing/underlayment-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/roofing/anchor-peak-roofing/underlayment-720.jpg" width="1600" height="1200" alt="Synthetic underlayment" loading="lazy" decoding="async"></picture><figcaption>Synthetic underlayment</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/roofing/anchor-peak-roofing/flashing-640.avif 640w, ../_assets/library/roofing/anchor-peak-roofing/flashing-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/roofing/anchor-peak-roofing/flashing-720.jpg" width="1600" height="1200" alt="Step flashing at the chimney" loading="lazy" decoding="async"></picture><figcaption>Step flashing at the chimney</figcaption></figure></div></div></section>
-<!-- /gsw:gallery -->
-<section class="close" id="contact"><div class="wrap">
-  <h2>Worried about how you'd pay for it?</h2>
-  <p>Call and a human answers: day, night, weekend, during the storm. Emergency tarping usually the same day.</p>
-  <a class="dial"><span>Call now</span><b>(210) 872-6604</b></a>
-  <!-- gsw:contact-form -->
-    <form class="gsw-cf gsw-cf--centred" novalidate>
-      <p class="gsw-cf-lead">Or leave your details and we'll call you back.</p>
-      <div class="gsw-cf-grid">
-        <label><span>Name</span><input type="text" name="name" autocomplete="name" required></label>
-        <label><span>Phone or email</span><input type="text" name="contact" autocomplete="tel" required></label>
-        <label class="gsw-cf-wide"><span>What can we help with? <em>(optional)</em></span><textarea name="message" rows="3"></textarea></label>
+</section>
+
+<section class="fin on-ink" aria-label="Financing">
+  <div class="wrap">
+    <p class="cond">From $89/mo, nothing&nbsp;down</p>
+    <blockquote>“The financing made it possible. $110 a month instead of fifteen grand up&nbsp;front.”<cite class="tnum">Joel B., Riverbend</cite></blockquote>
+  </div>
+</section>
+
+<section class="sec services" id="services" aria-labelledby="services-title">
+  <div class="wrap">
+    <div class="head">
+      <p class="exp">Services</p>
+      <h2 class="title" id="services-title">What we do</h2>
+      <div class="rule" aria-hidden="true"></div>
+      <p class="lede muted">Most calls fall into one of these. If yours doesn’t, ring us anyway. We’ll tell you straight whether it’s a repair or a&nbsp;replacement.</p>
+    </div>
+    <ol class="cards">
+      <li><span class="exp tnum">01</span><h3>Storm &amp; hail damage</h3><p>Free inspection, full photo report, and we meet the adjuster on site so nothing gets argued about later.</p></li>
+      <li><span class="exp tnum">02</span><h3>Full replacement</h3><p>Architectural shingle, metal or tile. Tear-off, deck inspection, ice-and-water barrier, and the site left clean.</p></li>
+      <li><span class="exp tnum">03</span><h3>Emergency repair</h3><p>Active leak or missing shingles after a storm. Same-day tarping to stop the damage, permanent fix scheduled after.</p></li>
+      <li><span class="exp tnum">04</span><h3>Gutters &amp; ventilation</h3><p>Half the roofs we replace failed early because the attic couldn’t breathe. We fix the cause, not just the symptom.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec claim" aria-labelledby="claim-title" style="padding-top: 0">
+  <div class="wrap">
+    <div class="panel">
+      <div>
+        <p class="exp">Insurance claims handled</p>
+        <h2 id="claim-title">Claim or&nbsp;quote</h2>
+        <p class="lede muted">If it’s insurance, we meet your adjuster on the roof and handle the paperwork. If it isn’t, you get one fixed written price and a monthly figure beside&nbsp;it.</p>
       </div>
-      <div class="gsw-cf-row">
-        <button type="submit" class="btn btn-primary">Request a call back</button>
-        <span class="gsw-cf-err" role="alert" hidden>Add your name and a way to reach you.</span>
+      <figure>
+        <blockquote>“Handled the whole insurance claim. I signed two things and that was&nbsp;it.”</blockquote>
+        <figcaption><cite>Anne-Marie K., Cedar Park</cite></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec on-ink" id="results" aria-labelledby="wall-title">
+  <div class="wrap">
+    <div class="head">
+      <p class="exp">Results</p>
+      <h2 class="title" id="wall-title">What the neighbours said</h2>
+      <div class="rule" aria-hidden="true"></div>
+    </div>
+    <div class="wall">
+      <figure><blockquote>“Came out at 9pm during the storm and tarped it. Full replacement done in two days&nbsp;flat.”</blockquote><figcaption><b>Marcus T.</b> · Northside</figcaption></figure>
+      <figure><blockquote>“They caught that our attic ventilation was the real problem. Nobody else even&nbsp;looked.”</blockquote><figcaption><b>Priya S.</b> · Elmwood</figcaption></figure>
+      <figure><blockquote>“The financing made it possible. $110 a month instead of fifteen grand up&nbsp;front.”</blockquote><figcaption><b>Joel B.</b> · Riverbend</figcaption></figure>
+      <figure><blockquote>“Handled the whole insurance claim. I signed two things and that was&nbsp;it.”</blockquote><figcaption><b>Anne-Marie K.</b> · Cedar Park</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec process" id="process" aria-labelledby="process-title">
+  <div class="wrap">
+    <div class="head">
+      <p class="exp">Process</p>
+      <h2 class="title" id="process-title">How a job actually runs</h2>
+      <div class="rule" aria-hidden="true"></div>
+      <p class="lede muted">The part most roofers won’t put a figure on, which is the only part most homeowners actually want a figure&nbsp;on.</p>
+    </div>
+    <ol class="steps">
+      <li><span class="n cond">1</span><h3>Free inspection</h3><p>We go up, photograph everything, and tell you whether you need a roof or a repair. No pressure either way.</p></li>
+      <li><span class="n cond">2</span><h3>Claim or quote</h3><p>If it’s insurance, we meet your adjuster on the roof and handle the paperwork. If it isn’t, you get one fixed written price and a monthly figure beside it.</p></li>
+      <li><span class="n cond">3</span><h3>Install</h3><p>Most homes are one to two days. Materials delivered the morning of, site cleaned and magnet-swept at the end.</p></li>
+      <li><span class="n cond">4</span><h3>Final walkthrough</h3><p>We walk it with you, register your warranty, and you have a direct number if anything ever comes up.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec job" aria-labelledby="job-title" style="padding-top: 0">
+  <div class="wrap">
+    <div class="head">
+      <p class="exp">On the job</p>
+      <h2 class="title" id="job-title">Tarped, stripped, replaced.</h2>
+      <div class="rule" aria-hidden="true"></div>
+      <p class="lede muted">Emergency work does not mean rough work. The same details get done at two in the morning as at two in the&nbsp;afternoon.</p>
+    </div>
+    <div class="grid">
+      <figure><picture><source type="image/avif" srcset="../_assets/library/roofing/anchor-peak-roofing/damage-before-1280.avif 1280w, ../_assets/library/roofing/anchor-peak-roofing/damage-before-640.avif 640w" sizes="(max-width: 759px) 100vw, 50vw"><img src="../_assets/library/roofing/anchor-peak-roofing/damage-before-720.jpg" alt="Storm-damaged roof before work" width="720" height="537" loading="lazy"></picture><figcaption><span class="exp tnum">1</span><span class="exp">Before</span></figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/roofing/anchor-peak-roofing/damage-after-1280.avif 1280w, ../_assets/library/roofing/anchor-peak-roofing/damage-after-640.avif 640w" sizes="(max-width: 759px) 100vw, 50vw"><img src="../_assets/library/roofing/anchor-peak-roofing/damage-after-720.jpg" alt="The same roof after replacement" width="720" height="537" loading="lazy"></picture><figcaption><span class="exp tnum">2</span><span class="exp">After</span></figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/roofing/anchor-peak-roofing/tear-off-1280.avif 1280w, ../_assets/library/roofing/anchor-peak-roofing/tear-off-640.avif 640w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/roofing/anchor-peak-roofing/tear-off-720.jpg" alt="Old shingles stripped to the deck" width="720" height="537" loading="lazy"></picture><figcaption><span class="exp tnum">3</span><span class="exp">Tear-off, down to the deck</span></figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/roofing/anchor-peak-roofing/underlayment-1280.avif 1280w, ../_assets/library/roofing/anchor-peak-roofing/underlayment-640.avif 640w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/roofing/anchor-peak-roofing/underlayment-720.jpg" alt="Rolls of synthetic underlayment on a bare deck" width="720" height="537" loading="lazy"></picture><figcaption><span class="exp tnum">4</span><span class="exp">Synthetic underlayment</span></figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/roofing/anchor-peak-roofing/flashing-1280.avif 1280w, ../_assets/library/roofing/anchor-peak-roofing/flashing-640.avif 640w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/roofing/anchor-peak-roofing/flashing-720.jpg" alt="New step flashing against a brick chimney" width="720" height="537" loading="lazy"></picture><figcaption><span class="exp tnum">5</span><span class="exp">Step flashing at the chimney</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec close on-ink" id="contact" aria-labelledby="close-title">
+  <div class="wrap">
+    <div class="grid2">
+      <div>
+        <h2 id="close-title" class="cond">Worried about how you’d pay for&nbsp;it?</h2>
+        <p class="lede">Call and a human answers: day, night, weekend, during the storm. Emergency tarping usually the same&nbsp;day.</p>
+        <div class="cta">
+          <a class="btn btn-paper tnum" href="tel:+12108726604">Call now (210)&nbsp;872-6604</a>
+        </div>
       </div>
-      <p class="gsw-cf-done" role="status" hidden>Thanks. Someone will call you back within one business day.</p>
-    </form>
-    <!-- /gsw:contact-form -->
-    <p class="note">Free inspection and a straight answer on both routes: what the claim would likely cover, and what the monthly would be if it doesn't.</p>
-  <p class="note"><a href="#contact">Get a free inspection</a></p>
-</div></section>
-<footer class="foot"><div class="wrap">
-  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="4" y="4" width="56" height="56" rx="2" fill="#17181A"/>
-<g fill="none" stroke="#F5B301" stroke-width="9" stroke-linecap="square" stroke-linejoin="miter">
-<path d="M13 33 L32 16 L51 33"/><path d="M13 50 L32 33 L51 50"/>
-</g></svg><span>Anchor Peak Roofing</span></span></a>
-  <p><a>(210) 872-6604</a> · Licensed, bonded and insured · Financing approved in minutes</p>
-  <p>6170 Sandover Road Unit 12, Cedar Reach, NY 11273</p>
-</div></footer>
-<div class="callbar"><a class="tel">Call now (210) 872-6604</a><a class="alt2" href="#contact">Free inspection</a></div>
-<!-- gsw:motion -->
-<style>
-  /* Motion pass. Everything here is gated on .gsw-m, which only the script
-     below adds, so a page without JavaScript never hides anything. */
-  .gsw-m [data-gsw-reveal] {
-    opacity: 0; transform: translateY(14px);
-    transition: opacity .7s cubic-bezier(.2,.6,.2,1), transform .7s cubic-bezier(.2,.6,.2,1);
-  }
-  .gsw-m [data-gsw-reveal].gsw-in { opacity: 1; transform: none; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(2) { transition-delay: .08s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(3) { transition-delay: .16s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(4) { transition-delay: .24s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(5) { transition-delay: .32s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(6) { transition-delay: .40s; }
-  @keyframes gsw-hero-in { from { opacity: 0; transform: scale(1.025); } to { opacity: 1; transform: none; } }
-  .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: gsw-hero-in 1s ease-out both; }
-  @media (prefers-reduced-motion: reduce) {
-    .gsw-m [data-gsw-reveal] { opacity: 1; transform: none; transition: none; }
-    .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: none; }
-  }
-</style>
+      <form class="form" id="callback" novalidate>
+        <p class="intro">Or leave your details and we’ll call you back.</p>
+        <div class="field"><label class="exp" for="cb-name">Name</label><input id="cb-name" name="name" type="text" autocomplete="name" required></div>
+        <div class="field"><label class="exp" for="cb-contact">Phone or email</label><input id="cb-contact" name="contact" type="text" autocomplete="tel" required></div>
+        <div class="field"><label class="exp" for="cb-msg">What can we help with? (optional)</label><textarea id="cb-msg" name="message" rows="3"></textarea></div>
+        <div class="actions">
+          <button class="btn btn-paper" type="submit">Request a call back</button>
+          <p class="hint" id="cb-hint" role="alert" hidden>Add your name and a way to reach you.</p>
+        </div>
+        <p class="done" id="cb-done" role="status" hidden>Thanks. Someone will call you back within one business&nbsp;day.</p>
+      </form>
+    </div>
+    <div class="after">
+      <p>Free inspection and a straight answer on both routes: what the claim would likely cover, and what the monthly would be if it&nbsp;doesn’t.</p>
+      <a class="btn btn-outline-paper" href="#cb-name">Get a free inspection</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot on-ink">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="#"><img src="../_assets/identity/roofing/anchor-peak-roofing-mark.svg" alt="" width="34" height="34"><span class="exp">Anchor Peak Roofing</span></a>
+      <p class="tnum" style="margin-top: var(--s2)"><a href="tel:+12108726604">(210)&nbsp;872-6604</a> · Licensed, bonded and insured · Financing approved in minutes</p>
+    </div>
+    <div>
+      <p class="tnum">6170 Sandover Road Unit 12, Cedar Reach, NY 11273</p>
+      <p class="tnum" style="margin-top: var(--s1)"><a href="tel:+12108726604">Call now (210)&nbsp;872-6604</a> · <a href="#contact">Free inspection</a></p>
+    </div>
+    <p class="fine">Anchor Peak Roofing is a fictional business; this page is a design reference.</p>
+  </div>
+</footer>
+
+<div class="bar" aria-label="Quick actions">
+  <a class="btn btn-ink tnum" href="tel:+12108726604"><span>Call now</span><b>(210)&nbsp;872-6604</b></a>
+  <a class="btn btn-paper" href="#contact">Free inspection</a>
+</div>
+
 <script>
 (function () {
-  if (!('IntersectionObserver' in window)) return;
-  var targets = [].slice.call(document.querySelectorAll('body > section, .gsw-gal figure'));
-  // The first section is the hero; it is on screen already and owns its own entrance.
-  var first = document.querySelector('body > section');
-  targets = targets.filter(function (el) { return el !== first; });
-  if (!targets.length) return;
-  document.documentElement.classList.add('gsw-m');
-  targets.forEach(function (el) { el.setAttribute('data-gsw-reveal', ''); });
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) { e.target.classList.add('gsw-in'); io.unobserve(e.target); }
-    });
-  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-  targets.forEach(function (el) { io.observe(el); });
-})();
-</script>
-<!-- /gsw:motion -->
-
-<!-- gsw:contact-form -->
-<script>
-/* The enquiry form confirms in place. Nothing is sent: a reference build. */
-(function () {
-  var form = document.querySelector('.gsw-cf');
-  if (!form) return;
+  // Static preview: validates locally and shows the confirmation state; nothing is sent.
+  var form = document.getElementById('callback');
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    var name = form.name.value.trim(), contact = form.contact.value.trim();
-    var err = form.querySelector('.gsw-cf-err');
-    if (!name || !contact) { err.hidden = false; (name ? form.contact : form.name).focus(); return; }
-    err.hidden = true;
-    form.setAttribute('data-sent', '');
-    form.querySelector('.gsw-cf-done').hidden = false;
+    var name = form.elements.name, contact = form.elements.contact, hint = document.getElementById('cb-hint');
+    var ok = true;
+    [name, contact].forEach(function (el) {
+      var bad = !el.value.trim();
+      el.closest('.field').classList.toggle('is-invalid', bad);
+      el.setAttribute('aria-invalid', bad ? 'true' : 'false');
+      if (bad) ok = false;
+    });
+    hint.hidden = ok;
+    if (!ok) { (name.value.trim() ? contact : name).focus(); return; }
+    form.classList.add('is-sent');
+    document.getElementById('cb-done').hidden = false;
   });
 })();
 </script>
-<!-- /gsw:contact-form -->
 </body>
 </html>

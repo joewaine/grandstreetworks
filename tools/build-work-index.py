@@ -275,6 +275,10 @@ def render(slug, industry, company, sub, disclaimer, directions):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{titled(industry)}: six builds · Grand Street Works</title>
 <meta name="description" content="Six reference homepage builds for {industry.lower()}, each for a different business.">
+<meta property="og:image" content="https://grandstreetworks.com/assets/social/gw-og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="{FAVICON}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -339,27 +343,40 @@ def render(slug, industry, company, sub, disclaimer, directions):
   .section-header .label.dim {{ color: rgba(229, 229, 230, 0.6); }}
 
   /* ---------- One build: the site, then its bar ---------- */
+  /* Two up: the six builds sit in pairs so they can be compared side by
+     side, the way a client actually looks at options. */
   .builds {{
     background: var(--ground);
-    padding: 3rem 0;
+    padding: 3rem 5%;
     border-bottom: 1px solid var(--border-color);
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
   }}
   .build {{
-    width: 90%;
-    margin: 0 auto 3.5rem;
+    min-width: 0;
     border: 1px solid var(--border-color);
     background: var(--bg-color);
   }}
-  .build:last-child {{ margin-bottom: 0; }}
   .frame-well {{
     background: var(--stage);
     height: var(--frame-height);
     min-height: 520px;
     display: flex; justify-content: center;
+    overflow: hidden;
   }}
   .frame-well[data-mode="phone"] {{ padding: 1.5rem 1rem; }}
   .build iframe {{
     width: 100%; height: 100%; border: 0; background: #fff; display: block;
+  }}
+  /* Desktop preview at half scale: a half-width column is ~630px, which
+     would otherwise show the site's tablet layout. Rendering the frame at
+     twice the column and scaling it down keeps a real desktop layout in
+     each pane. */
+  .frame-well[data-mode="full"] {{ justify-content: flex-start; }}
+  .frame-well[data-mode="full"] iframe {{
+    flex: none; width: 200%; height: 200%;
+    transform: scale(0.5); transform-origin: 0 0;
   }}
   .frame-well[data-mode="phone"] iframe {{
     width: 390px; max-width: 100%;
@@ -458,11 +475,13 @@ def render(slug, industry, company, sub, disclaimer, directions):
     /* the viewport is already the phone these were built for */
     .widths {{ display: none; }}
     .frame-well, .frame-well[data-mode="phone"] {{ padding: 0; height: 640px; min-height: 0; }}
-    .builds {{ padding: 1.5rem 0; }}
-    .build {{ width: calc(100% - 2.5rem); margin-bottom: 1.5rem; }}
+    .builds {{ padding: 1.5rem 1.25rem; gap: 1.25rem; }}
     .frame-well[data-mode="phone"] iframe {{ width: 100%; box-shadow: none; }}
   }}
   @media (max-width: 640px) {{
+    /* one column on a phone, and the frame is the phone: no scaling */
+    .builds {{ grid-template-columns: minmax(0, 1fr); }}
+    .frame-well[data-mode="full"] iframe {{ width: 100%; height: 100%; transform: none; }}
     .portfolio-of {{ display: none; }}
     header, .section-header, .noscript-note, footer {{
       padding-left: 1.25rem; padding-right: 1.25rem;

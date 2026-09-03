@@ -6,147 +6,10 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Fair Oaks Roofing · Licensed &amp; insured, serving the metro area since 2004</title>
 <meta name="description" content="Storm damage, full replacements and repairs, mostly within a few miles of our yard. Nearly every job we book comes from the last one, which is a strong incentive to leave a street tidy.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-/* D2 — THE NEIGHBOURS ONE. hero:split nav:minimal services:list proof:review-wall
-   ink #1B1D20 · surface #FAF9F7 · accent #2F4858 · muted #55595F · on-accent #FFFFFF
-   H1 ramp: 33/38/48/60px · Fjalla One display / Work Sans body
-   Device: the chevron rule — a zigzag ridge line drawn in CSS, used as every section
-   divider. FIX answered first: no proof of volume, so four named neighbours from four
-   named streets carry the page. The call slab is the hero's right half, so the number
-   is never below the fold; financing and the claim block are their own strips. */
-:root{--ink:#1B1D20;--surface:#FAF9F7;--accent:#2F4858;--muted:#55595F;--on-accent:#FFFFFF;
---panel:#FFFFFF;--band:#EDEBE6;--rule:rgba(27,29,32,.15);--hair:rgba(27,29,32,.08);--wrap:1140px}
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--surface);color:var(--ink);overflow-x:hidden;padding-bottom:82px;
-font:400 17px/1.62 "Work Sans",system-ui,-apple-system,sans-serif}
-.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
-h1,h2,h3{font-family:"Fjalla One",Impact,sans-serif;font-weight:400;margin:0;line-height:1.06;
-letter-spacing:.004em}
-a{color:inherit}
-p{margin:0}
-.btn{display:flex;align-items:center;justify-content:center;min-height:58px;padding:8px 22px;
-text-decoration:none;text-align:center;line-height:1.15;font-weight:600;font-size:16px;
-letter-spacing:.06em;text-transform:uppercase;border:2px solid transparent}
-.btn-primary{background:var(--accent);color:var(--on-accent)}
-.btn-ghost{background:transparent;color:var(--accent);border-color:var(--accent)}
-.topbar{background:var(--ink);color:#D3D6DA;font-size:14px}
-.topbar .wrap{padding:8px 20px;letter-spacing:.05em}
-.nav{position:sticky;top:0;z-index:30;background:var(--surface);border-bottom:1px solid var(--hair)}
-.nav .wrap{display:flex;align-items:center;gap:10px;height:56px}
-.brand{font-family:"Fjalla One",Impact,sans-serif;font-size:22px;text-decoration:none;
-letter-spacing:.02em;flex:none;line-height:1}
-.navact{margin-left:auto;flex:none;text-decoration:none;font-family:"Fjalla One",Impact,sans-serif;
-font-size:21px;color:var(--accent);letter-spacing:.01em;white-space:nowrap;padding:8px 0;
-border-bottom:2px solid var(--accent)}
-.chev{height:15px;background-repeat:repeat-x;background-size:30px 30px;
-background-image:
-linear-gradient(45deg,var(--accent) 25%,transparent 25%),
-linear-gradient(-45deg,var(--accent) 25%,transparent 25%);
-background-position:0 0,0 0;opacity:.85}
-.hero{padding:22px 0 30px}
-.split{display:grid;gap:22px}
-.eyebrow{display:inline-block;font-size:13px;letter-spacing:.18em;text-transform:uppercase;
-font-weight:600;color:var(--on-accent);background:var(--accent);padding:6px 10px;margin:0 0 14px}
-.hero h1{font-size:clamp(33px,8.2vw,60px);max-width:14ch}
-.hero .sub{font-size:16px;color:var(--muted);max-width:48ch;margin:14px 0 0;line-height:1.58}
-.slab{background:var(--panel);border:2px solid var(--ink);padding:18px 16px 20px}
-.slab .lab{font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;
-color:var(--muted);margin:0 0 6px}
-.slab .tel{display:block;font-family:"Fjalla One",Impact,sans-serif;font-size:clamp(38px,10.4vw,54px);
-color:var(--accent);text-decoration:none;line-height:1;letter-spacing:.005em;margin-bottom:14px}
-.ctas{display:grid;gap:9px}
-.badges{list-style:none;margin:16px 0 0;padding:14px 0 0;border-top:2px solid var(--ink);display:grid;gap:7px}
-.badges li{font-size:15px;font-weight:500;padding-left:18px;position:relative;color:var(--ink)}
-.badges li::before{content:"";position:absolute;left:0;top:8px;width:9px;height:9px;
-background:var(--accent);transform:rotate(45deg)}
-.fin{background:var(--accent);color:var(--on-accent)}
-.fin .wrap{padding:18px 20px;display:grid;gap:6px}
-.fin .big{font-family:"Fjalla One",Impact,sans-serif;font-size:clamp(26px,6.6vw,38px);line-height:1.05}
-.fin .small{font-size:16px;color:#D6DEE4}
-.sec{padding:42px 0}
-.kicker{font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;
-color:var(--accent);margin:0 0 9px}
-.sec h2{font-size:clamp(29px,7vw,50px);margin-bottom:12px}
-.lede{color:var(--muted);max-width:58ch;margin:0 0 24px;font-size:16px}
-.list{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
-.list li{padding:18px 0;border-bottom:1px solid var(--rule)}
-.list h3{font-size:22px;margin-bottom:5px}
-.list p{color:var(--muted);font-size:16px;max-width:66ch}
-.claimbox{background:var(--band);border-left:6px solid var(--accent);padding:22px 18px}
-.claimbox h2{font-size:clamp(26px,6.2vw,40px);margin-bottom:10px}
-.claimbox p{color:var(--muted);font-size:16px;max-width:60ch;margin-bottom:12px}
-.claimbox p:last-child{margin-bottom:0}
-.claimbox b{color:var(--ink)}
-.wall{display:grid;gap:0;margin-top:22px;border-top:2px solid var(--ink)}
-.wall article{padding:20px 0;border-bottom:1px solid var(--rule)}
-.wall q{display:block;font-family:"Fjalla One",Impact,sans-serif;font-size:clamp(20px,4.6vw,24px);
-line-height:1.28;quotes:none}
-.wall cite{display:block;font-style:normal;font-size:15px;color:var(--muted);margin-top:9px;
-letter-spacing:.06em;text-transform:uppercase;font-weight:600}
-.steps{list-style:none;margin:22px 0 0;padding:0;counter-reset:s;display:grid;gap:0}
-.steps li{counter-increment:s;padding:18px 0;border-top:1px solid var(--rule);display:grid;
-grid-template-columns:40px minmax(0,1fr);gap:12px}
-.steps li::before{content:counter(s);font-family:"Fjalla One",Impact,sans-serif;font-size:26px;
-color:var(--accent);line-height:1}
-.steps h3{font-size:20px;margin-bottom:5px}
-.steps p{color:var(--muted);font-size:16px}
-.close{background:var(--ink);color:#EFEFEE;padding:42px 0 46px}
-.close h2{font-size:clamp(30px,7.2vw,52px);max-width:14ch;color:#fff}
-.close p{max-width:52ch;font-size:17px;margin:12px 0 20px;color:#BFC3C8}
-.close .tel{display:inline-block;font-family:"Fjalla One",Impact,sans-serif;
-font-size:clamp(36px,9.6vw,52px);color:#8FB6CE;text-decoration:none;line-height:1;margin-bottom:16px}
-.close .btn-primary{background:#8FB6CE;color:var(--ink)}
-.close .btn-ghost{color:#EFEFEE;border-color:rgba(239,239,238,.5)}
-.note{font-size:15px;color:#A9AEB4;margin-top:16px;max-width:52ch}
-.foot{padding:32px 0 28px;font-size:15px;color:var(--muted)}
-.foot .brand{display:inline-block;margin-bottom:10px;color:var(--ink)}
-.foot p{margin:0 0 8px;max-width:62ch}
-.footnav{display:flex;flex-wrap:wrap;gap:6px 22px;margin:0 0 14px;font-size:13px;
-letter-spacing:.16em;text-transform:uppercase;font-weight:600}
-.footnav a{text-decoration:none;color:var(--accent);padding:5px 0}
-.foot a{color:var(--accent)}
-.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--surface);
-border-top:2px solid var(--ink);display:grid;grid-template-columns:1fr auto;gap:6px;padding:6px}
-.callbar a{display:flex;align-items:center;justify-content:center;min-height:58px;
-text-decoration:none;text-align:center;font-weight:600;line-height:1.15;padding:0 12px}
-.callbar .tel{background:var(--accent);color:#fff;font-family:"Fjalla One",Impact,sans-serif;
-font-weight:400;font-size:25px;letter-spacing:.01em}
-.callbar .alt2{border:2px solid var(--ink);font-size:13px;letter-spacing:.07em;
-text-transform:uppercase;max-width:128px}
-@media(max-width:559px){.navact{display:none}}
-@media(min-width:760px){.split{grid-template-columns:1.15fr .85fr;gap:34px;align-items:start}
-.ctas{grid-template-columns:1fr 1fr}.hero .sub{font-size:19px}.slab{padding:26px 24px 28px}
-.sec{padding:70px 0}.hero{padding:40px 0 52px}.wall{grid-template-columns:1fr 1fr;column-gap:40px}
-.steps{grid-template-columns:1fr 1fr;column-gap:40px}.fin .wrap{grid-template-columns:auto 1fr;
-align-items:baseline;gap:22px}.claimbox{padding:34px 30px}}
-@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
-</style>
-
-<style>
-  /* Hero plate, added with the photography pass. Full-bleed between the hero
-     and the first content section, with no border of its own: every one of
-     these designs owns a different rule weight and ink colour, and a borrowed
-     hairline reads as a mistake in about half of them. */
-  .gsw-plate picture { display: block; width: 100%; }
-  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
-  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
-  .gsw-plate img {
-    display: block;
-    width: 100%;
-    height: clamp(220px, 40vw, 520px);
-    object-fit: cover;
-    object-position: center;
-  }
-  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
-</style>
 <!-- gsw:identity -->
 <link rel="icon" href="../_assets/identity/roofing/fair-oaks-roofing-icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../_assets/identity/roofing/fair-oaks-roofing-icon-180.png">
-<meta name="theme-color" content="#2F4858">
+<meta name="theme-color" content="#FBF7EF">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Fair Oaks Roofing">
 <meta property="og:title" content="Fair Oaks Roofing · Licensed &amp; insured, serving the metro area since 2004">
@@ -156,247 +19,434 @@ align-items:baseline;gap:22px}.claimbox{padding:34px 30px}}
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"RoofingContractor","name":"Fair Oaks Roofing","description":"Licensed & insured, serving the metro area since 2004","telephone":"(217) 331-9075","areaServed":"Metro area","image":"https://grandstreetworks.com/work/_assets/identity/roofing/fair-oaks-roofing-og.png","logo":"https://grandstreetworks.com/work/_assets/identity/roofing/fair-oaks-roofing-mark.svg"}</script>
-
+<!-- /gsw:identity -->
+<link rel="preload" href="../_assets/fonts/source-serif-4-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../_assets/fonts/libre-franklin-var.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-  /* Identity pass. The lockup is the mark plus the wordmark the build already
-     had; the mark is sized in em so it tracks whatever display face this build
-     sets its brand in. */
-  .gsw-lockup { display: inline-flex; align-items: center; gap: .46em; }
-  .gsw-lockup svg { height: 1.16em; width: auto; flex: none; display: block; }
-</style>
+/* D2 — THE LOCAL PAPER. hero:split nav:minimal services:list proof:review-wall
+   ink #1F1D1A · surface #FBF7EF · accent #A8462E · muted #6B6459 · on-accent #FBF7EF
+   H1 ramp: 40/48/56/64px · Source Serif 4 (opsz 60) display and body / Libre Franklin labels
+   Device: the neighbours' column — four named notices from four named streets set beside
+   four house photographs in a ruled column grid, like the community weekly, so the
+   headline's dare is answered on the page. Small-caps section marks with folio numbers,
+   hairlines everywhere, light ground only. FIX answered first: no proof of volume — the
+   proof is four houses you can drive past. The number is printed under the masthead, in
+   the hero column, in the closing notice and in the mobile bar. Seven sizes, two
+   families, three weights. */
 
+@font-face { font-family: "Source Serif 4"; src: url("../_assets/fonts/source-serif-4-var.woff2") format("woff2"); font-weight: 300 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Source Serif 4"; src: url("../_assets/fonts/source-serif-4-italic-var.woff2") format("woff2"); font-weight: 300 700; font-style: italic; font-display: swap; }
+@font-face { font-family: "Libre Franklin"; src: url("../_assets/fonts/libre-franklin-var.woff2") format("woff2"); font-weight: 300 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "Serif Fallback"; src: local("Georgia"); size-adjust: 97%; ascent-override: 92%; descent-override: 26%; }
+@font-face { font-family: "Franklin Fallback"; src: local("Arial"); size-adjust: 101%; ascent-override: 92%; descent-override: 24%; }
 
+:root {
+  --cream: #FBF7EF; --band: #F1EBDF; --panel: #FFFFFF; --ink: #1F1D1A; --muted: #6B6459;
+  --brick: #A8462E; --brick-deep: #8A3722; --rule: #D9D0C1; --hair: #EAE3D6;
+  --serif: "Source Serif 4", "Serif Fallback", Georgia, serif;
+  --sans: "Libre Franklin", "Franklin Fallback", Arial, sans-serif;
+  --t-label: 0.8125rem; --t-small: 0.9375rem; --t-body: 1.0625rem;
+  --t-lede: clamp(1.125rem, 1rem + 0.5vw, 1.3125rem);
+  --t-h3: clamp(1.375rem, 1.15rem + 0.9vw, 1.6875rem);
+  --t-h2: clamp(1.75rem, 1.2rem + 2vw, 2.5rem);
+  --t-display: clamp(2.5rem, 1.5rem + 3.9vw, 4rem);
+  /* 17 × 1.6 ≈ 27 → a 7-based ladder */
+  --s1: 7px; --s2: 14px; --s3: 28px; --s4: 42px; --s6: 56px; --s8: 84px; --s12: 112px;
+  --wrap: 1180px; --gutter: clamp(20px, 4vw, 48px); --bar-h: 64px;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body { margin: 0; background: var(--cream); color: var(--ink); font: 400 var(--t-body)/1.6 var(--serif); font-optical-sizing: auto; overflow-x: hidden; padding-bottom: var(--bar-h); }
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; margin: 0; text-wrap: balance; font-optical-sizing: auto; }
+p { margin: 0; text-wrap: pretty; }
+a { color: inherit; }
+img { display: block; max-width: 100%; height: auto; }
+ul, ol { list-style: none; margin: 0; padding: 0; }
+figure { margin: 0; }
+b { font-weight: 500; }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+.label { font-family: var(--sans); font-size: var(--t-label); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; line-height: 1.3; }
+.small { font-family: var(--sans); font-size: var(--t-small); line-height: 1.5; }
+.lede { font-size: var(--t-lede); line-height: 1.45; max-width: 56ch; }
+.muted { color: var(--muted); }
+.brick { color: var(--brick); }
+:focus-visible { outline: 2px solid var(--brick); outline-offset: 3px; }
+.skip { position: absolute; left: -999px; top: 0; background: var(--ink); color: var(--cream); padding: var(--s1) var(--s2); z-index: 100; }
+.skip:focus { left: var(--s2); top: var(--s2); }
 
+/* ---------- Buttons ---------- */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5em; min-height: 50px; padding: 0.7em 1.3em; border: 1px solid var(--ink); font-family: var(--sans); font-size: var(--t-small); font-weight: 500; line-height: 1.2; letter-spacing: 0.02em; text-decoration: none; cursor: pointer; background: transparent; color: var(--ink); transition: background-color 160ms, border-color 160ms, color 160ms; }
+.btn:hover { background: var(--ink); color: var(--cream); }
+.btn-primary { background: var(--brick); border-color: var(--brick); color: var(--cream); }
+.btn-primary:hover { background: var(--brick-deep); border-color: var(--brick-deep); color: var(--cream); }
 
+/* ---------- Masthead ---------- */
+.topline { border-bottom: 1px solid var(--rule); }
+.topline .wrap { display: flex; justify-content: space-between; gap: var(--s2); padding-top: var(--s1); padding-bottom: var(--s1); }
+.topline .label { color: var(--muted); letter-spacing: 0.1em; }
+.mast .wrap { display: flex; align-items: baseline; justify-content: space-between; gap: var(--s3); padding-top: var(--s3); padding-bottom: var(--s3); border-bottom: 2px solid var(--ink); }
+.brand { display: inline-flex; align-items: center; gap: 0.4em; font-family: var(--serif); font-size: var(--t-h3); font-weight: 600; letter-spacing: -0.01em; text-decoration: none; line-height: 1; }
+.brand svg { height: 0.95em; width: auto; }
+.mast .tel { font-family: var(--sans); font-size: var(--t-small); font-weight: 500; text-decoration: none; border-bottom: 1px solid var(--brick); padding-bottom: 2px; white-space: nowrap; }
+.mast .tel:hover { color: var(--brick); }
 
-<style>
-  /* Recent-work gallery. Everything here is drawn from the properties the build
-     already declares, so the band inherits each design's palette and heading
-     face rather than importing a seventh look. */
-  .gsw-gal { background: #FAF9F7; color: #1B1D20;
-             padding: clamp(38px, 6vw, 74px) 0; }
-  .gsw-gal-in { max-width: var(--wrap, 1140px); margin: 0 auto; padding: 0 20px; }
-  .gsw-gal-lab { font-size: 13px; letter-spacing: .18em; text-transform: uppercase;
-                 font-weight: 600; color: var(--accent); margin: 0 0 14px; }
-  .gsw-gal h2 { margin: 0; color: inherit; }
-  .gsw-gal-note { color: var(--muted); margin: 14px 0 30px; max-width: 58ch; }
-  .gsw-ba { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px; }
-  .gsw-gal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-  .gsw-gal figure { margin: 0; position: relative; overflow: hidden;
-                    background: var(--rule, rgba(0,0,0,.1)); }
-  .gsw-gal picture { display: block; }
-  /* height:auto matters — the width/height attributes are a presentational
-     hint, and without this the 1200px hint beats aspect-ratio. */
-  .gsw-gal img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3;
-                 object-fit: cover; transition: transform .5s ease; }
-  .gsw-gal figure:hover img { transform: scale(1.035); }
-  .gsw-gal figcaption { position: absolute; left: 0; bottom: 0;
-                        background: #1B1D20; color: #FAF9F7;
-                        font-size: 12px; font-weight: 600; letter-spacing: .14em;
-                        text-transform: uppercase; padding: 7px 12px; }
-  @media (max-width: 720px) {
-    .gsw-ba, .gsw-gal-grid { grid-template-columns: 1fr; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .gsw-gal img { transition: none; }
-    .gsw-gal figure:hover img { transform: none; }
-  }
-</style>
+/* ---------- Section marks ---------- */
+.mark { display: flex; align-items: baseline; gap: var(--s2); padding-top: var(--s2); border-top: 1px solid var(--ink); margin-bottom: var(--s4); }
+.mark .folio { font-family: var(--serif); font-size: var(--t-h3); font-weight: 400; color: var(--brick); line-height: 1; font-variant-numeric: tabular-nums; }
+.mark .label { color: var(--muted); }
+.sec { padding: var(--s8) 0; }
+h2 { font-size: var(--t-h2); line-height: 1.12; letter-spacing: -0.005em; max-width: 22ch; }
+h3 { font-size: var(--t-h3); font-weight: 600; line-height: 1.24; }
+.head { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--s3) var(--s8); align-items: start; margin-bottom: var(--s6); }
+.head .lede { padding-top: 0.3em; }
 
-<style>
-  /* gsw:contact-form — the closing section takes a name. Borrows the section's
-     colour through currentColor and the build's own .btn for the button. */
-  .gsw-cf { max-width: 640px; margin: 28px 0 0; text-align: left; }
-  .gsw-cf--centred { margin-left: auto; margin-right: auto; }
-  .gsw-cf-lead { margin: 0 0 12px; font-size: 15px; opacity: .85; }
-  .gsw-cf-grid { display: grid; gap: 10px; }
-  .gsw-cf label { display: flex; flex-direction: column; gap: 5px; font-size: 11px;
-                  font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
-  .gsw-cf label em { font-style: normal; font-weight: 400; text-transform: none; letter-spacing: 0; opacity: .7; }
-  .gsw-cf input, .gsw-cf textarea { font: inherit; font-size: 16px; color: inherit; background: transparent;
-                                    border: 1.5px solid currentColor; border-radius: 0; padding: 10px 12px; width: 100%;
-                                    box-sizing: border-box; letter-spacing: 0; text-transform: none; font-weight: 400; }
-  .gsw-cf input:focus, .gsw-cf textarea:focus { outline: 2px solid currentColor; outline-offset: 2px; }
-  .gsw-cf textarea { resize: vertical; min-height: 84px; }
-  .gsw-cf-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 14px; }
-  .gsw-cf button.btn { font: inherit; cursor: pointer; appearance: none; }
-  .gsw-cf-err { font-size: 14px; font-weight: 600; }
-  .gsw-cf-done { margin: 0; font-size: 17px; font-weight: 600; }
-  .gsw-cf[data-sent] .gsw-cf-lead, .gsw-cf[data-sent] .gsw-cf-grid, .gsw-cf[data-sent] .gsw-cf-row { display: none; }
-  @media (min-width: 640px) {
-    .gsw-cf-grid { grid-template-columns: 1fr 1fr; }
-    .gsw-cf-wide { grid-column: 1 / -1; }
-  }
+/* ---------- Hero ---------- */
+.hero { padding: var(--s6) 0 var(--s8); }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: var(--s6) var(--s8); align-items: start; }
+.hero .label { color: var(--brick); margin-bottom: var(--s3); }
+.hero h1 { font-size: var(--t-display); line-height: 1.04; letter-spacing: -0.015em; max-width: 14ch; }
+.hero .lede { margin-top: var(--s3); color: var(--muted); }
+.notice { border-top: 1px solid var(--ink); padding-top: var(--s2); }
+.notice img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; background: var(--band); }
+.notice .label { margin-top: var(--s3); color: var(--muted); }
+.notice .tel { display: block; font-family: var(--sans); font-size: var(--t-h2); font-weight: 500; letter-spacing: -0.01em; line-height: 1.1; text-decoration: none; margin-top: var(--s1); font-variant-numeric: tabular-nums; }
+.notice .tel:hover { color: var(--brick); }
+.ctas { display: flex; flex-wrap: wrap; gap: var(--s2); margin-top: var(--s3); }
+.badges { margin-top: var(--s3); border-top: 1px solid var(--rule); }
+.badges li { padding: var(--s1) 0; border-bottom: 1px solid var(--hair); font-family: var(--sans); font-size: var(--t-small); display: flex; gap: var(--s2); align-items: baseline; }
+.badges li::before { content: "§"; color: var(--brick); font-family: var(--serif); }
+
+/* ---------- Financing notice ---------- */
+.fin { background: var(--band); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: var(--s4) 0; }
+.fin .wrap { display: grid; grid-template-columns: auto 1fr; gap: var(--s2) var(--s8); align-items: baseline; }
+.fin .big { font-size: var(--t-h2); line-height: 1.1; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.fin .quote { font-style: italic; font-size: var(--t-lede); line-height: 1.45; max-width: 46ch; font-variant-numeric: tabular-nums; }
+.fin cite { font-style: normal; font-family: var(--sans); font-size: var(--t-small); color: var(--muted); display: block; margin-top: var(--s1); }
+
+/* ---------- Services (ruled list) ---------- */
+.services ul { display: grid; grid-template-columns: 1fr 1fr; gap: 0 var(--s8); }
+.services li { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--s2) var(--s3); padding: var(--s3) 0; border-top: 1px solid var(--rule); }
+.services p { color: var(--muted); }
+
+/* ---------- Claim (boxed notice) ---------- */
+.claim .box { border: 1px solid var(--ink); padding: var(--s4); display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: var(--s3) var(--s8); background: var(--panel); }
+.claim .quote { font-style: italic; font-size: var(--t-lede); line-height: 1.45; border-left: 2px solid var(--brick); padding-left: var(--s3); }
+.claim cite { font-style: normal; font-family: var(--sans); font-size: var(--t-small); color: var(--muted); display: block; margin-top: var(--s2); }
+
+/* ---------- The neighbours' column ---------- */
+.wall { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s4) var(--s3); }
+.wall article { border-top: 1px solid var(--ink); padding-top: var(--s2); display: flex; flex-direction: column; gap: var(--s2); }
+.wall img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: var(--band); }
+.wall figcaption { font-family: var(--sans); font-size: var(--t-label); letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; color: var(--muted); padding-top: var(--s1); border-top: 1px solid var(--hair); }
+.wall .quote { font-size: var(--t-lede); line-height: 1.4; }
+.wall cite { font-style: normal; font-family: var(--sans); font-size: var(--t-small); color: var(--muted); margin-top: auto; }
+.wall cite b { font-weight: 500; color: var(--ink); }
+
+/* ---------- Before / after ---------- */
+.street .pair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s3); }
+.street figure { border-top: 1px solid var(--ink); padding-top: var(--s2); }
+.street img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: var(--band); }
+.street figcaption { font-family: var(--sans); font-size: var(--t-label); letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; color: var(--muted); padding-top: var(--s1); }
+
+/* ---------- Process ---------- */
+.process ol { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4) var(--s8); }
+.process li { border-top: 1px solid var(--ink); padding-top: var(--s2); display: grid; grid-template-columns: 2.5ch 1fr; gap: 0 var(--s2); }
+.process li h3, .process li p { grid-column: 2; }
+.process .n { grid-row: 1 / 3; font-family: var(--serif); font-size: var(--t-h3); color: var(--brick); font-variant-numeric: tabular-nums; line-height: 1.24; }
+.process h3 { margin-bottom: var(--s1); }
+.process p { color: var(--muted); max-width: 44ch; }
+
+/* ---------- Closing notice ---------- */
+.close { background: var(--band); border-top: 1px solid var(--rule); }
+.close .grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: var(--s6) var(--s8); align-items: start; }
+.close h2 { font-size: var(--t-display); line-height: 1.04; letter-spacing: -0.015em; max-width: 12ch; }
+.close .lede { margin-top: var(--s3); color: var(--muted); }
+.close .tel { display: block; font-family: var(--sans); font-size: var(--t-h2); font-weight: 500; text-decoration: none; margin-top: var(--s3); font-variant-numeric: tabular-nums; }
+.close .tel:hover { color: var(--brick); }
+.close .note { margin-top: var(--s4); font-family: var(--sans); font-size: var(--t-small); color: var(--muted); max-width: 52ch; }
+.form { border-top: 1px solid var(--ink); padding-top: var(--s2); }
+.form .intro { margin-bottom: var(--s3); }
+.field { display: grid; gap: 6px; margin-bottom: var(--s2); }
+.field label { font-family: var(--sans); font-size: var(--t-label); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.field input, .field textarea { width: 100%; font: 400 var(--t-body)/1.4 var(--serif); color: var(--ink); background: var(--panel); border: 1px solid var(--rule); padding: 11px 14px; transition: border-color 160ms; }
+.field input:hover, .field textarea:hover { border-color: var(--muted); }
+.field input:focus, .field textarea:focus { outline: none; border-color: var(--brick); box-shadow: 0 0 0 1px var(--brick); }
+.field.is-invalid input { border-color: var(--brick); }
+.form .actions { display: flex; align-items: center; gap: var(--s2); flex-wrap: wrap; margin-top: var(--s3); }
+.form .hint { font-family: var(--sans); font-size: var(--t-small); color: var(--brick); }
+.form .hint[hidden], .form .done[hidden] { display: none; }
+.form .done { font-style: italic; font-size: var(--t-lede); padding: var(--s3) 0; }
+.form.is-sent .field, .form.is-sent .actions { display: none; }
+
+/* ---------- Footer ---------- */
+.foot { border-top: 2px solid var(--ink); padding: var(--s6) 0; }
+.foot .wrap { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 4fr) minmax(0, 3fr); gap: var(--s3) var(--s6); align-items: start; }
+.foot nav { display: flex; flex-wrap: wrap; gap: var(--s2) var(--s3); margin-top: var(--s2); font-family: var(--sans); font-size: var(--t-small); }
+.foot nav a { text-decoration: none; border-bottom: 1px solid transparent; }
+.foot nav a:hover { border-bottom-color: var(--brick); }
+.foot p { font-family: var(--sans); font-size: var(--t-small); color: var(--muted); }
+.foot .map img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: var(--band); }
+.foot .fine { grid-column: 1 / -1; padding-top: var(--s2); border-top: 1px solid var(--rule); font-size: var(--t-label); letter-spacing: 0.02em; }
+
+/* ---------- Mobile bar ---------- */
+.bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: grid; grid-template-columns: 1fr auto; gap: 1px; background: var(--rule); border-top: 1px solid var(--rule); }
+.bar .btn { min-height: var(--bar-h); border: 0; white-space: nowrap; background: var(--cream); }
+.bar .btn-primary { flex-direction: column; gap: 1px; line-height: 1.1; background: var(--brick); }
+.bar .btn-primary span { font-size: var(--t-label); letter-spacing: 0.1em; text-transform: uppercase; }
+.tnum, .tnum * { font-variant-numeric: tabular-nums; }
+
+/* ---------- Responsive ---------- */
+@media (min-width: 1000px) { body { padding-bottom: 0; } .bar { display: none; } }
+@media (max-width: 999px) {
+  .head, .claim .box, .close .grid { grid-template-columns: 1fr; }
+  .wall { grid-template-columns: 1fr 1fr; }
+  .foot .wrap { grid-template-columns: 1fr 1fr; }
+  .foot .map { grid-column: 1 / -1; max-width: 420px; }
+}
+@media (max-width: 759px) {
+  .sec { padding: var(--s6) 0; }
+  .topline .wrap { justify-content: center; text-align: center; }
+  .hero { padding-top: var(--s4); }
+  .hero .wrap { grid-template-columns: 1fr; }
+  .hero h1 { max-width: 12ch; }
+  .ctas .btn { width: 100%; }
+  .fin .wrap { grid-template-columns: 1fr; }
+  .fin .big { white-space: normal; }
+  .services ul, .wall, .street .pair, .process ol, .foot .wrap { grid-template-columns: 1fr; }
+  .services li { grid-template-columns: 1fr; gap: var(--s1); }
+  .claim .box { padding: var(--s3); }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+@media (forced-colors: active) { .btn { border: 1px solid ButtonText; } }
+@media print { .bar { display: none; } }
 </style>
 </head>
 <body>
-<div class="topbar"><div class="wrap">Licensed &amp; insured · Two generations in this county</div></div>
-<header class="nav"><div class="wrap">
-  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><g fill="none" stroke="#2F4858" stroke-width="9" stroke-linecap="butt" stroke-linejoin="miter">
-<path d="M2 44 L18 20 L34 44 L50 20 L62 38"/>
-</g></svg><span>Fair Oaks Roofing</span></span></a>
-  <a class="navact">(217) 331-9075</a>
-</div></header>
-<section class="hero"><div class="wrap"><div class="split">
-  <div>
-    <p class="eyebrow">Neighbourhood crews · Local since 1991</p>
-    <h1>Ask the four houses on your street we did this year.</h1>
-    <p class="sub">Storm damage, full replacements and repairs, mostly within a few miles of our yard. Nearly every job we book comes from the last one, which is a strong incentive to leave a street tidy.</p>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="topline"><div class="wrap"><span class="label tnum">Licensed &amp; insured · Two generations in this county</span></div></div>
+<header class="mast">
+  <div class="wrap">
+    <a class="brand" href="#"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><g fill="none" stroke="#A8462E" stroke-width="9" stroke-linecap="butt" stroke-linejoin="miter"><path d="M2 44 L18 20 L34 44 L50 20 L62 38"/></g></svg>Fair Oaks Roofing</a>
+    <a class="tel tnum" href="tel:+12173319075">(217)&nbsp;331-9075</a>
   </div>
-  <div class="slab">
-    <p class="lab">One number to call</p>
-    <a class="tel">(217) 331-9075</a>
-    <div class="ctas">
-      <a class="btn btn-primary" data-cta="primary" href="#contact">Call now</a>
-      <a class="btn btn-ghost" href="#contact">Get a free inspection</a>
+</header>
+
+<main id="main">
+<section class="hero" aria-labelledby="dare">
+  <div class="wrap">
+    <div>
+      <p class="label tnum">Neighbourhood crews · Local since 1991</p>
+      <h1 id="dare">Ask the four houses on your street we did this&nbsp;year.</h1>
+      <p class="lede">Storm damage, full replacements and repairs, mostly within a few miles of our yard. Nearly every job we book comes from the last one, which is a strong incentive to leave a street&nbsp;tidy.</p>
     </div>
-    <ul class="badges">
-      <li>Insurance claims handled</li><li>Financing from $89/mo</li>
-      <li>25-year workmanship warranty</li><li>Same-day emergency tarping</li>
+    <aside class="notice" aria-label="One number to call">
+      <picture>
+        <source type="image/avif" srcset="../_assets/library/roofing/fair-oaks-roofing/finished-home-640.avif 640w, ../_assets/library/roofing/fair-oaks-roofing/finished-home-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 40vw">
+        <img src="../_assets/library/roofing/fair-oaks-roofing/finished-home-720.jpg" alt="A finished roof on a brick house, seen from the street" width="720" height="402" fetchpriority="high">
+      </picture>
+      <p class="label">One number to call</p>
+      <a class="tel" href="tel:+12173319075">(217)&nbsp;331-9075</a>
+      <div class="ctas">
+        <a class="btn btn-primary" data-cta="primary" href="tel:+12173319075">Call now</a>
+        <a class="btn" href="#contact">Get a free inspection</a>
+      </div>
+      <ul class="badges" aria-label="What you get">
+        <li>Insurance claims handled</li>
+        <li class="tnum">Financing from $89/mo</li>
+        <li class="tnum">25-year workmanship warranty</li>
+        <li>Same-day emergency tarping</li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<section class="fin" aria-label="Financing">
+  <div class="wrap">
+    <p class="big">Financing from $89/mo</p>
+    <blockquote class="quote">“The financing made it possible. $110 a month instead of fifteen grand up&nbsp;front.”<cite>Joel B., Riverbend</cite></blockquote>
+  </div>
+</section>
+
+<section class="sec services" id="services" aria-labelledby="services-title">
+  <div class="wrap">
+    <p class="mark"><span class="folio">§ 1</span><span class="label">Services</span></p>
+    <div class="head">
+      <h2 id="services-title">What we do</h2>
+      <p class="lede muted">Most calls fall into one of these. If yours doesn’t, ring us anyway. We’ll tell you straight whether it’s a repair or a&nbsp;replacement.</p>
+    </div>
+    <ul>
+      <li><h3>Storm &amp; hail damage</h3><p>Free inspection, full photo report, and we meet the adjuster on site so nothing gets argued about later.</p></li>
+      <li><h3>Full replacement</h3><p>Architectural shingle, metal or tile. Tear-off, deck inspection, ice-and-water barrier, and the site left clean.</p></li>
+      <li><h3>Emergency repair</h3><p>Active leak or missing shingles after a storm. Same-day tarping to stop the damage, permanent fix scheduled after.</p></li>
+      <li><h3>Gutters &amp; ventilation</h3><p>Half the roofs we replace failed early because the attic couldn’t breathe. We fix the cause, not just the symptom.</p></li>
     </ul>
   </div>
-</div></div></section>
-<figure class="gsw-plate"><picture><source type="image/avif" srcset="../_assets/hero/roofing/b-work-done-right-1280.avif 1280w, ../_assets/hero/roofing/b-work-done-right-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/roofing/b-work-done-right-1280.jpg" width="2560" height="1429" alt="Work done right, roofing" loading="lazy" decoding="async"></picture></figure>
+</section>
 
-<div class="chev" aria-hidden="true"></div>
-<section class="fin"><div class="wrap">
-  <p class="big">Financing from $89/mo</p>
-  <p class="small">“The financing made it possible. $110 a month instead of fifteen grand up front.” · Joel B., Riverbend</p>
-</div></section>
-<section class="sec" id="services"><div class="wrap">
-  <p class="kicker">Services</p>
-  <h2>What we do</h2>
-  <p class="lede">Most calls fall into one of these. If yours doesn't, ring us anyway. We'll tell you straight whether it's a repair or a replacement.</p>
-  <ul class="list">
-    <li><h3>Storm &amp; hail damage</h3><p>Free inspection, full photo report, and we meet the adjuster on site so nothing gets argued about later.</p></li>
-    <li><h3>Full replacement</h3><p>Architectural shingle, metal or tile. Tear-off, deck inspection, ice-and-water barrier, and the site left clean.</p></li>
-    <li><h3>Emergency repair</h3><p>Active leak or missing shingles after a storm. Same-day tarping to stop the damage, permanent fix scheduled after.</p></li>
-    <li><h3>Gutters &amp; ventilation</h3><p>Half the roofs we replace failed early because the attic couldn't breathe. We fix the cause, not just the symptom.</p></li>
-  </ul>
-</div></section>
-<div class="chev" aria-hidden="true"></div>
-<section class="sec"><div class="wrap"><div class="claimbox">
-  <p class="kicker">Insurance claims handled</p>
-  <h2>Claim or quote</h2>
-  <p>If it's insurance, we meet your adjuster on site. If it's retail, you get a fixed written price with financing options.</p>
-  <p><b>“Handled the whole insurance claim. I signed two things and that was it.”</b> · Anne-Marie K., Cedar Park</p>
-</div></div></section>
-<section class="sec" id="results"><div class="wrap">
-  <p class="kicker">Results</p>
-  <h2>What the neighbours said</h2>
-  <div class="wall">
-    <article><q>“Came out at 9pm during the storm and tarped it. Full replacement done in two days flat.”</q><cite>Marcus T. · Northside</cite></article>
-    <article><q>“They caught that our attic ventilation was the real problem. Nobody else even looked.”</q><cite>Priya S. · Elmwood</cite></article>
-    <article><q>“The financing made it possible. $110 a month instead of fifteen grand up front.”</q><cite>Joel B. · Riverbend</cite></article>
-    <article><q>“Handled the whole insurance claim. I signed two things and that was it.”</q><cite>Anne-Marie K. · Cedar Park</cite></article>
-  </div>
-</div></section>
-<section class="sec" id="process"><div class="wrap">
-  <p class="kicker">Process</p>
-  <h2>How a job actually runs</h2>
-  <p class="lede">The part most roofers gloss over, which is exactly what your neighbours will ask you about afterwards.</p>
-  <ol class="steps">
-    <li><div><h3>Free inspection</h3><p>We go up, photograph everything, and tell you whether you need a roof or a repair. No pressure either way.</p></div></li>
-    <li><div><h3>Claim or quote</h3><p>If it's insurance, we meet your adjuster on site. If it's retail, you get a fixed written price with financing options.</p></div></li>
-    <li><div><h3>Install</h3><p>Most homes are one to two days. Materials delivered the morning of, site cleaned and magnet-swept at the end.</p></div></li>
-    <li><div><h3>Final walkthrough</h3><p>We walk it with you, register the warranty, and leave you the mobile number of the person who ran your job, not an office line.</p></div></li>
-  </ol>
-</div></section>
-<!-- gsw:gallery -->
-<section class="gsw-gal"><div class="gsw-gal-in"><p class="gsw-gal-lab">On your street</p><h2>Four houses, same postcode.</h2><p class="gsw-gal-note">Every one of these is a house someone can drive past. Ask them what the week was like. That is the only reference that counts.</p><div class="gsw-ba"><figure><picture><source type="image/avif" srcset="../_assets/library/roofing/fair-oaks-roofing/damage-before-640.avif 640w, ../_assets/library/roofing/fair-oaks-roofing/damage-before-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 50vw"><img src="../_assets/library/roofing/fair-oaks-roofing/damage-before-720.jpg" width="1600" height="1200" alt="Before" loading="lazy" decoding="async"></picture><figcaption>Before</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/roofing/fair-oaks-roofing/damage-after-640.avif 640w, ../_assets/library/roofing/fair-oaks-roofing/damage-after-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 50vw"><img src="../_assets/library/roofing/fair-oaks-roofing/damage-after-720.jpg" width="1600" height="1200" alt="After" loading="lazy" decoding="async"></picture><figcaption>After</figcaption></figure></div><div class="gsw-gal-grid"><figure><picture><source type="image/avif" srcset="../_assets/library/roofing/fair-oaks-roofing/finished-home-640.avif 640w, ../_assets/library/roofing/fair-oaks-roofing/finished-home-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/roofing/fair-oaks-roofing/finished-home-720.jpg" width="1600" height="900" alt="Finished, from the kerb" loading="lazy" decoding="async"></picture><figcaption>Finished, from the kerb</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/roofing/fair-oaks-roofing/drip-edge-640.avif 640w, ../_assets/library/roofing/fair-oaks-roofing/drip-edge-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/roofing/fair-oaks-roofing/drip-edge-720.jpg" width="1600" height="1200" alt="Drip edge and gutter" loading="lazy" decoding="async"></picture><figcaption>Drip edge and gutter</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/roofing/fair-oaks-roofing/courses-640.avif 640w, ../_assets/library/roofing/fair-oaks-roofing/courses-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/roofing/fair-oaks-roofing/courses-720.jpg" width="1600" height="1200" alt="New courses going on" loading="lazy" decoding="async"></picture><figcaption>New courses going on</figcaption></figure></div></div></section>
-<!-- /gsw:gallery -->
-<section class="close" id="contact"><div class="wrap">
-  <h2>Want to see one we finished nearby?</h2>
-  <p>Call and a human answers: day, night, weekend, during the storm. Emergency tarping usually the same day.</p>
-  <a class="tel">(217) 331-9075</a>
-  <div class="ctas">
-    <a class="btn btn-primary" href="#contact">Call now</a>
-    <a class="btn btn-ghost" href="#contact">Get a free inspection</a>
-  </div>
-  <!-- gsw:contact-form -->
-    <form class="gsw-cf" novalidate>
-      <p class="gsw-cf-lead">Or leave your details and we'll call you back.</p>
-      <div class="gsw-cf-grid">
-        <label><span>Name</span><input type="text" name="name" autocomplete="name" required></label>
-        <label><span>Phone or email</span><input type="text" name="contact" autocomplete="tel" required></label>
-        <label class="gsw-cf-wide"><span>What can we help with? <em>(optional)</em></span><textarea name="message" rows="3"></textarea></label>
+<section class="sec claim" aria-labelledby="claim-title" style="padding-top: 0">
+  <div class="wrap">
+    <p class="mark"><span class="folio">§ 2</span><span class="label">Insurance claims handled</span></p>
+    <div class="box">
+      <div>
+        <h2 id="claim-title">Claim or quote</h2>
+        <p class="lede muted" style="margin-top: var(--s2)">If it’s insurance, we meet your adjuster on site. If it’s retail, you get a fixed written price with financing&nbsp;options.</p>
       </div>
-      <div class="gsw-cf-row">
-        <button type="submit" class="btn btn-primary">Request a call back</button>
-        <span class="gsw-cf-err" role="alert" hidden>Add your name and a way to reach you.</span>
+      <blockquote class="quote">“Handled the whole insurance claim. I signed two things and that was&nbsp;it.”<cite>Anne-Marie K., Cedar Park</cite></blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="results" aria-labelledby="wall-title">
+  <div class="wrap">
+    <p class="mark"><span class="folio">§ 3</span><span class="label">Results</span></p>
+    <h2 id="wall-title" style="margin-bottom: var(--s6)">What the neighbours&nbsp;said</h2>
+    <div class="wall">
+      <article>
+        <figure>
+          <picture><source type="image/avif" srcset="../_assets/library/roofing/fair-oaks-roofing/damage-after-640.avif 640w, ../_assets/library/roofing/fair-oaks-roofing/damage-after-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 25vw"><img src="../_assets/library/roofing/fair-oaks-roofing/damage-after-720.jpg" alt="The replaced roof after the storm" width="720" height="537" loading="lazy"></picture>
+          <figcaption>After</figcaption>
+        </figure>
+        <blockquote class="quote">“Came out at 9pm during the storm and tarped it. Full replacement done in two days&nbsp;flat.”</blockquote>
+        <cite><b>Marcus T.</b> · Northside</cite>
+      </article>
+      <article>
+        <figure>
+          <picture><source type="image/avif" srcset="../_assets/library/roofing/fair-oaks-roofing/drip-edge-640.avif 640w, ../_assets/library/roofing/fair-oaks-roofing/drip-edge-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 25vw"><img src="../_assets/library/roofing/fair-oaks-roofing/drip-edge-720.jpg" alt="New drip edge and gutter on a finished eave" width="720" height="537" loading="lazy"></picture>
+          <figcaption>Drip edge and gutter</figcaption>
+        </figure>
+        <blockquote class="quote">“They caught that our attic ventilation was the real problem. Nobody else even&nbsp;looked.”</blockquote>
+        <cite><b>Priya S.</b> · Elmwood</cite>
+      </article>
+      <article>
+        <figure>
+          <picture><source type="image/avif" srcset="../_assets/library/roofing/fair-oaks-roofing/finished-home-640.avif 640w, ../_assets/library/roofing/fair-oaks-roofing/finished-home-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 25vw"><img src="../_assets/library/roofing/fair-oaks-roofing/finished-home-720.jpg" alt="A finished roof on a brick house at golden hour" width="720" height="402" loading="lazy"></picture>
+          <figcaption>Finished, from the kerb</figcaption>
+        </figure>
+        <blockquote class="quote tnum">“The financing made it possible. $110 a month instead of fifteen grand up&nbsp;front.”</blockquote>
+        <cite><b>Joel B.</b> · Riverbend</cite>
+      </article>
+      <article>
+        <figure>
+          <picture><source type="image/avif" srcset="../_assets/library/roofing/fair-oaks-roofing/courses-640.avif 640w, ../_assets/library/roofing/fair-oaks-roofing/courses-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 25vw"><img src="../_assets/library/roofing/fair-oaks-roofing/courses-720.jpg" alt="New shingle courses being nailed on a brick house" width="720" height="537" loading="lazy"></picture>
+          <figcaption>New courses going on</figcaption>
+        </figure>
+        <blockquote class="quote">“Handled the whole insurance claim. I signed two things and that was&nbsp;it.”</blockquote>
+        <cite><b>Anne-Marie K.</b> · Cedar Park</cite>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec street" aria-labelledby="street-title" style="padding-top: 0">
+  <div class="wrap">
+    <p class="mark"><span class="folio">§ 4</span><span class="label">On your street</span></p>
+    <div class="head">
+      <h2 id="street-title">Four houses, same&nbsp;postcode.</h2>
+      <p class="lede muted">Every one of these is a house someone can drive past. Ask them what the week was like. That is the only reference that&nbsp;counts.</p>
+    </div>
+    <div class="pair">
+      <figure>
+        <picture><source type="image/avif" srcset="../_assets/library/roofing/fair-oaks-roofing/damage-before-640.avif 640w, ../_assets/library/roofing/fair-oaks-roofing/damage-before-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 50vw"><img src="../_assets/library/roofing/fair-oaks-roofing/damage-before-720.jpg" alt="Storm-damaged roof before work began" width="720" height="537" loading="lazy"></picture>
+        <figcaption>Before</figcaption>
+      </figure>
+      <figure>
+        <picture><source type="image/avif" srcset="../_assets/library/roofing/fair-oaks-roofing/damage-after-640.avif 640w, ../_assets/library/roofing/fair-oaks-roofing/damage-after-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 50vw"><img src="../_assets/library/roofing/fair-oaks-roofing/damage-after-720.jpg" alt="The same roof after replacement" width="720" height="537" loading="lazy"></picture>
+        <figcaption>After</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec process" id="process" aria-labelledby="process-title" style="padding-top: 0">
+  <div class="wrap">
+    <p class="mark"><span class="folio">§ 5</span><span class="label">Process</span></p>
+    <div class="head">
+      <h2 id="process-title">How a job actually&nbsp;runs</h2>
+      <p class="lede muted">The part most roofers gloss over, which is exactly what your neighbours will ask you about&nbsp;afterwards.</p>
+    </div>
+    <ol>
+      <li><span class="n">1</span><h3>Free inspection</h3><p>We go up, photograph everything, and tell you whether you need a roof or a repair. No pressure either way.</p></li>
+      <li><span class="n">2</span><h3>Claim or quote</h3><p>If it’s insurance, we meet your adjuster on site. If it’s retail, you get a fixed written price with financing options.</p></li>
+      <li><span class="n">3</span><h3>Install</h3><p>Most homes are one to two days. Materials delivered the morning of, site cleaned and magnet-swept at the end.</p></li>
+      <li><span class="n">4</span><h3>Final walkthrough</h3><p>We walk it with you, register the warranty, and leave you the mobile number of the person who ran your job, not an office line.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec close" id="contact" aria-labelledby="close-title">
+  <div class="wrap">
+    <p class="mark"><span class="folio">§ 6</span><span class="label">Contact</span></p>
+    <div class="grid">
+      <div>
+        <h2 id="close-title">Want to see one we finished&nbsp;nearby?</h2>
+        <p class="lede">Call and a human answers: day, night, weekend, during the storm. Emergency tarping usually the same&nbsp;day.</p>
+        <a class="tel" href="tel:+12173319075">(217)&nbsp;331-9075</a>
+        <div class="ctas">
+          <a class="btn btn-primary" href="tel:+12173319075">Call now</a>
+          <a class="btn" href="#cb-name">Get a free inspection</a>
+        </div>
+        <p class="note">Free inspections, no obligation, and we will happily give you the address of a roof we did on your street so you can look at it&nbsp;yourself.</p>
       </div>
-      <p class="gsw-cf-done" role="status" hidden>Thanks. Someone will call you back within one business day.</p>
-    </form>
-    <!-- /gsw:contact-form -->
-    <p class="note">Free inspections, no obligation, and we will happily give you the address of a roof we did on your street so you can look at it yourself.</p>
-</div></section>
-<footer class="foot"><div class="wrap">
-  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><g fill="none" stroke="#2F4858" stroke-width="9" stroke-linecap="butt" stroke-linejoin="miter">
-<path d="M2 44 L18 20 L34 44 L50 20 L62 38"/>
-</g></svg><span>Fair Oaks Roofing</span></span></a>
-  <nav class="footnav"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
-  <p><a>(217) 331-9075</a> · Licensed, bonded and insured · Two generations in this county</p>
-  <p>2979 Wexford Lane Suite 4B, Millbrook Park, NY 15830</p>
-</div></footer>
-<div class="callbar"><a class="tel">Call now (217) 331-9075</a><a class="alt2" href="#contact">Free inspection</a></div>
-<!-- gsw:motion -->
-<style>
-  /* Motion pass. Everything here is gated on .gsw-m, which only the script
-     below adds, so a page without JavaScript never hides anything. */
-  .gsw-m [data-gsw-reveal] {
-    opacity: 0; transform: translateY(14px);
-    transition: opacity .7s cubic-bezier(.2,.6,.2,1), transform .7s cubic-bezier(.2,.6,.2,1);
-  }
-  .gsw-m [data-gsw-reveal].gsw-in { opacity: 1; transform: none; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(2) { transition-delay: .08s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(3) { transition-delay: .16s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(4) { transition-delay: .24s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(5) { transition-delay: .32s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(6) { transition-delay: .40s; }
-  @keyframes gsw-hero-in { from { opacity: 0; transform: scale(1.025); } to { opacity: 1; transform: none; } }
-  .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: gsw-hero-in 1s ease-out both; }
-  @media (prefers-reduced-motion: reduce) {
-    .gsw-m [data-gsw-reveal] { opacity: 1; transform: none; transition: none; }
-    .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: none; }
-  }
-</style>
+      <form class="form" id="callback" novalidate>
+        <p class="intro muted">Or leave your details and we’ll call you back.</p>
+        <div class="field"><label for="cb-name">Name</label><input id="cb-name" name="name" type="text" autocomplete="name" required></div>
+        <div class="field"><label for="cb-contact">Phone or email</label><input id="cb-contact" name="contact" type="text" autocomplete="tel" required></div>
+        <div class="field"><label for="cb-msg">What can we help with? (optional)</label><textarea id="cb-msg" name="message" rows="3"></textarea></div>
+        <div class="actions">
+          <button class="btn btn-primary" type="submit">Request a call back</button>
+          <p class="hint" id="cb-hint" role="alert" hidden>Add your name and a way to reach you.</p>
+        </div>
+        <p class="done" id="cb-done" role="status" hidden>Thanks. Someone will call you back within one business&nbsp;day.</p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="#"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><g fill="none" stroke="#A8462E" stroke-width="9" stroke-linecap="butt" stroke-linejoin="miter"><path d="M2 44 L18 20 L34 44 L50 20 L62 38"/></g></svg>Fair Oaks Roofing</a>
+      <nav aria-label="Sections"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+    </div>
+    <div>
+      <p class="tnum"><a href="tel:+12173319075">(217)&nbsp;331-9075</a> · Licensed, bonded and insured · Two generations in this county</p>
+      <p class="tnum" style="margin-top: var(--s1)">2979 Wexford Lane Suite 4B, Millbrook Park, NY 15830</p>
+      <p style="margin-top: var(--s1)"><a href="tel:+12173319075">Call now</a> · <a href="#contact">Free inspection</a></p>
+    </div>
+    <figure class="map">
+      <picture><source type="image/avif" srcset="../_assets/hero/roofing/e-whole-neighbourhood-1280.avif" type="image/avif"><img src="../_assets/hero/roofing/e-whole-neighbourhood-1280.jpg" alt="Aerial view of a residential neighbourhood at evening" width="1280" height="714" loading="lazy"></picture>
+    </figure>
+    <p class="fine">Fair Oaks Roofing is a fictional business; this page is a design reference.</p>
+  </div>
+</footer>
+
+<div class="bar" aria-label="Quick actions">
+  <a class="btn btn-primary tnum" href="tel:+12173319075"><span>Call now</span><b>(217)&nbsp;331-9075</b></a>
+  <a class="btn" href="#contact">Free inspection</a>
+</div>
+
 <script>
 (function () {
-  if (!('IntersectionObserver' in window)) return;
-  var targets = [].slice.call(document.querySelectorAll('body > section, .gsw-gal figure'));
-  // The first section is the hero; it is on screen already and owns its own entrance.
-  var first = document.querySelector('body > section');
-  targets = targets.filter(function (el) { return el !== first; });
-  if (!targets.length) return;
-  document.documentElement.classList.add('gsw-m');
-  targets.forEach(function (el) { el.setAttribute('data-gsw-reveal', ''); });
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) { e.target.classList.add('gsw-in'); io.unobserve(e.target); }
-    });
-  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-  targets.forEach(function (el) { io.observe(el); });
-})();
-</script>
-<!-- /gsw:motion -->
-
-<!-- gsw:contact-form -->
-<script>
-/* The enquiry form confirms in place. Nothing is sent: a reference build. */
-(function () {
-  var form = document.querySelector('.gsw-cf');
-  if (!form) return;
+  // Static preview: validates locally and shows the confirmation state; nothing is sent.
+  var form = document.getElementById('callback');
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    var name = form.name.value.trim(), contact = form.contact.value.trim();
-    var err = form.querySelector('.gsw-cf-err');
-    if (!name || !contact) { err.hidden = false; (name ? form.contact : form.name).focus(); return; }
-    err.hidden = true;
-    form.setAttribute('data-sent', '');
-    form.querySelector('.gsw-cf-done').hidden = false;
+    var name = form.elements.name, contact = form.elements.contact, hint = document.getElementById('cb-hint');
+    var ok = true;
+    [name, contact].forEach(function (el) {
+      var bad = !el.value.trim();
+      el.closest('.field').classList.toggle('is-invalid', bad);
+      el.setAttribute('aria-invalid', bad ? 'true' : 'false');
+      if (bad) ok = false;
+    });
+    hint.hidden = ok;
+    if (!ok) { (name.value.trim() ? contact : name).focus(); return; }
+    form.classList.add('is-sent');
+    document.getElementById('cb-done').hidden = false;
   });
 })();
 </script>
-<!-- /gsw:contact-form -->
 </body>
 </html>

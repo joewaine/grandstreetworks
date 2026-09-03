@@ -6,157 +6,10 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Sentry Roofing &amp; Restoration · We meet your adjuster and handle the claim paperwork</title>
 <meta name="description" content="Storm and hail claims across the metro. We photograph the damage before the adjuster arrives, stand on the roof with them, and put the supplement in writing when they miss something, which they usually do.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Public+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-<style>
-/* D5 — THE CLAIM DOCKET ONE. hero:panel nav:inline services:cards proof:testimonial-lead
-   ink #1A1D20 · surface #E9EBEC · accent #4C5A63 · muted #545B61 · on-accent #FFFFFF
-   H1 ramp: 36/42/56/72px · Big Shoulders Display display / Public Sans body
-   Device: the shingle tile band running through the docket header, over a ruled
-   claim panel. FIX answered first: insurance-claim handling never mentioned, so the
-   hero is literally a claim docket — adjuster, paperwork, one number — and the
-   testimonial that leads the proof is the adjuster story. Financing is a ruled line
-   item in the same docket, priced, not buried. */
-:root{--ink:#1A1D20;--surface:#E9EBEC;--accent:#4C5A63;--muted:#545B61;--on-accent:#FFFFFF;
---panel:#FFFFFF;--rule:rgba(26,29,32,.2);--hair:rgba(26,29,32,.1);--wrap:1080px}
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--surface);color:var(--ink);overflow-x:hidden;padding-bottom:82px;
-font:400 17px/1.6 "Public Sans",system-ui,-apple-system,sans-serif}
-.wrap{max-width:var(--wrap);margin:0 auto;padding:0 18px}
-h1,h2,h3,.big{font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:800;margin:0;
-line-height:1;text-transform:uppercase;letter-spacing:.008em}
-a{color:inherit}
-p{margin:0}
-.btn{display:flex;align-items:center;justify-content:center;min-height:56px;padding:8px 18px;
-text-decoration:none;text-align:center;line-height:1.15;font-weight:700;font-size:15px;
-letter-spacing:.09em;text-transform:uppercase;border:2px solid var(--ink)}
-.btn-primary{background:var(--ink);color:#fff}
-.btn-ghost{background:transparent;color:var(--ink)}
-.topbar{background:var(--accent);color:#fff;font-size:14px;font-weight:500}
-.topbar .wrap{padding:7px 18px;letter-spacing:.04em}
-.nav{position:sticky;top:0;z-index:30;background:var(--surface);border-bottom:1px solid var(--rule)}
-.nav .wrap{display:flex;align-items:center;gap:12px;height:54px}
-.brand{font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:800;font-size:26px;
-text-decoration:none;letter-spacing:.02em;flex:none;line-height:1}
-.navlinks{display:none;gap:18px;font-size:13px;letter-spacing:.13em;text-transform:uppercase;
-font-weight:700;color:var(--muted)}
-.navlinks a{text-decoration:none}
-.navlinks a:hover{color:var(--ink)}
-.navact{margin-left:auto;flex:none;text-decoration:none;font-weight:700;font-size:15px;
-background:var(--ink);color:#fff;padding:8px 12px;white-space:nowrap;line-height:1.2}
-.hero{padding:16px 0 26px}
-.docket{background:var(--panel);border:2px solid var(--ink)}
-.dhead{background:var(--ink);color:#fff;padding:9px 16px 11px;display:flex;flex-direction:column;
-align-items:stretch;gap:8px}
-.dhead .eyebrow{font-size:13px;letter-spacing:.19em;text-transform:uppercase;font-weight:700;
-margin:0;flex:none}
-.tiles-band{display:block;height:17px;width:100%;
-background:repeating-linear-gradient(90deg,rgba(255,255,255,.3) 0 26px,transparent 26px 29px),
-repeating-linear-gradient(0deg,rgba(255,255,255,.3) 0 8px,transparent 8px 9px)}
-.dbody{padding:20px 16px 4px}
-.docket h1{font-size:clamp(36px,9.6vw,72px);max-width:14ch}
-.docket .sub{font-size:16px;color:var(--muted);max-width:52ch;margin:14px 0 18px;line-height:1.58}
-.line{border-top:2px solid var(--ink);padding:14px 16px;display:grid;gap:10px}
-.line .lab{font-size:13px;letter-spacing:.19em;text-transform:uppercase;font-weight:700;
-color:var(--muted);margin:0}
-.line .tel{display:block;font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:800;
-font-size:clamp(44px,12.4vw,64px);color:var(--ink);text-decoration:none;line-height:.94;
-letter-spacing:.005em;margin-top:2px}
-.ctas{display:grid;gap:9px}
-.badges{list-style:none;margin:0;padding:0;display:grid;gap:0;border-top:2px solid var(--ink)}
-.badges li{font-size:15px;font-weight:500;padding:11px 16px;border-bottom:1px solid var(--hair);
-display:flex;justify-content:space-between;gap:12px;align-items:baseline}
-.badges li:last-child{border-bottom:0}
-.badges li span{font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:800;
-font-size:17px;color:var(--accent);letter-spacing:.1em;flex:none}
-.sec{padding:40px 0}
-.kicker{font-size:13px;letter-spacing:.19em;text-transform:uppercase;font-weight:700;
-color:var(--accent);margin:0 0 9px}
-.sec h2{font-size:clamp(32px,8vw,54px);margin-bottom:12px}
-.lede{color:var(--muted);max-width:58ch;margin:0 0 22px;font-size:16px}
-.cards{display:grid;gap:10px}
-.card{background:var(--panel);border-left:6px solid var(--accent);padding:16px 16px 18px;
-border-top:1px solid var(--hair);border-right:1px solid var(--hair);border-bottom:1px solid var(--hair)}
-.card h3{font-size:25px;margin-bottom:6px}
-.card p{color:var(--muted);font-size:16px}
-.lead{background:var(--accent);color:#fff;padding:38px 0 40px}
-.lead .kicker{color:#D2DAE0}
-.lead blockquote{margin:0;font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:600;
-font-size:clamp(25px,6.4vw,42px);line-height:1.16;text-transform:none;max-width:24ch}
-.lead cite{display:block;font-style:normal;font-size:15px;margin-top:16px;letter-spacing:.14em;
-text-transform:uppercase;font-weight:700;color:#DCE3E8}
-.fin{background:var(--panel);border:2px solid var(--ink);margin-top:22px}
-.fin .row{padding:14px 16px;border-bottom:1px solid var(--hair);display:flex;
-justify-content:space-between;gap:14px;align-items:baseline;flex-wrap:wrap}
-.fin .row:last-child{border-bottom:0}
-.fin .k{font-size:13px;letter-spacing:.19em;text-transform:uppercase;font-weight:700;color:var(--muted)}
-.fin .v{font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:800;
-font-size:clamp(24px,6vw,34px);line-height:1}
-.fin p{font-size:16px;color:var(--muted);width:100%}
-.steps{list-style:none;margin:20px 0 0;padding:0;counter-reset:s;display:grid;gap:0;
-border-top:2px solid var(--ink)}
-.steps li{counter-increment:s;padding:16px 0;border-bottom:1px solid var(--rule);display:grid;
-grid-template-columns:52px minmax(0,1fr);gap:12px}
-.steps li::before{content:"Step " counter(s);font-size:13px;letter-spacing:.1em;font-weight:700;
-color:var(--accent);text-transform:uppercase;line-height:1.5}
-.steps h3{font-size:23px;margin-bottom:4px}
-.steps p{color:var(--muted);font-size:16px}
-.close{background:var(--ink);color:#E7E9EA;padding:40px 0 44px}
-.close h2{color:#fff;font-size:clamp(34px,8.6vw,60px);max-width:14ch}
-.close p{max-width:52ch;font-size:17px;margin:12px 0 18px;color:#B9BEC3}
-.close .tel{display:inline-block;font-family:"Big Shoulders Display",Impact,sans-serif;
-font-weight:800;font-size:clamp(42px,11.4vw,62px);color:#fff;text-decoration:none;
-line-height:1;margin-bottom:16px}
-.close .btn-primary{background:#fff;color:var(--ink);border-color:#fff}
-.close .btn-ghost{color:#fff;border-color:rgba(255,255,255,.55)}
-.note{font-size:15px;color:#A8AEB3;margin-top:16px;max-width:52ch}
-.foot{padding:30px 0 26px;font-size:15px;color:var(--muted)}
-.foot .brand{color:var(--ink);display:inline-block;margin-bottom:10px}
-.foot p{margin:0 0 8px;max-width:62ch}
-.foot a{color:var(--accent);font-weight:700}
-.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--panel);
-border-top:2px solid var(--ink);display:grid;grid-template-columns:1fr auto;gap:6px;padding:6px}
-.callbar a{display:flex;align-items:center;justify-content:center;min-height:58px;
-text-decoration:none;text-align:center;font-weight:700;line-height:1.15;padding:0 12px}
-.callbar .tel{background:var(--ink);color:#fff;font-family:"Big Shoulders Display",Impact,sans-serif;
-font-weight:800;font-size:28px;text-transform:uppercase}
-.callbar .alt2{border:2px solid var(--ink);font-size:13px;letter-spacing:.06em;
-text-transform:uppercase;max-width:124px}
-@media(max-width:559px){.navact{display:none}}
-@media(min-width:760px){.dbody{padding:34px 30px 8px}.line{padding:18px 30px}
-.badges li{padding:13px 30px}.dhead{padding:11px 30px}
-.line{display:grid;grid-template-columns:1fr auto;align-items:end;gap:20px}
-.ctas{grid-template-columns:auto auto}.cards{grid-template-columns:1fr 1fr}
-.badges{grid-template-columns:1fr 1fr}.badges li:nth-child(1),.badges li:nth-child(2){border-bottom:1px solid var(--hair)}
-.steps{grid-template-columns:1fr 1fr;column-gap:40px}.sec{padding:66px 0}
-.docket .sub{font-size:19px}.hero{padding:26px 0 42px}}
-@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}.navlinks{display:flex}
-.navact{margin-left:20px}.cards{grid-template-columns:repeat(4,1fr)}}
-</style>
-
-<style>
-  /* Hero plate, added with the photography pass. Full-bleed between the hero
-     and the first content section, with no border of its own: every one of
-     these designs owns a different rule weight and ink colour, and a borrowed
-     hairline reads as a mistake in about half of them. */
-  .gsw-plate picture { display: block; width: 100%; }
-  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
-  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
-  .gsw-plate img {
-    display: block;
-    width: 100%;
-    height: clamp(220px, 40vw, 520px);
-    object-fit: cover;
-    object-position: center;
-  }
-  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
-</style>
 <!-- gsw:identity -->
 <link rel="icon" href="../_assets/identity/roofing/sentry-roofing-and-restoration-icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../_assets/identity/roofing/sentry-roofing-and-restoration-icon-180.png">
-<meta name="theme-color" content="#1A1D20">
+<meta name="theme-color" content="#3E4A54">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Sentry Roofing &amp; Restoration">
 <meta property="og:title" content="Sentry Roofing &amp; Restoration · We meet your adjuster and handle the claim paperwork">
@@ -166,262 +19,424 @@ text-transform:uppercase;max-width:124px}
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"RoofingContractor","name":"Sentry Roofing & Restoration","description":"We meet your adjuster and handle the claim paperwork","telephone":"(620) 490-7728","areaServed":"Metro area","image":"https://grandstreetworks.com/work/_assets/identity/roofing/sentry-roofing-and-restoration-og.png","logo":"https://grandstreetworks.com/work/_assets/identity/roofing/sentry-roofing-and-restoration-mark.svg"}</script>
-
+<!-- /gsw:identity -->
+<link rel="preload" href="../_assets/fonts/newsreader-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../_assets/fonts/jetbrains-mono-var.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-  /* Identity pass. The lockup is the mark plus the wordmark the build already
-     had; the mark is sized in em so it tracks whatever display face this build
-     sets its brand in. */
-  .gsw-lockup { display: inline-flex; align-items: center; gap: .46em; }
-  .gsw-lockup svg { height: 1.16em; width: auto; flex: none; display: block; }
-</style>
+/* D5 — THE CLAIM FILE. hero:panel nav:inline services:cards proof:testimonial-lead
+   ink #1B1F23 · paper #F4F3EF · slate #3E4A54 · seal #9A3B2E · muted #5B6269 · on-slate #F4F3EF
+   H1 ramp: 40/48/56/64px · Newsreader (opsz) display and text / JetBrains Mono labels, figures, stamps
+   Device: the file — a ruled docket for the hero, numbered schedules separated by a
+   double rule, photographs mounted as lettered exhibits, and a slate stamp band to
+   close. No photograph behind text anywhere. FIX answered first: insurance-claim
+   handling never mentioned — the hero is the claim panel, the adjuster story leads
+   the proof, financing is a ruled line item. Seven sizes, two families, two weights. */
 
+@font-face { font-family: "Newsreader"; src: url("../_assets/fonts/newsreader-var.woff2") format("woff2"); font-weight: 200 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "Newsreader"; src: url("../_assets/fonts/newsreader-italic-var.woff2") format("woff2"); font-weight: 200 800; font-style: italic; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url("../_assets/fonts/jetbrains-mono-var.woff2") format("woff2"); font-weight: 100 800; font-style: normal; font-display: swap; }
+/* metric-matched fallbacks so nothing jumps when the faces land */
+@font-face { font-family: "Newsreader Fallback"; src: local("Georgia"); size-adjust: 95%; ascent-override: 90%; descent-override: 25%; }
+@font-face { font-family: "Mono Fallback"; src: local("Menlo"), local("Courier New"); size-adjust: 100%; }
 
+:root {
+  --paper: #F4F3EF; --panel: #FFFFFF; --slate: #3E4A54; --ink: #1B1F23;
+  --muted: #5B6269; --on-slate: #F4F3EF; --on-slate-muted: #B9C0C6;
+  --seal: #9A3B2E; --seal-deep: #7C2F24; --rule: #C9CCCF; --rule-strong: #1B1F23; --rule-slate: #56626C;
+  --serif: "Newsreader", "Newsreader Fallback", Georgia, serif;
+  --mono: "JetBrains Mono", "Mono Fallback", Menlo, monospace;
+  /* seven sizes; the top four are two points on one curve */
+  --t-label: 0.8125rem; --t-small: 0.9375rem; --t-body: 1.0625rem;
+  --t-lede: clamp(1.125rem, 1rem + 0.5vw, 1.3125rem);
+  --t-h3: clamp(1.3125rem, 1.05rem + 1vw, 1.625rem);
+  --t-h2: clamp(1.75rem, 1.2rem + 2.1vw, 2.5rem);
+  --t-display: clamp(2.5rem, 1.5rem + 4vw, 4rem);
+  /* spacing from the body leading: 17 × 1.55 ≈ 26 → 13-based ladder */
+  --s1: 13px; --s2: 26px; --s3: 39px; --s4: 52px; --s6: 78px; --s8: 104px; --s12: 156px;
+  --wrap: 1120px; --gutter: clamp(20px, 4vw, 48px); --bar-h: 64px;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 var(--t-body)/1.55 var(--serif); font-optical-sizing: auto; overflow-x: hidden; padding-bottom: var(--bar-h); }
+h1, h2, h3 { margin: 0; font-weight: 400; text-wrap: balance; font-optical-sizing: auto; }
+p { margin: 0; text-wrap: pretty; }
+a { color: inherit; }
+img { display: block; max-width: 100%; height: auto; }
+ul, ol { list-style: none; margin: 0; padding: 0; }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+.mono { font-family: var(--mono); font-size: var(--t-label); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.3; }
+.mono-plain { font-family: var(--mono); font-size: var(--t-small); font-weight: 400; letter-spacing: 0; text-transform: none; }
+.lede { font-size: var(--t-lede); line-height: 1.45; max-width: 56ch; }
+.muted { color: var(--muted); }
+:focus-visible { outline: 2px solid var(--seal); outline-offset: 3px; }
+.on-slate :focus-visible { outline-color: var(--on-slate); }
+.skip { position: absolute; left: -999px; top: 0; background: var(--panel); color: var(--ink); padding: var(--s1); z-index: 100; }
+.skip:focus { left: var(--s1); top: var(--s1); }
 
+/* ---------- Buttons ---------- */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5em; min-height: 52px; padding: 0.6em 1.3em; border: 1px solid var(--rule-strong); font: 500 var(--t-body)/1.2 var(--serif); text-decoration: none; cursor: pointer; background: transparent; color: var(--ink); transition: background-color 160ms, border-color 160ms, color 160ms; }
+.btn:hover { background: var(--ink); color: var(--paper); }
+.btn-primary { background: var(--seal); border-color: var(--seal); color: #fff; }
+.btn-primary:hover { background: var(--seal-deep); border-color: var(--seal-deep); color: #fff; }
+.on-slate .btn { border-color: var(--on-slate); color: var(--on-slate); }
+.on-slate .btn:hover { background: var(--on-slate); color: var(--ink); }
+.on-slate .btn-primary { background: var(--seal); border-color: var(--seal); color: #fff; }
+.on-slate .btn-primary:hover { background: var(--seal-deep); border-color: var(--seal-deep); }
 
+/* ---------- Top ---------- */
+.topline { border-bottom: 1px solid var(--rule); }
+.topline .wrap { display: flex; justify-content: space-between; padding-top: 9px; padding-bottom: 9px; color: var(--muted); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: var(--s2); padding-top: var(--s2); padding-bottom: var(--s2); }
+.brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-size: var(--t-lede); line-height: 1; font-weight: 500; }
+.brand img { width: 28px; height: 28px; }
+.nav { display: flex; gap: var(--s2); }
+.nav a { text-decoration: none; padding-bottom: 3px; border-bottom: 1px solid transparent; transition: border-color 160ms; }
+.nav a:hover { border-bottom-color: var(--seal); }
+.top .btn { min-height: 44px; padding: 0.4em 1em; font-size: var(--t-small); }
 
-<style>
-  /* Recent-work gallery. Everything here is drawn from the properties the build
-     already declares, so the band inherits each design's palette and heading
-     face rather than importing a seventh look. */
-  .gsw-gal { background: #E9EBEC; color: #1A1D20;
-             padding: clamp(38px, 6vw, 74px) 0; }
-  .gsw-gal-in { max-width: var(--wrap, 1140px); margin: 0 auto; padding: 0 20px; }
-  .gsw-gal-lab { font-size: 13px; letter-spacing: .18em; text-transform: uppercase;
-                 font-weight: 600; color: var(--accent); margin: 0 0 14px; }
-  .gsw-gal h2 { margin: 0; color: inherit; }
-  .gsw-gal-note { color: var(--muted); margin: 14px 0 30px; max-width: 58ch; }
-  .gsw-ba { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px; }
-  .gsw-gal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-  .gsw-gal figure { margin: 0; position: relative; overflow: hidden;
-                    background: var(--rule, rgba(0,0,0,.1)); }
-  .gsw-gal picture { display: block; }
-  /* height:auto matters — the width/height attributes are a presentational
-     hint, and without this the 1200px hint beats aspect-ratio. */
-  .gsw-gal img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3;
-                 object-fit: cover; transition: transform .5s ease; }
-  .gsw-gal figure:hover img { transform: scale(1.035); }
-  .gsw-gal figcaption { position: absolute; left: 0; bottom: 0;
-                        background: #1A1D20; color: #E9EBEC;
-                        font-size: 12px; font-weight: 600; letter-spacing: .14em;
-                        text-transform: uppercase; padding: 7px 12px; }
-  @media (max-width: 720px) {
-    .gsw-ba, .gsw-gal-grid { grid-template-columns: 1fr; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .gsw-gal img { transition: none; }
-    .gsw-gal figure:hover img { transform: none; }
-  }
-</style>
+/* ---------- The docket ---------- */
+.hero { padding: var(--s3) 0 var(--s8); }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--s3); align-items: start; }
+.docket { background: var(--panel); border: 1px solid var(--rule-strong); }
+.dhead { display: flex; justify-content: space-between; align-items: center; gap: var(--s2); padding: var(--s1) var(--s2); background: var(--slate); color: var(--on-slate); }
+.dhead .ref { color: var(--on-slate-muted); }
+.dbody { padding: var(--s3) var(--s2) var(--s2); }
+h1 { font-size: var(--t-display); line-height: 1.04; letter-spacing: -0.012em; max-width: 14ch; }
+.dbody .lede { margin-top: var(--s2); color: var(--muted); }
+.dline { display: grid; grid-template-columns: 1fr auto; gap: var(--s2); align-items: end; padding: var(--s2); border-top: 1px solid var(--rule-strong); }
+.tel { font-family: var(--mono); font-size: var(--t-h3); white-space: nowrap; font-weight: 400; letter-spacing: -0.02em; text-decoration: none; line-height: 1.1; display: inline-block; margin-top: 6px; }
+.tel:hover { color: var(--seal); }
+.ctas { display: flex; flex-wrap: wrap; gap: var(--s1); }
+.checks { border-top: 1px solid var(--rule-strong); display: grid; grid-template-columns: 1fr 1fr; }
+.checks li { display: flex; justify-content: space-between; align-items: baseline; gap: var(--s1); padding: var(--s1) var(--s2); border-bottom: 1px solid var(--rule); font-size: var(--t-small); }
+.checks li:nth-child(odd) { border-right: 1px solid var(--rule); }
+.checks li:nth-last-child(-n + 2) { border-bottom: 0; }
+.checks .v { color: var(--seal); display: inline-flex; align-items: center; gap: 8px; }
+.checks .v::before { content: ""; width: 11px; height: 11px; border: 1px solid var(--seal); background: linear-gradient(135deg, transparent 0 40%, var(--seal) 40% 60%, transparent 60%); }
+.exhibit { background: var(--panel); border: 1px solid var(--rule-strong); padding: var(--s1); }
+.exhibit img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: var(--rule); }
+.exhibit figcaption { display: flex; justify-content: space-between; gap: var(--s1); padding-top: var(--s1); color: var(--muted); }
+.exhibit figcaption span:first-child { white-space: nowrap; }
+.exhibit figcaption span:last-child { text-align: right; }
+.hero .exhibit img { aspect-ratio: 5 / 6; object-position: 60% 50%; }
 
-<style>
-  /* gsw:backdrop — the section opens on the work. The scrim is this build's own
-     ink, heavy where the copy sits and thinning away from it, so the text
-     never depends on what the photograph happens to be doing. */
-  .gsw-imaged { position: relative; isolation: isolate; overflow: hidden; }
-  .gsw-imaged > *:not(.gsw-backdrop) { position: relative; z-index: 1; }
-  .gsw-backdrop { position: absolute; inset: 0; z-index: 0; }
-  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
-  .gsw-backdrop img { width: 100%; height: 100%; object-fit: cover;
-                       object-position: center; }
-  .gsw-backdrop::after { content: ""; position: absolute; inset: 0;
-                          background: rgb(233 235 236 / 0.3); }
-  /* Below the breakpoint the copy spans the full width, so the scrim goes flat. */
-  @media (max-width: 760px) {
-    .gsw-backdrop::after { background: rgb(233 235 236 / 0.6); }
-  }
-</style>
+/* ---------- Schedules ---------- */
+.sched { padding: var(--s6) 0; }
+.sched-head { display: flex; gap: var(--s2); align-items: baseline; padding-top: var(--s1); border-top: 3px double var(--rule-strong); margin-bottom: var(--s3); color: var(--muted); }
+.on-slate .sched-head { border-top-color: var(--on-slate); color: var(--on-slate-muted); }
+.sched-head .n { color: var(--seal); }
+.on-slate .sched-head .n { color: var(--on-slate); }
+h2 { font-size: var(--t-h2); line-height: 1.1; letter-spacing: -0.01em; max-width: 22ch; }
+h3 { font-size: var(--t-h3); line-height: 1.22; font-weight: 500; }
+.head { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: var(--s2) var(--s6); align-items: end; margin-bottom: var(--s3); }
 
-<style>
-  /* gsw:contact-form — the closing section takes a name. Borrows the section's
-     colour through currentColor and the build's own .btn for the button. */
-  .gsw-cf { max-width: 640px; margin: 28px 0 0; text-align: left; }
-  .gsw-cf--centred { margin-left: auto; margin-right: auto; }
-  .gsw-cf-lead { margin: 0 0 12px; font-size: 15px; opacity: .85; }
-  .gsw-cf-grid { display: grid; gap: 10px; }
-  .gsw-cf label { display: flex; flex-direction: column; gap: 5px; font-size: 11px;
-                  font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
-  .gsw-cf label em { font-style: normal; font-weight: 400; text-transform: none; letter-spacing: 0; opacity: .7; }
-  .gsw-cf input, .gsw-cf textarea { font: inherit; font-size: 16px; color: inherit; background: transparent;
-                                    border: 1.5px solid currentColor; border-radius: 0; padding: 10px 12px; width: 100%;
-                                    box-sizing: border-box; letter-spacing: 0; text-transform: none; font-weight: 400; }
-  .gsw-cf input:focus, .gsw-cf textarea:focus { outline: 2px solid currentColor; outline-offset: 2px; }
-  .gsw-cf textarea { resize: vertical; min-height: 84px; }
-  .gsw-cf-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 14px; }
-  .gsw-cf button.btn { font: inherit; cursor: pointer; appearance: none; }
-  .gsw-cf-err { font-size: 14px; font-weight: 600; }
-  .gsw-cf-done { margin: 0; font-size: 17px; font-weight: 600; }
-  .gsw-cf[data-sent] .gsw-cf-lead, .gsw-cf[data-sent] .gsw-cf-grid, .gsw-cf[data-sent] .gsw-cf-row { display: none; }
-  @media (min-width: 640px) {
-    .gsw-cf-grid { grid-template-columns: 1fr 1fr; }
-    .gsw-cf-wide { grid-column: 1 / -1; }
-  }
+/* services */
+.cards { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s1); }
+.card { background: var(--panel); border: 1px solid var(--rule); padding: var(--s2); }
+.card h3 { margin-bottom: var(--s1); }
+.card p { color: var(--muted); max-width: 46ch; }
+
+/* results */
+.on-slate { background: var(--slate); color: var(--on-slate); }
+.lead blockquote { margin: 0; font-size: var(--t-h2); font-style: italic; line-height: 1.2; max-width: 30ch; text-wrap: balance; }
+.lead cite { display: block; margin-top: var(--s2); font-style: normal; color: var(--on-slate-muted); }
+
+/* ledger */
+.ledger { background: var(--panel); border: 1px solid var(--rule-strong); }
+.ledger .row { display: grid; grid-template-columns: 220px 1fr; gap: var(--s2); padding: var(--s1) var(--s2); border-bottom: 1px solid var(--rule); align-items: baseline; }
+.ledger .row:last-child { border-bottom: 0; }
+.ledger .k { color: var(--muted); }
+.ledger .fig { font-family: var(--mono); font-size: var(--t-h3); font-weight: 400; letter-spacing: -0.01em; }
+.ledger .q { font-style: italic; }
+
+/* process */
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s2); }
+.steps li { padding-top: var(--s1); border-top: 1px solid var(--rule-strong); }
+.steps .mono { display: block; color: var(--seal); margin-bottom: var(--s1); }
+.steps h3 { margin-bottom: 8px; }
+.steps p { color: var(--muted); font-size: var(--t-small); line-height: 1.55; max-width: 32ch; }
+
+/* exhibits */
+.exhibits { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--s1); }
+.exhibits figure { margin: 0; grid-column: span 2; }
+.exhibits figure:nth-child(-n + 2) { grid-column: span 3; }
+.exhibits figure:nth-child(-n + 2) img { aspect-ratio: 3 / 2; }
+
+/* close */
+.close .grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: var(--s4); align-items: start; }
+.close h2 { font-size: var(--t-display); line-height: 1.04; letter-spacing: -0.012em; max-width: 12ch; }
+.close .lede { margin-top: var(--s2); color: var(--on-slate-muted); }
+.close .tel { display: block; font-size: var(--t-h2); margin-top: var(--s2); color: var(--on-slate); }
+.close .ctas { margin-top: var(--s2); }
+.close .note { margin-top: var(--s3); font-size: var(--t-small); color: var(--on-slate-muted); max-width: 48ch; }
+.form { background: var(--panel); color: var(--ink); border: 1px solid var(--rule-strong); }
+.form .fhead { padding: var(--s1) var(--s2); background: var(--ink); color: var(--paper); }
+.form .fbody { padding: var(--s2); }
+.field { display: grid; gap: 6px; margin-bottom: var(--s1); }
+.field label { color: var(--muted); }
+.field input, .field textarea { width: 100%; font: 400 var(--t-body)/1.4 var(--mono); color: var(--ink); background: var(--paper); border: 1px solid var(--rule-strong); padding: 11px 13px; transition: border-color 160ms, background-color 160ms; }
+.field input:hover, .field textarea:hover { background: var(--panel); }
+.field input:focus, .field textarea:focus { outline: none; border-color: var(--seal); box-shadow: inset 0 0 0 1px var(--seal); }
+.field.is-invalid input { border-color: var(--seal); box-shadow: inset 0 0 0 1px var(--seal); }
+.form .actions { display: flex; align-items: center; gap: var(--s1); flex-wrap: wrap; margin-top: var(--s2); }
+.form .hint { font-size: var(--t-small); color: var(--seal); }
+.form .hint[hidden], .form .done[hidden] { display: none; }
+.form .done { font-size: var(--t-lede); font-style: italic; }
+.form.is-sent .field, .form.is-sent .actions { display: none; }
+
+/* footer */
+.foot { border-top: 3px double var(--rule-strong); padding: var(--s4) 0; }
+.foot .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s2) var(--s6); align-items: start; }
+.foot p { color: var(--muted); font-size: var(--t-small); max-width: 50ch; }
+.foot .fine { grid-column: 1 / -1; padding-top: var(--s1); border-top: 1px solid var(--rule); }
+
+/* mobile bar */
+.bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: grid; grid-template-columns: 1fr auto; gap: 1px; background: var(--rule-strong); border-top: 1px solid var(--rule-strong); }
+.bar .btn { min-height: var(--bar-h); border: 0; white-space: nowrap; background: var(--panel); }
+.bar .btn-primary { background: var(--seal); flex-direction: column; gap: 1px; line-height: 1.1; }
+.bar .btn-primary .mono { color: #fff; }
+
+.tnum, .tnum * { font-variant-numeric: tabular-nums; }
+
+/* ---------- Responsive ---------- */
+@media (min-width: 1000px) { body { padding-bottom: 0; } .bar { display: none; } }
+@media (max-width: 999px) {
+  .hero .wrap { grid-template-columns: 1fr; }
+  .hero .exhibit { display: none; }
+  .head { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr 1fr; }
+  .close .grid { grid-template-columns: 1fr; }
+  .exhibits { grid-template-columns: 1fr 1fr; }
+  .exhibits figure, .exhibits figure:nth-child(-n + 2) { grid-column: span 1; }
+  .top .btn { display: none; }
+}
+@media (max-width: 759px) {
+  .nav, .topline, .dhead .ref { display: none; }
+  .sched { padding: var(--s4) 0; }
+  .hero { padding-top: 0; padding-bottom: var(--s4); }
+  .dline { grid-template-columns: 1fr; }
+  .ctas .btn { width: 100%; }
+  .checks { grid-template-columns: 1fr; }
+  .checks li:nth-child(odd) { border-right: 0; }
+  .checks li:nth-last-child(-n + 2) { border-bottom: 1px solid var(--rule); }
+  .checks li:last-child { border-bottom: 0; }
+  .cards, .steps, .exhibits { grid-template-columns: 1fr; }
+  .ledger .row { grid-template-columns: 1fr; gap: 4px; }
+  .foot .wrap { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+@media (forced-colors: active) { .btn, .docket, .exhibit, .ledger, .form { border: 1px solid ButtonText; } }
+@media print { .bar, .top .btn { display: none; } }
 </style>
 </head>
 <body>
-<div class="topbar"><div class="wrap">Licensed &amp; insured · Haag-certified inspectors</div></div>
-<header class="nav"><div class="wrap">
-  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M32 5 L57 14 V33 C57 46 46 55 32 59 C18 55 7 46 7 33 V14 Z" fill="#4C5A63"/>
-<g fill="#E9EBEC">
-<rect x="14" y="28" width="11" height="10"/><rect x="26.5" y="28" width="11" height="10"/>
-<rect x="39" y="28" width="11" height="10"/>
-</g></svg><span>Sentry Roofing &amp; Restoration</span></span></a>
-  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
-  <a class="navact">Call now (620) 490-7728</a>
-</div></header>
-<section class="gsw-imaged hero"><!-- gsw:backdrop --><div class="gsw-backdrop" aria-hidden="true"><picture><source type="image/avif" srcset="../_assets/hero/roofing/e-whole-neighbourhood-1280.avif 1280w, ../_assets/hero/roofing/e-whole-neighbourhood-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/roofing/e-whole-neighbourhood-1280.jpg" width="2560" height="1429" alt="" loading="eager" fetchpriority="high" decoding="async"></picture></div><!-- /gsw:backdrop --><div class="wrap"><div class="docket">
-  <div class="dhead"><p class="eyebrow">Adjuster meetings · Claims &amp; supplements</p><i class="tiles-band" aria-hidden="true"></i></div>
-  <div class="dbody">
-    <h1>We meet your adjuster on the roof.</h1>
-    <p class="sub">Storm and hail claims across the metro. We photograph the damage before the adjuster arrives, stand on the roof with them, and put the supplement in writing when they miss something, which they usually do.</p>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="topline"><div class="wrap mono"><span>Licensed &amp; insured · Haag-certified inspectors</span><span>Adjuster meetings · Claims &amp; supplements</span></div></div>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#"><img src="../_assets/identity/roofing/sentry-roofing-and-restoration-mark.svg" alt="" width="28" height="28">Sentry Roofing &amp; Restoration</a>
+    <nav class="nav mono" aria-label="Sections">
+      <a href="#services">Services</a>
+      <a href="#results">Results</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-primary tnum" href="tel:+16204907728">Call now (620)&nbsp;490-7728</a>
   </div>
-  <div class="line">
-    <div><p class="lab">One number to call</p><a class="tel">(620) 490-7728</a></div>
-    <div class="ctas">
-      <a class="btn btn-primary" data-cta="primary" href="#contact">Call now</a>
-      <a class="btn btn-ghost" href="#contact">Get a free inspection</a>
+</header>
+
+<main id="main">
+<section class="hero" aria-labelledby="promise">
+  <div class="wrap">
+    <div class="docket">
+      <div class="dhead mono"><span>Adjuster meetings · Claims &amp; supplements</span><span class="ref">Storm and hail claims</span></div>
+      <div class="dbody">
+        <h1 id="promise">We meet your adjuster on the&nbsp;roof.</h1>
+        <p class="lede">Storm and hail claims across the metro. We photograph the damage before the adjuster arrives, stand on the roof with them, and put the supplement in writing when they miss something, which they usually&nbsp;do.</p>
+      </div>
+      <div class="dline">
+        <div><p class="mono muted">One number to call</p><a class="tel tnum" href="tel:+16204907728">(620)&nbsp;490-7728</a></div>
+        <div class="ctas">
+          <a class="btn btn-primary" data-cta="primary" href="tel:+16204907728">Call now</a>
+          <a class="btn" href="#contact">Get a free inspection</a>
+        </div>
+      </div>
+      <ul class="checks tnum" aria-label="What you get">
+        <li>Supplements filed and won<span class="v mono">Yes</span></li>
+        <li>Financing from $89/mo<span class="v mono">Yes</span></li>
+        <li>25-year workmanship warranty<span class="v mono">Yes</span></li>
+        <li>Same-day emergency tarping<span class="v mono">Yes</span></li>
+      </ul>
+    </div>
+    <figure class="exhibit" aria-hidden="true">
+      <picture>
+        <source type="image/avif" srcset="../_assets/hero/roofing/e-whole-neighbourhood-1280.avif 1280w, ../_assets/hero/roofing/e-whole-neighbourhood-2560.avif 2560w" sizes="(max-width: 999px) 0px, 40vw">
+        <img src="../_assets/hero/roofing/e-whole-neighbourhood-1280.jpg" alt="" width="1280" height="714" fetchpriority="high">
+      </picture>
+      <figcaption class="mono"><span>Storm and hail claims across the metro</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="sched" id="services" aria-labelledby="services-title">
+  <div class="wrap">
+    <p class="sched-head mono"><span class="n">Schedule 1</span><span>Services</span></p>
+    <div class="head">
+      <h2 id="services-title">What we do</h2>
+      <p class="lede muted">Most calls fall into one of these. If yours doesn’t, ring us anyway. We’ll tell you straight whether it’s a repair or a&nbsp;replacement.</p>
+    </div>
+    <div class="cards">
+      <article class="card"><h3>Storm &amp; hail damage</h3><p>Free inspection, a dated photo report filed before the adjuster arrives, and one of our inspectors on the roof beside them when they scope it.</p></article>
+      <article class="card"><h3>Full replacement</h3><p>Architectural shingle, metal or tile. Tear-off, deck inspection, ice-and-water barrier, and the site left clean.</p></article>
+      <article class="card"><h3>Emergency repair</h3><p>Active leak or missing shingles after a storm. Same-day tarping to stop the damage, permanent fix scheduled after.</p></article>
+      <article class="card"><h3>Gutters &amp; ventilation</h3><p>Half the roofs we replace failed early because the attic couldn’t breathe. We fix the cause, not just the symptom.</p></article>
     </div>
   </div>
-  <ul class="badges">
-    <li>Supplements filed and won<span>Yes</span></li>
-    <li>Financing from $89/mo<span>Yes</span></li>
-    <li>25-year workmanship warranty<span>Yes</span></li>
-    <li>Same-day emergency tarping<span>Yes</span></li>
-  </ul>
-</div></div></section>
+</section>
 
-<section class="sec" id="services"><div class="wrap">
-  <p class="kicker">Services</p>
-  <h2>What we do</h2>
-  <p class="lede">Most calls fall into one of these. If yours doesn't, ring us anyway. We'll tell you straight whether it's a repair or a replacement.</p>
-  <div class="cards">
-    <article class="card"><h3>Storm &amp; hail damage</h3><p>Free inspection, a dated photo report filed before the adjuster arrives, and one of our inspectors on the roof beside them when they scope it.</p></article>
-    <article class="card"><h3>Full replacement</h3><p>Architectural shingle, metal or tile. Tear-off, deck inspection, ice-and-water barrier, and the site left clean.</p></article>
-    <article class="card"><h3>Emergency repair</h3><p>Active leak or missing shingles after a storm. Same-day tarping to stop the damage, permanent fix scheduled after.</p></article>
-    <article class="card"><h3>Gutters &amp; ventilation</h3><p>Half the roofs we replace failed early because the attic couldn't breathe. We fix the cause, not just the symptom.</p></article>
+<section class="sched lead on-slate" id="results" aria-label="Results">
+  <div class="wrap">
+    <p class="sched-head mono"><span class="n">Schedule 2</span><span>Results</span></p>
+    <blockquote>“The first adjuster wrote it up for four thousand. Sentry filed a supplement with photographs taken before he arrived, and the final cheque was just under&nbsp;nineteen.”</blockquote>
+    <cite class="mono">Dana R. · Homeowner, Cedar Park</cite>
   </div>
-</div></section>
-<section class="lead" id="results"><div class="wrap">
-  <p class="kicker">Results</p>
-  <blockquote>“The first adjuster wrote it up for four thousand. Sentry filed a supplement with photographs taken before he arrived, and the final cheque was just under nineteen.”</blockquote>
-  <cite>Dana R. · Homeowner, Cedar Park</cite>
-</div></section>
-<section class="sec"><div class="wrap">
-  <p class="kicker">Supplements filed and won</p>
-  <h2>Claim or quote</h2>
-  <p class="lede">If it's insurance, we meet your adjuster on site. If it's retail, you get a fixed written price with financing options.</p>
-  <div class="fin">
-    <div class="row"><span class="k">Financing</span><span class="v">Financing from $89/mo</span></div>
-    <div class="row"><span class="k">Joel B. · Riverbend</span><p>“The financing made it possible. $110 a month instead of fifteen grand up front.”</p></div>
-    <div class="row"><span class="k">Anne-Marie K. · Cedar Park</span><p>“Handled the whole insurance claim. I signed two things and that was it.”</p></div>
+</section>
+
+<section class="sched" aria-labelledby="claim-title">
+  <div class="wrap">
+    <p class="sched-head mono"><span class="n">Schedule 3</span><span>Supplements filed and won</span></p>
+    <div class="head">
+      <h2 id="claim-title">Claim or quote</h2>
+      <p class="lede muted">If it’s insurance, we meet your adjuster on site. If it’s retail, you get a fixed written price with financing&nbsp;options.</p>
+    </div>
+    <div class="ledger tnum">
+      <div class="row"><span class="k mono">Financing</span><span class="fig">Financing from $89/mo</span></div>
+      <div class="row"><span class="k mono">Joel B. · Riverbend</span><p class="q">“The financing made it possible. $110 a month instead of fifteen grand up&nbsp;front.”</p></div>
+      <div class="row"><span class="k mono">Anne-Marie K. · Cedar Park</span><p class="q">“Handled the whole insurance claim. I signed two things and that was&nbsp;it.”</p></div>
+    </div>
   </div>
-</div></section>
-<section class="sec" id="process"><div class="wrap">
-  <p class="kicker">Process</p>
-  <h2>How a job actually runs</h2>
-  <p class="lede">The part most roofers hand back to you in a folder, which is the part that decides what the cheque says.</p>
-  <ol class="steps">
-    <li><div><h3>Free inspection</h3><p>We go up, photograph everything, and tell you whether you need a roof or a repair. No pressure either way.</p></div></li>
-    <li><div><h3>Claim or quote</h3><p>If it's insurance, we meet your adjuster on site. If it's retail, you get a fixed written price with financing options.</p></div></li>
-    <li><div><h3>Install</h3><p>Most homes are one to two days. Materials delivered the morning of, site cleaned and magnet-swept at the end.</p></div></li>
-    <li><div><h3>Final walkthrough</h3><p>We walk it with you, register your warranty, and you have a direct number if anything ever comes up.</p></div></li>
-  </ol>
-</div></section>
-<!-- gsw:gallery -->
-<section class="gsw-gal"><div class="gsw-gal-in"><p class="gsw-gal-lab">Documented</p><h2>Photographed for the adjuster.</h2><p class="gsw-gal-note">Every job is documented the way a claim needs it: before, during and after, with the detail shots the adjuster will ask for.</p><div class="gsw-ba"><figure><picture><source type="image/avif" srcset="../_assets/library/roofing/sentry-roofing-and-restoration/damage-before-640.avif 640w, ../_assets/library/roofing/sentry-roofing-and-restoration/damage-before-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 50vw"><img src="../_assets/library/roofing/sentry-roofing-and-restoration/damage-before-720.jpg" width="1600" height="1200" alt="Before" loading="lazy" decoding="async"></picture><figcaption>Before</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/roofing/sentry-roofing-and-restoration/damage-after-640.avif 640w, ../_assets/library/roofing/sentry-roofing-and-restoration/damage-after-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 50vw"><img src="../_assets/library/roofing/sentry-roofing-and-restoration/damage-after-720.jpg" width="1600" height="1200" alt="After" loading="lazy" decoding="async"></picture><figcaption>After</figcaption></figure></div><div class="gsw-gal-grid"><figure><picture><source type="image/avif" srcset="../_assets/library/roofing/sentry-roofing-and-restoration/flashing-640.avif 640w, ../_assets/library/roofing/sentry-roofing-and-restoration/flashing-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/roofing/sentry-roofing-and-restoration/flashing-720.jpg" width="1600" height="1200" alt="Step flashing at the chimney" loading="lazy" decoding="async"></picture><figcaption>Step flashing at the chimney</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/roofing/sentry-roofing-and-restoration/drip-edge-640.avif 640w, ../_assets/library/roofing/sentry-roofing-and-restoration/drip-edge-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/roofing/sentry-roofing-and-restoration/drip-edge-720.jpg" width="1600" height="1200" alt="Drip edge and gutter" loading="lazy" decoding="async"></picture><figcaption>Drip edge and gutter</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/roofing/sentry-roofing-and-restoration/ridge-vent-640.avif 640w, ../_assets/library/roofing/sentry-roofing-and-restoration/ridge-vent-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/roofing/sentry-roofing-and-restoration/ridge-vent-720.jpg" width="1600" height="1200" alt="Ridge vent and cap" loading="lazy" decoding="async"></picture><figcaption>Ridge vent and cap</figcaption></figure></div></div></section>
-<!-- /gsw:gallery -->
-<section class="close" id="contact"><div class="wrap">
-  <h2>Claim denied or underpaid?</h2>
-  <p>Call and a human answers: day, night, weekend, during the storm. Emergency tarping usually the same day.</p>
-  <a class="tel">(620) 490-7728</a>
-  <div class="ctas">
-    <a class="btn btn-primary" href="#contact">Call now</a>
-    <a class="btn btn-ghost" href="#contact">Get a free inspection</a>
+</section>
+
+<section class="sched" id="process" aria-labelledby="process-title">
+  <div class="wrap">
+    <p class="sched-head mono"><span class="n">Schedule 4</span><span>Process</span></p>
+    <div class="head">
+      <h2 id="process-title">How a job actually&nbsp;runs</h2>
+      <p class="lede muted">The part most roofers hand back to you in a folder, which is the part that decides what the cheque&nbsp;says.</p>
+    </div>
+    <ol class="steps">
+      <li><span class="mono">Step 1</span><h3>Free inspection</h3><p>We go up, photograph everything, and tell you whether you need a roof or a repair. No pressure either way.</p></li>
+      <li><span class="mono">Step 2</span><h3>Claim or quote</h3><p>If it’s insurance, we meet your adjuster on site. If it’s retail, you get a fixed written price with financing options.</p></li>
+      <li><span class="mono">Step 3</span><h3>Install</h3><p>Most homes are one to two days. Materials delivered the morning of, site cleaned and magnet-swept at the end.</p></li>
+      <li><span class="mono">Step 4</span><h3>Final walkthrough</h3><p>We walk it with you, register your warranty, and you have a direct number if anything ever comes up.</p></li>
+    </ol>
   </div>
-  <!-- gsw:contact-form -->
-    <form class="gsw-cf" novalidate>
-      <p class="gsw-cf-lead">Or leave your details and we'll call you back.</p>
-      <div class="gsw-cf-grid">
-        <label><span>Name</span><input type="text" name="name" autocomplete="name" required></label>
-        <label><span>Phone or email</span><input type="text" name="contact" autocomplete="tel" required></label>
-        <label class="gsw-cf-wide"><span>What can we help with? <em>(optional)</em></span><textarea name="message" rows="3"></textarea></label>
+</section>
+
+<section class="sched" aria-labelledby="doc-title">
+  <div class="wrap">
+    <p class="sched-head mono"><span class="n">Schedule 5</span><span>Documented</span></p>
+    <div class="head">
+      <h2 id="doc-title">Photographed for the&nbsp;adjuster.</h2>
+      <p class="lede muted">Every job is documented the way a claim needs it: before, during and after, with the detail shots the adjuster will ask&nbsp;for.</p>
+    </div>
+    <div class="exhibits">
+      <figure class="exhibit">
+        <picture><source type="image/avif" srcset="../_assets/library/roofing/sentry-roofing-and-restoration/damage-before-1280.avif 1280w, ../_assets/library/roofing/sentry-roofing-and-restoration/damage-before-640.avif 640w" sizes="(max-width: 759px) 100vw, 50vw"><img src="../_assets/library/roofing/sentry-roofing-and-restoration/damage-before-720.jpg" alt="Hail-damaged roof with a tarp, before work" width="720" height="537" loading="lazy"></picture>
+        <figcaption class="mono"><span>Exhibit A</span><span>Before</span></figcaption>
+      </figure>
+      <figure class="exhibit">
+        <picture><source type="image/avif" srcset="../_assets/library/roofing/sentry-roofing-and-restoration/damage-after-1280.avif 1280w, ../_assets/library/roofing/sentry-roofing-and-restoration/damage-after-640.avif 640w" sizes="(max-width: 759px) 100vw, 50vw"><img src="../_assets/library/roofing/sentry-roofing-and-restoration/damage-after-720.jpg" alt="The same roof after replacement" width="720" height="537" loading="lazy"></picture>
+        <figcaption class="mono"><span>Exhibit B</span><span>After</span></figcaption>
+      </figure>
+      <figure class="exhibit">
+        <picture><source type="image/avif" srcset="../_assets/library/roofing/sentry-roofing-and-restoration/flashing-1280.avif 1280w, ../_assets/library/roofing/sentry-roofing-and-restoration/flashing-640.avif 640w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/roofing/sentry-roofing-and-restoration/flashing-720.jpg" alt="Step flashing at the chimney" width="720" height="537" loading="lazy"></picture>
+        <figcaption class="mono"><span>Exhibit C</span><span>Step flashing at the chimney</span></figcaption>
+      </figure>
+      <figure class="exhibit">
+        <picture><source type="image/avif" srcset="../_assets/library/roofing/sentry-roofing-and-restoration/drip-edge-1280.avif 1280w, ../_assets/library/roofing/sentry-roofing-and-restoration/drip-edge-640.avif 640w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/roofing/sentry-roofing-and-restoration/drip-edge-720.jpg" alt="Drip edge and gutter" width="720" height="537" loading="lazy"></picture>
+        <figcaption class="mono"><span>Exhibit D</span><span>Drip edge and gutter</span></figcaption>
+      </figure>
+      <figure class="exhibit">
+        <picture><source type="image/avif" srcset="../_assets/library/roofing/sentry-roofing-and-restoration/ridge-vent-1280.avif 1280w, ../_assets/library/roofing/sentry-roofing-and-restoration/ridge-vent-640.avif 640w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/roofing/sentry-roofing-and-restoration/ridge-vent-720.jpg" alt="Ridge vent and cap" width="720" height="537" loading="lazy"></picture>
+        <figcaption class="mono"><span>Exhibit E</span><span>Ridge vent and cap</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="sched close on-slate" id="contact" aria-labelledby="close-title">
+  <div class="wrap">
+    <p class="sched-head mono"><span class="n">Schedule 6</span><span>Contact</span></p>
+    <div class="grid">
+      <div>
+        <h2 id="close-title">Claim denied or&nbsp;underpaid?</h2>
+        <p class="lede">Call and a human answers: day, night, weekend, during the storm. Emergency tarping usually the same&nbsp;day.</p>
+        <a class="tel tnum" href="tel:+16204907728">(620)&nbsp;490-7728</a>
+        <div class="ctas">
+          <a class="btn btn-primary" href="tel:+16204907728">Call now</a>
+          <a class="btn" href="#cb-name">Get a free inspection</a>
+        </div>
+        <p class="note">Free inspection and an honest read on whether the claim is worth filing. Sometimes it isn’t, and a denied claim on your record costs you more than the&nbsp;repair.</p>
       </div>
-      <div class="gsw-cf-row">
-        <button type="submit" class="btn btn-primary">Request a call back</button>
-        <span class="gsw-cf-err" role="alert" hidden>Add your name and a way to reach you.</span>
-      </div>
-      <p class="gsw-cf-done" role="status" hidden>Thanks. Someone will call you back within one business day.</p>
-    </form>
-    <!-- /gsw:contact-form -->
-    <p class="note">Free inspection and an honest read on whether the claim is worth filing. Sometimes it isn't, and a denied claim on your record costs you more than the repair.</p>
-</div></section>
-<footer class="foot"><div class="wrap">
-  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M32 5 L57 14 V33 C57 46 46 55 32 59 C18 55 7 46 7 33 V14 Z" fill="#4C5A63"/>
-<g fill="#E9EBEC">
-<rect x="14" y="28" width="11" height="10"/><rect x="26.5" y="28" width="11" height="10"/>
-<rect x="39" y="28" width="11" height="10"/>
-</g></svg><span>Sentry Roofing &amp; Restoration</span></span></a>
-  <p><a>(620) 490-7728</a> · Licensed, bonded and insured · Haag-certified inspectors</p>
-  <p>4338 Halsey Street, Millbrook Park, NY 15955</p>
-</div></footer>
-<div class="callbar"><a class="tel">Call now (620) 490-7728</a><a class="alt2" href="#contact">Free inspection</a></div>
-<!-- gsw:motion -->
-<style>
-  /* Motion pass. Everything here is gated on .gsw-m, which only the script
-     below adds, so a page without JavaScript never hides anything. */
-  .gsw-m [data-gsw-reveal] {
-    opacity: 0; transform: translateY(14px);
-    transition: opacity .7s cubic-bezier(.2,.6,.2,1), transform .7s cubic-bezier(.2,.6,.2,1);
-  }
-  .gsw-m [data-gsw-reveal].gsw-in { opacity: 1; transform: none; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(2) { transition-delay: .08s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(3) { transition-delay: .16s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(4) { transition-delay: .24s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(5) { transition-delay: .32s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(6) { transition-delay: .40s; }
-  @keyframes gsw-hero-in { from { opacity: 0; transform: scale(1.025); } to { opacity: 1; transform: none; } }
-  .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: gsw-hero-in 1s ease-out both; }
-  @media (prefers-reduced-motion: reduce) {
-    .gsw-m [data-gsw-reveal] { opacity: 1; transform: none; transition: none; }
-    .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: none; }
-  }
-</style>
+      <form class="form" id="callback" novalidate>
+        <p class="fhead mono">Or leave your details and we’ll call you back.</p>
+        <div class="fbody">
+          <div class="field"><label class="mono" for="cb-name">Name</label><input id="cb-name" name="name" type="text" autocomplete="name" required></div>
+          <div class="field"><label class="mono" for="cb-contact">Phone or email</label><input id="cb-contact" name="contact" type="text" autocomplete="tel" required></div>
+          <div class="field"><label class="mono" for="cb-msg">What can we help with? (optional)</label><textarea id="cb-msg" name="message" rows="3"></textarea></div>
+          <div class="actions">
+            <button class="btn btn-primary" type="submit">Request a call back</button>
+            <p class="hint" id="cb-hint" role="alert" hidden>Add your name and a way to reach you.</p>
+          </div>
+          <p class="done" id="cb-done" role="status" hidden>Thanks. Someone will call you back within one business&nbsp;day.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="#"><img src="../_assets/identity/roofing/sentry-roofing-and-restoration-mark.svg" alt="" width="28" height="28">Sentry Roofing &amp; Restoration</a>
+      <p class="tnum" style="margin-top: var(--s1)"><a href="tel:+16204907728">(620)&nbsp;490-7728</a> · Licensed, bonded and insured · Haag-certified inspectors</p>
+    </div>
+    <div>
+      <p class="tnum">4338 Halsey Street, Millbrook Park, NY 15955</p>
+      <p style="margin-top: 6px"><a href="tel:+16204907728">Call now</a> · <a href="#contact">Free inspection</a></p>
+    </div>
+    <p class="fine mono muted">Sentry Roofing &amp; Restoration is a fictional business; this page is a design reference.</p>
+  </div>
+</footer>
+
+<div class="bar" aria-label="Quick actions">
+  <a class="btn btn-primary tnum" href="tel:+16204907728"><span class="mono">Call now</span><span>(620)&nbsp;490-7728</span></a>
+  <a class="btn" href="#contact">Free inspection</a>
+</div>
+
 <script>
 (function () {
-  if (!('IntersectionObserver' in window)) return;
-  var targets = [].slice.call(document.querySelectorAll('body > section, .gsw-gal figure'));
-  // The first section is the hero; it is on screen already and owns its own entrance.
-  var first = document.querySelector('body > section');
-  targets = targets.filter(function (el) { return el !== first; });
-  if (!targets.length) return;
-  document.documentElement.classList.add('gsw-m');
-  targets.forEach(function (el) { el.setAttribute('data-gsw-reveal', ''); });
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) { e.target.classList.add('gsw-in'); io.unobserve(e.target); }
-    });
-  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-  targets.forEach(function (el) { io.observe(el); });
-})();
-</script>
-<!-- /gsw:motion -->
-
-<!-- gsw:contact-form -->
-<script>
-/* The enquiry form confirms in place. Nothing is sent: a reference build. */
-(function () {
-  var form = document.querySelector('.gsw-cf');
-  if (!form) return;
+  // Static preview: validates locally and shows the confirmation state; nothing is sent.
+  var form = document.getElementById('callback');
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    var name = form.name.value.trim(), contact = form.contact.value.trim();
-    var err = form.querySelector('.gsw-cf-err');
-    if (!name || !contact) { err.hidden = false; (name ? form.contact : form.name).focus(); return; }
-    err.hidden = true;
-    form.setAttribute('data-sent', '');
-    form.querySelector('.gsw-cf-done').hidden = false;
+    var name = form.elements.name, contact = form.elements.contact, hint = document.getElementById('cb-hint');
+    var ok = true;
+    [name, contact].forEach(function (el) {
+      var bad = !el.value.trim();
+      el.closest('.field').classList.toggle('is-invalid', bad);
+      el.setAttribute('aria-invalid', bad ? 'true' : 'false');
+      if (bad) ok = false;
+    });
+    hint.hidden = ok;
+    if (!ok) { (name.value.trim() ? contact : name).focus(); return; }
+    form.classList.add('is-sent');
+    document.getElementById('cb-done').hidden = false;
   });
 })();
 </script>
-<!-- /gsw:contact-form -->
 </body>
 </html>
