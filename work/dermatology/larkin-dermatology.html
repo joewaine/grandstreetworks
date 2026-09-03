@@ -6,143 +6,10 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Larkin Dermatology · Two clinics, one practice</title>
 <meta name="description" content="Two booking desks: medical dermatology and skin cancer surgery, and a separate cosmetic clinic with published pricing.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Yantramanav:wght@300;400;500;700&display=swap" rel="stylesheet">
-<style>
-/* D5 — THE COUNTER ONE. hero:panel nav:inline services:tiles proof:stats
-   surface #16202A · raised #1E2A36 · accent #57A8DD · warm #E7B08A · text #EAF1F6
-   H1 ramp: 29/34/44/54px · PT Sans display / Yantramanav body
-   Fixes "medical and cosmetic buried together": the hero panel is a reception counter with
-   two windows cut into it, lit differently, each with the wait or the pricing note printed
-   on its own sill. Dark clinical field so the two windows are the only lit things. */
-:root{--surface:#16202A;--raised:#1E2A36;--fg:#EAF1F6;--accent:#57A8DD;--warm:#E7B08A;
---muted:#B0C0CD;--rule:rgba(234,241,246,.18);--wrap:1140px}
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--surface);color:var(--fg);
-font:400 17px/1.64 "Yantramanav",system-ui,-apple-system,sans-serif;padding-bottom:82px;
-overflow-x:hidden}
-.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
-h1,h2,h3{font-family:"PT Sans",system-ui,sans-serif;font-weight:700;margin:0;line-height:1.15;
-letter-spacing:-.015em}
-a{color:inherit}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 22px;
-text-decoration:none;font-weight:700;font-size:16px;border:1px solid transparent;text-align:center;
-line-height:1.2;font-family:"PT Sans",system-ui,sans-serif}
-.btn-primary{background:var(--accent);color:#0C1620;border-color:var(--accent)}
-.btn-ghost{background:transparent;color:var(--warm);border-color:var(--warm)}
-.topbar{background:#0D1620;color:var(--muted);font-size:15px}
-.topbar .wrap{padding:9px 20px}
-.nav{position:sticky;top:0;z-index:30;background:var(--surface);border-bottom:1px solid var(--rule)}
-.nav .wrap{display:flex;align-items:center;gap:0;height:54px}
-.brand{font-family:"PT Sans",system-ui,sans-serif;font-weight:700;font-size:20px;text-decoration:none;
-flex:none;letter-spacing:-.02em;line-height:1;padding-right:16px}
-.navlinks{display:flex;min-width:0;flex:1;overflow-x:auto;scrollbar-width:none;font-size:13px;
-font-weight:500;color:var(--muted);letter-spacing:.14em;text-transform:uppercase}
-.navlinks::-webkit-scrollbar{display:none}
-.navlinks a{text-decoration:none;white-space:nowrap;padding:0 13px;border-left:1px solid var(--rule);
-line-height:1.3}
-.navact{min-height:36px;padding:0 14px;font-size:14px;flex:none;white-space:nowrap;margin-left:14px}
-.hero{padding:22px 0 32px}
-.counter{background:var(--raised);border-top:4px solid var(--accent);padding:22px 18px 0}
-.chip{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
-color:var(--accent);border-bottom:2px solid var(--accent);padding:0 0 5px;margin:0 0 14px}
-.eyebrow{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);
-margin:0 0 10px;font-weight:500}
-.hero h1{font-size:clamp(29px,7.2vw,54px);max-width:16ch}
-.sub{font-size:16px;color:var(--muted);max-width:53ch;margin:13px 0 18px;line-height:1.55}
-.windows{display:grid;gap:0;margin:0 -18px;border-top:1px solid var(--rule)}
-.win{display:block;text-decoration:none;padding:18px;border-bottom:1px solid var(--rule)}
-.win u{text-decoration:none;display:block;font-size:13px;letter-spacing:.14em;text-transform:uppercase;
-font-weight:700;color:var(--accent);margin-bottom:6px}
-.win.cos u{color:var(--warm)}
-.win b{font-family:"PT Sans",system-ui,sans-serif;font-size:21px;font-weight:700;display:block;
-line-height:1.25}
-.win i{font-style:normal;display:block;margin-top:6px;font-size:15px;color:var(--muted)}
-.win:last-child{border-bottom:none}
-.badges{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:7px}
-.badges li{font-size:15px;color:var(--muted);padding-left:16px;position:relative}
-.badges li::before{content:"";position:absolute;left:0;top:11px;width:7px;height:7px;
-background:var(--accent)}
-.sec{padding:52px 0;border-top:1px solid var(--rule)}
-.kicker{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--warm);
-margin:0 0 10px;font-weight:500}
-.sec h2{font-size:clamp(27px,6vw,42px)}
-.lede{color:var(--muted);max-width:60ch;margin:12px 0 26px;font-size:17px}
-.tiles{display:grid;gap:12px}
-.tile{background:var(--raised);border:1px solid var(--rule);padding:22px 18px;position:relative}
-.tile::before{content:"";position:absolute;top:0;left:0;width:22px;height:3px;background:var(--accent)}
-.tile.cos::before{background:var(--warm)}
-.tile h3{font-size:21px;margin-bottom:8px}
-.tile p{margin:0;color:var(--muted);font-size:16px}
-.ledger{margin-top:22px;border-top:1px solid var(--rule)}
-.lrow{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:18px 0;
-border-bottom:1px solid var(--rule)}
-.lrow b{font-family:"PT Sans",system-ui,sans-serif;font-size:34px;font-weight:700;line-height:1;
-color:var(--accent);letter-spacing:-.02em;flex:none}
-.lrow span{font-size:16px;color:var(--muted);text-align:right}
-.lrow:last-child b{color:var(--warm)}
-.steps{list-style:none;margin:24px 0 0;padding:0;counter-reset:s;display:grid;gap:0}
-.steps li{counter-increment:s;padding:20px 0;border-bottom:1px solid var(--rule);display:grid;
-grid-template-columns:1fr;gap:6px}
-.steps li::before{content:"Step " counter(s);font-size:13px;letter-spacing:.16em;text-transform:uppercase;
-font-weight:700;color:var(--accent)}
-.steps h3{font-size:20px}
-.steps p{margin:0;color:var(--muted);font-size:16px}
-.close{background:var(--accent);color:#0C1620;padding:52px 0 58px}
-.close h2{font-size:clamp(28px,6.2vw,46px);max-width:18ch;color:#0C1620}
-.close p{max-width:56ch;font-size:17px;color:#123048;margin:14px 0 20px}
-.close .btn-primary{background:#0C1620;color:var(--accent);border-color:#0C1620}
-.close .btn-ghost{color:#0C1620;border-color:#0C1620}
-.ctas{display:flex;flex-direction:column;gap:10px}
-.note{font-size:15px;color:#123048;margin-top:18px;max-width:56ch}
-.foot{padding:38px 0 34px;font-size:15px;color:var(--muted)}
-.foot .brand{color:var(--fg);display:inline-block;margin-bottom:12px;padding-right:0}
-.foot p{margin:0 0 9px;max-width:64ch}
-.foot a{color:var(--accent);font-weight:500}
-.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:#0D1620;padding:8px;
-border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:8px}
-.callbar a{display:flex;align-items:center;justify-content:center;min-height:58px;text-decoration:none;
-font-weight:700;font-size:15px;text-align:center;line-height:1.2;padding:0 12px;
-font-family:"PT Sans",system-ui,sans-serif}
-.callbar .book{background:var(--accent);color:#0C1620}
-.callbar .tel{border:1px solid var(--muted);color:var(--fg);padding:0 16px;font-size:16px}
-@media(max-width:559px){.navact{display:none}.navlinks a:first-child{border-left:none}}
-@media(min-width:760px){.ctas{flex-direction:row}
-.windows{grid-template-columns:1fr 1fr}
-.win{border-bottom:none;border-right:1px solid var(--rule)}
-.win:last-child{border-right:none}
-.badges{grid-template-columns:1fr 1fr;column-gap:26px}
-.tiles{grid-template-columns:1fr 1fr;gap:16px}
-.steps{grid-template-columns:1fr 1fr;column-gap:40px}
-.sec{padding:84px 0}.sub{font-size:19px}.hero{padding:40px 0 56px}.counter{padding:38px 32px 0}
-.windows{margin:0 -32px}.nav .wrap{height:62px}.brand{font-size:23px}}
-@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
-</style>
-
-<style>
-  /* Hero plate, added with the photography pass. Full-bleed between the hero
-     and the first content section, with no border of its own: every one of
-     these designs owns a different rule weight and ink colour, and a borrowed
-     hairline reads as a mistake in about half of them. */
-  .gsw-plate picture { display: block; width: 100%; }
-  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
-  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
-  .gsw-plate img {
-    display: block;
-    width: 100%;
-    height: clamp(220px, 40vw, 520px);
-    object-fit: cover;
-    object-position: center;
-  }
-  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
-</style>
-
 <!-- gsw:identity -->
 <link rel="icon" href="../_assets/identity/dermatology/larkin-dermatology-icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../_assets/identity/dermatology/larkin-dermatology-icon-180.png">
-<meta name="theme-color" content="#16202A">
+<meta name="theme-color" content="#F5F3EE">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Larkin Dermatology">
 <meta property="og:title" content="Larkin Dermatology · Cosmetic clinic on site · Pricing published · Booked separately">
@@ -151,228 +18,386 @@ font-family:"PT Sans",system-ui,sans-serif}
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"MedicalClinic","name":"Larkin Dermatology","description":"Cosmetic clinic on site \u00b7 Pricing published \u00b7 Booked separately","telephone":"(903) 391-7756","areaServed":"Metro area","image":"https://grandstreetworks.com/work/_assets/identity/dermatology/larkin-dermatology-og.png","logo":"https://grandstreetworks.com/work/_assets/identity/dermatology/larkin-dermatology-mark.svg"}</script>
-
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"MedicalClinic","name":"Larkin Dermatology","description":"Cosmetic clinic on site · Pricing published · Booked separately","telephone":"(903) 391-7756","areaServed":"Metro area","image":"https://grandstreetworks.com/work/_assets/identity/dermatology/larkin-dermatology-og.png","logo":"https://grandstreetworks.com/work/_assets/identity/dermatology/larkin-dermatology-mark.svg"}</script>
+<!-- /gsw:identity -->
+<link rel="preload" href="../_assets/fonts/golos-text-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../_assets/fonts/roboto-mono-var.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-  /* Identity pass. The lockup is the mark plus the wordmark the build already
-     had; the mark is sized in em so it tracks whatever display face this build
-     sets its brand in. */
-  .gsw-lockup { display: inline-flex; align-items: center; gap: .46em; }
-  .gsw-lockup svg { height: 1.16em; width: auto; flex: none; display: block; }
-</style>
+/* D5 — THE COUNTER. hero:panel nav:inline services:tiles proof:stats
+   chalk #F5F3EE · sky #DCE7EE · sand #EFE6D3 · graphite #2B3036 · clinic blue #2F6C8F
+   H1 ramp: 36/42/50/56px · Golos Text words / Roboto Mono values and labels
+   Device: the counter form — the practical facts a receptionist gives you set as a
+   ruled form with mono labels and values, the two clinics as its last two rows and
+   its two actions. Daylight ground so the interface is the same world as the
+   photographs; the cosmetic clinic carries a sand tint wherever it appears, so
+   "booked separately" is visible, not just stated. FIX answered first: medical and
+   cosmetic buried together. Seven sizes, two families, three weights, no motion. */
 
-<style>
-  /* Recent-work gallery. Everything here is drawn from the properties the build
-     already declares, so the band inherits each design's palette and heading
-     face rather than importing a seventh look. */
-  .gsw-gal { background: #16202A; color: #FFFFFF;
-             padding: clamp(38px, 6vw, 74px) 0; }
-  .gsw-gal-in { max-width: var(--wrap, 1140px); margin: 0 auto; padding: 0 20px; }
-  .gsw-gal-lab { font-size: 13px; letter-spacing: .18em; text-transform: uppercase;
-                 font-weight: 600; color: var(--accent); margin: 0 0 14px; }
-  .gsw-gal h2 { margin: 0; color: inherit; }
-  .gsw-gal-note { color: var(--muted); margin: 14px 0 30px; max-width: 58ch; }
-  .gsw-ba { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px; }
-  .gsw-gal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-  .gsw-gal figure { margin: 0; position: relative; overflow: hidden;
-                    background: var(--rule, rgba(0,0,0,.1)); }
-  .gsw-gal picture { display: block; }
-  /* height:auto matters — the width/height attributes are a presentational
-     hint, and without this the 1200px hint beats aspect-ratio. */
-  .gsw-gal img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3;
-                 object-fit: cover; transition: transform .5s ease; }
-  .gsw-gal figure:hover img { transform: scale(1.035); }
-  .gsw-gal figcaption { position: absolute; left: 0; bottom: 0;
-                        background: #FFFFFF; color: #16202A;
-                        font-size: 12px; font-weight: 600; letter-spacing: .14em;
-                        text-transform: uppercase; padding: 7px 12px; }
-  @media (max-width: 720px) {
-    .gsw-ba, .gsw-gal-grid { grid-template-columns: 1fr; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .gsw-gal img { transition: none; }
-    .gsw-gal figure:hover img { transform: none; }
-  }
-</style>
+@font-face { font-family: "Golos Text"; src: url("../_assets/fonts/golos-text-var.woff2") format("woff2"); font-weight: 400 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Roboto Mono"; src: url("../_assets/fonts/roboto-mono-var.woff2") format("woff2"); font-weight: 100 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Golos Fallback"; src: local("Arial"); size-adjust: 101%; ascent-override: 94%; descent-override: 24%; }
+@font-face { font-family: "Mono Fallback"; src: local("Menlo"), local("Courier New"); size-adjust: 96%; }
 
-<style>
-  /* gsw:contact-form — the closing section takes a name. Borrows the section's
-     colour through currentColor and the build's own .btn for the button. */
-  .gsw-cf { max-width: 640px; margin: 28px 0 0; text-align: left; }
-  .gsw-cf--centred { margin-left: auto; margin-right: auto; }
-  .gsw-cf-lead { margin: 0 0 12px; font-size: 15px; opacity: .85; }
-  .gsw-cf-grid { display: grid; gap: 10px; }
-  .gsw-cf label { display: flex; flex-direction: column; gap: 5px; font-size: 11px;
-                  font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
-  .gsw-cf label em { font-style: normal; font-weight: 400; text-transform: none; letter-spacing: 0; opacity: .7; }
-  .gsw-cf input, .gsw-cf textarea { font: inherit; font-size: 16px; color: inherit; background: transparent;
-                                    border: 1.5px solid currentColor; border-radius: 0; padding: 10px 12px; width: 100%;
-                                    box-sizing: border-box; letter-spacing: 0; text-transform: none; font-weight: 400; }
-  .gsw-cf input:focus, .gsw-cf textarea:focus { outline: 2px solid currentColor; outline-offset: 2px; }
-  .gsw-cf textarea { resize: vertical; min-height: 84px; }
-  .gsw-cf-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 14px; }
-  .gsw-cf button.btn { font: inherit; cursor: pointer; appearance: none; }
-  .gsw-cf-err { font-size: 14px; font-weight: 600; }
-  .gsw-cf-done { margin: 0; font-size: 17px; font-weight: 600; }
-  .gsw-cf[data-sent] .gsw-cf-lead, .gsw-cf[data-sent] .gsw-cf-grid, .gsw-cf[data-sent] .gsw-cf-row { display: none; }
-  @media (min-width: 640px) {
-    .gsw-cf-grid { grid-template-columns: 1fr 1fr; }
-    .gsw-cf-wide { grid-column: 1 / -1; }
-  }
+:root {
+  --chalk: #F5F3EE; --sky: #DCE7EE; --sand: #EFE6D3; --white: #FFFFFF; --graphite: #2B3036;
+  --ink: #2B3036; --muted: #5C636A; --on-dark: #F5F3EE; --on-dark-muted: #AEB5BC;
+  --clinic: #2F6C8F; --clinic-hover: #25577A; --hair: #D3D8DC; --hair-dark: #3E454C;
+  --sans: "Golos Text", "Golos Fallback", Arial, sans-serif;
+  --mono: "Roboto Mono", "Mono Fallback", Menlo, monospace;
+  --t-label: 0.8125rem; --t-small: 0.9375rem; --t-body: 1.0625rem;
+  --t-lede: clamp(1.125rem, 1rem + 0.5vw, 1.3125rem);
+  --t-h3: clamp(1.375rem, 1.15rem + 0.9vw, 1.625rem);
+  --t-h2: clamp(1.875rem, 1.35rem + 2vw, 2.5rem);
+  --t-display: clamp(2.25rem, 1.5rem + 3.2vw, 3.5rem);
+  --s1: 9px; --s2: 18px; --s3: 27px; --s4: 36px; --s6: 54px; --s8: 72px; --s12: 108px;
+  --wrap: 1180px; --gutter: clamp(20px, 4vw, 48px); --bar-h: 64px;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body { margin: 0; background: var(--chalk); color: var(--ink); font: 400 var(--t-body)/1.6 var(--sans); overflow-x: hidden; padding-bottom: var(--bar-h); }
+h1, h2, h3 { margin: 0; font-weight: 500; text-wrap: balance; letter-spacing: -0.01em; }
+h1 { font-size: var(--t-display); line-height: 1.04; letter-spacing: -0.02em; max-width: 14ch; }
+h2 { font-size: var(--t-h2); line-height: 1.1; max-width: 22ch; }
+h3 { font-size: var(--t-h3); line-height: 1.2; }
+p { margin: 0; text-wrap: pretty; }
+a { color: inherit; }
+img { display: block; max-width: 100%; height: auto; }
+ul, ol { list-style: none; margin: 0; padding: 0; }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+.label { font: 500 var(--t-label)/1.3 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.lede { font-size: var(--t-lede); line-height: 1.45; max-width: 56ch; color: var(--muted); }
+.muted { color: var(--muted); }
+.on-dark { background: var(--graphite); color: var(--on-dark); }
+.on-dark .muted, .on-dark .label { color: var(--on-dark-muted); }
+:focus-visible { outline: 2px solid var(--clinic); outline-offset: 3px; }
+.on-dark :focus-visible { outline-color: var(--on-dark); }
+.skip { position: absolute; left: -999px; top: 0; background: var(--white); padding: var(--s1) var(--s2); z-index: 100; }
+.skip:focus { left: var(--s2); top: var(--s2); }
+
+/* ---------- Buttons ---------- */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5em; min-height: 50px; padding: 0.65em 1.3em; border: 1px solid transparent; font: 500 var(--t-body)/1.2 var(--sans); text-decoration: none; cursor: pointer; transition: background-color 160ms, border-color 160ms, color 160ms; }
+.btn-primary { background: var(--clinic); color: var(--white); border-color: var(--clinic); }
+.btn-primary:hover { background: var(--clinic-hover); border-color: var(--clinic-hover); }
+.btn-ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+.btn-ghost:hover { background: var(--ink); color: var(--chalk); }
+
+/* ---------- Header ---------- */
+.topline { border-bottom: 1px solid var(--hair); }
+.topline .wrap { display: flex; justify-content: space-between; gap: var(--s2); padding-top: 10px; padding-bottom: 10px; }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: var(--s3); padding-top: var(--s2); padding-bottom: var(--s2); }
+.brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-size: var(--t-lede); font-weight: 500; letter-spacing: -0.01em; white-space: nowrap; }
+.brand img { width: 28px; height: 28px; }
+.nav { display: flex; gap: var(--s3); margin-left: var(--s4); font-size: var(--t-small); }
+.nav a { text-decoration: none; padding: 6px 0; border-bottom: 1px solid transparent; transition: border-color 160ms; }
+.nav a:hover { border-bottom-color: var(--clinic); }
+.top .btn { min-height: 44px; }
+
+/* ---------- Hero: the counter ---------- */
+.hero { background: var(--sky); }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: var(--s8); align-items: start; padding-top: var(--s8); padding-bottom: var(--s8); }
+.hero .label { margin-bottom: var(--s3); color: var(--clinic); }
+.hero .lede { margin-top: var(--s3); color: var(--ink); }
+.counter { background: var(--white); border: 1px solid var(--hair); }
+.counter .head { display: flex; justify-content: space-between; align-items: baseline; gap: var(--s2); padding: var(--s2) var(--s3); border-bottom: 1px solid var(--hair); }
+.counter .head .label { color: var(--ink); margin-bottom: 0; }
+.counter ol { counter-reset: row; }
+.counter li { display: grid; grid-template-columns: 3ch 1fr; gap: var(--s2); align-items: baseline; padding: 14px var(--s3); border-bottom: 1px solid var(--hair); }
+.counter li .n { font: 400 var(--t-small)/1.3 var(--mono); color: var(--muted); }
+.counter li .v { font: 500 var(--t-body)/1.4 var(--mono); letter-spacing: -0.01em; }
+.win { display: grid; grid-template-columns: 3ch 1fr auto; gap: var(--s2); align-items: center; padding: var(--s2) var(--s3); text-decoration: none; border-bottom: 1px solid var(--hair); transition: background-color 160ms; }
+.win:hover { background: var(--chalk); }
+.win.cos { background: var(--sand); border-bottom: 0; }
+.win.cos:hover { background: #E8DCC2; }
+.win .n { font: 400 var(--t-small)/1.3 var(--mono); color: var(--muted); }
+.win .t { display: grid; gap: 2px; }
+.win .t u { text-decoration: none; font: 500 var(--t-label)/1.3 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.win .t b { font-weight: 500; font-size: var(--t-h3); line-height: 1.2; letter-spacing: -0.01em; }
+.win .t i { font-style: normal; font-size: var(--t-small); color: var(--muted); }
+.win .go { font: 500 var(--t-small)/1 var(--sans); color: var(--clinic); white-space: nowrap; padding: 10px 14px; border: 1px solid var(--clinic); }
+.win.cos .go { color: var(--ink); border-color: var(--ink); }
+.win:hover .go { background: var(--clinic); color: var(--white); }
+.win.cos:hover .go { background: var(--ink); color: var(--chalk); }
+.plate { display: block; margin: 0; }
+.plate img { width: 100%; aspect-ratio: 16 / 7; object-fit: cover; }
+
+/* ---------- Sections ---------- */
+.sec { padding: var(--s12) 0; }
+.mark { display: flex; align-items: baseline; gap: var(--s2); padding-top: var(--s2); border-top: 1px solid var(--hair); margin-bottom: var(--s6); }
+.on-dark .mark { border-top-color: var(--hair-dark); }
+.mark .n { font: 400 var(--t-small)/1.3 var(--mono); color: var(--clinic); }
+.on-dark .mark .n { color: var(--on-dark-muted); }
+.head2 { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: var(--s3) var(--s8); align-items: end; margin-bottom: var(--s8); }
+
+/* Services: flush tiles */
+.tiles { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--hair); background: var(--white); }
+.tile { padding: var(--s4); border-right: 1px solid var(--hair); border-bottom: 1px solid var(--hair); }
+.tile:nth-child(2n) { border-right: 0; }
+.tile:nth-last-child(-n + 2) { border-bottom: 0; }
+.tile .label { margin-bottom: var(--s2); }
+.tile h3 { margin-bottom: var(--s1); }
+.tile p { color: var(--muted); max-width: 46ch; }
+.tile.cos { background: var(--sand); }
+
+/* Results: the ledger */
+.ledger { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s2); }
+.ledger li { padding-top: var(--s2); border-top: 1px solid var(--hair); }
+.ledger b { display: block; font: 400 var(--t-h2)/1.1 var(--mono); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.ledger span { display: block; margin-top: var(--s1); font-size: var(--t-small); color: var(--muted); }
+
+/* Process */
+.process { background: var(--white); }
+.steps { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s6) var(--s8); }
+.steps li { display: grid; grid-template-columns: 3ch 1fr; gap: var(--s2); padding-top: var(--s3); border-top: 1px solid var(--hair); }
+.steps .n { font: 400 var(--t-small)/1.5 var(--mono); color: var(--clinic); }
+.steps h3 { margin-bottom: var(--s1); }
+.steps p { color: var(--muted); max-width: 46ch; }
+
+/* Gallery: the cosmetic clinic, sand band */
+.gal { background: var(--sand); }
+.gal .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s2); }
+.gal figure { margin: 0; }
+.gal img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: var(--chalk); }
+.gal figcaption { display: flex; gap: var(--s2); align-items: baseline; padding-top: var(--s1); margin-top: var(--s1); border-top: 1px solid rgba(43, 48, 54, 0.25); font-size: var(--t-small); }
+.gal figcaption .n { font: 400 var(--t-small)/1.3 var(--mono); color: var(--muted); }
+
+/* Close */
+.close { background: var(--sky); }
+.close .grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: var(--s8); align-items: start; }
+.close .lede { margin-top: var(--s3); color: var(--ink); }
+.close .ctas { display: flex; flex-wrap: wrap; gap: var(--s2); margin-top: var(--s4); }
+.close .note { margin-top: var(--s4); font-size: var(--t-small); color: var(--muted); max-width: 48ch; }
+.form { background: var(--white); border: 1px solid var(--hair); padding: var(--s3); }
+.form .intro { margin-bottom: var(--s3); color: var(--muted); }
+.field { display: grid; gap: 6px; margin-bottom: var(--s2); }
+.field label { font: 500 var(--t-label)/1.3 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.field label em { font-style: normal; text-transform: none; letter-spacing: 0; }
+.field input, .field textarea { width: 100%; font: 400 var(--t-body)/1.4 var(--sans); color: var(--ink); background: var(--chalk); border: 1px solid var(--hair); padding: 12px 14px; transition: border-color 160ms; }
+.field input:hover, .field textarea:hover { border-color: var(--muted); }
+.field input:focus, .field textarea:focus { outline: none; border-color: var(--clinic); box-shadow: 0 0 0 2px var(--sky); }
+.field.is-invalid input { border-color: #A23B2A; }
+.form .actions { display: flex; align-items: center; gap: var(--s2); flex-wrap: wrap; margin-top: var(--s3); }
+.form .hint { font-size: var(--t-small); color: #A23B2A; font-weight: 500; }
+.form .hint[hidden], .form .done[hidden] { display: none; }
+.form .done { font-size: var(--t-lede); font-weight: 500; padding: var(--s2) 0; }
+.form.is-sent .intro, .form.is-sent .field, .form.is-sent .actions { display: none; }
+
+/* Footer */
+.foot { padding: var(--s6) 0; font-size: var(--t-small); }
+.foot .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s3) var(--s8); align-items: start; }
+.foot p { color: var(--on-dark-muted); max-width: 52ch; }
+.foot .brand { font-size: var(--t-lede); }
+.foot .fine { grid-column: 1 / -1; padding-top: var(--s3); border-top: 1px solid var(--hair-dark); font-size: var(--t-label); letter-spacing: 0.02em; }
+
+/* Mobile bar */
+.bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: grid; grid-template-columns: 1fr auto; gap: 1px; background: var(--hair); border-top: 1px solid var(--hair); }
+.bar .btn { min-height: var(--bar-h); border: 0; white-space: nowrap; }
+.bar .btn-ghost { background: var(--white); color: var(--ink); }
+
+/* Responsive */
+@media (min-width: 1000px) { body { padding-bottom: 0; } .bar { display: none; } }
+@media (max-width: 999px) {
+  .top .btn, .topline .right { display: none; }
+  .hero .wrap, .head2, .close .grid { grid-template-columns: 1fr; }
+  .ledger { grid-template-columns: 1fr 1fr; }
+  .gal .grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 759px) {
+  .nav { display: none; }
+  .counter .head { flex-direction: column; gap: 4px; }
+  .sec { padding: var(--s8) 0; }
+  .hero .wrap { padding-top: var(--s6); padding-bottom: var(--s6); gap: var(--s4); }
+  .plate img { aspect-ratio: 4 / 3; }
+  .win { grid-template-columns: 3ch 1fr; }
+  .win .go { grid-column: 2; justify-self: start; }
+  .tiles { grid-template-columns: 1fr; }
+  .tile { border-right: 0; }
+  .tile:nth-last-child(2) { border-bottom: 1px solid var(--hair); }
+  .steps { grid-template-columns: 1fr; }
+  .gal .grid { grid-template-columns: 1fr; gap: var(--s4); }
+  .foot .wrap { grid-template-columns: 1fr; }
+  .close .ctas .btn { width: 100%; }
+}
+@media (max-width: 400px) { .ledger { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+@media (forced-colors: active) { .btn, .win .go, .counter, .form { border: 1px solid ButtonText; } }
+@media print { .bar { display: none; } }
+.tnum, .tnum *, .counter .v, .ledger b, .win .t b { font-variant-numeric: tabular-nums; }
 </style>
 </head>
 <body>
-<div class="topbar"><div class="wrap">Cosmetic clinic on site · Pricing published · Booked separately</div></div>
-<header class="nav"><div class="wrap">
-  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="6" y="6" width="52" height="52" rx="3" fill="#FFFFFF" opacity=".15"/>
-<rect x="13" y="16" width="16" height="32" fill="#57A8DD"/>
-<rect x="35" y="16" width="16" height="32" fill="#FFFFFF" opacity=".8"/></svg><span>Larkin Dermatology</span></span></a>
-  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
-  <a class="btn btn-primary navact" href="#contact">Book a skin check</a>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="topline"><div class="wrap">
+  <span class="label">Cosmetic clinic on site · Pricing published · Booked separately</span>
+  <span class="label right tnum">Skin checks within 2 weeks</span>
+</div></div>
+<header class="top"><div class="wrap">
+  <a class="brand" href="#"><img src="../_assets/identity/dermatology/larkin-dermatology-mark.svg" alt="" width="28" height="28">Larkin Dermatology</a>
+  <nav class="nav" aria-label="Sections">
+    <a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a>
+  </nav>
+  <a class="btn btn-primary" href="#contact">Book a skin check</a>
 </div></header>
-<section class="hero"><div class="wrap"><div class="counter">
-  <span class="chip">Skin checks within 2 weeks</span>
-  <p class="eyebrow">Medical · Surgical · Cosmetic</p>
-  <h1>The cosmetic clinic, priced on the page.</h1>
-  <p class="sub">Medical dermatology, skin cancer surgery and a separate cosmetic clinic. The cosmetic side runs on its own calendar with every price published, so nothing about it gets tangled up in your insurance.</p>
-  <div class="windows">
-    <a class="win" data-cta="primary" href="#contact"><u>Medical dermatology</u><b>Book a skin check</b><i>Most insurance accepted</i></a>
-    <a class="win cos" href="#contact"><u>Cosmetic clinic</u><b>Cosmetic consultations</b><i>Separate cosmetic clinic</i></a>
+
+<main id="main">
+<section class="hero" aria-labelledby="promise">
+  <div class="wrap">
+    <div>
+      <p class="label">Larkin Dermatology</p>
+      <h1 id="promise">The cosmetic clinic, priced on the&nbsp;page.</h1>
+      <p class="lede">Medical dermatology, skin cancer surgery and a separate cosmetic clinic. The cosmetic side runs on its own calendar with every price published, so nothing about it gets tangled up in your&nbsp;insurance.</p>
+    </div>
+    <div class="counter" aria-label="At the counter">
+      <div class="head"><span class="label">At the counter</span><span class="label">Medical · Surgical · Cosmetic</span></div>
+      <ol>
+        <li><span class="n">01</span><span class="v tnum">Skin checks within 2 weeks</span></li>
+        <li><span class="n">02</span><span class="v">Mohs surgery on site</span></li>
+        <li><span class="n">03</span><span class="v">Most insurance accepted</span></li>
+        <li><span class="n">04</span><span class="v">Separate cosmetic clinic</span></li>
+      </ol>
+      <a class="win" data-cta="primary" href="#contact"><span class="n">05</span><span class="t"><u>Medical dermatology</u><b>Book a skin check</b><i>Most insurance accepted</i></span><span class="go">Book</span></a>
+      <a class="win cos" href="#contact"><span class="n">06</span><span class="t"><u>Cosmetic clinic</u><b>Cosmetic consultations</b><i>Separate cosmetic clinic</i></span><span class="go">Book</span></a>
+    </div>
   </div>
+</section>
+<figure class="plate">
+  <picture>
+    <source type="image/avif" srcset="../_assets/hero/dermatology/e-bright-clinic-1280.avif 1280w, ../_assets/hero/dermatology/e-bright-clinic-2560.avif 2560w" sizes="100vw">
+    <img src="../_assets/hero/dermatology/e-bright-clinic-1280.jpg" width="1280" height="714" alt="Bright clinic, dermatology" fetchpriority="high">
+  </picture>
+</figure>
+
+<section class="sec" id="services" aria-labelledby="services-title">
+  <div class="wrap">
+    <p class="mark"><span class="n">01</span><span class="label">Services</span></p>
+    <div class="head2">
+      <h2 id="services-title">Two clinics, one practice</h2>
+      <p class="lede">Medical dermatology runs on insurance and referral. The cosmetic clinic runs separately, with its own booking and published&nbsp;pricing.</p>
+    </div>
+    <div class="tiles">
+      <article class="tile"><p class="label">Medical</p><h3>Skin cancer &amp; Mohs surgery</h3><p>Screening, biopsy and Mohs micrographic surgery on site, so diagnosis and removal don’t mean two separate waits.</p></article>
+      <article class="tile"><p class="label">Medical</p><h3>Medical dermatology</h3><p>Acne, eczema, psoriasis, rosacea and hair loss. Most insurance accepted, and biologics managed in house.</p></article>
+      <article class="tile"><p class="label">Medical</p><h3>Paediatric dermatology</h3><p>Eczema, birthmarks and adolescent acne, in appointments long enough for a child to settle.</p></article>
+      <article class="tile cos"><p class="label">Cosmetic clinic</p><h3>Cosmetic clinic</h3><p>Injectables, lasers and medical-grade skincare, with published pricing. Booked separately from medical visits.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="results" aria-labelledby="results-title" style="padding-top: 0">
+  <div class="wrap">
+    <p class="mark"><span class="n">02</span><span class="label">Results</span></p>
+    <h2 id="results-title" style="margin-bottom: var(--s6)">The practice in&nbsp;numbers</h2>
+    <ul class="ledger">
+      <li><b>2wk</b><span>Typical skin check wait</span></li>
+      <li><b>Mohs</b><span>Surgery on site</span></li>
+      <li><b>4.8★</b><span class="tnum">Across 480 reviews</span></li>
+      <li><b>6</b><span>Board-certified physicians</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec process" id="process" aria-labelledby="process-title">
+  <div class="wrap">
+    <p class="mark"><span class="n">03</span><span class="label">Process</span></p>
+    <div class="head2">
+      <h2 id="process-title">Booking the right&nbsp;visit</h2>
+      <p class="lede">Medical and cosmetic run on different calendars and different money. Getting this right saves you&nbsp;weeks.</p>
+    </div>
+    <ol class="steps">
+      <li><span class="n">01</span><div><h3>Pick your clinic</h3><p>Worried about a spot, a rash or a mole? Medical. Wanting to change how your skin looks? Cosmetic. If unsure, book medical.</p></div></li>
+      <li><span class="n">02</span><div><h3>Book &amp; pre-register</h3><p>Online, with insurance details taken up front, so the first visit isn’t twenty minutes of paperwork.</p></div></li>
+      <li><span class="n">03</span><div><h3>Be seen</h3><p>Full-body skin checks run about thirty minutes. Anything suspicious is biopsied the same visit wherever possible.</p></div></li>
+      <li><span class="n">04</span><div><h3>Results &amp; plan</h3><p>Pathology back within a week, delivered by a person on the phone, with the next step already scheduled.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec gal" aria-labelledby="gal-title">
+  <div class="wrap">
+    <p class="mark"><span class="n">04</span><span class="label">The cosmetic clinic</span></p>
+    <div class="head2">
+      <h2 id="gal-title">Priced on the page, treated in&nbsp;here.</h2>
+      <p class="lede">The laser suite and the treatment rooms the price list refers&nbsp;to.</p>
+    </div>
+    <div class="grid">
+      <figure><picture><source type="image/avif" srcset="../_assets/library/dermatology/larkin-dermatology/laser-suite-640.avif 640w, ../_assets/library/dermatology/larkin-dermatology/laser-suite-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/dermatology/larkin-dermatology/laser-suite-720.jpg" width="720" height="537" alt="Laser suite" loading="lazy"></picture><figcaption><span class="n">1</span>Laser suite</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/dermatology/larkin-dermatology/skin-macro-640.avif 640w, ../_assets/library/dermatology/larkin-dermatology/skin-macro-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/dermatology/larkin-dermatology/skin-macro-720.jpg" width="720" height="537" alt="Skin, in light" loading="lazy"></picture><figcaption><span class="n">2</span>Skin, in light</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/dermatology/larkin-dermatology/sunlight-window-640.avif 640w, ../_assets/library/dermatology/larkin-dermatology/sunlight-window-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/dermatology/larkin-dermatology/sunlight-window-720.jpg" width="720" height="537" alt="The waiting room" loading="lazy"></picture><figcaption><span class="n">3</span>The waiting room</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/dermatology/larkin-dermatology/reception-640.avif 640w, ../_assets/library/dermatology/larkin-dermatology/reception-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/dermatology/larkin-dermatology/reception-720.jpg" width="720" height="537" alt="Reception" loading="lazy"></picture><figcaption><span class="n">4</span>Reception</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/dermatology/larkin-dermatology/exam-room-640.avif 640w, ../_assets/library/dermatology/larkin-dermatology/exam-room-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/dermatology/larkin-dermatology/exam-room-720.jpg" width="720" height="537" alt="Exam room" loading="lazy"></picture><figcaption><span class="n">5</span>Exam room</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/dermatology/larkin-dermatology/instrument-tray-640.avif 640w, ../_assets/library/dermatology/larkin-dermatology/instrument-tray-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/dermatology/larkin-dermatology/instrument-tray-720.jpg" width="720" height="537" alt="The biopsy tray" loading="lazy"></picture><figcaption><span class="n">6</span>The biopsy tray</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec close" id="contact" aria-labelledby="close-title">
+  <div class="wrap">
+    <p class="mark"><span class="n">05</span><span class="label">Contact</span></p>
+    <div class="grid">
+      <div>
+        <h2 id="close-title">Wanting cosmetic, not&nbsp;medical?</h2>
+        <p class="lede">Don’t sit on it. Skin checks are booking about two weeks out and we hold urgent slots every week for exactly this&nbsp;reason.</p>
+        <div class="ctas">
+          <a class="btn btn-primary" href="#cb-name">Book a skin check</a>
+          <a class="btn btn-ghost tnum" href="tel:+19033917756">(903)&nbsp;391-7756</a>
+        </div>
+        <p class="note">Cosmetic pricing published in full and booked separately. Medical dermatology runs on insurance and referral, on a different&nbsp;calendar.</p>
+      </div>
+      <form class="form" id="callback" novalidate>
+        <p class="intro">Or leave your details and we’ll call you back.</p>
+        <div class="field"><label for="cb-name">Name</label><input id="cb-name" name="name" type="text" autocomplete="name" required></div>
+        <div class="field"><label for="cb-contact">Phone or email</label><input id="cb-contact" name="contact" type="text" autocomplete="tel" required></div>
+        <div class="field"><label for="cb-msg">What can we help with? <em>(optional)</em></label><textarea id="cb-msg" name="message" rows="3"></textarea></div>
+        <div class="actions">
+          <button class="btn btn-primary" type="submit">Request a call back</button>
+          <p class="hint" id="cb-hint" role="alert" hidden>Add your name and a way to reach you.</p>
+        </div>
+        <p class="done" id="cb-done" role="status" hidden>Thanks. Someone will call you back within one business&nbsp;day.</p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot on-dark">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="#"><img src="../_assets/identity/dermatology/larkin-dermatology-mark.svg" alt="" width="28" height="28">Larkin Dermatology</a>
+      <p class="tnum" style="margin-top: var(--s2)"><a href="tel:+19033917756">(903)&nbsp;391-7756</a> · Board-certified dermatology · Cosmetic clinic on site · Pricing published</p>
+    </div>
+    <div>
+      <p>American Board of Dermatology · American College of Mohs Surgery · AAD Fellows · Most major insurers</p>
+      <p class="tnum" style="margin-top: var(--s1)">7934 Cobblewood Road Floor 2, Millbrook Park, NY 12374</p>
+    </div>
+    <p class="fine">Larkin Dermatology is a fictional business; this page is a design reference.</p>
+  </div>
+</footer>
+
+<div class="bar" aria-label="Quick actions">
+  <a class="btn btn-primary" href="#contact">Book a skin check</a>
+  <a class="btn btn-ghost tnum" href="tel:+19033917756">(903)&nbsp;391-7756</a>
 </div>
-  <ul class="badges">
-    <li>Skin checks within 2 weeks</li><li>Mohs surgery on site</li>
-    <li>Most insurance accepted</li><li>Separate cosmetic clinic</li>
-  </ul>
-</div></section>
-<figure class="gsw-plate"><picture><source type="image/avif" srcset="../_assets/hero/dermatology/e-bright-clinic-1280.avif 1280w, ../_assets/hero/dermatology/e-bright-clinic-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/dermatology/e-bright-clinic-1280.jpg" width="2560" height="1429" alt="Bright clinic, dermatology" loading="lazy" decoding="async"></picture></figure>
 
-<section class="sec" id="services"><div class="wrap">
-  <p class="kicker">Services</p>
-  <h2>Two clinics, one practice</h2>
-  <p class="lede">Medical dermatology runs on insurance and referral. The cosmetic clinic runs separately, with its own booking and published pricing.</p>
-  <div class="tiles">
-    <article class="tile"><h3>Skin cancer &amp; Mohs surgery</h3><p>Screening, biopsy and Mohs micrographic surgery on site, so diagnosis and removal don't mean two separate waits.</p></article>
-    <article class="tile"><h3>Medical dermatology</h3><p>Acne, eczema, psoriasis, rosacea and hair loss. Most insurance accepted, and biologics managed in house.</p></article>
-    <article class="tile"><h3>Paediatric dermatology</h3><p>Eczema, birthmarks and adolescent acne, in appointments long enough for a child to settle.</p></article>
-    <article class="tile cos"><h3>Cosmetic clinic</h3><p>Injectables, lasers and medical-grade skincare, with published pricing. Booked separately from medical visits.</p></article>
-  </div>
-</div></section>
-<section class="sec" id="results"><div class="wrap">
-  <p class="kicker">Results</p>
-  <h2>The practice in numbers</h2>
-  <div class="ledger">
-    <div class="lrow"><b>2wk</b><span>Typical skin check wait</span></div>
-    <div class="lrow"><b>Mohs</b><span>Surgery on site</span></div>
-    <div class="lrow"><b>4.8★</b><span>Across 480 reviews</span></div>
-    <div class="lrow"><b>6</b><span>Board-certified physicians</span></div>
-  </div>
-</div></section>
-<section class="sec" id="process"><div class="wrap">
-  <p class="kicker">Process</p>
-  <h2>Booking the right visit</h2>
-  <p class="lede">Medical and cosmetic run on different calendars and different money. Getting this right saves you weeks.</p>
-  <ol class="steps">
-    <li><h3>Pick your clinic</h3><p>Worried about a spot, a rash or a mole? Medical. Wanting to change how your skin looks? Cosmetic. If unsure, book medical.</p></li>
-    <li><h3>Book &amp; pre-register</h3><p>Online, with insurance details taken up front, so the first visit isn't twenty minutes of paperwork.</p></li>
-    <li><h3>Be seen</h3><p>Full-body skin checks run about thirty minutes. Anything suspicious is biopsied the same visit wherever possible.</p></li>
-    <li><h3>Results &amp; plan</h3><p>Pathology back within a week, delivered by a person on the phone, with the next step already scheduled.</p></li>
-  </ol>
-</div></section>
-<!-- gsw:gallery -->
-<section class="gsw-gal"><div class="gsw-gal-in"><p class="gsw-gal-lab">The cosmetic clinic</p><h2>Priced on the page, treated in here.</h2><p class="gsw-gal-note">The laser suite and the treatment rooms the price list refers to.</p><div class="gsw-gal-grid"><figure><picture><source type="image/avif" srcset="../_assets/library/dermatology/larkin-dermatology/laser-suite-640.avif 640w, ../_assets/library/dermatology/larkin-dermatology/laser-suite-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/dermatology/larkin-dermatology/laser-suite-720.jpg" width="1600" height="1200" alt="Laser suite" loading="lazy" decoding="async"></picture><figcaption>Laser suite</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/dermatology/larkin-dermatology/skin-macro-640.avif 640w, ../_assets/library/dermatology/larkin-dermatology/skin-macro-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/dermatology/larkin-dermatology/skin-macro-720.jpg" width="1600" height="1200" alt="Skin, in light" loading="lazy" decoding="async"></picture><figcaption>Skin, in light</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/dermatology/larkin-dermatology/sunlight-window-640.avif 640w, ../_assets/library/dermatology/larkin-dermatology/sunlight-window-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/dermatology/larkin-dermatology/sunlight-window-720.jpg" width="1600" height="1200" alt="The waiting room" loading="lazy" decoding="async"></picture><figcaption>The waiting room</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/dermatology/larkin-dermatology/reception-640.avif 640w, ../_assets/library/dermatology/larkin-dermatology/reception-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/dermatology/larkin-dermatology/reception-720.jpg" width="1600" height="1200" alt="Reception" loading="lazy" decoding="async"></picture><figcaption>Reception</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/dermatology/larkin-dermatology/exam-room-640.avif 640w, ../_assets/library/dermatology/larkin-dermatology/exam-room-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/dermatology/larkin-dermatology/exam-room-720.jpg" width="1600" height="1200" alt="Exam room" loading="lazy" decoding="async"></picture><figcaption>Exam room</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/dermatology/larkin-dermatology/instrument-tray-640.avif 640w, ../_assets/library/dermatology/larkin-dermatology/instrument-tray-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/dermatology/larkin-dermatology/instrument-tray-720.jpg" width="1600" height="1200" alt="The biopsy tray" loading="lazy" decoding="async"></picture><figcaption>The biopsy tray</figcaption></figure></div></div></section>
-<!-- /gsw:gallery -->
-<section class="close" id="contact"><div class="wrap">
-  <h2>Wanting cosmetic, not medical?</h2>
-  <p>Don't sit on it. Skin checks are booking about two weeks out and we hold urgent slots every week for exactly this reason.</p>
-  <div class="ctas">
-    <a class="btn btn-primary" href="#contact">Book a skin check</a>
-    <a class="btn btn-ghost">(903) 391-7756</a>
-  </div>
-  <!-- gsw:contact-form -->
-    <form class="gsw-cf" novalidate>
-      <p class="gsw-cf-lead">Or leave your details and we'll call you back.</p>
-      <div class="gsw-cf-grid">
-        <label><span>Name</span><input type="text" name="name" autocomplete="name" required></label>
-        <label><span>Phone or email</span><input type="text" name="contact" autocomplete="tel" required></label>
-        <label class="gsw-cf-wide"><span>What can we help with? <em>(optional)</em></span><textarea name="message" rows="3"></textarea></label>
-      </div>
-      <div class="gsw-cf-row">
-        <button type="submit" class="btn btn-primary">Request a call back</button>
-        <span class="gsw-cf-err" role="alert" hidden>Add your name and a way to reach you.</span>
-      </div>
-      <p class="gsw-cf-done" role="status" hidden>Thanks. Someone will call you back within one business day.</p>
-    </form>
-    <!-- /gsw:contact-form -->
-    <p class="note">Cosmetic pricing published in full and booked separately. Medical dermatology runs on insurance and referral, on a different calendar.</p>
-</div></section>
-<footer class="foot"><div class="wrap">
-  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="6" y="6" width="52" height="52" rx="3" fill="#FFFFFF" opacity=".15"/>
-<rect x="13" y="16" width="16" height="32" fill="#57A8DD"/>
-<rect x="35" y="16" width="16" height="32" fill="#FFFFFF" opacity=".8"/></svg><span>Larkin Dermatology</span></span></a>
-  <p><a>(903) 391-7756</a> · Board-certified dermatology · Cosmetic clinic on site · Pricing published</p>
-  <p>American Board of Dermatology · American College of Mohs Surgery · AAD Fellows · Most major insurers</p>
-  <p>7934 Cobblewood Road Floor 2, Millbrook Park, NY 12374</p>
-</div></footer>
-<div class="callbar"><a class="book" href="#contact">Book a skin check</a><a class="tel">(903) 391-7756</a></div>
-<!-- gsw:motion -->
-<style>
-  /* Motion pass. Everything here is gated on .gsw-m, which only the script
-     below adds, so a page without JavaScript never hides anything. */
-  .gsw-m [data-gsw-reveal] {
-    opacity: 0; transform: translateY(14px);
-    transition: opacity .7s cubic-bezier(.2,.6,.2,1), transform .7s cubic-bezier(.2,.6,.2,1);
-  }
-  .gsw-m [data-gsw-reveal].gsw-in { opacity: 1; transform: none; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(2) { transition-delay: .08s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(3) { transition-delay: .16s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(4) { transition-delay: .24s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(5) { transition-delay: .32s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(6) { transition-delay: .40s; }
-  @keyframes gsw-hero-in { from { opacity: 0; transform: scale(1.025); } to { opacity: 1; transform: none; } }
-  .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: gsw-hero-in 1s ease-out both; }
-  @media (prefers-reduced-motion: reduce) {
-    .gsw-m [data-gsw-reveal] { opacity: 1; transform: none; transition: none; }
-    .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: none; }
-  }
-</style>
 <script>
+/* The call-back form confirms in place. Nothing is sent: a reference build. */
 (function () {
-  if (!('IntersectionObserver' in window)) return;
-  var targets = [].slice.call(document.querySelectorAll('body > section, .gsw-gal figure'));
-  // The first section is the hero; it is on screen already and owns its own entrance.
-  var first = document.querySelector('body > section');
-  targets = targets.filter(function (el) { return el !== first; });
-  if (!targets.length) return;
-  document.documentElement.classList.add('gsw-m');
-  targets.forEach(function (el) { el.setAttribute('data-gsw-reveal', ''); });
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) { e.target.classList.add('gsw-in'); io.unobserve(e.target); }
-    });
-  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-  targets.forEach(function (el) { io.observe(el); });
-})();
-</script>
-<!-- /gsw:motion -->
-
-<!-- gsw:contact-form -->
-<script>
-/* The enquiry form confirms in place. Nothing is sent: a reference build. */
-(function () {
-  var form = document.querySelector('.gsw-cf');
-  if (!form) return;
+  var form = document.getElementById('callback');
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    var name = form.name.value.trim(), contact = form.contact.value.trim();
-    var err = form.querySelector('.gsw-cf-err');
-    if (!name || !contact) { err.hidden = false; (name ? form.contact : form.name).focus(); return; }
-    err.hidden = true;
-    form.setAttribute('data-sent', '');
-    form.querySelector('.gsw-cf-done').hidden = false;
+    var name = form.elements.name, contact = form.elements.contact, hint = document.getElementById('cb-hint');
+    var ok = true;
+    [name, contact].forEach(function (el) {
+      var bad = !el.value.trim();
+      el.closest('.field').classList.toggle('is-invalid', bad);
+      el.setAttribute('aria-invalid', bad ? 'true' : 'false');
+      if (bad) ok = false;
+    });
+    hint.hidden = ok;
+    if (!ok) { (name.value.trim() ? contact : name).focus(); return; }
+    form.classList.add('is-sent');
+    document.getElementById('cb-done').hidden = false;
   });
 })();
 </script>
-<!-- /gsw:contact-form -->
 </body>
 </html>

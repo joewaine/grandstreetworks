@@ -6,144 +6,10 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Colvin Dermatology · Two weeks to a skin check</title>
 <meta name="description" content="Skin checks within 2 weeks. Medical dermatology, Mohs surgery and a separate cosmetic clinic with published pricing.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600;700;800&family=Sarabun:wght@400;600&display=swap" rel="stylesheet">
-<style>
-/* D2 — THE TWO-WEEK ONE. hero:split nav:inline services:tiles proof:testimonial-lead
-   ink #141E26 · surface #EFF3F6 · accent #1B5E7E · warm #96502C · muted #4F5C66
-   H1 ramp: 30/35/44/56px · Nunito Sans display / Sarabun body
-   Fixes "appointment wait times unaddressed": the wait is a rail under the nav and the
-   whole right half of the split is a booking board that states the wait, then hands you
-   the two doors underneath it. */
-:root{--ink:#141E26;--surface:#EFF3F6;--paper:#FFFFFF;--accent:#1B5E7E;--warm:#96502C;
---muted:#4F5C66;--rule:rgba(20,30,38,.16);--tint:#E2ECF1;--wrap:1160px}
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--surface);color:var(--ink);
-font:400 17px/1.62 "Sarabun",system-ui,-apple-system,sans-serif;padding-bottom:82px;
-overflow-x:hidden}
-.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
-h1,h2,h3{font-family:"Nunito Sans",system-ui,sans-serif;font-weight:800;margin:0;line-height:1.14;
-letter-spacing:-.018em}
-a{color:inherit}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 22px;
-text-decoration:none;font-weight:700;font-size:16px;border:2px solid transparent;text-align:center;
-line-height:1.2;font-family:"Nunito Sans",system-ui,sans-serif;border-radius:4px}
-.btn-primary{background:var(--accent);color:#fff;border-color:var(--accent)}
-.btn-ghost{background:transparent;color:var(--warm);border-color:var(--warm)}
-.topbar{background:var(--paper);color:var(--muted);font-size:15px;border-bottom:1px solid var(--rule)}
-.topbar .wrap{padding:9px 20px}
-.nav{position:sticky;top:0;z-index:30;background:var(--surface);border-bottom:2px solid var(--ink)}
-.nav .wrap{display:flex;align-items:center;gap:14px;height:52px}
-.brand{font-family:"Nunito Sans",system-ui,sans-serif;font-weight:800;font-size:19px;
-text-decoration:none;flex:none;letter-spacing:-.02em;line-height:1}
-.navlinks{display:flex;gap:18px;min-width:0;flex:1;overflow-x:auto;scrollbar-width:none;
-font-size:14px;font-weight:600;color:var(--muted);letter-spacing:.04em}
-.navlinks::-webkit-scrollbar{display:none}
-.navlinks a{text-decoration:none;white-space:nowrap}
-.navact{min-height:36px;padding:0 14px;font-size:14px;flex:none;white-space:nowrap}
-.waitrail{background:var(--accent);color:#fff;display:flex;align-items:baseline;gap:10px;
-padding:8px 20px;max-width:var(--wrap);margin:0 auto}
-.waitrail b{font-family:"Nunito Sans",system-ui,sans-serif;font-size:22px;font-weight:800;
-letter-spacing:-.02em}
-.waitrail span{font-size:15px;color:#CFE3EC}
-.hero{padding:22px 0 30px}
-.split{display:grid;gap:22px}
-.eyebrow{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);
-margin:0 0 10px;font-weight:700}
-.hero h1{font-size:clamp(30px,7.5vw,56px);max-width:15ch}
-.sub{font-size:16px;color:var(--muted);max-width:52ch;margin:13px 0 18px;line-height:1.55}
-.ctas{display:flex;flex-direction:column;gap:10px}
-.board{background:var(--paper);border:2px solid var(--ink);padding:0}
-.board .bh{background:var(--tint);padding:16px 18px;border-bottom:2px solid var(--ink)}
-.bignum{font-family:"Nunito Sans",system-ui,sans-serif;font-size:46px;font-weight:800;
-line-height:1;color:var(--accent);letter-spacing:-.03em}
-.bh p{margin:6px 0 0;font-size:15px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
-color:var(--muted)}
-.bdoor{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 18px;
-border-bottom:1px solid var(--rule);text-decoration:none}
-.bdoor strong{font-family:"Nunito Sans",system-ui,sans-serif;font-size:17px;font-weight:700}
-.bdoor em{font-style:normal;font-size:15px;color:var(--accent);font-weight:600;white-space:nowrap}
-.bdoor.cos em{color:var(--warm)}
-.badges{list-style:none;margin:0;padding:14px 18px;display:grid;gap:7px;background:var(--paper)}
-.badges li{font-size:15px;color:var(--muted);padding-left:18px;position:relative}
-.badges li::before{content:"+";position:absolute;left:0;top:0;color:var(--accent);font-weight:700}
-.sec{padding:52px 0}
-.kicker{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--warm);
-margin:0 0 10px;font-weight:700}
-.sec h2{font-size:clamp(27px,6.2vw,44px)}
-.lede{color:var(--muted);max-width:60ch;margin:12px 0 26px;font-size:17px}
-.tiles{display:grid;gap:2px;background:var(--ink)}
-.tile{background:var(--tint);padding:24px 20px}
-.tile:nth-child(2){background:#EDF2F5}
-.tile:nth-child(3){background:#E8EFF3}
-.tile.cos{background:#F3E7DE}
-.tile h3{font-size:21px;margin-bottom:8px}
-.tile p{margin:0;color:var(--muted);font-size:16px}
-.tlead{background:var(--ink);color:#fff;padding:50px 0 54px}
-.tlead .mark{font-family:"Nunito Sans",system-ui,sans-serif;font-size:62px;font-weight:800;
-color:var(--accent);line-height:.7;display:block;margin-bottom:10px}
-.tlead blockquote{margin:0;font-family:"Nunito Sans",system-ui,sans-serif;font-weight:600;
-font-size:clamp(21px,4.6vw,32px);line-height:1.34;max-width:24ch;letter-spacing:-.015em}
-.tlead cite{display:block;font-style:normal;margin-top:18px;font-size:16px;color:#B7C7D1}
-.tlead cite b{color:#fff;font-weight:700}
-.steps{list-style:none;margin:24px 0 0;padding:0;counter-reset:s;display:grid;gap:2px;
-background:var(--rule)}
-.steps li{counter-increment:s;background:var(--surface);padding:20px 0 20px 0;display:grid;
-grid-template-columns:44px 1fr;gap:12px}
-.steps li::before{content:counter(s);font-family:"Nunito Sans",system-ui,sans-serif;font-weight:800;
-font-size:26px;color:var(--warm);line-height:1;letter-spacing:-.03em}
-.steps h3{font-size:20px;margin-bottom:5px}
-.steps p{margin:0;color:var(--muted);font-size:16px}
-.close{background:var(--tint);padding:50px 0 56px;border-top:2px solid var(--ink)}
-.close h2{font-size:clamp(28px,6.4vw,46px);max-width:17ch}
-.close p{max-width:56ch;font-size:17px;color:var(--muted);margin:14px 0 20px}
-.note{font-size:15px;color:var(--muted);margin-top:18px;max-width:56ch}
-.foot{padding:38px 0 34px;font-size:15px;color:var(--muted);background:var(--paper);
-border-top:1px solid var(--rule)}
-.foot .brand{color:var(--ink);display:inline-block;margin-bottom:12px}
-.foot p{margin:0 0 9px;max-width:64ch}
-.foot a{color:var(--accent);font-weight:600}
-.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--ink);padding:8px;
-display:grid;grid-template-columns:1fr auto;gap:8px}
-.callbar a{display:flex;align-items:center;justify-content:center;min-height:58px;text-decoration:none;
-font-weight:700;font-size:15px;text-align:center;line-height:1.2;padding:0 12px;border-radius:4px;
-font-family:"Nunito Sans",system-ui,sans-serif}
-.callbar .book{background:#fff;color:var(--ink)}
-.callbar .tel{border:2px solid rgba(255,255,255,.6);color:#fff;padding:0 16px;font-size:16px}
-@media(max-width:559px){.navact{display:none}}
-@media(min-width:760px){.ctas{flex-direction:row}.tiles{grid-template-columns:1fr 1fr}
-.steps{grid-template-columns:1fr 1fr;gap:2px}.steps li{padding:22px 20px 22px 0}
-.badges{grid-template-columns:1fr 1fr;column-gap:22px}
-.sec{padding:84px 0}.sub{font-size:19px}.hero{padding:40px 0 52px}.nav .wrap{height:60px}
-.brand{font-size:23px}.navlinks{gap:26px;font-size:15px}.tlead{padding:80px 0 86px}}
-@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}
-.split{grid-template-columns:1.05fr .95fr;gap:44px;align-items:start}}
-</style>
-
-<style>
-  /* Hero plate, added with the photography pass. Full-bleed between the hero
-     and the first content section, with no border of its own: every one of
-     these designs owns a different rule weight and ink colour, and a borrowed
-     hairline reads as a mistake in about half of them. */
-  .gsw-plate picture { display: block; width: 100%; }
-  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
-  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
-  .gsw-plate img {
-    display: block;
-    width: 100%;
-    height: clamp(220px, 40vw, 520px);
-    object-fit: cover;
-    object-position: center;
-  }
-  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
-</style>
-
 <!-- gsw:identity -->
 <link rel="icon" href="../_assets/identity/dermatology/colvin-dermatology-icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../_assets/identity/dermatology/colvin-dermatology-icon-180.png">
-<meta name="theme-color" content="#141E26">
+<meta name="theme-color" content="#14202B">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Colvin Dermatology">
 <meta property="og:title" content="Colvin Dermatology · Skin checks within 2 weeks · Urgent slots held weekly">
@@ -152,263 +18,390 @@ font-family:"Nunito Sans",system-ui,sans-serif}
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"MedicalClinic","name":"Colvin Dermatology","description":"Skin checks within 2 weeks \u00b7 Urgent slots held weekly","telephone":"(603) 719-6628","areaServed":"Metro area","image":"https://grandstreetworks.com/work/_assets/identity/dermatology/colvin-dermatology-og.png","logo":"https://grandstreetworks.com/work/_assets/identity/dermatology/colvin-dermatology-mark.svg"}</script>
-
+<!-- /gsw:identity -->
+<link rel="preload" href="../_assets/fonts/onest-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../_assets/fonts/sometype-mono-var.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-  /* Identity pass. The lockup is the mark plus the wordmark the build already
-     had; the mark is sized in em so it tracks whatever display face this build
-     sets its brand in. */
-  .gsw-lockup { display: inline-flex; align-items: center; gap: .46em; }
-  .gsw-lockup svg { height: 1.16em; width: auto; flex: none; display: block; }
-</style>
+/* D2 — THE TWO WEEKS. hero:split nav:inline services:tiles proof:testimonial-lead
+   ink #14202B · white #FFFFFF · panel #EEF2F5 · blue #1F5F8B · muted #4E5B66
+   H1 ramp: 42/50/60/72px · Onest (light) display / Onest body / Sometype Mono figures
+   Device: the calendar — the wait set in mono as the largest object on the page, on white, over a
+   fourteen-cell ruled strip, the two doors directly beneath it, and every section opening
+   on a hairline with a mono index. FIX answered first: "appointment wait times unaddressed"
+   — the number is the hero, repeated in the closing band; the two clinics are two ruled
+   rows, not two colours. Seven sizes, two families, three weights, no motion. */
 
-<style>
-  /* Recent-work gallery. Everything here is drawn from the properties the build
-     already declares, so the band inherits each design's palette and heading
-     face rather than importing a seventh look. */
-  .gsw-gal { background: #EFF3F6; color: #141E26;
-             padding: clamp(38px, 6vw, 74px) 0; }
-  .gsw-gal-in { max-width: var(--wrap, 1140px); margin: 0 auto; padding: 0 20px; }
-  .gsw-gal-lab { font-size: 13px; letter-spacing: .18em; text-transform: uppercase;
-                 font-weight: 600; color: var(--accent); margin: 0 0 14px; }
-  .gsw-gal h2 { margin: 0; color: inherit; }
-  .gsw-gal-note { color: var(--muted); margin: 14px 0 30px; max-width: 58ch; }
-  .gsw-ba { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px; }
-  .gsw-gal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-  .gsw-gal figure { margin: 0; position: relative; overflow: hidden;
-                    background: var(--rule, rgba(0,0,0,.1)); }
-  .gsw-gal picture { display: block; }
-  /* height:auto matters — the width/height attributes are a presentational
-     hint, and without this the 1200px hint beats aspect-ratio. */
-  .gsw-gal img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3;
-                 object-fit: cover; transition: transform .5s ease; }
-  .gsw-gal figure:hover img { transform: scale(1.035); }
-  .gsw-gal figcaption { position: absolute; left: 0; bottom: 0;
-                        background: #141E26; color: #EFF3F6;
-                        font-size: 12px; font-weight: 600; letter-spacing: .14em;
-                        text-transform: uppercase; padding: 7px 12px; }
-  @media (max-width: 720px) {
-    .gsw-ba, .gsw-gal-grid { grid-template-columns: 1fr; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .gsw-gal img { transition: none; }
-    .gsw-gal figure:hover img { transform: none; }
-  }
-</style>
+@font-face { font-family: "Onest"; src: url("../_assets/fonts/onest-var.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Sometype Mono"; src: url("../_assets/fonts/sometype-mono-var.woff2") format("woff2"); font-weight: 400 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Onest Fallback"; src: local("Arial"); size-adjust: 101%; ascent-override: 96%; descent-override: 24%; }
+@font-face { font-family: "Sometype Fallback"; src: local("Menlo"), local("Courier New"); size-adjust: 96%; }
 
+:root {
+  --ink: #14202B; --white: #FFFFFF; --panel: #EEF2F5;
+  --blue: #1F5F8B; --blue-hover: #174A6D; --blue-on-ink: #8FC1E3;
+  --muted: #4E5B66; --muted-i: #A3B0BB; --line: #CFD8E0; --line-i: #2C3A47;
+  --sans: "Onest", "Onest Fallback", Arial, sans-serif;
+  --mono: "Sometype Mono", "Sometype Fallback", Menlo, monospace;
+  --t-label: 0.8125rem; --t-small: 0.9375rem; --t-body: 1.0625rem;
+  --t-lede: clamp(1.125rem, 1rem + 0.5vw, 1.3125rem);
+  --t-h3: clamp(1.375rem, 1.1rem + 1.1vw, 1.75rem);
+  --t-h2: clamp(1.875rem, 1.3rem + 2.3vw, 2.75rem);
+  --t-display: clamp(2.625rem, 1.5rem + 4.8vw, 4.5rem);
+  --s1: 9px; --s2: 18px; --s3: 27px; --s4: 36px; --s6: 54px; --s8: 72px; --s12: 108px;
+  --wrap: 1180px; --gutter: clamp(20px, 4vw, 48px); --bar-h: 64px;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body { margin: 0; background: var(--white); color: var(--ink); font: 400 var(--t-body)/1.6 var(--sans); overflow-x: hidden; padding-bottom: var(--bar-h); }
+h1, h2, h3 { margin: 0; text-wrap: balance; }
+h1 { font-size: var(--t-display); font-weight: 300; line-height: 1.02; letter-spacing: -0.02em; max-width: 13ch; }
+h2 { font-size: var(--t-h2); font-weight: 300; line-height: 1.08; letter-spacing: -0.01em; max-width: 22ch; }
+h3 { font-size: var(--t-h3); font-weight: 500; line-height: 1.2; letter-spacing: -0.005em; }
+p { margin: 0; text-wrap: pretty; }
+a { color: inherit; }
+img { display: block; max-width: 100%; height: auto; }
+ul, ol { list-style: none; margin: 0; padding: 0; }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+.mono { font-family: var(--mono); }
+.label { font-family: var(--mono); font-size: var(--t-label); font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.3; color: var(--muted); }
+.lede { font-size: var(--t-lede); line-height: 1.45; max-width: 56ch; }
+.muted { color: var(--muted); }
+.on-ink { background: var(--ink); color: #F2F5F7; }
+.on-ink .muted, .on-ink .label { color: var(--muted-i); }
+:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+.on-ink :focus-visible { outline-color: var(--blue-on-ink); }
+.skip { position: absolute; left: -999px; top: 0; background: var(--white); padding: var(--s1) var(--s2); z-index: 100; }
+.skip:focus { left: var(--s2); top: var(--s2); }
 
+/* ---------- Buttons ---------- */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5em; min-height: 50px; padding: 0.65em 1.3em; border: 1px solid transparent; font: 500 var(--t-body)/1.2 var(--sans); text-decoration: none; cursor: pointer; transition: background-color 160ms, border-color 160ms, color 160ms; }
+.btn-primary { background: var(--blue); color: var(--white); border-color: var(--blue); }
+.btn-primary:hover { background: var(--blue-hover); border-color: var(--blue-hover); }
+.btn-ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+.btn-ghost:hover { background: var(--ink); color: var(--white); }
+.on-ink .btn-ghost { color: #F2F5F7; border-color: rgba(242, 245, 247, 0.5); }
+.on-ink .btn-ghost:hover { background: rgba(242, 245, 247, 0.08); border-color: #F2F5F7; color: #F2F5F7; }
 
-<style>
-  /* gsw:backdrop — the section opens on the work. The scrim is this build's own
-     ink, heavy where the copy sits and thinning away from it, so the text
-     never depends on what the photograph happens to be doing. */
-  .gsw-imaged { position: relative; isolation: isolate; overflow: hidden; }
-  .gsw-imaged > *:not(.gsw-backdrop) { position: relative; z-index: 1; }
-  .gsw-backdrop { position: absolute; inset: 0; z-index: 0; }
-  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
-  .gsw-backdrop img { width: 100%; height: 100%; object-fit: cover;
-                       object-position: center 70%; }
-  .gsw-backdrop::after { content: ""; position: absolute; inset: 0;
-                          background: rgb(239 243 246 / 0.3); }
-  /* Below the breakpoint the copy spans the full width, so the scrim goes flat. */
-  @media (max-width: 760px) {
-    .gsw-backdrop::after { background: rgb(239 243 246 / 0.6); }
-  }
-</style>
+/* ---------- Top line + header ---------- */
+.topline { border-bottom: 1px solid var(--line); }
+.topline .wrap { display: flex; justify-content: space-between; gap: var(--s3); padding-top: 10px; padding-bottom: 10px; }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: var(--s3); padding-top: var(--s3); padding-bottom: var(--s3); }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font-size: var(--t-lede); font-weight: 500; letter-spacing: -0.01em; white-space: nowrap; }
+.brand img { width: 28px; height: 28px; }
+.nav { display: flex; gap: var(--s3); font-size: var(--t-small); }
+.nav a { text-decoration: none; padding: 6px 0; border-bottom: 1px solid transparent; transition: border-color 160ms; }
+.nav a:hover { border-bottom-color: var(--blue); }
+.top .actions { display: flex; align-items: center; gap: var(--s2); }
+.top .tel { font-family: var(--mono); font-size: var(--t-small); text-decoration: none; white-space: nowrap; border-bottom: 1px solid var(--line); padding-bottom: 2px; }
+.top .tel:hover { border-bottom-color: var(--blue); }
 
-<style>
-  /* gsw:video - the still plate is the poster; the loop fades in over it. */
-  .gsw-backdrop video { position: absolute; inset: 0; width: 100%; height: 100%;
-                        object-fit: cover; object-position: center;
-                        opacity: 0; transition: opacity 1.2s ease-out; }
-  .gsw-backdrop video.gsw-playing { opacity: 1; }
-  @media (prefers-reduced-motion: reduce) { .gsw-backdrop video { display: none; } }
-  @media print { .gsw-backdrop video { display: none; } }
-</style>
+/* ---------- Hero ---------- */
+.hero { padding: var(--s8) 0 var(--s8); }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); grid-template-areas: "copy card" "cta card"; gap: var(--s4) var(--s8); align-items: start; }
+.hero .copy { grid-area: copy; }
+.hero .card { grid-area: card; }
+.hero .cta { grid-area: cta; }
+.hero .label { margin-bottom: var(--s3); }
+.hero .lede { margin-top: var(--s3); color: var(--muted); }
+.hero .cta { display: flex; flex-wrap: wrap; gap: var(--s2); }
+.card { border-top: 1px solid var(--line); padding-top: var(--s3); }
+.card .figure { display: flex; flex-direction: column; gap: 6px; }
+.card .figure b { font-family: var(--mono); font-size: var(--t-display); font-weight: 500; line-height: 1; letter-spacing: -0.03em; color: var(--blue); }
+.card .figure span { font-size: var(--t-small); color: var(--muted); line-height: 1.3; }
+.strip { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin-top: var(--s3); }
+.strip li { aspect-ratio: 1; display: flex; align-items: flex-end; padding: 4px 6px; border: 1px solid var(--line); background: var(--panel); font-family: var(--mono); font-size: var(--t-label); color: var(--muted); }
+.strip li.is-day { background: var(--blue); border-color: var(--blue); color: var(--white); font-weight: 500; }
+.doors { margin-top: var(--s4); border-top: 1px solid var(--line); }
+.doors a { display: flex; justify-content: space-between; align-items: center; gap: var(--s2); padding: var(--s2) 0; border-bottom: 1px solid var(--line); text-decoration: none; }
+.doors a:hover span { color: var(--blue); }
+.doors strong { font-weight: 500; }
+.doors span { font-size: var(--t-small); color: var(--blue); white-space: nowrap; transition: color 160ms; }
+.doors span::after { content: " →"; }
+.badges { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: var(--s1) var(--s3); margin-top: var(--s3); font-size: var(--t-small); }
+.badges li { position: relative; padding-left: 14px; }
+.badges li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 6px; height: 6px; background: var(--blue); }
 
-<style>
-  /* gsw:contact-form — the closing section takes a name. Borrows the section's
-     colour through currentColor and the build's own .btn for the button. */
-  .gsw-cf { max-width: 640px; margin: 28px 0 0; text-align: left; }
-  .gsw-cf--centred { margin-left: auto; margin-right: auto; }
-  .gsw-cf-lead { margin: 0 0 12px; font-size: 15px; opacity: .85; }
-  .gsw-cf-grid { display: grid; gap: 10px; }
-  .gsw-cf label { display: flex; flex-direction: column; gap: 5px; font-size: 11px;
-                  font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
-  .gsw-cf label em { font-style: normal; font-weight: 400; text-transform: none; letter-spacing: 0; opacity: .7; }
-  .gsw-cf input, .gsw-cf textarea { font: inherit; font-size: 16px; color: inherit; background: transparent;
-                                    border: 1.5px solid currentColor; border-radius: 0; padding: 10px 12px; width: 100%;
-                                    box-sizing: border-box; letter-spacing: 0; text-transform: none; font-weight: 400; }
-  .gsw-cf input:focus, .gsw-cf textarea:focus { outline: 2px solid currentColor; outline-offset: 2px; }
-  .gsw-cf textarea { resize: vertical; min-height: 84px; }
-  .gsw-cf-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 14px; }
-  .gsw-cf button.btn { font: inherit; cursor: pointer; appearance: none; }
-  .gsw-cf-err { font-size: 14px; font-weight: 600; }
-  .gsw-cf-done { margin: 0; font-size: 17px; font-weight: 600; }
-  .gsw-cf[data-sent] .gsw-cf-lead, .gsw-cf[data-sent] .gsw-cf-grid, .gsw-cf[data-sent] .gsw-cf-row { display: none; }
-  @media (min-width: 640px) {
-    .gsw-cf-grid { grid-template-columns: 1fr 1fr; }
-    .gsw-cf-wide { grid-column: 1 / -1; }
-  }
+/* ---------- Plate ---------- */
+.plate img { width: 100%; aspect-ratio: 21 / 9; object-fit: cover; object-position: 50% 45%; }
+
+/* ---------- Sections ---------- */
+.sec { padding: var(--s12) 0; }
+.mark { display: flex; align-items: baseline; gap: var(--s2); padding-top: var(--s2); border-top: 1px solid var(--line); margin-bottom: var(--s6); }
+.on-ink .mark { border-top-color: var(--line-i); }
+.mark .n { font-family: var(--mono); font-size: var(--t-label); color: var(--blue); letter-spacing: 0.08em; }
+.on-ink .mark .n { color: var(--blue-on-ink); }
+.head { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--s4) var(--s8); align-items: end; margin-bottom: var(--s8); }
+.head .lede { margin-bottom: 0.25em; color: var(--muted); }
+
+/* ---------- Services ---------- */
+.tiles { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s2); }
+.tiles li { border: 1px solid var(--line); padding: var(--s4); display: grid; gap: var(--s2); }
+.tiles .n { font-family: var(--mono); font-size: var(--t-label); color: var(--blue); letter-spacing: 0.08em; }
+.tiles p { color: var(--muted); max-width: 46ch; }
+
+/* ---------- Results ---------- */
+.results blockquote { margin: 0; font-size: var(--t-h2); font-weight: 300; line-height: 1.25; letter-spacing: -0.01em; max-width: 30ch; }
+.results cite { display: block; margin-top: var(--s4); font: 400 var(--t-small)/1.4 var(--mono); font-style: normal; color: var(--muted-i); }
+
+/* ---------- Process ---------- */
+.process { background: var(--panel); }
+.steps { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4) var(--s8); }
+.steps li { display: grid; grid-template-columns: 4ch 1fr; gap: var(--s2); padding-top: var(--s3); border-top: 1px solid var(--line); }
+.steps .n { font-family: var(--mono); font-size: var(--t-label); color: var(--blue); letter-spacing: 0.08em; padding-top: 0.5em; }
+.steps h3 { margin-bottom: var(--s1); }
+.steps p { color: var(--muted); max-width: 44ch; }
+
+/* ---------- Appointment ---------- */
+.grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s3); }
+.grid3 figure { margin: 0; }
+.grid3 img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: var(--panel); }
+.grid3 figcaption { display: flex; gap: var(--s2); align-items: baseline; padding-top: var(--s1); margin-top: var(--s1); border-top: 1px solid var(--line); font-family: var(--mono); font-size: var(--t-label); letter-spacing: 0.04em; color: var(--muted); }
+.grid3 figcaption .n { color: var(--blue); }
+
+/* ---------- Closing ---------- */
+.close .grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s8); align-items: start; }
+.close .lede { margin-top: var(--s3); color: var(--muted-i); }
+.close .cta { display: flex; flex-wrap: wrap; gap: var(--s2); margin-top: var(--s4); }
+.close .cta .btn-ghost { font-family: var(--mono); font-weight: 500; }
+.close .note { margin-top: var(--s4); font-size: var(--t-small); color: var(--muted-i); max-width: 48ch; }
+.form { border-top: 1px solid var(--line-i); padding-top: var(--s3); }
+.form .intro { margin-bottom: var(--s3); color: var(--muted-i); }
+.field { display: grid; gap: 6px; margin-bottom: var(--s2); }
+.field label { font-family: var(--mono); font-size: var(--t-label); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted-i); }
+.field input, .field textarea { width: 100%; font: 400 var(--t-body)/1.4 var(--sans); color: #F2F5F7; background: rgba(242, 245, 247, 0.05); border: 1px solid var(--line-i); padding: 12px 14px; transition: border-color 160ms; }
+.field input:hover, .field textarea:hover { border-color: var(--muted-i); }
+.field input:focus, .field textarea:focus { outline: none; border-color: var(--blue-on-ink); }
+.field.is-invalid input { border-color: var(--blue-on-ink); }
+.form .actions { display: flex; align-items: center; gap: var(--s2); flex-wrap: wrap; margin-top: var(--s3); }
+.form .hint { font-size: var(--t-small); color: var(--blue-on-ink); }
+.form .hint[hidden], .form .done[hidden] { display: none; }
+.form .done { font-size: var(--t-lede); padding: var(--s3) 0; }
+.form.is-sent .field, .form.is-sent .actions { display: none; }
+
+/* ---------- Footer ---------- */
+.foot { border-top: 1px solid var(--line); padding: var(--s6) 0; font-size: var(--t-small); }
+.foot .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s3) var(--s8); align-items: start; }
+.foot p { color: var(--muted); max-width: 54ch; }
+.foot p + p { margin-top: var(--s1); }
+.foot .fine { grid-column: 1 / -1; padding-top: var(--s3); border-top: 1px solid var(--line); font-family: var(--mono); font-size: var(--t-label); letter-spacing: 0.02em; }
+
+/* ---------- Mobile bar ---------- */
+.bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: grid; grid-template-columns: 1fr auto; gap: 1px; background: var(--line); border-top: 1px solid var(--line); }
+.bar .btn { min-height: var(--bar-h); border: 0; white-space: nowrap; }
+.bar .btn:focus-visible { outline-offset: -3px; }
+.bar .btn-ghost { background: var(--white); font-family: var(--mono); }
+
+/* ---------- Responsive ---------- */
+@media (min-width: 1000px) { body { padding-bottom: 0; } .bar { display: none; } }
+@media (max-width: 999px) {
+  .hero .wrap, .head, .close .grid { grid-template-columns: 1fr; }
+  .hero .wrap { grid-template-areas: "copy" "card" "cta"; gap: var(--s4); }
+  .grid3 { grid-template-columns: 1fr 1fr; }
+  .top .tel { display: none; }
+}
+@media (max-width: 759px) {
+  .nav, .topline, .top .actions .btn { display: none; }
+  .sec { padding: var(--s8) 0; }
+  .hero { padding: var(--s4) 0 var(--s8); }
+  .hero .cta .btn { width: 100%; }
+  .doors a { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .badges { grid-template-columns: 1fr; }
+  .tiles, .steps, .grid3 { grid-template-columns: 1fr; }
+  .foot .wrap { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+.tnum, .tnum *, .mono, .strip li, .card .figure b, .close .cta .btn-ghost, .top .tel, .bar .btn-ghost, .foot .tel { font-variant-numeric: tabular-nums; }
+@media (forced-colors: active) { .btn { border: 1px solid ButtonText; } .strip li.is-day { forced-color-adjust: none; } }
+@media print { .bar { display: none; } }
 </style>
 </head>
 <body>
-<div class="topbar"><div class="wrap">Skin checks within 2 weeks · Urgent slots held weekly</div></div>
-<header class="nav"><div class="wrap">
-  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="8" y="10" width="48" height="44" rx="3" fill="none" stroke="#141E26" stroke-width="4"/>
-<rect x="8" y="10" width="48" height="10" fill="#141E26" opacity=".7"/>
-<rect x="16" y="28" width="14" height="14" fill="#1B5E7E"/></svg><span>Colvin Dermatology</span></span></a>
-  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
-  <a class="btn btn-primary navact" href="#contact">Book a skin check</a>
-</div></header>
-<div class="waitrail"><b>2wk</b><span>Typical skin check wait</span></div>
-<section class="gsw-imaged hero"><!-- gsw:backdrop --><div class="gsw-backdrop" aria-hidden="true"><picture><source type="image/avif" srcset="../_assets/hero/dermatology/b-precision-instrument-1280.avif 1280w, ../_assets/hero/dermatology/b-precision-instrument-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/dermatology/b-precision-instrument-1280.jpg" width="2560" height="1429" alt="" loading="eager" fetchpriority="high" decoding="async"></picture><!-- gsw:video --><video autoplay muted loop playsinline preload="metadata" disablepictureinpicture disableremoteplayback aria-hidden="true" tabindex="-1"><source src="../_assets/hero/dermatology/b-precision-instrument.mp4" type="video/mp4"></video><!-- /gsw:video --></div><!-- /gsw:backdrop --><div class="wrap"><div class="split">
-  <div class="hcopy">
-    <p class="eyebrow">Medical · Surgical · Cosmetic</p>
-    <h1>Skin checks inside two weeks. Urgent ones sooner.</h1>
-    <p class="sub">Medical dermatology, skin cancer surgery and a separate cosmetic clinic. Routine skin checks book about two weeks out, and we hold urgent slots every single week for the things that shouldn't wait.</p>
-    <div class="ctas">
-      <a class="btn btn-primary" data-cta="primary" href="#contact">Book a skin check</a>
-      <a class="btn btn-ghost" href="#contact">Cosmetic consultations</a>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="topline"><div class="wrap"><span class="label tnum">Skin checks within 2 weeks · Urgent slots held weekly</span></div></div>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#"><img src="../_assets/identity/dermatology/colvin-dermatology-mark.svg" alt="" width="28" height="28">Colvin Dermatology</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#services">Services</a>
+      <a href="#results">Results</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="actions">
+      <a class="tel tnum" href="tel:+16037196628">(603)&nbsp;719-6628</a>
+      <a class="btn btn-primary" href="#contact">Book a skin check</a>
     </div>
   </div>
-  <div class="board">
-    <div class="bh"><div class="bignum">2wk</div><p>Typical skin check wait</p></div>
-    <a class="bdoor" href="#contact"><strong>Medical dermatology</strong><em>Book a skin check</em></a>
-    <a class="bdoor cos" href="#contact"><strong>Cosmetic clinic</strong><em>Cosmetic consultations</em></a>
-    <ul class="badges">
-      <li>Skin checks within 2 weeks</li><li>Mohs surgery on site</li>
-      <li>Most insurance accepted</li><li>Separate cosmetic clinic</li>
+</header>
+
+<main id="main">
+<section class="hero" aria-labelledby="promise">
+  <div class="wrap">
+    <div class="copy">
+      <p class="label">Medical · Surgical · Cosmetic</p>
+      <h1 id="promise">Skin checks inside two weeks. Urgent ones&nbsp;sooner.</h1>
+      <p class="lede">Medical dermatology, skin cancer surgery and a separate cosmetic clinic. Routine skin checks book about two weeks out, and we hold urgent slots every single week for the things that shouldn’t&nbsp;wait.</p>
+    </div>
+    <div class="cta">
+      <a class="btn btn-primary" href="#contact" data-cta="primary">Book a skin check</a>
+      <a class="btn btn-ghost" href="#contact">Cosmetic consultations</a>
+    </div>
+    <aside class="card" aria-label="Typical wait and how to book">
+      <p class="figure"><b aria-label="Two weeks">2wk</b><span>Typical skin check wait</span></p>
+      <ol class="strip" aria-hidden="true">
+        <li>01</li><li>02</li><li>03</li><li>04</li><li>05</li><li>06</li><li>07</li>
+        <li>08</li><li>09</li><li>10</li><li>11</li><li>12</li><li>13</li><li class="is-day">14</li>
+      </ol>
+      <div class="doors">
+        <a href="#contact"><strong>Medical dermatology</strong><span>Book a skin check</span></a>
+        <a href="#contact"><strong>Cosmetic clinic</strong><span>Cosmetic consultations</span></a>
+      </div>
+      <ul class="badges">
+        <li>Mohs surgery on site</li>
+        <li>Most insurance accepted</li>
+        <li>Separate cosmetic clinic</li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<div class="plate">
+  <picture>
+    <source type="image/avif" srcset="../_assets/hero/dermatology/c-the-check-2560.avif 2560w, ../_assets/hero/dermatology/c-the-check-1280.avif 1280w" sizes="100vw">
+    <img src="../_assets/hero/dermatology/c-the-check-1280.jpg" alt="A dermatoscope held to a patient's forearm in a bright clinic" width="1280" height="720" fetchpriority="high">
+  </picture>
+</div>
+
+<section class="sec services" id="services" aria-labelledby="services-title">
+  <div class="wrap">
+    <p class="mark"><span class="n" aria-hidden="true">01</span><span class="label">Services</span></p>
+    <div class="head">
+      <h2 id="services-title">Two clinics, one&nbsp;practice</h2>
+      <p class="lede">Medical dermatology runs on insurance and referral. The cosmetic clinic runs separately, with its own booking and published&nbsp;pricing.</p>
+    </div>
+    <ul class="tiles">
+      <li><span class="n" aria-hidden="true">01</span><h3>Skin cancer &amp; Mohs surgery</h3><p>Screening, biopsy and Mohs micrographic surgery on site, so diagnosis and removal don’t mean two separate waits.</p></li>
+      <li><span class="n" aria-hidden="true">02</span><h3>Medical dermatology</h3><p>Acne, eczema, psoriasis, rosacea and hair loss. Most insurance accepted, and biologics managed in house.</p></li>
+      <li><span class="n" aria-hidden="true">03</span><h3>Paediatric dermatology</h3><p>Eczema, birthmarks and adolescent acne, in appointments long enough for a child to settle.</p></li>
+      <li><span class="n" aria-hidden="true">04</span><h3>Cosmetic clinic</h3><p>Injectables, lasers and medical-grade skincare, with published pricing. Booked separately from medical visits.</p></li>
     </ul>
   </div>
-</div></div></section>
+</section>
 
-<section class="sec" id="services"><div class="wrap">
-  <p class="kicker">Services</p>
-  <h2>Two clinics, one practice</h2>
-  <p class="lede">Medical dermatology runs on insurance and referral. The cosmetic clinic runs separately, with its own booking and published pricing.</p>
-</div><div class="wrap"><div class="tiles">
-  <article class="tile"><h3>Skin cancer &amp; Mohs surgery</h3><p>Screening, biopsy and Mohs micrographic surgery on site, so diagnosis and removal don't mean two separate waits.</p></article>
-  <article class="tile"><h3>Medical dermatology</h3><p>Acne, eczema, psoriasis, rosacea and hair loss. Most insurance accepted, and biologics managed in house.</p></article>
-  <article class="tile"><h3>Paediatric dermatology</h3><p>Eczema, birthmarks and adolescent acne, in appointments long enough for a child to settle.</p></article>
-  <article class="tile cos"><h3>Cosmetic clinic</h3><p>Injectables, lasers and medical-grade skincare, with published pricing. Booked separately from medical visits.</p></article>
-</div></div></section>
-<section class="tlead" id="results"><div class="wrap">
-  <span class="mark">&ldquo;</span>
-  <blockquote>I found something in November and was terrified. Their site said two weeks for a skin check and I got in in nine days. The biopsy and the removal happened in the same building.</blockquote>
-  <cite><b>Gordon E.</b> · Skin cancer patient</cite>
-</div></section>
-<section class="sec" id="process"><div class="wrap">
-  <p class="kicker">Process</p>
-  <h2>Booking the right visit</h2>
-  <p class="lede">Medical and cosmetic run on different calendars and different money. Getting this right saves you weeks.</p>
-  <ol class="steps">
-    <li><div><h3>Pick your clinic</h3><p>Worried about a spot, a rash or a mole? Medical. Wanting to change how your skin looks? Cosmetic. If unsure, book medical.</p></div></li>
-    <li><div><h3>Book &amp; pre-register</h3><p>Online, with insurance details taken up front, so the first visit isn't twenty minutes of paperwork.</p></div></li>
-    <li><div><h3>Be seen</h3><p>Full-body skin checks run about thirty minutes. Anything suspicious is biopsied the same visit wherever possible.</p></div></li>
-    <li><div><h3>Results &amp; plan</h3><p>Pathology back within a week, delivered by a person on the phone, with the next step already scheduled.</p></div></li>
-  </ol>
-</div></section>
-<!-- gsw:gallery -->
-<section class="gsw-gal"><div class="gsw-gal-in"><p class="gsw-gal-lab">Inside two weeks</p><h2>What the appointment is.</h2><p class="gsw-gal-note">A full-body check with the dermatoscope, the biopsy if it needs one, and the lab in the same building.</p><div class="gsw-gal-grid"><figure><picture><source type="image/avif" srcset="../_assets/library/dermatology/colvin-dermatology/dermatoscope-640.avif 640w, ../_assets/library/dermatology/colvin-dermatology/dermatoscope-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/dermatology/colvin-dermatology/dermatoscope-720.jpg" width="1600" height="1200" alt="The dermatoscope, every check" loading="lazy" decoding="async"></picture><figcaption>The dermatoscope, every check</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/dermatology/colvin-dermatology/exam-room-640.avif 640w, ../_assets/library/dermatology/colvin-dermatology/exam-room-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/dermatology/colvin-dermatology/exam-room-720.jpg" width="1600" height="1200" alt="Exam room" loading="lazy" decoding="async"></picture><figcaption>Exam room</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/dermatology/colvin-dermatology/mohs-lab-640.avif 640w, ../_assets/library/dermatology/colvin-dermatology/mohs-lab-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/dermatology/colvin-dermatology/mohs-lab-720.jpg" width="1600" height="1200" alt="Mohs lab, same day" loading="lazy" decoding="async"></picture><figcaption>Mohs lab, same day</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/dermatology/colvin-dermatology/instrument-tray-640.avif 640w, ../_assets/library/dermatology/colvin-dermatology/instrument-tray-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/dermatology/colvin-dermatology/instrument-tray-720.jpg" width="1600" height="1200" alt="The biopsy tray" loading="lazy" decoding="async"></picture><figcaption>The biopsy tray</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/dermatology/colvin-dermatology/reception-640.avif 640w, ../_assets/library/dermatology/colvin-dermatology/reception-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/dermatology/colvin-dermatology/reception-720.jpg" width="1600" height="1200" alt="Reception" loading="lazy" decoding="async"></picture><figcaption>Reception</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/dermatology/colvin-dermatology/skin-macro-640.avif 640w, ../_assets/library/dermatology/colvin-dermatology/skin-macro-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/dermatology/colvin-dermatology/skin-macro-720.jpg" width="1600" height="1200" alt="Skin, in light" loading="lazy" decoding="async"></picture><figcaption>Skin, in light</figcaption></figure></div></div></section>
-<!-- /gsw:gallery -->
-<section class="close" id="contact"><div class="wrap">
-  <h2>Been told the wait is three months?</h2>
-  <p>Don't sit on it. Skin checks are booking about two weeks out and we hold urgent slots every week for exactly this reason.</p>
-  <div class="ctas">
-    <a class="btn btn-primary" href="#contact">Book a skin check</a>
-    <a class="btn btn-ghost">(603) 719-6628</a>
+<section class="sec results on-ink" id="results" aria-labelledby="results-title">
+  <div class="wrap">
+    <p class="mark"><span class="n" aria-hidden="true">02</span><span class="label" id="results-title">Results</span></p>
+    <figure style="margin:0">
+      <blockquote>“I found something in November and was terrified. Their site said two weeks for a skin check and I got in in nine days. The biopsy and the removal happened in the same&nbsp;building.”</blockquote>
+      <figcaption><cite>Gordon E. · Skin cancer patient</cite></figcaption>
+    </figure>
   </div>
-  <!-- gsw:contact-form -->
-    <form class="gsw-cf" novalidate>
-      <p class="gsw-cf-lead">Or leave your details and we'll call you back.</p>
-      <div class="gsw-cf-grid">
-        <label><span>Name</span><input type="text" name="name" autocomplete="name" required></label>
-        <label><span>Phone or email</span><input type="text" name="contact" autocomplete="tel" required></label>
-        <label class="gsw-cf-wide"><span>What can we help with? <em>(optional)</em></span><textarea name="message" rows="3"></textarea></label>
-      </div>
-      <div class="gsw-cf-row">
-        <button type="submit" class="btn btn-primary">Request a call back</button>
-        <span class="gsw-cf-err" role="alert" hidden>Add your name and a way to reach you.</span>
-      </div>
-      <p class="gsw-cf-done" role="status" hidden>Thanks. Someone will call you back within one business day.</p>
-    </form>
-    <!-- /gsw:contact-form -->
-    <p class="note">Most major insurance accepted. Urgent slots held weekly, so ring rather than booking online if something has changed quickly.</p>
-</div></section>
-<footer class="foot"><div class="wrap">
-  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="8" y="10" width="48" height="44" rx="3" fill="none" stroke="#141E26" stroke-width="4"/>
-<rect x="8" y="10" width="48" height="10" fill="#141E26" opacity=".7"/>
-<rect x="16" y="28" width="14" height="14" fill="#1B5E7E"/></svg><span>Colvin Dermatology</span></span></a>
-  <p><a>(603) 719-6628</a> · Board-certified dermatology · Mohs on site · Urgent slots weekly</p>
-  <p>American Board of Dermatology · American College of Mohs Surgery · AAD Fellows · Most major insurers</p>
-  <p>3776 Wexford Lane Floor 2, Fairhill, PA 14410</p>
-</div></footer>
-<div class="callbar"><a class="book" href="#contact">Book a skin check</a><a class="tel">(603) 719-6628</a></div>
-<!-- gsw:motion -->
-<style>
-  /* Motion pass. Everything here is gated on .gsw-m, which only the script
-     below adds, so a page without JavaScript never hides anything. */
-  .gsw-m [data-gsw-reveal] {
-    opacity: 0; transform: translateY(14px);
-    transition: opacity .7s cubic-bezier(.2,.6,.2,1), transform .7s cubic-bezier(.2,.6,.2,1);
-  }
-  .gsw-m [data-gsw-reveal].gsw-in { opacity: 1; transform: none; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(2) { transition-delay: .08s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(3) { transition-delay: .16s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(4) { transition-delay: .24s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(5) { transition-delay: .32s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(6) { transition-delay: .40s; }
-  @keyframes gsw-hero-in { from { opacity: 0; transform: scale(1.025); } to { opacity: 1; transform: none; } }
-  .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: gsw-hero-in 1s ease-out both; }
-  @media (prefers-reduced-motion: reduce) {
-    .gsw-m [data-gsw-reveal] { opacity: 1; transform: none; transition: none; }
-    .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: none; }
-  }
-</style>
-<script>
-(function () {
-  if (!('IntersectionObserver' in window)) return;
-  var targets = [].slice.call(document.querySelectorAll('body > section, .gsw-gal figure'));
-  // The first section is the hero; it is on screen already and owns its own entrance.
-  var first = document.querySelector('body > section');
-  targets = targets.filter(function (el) { return el !== first; });
-  if (!targets.length) return;
-  document.documentElement.classList.add('gsw-m');
-  targets.forEach(function (el) { el.setAttribute('data-gsw-reveal', ''); });
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) { e.target.classList.add('gsw-in'); io.unobserve(e.target); }
-    });
-  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-  targets.forEach(function (el) { io.observe(el); });
-})();
-</script>
-<!-- /gsw:motion -->
-<script>
-(function(){var v=document.querySelector('.gsw-backdrop video');if(!v)return;
-var on=function(){v.classList.add('gsw-playing')};
-v.addEventListener('canplay',on,{once:true});if(v.readyState>=3)on();
-if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){v.pause();v.removeAttribute('autoplay');}})();
-</script>
+</section>
 
-<!-- gsw:contact-form -->
+<section class="sec process" id="process" aria-labelledby="process-title">
+  <div class="wrap">
+    <p class="mark"><span class="n" aria-hidden="true">03</span><span class="label">Process</span></p>
+    <div class="head">
+      <h2 id="process-title">Booking the right&nbsp;visit</h2>
+      <p class="lede">Medical and cosmetic run on different calendars and different money. Getting this right saves you&nbsp;weeks.</p>
+    </div>
+    <ol class="steps">
+      <li><span class="n" aria-hidden="true">01</span><div><h3>Pick your clinic</h3><p>Worried about a spot, a rash or a mole? Medical. Wanting to change how your skin looks? Cosmetic. If unsure, book medical.</p></div></li>
+      <li><span class="n" aria-hidden="true">02</span><div><h3>Book &amp; pre-register</h3><p>Online, with insurance details taken up front, so the first visit isn’t twenty minutes of paperwork.</p></div></li>
+      <li><span class="n" aria-hidden="true">03</span><div><h3>Be seen</h3><p>Full-body skin checks run about thirty minutes. Anything suspicious is biopsied the same visit wherever possible.</p></div></li>
+      <li><span class="n" aria-hidden="true">04</span><div><h3>Results &amp; plan</h3><p>Pathology back within a week, delivered by a person on the phone, with the next step already scheduled.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec appointment" aria-labelledby="appt-title">
+  <div class="wrap">
+    <p class="mark"><span class="n" aria-hidden="true">04</span><span class="label">Inside two weeks</span></p>
+    <div class="head">
+      <h2 id="appt-title">What the appointment&nbsp;is.</h2>
+      <p class="lede">A full-body check with the dermatoscope, the biopsy if it needs one, and the lab in the same&nbsp;building.</p>
+    </div>
+    <div class="grid3">
+      <figure><picture><source type="image/avif" srcset="../_assets/library/dermatology/colvin-dermatology/dermatoscope-1280.avif 1280w, ../_assets/library/dermatology/colvin-dermatology/dermatoscope-640.avif 640w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/dermatology/colvin-dermatology/dermatoscope-720.jpg" alt="Dermatoscope against a patient's arm" width="720" height="537" loading="lazy"></picture><figcaption><span class="n" aria-hidden="true">1</span>The dermatoscope, every check</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/dermatology/colvin-dermatology/exam-room-1280.avif 1280w, ../_assets/library/dermatology/colvin-dermatology/exam-room-640.avif 640w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/dermatology/colvin-dermatology/exam-room-720.jpg" alt="Exam room with a lamp over the table" width="720" height="537" loading="lazy"></picture><figcaption><span class="n" aria-hidden="true">2</span>Exam room</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/dermatology/colvin-dermatology/mohs-lab-1280.avif 1280w, ../_assets/library/dermatology/colvin-dermatology/mohs-lab-640.avif 640w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/dermatology/colvin-dermatology/mohs-lab-720.jpg" alt="Microscope and slides on the Mohs lab bench" width="720" height="537" loading="lazy"></picture><figcaption><span class="n" aria-hidden="true">3</span>Mohs lab, same day</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/dermatology/colvin-dermatology/instrument-tray-1280.avif 1280w, ../_assets/library/dermatology/colvin-dermatology/instrument-tray-640.avif 640w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/dermatology/colvin-dermatology/instrument-tray-720.jpg" alt="Sterile biopsy instruments on a blue tray" width="720" height="537" loading="lazy"></picture><figcaption><span class="n" aria-hidden="true">4</span>The biopsy tray</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/dermatology/colvin-dermatology/reception-1280.avif 1280w, ../_assets/library/dermatology/colvin-dermatology/reception-640.avif 640w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/dermatology/colvin-dermatology/reception-720.jpg" alt="Reception with timber panelling and a plant" width="720" height="537" loading="lazy"></picture><figcaption><span class="n" aria-hidden="true">5</span>Reception</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/dermatology/colvin-dermatology/skin-macro-1280.avif 1280w, ../_assets/library/dermatology/colvin-dermatology/skin-macro-640.avif 640w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/dermatology/colvin-dermatology/skin-macro-720.jpg" alt="Skin in daylight, close up" width="720" height="537" loading="lazy"></picture><figcaption><span class="n" aria-hidden="true">6</span>Skin, in light</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec close on-ink" id="contact" aria-labelledby="close-title">
+  <div class="wrap">
+    <p class="mark"><span class="n" aria-hidden="true">05</span><span class="label">Contact</span></p>
+    <div class="grid">
+      <div>
+        <h2 id="close-title">Been told the wait is three&nbsp;months?</h2>
+        <p class="lede">Don’t sit on it. Skin checks are booking about two weeks out and we hold urgent slots every week for exactly this&nbsp;reason.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="#cb-name">Book a skin check</a>
+          <a class="btn btn-ghost tnum" href="tel:+16037196628">(603)&nbsp;719-6628</a>
+        </div>
+        <p class="note">Most major insurance accepted. Urgent slots held weekly, so ring rather than booking online if something has changed&nbsp;quickly.</p>
+      </div>
+      <form class="form" id="callback" novalidate>
+        <p class="intro">Or leave your details and we’ll call you back.</p>
+        <div class="field"><label for="cb-name">Name</label><input id="cb-name" name="name" type="text" autocomplete="name" required></div>
+        <div class="field"><label for="cb-contact">Phone or email</label><input id="cb-contact" name="contact" type="text" autocomplete="tel" required></div>
+        <div class="field"><label for="cb-msg">What can we help with? (optional)</label><textarea id="cb-msg" name="message" rows="3"></textarea></div>
+        <div class="actions">
+          <button class="btn btn-primary" type="submit">Request a call back</button>
+          <p class="hint" id="cb-hint" role="alert" hidden>Add your name and a way to reach you.</p>
+        </div>
+        <p class="done" id="cb-done" role="status" hidden>Thanks. Someone will call you back within one business&nbsp;day.</p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="#"><img src="../_assets/identity/dermatology/colvin-dermatology-mark.svg" alt="" width="28" height="28">Colvin Dermatology</a>
+      <p class="tnum" style="margin-top: var(--s2)"><a class="tel" href="tel:+16037196628">(603)&nbsp;719-6628</a> · Board-certified dermatology · Mohs on site · Urgent slots weekly</p>
+      <p>American Board of Dermatology · American College of Mohs Surgery · AAD Fellows · Most major insurers</p>
+    </div>
+    <div>
+      <p class="tnum">3776 Wexford Lane Floor 2, Fairhill, PA 14410</p>
+      <p><a href="#contact">Book a skin check</a> · <a class="tnum" href="tel:+16037196628">(603)&nbsp;719-6628</a></p>
+    </div>
+    <p class="fine">Colvin Dermatology is a fictional business; this page is a design reference.</p>
+  </div>
+</footer>
+
+<div class="bar" aria-label="Quick actions">
+  <a class="btn btn-primary" href="#contact">Book a skin check</a>
+  <a class="btn btn-ghost tnum" href="tel:+16037196628">(603)&nbsp;719-6628</a>
+</div>
+
 <script>
-/* The enquiry form confirms in place. Nothing is sent: a reference build. */
 (function () {
-  var form = document.querySelector('.gsw-cf');
-  if (!form) return;
+  // Static preview: validates locally and shows the confirmation; nothing is sent.
+  var form = document.getElementById('callback');
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    var name = form.name.value.trim(), contact = form.contact.value.trim();
-    var err = form.querySelector('.gsw-cf-err');
-    if (!name || !contact) { err.hidden = false; (name ? form.contact : form.name).focus(); return; }
-    err.hidden = true;
-    form.setAttribute('data-sent', '');
-    form.querySelector('.gsw-cf-done').hidden = false;
+    var name = form.elements.name, contact = form.elements.contact, hint = document.getElementById('cb-hint');
+    var ok = true;
+    [name, contact].forEach(function (el) {
+      var bad = !el.value.trim();
+      el.closest('.field').classList.toggle('is-invalid', bad);
+      el.setAttribute('aria-invalid', bad ? 'true' : 'false');
+      if (bad) ok = false;
+    });
+    hint.hidden = ok;
+    if (!ok) { (name.value.trim() ? contact : name).focus(); return; }
+    form.classList.add('is-sent');
+    document.getElementById('cb-done').hidden = false;
   });
 })();
 </script>
-<!-- /gsw:contact-form -->
 </body>
 </html>
