@@ -6,138 +6,10 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Verity Skin &amp; Aesthetics · Memberships from $149/mo</title>
 <meta name="description" content="Monthly credit that rolls over, member pricing on everything, and priority booking. Published prices, booking without an account.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Prata&display=swap" rel="stylesheet">
-<style>
-/* D2 — THE MEMBERSHIP ONE. hero:stack nav:minimal services:cards proof:stats
-   ink #241E2A · surface #F6F2F5 · accent #6E4877 · muted #5F5566 · on-accent #FFFFFF
-   H1 ramp: 31/38/48/60px · Prata display / Montserrat body
-   Device: the membership card — a physical-feeling card object directly under the stacked
-   hero, with the monthly figure set as large as the headline. Fixes "membership unsold" by
-   putting the offer where the eye already is rather than on a pricing sub-page. */
-:root{--ink:#241E2A;--surface:#F6F2F5;--accent:#6E4877;--muted:#5F5566;--on-accent:#FFFFFF;
---paper:#FCFAFC;--tint:#EFE6F0;--rule:rgba(36,30,42,.2);--hair:rgba(36,30,42,.1);--wrap:1080px}
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--surface);color:var(--ink);
-font:400 17px/1.62 Montserrat,system-ui,-apple-system,sans-serif;padding-bottom:82px;overflow-x:hidden}
-.wrap{max-width:var(--wrap);margin:0 auto;padding:0 22px}
-h1,h2,h3{font-family:Prata,Georgia,serif;font-weight:400;margin:0;line-height:1.12}
-a{color:inherit}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 26px;
-text-decoration:none;font-weight:600;font-size:14px;letter-spacing:.18em;text-transform:uppercase;
-border:1px solid transparent;text-align:center;line-height:1.2}
-.btn-primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
-.btn-ghost{background:transparent;color:var(--ink);border-color:var(--rule)}
-.topbar{color:var(--muted);font-size:13.5px;letter-spacing:.12em;text-transform:uppercase;
-background:var(--tint)}
-.topbar .wrap{padding:8px 22px;text-align:center}
-.nav{background:var(--surface);border-bottom:1px solid var(--hair)}
-.nav .wrap{display:flex;align-items:center;gap:14px;min-height:56px}
-.brand{font-family:Prata,Georgia,serif;font-size:19px;text-decoration:none;letter-spacing:.06em;
-line-height:1;flex:none}
-.navlinks{display:none;gap:26px;margin-left:auto;font-size:13px;letter-spacing:.18em;
-text-transform:uppercase;color:var(--muted)}
-.navlinks a{text-decoration:none}
-.navlinks a:hover{color:var(--accent)}
-.navbook{margin-left:auto;flex:none;display:inline-flex;align-items:center;min-height:44px;
-font-size:13.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;
-text-decoration:none;border-bottom:2px solid var(--accent);white-space:nowrap}
-.hero{padding:26px 0 8px;text-align:center}
-.eyebrow{font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);
-margin:0 0 14px;font-weight:600}
-.hero h1{font-size:clamp(31px,8.2vw,60px);max-width:16ch;margin:0 auto;letter-spacing:-.005em}
-.sub{font-size:16.5px;color:var(--muted);max-width:58ch;margin:16px auto 22px}
-.ctas{display:flex;flex-direction:column;gap:10px;max-width:420px;margin:0 auto}
-.badges{list-style:none;margin:22px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px;
-justify-content:center}
-.badges li{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);
-border:1px solid var(--rule);border-radius:999px;padding:8px 14px;background:var(--paper)}
-.cardwrap{padding:30px 0 44px}
-.mcard{max-width:520px;margin:0 auto;background:linear-gradient(155deg,#3A2C44,#241E2A 55%,#4A3556);
-color:#F3ECF4;border-radius:16px;padding:22px 20px 20px;position:relative;overflow:hidden}
-.mcard::after{content:"";position:absolute;right:-60px;top:-60px;width:190px;height:190px;
-border-radius:50%;background:radial-gradient(circle at 35% 35%,rgba(213,176,222,.42),transparent 68%)}
-.mcard .mb{font-family:Prata,Georgia,serif;font-size:17px;letter-spacing:.1em;margin:0 0 22px}
-.mcard .ml{font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:#D5B0DE;margin:0 0 4px}
-.mcard .mv{font-family:Prata,Georgia,serif;font-size:clamp(34px,10vw,52px);line-height:1;margin:0}
-.mcard .mn{font-size:16px;color:#CFC2D4;margin:16px 0 0;position:relative;z-index:1}
-.sec{padding:52px 0;border-top:1px solid var(--hair)}
-.kicker{font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);
-margin:0 0 12px;font-weight:600}
-.sec h2{font-size:clamp(28px,6.6vw,44px)}
-.lede{color:var(--muted);max-width:58ch;margin:12px 0 28px;font-size:17px}
-.cards{display:grid;gap:14px}
-.card{background:var(--paper);border:1px solid var(--hair);border-radius:12px;padding:22px 20px}
-.card h3{font-size:21px;margin-bottom:10px;line-height:1.25;color:var(--accent)}
-.card p{margin:0;color:var(--muted);font-size:16px}
-.card.feature{background:var(--tint);border-color:var(--accent)}
-.stats{background:var(--paper);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
-.statgrid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr}
-.statgrid li{padding:26px 12px;text-align:center;border-bottom:1px solid var(--hair)}
-.statgrid li:nth-child(odd){border-right:1px solid var(--hair)}
-.statgrid li:nth-child(n+3){border-bottom:none}
-.statv{font-family:Prata,Georgia,serif;font-size:clamp(28px,7.4vw,40px);color:var(--accent);
-line-height:1;display:block}
-.statl{font-size:14px;color:var(--muted);margin-top:9px;display:block;letter-spacing:.04em}
-.steps{list-style:none;margin:24px 0 0;padding:0;counter-reset:s;display:grid;gap:14px}
-.steps li{counter-increment:s;background:var(--paper);border:1px solid var(--hair);border-radius:12px;
-padding:20px 18px 20px 60px;position:relative}
-.steps li::before{content:counter(s);position:absolute;left:18px;top:19px;width:28px;height:28px;
-border-radius:50%;background:var(--accent);color:#fff;font-size:14px;font-weight:600;
-display:flex;align-items:center;justify-content:center}
-.steps h3{font-size:20px;margin-bottom:6px;line-height:1.25}
-.steps p{margin:0;color:var(--muted);font-size:16px}
-.close{background:var(--ink);color:#F4EEF6;padding:56px 0 60px;text-align:center}
-.close h2{font-size:clamp(29px,7.2vw,48px);max-width:16ch;margin:0 auto}
-.close p{max-width:56ch;font-size:17.5px;color:#B6AABE;margin:16px auto 22px}
-.close .btn-primary{background:#D5B0DE;color:#241E2A;border-color:#D5B0DE}
-.close .btn-ghost{color:#F4EEF6;border-color:rgba(244,238,246,.45)}
-.note{font-size:15.5px;color:#B6AABE;margin-top:20px}
-.foot{padding:40px 0 34px;font-size:15.5px;color:var(--muted);text-align:center}
-.foot .brand{color:var(--ink);display:inline-block;margin-bottom:14px}
-.foot p{margin:0 0 10px}
-.foot a{color:var(--accent)}
-.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--paper);padding:8px;
-border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:8px}
-.callbar a{display:flex;align-items:center;justify-content:center;min-height:60px;text-decoration:none;
-font-weight:600;font-size:13px;letter-spacing:.14em;text-transform:uppercase;text-align:center;padding:0 12px}
-.callbar .book{background:var(--accent);color:#fff;border-radius:8px}
-.callbar .tel{border:1px solid var(--rule);border-radius:8px;color:var(--ink);padding:0 16px;
-letter-spacing:.03em;text-transform:none;font-size:16px}
-@media(min-width:720px){.ctas{flex-direction:row;justify-content:center;max-width:none}
-.hero h1{max-width:19ch}
-.hero{padding:44px 0 10px}.sub{font-size:19px}.cards{grid-template-columns:1fr 1fr}
-.statgrid{grid-template-columns:repeat(4,1fr)}.statgrid li{border-bottom:none}
-.statgrid li{border-right:1px solid var(--hair)}.statgrid li:last-child{border-right:none}
-.steps{grid-template-columns:1fr 1fr}.sec{padding:82px 0}.mcard{padding:34px 32px 30px}}
-@media(min-width:940px){.navlinks{display:flex}.navbook{margin-left:26px}}
-@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
-</style>
-
-<style>
-  /* Hero plate, added with the photography pass. Full-bleed between the hero
-     and the first content section, with no border of its own: every one of
-     these designs owns a different rule weight and ink colour, and a borrowed
-     hairline reads as a mistake in about half of them. */
-  .gsw-plate picture { display: block; width: 100%; }
-  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
-  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
-  .gsw-plate img {
-    display: block;
-    width: 100%;
-    height: clamp(220px, 40vw, 520px);
-    object-fit: cover;
-    object-position: center;
-  }
-  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
-</style>
-
 <!-- gsw:identity -->
 <link rel="icon" href="../_assets/identity/med-spas/verity-skin-and-aesthetics-icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../_assets/identity/med-spas/verity-skin-and-aesthetics-icon-180.png">
-<meta name="theme-color" content="#241E2A">
+<meta name="theme-color" content="#262130">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Verity Skin &amp; Aesthetics">
 <meta property="og:title" content="Verity Skin &amp; Aesthetics · Book online in under a minute · Memberships from $149/mo">
@@ -146,240 +18,399 @@ letter-spacing:.03em;text-transform:none;font-size:16px}
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"HealthAndBeautyBusiness","name":"Verity Skin & Aesthetics","description":"Book online in under a minute \u00b7 Memberships from $149/mo","telephone":"(936) 337-1052","areaServed":"Metro area","image":"https://grandstreetworks.com/work/_assets/identity/med-spas/verity-skin-and-aesthetics-og.png","logo":"https://grandstreetworks.com/work/_assets/identity/med-spas/verity-skin-and-aesthetics-mark.svg"}</script>
-
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HealthAndBeautyBusiness","name":"Verity Skin & Aesthetics","description":"Book online in under a minute · Memberships from $149/mo","telephone":"(936) 337-1052","areaServed":"Metro area","image":"https://grandstreetworks.com/work/_assets/identity/med-spas/verity-skin-and-aesthetics-og.png","logo":"https://grandstreetworks.com/work/_assets/identity/med-spas/verity-skin-and-aesthetics-mark.svg"}</script>
+<!-- /gsw:identity -->
+<link rel="preload" href="../_assets/fonts/bricolage-grotesque-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../_assets/fonts/lora-var.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-  /* Identity pass. The lockup is the mark plus the wordmark the build already
-     had; the mark is sized in em so it tracks whatever display face this build
-     sets its brand in. */
-  .gsw-lockup { display: inline-flex; align-items: center; gap: .46em; }
-  .gsw-lockup svg { height: 1.16em; width: auto; flex: none; display: block; }
-</style>
+/* D2 — THE MEMBERSHIP CARD. hero:stack nav:minimal services:cards proof:stats
+   ink #262130 · bone #F4F0E8 · sage #4F6B4E · muted #5F5A66 · on-sage #F4F0E8
+   H1 ramp: 40/48/60/68px · Bricolage Grotesque (opsz, wdth) display / Lora body
+   Device: the membership card — a panel at real card proportion under a stacked,
+   type-led hero, carrying the monthly figure at display size, a sage chip and a
+   hairline; the same card returns flush among the prices and its sage closes the
+   page. FIX answered first: the membership was unsold — it is now the hero's one
+   object, once, at real weight. Prices flush-set with hairlines, results as a single
+   ruled row, seven sizes, two families, three weights. */
 
-<style>
-  /* Recent-work gallery. Everything here is drawn from the properties the build
-     already declares, so the band inherits each design's palette and heading
-     face rather than importing a seventh look. */
-  .gsw-gal { background: #F6F2F5; color: #241E2A;
-             padding: clamp(38px, 6vw, 74px) 0; }
-  .gsw-gal-in { max-width: var(--wrap, 1140px); margin: 0 auto; padding: 0 20px; }
-  .gsw-gal-lab { font-size: 13px; letter-spacing: .18em; text-transform: uppercase;
-                 font-weight: 600; color: var(--accent); margin: 0 0 14px; }
-  .gsw-gal h2 { margin: 0; color: inherit; }
-  .gsw-gal-note { color: var(--muted); margin: 14px 0 30px; max-width: 58ch; }
-  .gsw-ba { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px; }
-  .gsw-gal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-  .gsw-gal figure { margin: 0; position: relative; overflow: hidden;
-                    background: var(--rule, rgba(0,0,0,.1)); }
-  .gsw-gal picture { display: block; }
-  /* height:auto matters — the width/height attributes are a presentational
-     hint, and without this the 1200px hint beats aspect-ratio. */
-  .gsw-gal img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3;
-                 object-fit: cover; transition: transform .5s ease; }
-  .gsw-gal figure:hover img { transform: scale(1.035); }
-  .gsw-gal figcaption { position: absolute; left: 0; bottom: 0;
-                        background: #241E2A; color: #F6F2F5;
-                        font-size: 12px; font-weight: 600; letter-spacing: .14em;
-                        text-transform: uppercase; padding: 7px 12px; }
-  @media (max-width: 720px) {
-    .gsw-ba, .gsw-gal-grid { grid-template-columns: 1fr; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .gsw-gal img { transition: none; }
-    .gsw-gal figure:hover img { transform: none; }
-  }
-</style>
+@font-face { font-family: "Bricolage Grotesque"; src: url("../_assets/fonts/bricolage-grotesque-var.woff2") format("woff2"); font-weight: 200 800; font-stretch: 75% 100%; font-style: normal; font-display: swap; }
+@font-face { font-family: "Lora"; src: url("../_assets/fonts/lora-var.woff2") format("woff2"); font-weight: 400 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Lora"; src: url("../_assets/fonts/lora-italic-var.woff2") format("woff2"); font-weight: 400 700; font-style: italic; font-display: swap; }
+@font-face { font-family: "Bricolage Fallback"; src: local("Arial"); size-adjust: 103%; ascent-override: 91%; descent-override: 24%; }
+@font-face { font-family: "Lora Fallback"; src: local("Georgia"); size-adjust: 101%; ascent-override: 93%; descent-override: 25%; }
 
+:root {
+  --ink: #262130; --bone: #F4F0E8; --bone-2: #EAE4D9; --paper: #FBF9F5;
+  --sage: #4F6B4E; --sage-2: #3E5640; --sage-tint: #DFE6D8;
+  --mute: #5F5A66; --mute-on-sage: #E8EEE4; --rule: #D8D1C4; --rule-on-sage: #6C8569;
+  --sans: "Bricolage Grotesque", "Bricolage Fallback", Arial, sans-serif;
+  --serif: "Lora", "Lora Fallback", Georgia, serif;
+  --t-label: 0.8125rem; --t-small: 0.9375rem; --t-body: 1.0625rem;
+  --t-lede: clamp(1.125rem, 1rem + 0.5vw, 1.3125rem);
+  --t-h3: clamp(1.375rem, 1.1rem + 1.1vw, 1.75rem);
+  --t-h2: clamp(1.875rem, 1.3rem + 2.3vw, 2.75rem);
+  --t-display: clamp(2.5rem, 1.4rem + 4.6vw, 4.25rem);
+  --s1: 9px; --s2: 18px; --s3: 27px; --s4: 36px; --s6: 54px; --s8: 72px; --s12: 108px;
+  --wrap: 1140px; --gutter: clamp(20px, 4vw, 48px); --radius: 12px; --bar-h: 64px;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body { margin: 0; background: var(--bone); color: var(--ink); font: 400 var(--t-body)/1.6 var(--serif); font-optical-sizing: auto; overflow-x: hidden; padding-bottom: var(--bar-h); }
+h1, h2, h3, .display { font-family: var(--sans); font-weight: 600; margin: 0; text-wrap: balance; font-optical-sizing: auto; letter-spacing: -0.01em; }
+h3 { font-weight: 500; }
+p { margin: 0; text-wrap: pretty; }
+a { color: inherit; }
+img { display: block; max-width: 100%; height: auto; }
+ul, ol { list-style: none; margin: 0; padding: 0; }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+.label { font-family: var(--sans); font-size: var(--t-label); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.3; }
+.lede { font-size: var(--t-lede); line-height: 1.5; max-width: 56ch; }
+.mute { color: var(--mute); }
+:focus-visible { outline: 2px solid var(--sage); outline-offset: 3px; }
+.on-sage :focus-visible { outline-color: var(--bone); }
+.skip { position: absolute; left: -999px; top: 0; background: var(--ink); color: var(--bone); padding: var(--s1) var(--s2); z-index: 100; }
+.skip:focus { left: var(--s2); top: var(--s2); }
 
-<style>
-  /* gsw:backdrop — the section opens on the work. The scrim is this build's own
-     ink, heavy where the copy sits and thinning away from it, so the text
-     never depends on what the photograph happens to be doing. */
-  .gsw-imaged { position: relative; isolation: isolate; overflow: hidden; }
-  .gsw-imaged > *:not(.gsw-backdrop) { position: relative; z-index: 1; }
-  .gsw-backdrop { position: absolute; inset: 0; z-index: 0; }
-  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
-  .gsw-backdrop img { width: 100%; height: 100%; object-fit: cover;
-                       object-position: center; }
-  .gsw-backdrop::after { content: ""; position: absolute; inset: 0;
-                          background: rgb(246 242 245 / 0.35); }
-  /* Below the breakpoint the copy spans the full width, so the scrim goes flat. */
-  @media (max-width: 760px) {
-    .gsw-backdrop::after { background: rgb(246 242 245 / 0.65); }
-  }
-</style>
+/* ---------- Buttons ---------- */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5em; min-height: 52px; padding: 0.7em 1.4em; border: 1px solid transparent; border-radius: 999px; font: 500 var(--t-body)/1.2 var(--sans); text-decoration: none; cursor: pointer; transition: background-color 160ms, border-color 160ms, color 160ms; }
+.btn-primary { background: var(--sage); color: var(--bone); border-color: var(--sage); }
+.btn-primary:hover { background: var(--sage-2); border-color: var(--sage-2); }
+.btn-ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+.btn-ghost:hover { background: var(--ink); color: var(--bone); }
+.on-sage .btn-primary { background: var(--bone); color: var(--ink); border-color: var(--bone); }
+.on-sage .btn-primary:hover { background: var(--paper); }
+.on-sage .btn-ghost { color: var(--bone); border-color: rgba(244, 240, 232, 0.55); }
+.on-sage .btn-ghost:hover { border-color: var(--bone); background: rgba(244, 240, 232, 0.08); }
 
-<style>
-  /* gsw:contact-form — the closing section takes a name. Borrows the section's
-     colour through currentColor and the build's own .btn for the button. */
-  .gsw-cf { max-width: 640px; margin: 28px 0 0; text-align: left; }
-  .gsw-cf--centred { margin-left: auto; margin-right: auto; }
-  .gsw-cf-lead { margin: 0 0 12px; font-size: 15px; opacity: .85; }
-  .gsw-cf-grid { display: grid; gap: 10px; }
-  .gsw-cf label { display: flex; flex-direction: column; gap: 5px; font-size: 11px;
-                  font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
-  .gsw-cf label em { font-style: normal; font-weight: 400; text-transform: none; letter-spacing: 0; opacity: .7; }
-  .gsw-cf input, .gsw-cf textarea { font: inherit; font-size: 16px; color: inherit; background: transparent;
-                                    border: 1.5px solid currentColor; border-radius: 0; padding: 10px 12px; width: 100%;
-                                    box-sizing: border-box; letter-spacing: 0; text-transform: none; font-weight: 400; }
-  .gsw-cf input:focus, .gsw-cf textarea:focus { outline: 2px solid currentColor; outline-offset: 2px; }
-  .gsw-cf textarea { resize: vertical; min-height: 84px; }
-  .gsw-cf-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 14px; }
-  .gsw-cf button.btn { font: inherit; cursor: pointer; appearance: none; }
-  .gsw-cf-err { font-size: 14px; font-weight: 600; }
-  .gsw-cf-done { margin: 0; font-size: 17px; font-weight: 600; }
-  .gsw-cf[data-sent] .gsw-cf-lead, .gsw-cf[data-sent] .gsw-cf-grid, .gsw-cf[data-sent] .gsw-cf-row { display: none; }
-  @media (min-width: 640px) {
-    .gsw-cf-grid { grid-template-columns: 1fr 1fr; }
-    .gsw-cf-wide { grid-column: 1 / -1; }
-  }
+/* ---------- Header ---------- */
+.top { border-bottom: 1px solid var(--rule); }
+.top-line { font-family: var(--sans); font-size: var(--t-label); letter-spacing: 0.04em; color: var(--mute); text-align: center; padding: var(--s1) var(--gutter); border-bottom: 1px solid var(--rule); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: var(--s3); padding-top: var(--s2); padding-bottom: var(--s2); }
+.brand { display: inline-flex; align-items: center; gap: 0.5em; text-decoration: none; font: 500 var(--t-lede)/1 var(--sans); letter-spacing: -0.01em; }
+.brand svg { height: 1.15em; width: auto; flex: none; }
+.nav { display: flex; gap: var(--s3); font-family: var(--sans); font-size: var(--t-small); }
+.nav a { text-decoration: none; padding: 6px 0; border-bottom: 1px solid transparent; transition: border-color 160ms; }
+.nav a:hover { border-bottom-color: var(--sage); }
+.top .acts { display: flex; align-items: center; gap: var(--s2); }
+.top .tel { font: 500 var(--t-small)/1 var(--sans); text-decoration: none; white-space: nowrap; border-bottom: 1px solid var(--sage); padding-bottom: 2px; }
+.top .tel:hover { color: var(--sage); }
+.top .btn { min-height: 44px; padding: 0.55em 1.2em; font-size: var(--t-small); }
+
+/* ---------- Hero (stack) ---------- */
+.hero { text-align: center; padding: var(--s12) 0 0; }
+.hero .label { color: var(--sage); margin-bottom: var(--s3); }
+.hero h1 { font-size: var(--t-display); line-height: 1.02; letter-spacing: -0.02em; max-width: 17ch; margin: 0 auto; }
+.hero .lede { margin: var(--s3) auto 0; max-width: 54ch; color: var(--mute); }
+.hero .cta { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--s2); margin-top: var(--s4); }
+.badges { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--s1) var(--s4); margin: var(--s6) auto 0; padding-top: var(--s3); border-top: 1px solid var(--rule); max-width: 900px; font-family: var(--sans); font-size: var(--t-small); }
+.badges li { position: relative; padding-left: 14px; }
+.badges li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 6px; height: 6px; border-radius: 50%; background: var(--sage); }
+
+/* ---------- The card ---------- */
+.cardwrap { padding: var(--s8) 0 0; }
+.mcard { position: relative; max-width: 620px; margin: 0 auto; aspect-ratio: 1.586; background: var(--paper); border: 1px solid var(--rule); border-radius: var(--radius); padding: var(--s3) var(--s4); display: grid; grid-template-rows: auto 1fr auto; box-shadow: 0 24px 48px -32px rgba(38, 33, 48, 0.35); }
+.mcard .row { display: flex; justify-content: space-between; align-items: center; gap: var(--s2); }
+.mcard .mb { font: 500 var(--t-small)/1.2 var(--sans); }
+.mcard .chip { width: 44px; height: 32px; border-radius: 6px; background: var(--sage-tint); border: 1px solid var(--sage); position: relative; }
+.mcard .chip::before, .mcard .chip::after { content: ""; position: absolute; background: var(--sage); }
+.mcard .chip::before { left: 0; right: 0; top: 50%; height: 1px; }
+.mcard .chip::after { top: 0; bottom: 0; left: 50%; width: 1px; }
+.mcard .mid { align-self: center; padding: var(--s2) 0; }
+.mcard .ml { font: 500 var(--t-label)/1.3 var(--sans); letter-spacing: 0.1em; text-transform: uppercase; color: var(--mute); }
+.mcard .mv { font: 600 var(--t-display)/1 var(--sans); letter-spacing: -0.02em; margin-top: var(--s1); }
+.mcard .mn { font-size: var(--t-small); color: var(--mute); max-width: 44ch; border-top: 1px solid var(--rule); padding-top: var(--s2); }
+.plate { margin-top: var(--s8); }
+.plate img { width: 100%; aspect-ratio: 21 / 9; object-fit: cover; object-position: 30% 55%; }
+
+/* ---------- Sections ---------- */
+.sec { padding: var(--s12) 0; }
+.head { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: var(--s3) var(--s8); align-items: end; margin-bottom: var(--s6); }
+.head .label { color: var(--sage); margin-bottom: var(--s2); }
+h2 { font-size: var(--t-h2); line-height: 1.06; max-width: 18ch; }
+h3 { font-size: var(--t-h3); line-height: 1.2; }
+.head .lede { color: var(--mute); margin-bottom: 0.3em; }
+
+/* Prices: flush cards with hairlines */
+.cards { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--rule); border-radius: var(--radius); overflow: hidden; background: var(--paper); }
+.card { padding: var(--s4); border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.card:nth-child(2n) { border-right: 0; }
+.card:nth-last-child(-n + 2) { border-bottom: 0; }
+.card h3 { margin-bottom: var(--s2); }
+.card p { color: var(--mute); max-width: 40ch; }
+.card.feature { background: var(--sage-tint); }
+.card.feature p { color: var(--ink); }
+
+/* Results: one ruled row */
+.stats { padding-bottom: var(--s12); }
+.statgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s2); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: var(--s3) 0; }
+.statgrid li { display: grid; gap: 4px; padding: 0 var(--s2); border-left: 1px solid var(--rule); }
+.statgrid li:first-child { border-left: 0; padding-left: 0; }
+.statv { font: 500 var(--t-h3)/1.1 var(--sans); letter-spacing: -0.01em; }
+.statl { font-family: var(--sans); font-size: var(--t-label); letter-spacing: 0.08em; text-transform: uppercase; color: var(--mute); line-height: 1.3; }
+
+/* Process: numbered steps */
+.process { background: var(--bone-2); }
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s4); counter-reset: step; }
+.steps li { padding-top: var(--s3); border-top: 1px solid var(--rule); counter-increment: step; }
+.steps li::before { content: counter(step, decimal-leading-zero); display: block; font: 500 var(--t-h3)/1 var(--sans); color: var(--sage); font-variant-numeric: tabular-nums; margin-bottom: var(--s2); }
+.steps h3 { margin-bottom: var(--s1); }
+.steps p { color: var(--mute); max-width: 36ch; }
+
+/* Gallery */
+.gal { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s2); }
+.gal figure { margin: 0; }
+.gal img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius); background: var(--bone-2); }
+.gal figcaption { font-family: var(--sans); font-size: var(--t-small); color: var(--mute); padding-top: var(--s1); }
+
+/* Close */
+.close { background: var(--sage); color: var(--bone); }
+.close .grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: var(--s8); align-items: start; }
+.close h2 { font-size: var(--t-display); line-height: 1; letter-spacing: -0.02em; max-width: 14ch; }
+.close .lede { margin-top: var(--s3); color: var(--mute-on-sage); }
+.close .cta { display: flex; flex-wrap: wrap; gap: var(--s2); margin-top: var(--s4); }
+.close .note { margin-top: var(--s4); font-size: var(--t-small); color: var(--mute-on-sage); max-width: 48ch; }
+.form { border-top: 1px solid var(--rule-on-sage); padding-top: var(--s3); }
+.form .intro { margin-bottom: var(--s3); color: var(--mute-on-sage); }
+.field { display: grid; gap: 6px; margin-bottom: var(--s2); }
+.field label { font-family: var(--sans); font-size: var(--t-label); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mute-on-sage); }
+.field label em { font-style: normal; text-transform: none; letter-spacing: 0; font-weight: 400; }
+.field input, .field textarea { width: 100%; font: 400 var(--t-body)/1.4 var(--serif); color: var(--bone); background: rgba(244, 240, 232, 0.04); border: 1px solid var(--rule-on-sage); border-radius: 8px; padding: 12px 14px; transition: border-color 160ms; }
+.field input:hover, .field textarea:hover { border-color: var(--mute-on-sage); }
+.field input:focus, .field textarea:focus { outline: none; border-color: var(--bone); }
+.field.is-invalid input { border-color: var(--bone); }
+.form .actions { display: flex; align-items: center; gap: var(--s2); flex-wrap: wrap; margin-top: var(--s3); }
+.form .hint { font-family: var(--sans); font-size: var(--t-small); font-weight: 500; }
+.form .hint[hidden], .form .done[hidden] { display: none; }
+.form .done { font-size: var(--t-lede); font-style: italic; padding: var(--s3) 0; }
+.form.is-sent .field, .form.is-sent .actions, .form.is-sent .intro { display: none; }
+
+/* Footer */
+.foot { background: var(--bone-2); border-top: 1px solid var(--rule); padding: var(--s6) 0; font-size: var(--t-small); }
+.foot .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s3) var(--s8); align-items: start; }
+.foot p { color: var(--mute); max-width: 52ch; }
+.foot .links { display: flex; flex-wrap: wrap; gap: var(--s2); font-family: var(--sans); margin-top: var(--s2); }
+.foot .fine { grid-column: 1 / -1; padding-top: var(--s3); border-top: 1px solid var(--rule); font-family: var(--sans); font-size: var(--t-label); letter-spacing: 0.02em; }
+
+/* Mobile action bar */
+.bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: grid; grid-template-columns: 1fr auto; gap: 1px; background: var(--rule); border-top: 1px solid var(--rule); }
+.bar .btn { min-height: var(--bar-h); border: 0; border-radius: 0; white-space: nowrap; }
+.bar .btn-ghost { background: var(--paper); color: var(--ink); }
+
+/* Tabular figures: declared last so it beats every font shorthand above */
+.tnum, .tnum *, .btn, .mcard .mv, .mcard .mn, .statgrid .statv, .card h3, .card p, .top .tel, .bar .btn { font-variant-numeric: tabular-nums; }
+
+/* ---------- Responsive ---------- */
+@media (min-width: 1000px) { body { padding-bottom: 0; } .bar { display: none; } }
+@media (max-width: 999px) {
+  .head, .close .grid, .foot .wrap { grid-template-columns: 1fr; }
+  .steps, .statgrid { grid-template-columns: 1fr 1fr; }
+  .statgrid li:nth-child(3) { border-left: 0; padding-left: 0; }
+  .statgrid li:nth-child(-n + 2) { padding-bottom: var(--s2); border-bottom: 1px solid var(--rule); }
+  .gal { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 759px) {
+  .nav, .top-line, .top .tel { display: none; }
+  .sec, .stats { padding: var(--s8) 0; }
+  .hero { padding-top: var(--s8); text-align: left; }
+  .hero h1, .hero .lede { margin-left: 0; }
+  .hero .cta, .badges { justify-content: flex-start; }
+  .hero .cta .btn { width: 100%; }
+  .badges { flex-direction: column; gap: var(--s1); }
+  .cardwrap { padding-top: var(--s6); }
+  .mcard { aspect-ratio: auto; padding: var(--s3); }
+  .mcard .mid { padding: var(--s3) 0; }
+  .plate { margin-top: var(--s6); }
+  .plate img { aspect-ratio: 4 / 3; }
+  .cards { grid-template-columns: 1fr; }
+  .card { border-right: 0; }
+  .card:nth-last-child(2) { border-bottom: 1px solid var(--rule); }
+  .steps, .gal { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+@media (forced-colors: active) { .btn { border: 1px solid ButtonText; } .mcard { border: 1px solid CanvasText; } }
+@media print { .bar { display: none; } }
 </style>
 </head>
 <body>
-<div class="topbar"><div class="wrap">Book online in under a minute · Memberships from $149/mo</div></div>
-<header class="nav"><div class="wrap">
-  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="20" fill="none" stroke="#6E4877" stroke-width="7" stroke-dasharray="92 40" stroke-linecap="round"/>
-<circle cx="32" cy="32" r="6" fill="#241E2A" opacity=".7"/></svg><span>Verity Skin &amp; Aesthetics</span></span></a>
-  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
-  <a class="navbook" href="#contact">Book now</a>
-</div></header>
-<section class="gsw-imaged hero"><!-- gsw:backdrop --><div class="gsw-backdrop" aria-hidden="true"><picture><source type="image/avif" srcset="../_assets/hero/med-spas/b-clean-flatlay-1280.avif 1280w, ../_assets/hero/med-spas/b-clean-flatlay-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/med-spas/b-clean-flatlay-1280.jpg" width="2560" height="1429" alt="" loading="eager" fetchpriority="high" decoding="async"></picture></div><!-- /gsw:backdrop --><div class="wrap">
-  <p class="eyebrow">Injectables · Laser · Skin</p>
-  <h1>A monthly credit that rolls over, and never expires.</h1>
-  <p class="sub">Botox, filler, laser and medical-grade skincare from licensed injectors. Members put by a monthly credit that rolls over indefinitely, so treatment gets budgeted rather than deferred.</p>
-  <div class="ctas">
-    <a class="btn btn-primary" data-cta="primary" href="#contact">Book now</a>
-    <a class="btn btn-ghost" href="#services">See pricing</a>
-  </div>
-  <ul class="badges"><li>All pricing published</li><li>Book without an account</li><li>Licensed injectors only</li><li>Memberships from $149/mo</li></ul>
-</div></section>
+<a class="skip" href="#main">Skip to content</a>
 
-<section class="cardwrap"><div class="wrap"><div class="mcard">
-  <p class="mb">Verity Skin &amp; Aesthetics</p>
-  <p class="ml">Memberships from</p>
-  <p class="mv">$149/mo</p>
-  <p class="mn">Monthly credit that rolls over, member pricing on everything, and priority booking. Most regulars save around 20%.</p>
-</div></div></section>
-<section class="sec" id="services"><div class="wrap">
-  <p class="kicker">Services</p><h2>Treatments &amp; prices</h2>
-  <p class="lede">No 'call for pricing'. You should be able to work out what your visit costs before you arrive.</p>
-  <div class="cards">
-    <article class="card"><h3>Neurotoxin from $12/unit</h3><p>Botox and Dysport for lines and prevention. Most first-time treatments land between $240 and $420 depending on areas.</p></article>
-    <article class="card"><h3>Dermal filler from $650/syringe</h3><p>Lip, cheek and jawline. We are conservative by default and will always start with less than you asked for.</p></article>
-    <article class="card"><h3>Laser &amp; resurfacing from $300</h3><p>Pigment, redness, texture and hair. Package pricing published, because a single session is rarely the whole answer.</p></article>
-    <article class="card feature"><h3>Memberships from $149/mo</h3><p>Monthly credit that rolls over, member pricing on everything, and priority booking. Most regulars save around 20%.</p></article>
+<header class="top">
+  <p class="top-line tnum">Book online in under a minute · Memberships from $149/mo</p>
+  <div class="wrap">
+    <a class="brand" href="#"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="20" fill="none" stroke="#6E4877" stroke-width="7" stroke-dasharray="92 40" stroke-linecap="round"/><circle cx="32" cy="32" r="6" fill="#241E2A" opacity=".7"/></svg><span>Verity Skin &amp; Aesthetics</span></a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#services">Services</a>
+      <a href="#results">Results</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="acts">
+      <a class="tel" href="tel:+19363371052">(936)&nbsp;337-1052</a>
+      <a class="btn btn-primary" href="#contact">Book now</a>
+    </div>
   </div>
-</div></section>
-<section class="stats" id="results"><div class="wrap" style="padding:0">
-  <ul class="statgrid">
-    <li><span class="statv">$149/mo</span><span class="statl">Memberships from</span></li>
-    <li><span class="statv">4.9★</span><span class="statl">Across 730 reviews</span></li>
-    <li><span class="statv">60sec</span><span class="statl">To book online</span></li>
-    <li><span class="statv">100%</span><span class="statl">Licensed injectors</span></li>
-  </ul>
-</div></section>
-<section class="sec" id="process"><div class="wrap">
-  <p class="kicker">Process</p><h2>Your first visit</h2>
-  <p class="lede">About ninety minutes, most of which is talking rather than treating.</p>
-  <ol class="steps">
-    <li><h3>Book online</h3><p>Real slots, real availability, no account required. Evenings and Saturdays included.</p></li>
-    <li><h3>Consultation</h3><p>Photographs, a conversation about what actually bothers you, and a plan. Sometimes the plan is 'not yet'.</p></li>
-    <li><h3>Treat</h3><p>Same visit where it's appropriate. You'll know the exact cost before anything is drawn up.</p></li>
-    <li><h3>Two-week review</h3><p>Included, always. Neurotoxin settles over two weeks and small adjustments are free within that window.</p></li>
-  </ol>
-</div></section>
-<!-- gsw:gallery -->
-<section class="gsw-gal"><div class="gsw-gal-in"><p class="gsw-gal-lab">On the membership</p><h2>What the monthly credit is spent on.</h2><p class="gsw-gal-note">Treatments, products and the review appointment, all against the same rolling credit.</p><div class="gsw-gal-grid"><figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/verity-skin-and-aesthetics/skincare-shelf-640.avif 640w, ../_assets/library/med-spas/verity-skin-and-aesthetics/skincare-shelf-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/med-spas/verity-skin-and-aesthetics/skincare-shelf-720.jpg" width="1600" height="1200" alt="What we stock" loading="lazy" decoding="async"></picture><figcaption>What we stock</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/verity-skin-and-aesthetics/injector-hands-640.avif 640w, ../_assets/library/med-spas/verity-skin-and-aesthetics/injector-hands-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/med-spas/verity-skin-and-aesthetics/injector-hands-720.jpg" width="1600" height="1200" alt="Drawn up, in front of you" loading="lazy" decoding="async"></picture><figcaption>Drawn up, in front of you</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/verity-skin-and-aesthetics/laser-device-640.avif 640w, ../_assets/library/med-spas/verity-skin-and-aesthetics/laser-device-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/med-spas/verity-skin-and-aesthetics/laser-device-720.jpg" width="1600" height="1200" alt="Laser and resurfacing" loading="lazy" decoding="async"></picture><figcaption>Laser and resurfacing</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/verity-skin-and-aesthetics/treatment-room-640.avif 640w, ../_assets/library/med-spas/verity-skin-and-aesthetics/treatment-room-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/med-spas/verity-skin-and-aesthetics/treatment-room-720.jpg" width="1600" height="1200" alt="Treatment room" loading="lazy" decoding="async"></picture><figcaption>Treatment room</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/verity-skin-and-aesthetics/consult-room-640.avif 640w, ../_assets/library/med-spas/verity-skin-and-aesthetics/consult-room-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/med-spas/verity-skin-and-aesthetics/consult-room-720.jpg" width="1600" height="1200" alt="The consultation" loading="lazy" decoding="async"></picture><figcaption>The consultation</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/verity-skin-and-aesthetics/reception-640.avif 640w, ../_assets/library/med-spas/verity-skin-and-aesthetics/reception-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/med-spas/verity-skin-and-aesthetics/reception-720.jpg" width="1600" height="1200" alt="Reception" loading="lazy" decoding="async"></picture><figcaption>Reception</figcaption></figure></div></div></section>
-<!-- /gsw:gallery -->
-<section class="close" id="contact"><div class="wrap">
-  <h2>Treating occasionally and paying full price?</h2>
-  <p>Book a consultation. It's free, there's no obligation, and you'll leave with a written plan and real prices whether or not you treat that day.</p>
-  <div class="ctas">
-    <a class="btn btn-primary" href="#contact">Book now</a>
-    <a class="btn btn-ghost">(936) 337-1052</a>
+</header>
+
+<main id="main">
+<section class="hero" aria-labelledby="promise">
+  <div class="wrap">
+    <p class="label">Injectables · Laser · Skin</p>
+    <h1 id="promise">A monthly credit that rolls over, and never&nbsp;expires.</h1>
+    <p class="lede">Botox, filler, laser and medical-grade skincare from licensed injectors. Members put by a monthly credit that rolls over indefinitely, so treatment gets budgeted rather than&nbsp;deferred.</p>
+    <div class="cta">
+      <a class="btn btn-primary" data-cta="primary" href="#contact">Book now</a>
+      <a class="btn btn-ghost" href="#services">See pricing</a>
+    </div>
+    <ul class="badges" aria-label="What you get">
+      <li>All pricing published</li>
+      <li>Book without an account</li>
+      <li>Licensed injectors only</li>
+      <li class="tnum">Memberships from $149/mo</li>
+    </ul>
   </div>
-  <!-- gsw:contact-form -->
-    <form class="gsw-cf gsw-cf--centred" novalidate>
-      <p class="gsw-cf-lead">Or leave your details and we'll call you back.</p>
-      <div class="gsw-cf-grid">
-        <label><span>Name</span><input type="text" name="name" autocomplete="name" required></label>
-        <label><span>Phone or email</span><input type="text" name="contact" autocomplete="tel" required></label>
-        <label class="gsw-cf-wide"><span>What can we help with? <em>(optional)</em></span><textarea name="message" rows="3"></textarea></label>
+</section>
+
+<section class="cardwrap" aria-label="Membership">
+  <div class="wrap">
+    <div class="mcard">
+      <div class="row"><p class="mb">Verity Skin &amp; Aesthetics</p><span class="chip" aria-hidden="true"></span></div>
+      <div class="mid"><p class="ml">Memberships from</p><p class="mv">$149/mo</p></div>
+      <p class="mn">Monthly credit that rolls over, member pricing on everything, and priority booking. Most regulars save around&nbsp;20%.</p>
+    </div>
+  </div>
+  <div class="plate">
+    <picture>
+      <source type="image/avif" srcset="../_assets/hero/med-spas/a-bright-and-easy-1280.avif 1280w, ../_assets/hero/med-spas/a-bright-and-easy-2560.avif 2560w" sizes="100vw">
+      <img src="../_assets/hero/med-spas/a-bright-and-easy-1280.jpg" alt="Treatment room with a linen-covered bed, plaster walls and a sage armchair" width="1280" height="714" loading="lazy" decoding="async">
+    </picture>
+  </div>
+</section>
+
+<section class="sec" id="services" aria-labelledby="services-title">
+  <div class="wrap">
+    <div class="head">
+      <div><p class="label">Services</p><h2 id="services-title">Treatments &amp;&nbsp;prices</h2></div>
+      <p class="lede">No ‘call for pricing’. You should be able to work out what your visit costs before you&nbsp;arrive.</p>
+    </div>
+    <div class="cards">
+      <article class="card"><h3>Neurotoxin from $12/unit</h3><p>Botox and Dysport for lines and prevention. Most first-time treatments land between $240 and $420 depending on areas.</p></article>
+      <article class="card"><h3>Dermal filler from $650/syringe</h3><p>Lip, cheek and jawline. We are conservative by default and will always start with less than you asked for.</p></article>
+      <article class="card"><h3>Laser &amp; resurfacing from $300</h3><p>Pigment, redness, texture and hair. Package pricing published, because a single session is rarely the whole answer.</p></article>
+      <article class="card feature"><h3>Memberships from $149/mo</h3><p>Monthly credit that rolls over, member pricing on everything, and priority booking. Most regulars save around 20%.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="stats" id="results" aria-label="Results">
+  <div class="wrap">
+    <ul class="statgrid">
+      <li><span class="statv">$149/mo</span><span class="statl">Memberships from</span></li>
+      <li><span class="statv">4.9★</span><span class="statl">Across 730 reviews</span></li>
+      <li><span class="statv">60sec</span><span class="statl">To book online</span></li>
+      <li><span class="statv">100%</span><span class="statl">Licensed injectors</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec process" id="process" aria-labelledby="process-title">
+  <div class="wrap">
+    <div class="head">
+      <div><p class="label">Process</p><h2 id="process-title">Your first&nbsp;visit</h2></div>
+      <p class="lede">About ninety minutes, most of which is talking rather than&nbsp;treating.</p>
+    </div>
+    <ol class="steps">
+      <li><h3>Book online</h3><p>Real slots, real availability, no account required. Evenings and Saturdays included.</p></li>
+      <li><h3>Consultation</h3><p>Photographs, a conversation about what actually bothers you, and a plan. Sometimes the plan is ‘not yet’.</p></li>
+      <li><h3>Treat</h3><p>Same visit where it’s appropriate. You’ll know the exact cost before anything is drawn up.</p></li>
+      <li><h3>Two-week review</h3><p>Included, always. Neurotoxin settles over two weeks and small adjustments are free within that window.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="gal-title">
+  <div class="wrap">
+    <div class="head">
+      <div><p class="label">On the membership</p><h2 id="gal-title">What the monthly credit is spent&nbsp;on.</h2></div>
+      <p class="lede">Treatments, products and the review appointment, all against the same rolling&nbsp;credit.</p>
+    </div>
+    <div class="gal">
+      <figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/verity-skin-and-aesthetics/skincare-shelf-640.avif 640w, ../_assets/library/med-spas/verity-skin-and-aesthetics/skincare-shelf-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/med-spas/verity-skin-and-aesthetics/skincare-shelf-720.jpg" width="720" height="537" alt="Skincare products on a wooden shelf by a window" loading="lazy" decoding="async"></picture><figcaption>What we stock</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/verity-skin-and-aesthetics/injector-hands-640.avif 640w, ../_assets/library/med-spas/verity-skin-and-aesthetics/injector-hands-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/med-spas/verity-skin-and-aesthetics/injector-hands-720.jpg" width="720" height="537" alt="Gloved hands drawing up a syringe" loading="lazy" decoding="async"></picture><figcaption>Drawn up, in front of you</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/verity-skin-and-aesthetics/laser-device-640.avif 640w, ../_assets/library/med-spas/verity-skin-and-aesthetics/laser-device-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/med-spas/verity-skin-and-aesthetics/laser-device-720.jpg" width="720" height="537" alt="Laser device in a treatment room" loading="lazy" decoding="async"></picture><figcaption>Laser and resurfacing</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/verity-skin-and-aesthetics/treatment-room-640.avif 640w, ../_assets/library/med-spas/verity-skin-and-aesthetics/treatment-room-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/med-spas/verity-skin-and-aesthetics/treatment-room-720.jpg" width="720" height="537" alt="Treatment room" loading="lazy" decoding="async"></picture><figcaption>Treatment room</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/verity-skin-and-aesthetics/consult-room-640.avif 640w, ../_assets/library/med-spas/verity-skin-and-aesthetics/consult-room-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/med-spas/verity-skin-and-aesthetics/consult-room-720.jpg" width="720" height="537" alt="Consultation room" loading="lazy" decoding="async"></picture><figcaption>The consultation</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/verity-skin-and-aesthetics/reception-640.avif 640w, ../_assets/library/med-spas/verity-skin-and-aesthetics/reception-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/med-spas/verity-skin-and-aesthetics/reception-720.jpg" width="720" height="537" alt="Reception" loading="lazy" decoding="async"></picture><figcaption>Reception</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec close on-sage" id="contact" aria-labelledby="close-title">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <h2 id="close-title">Treating occasionally and paying full&nbsp;price?</h2>
+        <p class="lede">Book a consultation. It’s free, there’s no obligation, and you’ll leave with a written plan and real prices whether or not you treat that&nbsp;day.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="#cb-name">Book now</a>
+          <a class="btn btn-ghost tnum" href="tel:+19363371052">(936)&nbsp;337-1052</a>
+        </div>
+        <p class="note">Free consultations, member pricing on everything, and credit that never expires. Cancel any month; the balance stays&nbsp;yours.</p>
       </div>
-      <div class="gsw-cf-row">
-        <button type="submit" class="btn btn-primary">Request a call back</button>
-        <span class="gsw-cf-err" role="alert" hidden>Add your name and a way to reach you.</span>
-      </div>
-      <p class="gsw-cf-done" role="status" hidden>Thanks. Someone will call you back within one business day.</p>
-    </form>
-    <!-- /gsw:contact-form -->
-    <p class="note">Free consultations, member pricing on everything, and credit that never expires. Cancel any month; the balance stays yours.</p>
-</div></section>
-<footer class="foot"><div class="wrap">
-  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="20" fill="none" stroke="#6E4877" stroke-width="7" stroke-dasharray="92 40" stroke-linecap="round"/>
-<circle cx="32" cy="32" r="6" fill="#241E2A" opacity=".7"/></svg><span>Verity Skin &amp; Aesthetics</span></span></a>
-  <p><a>(936) 337-1052</a> · Medical director on site · Licensed injectors · Credit never expires</p>
-  <p>2576 Sandover Road, Riverbend, NY 12984</p>
-</div></footer>
-<div class="callbar"><a class="book" href="#contact">Book now</a><a class="tel">(936) 337-1052</a></div>
-<!-- gsw:motion -->
-<style>
-  /* Motion pass. Everything here is gated on .gsw-m, which only the script
-     below adds, so a page without JavaScript never hides anything. */
-  .gsw-m [data-gsw-reveal] {
-    opacity: 0; transform: translateY(14px);
-    transition: opacity .7s cubic-bezier(.2,.6,.2,1), transform .7s cubic-bezier(.2,.6,.2,1);
-  }
-  .gsw-m [data-gsw-reveal].gsw-in { opacity: 1; transform: none; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(2) { transition-delay: .08s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(3) { transition-delay: .16s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(4) { transition-delay: .24s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(5) { transition-delay: .32s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(6) { transition-delay: .40s; }
-  @keyframes gsw-hero-in { from { opacity: 0; transform: scale(1.025); } to { opacity: 1; transform: none; } }
-  .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: gsw-hero-in 1s ease-out both; }
-  @media (prefers-reduced-motion: reduce) {
-    .gsw-m [data-gsw-reveal] { opacity: 1; transform: none; transition: none; }
-    .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: none; }
-  }
-</style>
+      <form class="form" id="callback" novalidate>
+        <p class="intro">Or leave your details and we’ll call you back.</p>
+        <div class="field"><label for="cb-name">Name</label><input id="cb-name" name="name" type="text" autocomplete="name" required></div>
+        <div class="field"><label for="cb-contact">Phone or email</label><input id="cb-contact" name="contact" type="text" autocomplete="tel" required></div>
+        <div class="field"><label for="cb-msg">What can we help with? <em>(optional)</em></label><textarea id="cb-msg" name="message" rows="3"></textarea></div>
+        <div class="actions">
+          <button class="btn btn-primary" type="submit">Request a call back</button>
+          <p class="hint" id="cb-hint" role="alert" hidden>Add your name and a way to reach you.</p>
+        </div>
+        <p class="done" id="cb-done" role="status" hidden>Thanks. Someone will call you back within one business&nbsp;day.</p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="#"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="20" fill="none" stroke="#6E4877" stroke-width="7" stroke-dasharray="92 40" stroke-linecap="round"/><circle cx="32" cy="32" r="6" fill="#241E2A" opacity=".7"/></svg><span>Verity Skin &amp; Aesthetics</span></a>
+      <p class="tnum" style="margin-top: var(--s2)"><a href="tel:+19363371052">(936)&nbsp;337-1052</a> · Medical director on site · Licensed injectors · Credit never expires</p>
+    </div>
+    <div>
+      <p class="tnum">2576 Sandover Road, Riverbend, NY 12984</p>
+      <nav class="links" aria-label="Sections"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+    </div>
+    <p class="fine">Verity Skin &amp; Aesthetics is a fictional business; this page is a design reference.</p>
+  </div>
+</footer>
+
+<div class="bar" aria-label="Quick actions">
+  <a class="btn btn-primary" href="#contact">Book now</a>
+  <a class="btn btn-ghost tnum" href="tel:+19363371052">(936)&nbsp;337-1052</a>
+</div>
+
 <script>
 (function () {
-  if (!('IntersectionObserver' in window)) return;
-  var targets = [].slice.call(document.querySelectorAll('body > section, .gsw-gal figure'));
-  // The first section is the hero; it is on screen already and owns its own entrance.
-  var first = document.querySelector('body > section');
-  targets = targets.filter(function (el) { return el !== first; });
-  if (!targets.length) return;
-  document.documentElement.classList.add('gsw-m');
-  targets.forEach(function (el) { el.setAttribute('data-gsw-reveal', ''); });
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) { e.target.classList.add('gsw-in'); io.unobserve(e.target); }
-    });
-  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-  targets.forEach(function (el) { io.observe(el); });
-})();
-</script>
-<!-- /gsw:motion -->
-
-<!-- gsw:contact-form -->
-<script>
-/* The enquiry form confirms in place. Nothing is sent: a reference build. */
-(function () {
-  var form = document.querySelector('.gsw-cf');
-  if (!form) return;
+  // Static preview: validates locally and shows the confirmation state; nothing is sent.
+  var form = document.getElementById('callback');
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    var name = form.name.value.trim(), contact = form.contact.value.trim();
-    var err = form.querySelector('.gsw-cf-err');
-    if (!name || !contact) { err.hidden = false; (name ? form.contact : form.name).focus(); return; }
-    err.hidden = true;
-    form.setAttribute('data-sent', '');
-    form.querySelector('.gsw-cf-done').hidden = false;
+    var name = form.elements.name, contact = form.elements.contact, hint = document.getElementById('cb-hint');
+    var ok = true;
+    [name, contact].forEach(function (el) {
+      var bad = !el.value.trim();
+      el.closest('.field').classList.toggle('is-invalid', bad);
+      el.setAttribute('aria-invalid', bad ? 'true' : 'false');
+      if (bad) ok = false;
+    });
+    hint.hidden = ok;
+    if (!ok) { (name.value.trim() ? contact : name).focus(); return; }
+    form.classList.add('is-sent');
+    document.getElementById('cb-done').hidden = false;
   });
 })();
 </script>
-<!-- /gsw:contact-form -->
 </body>
 </html>

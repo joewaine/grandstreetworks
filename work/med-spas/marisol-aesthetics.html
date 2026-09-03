@@ -6,132 +6,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Marisol Aesthetics · Prices published. Booking in two taps.</title>
 <meta name="description" content="Botox, filler, laser and medical-grade skincare, delivered by licensed injectors. Every price is published and you can book without making an account.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
-<style>
-/* D1 — THE PRICE LIST ONE. hero:panel nav:centered services:grid-numbered proof:logos
-   ink #221A1D · surface #FBF5F3 · accent #A63D5B · muted #6B5157 · on-accent #FFFFFF
-   H1 ramp: 32/38/50/58px · DM Serif Display display / DM Sans body
-   Device: the price list as the hero object — four ruled rows with real numbers sitting
-   inside the hero panel, above the fold. Fixes "no published pricing" by refusing to make
-   the price a sub-page. The membership row is the card at the end of the rail. */
-:root{--ink:#221A1D;--surface:#FBF5F3;--accent:#A63D5B;--muted:#6B5157;--on-accent:#FFFFFF;
---paper:#FFFFFF;--tint:#F7E9E9;--rule:rgba(34,26,29,.2);--hair:rgba(34,26,29,.11);--wrap:1120px}
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--surface);color:var(--ink);
-font:400 17px/1.62 "DM Sans",system-ui,-apple-system,sans-serif;padding-bottom:82px;overflow-x:hidden}
-.wrap{max-width:var(--wrap);margin:0 auto;padding:0 22px}
-h1,h2,h3{font-family:"DM Serif Display",Georgia,serif;font-weight:400;margin:0;line-height:1.08}
-a{color:inherit}
-img,svg{max-width:100%}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 24px;
-text-decoration:none;font-weight:500;font-size:15px;letter-spacing:.16em;text-transform:uppercase;
-border:1px solid transparent;text-align:center;line-height:1.2}
-.btn-primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
-.btn-ghost{background:transparent;color:var(--ink);border-color:var(--rule)}
-.topbar{background:var(--ink);color:#F0E2E4;font-size:13.5px;letter-spacing:.1em;text-transform:uppercase}
-.topbar .wrap{padding:9px 22px;text-align:center}
-.nav{border-bottom:1px solid var(--hair);background:var(--surface)}
-.nav .wrap{padding-top:12px;padding-bottom:12px;text-align:center}
-.brand{font-family:"DM Serif Display",Georgia,serif;font-size:21px;text-decoration:none;
-letter-spacing:.2em;text-transform:uppercase;display:inline-block;line-height:1}
-.navrow{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:11px}
-.navlinks{display:none;gap:24px;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
-.navlinks a{text-decoration:none}
-.navlinks a:hover{color:var(--accent)}
-.navbook{min-height:42px;padding:0 18px;font-size:12px;letter-spacing:.14em;white-space:nowrap}
-.hero{padding:16px 0 34px}
-.panel{background:var(--paper);border:1px solid var(--hair);padding:24px 20px 26px}
-.eyebrow{font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);
-margin:0 0 12px;font-weight:500}
-.hero h1{font-size:clamp(32px,8.4vw,58px);max-width:14ch;letter-spacing:-.01em}
-.sub{font-size:16.5px;color:var(--muted);max-width:54ch;margin:14px 0 20px}
-.ctas{display:flex;flex-direction:column;gap:10px}
-.pricelist{list-style:none;margin:24px 0 0;padding:20px 0 0;border-top:1px solid var(--rule)}
-.pltitle{font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
-.pl{display:flex;align-items:baseline;gap:8px;padding:11px 0;border-bottom:1px solid var(--hair);
-font-size:17px;flex-wrap:wrap}
-.pl-n{font-family:"DM Serif Display",Georgia,serif;font-size:19px;line-height:1.2}
-.pl-d{flex:1 1 24px;min-width:24px;border-bottom:1px dotted var(--rule);transform:translateY(-4px)}
-.pl-p{color:var(--accent);font-weight:700;font-size:16px;letter-spacing:.02em;white-space:nowrap}
-.pl.member{background:var(--tint);border-bottom:none;padding:14px 12px;margin-top:6px}
-.badges{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:9px}
-.badges li{font-size:15.5px;color:var(--muted);padding-left:18px;position:relative}
-.badges li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:8px;
-background:var(--accent);border-radius:50%}
-.sec{padding:52px 0;border-top:1px solid var(--hair)}
-.kicker{font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin:0 0 12px;font-weight:500}
-.sec h2{font-size:clamp(29px,7vw,46px)}
-.lede{color:var(--muted);max-width:58ch;margin:12px 0 26px;font-size:17px}
-.gridnum{display:grid;gap:0;border-top:1px solid var(--rule)}
-.gn{padding:24px 0;border-bottom:1px solid var(--hair);display:grid;grid-template-columns:44px 1fr;gap:14px}
-.gn .n{font-family:"DM Serif Display",Georgia,serif;font-size:30px;color:var(--accent);line-height:.95}
-.gn h3{font-size:22px;margin-bottom:8px;line-height:1.2}
-.gn p{margin:0;color:var(--muted);font-size:16px}
-.gn.card{background:var(--tint);border-bottom:none;padding:24px 18px;margin-top:14px}
-.logos{background:var(--paper)}
-.logolist{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:0;border-top:1px solid var(--hair)}
-.logolist li{font-family:"DM Serif Display",Georgia,serif;font-size:clamp(18px,4.6vw,21px);
-color:var(--accent);padding:18px 6px;border-bottom:1px solid var(--hair);text-align:center;line-height:1.3}
-.steps{list-style:none;margin:24px 0 0;padding:0;counter-reset:s;border-top:1px solid var(--rule)}
-.steps li{counter-increment:s;padding:22px 0;border-bottom:1px solid var(--hair);
-display:grid;grid-template-columns:44px 1fr;gap:14px}
-.steps li::before{content:counter(s,decimal-leading-zero);font-size:13px;letter-spacing:.18em;
-color:var(--accent);padding-top:6px;font-weight:700}
-.steps h3{font-size:20px;margin-bottom:6px;line-height:1.2}
-.steps p{margin:0;color:var(--muted);font-size:16px}
-.close{background:var(--ink);color:#F7EDEF;padding:56px 0 60px}
-.close h2{font-size:clamp(30px,7.4vw,50px);max-width:15ch}
-.close p{max-width:54ch;font-size:17.5px;color:#C3AFB4;margin:14px 0 22px}
-.close .btn-primary{background:#E7A0B4;color:#221A1D;border-color:#E7A0B4}
-.close .btn-ghost{color:#F7EDEF;border-color:rgba(247,237,239,.45)}
-.note{font-size:15.5px;color:#C3AFB4;margin-top:20px;max-width:54ch}
-.foot{padding:40px 0 34px;font-size:15.5px;color:var(--muted)}
-.foot .brand{color:var(--ink);margin-bottom:14px;font-size:19px}
-.foot p{margin:0 0 10px;max-width:66ch}
-.foot a{color:var(--accent)}
-.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--paper);padding:8px;
-border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:8px}
-.callbar a{display:flex;align-items:center;justify-content:center;min-height:60px;text-decoration:none;
-font-weight:500;font-size:13px;letter-spacing:.14em;text-transform:uppercase;text-align:center;padding:0 12px}
-.callbar .book{background:var(--accent);color:#fff}
-.callbar .tel{border:1px solid var(--rule);color:var(--ink);padding:0 16px;letter-spacing:.03em;
-text-transform:none;font-size:16px}
-@media(max-width:559px){.navbook{padding:0 14px}}
-@media(min-width:720px){.ctas{flex-direction:row;gap:12px}.badges{grid-template-columns:1fr 1fr}
-.hero h1{max-width:20ch}
-.panel{padding:44px 42px 46px}.hero{padding:30px 0 54px}.sub{font-size:19px}
-.pricelist{display:grid;grid-template-columns:1fr 1fr;column-gap:44px}
-.pltitle{grid-column:1/-1}.pl.member{grid-column:1/-1;margin-top:10px}
-.gridnum{grid-template-columns:1fr 1fr;column-gap:46px}.gn.card{grid-column:1/-1}
-.logolist{grid-template-columns:repeat(4,1fr)}
-.logolist li{border-bottom:none;border-right:1px solid var(--hair);padding:26px 12px}
-.logolist li:last-child{border-right:none}
-.steps{display:grid;grid-template-columns:1fr 1fr;column-gap:46px}.sec{padding:84px 0}}
-@media(min-width:940px){.navlinks{display:flex}}
-@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
-</style>
-
-<style>
-  /* Hero plate, added with the photography pass. Full-bleed between the hero
-     and the first content section, with no border of its own: every one of
-     these designs owns a different rule weight and ink colour, and a borrowed
-     hairline reads as a mistake in about half of them. */
-  .gsw-plate picture { display: block; width: 100%; }
-  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
-  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
-  .gsw-plate img {
-    display: block;
-    width: 100%;
-    height: clamp(220px, 40vw, 520px);
-    object-fit: cover;
-    object-position: center;
-  }
-  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
-</style>
-
 <!-- gsw:identity -->
 <link rel="icon" href="../_assets/identity/med-spas/marisol-aesthetics-icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../_assets/identity/med-spas/marisol-aesthetics-icon-180.png">
@@ -144,225 +18,388 @@ text-transform:none;font-size:16px}
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"HealthAndBeautyBusiness","name":"Marisol Aesthetics","description":"Book online in under a minute \u00b7 Memberships from $149/mo","telephone":"(830) 802-4419","areaServed":"Metro area","image":"https://grandstreetworks.com/work/_assets/identity/med-spas/marisol-aesthetics-og.png","logo":"https://grandstreetworks.com/work/_assets/identity/med-spas/marisol-aesthetics-mark.svg"}</script>
-
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HealthAndBeautyBusiness","name":"Marisol Aesthetics","description":"Book online in under a minute · Memberships from $149/mo","telephone":"(830) 802-4419","areaServed":"Metro area","image":"https://grandstreetworks.com/work/_assets/identity/med-spas/marisol-aesthetics-og.png","logo":"https://grandstreetworks.com/work/_assets/identity/med-spas/marisol-aesthetics-mark.svg"}</script>
+<!-- /gsw:identity -->
+<link rel="preload" href="../_assets/fonts/gelasio-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../_assets/fonts/rethink-sans-var.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-  /* Identity pass. The lockup is the mark plus the wordmark the build already
-     had; the mark is sized in em so it tracks whatever display face this build
-     sets its brand in. */
-  .gsw-lockup { display: inline-flex; align-items: center; gap: .46em; }
-  .gsw-lockup svg { height: 1.16em; width: auto; flex: none; display: block; }
-</style>
+/* D1 — THE PRICE LIST. hero:panel nav:centered services:grid-numbered proof:logos
+   ink #221A1D · paper #FBF7F2 · terracotta #A8492E · muted #6B615B · on-accent #FBF7F2
+   H1 ramp: 40/48/56/64px · Gelasio display / Rethink Sans body
+   Device: the price table — name, dot leader, tabular figure — as the hero's one loud
+   object, with the same terracotta rule opening every section and marking the
+   membership row. FIX answered first: no published pricing — the list is the panel,
+   above the fold, set so the figures align. Numbered treatments as a typographic
+   list, no cards. Seven sizes, two families, two weights. */
 
-<style>
-  /* Recent-work gallery. Everything here is drawn from the properties the build
-     already declares, so the band inherits each design's palette and heading
-     face rather than importing a seventh look. */
-  .gsw-gal { background: #FBF5F3; color: #221A1D;
-             padding: clamp(38px, 6vw, 74px) 0; }
-  .gsw-gal-in { max-width: var(--wrap, 1140px); margin: 0 auto; padding: 0 20px; }
-  .gsw-gal-lab { font-size: 13px; letter-spacing: .18em; text-transform: uppercase;
-                 font-weight: 600; color: var(--accent); margin: 0 0 14px; }
-  .gsw-gal h2 { margin: 0; color: inherit; }
-  .gsw-gal-note { color: var(--muted); margin: 14px 0 30px; max-width: 58ch; }
-  .gsw-ba { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px; }
-  .gsw-gal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-  .gsw-gal figure { margin: 0; position: relative; overflow: hidden;
-                    background: var(--rule, rgba(0,0,0,.1)); }
-  .gsw-gal picture { display: block; }
-  /* height:auto matters — the width/height attributes are a presentational
-     hint, and without this the 1200px hint beats aspect-ratio. */
-  .gsw-gal img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3;
-                 object-fit: cover; transition: transform .5s ease; }
-  .gsw-gal figure:hover img { transform: scale(1.035); }
-  .gsw-gal figcaption { position: absolute; left: 0; bottom: 0;
-                        background: #221A1D; color: #FBF5F3;
-                        font-size: 12px; font-weight: 600; letter-spacing: .14em;
-                        text-transform: uppercase; padding: 7px 12px; }
-  @media (max-width: 720px) {
-    .gsw-ba, .gsw-gal-grid { grid-template-columns: 1fr; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .gsw-gal img { transition: none; }
-    .gsw-gal figure:hover img { transform: none; }
-  }
-</style>
+@font-face { font-family: "Gelasio"; src: url("../_assets/fonts/gelasio-var.woff2") format("woff2"); font-weight: 400 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Gelasio"; src: url("../_assets/fonts/gelasio-italic-var.woff2") format("woff2"); font-weight: 400 700; font-style: italic; font-display: swap; }
+@font-face { font-family: "Rethink Sans"; src: url("../_assets/fonts/rethink-sans-var.woff2") format("woff2"); font-weight: 400 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "Rethink Sans"; src: url("../_assets/fonts/rethink-sans-italic-var.woff2") format("woff2"); font-weight: 400 800; font-style: italic; font-display: swap; }
+@font-face { font-family: "Gelasio Fallback"; src: local("Georgia"); size-adjust: 100%; ascent-override: 92%; descent-override: 22%; }
+@font-face { font-family: "Rethink Fallback"; src: local("Arial"); size-adjust: 97%; ascent-override: 92%; descent-override: 22%; }
 
-<style>
-  /* gsw:contact-form — the closing section takes a name. Borrows the section's
-     colour through currentColor and the build's own .btn for the button. */
-  .gsw-cf { max-width: 640px; margin: 28px 0 0; text-align: left; }
-  .gsw-cf--centred { margin-left: auto; margin-right: auto; }
-  .gsw-cf-lead { margin: 0 0 12px; font-size: 15px; opacity: .85; }
-  .gsw-cf-grid { display: grid; gap: 10px; }
-  .gsw-cf label { display: flex; flex-direction: column; gap: 5px; font-size: 11px;
-                  font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
-  .gsw-cf label em { font-style: normal; font-weight: 400; text-transform: none; letter-spacing: 0; opacity: .7; }
-  .gsw-cf input, .gsw-cf textarea { font: inherit; font-size: 16px; color: inherit; background: transparent;
-                                    border: 1.5px solid currentColor; border-radius: 0; padding: 10px 12px; width: 100%;
-                                    box-sizing: border-box; letter-spacing: 0; text-transform: none; font-weight: 400; }
-  .gsw-cf input:focus, .gsw-cf textarea:focus { outline: 2px solid currentColor; outline-offset: 2px; }
-  .gsw-cf textarea { resize: vertical; min-height: 84px; }
-  .gsw-cf-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 14px; }
-  .gsw-cf button.btn { font: inherit; cursor: pointer; appearance: none; }
-  .gsw-cf-err { font-size: 14px; font-weight: 600; }
-  .gsw-cf-done { margin: 0; font-size: 17px; font-weight: 600; }
-  .gsw-cf[data-sent] .gsw-cf-lead, .gsw-cf[data-sent] .gsw-cf-grid, .gsw-cf[data-sent] .gsw-cf-row { display: none; }
-  @media (min-width: 640px) {
-    .gsw-cf-grid { grid-template-columns: 1fr 1fr; }
-    .gsw-cf-wide { grid-column: 1 / -1; }
-  }
+:root {
+  --ink: #221A1D; --paper: #FBF7F2; --paper-2: #F3ECE3; --muted: #6B615B;
+  --terra: #A8492E; --terra-hover: #8A3A23; --rule: #D9CFC3;
+  --serif: "Gelasio", "Gelasio Fallback", Georgia, serif;
+  --sans: "Rethink Sans", "Rethink Fallback", Arial, sans-serif;
+  --t-label: 0.8125rem; --t-small: 0.9375rem; --t-body: 1.0625rem;
+  --t-lede: clamp(1.125rem, 1rem + 0.5vw, 1.3125rem);
+  --t-h3: clamp(1.375rem, 1.1rem + 1.1vw, 1.75rem);
+  --t-h2: clamp(1.875rem, 1.3rem + 2.3vw, 2.75rem);
+  --t-display: clamp(2.5rem, 1.6rem + 3.6vw, 4rem);
+  --s1: 9px; --s2: 18px; --s3: 27px; --s4: 36px; --s6: 54px; --s8: 72px; --s12: 108px;
+  --wrap: 1120px; --gutter: clamp(20px, 4vw, 48px); --bar-h: 64px;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 var(--t-body)/1.6 var(--sans); font-optical-sizing: auto; overflow-x: hidden; padding-bottom: var(--bar-h); }
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; margin: 0; text-wrap: balance; letter-spacing: -0.005em; }
+h1 { font-size: var(--t-display); line-height: 1.05; }
+h2 { font-size: var(--t-h2); line-height: 1.1; max-width: 22ch; }
+h3 { font-size: var(--t-h3); line-height: 1.2; }
+p { margin: 0; text-wrap: pretty; }
+a { color: inherit; }
+img, svg { display: block; max-width: 100%; height: auto; }
+ul, ol { list-style: none; margin: 0; padding: 0; }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+.label { font-size: var(--t-label); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.3; color: var(--muted); }
+.lede { font-size: var(--t-lede); line-height: 1.45; max-width: 56ch; color: var(--muted); }
+.muted { color: var(--muted); }
+em { font-family: var(--serif); font-style: italic; }
+:focus-visible { outline: 2px solid var(--terra); outline-offset: 3px; }
+.skip { position: absolute; left: -999px; top: 0; background: var(--ink); color: var(--paper); padding: var(--s1) var(--s2); z-index: 100; }
+.skip:focus { left: var(--s2); top: var(--s2); }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5em; min-height: 50px; padding: 0.65em 1.4em; border: 1px solid var(--ink); font: 500 var(--t-body)/1.2 var(--sans); text-decoration: none; cursor: pointer; background: transparent; color: var(--ink); transition: background-color 160ms, border-color 160ms, color 160ms; }
+.btn:hover { background: var(--ink); color: var(--paper); }
+.btn-primary { background: var(--terra); border-color: var(--terra); color: var(--paper); }
+.btn-primary:hover { background: var(--terra-hover); border-color: var(--terra-hover); color: var(--paper); }
+
+/* Header: centred nav */
+.topline { text-align: center; padding: var(--s1) 0; border-bottom: 1px solid var(--rule); }
+.top { text-align: center; padding: var(--s3) 0 var(--s2); }
+.brand { display: inline-flex; align-items: center; gap: 10px; font: 400 var(--t-lede)/1 var(--serif); text-decoration: none; letter-spacing: -0.01em; }
+.brand svg { width: 26px; height: 26px; }
+.nav { display: flex; justify-content: center; align-items: center; gap: var(--s3); margin-top: var(--s2); font-size: var(--t-small); }
+.nav a { text-decoration: none; padding: 4px 0; border-bottom: 1px solid transparent; transition: border-color 160ms; }
+.nav a:hover { border-bottom-color: var(--terra); }
+.nav .book { border-bottom: 1px solid var(--terra); font-weight: 500; }
+
+/* Hero: the price panel */
+.hero { padding: var(--s6) 0 var(--s8); }
+.hero .grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); grid-template-areas: "text list" "cta list"; gap: var(--s4) var(--s8); align-items: start; }
+.hero .text { grid-area: text; }
+.hero .side { grid-area: list; }
+.hero .cta { grid-area: cta; align-self: start; }
+.hero .label { color: var(--terra); margin-bottom: var(--s3); }
+.hero h1 { max-width: 14ch; }
+.hero .lede { margin-top: var(--s3); }
+.hero .cta { display: flex; flex-wrap: wrap; gap: var(--s2); }
+.list { border-top: 2px solid var(--ink); }
+.list .head { display: flex; justify-content: space-between; align-items: baseline; padding: var(--s2) 0 var(--s1); }
+.list .head .label { color: var(--ink); }
+.list li.row { display: flex; align-items: baseline; gap: var(--s2); padding: 14px 0; border-top: 1px solid var(--rule); font-size: var(--t-lede); }
+.list li.row .name { font-family: var(--serif); }
+.list li.row .lead { flex: 1; border-bottom: 1px dotted var(--rule); transform: translateY(-0.35em); min-width: 24px; }
+.list li.row .price { font-variant-numeric: tabular-nums; white-space: nowrap; font-weight: 500; }
+.list li.member { border-top: 2px solid var(--terra); }
+.list li.member .name::after { content: ""; display: inline-block; width: 8px; height: 8px; background: var(--terra); margin-left: 10px; vertical-align: middle; }
+.creds { display: flex; flex-wrap: wrap; gap: var(--s1) var(--s3); margin-top: var(--s3); font-size: var(--t-small); color: var(--muted); }
+.creds li { position: relative; padding-left: 14px; }
+.creds li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 5px; height: 5px; background: var(--terra); }
+
+/* Plate */
+.plate { margin: 0; }
+.plate img { width: 100%; aspect-ratio: 2.2 / 1; object-fit: cover; object-position: 12% 55%; background: var(--paper-2); }
+
+/* Sections and the rule */
+.sec { padding: var(--s12) 0; }
+.mark { display: flex; align-items: baseline; gap: var(--s2); padding-top: var(--s2); border-top: 2px solid var(--terra); margin-bottom: var(--s6); }
+.mark .label { color: var(--terra); }
+.head2 { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--s3) var(--s8); align-items: end; margin-bottom: var(--s6); }
+
+/* Treatments: typographic numbered list */
+.treat ol { display: grid; grid-template-columns: 1fr 1fr; gap: 0 var(--s8); }
+.treat li { display: grid; grid-template-columns: 3ch 1fr; gap: var(--s2); padding: var(--s3) 0; border-top: 1px solid var(--rule); }
+.treat li.member { border-top: 2px solid var(--terra); }
+.treat .n { font-family: var(--serif); font-size: var(--t-lede); color: var(--terra); font-variant-numeric: tabular-nums; line-height: 1.5; }
+.treat h3 { font-variant-numeric: tabular-nums; margin-bottom: var(--s1); }
+.treat p { color: var(--muted); max-width: 42ch; font-variant-numeric: tabular-nums; }
+
+/* Credentials */
+.cred { padding-top: 0; }
+.cred ul { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s2); }
+.cred li { padding-top: var(--s2); border-top: 1px solid var(--rule); font-size: var(--t-small); font-weight: 500; }
+.cred .mark { margin-bottom: var(--s3); }
+.cred h2 { margin-bottom: var(--s4); }
+
+/* Process */
+.process { background: var(--paper-2); }
+.process ol { display: grid; grid-template-columns: 1fr 1fr; gap: 0 var(--s8); counter-reset: step; }
+.process li { display: grid; grid-template-columns: 3ch 1fr; gap: var(--s2); padding: var(--s3) 0; border-top: 1px solid var(--rule); counter-increment: step; }
+.process li::before { content: counter(step); font-family: var(--serif); font-size: var(--t-lede); color: var(--terra); line-height: 1.5; font-variant-numeric: tabular-nums; }
+.process h3 { margin-bottom: var(--s1); }
+.process p { color: var(--muted); max-width: 42ch; }
+
+/* Rooms */
+.rooms .strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s3) var(--s2); }
+.rooms figure { margin: 0; }
+.rooms img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: var(--paper-2); }
+.rooms figcaption { margin-top: var(--s1); padding-top: var(--s1); border-top: 1px solid var(--rule); font-size: var(--t-small); color: var(--muted); }
+
+/* Close */
+.close { background: var(--ink); color: var(--paper); }
+.close .mark { border-top-color: var(--terra); }
+.close .grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: var(--s8); align-items: start; }
+.close h2 { font-size: var(--t-display); line-height: 1.05; max-width: 12ch; }
+.close .lede { color: rgba(251, 247, 242, 0.82); margin-top: var(--s3); }
+.close .cta { display: flex; flex-wrap: wrap; gap: var(--s2); margin-top: var(--s4); }
+.close .btn { border-color: rgba(251, 247, 242, 0.45); color: var(--paper); }
+.close .btn:hover { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+.close .btn-primary { background: var(--terra); border-color: var(--terra); }
+.close .btn-primary:hover { background: var(--terra-hover); border-color: var(--terra-hover); color: var(--paper); }
+.close .note { margin-top: var(--s4); font-size: var(--t-small); color: rgba(251, 247, 242, 0.7); max-width: 46ch; }
+.form { border-top: 1px solid rgba(251, 247, 242, 0.25); padding-top: var(--s3); }
+.form .intro { margin-bottom: var(--s3); color: rgba(251, 247, 242, 0.82); }
+.field { display: grid; gap: 6px; margin-bottom: var(--s2); }
+.field label { font-size: var(--t-label); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(251, 247, 242, 0.7); }
+.field input, .field textarea { width: 100%; font: 400 var(--t-body)/1.4 var(--sans); color: var(--paper); background: rgba(251, 247, 242, 0.06); border: 1px solid rgba(251, 247, 242, 0.3); padding: 12px 14px; }
+.field input:hover, .field textarea:hover { border-color: rgba(251, 247, 242, 0.6); }
+.field input:focus, .field textarea:focus { outline: none; border-color: var(--terra); box-shadow: 0 0 0 2px var(--terra); }
+.field.is-invalid input { border-color: #E39A82; }
+.form .actions { display: flex; align-items: center; gap: var(--s2); flex-wrap: wrap; margin-top: var(--s3); }
+.form .hint { font-size: var(--t-small); color: #E39A82; }
+.form .hint[hidden], .form .done[hidden] { display: none; }
+.form .done { font-family: var(--serif); font-style: italic; font-size: var(--t-lede); padding: var(--s3) 0; }
+.form.is-sent .field, .form.is-sent .actions { display: none; }
+
+/* Footer */
+.foot { padding: var(--s6) 0; font-size: var(--t-small); border-top: 1px solid var(--rule); }
+.foot .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s3) var(--s8); }
+.foot p { color: var(--muted); max-width: 50ch; }
+.foot .fine { grid-column: 1 / -1; padding-top: var(--s3); border-top: 1px solid var(--rule); font-size: var(--t-label); letter-spacing: 0.02em; }
+
+/* Mobile bar */
+.bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); border-top: 1px solid var(--rule); }
+.bar .btn { min-height: var(--bar-h); border: 0; white-space: nowrap; background: var(--paper); }
+.bar .btn:hover { background: var(--paper-2); color: var(--ink); }
+.bar .btn-primary { background: var(--terra); color: var(--paper); }
+.bar .btn-primary:hover { background: var(--terra-hover); color: var(--paper); }
+
+@media (min-width: 1000px) { body { padding-bottom: 0; } .bar { display: none; } }
+@media (max-width: 999px) {
+  .hero .grid { grid-template-columns: 1fr; grid-template-areas: "text" "list" "cta"; }
+  .close .grid, .head2 { grid-template-columns: 1fr; }
+  .cred ul { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 759px) {
+  .nav { display: none; }
+  .topline { display: none; }
+  .sec { padding: var(--s8) 0; }
+  .hero { padding-top: var(--s4); }
+  .hero .cta .btn { width: 100%; }
+  .treat ol, .process ol { grid-template-columns: 1fr; }
+  .rooms .strip { grid-template-columns: 1fr; }
+  .plate img { aspect-ratio: 4 / 3; }
+  .foot .wrap { grid-template-columns: 1fr; }
+  .list li.row { font-size: var(--t-body); }
+}
+.tnum, .tnum * { font-variant-numeric: tabular-nums; }
+.list li.row .price, .treat h3, .creds li, .foot p, .bar .btn, .close .tel { font-variant-numeric: tabular-nums; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+@media (forced-colors: active) { .btn { border: 1px solid ButtonText; } }
+@media print { .bar { display: none; } }
 </style>
 </head>
 <body>
-<div class="topbar"><div class="wrap">Book online in under a minute · Memberships from $149/mo</div></div>
-<header class="nav"><div class="wrap">
-  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="6" y="30" width="52" height="4" fill="#221A1D" opacity=".5"/>
-<rect x="8" y="16" width="14" height="32" rx="2" fill="#A63D5B"/>
-<rect x="26" y="16" width="14" height="32" rx="2" fill="#A63D5B" opacity=".7"/>
-<rect x="44" y="16" width="14" height="32" rx="2" fill="#A63D5B" opacity=".45"/></svg><span>Marisol Aesthetics</span></span></a>
-  <div class="navrow">
-    <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
-    <a class="btn btn-primary navbook" href="#contact">Book now</a>
+<a class="skip" href="#main">Skip to content</a>
+<p class="topline label tnum">Book online in under a minute · Memberships from $149/mo</p>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="6" y="30" width="52" height="4" fill="#221A1D" opacity=".5"/><rect x="8" y="16" width="14" height="32" rx="2" fill="#221A1D"/><rect x="26" y="16" width="14" height="32" rx="2" fill="#221A1D" opacity=".7"/><rect x="44" y="16" width="14" height="32" rx="2" fill="#221A1D" opacity=".45"/></svg>Marisol Aesthetics</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#services">Services</a>
+      <a href="#results">Results</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+      <a class="book" href="#contact">Book now</a>
+    </nav>
   </div>
-</div></header>
-<section class="hero"><div class="wrap"><div class="panel">
-  <p class="eyebrow">Injectables · Laser · Skin</p>
-  <h1>Every price on the page. No consultation required to see it.</h1>
-  <p class="sub">Botox, filler, laser and medical-grade skincare from licensed nurse injectors. Every price is printed here, per unit and per syringe, so you can work out your visit before you book it.</p>
-  <div class="ctas">
-    <a class="btn btn-primary" data-cta="primary" href="#contact">Book now</a>
-    <a class="btn btn-ghost" href="#services">See pricing</a>
-  </div>
-  <ul class="pricelist">
-    <li class="pltitle">Treatments &amp; prices</li>
-    <li class="pl"><span class="pl-n">Neurotoxin</span><span class="pl-d" aria-hidden="true"></span><span class="pl-p">from $12/unit</span></li>
-    <li class="pl"><span class="pl-n">Dermal filler</span><span class="pl-d" aria-hidden="true"></span><span class="pl-p">from $650/syringe</span></li>
-    <li class="pl"><span class="pl-n">Laser &amp; resurfacing</span><span class="pl-d" aria-hidden="true"></span><span class="pl-p">from $300</span></li>
-    <li class="pl member"><span class="pl-n">Memberships</span><span class="pl-d" aria-hidden="true"></span><span class="pl-p">from $149/mo</span></li>
-  </ul>
-  <ul class="badges"><li>All pricing published</li><li>Book without an account</li><li>Licensed injectors only</li><li>Memberships from $149/mo</li></ul>
-</div></div></section>
-<figure class="gsw-plate"><picture><source type="image/avif" srcset="../_assets/hero/med-spas/a-bright-and-easy-1280.avif 1280w, ../_assets/hero/med-spas/a-bright-and-easy-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/med-spas/a-bright-and-easy-1280.jpg" width="2560" height="1429" alt="Bright and easy, med spas" loading="lazy" decoding="async"></picture></figure>
+</header>
 
-<section class="sec" id="services"><div class="wrap">
-  <p class="kicker">Services</p><h2>Treatments &amp; prices</h2>
-  <p class="lede">No 'call for pricing'. You should be able to work out what your visit costs before you arrive.</p>
-  <div class="gridnum">
-    <article class="gn"><div class="n">01</div><div><h3>Neurotoxin from $12/unit</h3><p>Botox and Dysport for lines and prevention. Most first-time treatments land between $240 and $420 depending on areas.</p></div></article>
-    <article class="gn"><div class="n">02</div><div><h3>Dermal filler from $650/syringe</h3><p>Lip, cheek and jawline. We are conservative by default and will always start with less than you asked for.</p></div></article>
-    <article class="gn"><div class="n">03</div><div><h3>Laser &amp; resurfacing from $300</h3><p>Pigment, redness, texture and hair. Package pricing published, because a single session is rarely the whole answer.</p></div></article>
-    <article class="gn card"><div class="n">04</div><div><h3>Memberships from $149/mo</h3><p>Monthly credit that rolls over, member pricing on everything, and priority booking. Most regulars save around 20%.</p></div></article>
-  </div>
-</div></section>
-<section class="sec logos" id="results"><div class="wrap">
-  <p class="kicker">Results</p><h2>Our team holds</h2>
-  <ul class="logolist"><li>Registered Nurse Injectors</li><li>Medical Director on site</li><li>Allergan Partner Practice</li><li>Galderma Certified</li></ul>
-</div></section>
-<section class="sec" id="process"><div class="wrap">
-  <p class="kicker">Process</p><h2>Your first visit</h2>
-  <p class="lede">About ninety minutes, most of which is talking rather than treating.</p>
-  <ol class="steps">
-    <li><div><h3>Book online</h3><p>Real slots, real availability, no account required. Evenings and Saturdays included.</p></div></li>
-    <li><div><h3>Consultation</h3><p>Photographs, a conversation about what actually bothers you, and a plan. Sometimes the plan is 'not yet'.</p></div></li>
-    <li><div><h3>Treat</h3><p>Same visit where it's appropriate. You'll know the exact cost before anything is drawn up.</p></div></li>
-    <li><div><h3>Two-week review</h3><p>Included, always. Neurotoxin settles over two weeks and small adjustments are free within that window.</p></div></li>
-  </ol>
-</div></section>
-<!-- gsw:gallery -->
-<section class="gsw-gal"><div class="gsw-gal-in"><p class="gsw-gal-lab">Priced on the page</p><h2>What each line on the list buys.</h2><p class="gsw-gal-note">Neurotoxin, filler, laser and skincare, in the rooms and with the equipment the price refers to.</p><div class="gsw-gal-grid"><figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/marisol-aesthetics/flatlay-640.avif 640w, ../_assets/library/med-spas/marisol-aesthetics/flatlay-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/med-spas/marisol-aesthetics/flatlay-720.jpg" width="1600" height="1200" alt="Set up for the appointment" loading="lazy" decoding="async"></picture><figcaption>Set up for the appointment</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/marisol-aesthetics/laser-device-640.avif 640w, ../_assets/library/med-spas/marisol-aesthetics/laser-device-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/med-spas/marisol-aesthetics/laser-device-720.jpg" width="1600" height="1200" alt="Laser and resurfacing" loading="lazy" decoding="async"></picture><figcaption>Laser and resurfacing</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/marisol-aesthetics/skincare-shelf-640.avif 640w, ../_assets/library/med-spas/marisol-aesthetics/skincare-shelf-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/med-spas/marisol-aesthetics/skincare-shelf-720.jpg" width="1600" height="1200" alt="What we stock" loading="lazy" decoding="async"></picture><figcaption>What we stock</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/marisol-aesthetics/treatment-room-640.avif 640w, ../_assets/library/med-spas/marisol-aesthetics/treatment-room-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/med-spas/marisol-aesthetics/treatment-room-720.jpg" width="1600" height="1200" alt="Treatment room" loading="lazy" decoding="async"></picture><figcaption>Treatment room</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/marisol-aesthetics/injector-hands-640.avif 640w, ../_assets/library/med-spas/marisol-aesthetics/injector-hands-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/med-spas/marisol-aesthetics/injector-hands-720.jpg" width="1600" height="1200" alt="Drawn up, in front of you" loading="lazy" decoding="async"></picture><figcaption>Drawn up, in front of you</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/marisol-aesthetics/reception-640.avif 640w, ../_assets/library/med-spas/marisol-aesthetics/reception-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/med-spas/marisol-aesthetics/reception-720.jpg" width="1600" height="1200" alt="Reception" loading="lazy" decoding="async"></picture><figcaption>Reception</figcaption></figure></div></div></section>
-<!-- /gsw:gallery -->
-<section class="close" id="contact"><div class="wrap">
-  <h2>Tired of 'call for pricing'?</h2>
-  <p>Book a consultation. It's free, there's no obligation, and you'll leave with a written plan and real prices whether or not you treat that day.</p>
-  <div class="ctas">
-    <a class="btn btn-primary" href="#contact">Book now</a>
-    <a class="btn btn-ghost">(830) 802-4419</a>
-  </div>
-  <!-- gsw:contact-form -->
-    <form class="gsw-cf" novalidate>
-      <p class="gsw-cf-lead">Or leave your details and we'll call you back.</p>
-      <div class="gsw-cf-grid">
-        <label><span>Name</span><input type="text" name="name" autocomplete="name" required></label>
-        <label><span>Phone or email</span><input type="text" name="contact" autocomplete="tel" required></label>
-        <label class="gsw-cf-wide"><span>What can we help with? <em>(optional)</em></span><textarea name="message" rows="3"></textarea></label>
+<main id="main">
+<section class="hero" aria-labelledby="promise">
+  <div class="wrap">
+    <div class="grid">
+      <div class="text">
+        <p class="label">Injectables · Laser · Skin</p>
+        <h1 id="promise">Every price on the page. No consultation required to see&nbsp;it.</h1>
+        <p class="lede">Botox, filler, laser and medical-grade skincare from licensed nurse injectors. Every price is printed here, per unit and per syringe, so you can work out your visit before you book&nbsp;it.</p>
       </div>
-      <div class="gsw-cf-row">
-        <button type="submit" class="btn btn-primary">Request a call back</button>
-        <span class="gsw-cf-err" role="alert" hidden>Add your name and a way to reach you.</span>
+      <div class="cta">
+        <a class="btn btn-primary" data-cta="primary" href="#contact">Book now</a>
+        <a class="btn" href="#services">See pricing</a>
       </div>
-      <p class="gsw-cf-done" role="status" hidden>Thanks. Someone will call you back within one business day.</p>
-    </form>
-    <!-- /gsw:contact-form -->
-    <p class="note">Free consultations, every price published, and evening and Saturday appointments. Nothing costs more than the page says.</p>
-</div></section>
-<footer class="foot"><div class="wrap">
-  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="6" y="30" width="52" height="4" fill="#221A1D" opacity=".5"/>
-<rect x="8" y="16" width="14" height="32" rx="2" fill="#A63D5B"/>
-<rect x="26" y="16" width="14" height="32" rx="2" fill="#A63D5B" opacity=".7"/>
-<rect x="44" y="16" width="14" height="32" rx="2" fill="#A63D5B" opacity=".45"/></svg><span>Marisol Aesthetics</span></span></a>
-  <p><a>(830) 802-4419</a> · Medical director on site · Nurse injectors · Pricing published in full</p>
-  <p>1000 Windmere Avenue Unit 12, Millbrook Park, NY 12988</p>
-</div></footer>
-<div class="callbar"><a class="book" href="#contact">Book now</a><a class="tel">(830) 802-4419</a></div>
-<!-- gsw:motion -->
-<style>
-  /* Motion pass. Everything here is gated on .gsw-m, which only the script
-     below adds, so a page without JavaScript never hides anything. */
-  .gsw-m [data-gsw-reveal] {
-    opacity: 0; transform: translateY(14px);
-    transition: opacity .7s cubic-bezier(.2,.6,.2,1), transform .7s cubic-bezier(.2,.6,.2,1);
-  }
-  .gsw-m [data-gsw-reveal].gsw-in { opacity: 1; transform: none; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(2) { transition-delay: .08s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(3) { transition-delay: .16s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(4) { transition-delay: .24s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(5) { transition-delay: .32s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(6) { transition-delay: .40s; }
-  @keyframes gsw-hero-in { from { opacity: 0; transform: scale(1.025); } to { opacity: 1; transform: none; } }
-  .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: gsw-hero-in 1s ease-out both; }
-  @media (prefers-reduced-motion: reduce) {
-    .gsw-m [data-gsw-reveal] { opacity: 1; transform: none; transition: none; }
-    .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: none; }
-  }
-</style>
+      <div class="side">
+        <ul class="list" aria-label="Treatments and prices">
+          <li class="head"><span class="label">Treatments &amp; prices</span></li>
+          <li class="row"><span class="name">Neurotoxin</span><span class="lead" aria-hidden="true"></span><span class="price">from $12/unit</span></li>
+          <li class="row"><span class="name">Dermal filler</span><span class="lead" aria-hidden="true"></span><span class="price">from $650/syringe</span></li>
+          <li class="row"><span class="name">Laser &amp; resurfacing</span><span class="lead" aria-hidden="true"></span><span class="price">from $300</span></li>
+          <li class="row member"><span class="name">Memberships</span><span class="lead" aria-hidden="true"></span><span class="price">from $149/mo</span></li>
+        </ul>
+        <ul class="creds tnum" aria-label="What you get">
+          <li>All pricing published</li>
+          <li>Book without an account</li>
+          <li>Licensed injectors only</li>
+          <li>Memberships from $149/mo</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<figure class="plate wrap">
+  <picture>
+    <source type="image/avif" srcset="../_assets/hero/med-spas/a-bright-and-easy-1280.avif 1280w, ../_assets/hero/med-spas/a-bright-and-easy-2560.avif 2560w" sizes="(max-width: 1120px) 100vw, 1120px">
+    <img src="../_assets/hero/med-spas/a-bright-and-easy-1280.jpg" alt="Bright and easy, med spas" width="1280" height="714" fetchpriority="high">
+  </picture>
+</figure>
+
+<section class="sec treat" id="services" aria-labelledby="services-title">
+  <div class="wrap">
+    <p class="mark"><span class="label">Services</span></p>
+    <div class="head2">
+      <h2 id="services-title">Treatments &amp; prices</h2>
+      <p class="lede">No ‘call for pricing’. You should be able to work out what your visit costs before you&nbsp;arrive.</p>
+    </div>
+    <ol>
+      <li><span class="n">01</span><div><h3>Neurotoxin from $12/unit</h3><p>Botox and Dysport for lines and prevention. Most first-time treatments land between $240 and $420 depending on areas.</p></div></li>
+      <li><span class="n">02</span><div><h3>Dermal filler from $650/syringe</h3><p>Lip, cheek and jawline. We are conservative by default and will always start with less than you asked for.</p></div></li>
+      <li><span class="n">03</span><div><h3>Laser &amp; resurfacing from $300</h3><p>Pigment, redness, texture and hair. Package pricing published, because a single session is rarely the whole answer.</p></div></li>
+      <li class="member"><span class="n">04</span><div><h3>Memberships from $149/mo</h3><p>Monthly credit that rolls over, member pricing on everything, and priority booking. Most regulars save around 20%.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec cred" id="results" aria-labelledby="cred-title">
+  <div class="wrap">
+    <p class="mark"><span class="label">Results</span></p>
+    <h2 id="cred-title">Our team holds</h2>
+    <ul>
+      <li>Registered Nurse Injectors</li>
+      <li>Medical Director on site</li>
+      <li>Allergan Partner Practice</li>
+      <li>Galderma Certified</li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec process" id="process" aria-labelledby="process-title">
+  <div class="wrap">
+    <p class="mark"><span class="label">Process</span></p>
+    <div class="head2">
+      <h2 id="process-title">Your first visit</h2>
+      <p class="lede">About ninety minutes, most of which is talking rather than&nbsp;treating.</p>
+    </div>
+    <ol>
+      <li><div><h3>Book online</h3><p>Real slots, real availability, no account required. Evenings and Saturdays included.</p></div></li>
+      <li><div><h3>Consultation</h3><p>Photographs, a conversation about what actually bothers you, and a plan. Sometimes the plan is ‘not yet’.</p></div></li>
+      <li><div><h3>Treat</h3><p>Same visit where it’s appropriate. You’ll know the exact cost before anything is drawn up.</p></div></li>
+      <li><div><h3>Two-week review</h3><p>Included, always. Neurotoxin settles over two weeks and small adjustments are free within that window.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec rooms" aria-labelledby="rooms-title">
+  <div class="wrap">
+    <p class="mark"><span class="label">Priced on the page</span></p>
+    <div class="head2">
+      <h2 id="rooms-title">What each line on the list&nbsp;buys.</h2>
+      <p class="lede">Neurotoxin, filler, laser and skincare, in the rooms and with the equipment the price refers&nbsp;to.</p>
+    </div>
+    <div class="strip">
+      <figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/marisol-aesthetics/flatlay-640.avif 640w, ../_assets/library/med-spas/marisol-aesthetics/flatlay-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/med-spas/marisol-aesthetics/flatlay-720.jpg" alt="Set up for the appointment" width="720" height="537" loading="lazy"></picture><figcaption>Set up for the appointment</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/marisol-aesthetics/laser-device-640.avif 640w, ../_assets/library/med-spas/marisol-aesthetics/laser-device-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/med-spas/marisol-aesthetics/laser-device-720.jpg" alt="Laser and resurfacing" width="720" height="537" loading="lazy"></picture><figcaption>Laser and resurfacing</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/marisol-aesthetics/skincare-shelf-640.avif 640w, ../_assets/library/med-spas/marisol-aesthetics/skincare-shelf-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/med-spas/marisol-aesthetics/skincare-shelf-720.jpg" alt="What we stock" width="720" height="537" loading="lazy"></picture><figcaption>What we stock</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/marisol-aesthetics/treatment-room-640.avif 640w, ../_assets/library/med-spas/marisol-aesthetics/treatment-room-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/med-spas/marisol-aesthetics/treatment-room-720.jpg" alt="Treatment room" width="720" height="537" loading="lazy"></picture><figcaption>Treatment room</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/marisol-aesthetics/injector-hands-640.avif 640w, ../_assets/library/med-spas/marisol-aesthetics/injector-hands-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/med-spas/marisol-aesthetics/injector-hands-720.jpg" alt="Drawn up, in front of you" width="720" height="537" loading="lazy"></picture><figcaption>Drawn up, in front of you</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/marisol-aesthetics/reception-640.avif 640w, ../_assets/library/med-spas/marisol-aesthetics/reception-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/med-spas/marisol-aesthetics/reception-720.jpg" alt="Reception" width="720" height="537" loading="lazy"></picture><figcaption>Reception</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec close" id="contact" aria-labelledby="close-title">
+  <div class="wrap">
+    <p class="mark"><span class="label" style="color: #E39A82">Contact</span></p>
+    <div class="grid">
+      <div>
+        <h2 id="close-title">Tired of ‘call for pricing’?</h2>
+        <p class="lede">Book a consultation. It’s free, there’s no obligation, and you’ll leave with a written plan and real prices whether or not you treat that&nbsp;day.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="#cb-name">Book now</a>
+          <a class="btn tel tnum" href="tel:+18308024419">(830)&nbsp;802-4419</a>
+        </div>
+        <p class="note tnum">Free consultations, every price published, and evening and Saturday appointments. Nothing costs more than the page&nbsp;says.</p>
+      </div>
+      <form class="form" id="callback" novalidate>
+        <p class="intro">Or leave your details and we’ll call you back.</p>
+        <div class="field"><label for="cb-name">Name</label><input id="cb-name" name="name" type="text" autocomplete="name" required></div>
+        <div class="field"><label for="cb-contact">Phone or email</label><input id="cb-contact" name="contact" type="text" autocomplete="tel" required></div>
+        <div class="field"><label for="cb-msg">What can we help with? (optional)</label><textarea id="cb-msg" name="message" rows="3"></textarea></div>
+        <div class="actions">
+          <button class="btn btn-primary" type="submit">Request a call back</button>
+          <p class="hint" id="cb-hint" role="alert" hidden>Add your name and a way to reach you.</p>
+        </div>
+        <p class="done" id="cb-done" role="status" hidden>Thanks. Someone will call you back within one business&nbsp;day.</p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="#"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="6" y="30" width="52" height="4" fill="#221A1D" opacity=".5"/><rect x="8" y="16" width="14" height="32" rx="2" fill="#221A1D"/><rect x="26" y="16" width="14" height="32" rx="2" fill="#221A1D" opacity=".7"/><rect x="44" y="16" width="14" height="32" rx="2" fill="#221A1D" opacity=".45"/></svg>Marisol Aesthetics</a>
+      <p style="margin-top: var(--s2)"><a href="tel:+18308024419">(830)&nbsp;802-4419</a> · Medical director on site · Nurse injectors · Pricing published in full</p>
+    </div>
+    <div>
+      <p>1000 Windmere Avenue Unit 12, Millbrook Park, NY 12988</p>
+      <p style="margin-top: var(--s1)"><a href="#contact">Book now</a> · <a href="tel:+18308024419">(830)&nbsp;802-4419</a></p>
+    </div>
+    <p class="fine">Marisol Aesthetics is a fictional business; this page is a design reference.</p>
+  </div>
+</footer>
+
+<div class="bar" aria-label="Quick actions">
+  <a class="btn btn-primary" href="#contact">Book now</a>
+  <a class="btn tnum" href="tel:+18308024419" aria-label="Call (830) 802-4419">(830)&nbsp;802-4419</a>
+</div>
+
 <script>
 (function () {
-  if (!('IntersectionObserver' in window)) return;
-  var targets = [].slice.call(document.querySelectorAll('body > section, .gsw-gal figure'));
-  // The first section is the hero; it is on screen already and owns its own entrance.
-  var first = document.querySelector('body > section');
-  targets = targets.filter(function (el) { return el !== first; });
-  if (!targets.length) return;
-  document.documentElement.classList.add('gsw-m');
-  targets.forEach(function (el) { el.setAttribute('data-gsw-reveal', ''); });
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) { e.target.classList.add('gsw-in'); io.unobserve(e.target); }
-    });
-  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-  targets.forEach(function (el) { io.observe(el); });
-})();
-</script>
-<!-- /gsw:motion -->
-
-<!-- gsw:contact-form -->
-<script>
-/* The enquiry form confirms in place. Nothing is sent: a reference build. */
-(function () {
-  var form = document.querySelector('.gsw-cf');
-  if (!form) return;
+  // Static preview: validates locally and shows the confirmation; nothing is sent.
+  var form = document.getElementById('callback');
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    var name = form.name.value.trim(), contact = form.contact.value.trim();
-    var err = form.querySelector('.gsw-cf-err');
-    if (!name || !contact) { err.hidden = false; (name ? form.contact : form.name).focus(); return; }
-    err.hidden = true;
-    form.setAttribute('data-sent', '');
-    form.querySelector('.gsw-cf-done').hidden = false;
+    var name = form.elements.name, contact = form.elements.contact, hint = document.getElementById('cb-hint');
+    var ok = true;
+    [name, contact].forEach(function (el) {
+      var bad = !el.value.trim();
+      el.closest('.field').classList.toggle('is-invalid', bad);
+      el.setAttribute('aria-invalid', bad ? 'true' : 'false');
+      if (bad) ok = false;
+    });
+    hint.hidden = ok;
+    if (!ok) { (name.value.trim() ? contact : name).focus(); return; }
+    form.classList.add('is-sent');
+    document.getElementById('cb-done').hidden = false;
   });
 })();
 </script>
-<!-- /gsw:contact-form -->
 </body>
 </html>

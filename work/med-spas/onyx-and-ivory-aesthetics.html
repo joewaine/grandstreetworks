@@ -6,142 +6,10 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Onyx &amp; Ivory Aesthetics · injectables, laser and skin</title>
 <meta name="description" content="Licensed injectors, published prices and booking without an account. Injectables, laser and medical-grade skincare.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Lato:wght@400;700&display=swap" rel="stylesheet">
-<style>
-/* D4 — THE OWNED GRID ONE. hero:split nav:bar services:tiles proof:logos
-   ink #241B17 · surface #F8F1EC · accent #7E4234 · muted #6B564C · on-accent #FFFFFF
-   H1 ramp: 33/40/50/62px · Italiana display / Lato body
-   Device: the grid the spa actually owns — a nine-square CSS lattice sitting in the hero's
-   second column where the Instagram embed usually goes, with the price list tiled beneath it.
-   Fixes "business dependent on Instagram it doesn't own": the feed lives on their own page. */
-:root{--ink:#241B17;--surface:#F8F1EC;--accent:#7E4234;--muted:#6B564C;--on-accent:#FFFFFF;
---paper:#FFF9F5;--tint:#F5E4DC;--deep:#E8D3C8;--rule:rgba(36,27,23,.22);--hair:rgba(36,27,23,.11);--wrap:1180px}
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--surface);color:var(--ink);
-font:400 17px/1.62 Lato,system-ui,-apple-system,sans-serif;padding-bottom:82px;overflow-x:hidden}
-.wrap{max-width:var(--wrap);margin:0 auto;padding:0 22px}
-h1,h2,h3{font-family:Italiana,Georgia,serif;font-weight:400;margin:0;line-height:1.1}
-a{color:inherit}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 24px;
-text-decoration:none;font-weight:700;font-size:14px;letter-spacing:.2em;text-transform:uppercase;
-border:1px solid transparent;text-align:center;line-height:1.2}
-.btn-primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
-.btn-ghost{background:transparent;color:var(--ink);border-color:var(--rule)}
-.topbar{background:var(--ink);color:#EFDED5;font-size:13.5px;letter-spacing:.12em;text-transform:uppercase}
-.topbar .wrap{padding:9px 22px}
-.nav{background:var(--tint);border-bottom:1px solid var(--rule);position:sticky;top:0;z-index:30}
-.nav .wrap{display:flex;align-items:center;gap:12px;min-height:60px}
-.brand{font-family:Italiana,Georgia,serif;font-size:18px;text-decoration:none;letter-spacing:.12em;
-text-transform:uppercase;line-height:1;flex:none}
-.navlinks{display:none;gap:26px;margin-left:auto;font-size:13px;letter-spacing:.18em;
-text-transform:uppercase;color:var(--muted)}
-.navlinks a{text-decoration:none}
-.navlinks a:hover{color:var(--accent)}
-.navbook{min-height:42px;padding:0 12px;font-size:12px;letter-spacing:.1em;margin-left:auto;
-flex:none;white-space:nowrap}
-.hero{padding:24px 0 40px}
-.split{display:grid;gap:26px}
-.eyebrow{font-size:13px;letter-spacing:.34em;text-transform:uppercase;color:var(--accent);
-margin:0 0 13px;font-weight:700}
-.hero h1{font-size:clamp(33px,9vw,62px);max-width:13ch;letter-spacing:.005em}
-.sub{font-size:16.5px;color:var(--muted);max-width:52ch;margin:15px 0 20px}
-.ctas{display:flex;flex-direction:column;gap:10px}
-.badges{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:0;border-top:1px solid var(--rule)}
-.badges li{font-size:15.5px;color:var(--muted);padding:10px 0;border-bottom:1px solid var(--hair);
-letter-spacing:.02em}
-.lattice{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
-.lattice div{aspect-ratio:1/1;background:var(--deep)}
-.lattice div:nth-child(2){background:linear-gradient(150deg,#E3C8BA,#F2E0D6)}
-.lattice div:nth-child(3){background:var(--tint)}
-.lattice div:nth-child(4){background:linear-gradient(200deg,#DBBFB0,#EEDACE)}
-.lattice div:nth-child(5){background:var(--accent)}
-.lattice div:nth-child(6){background:var(--deep)}
-.lattice div:nth-child(7){background:var(--tint)}
-.lattice div:nth-child(8){background:linear-gradient(120deg,#E6CEC2,#F4E5DC)}
-.lattice div:nth-child(9){background:#C79E8B}
-.sec{padding:52px 0;border-top:1px solid var(--hair)}
-.kicker{font-size:13px;letter-spacing:.34em;text-transform:uppercase;color:var(--accent);
-margin:0 0 12px;font-weight:700}
-.sec h2{font-size:clamp(30px,7.2vw,48px)}
-.lede{color:var(--muted);max-width:58ch;margin:12px 0 26px;font-size:17px}
-.tiles{display:grid;gap:10px}
-.tile{background:var(--tint);padding:24px 20px 26px;position:relative;min-height:190px}
-.tile:nth-child(2){background:var(--deep)}
-.tile:nth-child(3){background:var(--tint)}
-.tile h3{font-size:22px;margin-bottom:10px;line-height:1.25;letter-spacing:.01em}
-.tile p{margin:0;color:var(--muted);font-size:16px}
-.tile.member{background:var(--accent);color:#FFF3EC}
-.tile.member p{color:#F3DCD2}
-.tile.member h3{color:#FFF3EC}
-.tile .tag{position:absolute;right:16px;top:16px;font-size:13px;letter-spacing:.2em;
-text-transform:uppercase;color:var(--accent)}
-.tile.member .tag{color:#F3DCD2}
-.logos{background:var(--paper)}
-.loglabel{font-family:Italiana,Georgia,serif;font-size:clamp(26px,6.6vw,40px);margin:0 0 22px}
-.loglist{list-style:none;margin:0;padding:0;display:grid;gap:0;border-top:1px solid var(--rule)}
-.loglist li{padding:20px 0;border-bottom:1px solid var(--hair);font-size:17px;letter-spacing:.1em;
-text-transform:uppercase;color:var(--accent);font-weight:700;display:flex;align-items:center;gap:14px}
-.loglist li::before{content:"";width:26px;height:1px;background:var(--accent);flex:none}
-.steps{list-style:none;margin:24px 0 0;padding:0;counter-reset:s;display:grid;gap:0}
-.steps li{counter-increment:s;padding:22px 0;border-top:1px solid var(--hair);
-display:grid;grid-template-columns:52px 1fr;gap:14px}
-.steps li:last-child{border-bottom:1px solid var(--hair)}
-.steps li::before{content:counter(s,decimal-leading-zero);font-family:Italiana,Georgia,serif;
-font-size:26px;color:var(--accent);line-height:1.1}
-.steps h3{font-size:21px;margin-bottom:6px;line-height:1.25}
-.steps p{margin:0;color:var(--muted);font-size:16px}
-.close{background:var(--ink);color:#FBEFE9;padding:56px 0 60px}
-.close h2{font-size:clamp(31px,7.6vw,52px);max-width:14ch}
-.close p{max-width:56ch;font-size:17.5px;color:#C4AFA5;margin:16px 0 22px}
-.close .btn-primary{background:#E0A793;color:var(--ink);border-color:#E0A793}
-.close .btn-ghost{color:#FBEFE9;border-color:rgba(251,239,233,.45)}
-.note{font-size:15.5px;color:#C4AFA5;margin-top:20px;max-width:56ch}
-.foot{padding:40px 0 34px;font-size:15.5px;color:var(--muted)}
-.foot .brand{color:var(--ink);display:inline-block;margin-bottom:14px}
-.foot p{margin:0 0 10px;max-width:66ch}
-.foot a{color:var(--accent)}
-.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--tint);padding:8px;
-border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:8px}
-.callbar a{display:flex;align-items:center;justify-content:center;min-height:60px;text-decoration:none;
-font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase;text-align:center;padding:0 12px}
-.callbar .book{background:var(--accent);color:#fff}
-.callbar .tel{border:1px solid var(--rule);color:var(--ink);padding:0 16px;letter-spacing:.03em;
-text-transform:none;font-size:16px}
-@media(min-width:760px){.ctas{flex-direction:row;gap:12px}.sub{font-size:19px}
-.brand{font-size:23px;letter-spacing:.16em}.navbook{padding:0 16px;letter-spacing:.16em}
-.split{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:44px;align-items:center}
-.hero{padding:44px 0 62px}.tiles{grid-template-columns:1fr 1fr}
-.loglist{grid-template-columns:1fr 1fr;column-gap:44px}
-.steps{grid-template-columns:1fr 1fr;column-gap:46px}.sec{padding:84px 0}}
-@media(min-width:960px){.navlinks{display:flex}.navbook{margin-left:26px}}
-@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
-</style>
-
-<style>
-  /* Hero plate, added with the photography pass. Full-bleed between the hero
-     and the first content section, with no border of its own: every one of
-     these designs owns a different rule weight and ink colour, and a borrowed
-     hairline reads as a mistake in about half of them. */
-  .gsw-plate picture { display: block; width: 100%; }
-  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
-  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
-  .gsw-plate img {
-    display: block;
-    width: 100%;
-    height: clamp(220px, 40vw, 520px);
-    object-fit: cover;
-    object-position: center;
-  }
-  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
-</style>
-
 <!-- gsw:identity -->
 <link rel="icon" href="../_assets/identity/med-spas/onyx-and-ivory-aesthetics-icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../_assets/identity/med-spas/onyx-and-ivory-aesthetics-icon-180.png">
-<meta name="theme-color" content="#241B17">
+<meta name="theme-color" content="#171512">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Onyx &amp; Ivory Aesthetics">
 <meta property="og:title" content="Onyx &amp; Ivory Aesthetics · Book online in under a minute · Memberships from $149/mo">
@@ -150,268 +18,374 @@ text-transform:none;font-size:16px}
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"HealthAndBeautyBusiness","name":"Onyx & Ivory Aesthetics","description":"Book online in under a minute \u00b7 Memberships from $149/mo","telephone":"(603) 373-2263","areaServed":"Metro area","image":"https://grandstreetworks.com/work/_assets/identity/med-spas/onyx-and-ivory-aesthetics-og.png","logo":"https://grandstreetworks.com/work/_assets/identity/med-spas/onyx-and-ivory-aesthetics-mark.svg"}</script>
-
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HealthAndBeautyBusiness","name":"Onyx & Ivory Aesthetics","description":"Book online in under a minute · Memberships from $149/mo","telephone":"(603) 373-2263","areaServed":"Metro area","image":"https://grandstreetworks.com/work/_assets/identity/med-spas/onyx-and-ivory-aesthetics-og.png","logo":"https://grandstreetworks.com/work/_assets/identity/med-spas/onyx-and-ivory-aesthetics-mark.svg"}</script>
+<!-- /gsw:identity -->
+<link rel="preload" href="../_assets/fonts/libre-caslon-text-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../_assets/fonts/hanken-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-  /* Identity pass. The lockup is the mark plus the wordmark the build already
-     had; the mark is sized in em so it tracks whatever display face this build
-     sets its brand in. */
-  .gsw-lockup { display: inline-flex; align-items: center; gap: .46em; }
-  .gsw-lockup svg { height: 1.16em; width: auto; flex: none; display: block; }
-</style>
+/* D4 — THE OWNED GRID. hero:split nav:bar services:tiles proof:logos
+   onyx #171512 · ivory #F4EFE7 · brass #6F5427 · muted #5F574C · on-dark #F4EFE7
+   H1 ramp: 40/48/60/72px · Libre Caslon Text display / Hanken Grotesk body, tabular figures
+   Device: the grid the practice owns — all nine photographs hung as a strict square grid
+   with small caps captions, straight after a split hero on the arched lobby, and a brass
+   hairline mark opening every section. FIX answered first: the business dependent on
+   Instagram it doesn't own — the feed is the second screen of its own page. Prices are
+   type, not boxes; two grounds, no tints, no scrims. Seven sizes, two families, three weights. */
 
-<style>
-  /* Recent-work gallery. Everything here is drawn from the properties the build
-     already declares, so the band inherits each design's palette and heading
-     face rather than importing a seventh look. */
-  .gsw-gal { background: #F8F1EC; color: #241B17;
-             padding: clamp(38px, 6vw, 74px) 0; }
-  .gsw-gal-in { max-width: var(--wrap, 1140px); margin: 0 auto; padding: 0 20px; }
-  .gsw-gal-lab { font-size: 13px; letter-spacing: .18em; text-transform: uppercase;
-                 font-weight: 600; color: var(--accent); margin: 0 0 14px; }
-  .gsw-gal h2 { margin: 0; color: inherit; }
-  .gsw-gal-note { color: var(--muted); margin: 14px 0 30px; max-width: 58ch; }
-  .gsw-ba { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px; }
-  .gsw-gal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-  .gsw-gal figure { margin: 0; position: relative; overflow: hidden;
-                    background: var(--rule, rgba(0,0,0,.1)); }
-  .gsw-gal picture { display: block; }
-  /* height:auto matters — the width/height attributes are a presentational
-     hint, and without this the 1200px hint beats aspect-ratio. */
-  .gsw-gal img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3;
-                 object-fit: cover; transition: transform .5s ease; }
-  .gsw-gal figure:hover img { transform: scale(1.035); }
-  .gsw-gal figcaption { position: absolute; left: 0; bottom: 0;
-                        background: #241B17; color: #F8F1EC;
-                        font-size: 12px; font-weight: 600; letter-spacing: .14em;
-                        text-transform: uppercase; padding: 7px 12px; }
-  @media (max-width: 720px) {
-    .gsw-ba, .gsw-gal-grid { grid-template-columns: 1fr; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .gsw-gal img { transition: none; }
-    .gsw-gal figure:hover img { transform: none; }
-  }
-</style>
+@font-face { font-family: "Libre Caslon Text"; src: url("../_assets/fonts/libre-caslon-text-400.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Libre Caslon Text"; src: url("../_assets/fonts/libre-caslon-text-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Hanken Grotesk"; src: url("../_assets/fonts/hanken-grotesk-var.woff2") format("woff2"); font-weight: 300 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "Hanken Grotesk"; src: url("../_assets/fonts/hanken-grotesk-italic-var.woff2") format("woff2"); font-weight: 300 800; font-style: italic; font-display: swap; }
+@font-face { font-family: "Caslon Fallback"; src: local("Georgia"); size-adjust: 98%; ascent-override: 90%; descent-override: 24%; }
+@font-face { font-family: "Hanken Fallback"; src: local("Arial"); size-adjust: 97%; ascent-override: 92%; descent-override: 22%; }
 
+:root {
+  --onyx: #171512; --onyx-2: #221F1A; --ivory: #F4EFE7; --ivory-2: #EAE3D8;
+  --brass: #6F5427; --brass-hover: #57411D; --brass-l: #B08D57;
+  --mute-i: #5F574C; --mute-o: #A9A196; --line-i: #D6CDBF; --line-o: #3A342D;
+  --serif: "Libre Caslon Text", "Caslon Fallback", Georgia, serif;
+  --sans: "Hanken Grotesk", "Hanken Fallback", Arial, sans-serif;
+  --t-label: 0.8125rem; --t-small: 0.9375rem; --t-body: 1.0625rem;
+  --t-lede: clamp(1.125rem, 1rem + 0.5vw, 1.3125rem);
+  --t-h3: clamp(1.375rem, 1.1rem + 1.1vw, 1.75rem);
+  --t-h2: clamp(1.875rem, 1.3rem + 2.3vw, 2.75rem);
+  --t-display: clamp(2.5rem, 1.4rem + 4.6vw, 4.5rem);
+  --s1: 9px; --s2: 18px; --s3: 27px; --s4: 36px; --s6: 54px; --s8: 72px; --s12: 108px; --s16: 144px;
+  --wrap: 1180px; --gutter: clamp(20px, 4vw, 48px); --bar-h: 64px;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body { margin: 0; background: var(--ivory); color: var(--onyx); font: 400 var(--t-body)/1.6 var(--sans); overflow-x: hidden; padding-bottom: var(--bar-h); }
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; margin: 0; text-wrap: balance; }
+p { margin: 0; text-wrap: pretty; }
+a { color: inherit; }
+img { display: block; max-width: 100%; height: auto; }
+ul, ol { list-style: none; margin: 0; padding: 0; }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+.label { font-size: var(--t-label); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; line-height: 1.3; }
+.lede { font-size: var(--t-lede); line-height: 1.45; max-width: 56ch; }
+.muted { color: var(--mute-i); }
+.on-onyx { background: var(--onyx); color: var(--ivory); }
+.on-onyx .muted { color: var(--mute-o); }
+:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
+.on-onyx :focus-visible { outline-color: var(--brass-l); }
+.skip { position: absolute; left: -999px; top: 0; background: var(--onyx); color: var(--ivory); padding: var(--s1) var(--s2); z-index: 100; }
+.skip:focus { left: var(--s2); top: var(--s2); }
 
+/* ---------- Buttons ---------- */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5em; min-height: 52px; padding: 0.7em 1.4em; border: 1px solid transparent; font: 500 var(--t-body)/1.2 var(--sans); text-decoration: none; cursor: pointer; transition: background-color 160ms, border-color 160ms, color 160ms; }
+.btn-primary { background: var(--brass); color: var(--ivory); border-color: var(--brass); }
+.btn-primary:hover { background: var(--brass-hover); border-color: var(--brass-hover); }
+.btn-ghost { background: transparent; color: var(--onyx); border-color: var(--onyx); }
+.btn-ghost:hover { background: var(--onyx); color: var(--ivory); }
+.on-onyx .btn-ghost { color: var(--ivory); border-color: rgba(244, 239, 231, 0.45); }
+.on-onyx .btn-ghost:hover { background: transparent; border-color: var(--ivory); color: var(--ivory); }
 
-<style>
-  /* gsw:backdrop:services — the section opens on the work. The scrim is this build's own
-     ink, heavy where the copy sits and thinning away from it, so the text
-     never depends on what the photograph happens to be doing. */
-  .gsw-imaged { position: relative; isolation: isolate; overflow: hidden; }
-  .gsw-imaged > *:not(.gsw-backdrop) { position: relative; z-index: 1; }
-  .gsw-backdrop { position: absolute; inset: 0; z-index: 0; }
-  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
-  .gsw-imaged--services .gsw-backdrop img { width: 100%; height: 100%; object-fit: cover;
-                       object-position: center; }
-  .gsw-imaged--services .gsw-backdrop::after { content: ""; position: absolute; inset: 0;
-                          background: rgb(248 241 236 / 0.8); }
-  /* Below the breakpoint the copy spans the full width, so the scrim goes flat. */
-  @media (max-width: 760px) {
-    .gsw-imaged--services .gsw-backdrop::after { background: rgb(248 241 236 / 0.95); }
-  }
-</style>
+/* ---------- Top line + masthead ---------- */
+.topline { border-bottom: 1px solid var(--line-i); }
+.topline .wrap { padding-top: 10px; padding-bottom: 10px; font-size: var(--t-label); letter-spacing: 0.06em; color: var(--mute-i); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: var(--s3); padding-top: var(--s2); padding-bottom: var(--s2); border-bottom: 1px solid var(--line-i); }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font: 400 var(--t-lede)/1 var(--serif); }
+.brand img { width: 28px; height: 28px; }
+.nav { display: flex; gap: var(--s3); font-size: var(--t-small); }
+.nav a { text-decoration: none; padding: 6px 0; border-bottom: 1px solid transparent; transition: border-color 160ms; }
+.nav a:hover { border-bottom-color: var(--brass); }
+.top .btn { min-height: 44px; padding: 0.5em 1.1em; font-size: var(--t-small); }
 
-<style>
-  /* gsw-cellfill: photographs in the hero's index cells. The cell keeps its own
-     border, ratio and number; the image sits behind them and the design's
-     gradient stays as the loading colour. */
-  .gsw-cellfill { position: absolute; inset: 0; display: block; }
-  /* The overlay needs a positioned parent; several of these cells have none. */
-  .gsw-cellfill-host { position: relative; overflow: hidden; }
-  /* A covered device keeps its frame but not its drawing: the shapes were
-     absolutely positioned siblings and painted over the photograph. */
-  .gsw-cellfill-cover > *:not(.gsw-cellfill) { display: none; }
-  /* Slideshow: the plates stack, the register switches them. Without
-     JavaScript the first plate is simply the one that shows. */
-  .gsw-cellfill-slide { position: absolute; inset: 0; opacity: 0; transition: opacity .45s ease; }
-  .gsw-cellfill-slide:first-of-type { opacity: 1; }
-  .gsw-cellfill-slide[data-on] { opacity: 1; }
-  .gsw-cellfill-live .gsw-cellfill-slide:first-of-type:not([data-on]) { opacity: 0; }
-  .gsw-cellfill-reg button { font: inherit; color: inherit; background: none; border: 0;
-                          padding: 0; cursor: pointer; opacity: .45;
-                          transition: opacity .2s ease; }
-  .gsw-cellfill-reg button[aria-current="true"] { opacity: 1; }
-  .gsw-cellfill-reg button:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
-  @media (prefers-reduced-motion: reduce) {
-    .gsw-cellfill-slide { transition: none; }
-  }
-  /* <picture> is inline by default, so the image inside it collapses. */
-  .gsw-cellfill picture { display: block; width: 100%; height: 100%; }
-  .gsw-cellfill img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .gsw-sr { position: absolute; width: 1px; height: 1px; overflow: hidden;
-             clip-path: inset(50%); white-space: nowrap; }
-</style>
+/* ---------- Hero ---------- */
+.hero { padding: var(--s8) 0 var(--s12); }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: var(--s8); align-items: center; }
+.hero .label { color: var(--brass); margin-bottom: var(--s3); }
+.hero h1 { font-size: var(--t-display); line-height: 1.04; letter-spacing: -0.01em; max-width: 13ch; }
+.hero .lede { margin-top: var(--s3); color: var(--mute-i); }
+.hero .cta { display: flex; flex-wrap: wrap; gap: var(--s2); margin-top: var(--s4); }
+.badges { margin-top: var(--s4); border-top: 1px solid var(--line-i); }
+.badges li { padding: 12px 0; border-bottom: 1px solid var(--line-i); font-size: var(--t-small); display: flex; gap: var(--s2); align-items: baseline; }
+.badges li::before { content: ""; width: 14px; height: 1px; background: var(--brass); flex: none; position: relative; top: -0.3em; }
+.plate { margin: 0; }
+.plate img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: var(--ivory-2); }
+.plate figcaption { display: flex; justify-content: space-between; gap: var(--s2); padding-top: var(--s1); margin-top: var(--s1); border-top: 1px solid var(--line-i); font-size: var(--t-label); letter-spacing: 0.1em; text-transform: uppercase; color: var(--mute-i); }
 
-<style>
-  /* gsw:contact-form — the closing section takes a name. Borrows the section's
-     colour through currentColor and the build's own .btn for the button. */
-  .gsw-cf { max-width: 640px; margin: 28px 0 0; text-align: left; }
-  .gsw-cf--centred { margin-left: auto; margin-right: auto; }
-  .gsw-cf-lead { margin: 0 0 12px; font-size: 15px; opacity: .85; }
-  .gsw-cf-grid { display: grid; gap: 10px; }
-  .gsw-cf label { display: flex; flex-direction: column; gap: 5px; font-size: 11px;
-                  font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
-  .gsw-cf label em { font-style: normal; font-weight: 400; text-transform: none; letter-spacing: 0; opacity: .7; }
-  .gsw-cf input, .gsw-cf textarea { font: inherit; font-size: 16px; color: inherit; background: transparent;
-                                    border: 1.5px solid currentColor; border-radius: 0; padding: 10px 12px; width: 100%;
-                                    box-sizing: border-box; letter-spacing: 0; text-transform: none; font-weight: 400; }
-  .gsw-cf input:focus, .gsw-cf textarea:focus { outline: 2px solid currentColor; outline-offset: 2px; }
-  .gsw-cf textarea { resize: vertical; min-height: 84px; }
-  .gsw-cf-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 14px; }
-  .gsw-cf button.btn { font: inherit; cursor: pointer; appearance: none; }
-  .gsw-cf-err { font-size: 14px; font-weight: 600; }
-  .gsw-cf-done { margin: 0; font-size: 17px; font-weight: 600; }
-  .gsw-cf[data-sent] .gsw-cf-lead, .gsw-cf[data-sent] .gsw-cf-grid, .gsw-cf[data-sent] .gsw-cf-row { display: none; }
-  @media (min-width: 640px) {
-    .gsw-cf-grid { grid-template-columns: 1fr 1fr; }
-    .gsw-cf-wide { grid-column: 1 / -1; }
-  }
+/* ---------- Section marks ---------- */
+.sec { padding: var(--s12) 0; }
+.mark { display: flex; align-items: center; gap: var(--s2); margin-bottom: var(--s6); }
+.mark::before { content: ""; width: 36px; height: 1px; background: var(--brass); }
+.mark .label { color: var(--brass); }
+.on-onyx .mark::before { background: var(--brass-l); }
+.on-onyx .mark .label { color: var(--brass-l); }
+h2 { font-size: var(--t-h2); line-height: 1.1; letter-spacing: -0.005em; max-width: 20ch; }
+h3 { font-size: var(--t-h3); line-height: 1.2; }
+.head { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--s3) var(--s8); align-items: end; margin-bottom: var(--s8); }
+.head .lede { margin-bottom: 0.25em; }
+
+/* ---------- The owned grid ---------- */
+.grid-sec { padding-top: 0; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s2); }
+.grid figure { margin: 0; }
+.grid img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; background: var(--ivory-2); }
+.grid figcaption { padding-top: var(--s1); margin-top: var(--s1); border-top: 1px solid var(--line-i); font-size: var(--t-label); letter-spacing: 0.1em; text-transform: uppercase; color: var(--mute-i); display: flex; justify-content: space-between; gap: var(--s2); }
+.grid figcaption .n { color: var(--brass); font-variant-numeric: tabular-nums; }
+
+/* ---------- Treatments & prices ---------- */
+.price ol { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s6) var(--s8); }
+.price li { display: grid; grid-template-columns: 3ch 1fr; gap: var(--s2); padding-top: var(--s3); border-top: 1px solid var(--line-i); }
+.price .n { font-size: var(--t-small); font-weight: 500; letter-spacing: 0.08em; color: var(--brass); font-variant-numeric: tabular-nums; padding-top: 0.35em; }
+.price h3 { margin-bottom: var(--s1); }
+.price p { max-width: 44ch; color: var(--mute-i); }
+
+/* ---------- Team holds ---------- */
+.holds { padding-top: 0; }
+.holds ul { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s2); }
+.holds li { padding-top: var(--s2); border-top: 1px solid var(--line-i); font-size: var(--t-small); font-weight: 500; }
+.holds .mark { margin-bottom: var(--s4); }
+
+/* ---------- Process ---------- */
+.process { background: var(--ivory-2); }
+.process ol { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s4); }
+.process li { padding-top: var(--s3); border-top: 1px solid var(--line-i); }
+.process .n { display: block; font-family: var(--serif); font-size: var(--t-h3); color: var(--brass); margin-bottom: var(--s2); line-height: 1; font-variant-numeric: tabular-nums; }
+.process h3 { margin-bottom: var(--s1); }
+.process p { color: var(--mute-i); max-width: 34ch; }
+
+/* ---------- Closing ---------- */
+.close .grid2 { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--s8); align-items: start; }
+.close h2 { font-size: var(--t-display); line-height: 1.04; letter-spacing: -0.01em; max-width: 15ch; }
+.close .lede { margin-top: var(--s3); color: var(--mute-o); }
+.close .cta { display: flex; flex-wrap: wrap; gap: var(--s2); margin-top: var(--s4); }
+.close .note { margin-top: var(--s4); font-size: var(--t-small); color: var(--mute-o); max-width: 48ch; }
+.form { border-top: 1px solid var(--line-o); padding-top: var(--s3); }
+.form .intro { margin-bottom: var(--s3); }
+.field { display: grid; gap: 6px; margin-bottom: var(--s2); }
+.field label { font-size: var(--t-label); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mute-o); }
+.field input, .field textarea { width: 100%; font: 400 var(--t-body)/1.4 var(--sans); color: var(--ivory); background: rgba(244, 239, 231, 0.05); border: 1px solid var(--line-o); padding: 12px 14px; transition: border-color 160ms; }
+.field input:hover, .field textarea:hover { border-color: var(--mute-o); }
+.field input:focus, .field textarea:focus { outline: none; border-color: var(--brass-l); }
+.field.is-invalid input { border-color: var(--brass-l); }
+.form .actions { display: flex; align-items: center; gap: var(--s2); flex-wrap: wrap; margin-top: var(--s3); }
+.form .hint { font-size: var(--t-small); color: var(--brass-l); }
+.form .hint[hidden], .form .done[hidden] { display: none; }
+.form .done { font-family: var(--serif); font-style: italic; font-size: var(--t-lede); padding: var(--s3) 0; }
+.form.is-sent .field, .form.is-sent .actions { display: none; }
+
+/* ---------- Footer ---------- */
+.foot { border-top: 1px solid var(--line-o); padding: var(--s6) 0; font-size: var(--t-small); }
+.foot .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s3) var(--s8); align-items: start; }
+.foot p { color: var(--mute-o); max-width: 50ch; }
+.foot a { text-decoration-color: var(--brass-l); }
+.foot .fine { grid-column: 1 / -1; padding-top: var(--s3); border-top: 1px solid var(--line-o); font-size: var(--t-label); letter-spacing: 0.02em; }
+
+/* ---------- Mobile bar ---------- */
+.bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line-o); border-top: 1px solid var(--line-o); }
+.bar .btn { min-height: var(--bar-h); border: 0; white-space: nowrap; }
+.bar .btn-ghost { background: var(--onyx); color: var(--ivory); }
+
+/* ---------- Responsive ---------- */
+@media (min-width: 1000px) { body { padding-bottom: 0; } .bar { display: none; } }
+@media (max-width: 999px) {
+  .head { grid-template-columns: 1fr; }
+  .hero .wrap { grid-template-columns: 1fr; gap: var(--s6); }
+  .process ol { grid-template-columns: 1fr 1fr; }
+  .holds ul { grid-template-columns: 1fr 1fr; }
+  .close .grid2 { grid-template-columns: 1fr; }
+}
+@media (max-width: 759px) {
+  .nav, .top .btn, .topline { display: none; }
+  .sec { padding: var(--s8) 0; }
+  .hero { padding: var(--s6) 0 var(--s8); }
+  .hero h1 { max-width: 12ch; }
+  .hero .cta .btn { width: 100%; }
+  .close h2 { font-size: var(--t-h2); }
+  .grid { grid-template-columns: 1fr 1fr; gap: var(--s2); }
+  .price ol, .process ol { grid-template-columns: 1fr; }
+  .foot .wrap { grid-template-columns: 1fr; }
+}
+@media (max-width: 359px) { .grid { grid-template-columns: 1fr; } }
+.tnum, .tnum * { font-variant-numeric: tabular-nums; }
+.btn.tnum, .btn.tnum b, .price h3.tnum, .close .tel.tnum { font-variant-numeric: tabular-nums; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+@media (forced-colors: active) { .btn { border: 1px solid ButtonText; } }
+@media print { .bar { display: none; } }
 </style>
 </head>
 <body>
-<div class="topbar"><div class="wrap">Book online in under a minute · Memberships from $149/mo</div></div>
-<header class="nav"><div class="wrap">
-  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="8" y="8" width="14" height="14" fill="#7E4234"/><rect x="25" y="8" width="14" height="14" fill="#241B17" opacity=".6"/><rect x="42" y="8" width="14" height="14" fill="#7E4234"/>
-<rect x="8" y="25" width="14" height="14" fill="#241B17" opacity=".6"/><rect x="25" y="25" width="14" height="14" fill="#7E4234"/><rect x="42" y="25" width="14" height="14" fill="#241B17" opacity=".6"/>
-<rect x="8" y="42" width="14" height="14" fill="#7E4234"/><rect x="25" y="42" width="14" height="14" fill="#241B17" opacity=".6"/><rect x="42" y="42" width="14" height="14" fill="#7E4234"/></svg><span>Onyx &amp; Ivory Aesthetics</span></span></a>
-  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
-  <a class="btn btn-primary navbook" href="#contact">Book now</a>
-</div></header>
-<section class="hero"><div class="wrap"><div class="split">
-  <div>
-    <p class="eyebrow">Injectables · Laser · Skin</p>
-    <h1>Under-treated on purpose. You can always add more.</h1>
-    <p class="sub">Botox, filler, laser and medical-grade skincare from licensed injectors. We start below what you asked for and top up at the two-week review, because the correction for too little is easy and the correction for too much is time.</p>
-    <div class="ctas">
-      <a class="btn btn-primary" data-cta="primary" href="#contact">Book now</a>
-      <a class="btn btn-ghost" href="#services">See pricing</a>
-    </div>
-    <ul class="badges"><li>All pricing published</li><li>Book without an account</li><li>Licensed injectors only</li><li>Memberships from $149/mo</li></ul>
-  </div>
-  <div class="lattice" aria-hidden="true"><div class="gsw-cellfill-host"></div><div class="gsw-cellfill-host"><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/med-spas/onyx-and-ivory-aesthetics/treatment-room-640.avif 640w, ../_assets/library/med-spas/onyx-and-ivory-aesthetics/treatment-room-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/med-spas/onyx-and-ivory-aesthetics/treatment-room-720.jpg" alt="A treatment room" loading="lazy" decoding="async"></picture></span></div><div class="gsw-cellfill-host"></div><div class="gsw-cellfill-host"></div><div class="gsw-cellfill-host"><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/med-spas/onyx-and-ivory-aesthetics/bright-room-640.avif 640w, ../_assets/library/med-spas/onyx-and-ivory-aesthetics/bright-room-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/med-spas/onyx-and-ivory-aesthetics/bright-room-720.jpg" alt="The front room" loading="lazy" decoding="async"></picture></span></div><div class="gsw-cellfill-host"></div><div class="gsw-cellfill-host"></div><div class="gsw-cellfill-host"><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/med-spas/onyx-and-ivory-aesthetics/flatlay-640.avif 640w, ../_assets/library/med-spas/onyx-and-ivory-aesthetics/flatlay-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/med-spas/onyx-and-ivory-aesthetics/flatlay-720.jpg" alt="Set out for the appointment" loading="lazy" decoding="async"></picture></span></div><div class="gsw-cellfill-host"></div></div>
-</div></div></section>
+<a class="skip" href="#main">Skip to content</a>
 
-<section class="gsw-imaged gsw-imaged--services sec" id="services"><!-- gsw:backdrop:services --><div class="gsw-backdrop" aria-hidden="true"><picture><source type="image/avif" srcset="../_assets/hero/med-spas/d-light-on-water-1280.avif 1280w, ../_assets/hero/med-spas/d-light-on-water-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/med-spas/d-light-on-water-1280.jpg" width="2560" height="1429" alt="" loading="lazy" decoding="async"></picture></div><!-- /gsw:backdrop:services --><div class="wrap">
-  <p class="kicker">Services</p><h2>Treatments &amp; prices</h2>
-  <p class="lede">No 'call for pricing'. You should be able to work out what your visit costs before you arrive.</p>
-  <div class="tiles">
-    <article class="tile"><span class="tag" aria-hidden="true">01</span><h3>Neurotoxin from $12/unit</h3><p>Botox and Dysport for lines and prevention. Most first-time treatments land between $240 and $420 depending on areas.</p></article>
-    <article class="tile"><span class="tag" aria-hidden="true">02</span><h3>Dermal filler from $650/syringe</h3><p>Lip, cheek and jawline. We are conservative by default and will always start with less than you asked for.</p></article>
-    <article class="tile"><span class="tag" aria-hidden="true">03</span><h3>Laser &amp; resurfacing from $300</h3><p>Pigment, redness, texture and hair. Package pricing published, because a single session is rarely the whole answer.</p></article>
-    <article class="tile member"><span class="tag" aria-hidden="true">04</span><h3>Memberships from $149/mo</h3><p>Monthly credit that rolls over, member pricing on everything, and priority booking. Most regulars save around 20%.</p></article>
-  </div>
-</div></section>
-<section class="sec logos" id="results"><div class="wrap">
-  <p class="kicker">Results</p>
-  <h2 class="loglabel">Our team holds</h2>
-  <ul class="loglist"><li>Registered Nurse Injectors</li><li>Medical Director on site</li><li>Allergan Partner Practice</li><li>Galderma Certified</li></ul>
-</div></section>
-<section class="sec" id="process"><div class="wrap">
-  <p class="kicker">Process</p><h2>Your first visit</h2>
-  <p class="lede">About ninety minutes, most of which is talking rather than treating.</p>
-  <ol class="steps">
-    <li><div><h3>Book online</h3><p>Real slots, real availability, no account required. Evenings and Saturdays included.</p></div></li>
-    <li><div><h3>Consultation</h3><p>Photographs, a conversation about what actually bothers you, and a plan. Sometimes the plan is 'not yet'.</p></div></li>
-    <li><div><h3>Treat</h3><p>Same visit where it's appropriate. You'll know the exact cost before anything is drawn up.</p></div></li>
-    <li><div><h3>Two-week review</h3><p>Included, always. Neurotoxin settles over two weeks and small adjustments are free within that window.</p></div></li>
-  </ol>
-</div></section>
-<!-- gsw:gallery -->
-<section class="gsw-gal"><div class="gsw-gal-in"><p class="gsw-gal-lab">The owned grid</p><h2>Our feed, on our page.</h2><p class="gsw-gal-note">The photographs that would otherwise live on someone else&#x27;s platform. The same rooms, the same light, no algorithm.</p><div class="gsw-gal-grid"><figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/onyx-and-ivory-aesthetics/evening-window-640.avif 640w, ../_assets/library/med-spas/onyx-and-ivory-aesthetics/evening-window-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/med-spas/onyx-and-ivory-aesthetics/evening-window-720.jpg" width="1600" height="1200" alt="Evening appointments" loading="lazy" decoding="async"></picture><figcaption>Evening appointments</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/onyx-and-ivory-aesthetics/treatment-room-640.avif 640w, ../_assets/library/med-spas/onyx-and-ivory-aesthetics/treatment-room-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/med-spas/onyx-and-ivory-aesthetics/treatment-room-720.jpg" width="1600" height="1200" alt="Treatment room" loading="lazy" decoding="async"></picture><figcaption>Treatment room</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/onyx-and-ivory-aesthetics/flatlay-640.avif 640w, ../_assets/library/med-spas/onyx-and-ivory-aesthetics/flatlay-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/med-spas/onyx-and-ivory-aesthetics/flatlay-720.jpg" width="1600" height="1200" alt="Set up for the appointment" loading="lazy" decoding="async"></picture><figcaption>Set up for the appointment</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/onyx-and-ivory-aesthetics/towel-detail-640.avif 640w, ../_assets/library/med-spas/onyx-and-ivory-aesthetics/towel-detail-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/med-spas/onyx-and-ivory-aesthetics/towel-detail-720.jpg" width="1600" height="1200" alt="Ready" loading="lazy" decoding="async"></picture><figcaption>Ready</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/onyx-and-ivory-aesthetics/lounge-640.avif 640w, ../_assets/library/med-spas/onyx-and-ivory-aesthetics/lounge-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/med-spas/onyx-and-ivory-aesthetics/lounge-720.jpg" width="1600" height="1200" alt="The lounge" loading="lazy" decoding="async"></picture><figcaption>The lounge</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/onyx-and-ivory-aesthetics/injector-hands-640.avif 640w, ../_assets/library/med-spas/onyx-and-ivory-aesthetics/injector-hands-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/med-spas/onyx-and-ivory-aesthetics/injector-hands-720.jpg" width="1600" height="1200" alt="Drawn up, in front of you" loading="lazy" decoding="async"></picture><figcaption>Drawn up, in front of you</figcaption></figure></div></div></section>
-<!-- /gsw:gallery -->
-<section class="close" id="contact"><div class="wrap">
-  <h2>Been over-filled somewhere before?</h2>
-  <p>Book a consultation. It's free, there's no obligation, and you'll leave with a written plan and real prices whether or not you treat that day.</p>
-  <div class="ctas">
+<div class="topline tnum"><div class="wrap">Book online in under a minute · Memberships from $149/mo</div></div>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#"><img src="../_assets/identity/med-spas/onyx-and-ivory-aesthetics-mark.svg" alt="" width="28" height="28">Onyx &amp; Ivory Aesthetics</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#services">Services</a>
+      <a href="#results">Results</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </nav>
     <a class="btn btn-primary" href="#contact">Book now</a>
-    <a class="btn btn-ghost">(603) 373-2263</a>
   </div>
-  <!-- gsw:contact-form -->
-    <form class="gsw-cf" novalidate>
-      <p class="gsw-cf-lead">Or leave your details and we'll call you back.</p>
-      <div class="gsw-cf-grid">
-        <label><span>Name</span><input type="text" name="name" autocomplete="name" required></label>
-        <label><span>Phone or email</span><input type="text" name="contact" autocomplete="tel" required></label>
-        <label class="gsw-cf-wide"><span>What can we help with? <em>(optional)</em></span><textarea name="message" rows="3"></textarea></label>
-      </div>
-      <div class="gsw-cf-row">
-        <button type="submit" class="btn btn-primary">Request a call back</button>
-        <span class="gsw-cf-err" role="alert" hidden>Add your name and a way to reach you.</span>
-      </div>
-      <p class="gsw-cf-done" role="status" hidden>Thanks. Someone will call you back within one business day.</p>
-    </form>
-    <!-- /gsw:contact-form -->
-    <p class="note">Free consultations, published pricing, and a two-week review included on every treatment. We will say no when the answer is no.</p>
-</div></section>
-<footer class="foot"><div class="wrap">
-  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="8" y="8" width="14" height="14" fill="#7E4234"/><rect x="25" y="8" width="14" height="14" fill="#241B17" opacity=".6"/><rect x="42" y="8" width="14" height="14" fill="#7E4234"/>
-<rect x="8" y="25" width="14" height="14" fill="#241B17" opacity=".6"/><rect x="25" y="25" width="14" height="14" fill="#7E4234"/><rect x="42" y="25" width="14" height="14" fill="#241B17" opacity=".6"/>
-<rect x="8" y="42" width="14" height="14" fill="#7E4234"/><rect x="25" y="42" width="14" height="14" fill="#241B17" opacity=".6"/><rect x="42" y="42" width="14" height="14" fill="#7E4234"/></svg><span>Onyx &amp; Ivory Aesthetics</span></span></a>
-  <p><a>(603) 373-2263</a> · Medical director on site · Licensed injectors · Conservative by default</p>
-  <p>728 Trellis Court Floor 2, Northfields, CT 15386</p>
-</div></footer>
-<div class="callbar"><a class="book" href="#contact">Book now</a><a class="tel">(603) 373-2263</a></div>
-<!-- gsw:motion -->
-<style>
-  /* Motion pass. Everything here is gated on .gsw-m, which only the script
-     below adds, so a page without JavaScript never hides anything. */
-  .gsw-m [data-gsw-reveal] {
-    opacity: 0; transform: translateY(14px);
-    transition: opacity .7s cubic-bezier(.2,.6,.2,1), transform .7s cubic-bezier(.2,.6,.2,1);
-  }
-  .gsw-m [data-gsw-reveal].gsw-in { opacity: 1; transform: none; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(2) { transition-delay: .08s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(3) { transition-delay: .16s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(4) { transition-delay: .24s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(5) { transition-delay: .32s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(6) { transition-delay: .40s; }
-  @keyframes gsw-hero-in { from { opacity: 0; transform: scale(1.025); } to { opacity: 1; transform: none; } }
-  .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: gsw-hero-in 1s ease-out both; }
-  @media (prefers-reduced-motion: reduce) {
-    .gsw-m [data-gsw-reveal] { opacity: 1; transform: none; transition: none; }
-    .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: none; }
-  }
-</style>
-<script>
-(function () {
-  if (!('IntersectionObserver' in window)) return;
-  var targets = [].slice.call(document.querySelectorAll('body > section, .gsw-gal figure'));
-  // The first section is the hero; it is on screen already and owns its own entrance.
-  var first = document.querySelector('body > section');
-  targets = targets.filter(function (el) { return el !== first; });
-  if (!targets.length) return;
-  document.documentElement.classList.add('gsw-m');
-  targets.forEach(function (el) { el.setAttribute('data-gsw-reveal', ''); });
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) { e.target.classList.add('gsw-in'); io.unobserve(e.target); }
-    });
-  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-  targets.forEach(function (el) { io.observe(el); });
-})();
-</script>
-<!-- /gsw:motion -->
+</header>
 
-<!-- gsw:contact-form -->
+<main id="main">
+<section class="hero" aria-labelledby="promise">
+  <div class="wrap">
+    <div>
+      <p class="label">Injectables · Laser · Skin</p>
+      <h1 id="promise">Under-treated on purpose. You can always add&nbsp;more.</h1>
+      <p class="lede">Botox, filler, laser and medical-grade skincare from licensed injectors. We start below what you asked for and top up at the two-week review, because the correction for too little is easy and the correction for too much is&nbsp;time.</p>
+      <div class="cta">
+        <a class="btn btn-primary" data-cta="primary" href="#contact">Book now</a>
+        <a class="btn btn-ghost" href="#services">See pricing</a>
+      </div>
+      <ul class="badges" aria-label="What you get">
+        <li>All pricing published</li>
+        <li>Book without an account</li>
+        <li>Licensed injectors only</li>
+        <li class="tnum">Memberships from $149/mo</li>
+      </ul>
+    </div>
+    <figure class="plate">
+      <picture>
+        <source type="image/avif" srcset="../_assets/library/med-spas/onyx-and-ivory-aesthetics/the-whole-space-1280.avif 1280w, ../_assets/library/med-spas/onyx-and-ivory-aesthetics/the-whole-space-640.avif 640w" sizes="(max-width: 999px) 100vw, 50vw">
+        <img src="../_assets/library/med-spas/onyx-and-ivory-aesthetics/the-whole-space-720.jpg" alt="The front room" width="720" height="402" fetchpriority="high">
+      </picture>
+      <figcaption><span>The front room</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="sec grid-sec" aria-labelledby="grid-title">
+  <div class="wrap">
+    <p class="mark"><span class="label">The owned grid</span></p>
+    <div class="head">
+      <h2 id="grid-title">Our feed, on our&nbsp;page.</h2>
+      <p class="lede muted">The photographs that would otherwise live on someone else’s platform. The same rooms, the same light, no&nbsp;algorithm.</p>
+    </div>
+    <div class="grid">
+      <figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/onyx-and-ivory-aesthetics/evening-window-1280.avif 1280w, ../_assets/library/med-spas/onyx-and-ivory-aesthetics/evening-window-640.avif 640w" sizes="(max-width: 759px) 50vw, 33vw"><img src="../_assets/library/med-spas/onyx-and-ivory-aesthetics/evening-window-720.jpg" alt="Evening appointments" width="720" height="524" loading="lazy"></picture><figcaption><span>Evening appointments</span><span class="n">01</span></figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/onyx-and-ivory-aesthetics/treatment-room-1280.avif 1280w, ../_assets/library/med-spas/onyx-and-ivory-aesthetics/treatment-room-640.avif 640w" sizes="(max-width: 759px) 50vw, 33vw"><img src="../_assets/library/med-spas/onyx-and-ivory-aesthetics/treatment-room-720.jpg" alt="Treatment room" width="720" height="537" loading="lazy"></picture><figcaption><span>Treatment room</span><span class="n">02</span></figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/onyx-and-ivory-aesthetics/flatlay-1280.avif 1280w, ../_assets/library/med-spas/onyx-and-ivory-aesthetics/flatlay-640.avif 640w" sizes="(max-width: 759px) 50vw, 33vw"><img src="../_assets/library/med-spas/onyx-and-ivory-aesthetics/flatlay-720.jpg" alt="Set up for the appointment" width="720" height="537" loading="lazy"></picture><figcaption><span>Set up for the appointment</span><span class="n">03</span></figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/onyx-and-ivory-aesthetics/towel-detail-1280.avif 1280w, ../_assets/library/med-spas/onyx-and-ivory-aesthetics/towel-detail-640.avif 640w" sizes="(max-width: 759px) 50vw, 33vw"><img src="../_assets/library/med-spas/onyx-and-ivory-aesthetics/towel-detail-720.jpg" alt="Ready" width="720" height="537" loading="lazy"></picture><figcaption><span>Ready</span><span class="n">04</span></figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/onyx-and-ivory-aesthetics/lounge-1280.avif 1280w, ../_assets/library/med-spas/onyx-and-ivory-aesthetics/lounge-640.avif 640w" sizes="(max-width: 759px) 50vw, 33vw"><img src="../_assets/library/med-spas/onyx-and-ivory-aesthetics/lounge-720.jpg" alt="The lounge" width="720" height="537" loading="lazy"></picture><figcaption><span>The lounge</span><span class="n">05</span></figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/onyx-and-ivory-aesthetics/injector-hands-1280.avif 1280w, ../_assets/library/med-spas/onyx-and-ivory-aesthetics/injector-hands-640.avif 640w" sizes="(max-width: 759px) 50vw, 33vw"><img src="../_assets/library/med-spas/onyx-and-ivory-aesthetics/injector-hands-720.jpg" alt="Drawn up, in front of you" width="720" height="537" loading="lazy"></picture><figcaption><span>Drawn up, in front of you</span><span class="n">06</span></figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/onyx-and-ivory-aesthetics/bright-room-1280.avif 1280w, ../_assets/library/med-spas/onyx-and-ivory-aesthetics/bright-room-640.avif 640w" sizes="(max-width: 759px) 50vw, 33vw"><img src="../_assets/library/med-spas/onyx-and-ivory-aesthetics/bright-room-720.jpg" alt="A treatment room" width="720" height="537" loading="lazy"></picture><figcaption><span>A treatment room</span><span class="n">07</span></figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/onyx-and-ivory-aesthetics/hands-prepare-1280.avif 1280w, ../_assets/library/med-spas/onyx-and-ivory-aesthetics/hands-prepare-640.avif 640w" sizes="(max-width: 759px) 50vw, 33vw"><img src="../_assets/library/med-spas/onyx-and-ivory-aesthetics/hands-prepare-720.jpg" alt="Set out for the appointment" width="720" height="537" loading="lazy"></picture><figcaption><span>Set out for the appointment</span><span class="n">08</span></figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/onyx-and-ivory-aesthetics/the-whole-space-1280.avif 1280w, ../_assets/library/med-spas/onyx-and-ivory-aesthetics/the-whole-space-640.avif 640w" sizes="(max-width: 759px) 50vw, 33vw"><img src="../_assets/library/med-spas/onyx-and-ivory-aesthetics/the-whole-space-720.jpg" alt="The front room" width="720" height="402" loading="lazy"></picture><figcaption><span>The front room</span><span class="n">09</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec price" id="services" aria-labelledby="services-title">
+  <div class="wrap">
+    <p class="mark"><span class="label">Services</span></p>
+    <div class="head">
+      <h2 id="services-title">Treatments &amp;&nbsp;prices</h2>
+      <p class="lede muted">No ‘call for pricing’. You should be able to work out what your visit costs before you&nbsp;arrive.</p>
+    </div>
+    <ol>
+      <li><span class="n">01</span><div><h3 class="tnum">Neurotoxin from $12/unit</h3><p class="tnum">Botox and Dysport for lines and prevention. Most first-time treatments land between $240 and $420 depending on areas.</p></div></li>
+      <li><span class="n">02</span><div><h3 class="tnum">Dermal filler from $650/syringe</h3><p>Lip, cheek and jawline. We are conservative by default and will always start with less than you asked for.</p></div></li>
+      <li><span class="n">03</span><div><h3 class="tnum">Laser &amp; resurfacing from $300</h3><p>Pigment, redness, texture and hair. Package pricing published, because a single session is rarely the whole answer.</p></div></li>
+      <li><span class="n">04</span><div><h3 class="tnum">Memberships from $149/mo</h3><p class="tnum">Monthly credit that rolls over, member pricing on everything, and priority booking. Most regulars save around 20%.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec holds" id="results" aria-labelledby="holds-title">
+  <div class="wrap">
+    <p class="mark"><span class="label">Results</span></p>
+    <h2 id="holds-title" style="margin-bottom: var(--s4)">Our team&nbsp;holds</h2>
+    <ul>
+      <li>Registered Nurse Injectors</li>
+      <li>Medical Director on site</li>
+      <li>Allergan Partner Practice</li>
+      <li>Galderma Certified</li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec process" id="process" aria-labelledby="process-title">
+  <div class="wrap">
+    <p class="mark"><span class="label">Process</span></p>
+    <div class="head">
+      <h2 id="process-title">Your first&nbsp;visit</h2>
+      <p class="lede muted">About ninety minutes, most of which is talking rather than&nbsp;treating.</p>
+    </div>
+    <ol>
+      <li><span class="n">1</span><h3>Book online</h3><p>Real slots, real availability, no account required. Evenings and Saturdays included.</p></li>
+      <li><span class="n">2</span><h3>Consultation</h3><p>Photographs, a conversation about what actually bothers you, and a plan. Sometimes the plan is ‘not yet’.</p></li>
+      <li><span class="n">3</span><h3>Treat</h3><p>Same visit where it’s appropriate. You’ll know the exact cost before anything is drawn up.</p></li>
+      <li><span class="n">4</span><h3>Two-week review</h3><p>Included, always. Neurotoxin settles over two weeks and small adjustments are free within that window.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec close on-onyx" id="contact" aria-labelledby="close-title">
+  <div class="wrap">
+    <p class="mark"><span class="label">Contact</span></p>
+    <div class="grid2">
+      <div>
+        <h2 id="close-title">Been over‑filled somewhere&nbsp;before?</h2>
+        <p class="lede">Book a consultation. It’s free, there’s no obligation, and you’ll leave with a written plan and real prices whether or not you treat that&nbsp;day.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="#cb-name">Book now</a>
+          <a class="btn btn-ghost tel tnum" href="tel:+16033732263">(603)&nbsp;373-2263</a>
+        </div>
+        <p class="note">Free consultations, published pricing, and a two-week review included on every treatment. We will say no when the answer is&nbsp;no.</p>
+      </div>
+      <form class="form" id="callback" novalidate>
+        <p class="intro muted">Or leave your details and we’ll call you back.</p>
+        <div class="field"><label for="cb-name">Name</label><input id="cb-name" name="name" type="text" autocomplete="name" required></div>
+        <div class="field"><label for="cb-contact">Phone or email</label><input id="cb-contact" name="contact" type="text" autocomplete="tel" required></div>
+        <div class="field"><label for="cb-msg">What can we help with? (optional)</label><textarea id="cb-msg" name="message" rows="3"></textarea></div>
+        <div class="actions">
+          <button class="btn btn-primary" type="submit">Request a call back</button>
+          <p class="hint" id="cb-hint" role="alert" hidden>Add your name and a way to reach you.</p>
+        </div>
+        <p class="done" id="cb-done" role="status" hidden>Thanks. Someone will call you back within one business&nbsp;day.</p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot on-onyx">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="#"><img src="../_assets/identity/med-spas/onyx-and-ivory-aesthetics-mark.svg" alt="" width="28" height="28">Onyx &amp; Ivory Aesthetics</a>
+      <p class="tnum" style="margin-top: var(--s2)"><a href="tel:+16033732263">(603)&nbsp;373-2263</a> · Medical director on site · Licensed injectors · Conservative by default</p>
+    </div>
+    <div>
+      <p class="tnum">728 Trellis Court Floor 2, Northfields, CT 15386</p>
+      <p style="margin-top: var(--s1)"><a href="#contact">Book now</a> · <a class="tnum" href="tel:+16033732263">(603)&nbsp;373-2263</a></p>
+    </div>
+    <p class="fine">Onyx &amp; Ivory Aesthetics is a fictional business; this page is a design reference.</p>
+  </div>
+</footer>
+
+<div class="bar" aria-label="Quick actions">
+  <a class="btn btn-primary" href="#contact">Book now</a>
+  <a class="btn btn-ghost tnum" href="tel:+16033732263">(603)&nbsp;373-2263</a>
+</div>
+
 <script>
-/* The enquiry form confirms in place. Nothing is sent: a reference build. */
 (function () {
-  var form = document.querySelector('.gsw-cf');
-  if (!form) return;
+  // Static preview: validates locally and shows the confirmation state; nothing is sent.
+  var form = document.getElementById('callback');
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    var name = form.name.value.trim(), contact = form.contact.value.trim();
-    var err = form.querySelector('.gsw-cf-err');
-    if (!name || !contact) { err.hidden = false; (name ? form.contact : form.name).focus(); return; }
-    err.hidden = true;
-    form.setAttribute('data-sent', '');
-    form.querySelector('.gsw-cf-done').hidden = false;
+    var name = form.elements.name, contact = form.elements.contact, hint = document.getElementById('cb-hint');
+    var ok = true;
+    [name, contact].forEach(function (el) {
+      var bad = !el.value.trim();
+      el.closest('.field').classList.toggle('is-invalid', bad);
+      el.setAttribute('aria-invalid', bad ? 'true' : 'false');
+      if (bad) ok = false;
+    });
+    hint.hidden = ok;
+    if (!ok) { (name.value.trim() ? contact : name).focus(); return; }
+    form.classList.add('is-sent');
+    document.getElementById('cb-done').hidden = false;
   });
 })();
 </script>
-<!-- /gsw:contact-form -->
 </body>
 </html>
