@@ -25,6 +25,12 @@ services:
       - type: redirect
         source: /sites/palm-construction-b
         destination: /sites/palm-construction-b/
+      - type: redirect
+        source: /sites/zach-becker-1
+        destination: /sites/zach-becker-1/
+      - type: redirect
+        source: /sites/zach-becker-2
+        destination: /sites/zach-becker-2/
       # The site was first published under a placeholder name; the old link
       # was shared, so it keeps working.
       - type: redirect
