@@ -4,3 +4,8 @@ NOTES.internal.md
 # Compiled Python from tools/ — these were tracked by mistake and this repo is public.
 __pycache__/
 *.pyc
+
+# Benchmark runs: tens of MB of QA captures and client media, and this repo is public.
+site_a_b/
+site_a_b_c/
+website-redesign-agent-benchmark.md
