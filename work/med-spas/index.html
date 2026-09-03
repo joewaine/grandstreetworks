@@ -96,7 +96,6 @@
     display: flex; justify-content: center;
     overflow: hidden;
   }
-  .frame-well[data-mode="phone"] { padding: 1.5rem 1rem; }
   .build iframe {
     width: 100%; height: 100%; border: 0; background: #fff; display: block;
   }
@@ -104,14 +103,10 @@
      would otherwise show the site's tablet layout. Rendering the frame at
      twice the column and scaling it down keeps a real desktop layout in
      each pane. */
-  .frame-well[data-mode="full"] { justify-content: flex-start; }
-  .frame-well[data-mode="full"] iframe {
+  .frame-well { justify-content: flex-start; }
+  .frame-well iframe {
     flex: none; width: 200%; height: 200%;
     transform: scale(0.5); transform-origin: 0 0;
-  }
-  .frame-well[data-mode="phone"] iframe {
-    width: 390px; max-width: 100%;
-    box-shadow: 0 0 0 1px rgba(229, 229, 230, 0.25);
   }
 
   .bar {
@@ -133,15 +128,6 @@
   .sw-none { display: none; }
 
   .bar-actions { display: flex; align-items: center; gap: 0.75rem; flex: none; }
-  .widths { display: flex; border: 1px solid var(--border-color); }
-  .wbtn {
-    font-family: var(--font-mono); font-size: 0.6875rem;
-    text-transform: uppercase; letter-spacing: 0.05em;
-    padding: 0.5rem 0.85rem; border: none; background: transparent;
-    color: var(--text-color); cursor: pointer;
-  }
-  .wbtn + .wbtn { border-left: 1px solid var(--border-color); }
-  .wbtn.is-on { background: var(--text-color); color: var(--bg-color); }
   .open {
     font-family: var(--font-mono); font-size: 0.6875rem;
     text-transform: uppercase; letter-spacing: 0.05em;
@@ -150,10 +136,6 @@
   }
   .open:hover { background: var(--text-color); color: var(--bg-color); }
 
-  .noscript-note {
-    padding: 1rem 2rem; border-bottom: 1px solid var(--border-color);
-    font-family: var(--font-mono); font-size: 0.75rem;
-  }
   footer {
     display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
     padding: 1.5rem 2rem; border-top: 1px solid var(--border-color);
@@ -203,23 +185,20 @@
   @media (max-width: 860px) {
     .bar { flex-direction: column; align-items: flex-start; gap: 0.85rem; }
     .bar-actions { width: 100%; }
-    /* the viewport is already the phone these were built for */
-    .widths { display: none; }
-    .frame-well, .frame-well[data-mode="phone"] { padding: 0; height: 640px; min-height: 0; }
+    .frame-well { padding: 0; height: 640px; min-height: 0; }
     .builds { padding: 1.5rem 1.25rem; gap: 1.25rem; }
-    .frame-well[data-mode="phone"] iframe { width: 100%; box-shadow: none; }
   }
   @media (max-width: 640px) {
     /* one column on a phone, and the frame is the phone: no scaling */
     .builds { grid-template-columns: minmax(0, 1fr); }
-    .frame-well[data-mode="full"] iframe { width: 100%; height: 100%; transform: none; }
+    .frame-well iframe { width: 100%; height: 100%; transform: none; }
     .portfolio-of { display: none; }
-    header, .section-header, .noscript-note, footer {
+    header, .section-header, footer {
       padding-left: 1.25rem; padding-right: 1.25rem;
     }
     .bar { padding-left: 1.25rem; padding-right: 1.25rem; }
   }
-  @media (prefers-reduced-motion: reduce) { .open, .wbtn { transition: none; } }
+  @media (prefers-reduced-motion: reduce) { .open { transition: none; } }
 </style>
 </head>
 <body>
@@ -236,12 +215,8 @@
 <main>
   <div class="section-header">
     <span class="label">Med Spa Clients</span>
-    <span class="label dim">Scroll for each one in full, desktop or mobile</span>
+    <span class="label dim">Six builds, six directions. Open any one in full.</span>
   </div>
-
-  <noscript>
-    <div class="noscript-note">JavaScript is off, so the width toggles won't switch. Every build below is also a normal link, so you can open them directly.</div>
-  </noscript>
 
   <div class="builds">
       <section class="build">
@@ -255,14 +230,10 @@
             <span class="bar-name">Marisol Aesthetics</span>
           </span>
           <div class="bar-actions">
-            <div class="widths" role="group" aria-label="Preview width">
-              <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
-              <button type="button" class="wbtn" data-mode="phone" aria-pressed="false">Mobile</button>
-            </div>
             <a class="open" href="marisol-aesthetics.html" target="_blank" rel="noopener">View full site ↗</a>
           </div>
         </div>
-        <div class="frame-well" data-mode="full">
+        <div class="frame-well">
           <iframe src="marisol-aesthetics.html" title="C1 · The Price List One"
                   loading="eager"></iframe>
         </div>
@@ -276,14 +247,10 @@
             <span class="bar-name">Verity Skin &amp; Aesthetics</span>
           </span>
           <div class="bar-actions">
-            <div class="widths" role="group" aria-label="Preview width">
-              <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
-              <button type="button" class="wbtn" data-mode="phone" aria-pressed="false">Mobile</button>
-            </div>
             <a class="open" href="verity-skin-and-aesthetics.html" target="_blank" rel="noopener">View full site ↗</a>
           </div>
         </div>
-        <div class="frame-well" data-mode="full">
+        <div class="frame-well">
           <iframe src="verity-skin-and-aesthetics.html" title="C2 · The Membership One"
                   loading="lazy"></iframe>
         </div>
@@ -296,14 +263,10 @@
             <span class="bar-name">Bright Hour Med Spa</span>
           </span>
           <div class="bar-actions">
-            <div class="widths" role="group" aria-label="Preview width">
-              <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
-              <button type="button" class="wbtn" data-mode="phone" aria-pressed="false">Mobile</button>
-            </div>
             <a class="open" href="bright-hour-med-spa.html" target="_blank" rel="noopener">View full site ↗</a>
           </div>
         </div>
-        <div class="frame-well" data-mode="full">
+        <div class="frame-well">
           <iframe src="bright-hour-med-spa.html" title="C3 · The Two Taps One"
                   loading="lazy"></iframe>
         </div>
@@ -318,14 +281,10 @@
             <span class="bar-name">Onyx &amp; Ivory Aesthetics</span>
           </span>
           <div class="bar-actions">
-            <div class="widths" role="group" aria-label="Preview width">
-              <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
-              <button type="button" class="wbtn" data-mode="phone" aria-pressed="false">Mobile</button>
-            </div>
             <a class="open" href="onyx-and-ivory-aesthetics.html" target="_blank" rel="noopener">View full site ↗</a>
           </div>
         </div>
-        <div class="frame-well" data-mode="full">
+        <div class="frame-well">
           <iframe src="onyx-and-ivory-aesthetics.html" title="C4 · The Owned Grid One"
                   loading="lazy"></iframe>
         </div>
@@ -340,14 +299,10 @@
             <span class="bar-name">Palmer Row Med Spa</span>
           </span>
           <div class="bar-actions">
-            <div class="widths" role="group" aria-label="Preview width">
-              <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
-              <button type="button" class="wbtn" data-mode="phone" aria-pressed="false">Mobile</button>
-            </div>
             <a class="open" href="palmer-row-med-spa.html" target="_blank" rel="noopener">View full site ↗</a>
           </div>
         </div>
-        <div class="frame-well" data-mode="full">
+        <div class="frame-well">
           <iframe src="palmer-row-med-spa.html" title="C5 · The Menu One"
                   loading="lazy"></iframe>
         </div>
@@ -361,14 +316,10 @@
             <span class="bar-name">Juniper Aesthetics</span>
           </span>
           <div class="bar-actions">
-            <div class="widths" role="group" aria-label="Preview width">
-              <button type="button" class="wbtn is-on" data-mode="full" aria-pressed="true">Desktop</button>
-              <button type="button" class="wbtn" data-mode="phone" aria-pressed="false">Mobile</button>
-            </div>
             <a class="open" href="juniper-aesthetics.html" target="_blank" rel="noopener">View full site ↗</a>
           </div>
         </div>
-        <div class="frame-well" data-mode="full">
+        <div class="frame-well">
           <iframe src="juniper-aesthetics.html" title="C6 · The Client One"
                   loading="lazy"></iframe>
         </div>
@@ -397,23 +348,5 @@
   <div class="label"><a data-umami-event="start" data-umami-event-place="work-footer" href="../../start/?trade=med-spas" style="text-decoration: underline;">Get yours rebuilt →</a></div>
 </footer>
 
-<script>
-(function () {
-  document.querySelectorAll('.build').forEach(function (build) {
-    var well = build.querySelector('.frame-well');
-    var buttons = build.querySelectorAll('.wbtn');
-    buttons.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        well.setAttribute('data-mode', btn.getAttribute('data-mode'));
-        buttons.forEach(function (other) {
-          var on = other === btn;
-          other.classList.toggle('is-on', on);
-          other.setAttribute('aria-pressed', on ? 'true' : 'false');
-        });
-      });
-    });
-  });
-})();
-</script>
 </body>
 </html>
