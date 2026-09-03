@@ -98,7 +98,7 @@ button { font: inherit; color: inherit; }
   font-size: var(--fs-eyebrow); font-weight: 600; letter-spacing: .12em;
   text-transform: uppercase; color: var(--cabernet); margin-bottom: 1rem;
 }
-.eyebrow-on-dark { color: var(--mist); }
+.eyebrow-on-dark { color: var(--paper); opacity: .9; }
 h3 { font-family: var(--serif); font-weight: 400; font-size: var(--fs-h3); line-height: 1.15; }
 
 /* ---------- buttons & links ---------- */
@@ -244,7 +244,7 @@ h3 { font-family: var(--serif); font-weight: 400; font-size: var(--fs-h3); line-
 
 /* ---------- ways to work ---------- */
 .work { padding-block: var(--section); background: var(--ink); color: var(--paper); }
-.work .eyebrow { color: var(--mist); }
+.work .eyebrow { color: var(--paper); opacity: .9; }
 .section-head { max-width: 40rem; margin-bottom: clamp(2rem, 5vw, 4rem); }
 .section-head-row { display: flex; justify-content: space-between; align-items: end; gap: 2rem; max-width: none; }
 .section-note { max-width: 22rem; font-size: var(--fs-small); color: var(--muted); }
