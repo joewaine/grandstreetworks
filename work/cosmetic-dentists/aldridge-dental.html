@@ -6,439 +6,410 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Aldridge Dental · Cosmetic &amp; Restorative Dentistry</title>
 <meta name="description" content="Digital preview at your first consult. Veneers, implants and full-mouth restoration, with financing worked out before treatment begins.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-/* D3 — THE QUIET ONE. hero:panel nav:minimal services:list proof:testimonial-lead
-   ink #221F1B · surface #F1EEE7 · accent #4F6B52 · muted #625E56 · on-accent #FFFFFF
-   H1 ramp: 30/36/46/58px · Spectral display / Work Sans body
-   For the patient who has been researching for weeks: no urgency, no pressure devices,
-   one patient's sentence carrying the whole proof section. */
-:root{--ink:#221F1B;--surface:#F1EEE7;--accent:#4F6B52;--muted:#625E56;--on-accent:#FFFFFF;
---panel:#FBF9F5;--rule:rgba(34,31,27,.15);--wrap:1060px}
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--surface);color:var(--ink);
-font:400 17px/1.7 "Work Sans",system-ui,-apple-system,sans-serif;padding-bottom:80px;overflow-x:hidden}
-.wrap{max-width:var(--wrap);margin:0 auto;padding:0 22px}
-h1,h2,h3{font-family:Spectral,Georgia,serif;font-weight:600;margin:0;line-height:1.14;letter-spacing:-.01em}
-a{color:inherit}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 26px;
-border-radius:2px;text-decoration:none;font-weight:600;font-size:17px;border:1px solid transparent}
-.btn-primary{background:var(--ink);color:var(--on-accent);border-color:var(--ink)}
-.btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
-.topbar{background:transparent;color:var(--muted);font-size:15px;border-bottom:1px solid var(--rule)}
-.topbar .wrap{padding:8px 22px;text-align:center;letter-spacing:.02em}
-.nav{position:sticky;top:0;z-index:30;background:var(--surface);border-bottom:1px solid var(--rule)}
-.nav .wrap{display:flex;align-items:center;gap:12px;height:58px}
-.brand{font-family:Spectral,Georgia,serif;font-weight:600;font-size:18px;text-decoration:none;
-line-height:1;flex:none;letter-spacing:.01em}
-.navbook{min-height:42px;padding:0 15px;font-size:15px;flex:none;margin-left:auto;white-space:nowrap}
-.navlinks{border-bottom:1px solid var(--rule)}
-.navlinks .wrap{display:flex;gap:26px;padding:11px 22px;overflow-x:auto;scrollbar-width:none;
-font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.navlinks .wrap::-webkit-scrollbar{display:none}
-.navlinks a{text-decoration:none;white-space:nowrap}
-.navlinks a:hover{color:var(--accent)}
-.hero{padding:10px 0 38px}
-.panel{background:var(--panel);border:1px solid var(--rule);padding:20px 20px 28px}
-.eyebrow{font-size:13px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
-color:var(--accent);margin:0 0 10px}
-.hero h1{font-size:clamp(30px,7.2vw,58px);max-width:14ch}
-.sub{font-size:16px;color:var(--muted);max-width:52ch;margin:12px 0 18px;line-height:1.5}
-.ctas{display:flex;flex-direction:column;gap:10px}
-.rule{height:1px;background:var(--rule);margin:26px 0 20px}
-.badges{list-style:none;margin:0;padding:0;display:grid;gap:9px}
-.badges li{font-size:16px;color:var(--muted);padding-left:20px;position:relative}
-.badges li::before{content:"";position:absolute;left:0;top:11px;width:9px;height:9px;
-border:1.5px solid var(--accent);border-radius:50%}
-.sec{padding:58px 0;border-top:1px solid var(--rule)}
-.kicker{font-size:13px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
-color:var(--accent);margin:0 0 12px}
-.sec h2{font-size:clamp(28px,5.6vw,44px);margin-bottom:14px}
-.lede{color:var(--muted);max-width:60ch;margin:0;font-size:17px}
-.list{margin:32px 0 0;padding:0;list-style:none}
-.list li{padding:26px 0;border-top:1px solid var(--rule);display:grid;gap:8px}
-.list li:last-child{border-bottom:1px solid var(--rule)}
-.list h3{font-size:22px}
-.list p{margin:0;color:var(--muted);font-size:16px;max-width:64ch}
-.fin{margin-top:26px;border:1px solid var(--accent);padding:20px 22px;display:grid;gap:4px;
-background:rgba(79,107,82,.06)}
-.fin b{font-family:Spectral,Georgia,serif;font-weight:600;font-size:28px;color:var(--accent);line-height:1}
-.fin span{font-size:16px;color:var(--muted)}
-.quote{background:var(--ink);color:#EFEBE4}
-.quote .kicker{color:#9DB49F}
-.quote blockquote{margin:26px 0 0}
-.quote .q{font-family:Spectral,Georgia,serif;font-weight:400;font-size:clamp(23px,5vw,40px);
-line-height:1.32;margin:0;max-width:26ch}
-.quote cite{display:block;margin-top:24px;font-style:normal;font-size:16px;color:#A9A296}
-.quote cite b{color:#fff;font-weight:600}
-.steps{list-style:none;margin:30px 0 0;padding:0;counter-reset:s;display:grid;gap:0}
-.steps li{counter-increment:s;display:grid;grid-template-columns:40px 1fr;gap:16px;padding:22px 0;
-border-top:1px solid var(--rule)}
-.steps li::before{content:counter(s);font-family:Spectral,Georgia,serif;font-weight:600;font-size:26px;
-color:var(--accent);line-height:1}
-.steps h3{font-size:20px;margin-bottom:6px}
-.steps p{margin:0;color:var(--muted);font-size:16px}
-.close{padding:58px 0 64px;border-top:1px solid var(--rule)}
-.close .panel{padding:32px 22px 34px}
-.close h2{font-size:clamp(29px,6.2vw,48px);max-width:15ch}
-.close p{max-width:52ch;font-size:18px;color:var(--muted);margin:14px 0 22px}
-.note{font-size:15px;color:var(--muted);margin-top:20px;max-width:54ch}
-.foot{padding:42px 0 34px;font-size:15px;color:var(--muted);border-top:1px solid var(--rule)}
-.foot .brand{color:var(--ink);display:inline-block;margin-bottom:14px}
-.foot p{margin:0 0 10px;max-width:64ch}
-.foot a{color:var(--accent)}
-.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--surface);padding:8px;
-border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:8px}
-.callbar a{display:flex;align-items:center;justify-content:center;min-height:60px;border-radius:2px;
-text-decoration:none;font-weight:600;font-size:18px}
-.callbar .book{background:var(--ink);color:#fff}
-.callbar .tel{border:1px solid var(--ink);color:var(--ink);padding:0 18px;font-size:16px}
-@media(min-width:760px){.ctas{flex-direction:row;gap:12px}.badges{grid-template-columns:1fr 1fr}
-.sec{padding:88px 0}.sub{font-size:19px}.hero{padding:34px 0 58px}.panel{padding:48px 46px 50px}
-.close .panel{padding:54px 46px 56px}.list li{grid-template-columns:.8fr 1.2fr;gap:40px;align-items:start}
-.steps{grid-template-columns:1fr 1fr;column-gap:44px}.nav .wrap{height:64px}.brand{font-size:20px}
-.fin{display:flex;align-items:baseline;gap:14px}}
-@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
-</style>
-
-<style>
-  /* Hero plate, added with the photography pass. Full-bleed between the hero
-     and the first content section, with no border of its own: every one of
-     these designs owns a different rule weight and ink colour, and a borrowed
-     hairline reads as a mistake in about half of them. */
-  .gsw-plate picture { display: block; width: 100%; }
-  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
-  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
-  .gsw-plate img {
-    display: block;
-    width: 100%;
-    height: clamp(220px, 40vw, 520px);
-    object-fit: cover;
-    object-position: center;
-  }
-  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
-</style>
-
-
-
-
-
-
-
 <!-- gsw:identity -->
 <link rel="icon" href="../_assets/identity/cosmetic-dentists/aldridge-dental-icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../_assets/identity/cosmetic-dentists/aldridge-dental-icon-180.png">
-<meta name="theme-color" content="#221F1B">
+<meta name="theme-color" content="#F4F0E8">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Aldridge Dental">
-<meta property="og:title" content="Aldridge Dental · One dentist · No treatment coordinators · New patients welcome">
+<meta property="og:title" content="Aldridge Dental · Cosmetic &amp; Restorative Dentistry">
 <meta property="og:description" content="No packages. No pressure. One plan.">
 <meta property="og:image" content="https://grandstreetworks.com/work/_assets/identity/cosmetic-dentists/aldridge-dental-og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Dentist","name":"Aldridge Dental","description":"One dentist \u00b7 No treatment coordinators \u00b7 New patients welcome","telephone":"(660) 703-6612","areaServed":"Metro area","image":"https://grandstreetworks.com/work/_assets/identity/cosmetic-dentists/aldridge-dental-og.png","logo":"https://grandstreetworks.com/work/_assets/identity/cosmetic-dentists/aldridge-dental-mark.svg"}</script>
-
+<!-- /gsw:identity -->
+<link rel="preload" href="../_assets/fonts/crimson-pro-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../_assets/fonts/karla-var.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-  /* Identity pass. The lockup is the mark plus the wordmark the build already
-     had; the mark is sized in em so it tracks whatever display face this build
-     sets its brand in. */
-  .gsw-lockup { display: inline-flex; align-items: center; gap: .46em; }
-  .gsw-lockup svg { height: 1.16em; width: auto; flex: none; display: block; }
-</style>
+/* D3 — THE QUIET ROOM. hero:panel nav:minimal services:list proof:testimonial-lead
+   ink #24211C · ivory #F4F0E8 · sage #4F6B52 · muted #6B655B · ivory-deep #EAE4D8
+   H1 ramp: 42/50/60/72px · Crimson Pro (light display, regular text, italic accent) / Karla labels
+   Device: hairline rules and counts in italic words, one serif voice from display to body,
+   the patient's own sentence set alone at display size, photographs as small matted
+   objects with captions. Nothing moves except the compare slider. FIX answered first: the
+   quiet promise was contradicted by motion, colour and twenty sizes — this page is seven
+   sizes, two families, three weights, one accent, no animation. */
 
+@font-face { font-family: "Crimson Pro"; src: url("../_assets/fonts/crimson-pro-var.woff2") format("woff2"); font-weight: 200 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Crimson Pro"; src: url("../_assets/fonts/crimson-pro-italic-var.woff2") format("woff2"); font-weight: 200 900; font-style: italic; font-display: swap; }
+@font-face { font-family: "Karla"; src: url("../_assets/fonts/karla-var.woff2") format("woff2"); font-weight: 200 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "Karla"; src: url("../_assets/fonts/karla-italic-var.woff2") format("woff2"); font-weight: 200 800; font-style: italic; font-display: swap; }
+@font-face { font-family: "Crimson Fallback"; src: local("Georgia"); size-adjust: 96%; ascent-override: 90%; descent-override: 25%; }
+@font-face { font-family: "Karla Fallback"; src: local("Arial"); size-adjust: 96%; ascent-override: 92%; descent-override: 23%; }
 
-<style>
-  /* Before/after comparison. The control is a real range input, laid over the
-     frame at full size and made invisible: it brings keyboard operation, touch
-     dragging and assistive-tech semantics that a custom pointer handler would
-     have to reimplement badly. */
-  .gsw-cmp-band { background: var(--surface); color: var(--ink);
-                  padding: clamp(38px, 6vw, 74px) 0; }
-  .gsw-cmp-in { max-width: var(--wrap, 1120px); margin: 0 auto; padding: 0 20px; }
-  .gsw-cmp-lab { font-size: 13px; letter-spacing: .18em; text-transform: uppercase;
-                 font-weight: 600; color: var(--accent); margin: 0 0 14px; }
-  .gsw-cmp-band h2 { margin: 0; }
-  .gsw-cmp-note { color: var(--muted); margin: 14px 0 28px; max-width: 58ch; }
+:root {
+  --ivory: #F4F0E8; --ivory-2: #EAE4D8; --mat: #FBF9F5; --ink: #24211C; --muted: #6B655B;
+  --sage: #4F6B52; --sage-deep: #3E5641; --hair: #D9D2C5;
+  --serif: "Crimson Pro", "Crimson Fallback", Georgia, serif;
+  --sans: "Karla", "Karla Fallback", Arial, sans-serif;
+  --t-label: 0.8125rem; --t-small: 0.9375rem; --t-body: 1.125rem;
+  --t-lede: clamp(1.1875rem, 1.05rem + 0.55vw, 1.375rem);
+  --t-h3: clamp(1.5rem, 1.25rem + 1vw, 1.875rem);
+  --t-h2: clamp(2rem, 1.4rem + 2.3vw, 2.75rem);
+  --t-display: clamp(2.625rem, 1.6rem + 4.6vw, 4.5rem);
+  --s1: 10px; --s2: 20px; --s3: 30px; --s4: 40px; --s6: 60px; --s8: 80px; --s12: 120px; --s16: 160px;
+  --wrap: 1120px; --gutter: clamp(20px, 4vw, 48px); --bar-h: 64px;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--ivory); color: var(--ink); font: 400 var(--t-body)/1.6 var(--serif); font-optical-sizing: auto; overflow-x: hidden; padding-bottom: var(--bar-h); }
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; margin: 0; text-wrap: balance; }
+p { margin: 0; text-wrap: pretty; }
+a { color: inherit; }
+img { display: block; max-width: 100%; height: auto; }
+ul, ol { list-style: none; margin: 0; padding: 0; }
+figure { margin: 0; }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+.label { font: 500 var(--t-label)/1.3 var(--sans); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.small { font: 400 var(--t-small)/1.5 var(--sans); }
+.lede { font-size: var(--t-lede); line-height: 1.45; max-width: 54ch; }
+.muted { color: var(--muted); }
+:focus-visible { outline: 2px solid var(--sage); outline-offset: 3px; }
+.skip { position: absolute; left: -999px; top: 0; background: var(--ink); color: var(--ivory); padding: var(--s1) var(--s2); z-index: 100; }
+.skip:focus { left: var(--s2); top: var(--s2); }
 
-  .gsw-cmp { --pos: 50%; margin: 0; max-width: 760px; }
-  /* The overlays position against the image alone. Anchoring them to the
-     figure let the rule and the tags run down over the caption. */
-  .gsw-cmp-frame { position: relative; overflow: hidden; touch-action: pan-y; }
-  .gsw-cmp picture, .gsw-cmp img { display: block; width: 100%; height: auto; }
-  .gsw-cmp img { aspect-ratio: 4 / 3; object-fit: cover; }
-  /* The "before" is the clipped layer, so the handle reveals the past by
-     dragging right — the direction people expect from a slider. */
-  .gsw-cmp-before { position: absolute; inset: 0;
-                    clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
-  .gsw-cmp-line { position: absolute; top: 0; bottom: 0; left: var(--pos);
-                  width: 2px; background: #fff; transform: translateX(-1px);
-                  box-shadow: 0 0 0 1px rgb(0 0 0 / .28); pointer-events: none; }
-  .gsw-cmp-grip { position: absolute; top: 50%; left: 50%; width: 42px; height: 42px;
-                  transform: translate(-50%, -50%); border-radius: 50%;
-                  background: #fff; box-shadow: 0 2px 10px rgb(0 0 0 / .34);
-                  display: grid; place-items: center; }
-  .gsw-cmp-grip::before { content: "‹ ›"; font: 600 15px/1 system-ui, sans-serif;
-                          color: #111; letter-spacing: .06em; }
-  .gsw-cmp-tag { position: absolute; bottom: 12px; font-size: 12px; font-weight: 600;
-                 letter-spacing: .14em; text-transform: uppercase; padding: 6px 11px;
-                 background: rgb(0 0 0 / .62); color: #fff; pointer-events: none; }
-  .gsw-cmp-tag-b { left: 12px; }
-  .gsw-cmp-tag-a { right: 12px; }
-  .gsw-cmp-range { position: absolute; inset: 0; width: 100%; height: 100%;
-                   margin: 0; opacity: 0; cursor: ew-resize;
-                   -webkit-appearance: none; appearance: none; background: transparent; }
-  .gsw-cmp-range::-webkit-slider-thumb { -webkit-appearance: none; width: 44px;
-                                         height: 100%; }
-  .gsw-cmp-range::-moz-range-thumb { width: 44px; height: 100%; border: 0;
-                                     background: transparent; }
-  /* The input is invisible, so the focus ring has to be drawn on the frame. */
-  .gsw-cmp-frame:has(.gsw-cmp-range:focus-visible) { outline: 3px solid var(--accent);
-                                                     outline-offset: 3px; }
-  .gsw-cmp-cap { margin: 12px 0 0; font-size: 14px; color: var(--muted); }
-  /* Hero placement: the build's own .preview card keeps its radius, border and
-     shadow, and the comparison fills it. Its 16:7 crop is deliberate — it holds
-     the smile and drops the chin. */
-  .gsw-cmp-inset { max-width: none; height: 100%; }
-  .gsw-cmp-inset .gsw-cmp-frame { height: 100%; }
-  .gsw-cmp-inset img { height: 100%; aspect-ratio: auto; object-fit: cover; }
-  .gsw-cmp-herocap { margin: 12px auto 0; max-width: 620px; text-align: center;
-                     font-size: 13px; color: var(--muted); }
-  /* Without JavaScript the handle cannot move, so it is not offered: the frame
-     falls back to a static half-and-half with both labels still readable. */
-  .gsw-cmp:not([data-live]) .gsw-cmp-range,
-  .gsw-cmp:not([data-live]) .gsw-cmp-grip { display: none; }
-</style>
+/* ---------- Buttons ---------- */
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: 0.7em 1.4em; border: 1px solid var(--ink); font: 500 var(--t-small)/1.2 var(--sans); letter-spacing: 0.02em; text-decoration: none; cursor: pointer; background: transparent; color: var(--ink); transition: background-color 160ms, color 160ms, border-color 160ms; }
+.btn:hover { background: var(--ink); color: var(--ivory); }
+.btn-primary { background: var(--sage); border-color: var(--sage); color: var(--ivory); }
+.btn-primary:hover { background: var(--sage-deep); border-color: var(--sage-deep); color: var(--ivory); }
 
+/* ---------- Header ---------- */
+.top { border-bottom: 1px solid var(--hair); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: var(--s3); padding-top: var(--s2); padding-bottom: var(--s2); }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font: 400 var(--t-lede)/1 var(--serif); letter-spacing: -0.005em; white-space: nowrap; }
+.brand img { width: 28px; height: 28px; }
+.top-line { font: 400 var(--t-label)/1.3 var(--sans); letter-spacing: 0.04em; color: var(--muted); }
+.nav { display: flex; gap: var(--s3); font: 500 var(--t-small)/1 var(--sans); }
+.nav a { text-decoration: none; padding: 6px 0; border-bottom: 1px solid transparent; }
+.nav a:hover { border-bottom-color: var(--sage); }
+.top .book { font: 500 var(--t-small)/1 var(--sans); text-decoration: none; color: var(--sage); border-bottom: 1px solid var(--sage); padding-bottom: 3px; white-space: nowrap; }
+.top .book:hover { color: var(--sage-deep); }
 
-<style>
-  /* Recent-work gallery. Everything here is drawn from the properties the build
-     already declares, so the band inherits each design's palette and heading
-     face rather than importing a seventh look. */
-  .gsw-gal { background: #F1EEE7; color: #221F1B;
-             padding: clamp(38px, 6vw, 74px) 0; }
-  .gsw-gal-in { max-width: var(--wrap, 1140px); margin: 0 auto; padding: 0 20px; }
-  .gsw-gal-lab { font-size: 13px; letter-spacing: .18em; text-transform: uppercase;
-                 font-weight: 600; color: var(--accent); margin: 0 0 14px; }
-  .gsw-gal h2 { margin: 0; color: inherit; }
-  .gsw-gal-note { color: var(--muted); margin: 14px 0 30px; max-width: 58ch; }
-  .gsw-ba { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px; }
-  .gsw-gal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-  .gsw-gal figure { margin: 0; position: relative; overflow: hidden;
-                    background: var(--rule, rgba(0,0,0,.1)); }
-  .gsw-gal picture { display: block; }
-  /* height:auto matters — the width/height attributes are a presentational
-     hint, and without this the 1200px hint beats aspect-ratio. */
-  .gsw-gal img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3;
-                 object-fit: cover; transition: transform .5s ease; }
-  .gsw-gal figure:hover img { transform: scale(1.035); }
-  .gsw-gal figcaption { position: absolute; left: 0; bottom: 0;
-                        background: #221F1B; color: #F1EEE7;
-                        font-size: 12px; font-weight: 600; letter-spacing: .14em;
-                        text-transform: uppercase; padding: 7px 12px; }
-  @media (max-width: 720px) {
-    .gsw-ba, .gsw-gal-grid { grid-template-columns: 1fr; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .gsw-gal img { transition: none; }
-    .gsw-gal figure:hover img { transform: none; }
-  }
-</style>
+/* ---------- Hero ---------- */
+.hero { padding: var(--s12) 0 var(--s8); }
+.hero .label { margin-bottom: var(--s3); }
+.hero h1 { font-size: var(--t-display); font-weight: 300; line-height: 1.02; letter-spacing: -0.01em; max-width: 14ch; }
+.hero .lede { margin-top: var(--s3); color: var(--muted); }
+.actions { display: flex; flex-wrap: wrap; gap: var(--s2); margin-top: var(--s4); }
+.badges { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s2) var(--s3); margin-top: var(--s6); padding-top: var(--s2); border-top: 1px solid var(--hair); font: 400 var(--t-small)/1.4 var(--sans); color: var(--muted); }
+.plate { padding-bottom: var(--s12); }
+.plate figure { background: var(--mat); border: 1px solid var(--hair); padding: var(--s1); }
+.plate img { width: 100%; height: clamp(240px, 32vw, 440px); object-fit: cover; object-position: center 60%; }
 
-<style>
-  /* gsw:contact-form — the closing section takes a name. Borrows the section's
-     colour through currentColor and the build's own .btn for the button. */
-  .gsw-cf { max-width: 640px; margin: 28px 0 0; text-align: left; }
-  .gsw-cf--centred { margin-left: auto; margin-right: auto; }
-  .gsw-cf-lead { margin: 0 0 12px; font-size: 15px; opacity: .85; }
-  .gsw-cf-grid { display: grid; gap: 10px; }
-  .gsw-cf label { display: flex; flex-direction: column; gap: 5px; font-size: 11px;
-                  font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
-  .gsw-cf label em { font-style: normal; font-weight: 400; text-transform: none; letter-spacing: 0; opacity: .7; }
-  .gsw-cf input, .gsw-cf textarea { font: inherit; font-size: 16px; color: inherit; background: transparent;
-                                    border: 1.5px solid currentColor; border-radius: 0; padding: 10px 12px; width: 100%;
-                                    box-sizing: border-box; letter-spacing: 0; text-transform: none; font-weight: 400; }
-  .gsw-cf input:focus, .gsw-cf textarea:focus { outline: 2px solid currentColor; outline-offset: 2px; }
-  .gsw-cf textarea { resize: vertical; min-height: 84px; }
-  .gsw-cf-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 14px; }
-  .gsw-cf button.btn { font: inherit; cursor: pointer; appearance: none; }
-  .gsw-cf-err { font-size: 14px; font-weight: 600; }
-  .gsw-cf-done { margin: 0; font-size: 17px; font-weight: 600; }
-  .gsw-cf[data-sent] .gsw-cf-lead, .gsw-cf[data-sent] .gsw-cf-grid, .gsw-cf[data-sent] .gsw-cf-row { display: none; }
-  @media (min-width: 640px) {
-    .gsw-cf-grid { grid-template-columns: 1fr 1fr; }
-    .gsw-cf-wide { grid-column: 1 / -1; }
-  }
+/* ---------- Sections ---------- */
+.sec { padding: 0 0 var(--s12); }
+.mark { display: flex; align-items: baseline; gap: var(--s2); padding-top: var(--s2); border-top: 1px solid var(--hair); margin-bottom: var(--s6); }
+.mark .n { font: italic 300 var(--t-h3)/1 var(--serif); color: var(--sage); }
+.head { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: var(--s3) var(--s8); align-items: end; margin-bottom: var(--s6); }
+h2 { font-size: var(--t-h2); line-height: 1.1; letter-spacing: -0.005em; max-width: 18ch; }
+h3 { font-size: var(--t-h3); line-height: 1.2; }
+.list { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4) var(--s8); }
+.list li { padding-top: var(--s2); border-top: 1px solid var(--hair); }
+.list h3 { margin-bottom: var(--s1); }
+.list p { max-width: 40ch; color: var(--muted); }
+.note { margin-top: var(--s6); padding-top: var(--s2); border-top: 1px solid var(--hair); font: 500 var(--t-small)/1.4 var(--sans); color: var(--sage); font-variant-numeric: tabular-nums; }
+
+/* ---------- Results ---------- */
+.results blockquote { margin: 0; max-width: 30ch; font: italic 300 var(--t-h2)/1.15 var(--serif); letter-spacing: -0.005em; text-wrap: balance; }
+.results cite { display: block; margin-top: var(--s3); font: 500 var(--t-small)/1.4 var(--sans); font-style: normal; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+/* ---------- Process ---------- */
+.steps { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4) var(--s8); counter-reset: step; }
+.steps li { display: grid; grid-template-columns: 2.2ch 1fr; gap: var(--s2); padding-top: var(--s2); border-top: 1px solid var(--hair); }
+.steps .n { font: 300 var(--t-h3)/1.2 var(--serif); font-variant-numeric: tabular-nums; color: var(--sage); }
+.steps h3 { margin-bottom: var(--s1); }
+.steps p { max-width: 38ch; color: var(--muted); }
+
+/* ---------- The case: compare slider ---------- */
+.cmp { --pos: 50%; max-width: 760px; background: var(--mat); border: 1px solid var(--hair); padding: var(--s1); }
+.cmp-frame { position: relative; overflow: hidden; touch-action: pan-y; }
+.cmp img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.cmp-before { position: absolute; inset: 0; clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
+.cmp-line { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 2px; background: var(--ivory); transform: translateX(-1px); pointer-events: none; }
+.cmp-grip { position: absolute; top: 50%; left: 50%; width: 44px; height: 44px; transform: translate(-50%, -50%); border-radius: 50%; background: var(--ivory); border: 1px solid var(--ink); box-shadow: 0 1px 4px rgba(36, 33, 28, 0.25); }
+.cmp-grip::before, .cmp-grip::after { content: ""; position: absolute; top: 50%; width: 7px; height: 7px; border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
+.cmp-grip::before { left: 12px; transform: translateY(-50%) rotate(-45deg); }
+.cmp-grip::after { right: 12px; transform: translateY(-50%) rotate(135deg); }
+.cmp-tag { position: absolute; top: var(--s1); font: 500 var(--t-label)/1 var(--sans); letter-spacing: 0.1em; text-transform: uppercase; background: var(--ivory); color: var(--ink); padding: 6px 9px; pointer-events: none; }
+.cmp-tag-b { left: var(--s1); } .cmp-tag-a { right: var(--s1); }
+.cmp-range { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; -webkit-appearance: none; appearance: none; }
+.cmp-range:focus-visible + .cmp-line .cmp-grip { outline: 2px solid var(--sage); outline-offset: 3px; }
+.cmp figcaption { padding: var(--s2) var(--s1) var(--s1); font: 400 var(--t-small)/1.4 var(--sans); color: var(--muted); }
+
+/* ---------- The rooms ---------- */
+.rooms { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s3); }
+.rooms figure { background: var(--mat); border: 1px solid var(--hair); padding: var(--s1); }
+.rooms img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.rooms figcaption { padding: var(--s2) var(--s1) var(--s1); font: 400 var(--t-small)/1.4 var(--sans); color: var(--muted); }
+
+/* ---------- Close ---------- */
+.close { background: var(--ivory-2); padding: var(--s12) 0; }
+.close .grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: var(--s8); align-items: start; }
+.close h2 { font-size: var(--t-display); font-weight: 300; line-height: 1.02; letter-spacing: -0.01em; max-width: 12ch; }
+.close .lede { margin-top: var(--s3); color: var(--muted); }
+.close .fine { margin-top: var(--s4); max-width: 46ch; font: 400 var(--t-small)/1.5 var(--sans); color: var(--muted); font-variant-numeric: tabular-nums; }
+.form { border-top: 1px solid var(--hair); padding-top: var(--s3); }
+.form .intro { margin-bottom: var(--s3); color: var(--muted); }
+.field { display: grid; gap: 6px; margin-bottom: var(--s2); }
+.field label { font: 500 var(--t-label)/1.3 var(--sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.field label em { font-style: normal; text-transform: none; letter-spacing: 0; color: var(--muted); }
+.field input, .field textarea { width: 100%; font: 400 var(--t-body)/1.4 var(--serif); color: var(--ink); background: var(--mat); border: 1px solid var(--hair); padding: 11px 14px; transition: border-color 160ms; }
+.field input:hover, .field textarea:hover { border-color: var(--muted); }
+.field input:focus, .field textarea:focus { outline: none; border-color: var(--sage); box-shadow: 0 0 0 1px var(--sage); }
+.field.is-invalid input { border-color: #9A4A2E; }
+.form .row { display: flex; align-items: center; gap: var(--s2); flex-wrap: wrap; margin-top: var(--s3); }
+.form .err { font: 400 var(--t-small)/1.4 var(--sans); color: #9A4A2E; }
+.form .err[hidden], .form .done[hidden] { display: none; }
+.form .done { font: italic 400 var(--t-lede)/1.4 var(--serif); padding: var(--s3) 0; }
+.form.is-sent .field, .form.is-sent .row { display: none; }
+
+/* ---------- Footer ---------- */
+.foot { border-top: 1px solid var(--hair); padding: var(--s6) 0; font: 400 var(--t-small)/1.5 var(--sans); color: var(--muted); }
+.foot .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s3) var(--s8); }
+.foot .brand { color: var(--ink); margin-bottom: var(--s2); }
+.foot a { color: var(--ink); }
+.foot .fine { grid-column: 1 / -1; padding-top: var(--s2); border-top: 1px solid var(--hair); font-size: var(--t-label); letter-spacing: 0.02em; }
+
+/* ---------- Mobile bar ---------- */
+.bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--hair); border-top: 1px solid var(--hair); }
+.bar .btn { min-height: var(--bar-h); border: 0; background: var(--ivory); white-space: nowrap; }
+.bar .btn-primary { background: var(--sage); }
+
+.tnum, .tnum * { font-variant-numeric: tabular-nums; }
+
+/* ---------- Responsive ---------- */
+@media (min-width: 1000px) { body { padding-bottom: 0; } .bar { display: none; } }
+@media (max-width: 999px) {
+  .head, .close .grid { grid-template-columns: 1fr; }
+  .rooms { grid-template-columns: 1fr 1fr; }
+  .top-line { display: none; }
+}
+@media (max-width: 759px) {
+  .nav { display: none; }
+  .hero { padding: var(--s8) 0 var(--s6); }
+  .hero h1 { max-width: 12ch; }
+  .actions .btn { width: 100%; }
+  .badges { grid-template-columns: 1fr 1fr; }
+  .plate { padding-bottom: var(--s8); }
+  .sec { padding-bottom: var(--s8); }
+  .list, .steps { grid-template-columns: 1fr; }
+  .rooms { grid-template-columns: 1fr; }
+  .close { padding: var(--s8) 0; }
+  .foot .wrap { grid-template-columns: 1fr; }
+}
+@media (max-width: 420px) { .badges { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+@media (forced-colors: active) { .btn { border: 1px solid ButtonText; } .cmp-line { background: Canvas; } }
+@media print { .bar, .cmp-range { display: none; } }
 </style>
 </head>
 <body>
-<div class="topbar"><div class="wrap">One dentist · No treatment coordinators · New patients welcome</div></div>
-<header class="nav"><div class="wrap">
-  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="12" y="18" width="40" height="28" rx="4" fill="#4F6B52"/>
-<rect x="20" y="30" width="24" height="4" fill="#F1EEE7"/></svg><span>Aldridge Dental</span></span></a>
-  <a class="btn btn-primary navbook" href="#contact">Book a consult</a>
-</div></header>
-<nav class="navlinks"><div class="wrap"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></div></nav>
-<section class="hero"><div class="wrap"><div class="panel">
-  <p class="eyebrow">Veneers · Implants · Full-mouth restoration</p>
-  <h1>No packages. No pressure. One plan.</h1>
-  <p class="sub">One dentist, one plan, and a number that does not move. Veneers, implants and full-mouth restoration, and an honest answer when whitening would have done instead.</p>
-  <div class="ctas">
-    <a class="btn btn-primary" data-cta="primary" href="#contact">Book a consult</a>
-    <a class="btn btn-ghost" href="#results">See real results</a>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="#"><img src="../_assets/identity/cosmetic-dentists/aldridge-dental-mark.svg" alt="" width="28" height="28">Aldridge Dental</a>
+    </div>
+    <span class="top-line">One dentist · No treatment coordinators · New patients welcome</span>
+    <nav class="nav" aria-label="Sections">
+      <a href="#services">Services</a>
+      <a href="#results">Results</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="book" href="#contact">Book a consult</a>
   </div>
-  <div class="rule"></div>
-  <ul class="badges"><li>Digital smile preview</li><li>0% financing available</li><li>Sedation available</li><li>Evening appointments</li></ul>
-</div></div></section>
-<figure class="gsw-plate"><picture><source type="image/avif" srcset="../_assets/hero/cosmetic-dentists/c-the-preview-1280.avif 1280w, ../_assets/hero/cosmetic-dentists/c-the-preview-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/cosmetic-dentists/c-the-preview-1280.jpg" width="2560" height="1429" alt="The preview, cosmetic dentists" loading="lazy" decoding="async"></picture></figure>
+</header>
 
-<section class="sec" id="services"><div class="wrap">
-  <p class="kicker">Services</p><h2>Treatments</h2>
-  <p class="lede">Every case starts with the same thing: a scan, a preview, and a written plan with a number on it.</p>
-  <ul class="list">
-    <li><h3>Porcelain veneers</h3><p>Hand-layered by a master ceramist. You approve a digital preview and a trial smile before a single tooth is prepared.</p></li>
-    <li><h3>Dental implants</h3><p>Single tooth to full arch. Guided placement from a 3D scan, which is why they seat precisely and last.</p></li>
-    <li><h3>Full-mouth restoration</h3><p>For wear, bite collapse or years of patchwork dentistry. Planned as one outcome rather than a series of repairs.</p></li>
-    <li><h3>Whitening &amp; bonding</h3><p>The lower-commitment start. Often all somebody actually needs, and we'll say so if that's the case.</p></li>
-  </ul>
-  <div class="fin"><b>0%</b><span>Financing available</span></div>
-</div></section>
-<section class="sec quote" id="results"><div class="wrap">
-  <p class="kicker">Results</p>
-  <blockquote><p class="q">I'd wanted this for eleven years and kept putting it off because I couldn't picture it. They showed me the preview at the first appointment and I booked that afternoon.</p>
-  <cite><b>Alina K.</b> · Porcelain veneers, 10 units</cite></blockquote>
-</div></section>
-<section class="sec" id="process"><div class="wrap">
-  <p class="kicker">Process</p><h2>How treatment works</h2>
-  <p class="lede">No surprises and no moving numbers. You see the outcome and the price before anything is prepared.</p>
-  <ol class="steps">
-    <li><div><h3>Consult &amp; scan</h3><p>3D scan, photographs, and a conversation about what actually bothers you. About an hour.</p></div></li>
-    <li><div><h3>Digital preview</h3><p>You see your own result rendered before treatment starts, and we adjust it until you're happy.</p></div></li>
-    <li><div><h3>Written plan &amp; financing</h3><p>A fixed plan with a fixed number, plus monthly options. You take it away and think about it.</p></div></li>
-    <li><div><h3>Treatment &amp; follow-up</h3><p>Most veneer cases are two visits. We review at six months and you have a direct line throughout.</p></div></li>
-  </ol>
-</div></section>
-<!-- gsw:compare -->
-<section class="gsw-cmp-band"><div class="gsw-cmp-in"><p class="gsw-cmp-lab">A case</p><h2>Worn, stained, and put right.</h2><p class="gsw-cmp-note">Years of grinding had flattened the edges and the staining had settled into them. Drag to compare the same mouth before and after.</p><figure class="gsw-cmp"><div class="gsw-cmp-frame"><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/smile-d-after-640.avif 640w, ../_assets/library/cosmetic-dentists/smile-d-after-1280.avif 1280w" sizes="(max-width: 800px) 100vw, 760px"><img src="../_assets/library/cosmetic-dentists/smile-d-after-720.jpg" width="1600" height="1200" alt="After treatment" loading="lazy" decoding="async"></picture><div class="gsw-cmp-before"><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/smile-d-before-640.avif 640w, ../_assets/library/cosmetic-dentists/smile-d-before-1280.avif 1280w" sizes="(max-width: 800px) 100vw, 760px"><img src="../_assets/library/cosmetic-dentists/smile-d-before-720.jpg" width="1600" height="1200" alt="Before treatment" loading="lazy" decoding="async"></picture></div><span class="gsw-cmp-line" aria-hidden="true"><span class="gsw-cmp-grip"></span></span><span class="gsw-cmp-tag gsw-cmp-tag-b">Before</span><span class="gsw-cmp-tag gsw-cmp-tag-a">After</span><input class="gsw-cmp-range" type="range" min="0" max="100" value="50" step="0.5" aria-label="Drag to compare the before and after photographs"></div><figcaption class="gsw-cmp-cap">Worn edges rebuilt, staining removed, shade lifted</figcaption></figure></div></section>
-<!-- /gsw:compare -->
-<!-- gsw:gallery -->
-<section class="gsw-gal"><div class="gsw-gal-in"><p class="gsw-gal-lab">One plan</p><h2>The rooms the plan is made in.</h2><p class="gsw-gal-note">A scan, a shade match and a conversation. Then one written plan, which is the only thing you are asked to decide on.</p><div class="gsw-gal-grid"><figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/aldridge-dental/scanner-640.avif 640w, ../_assets/library/cosmetic-dentists/aldridge-dental/scanner-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/cosmetic-dentists/aldridge-dental/scanner-720.jpg" width="1600" height="1200" alt="Scanned, not moulded" loading="lazy" decoding="async"></picture><figcaption>Scanned, not moulded</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/aldridge-dental/shade-guide-640.avif 640w, ../_assets/library/cosmetic-dentists/aldridge-dental/shade-guide-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/cosmetic-dentists/aldridge-dental/shade-guide-720.jpg" width="1600" height="1200" alt="Shade matched" loading="lazy" decoding="async"></picture><figcaption>Shade matched</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/aldridge-dental/operatory-640.avif 640w, ../_assets/library/cosmetic-dentists/aldridge-dental/operatory-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/cosmetic-dentists/aldridge-dental/operatory-720.jpg" width="1600" height="1200" alt="The treatment room" loading="lazy" decoding="async"></picture><figcaption>The treatment room</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/aldridge-dental/veneer-macro-640.avif 640w, ../_assets/library/cosmetic-dentists/aldridge-dental/veneer-macro-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/cosmetic-dentists/aldridge-dental/veneer-macro-720.jpg" width="1600" height="1200" alt="Porcelain, one at a time" loading="lazy" decoding="async"></picture><figcaption>Porcelain, one at a time</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/aldridge-dental/lab-bench-640.avif 640w, ../_assets/library/cosmetic-dentists/aldridge-dental/lab-bench-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/cosmetic-dentists/aldridge-dental/lab-bench-720.jpg" width="1600" height="1200" alt="On the technician&#x27;s bench" loading="lazy" decoding="async"></picture><figcaption>On the technician&#x27;s bench</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/aldridge-dental/reception-640.avif 640w, ../_assets/library/cosmetic-dentists/aldridge-dental/reception-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/cosmetic-dentists/aldridge-dental/reception-720.jpg" width="1600" height="1200" alt="Reception" loading="lazy" decoding="async"></picture><figcaption>Reception</figcaption></figure></div></div></section>
-<!-- /gsw:gallery -->
-<section class="close" id="contact"><div class="wrap"><div class="panel">
-  <h2>Been sold something you didn't need before?</h2>
-  <p>Most of our patients had. The consult is free, there's no pressure, and you'll leave knowing what it would look like and what it would cost.</p>
-  <div class="ctas">
-    <a class="btn btn-primary" href="#contact">Book a consult</a>
-    <a class="btn btn-ghost">(660) 703-6612</a>
+<main id="main">
+<section class="hero" aria-labelledby="promise">
+  <div class="wrap">
+    <p class="label">Veneers · Implants · Full-mouth restoration</p>
+    <h1 id="promise">No packages. No pressure. One&nbsp;plan.</h1>
+    <p class="lede">One dentist, one plan, and a number that does not move. Veneers, implants and full-mouth restoration, and an honest answer when whitening would have done&nbsp;instead.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#contact" data-cta="primary">Book a consult</a>
+      <a class="btn" href="#case">See real results</a>
+    </div>
+    <ul class="badges" aria-label="What you get">
+      <li>Digital smile preview</li>
+      <li class="tnum">0% financing available</li>
+      <li>Sedation available</li>
+      <li>Evening appointments</li>
+    </ul>
   </div>
-  <!-- gsw:contact-form -->
-    <form class="gsw-cf" novalidate>
-      <p class="gsw-cf-lead">Or leave your details and we'll call you back.</p>
-      <div class="gsw-cf-grid">
-        <label><span>Name</span><input type="text" name="name" autocomplete="name" required></label>
-        <label><span>Phone or email</span><input type="text" name="contact" autocomplete="tel" required></label>
-        <label class="gsw-cf-wide"><span>What can we help with? <em>(optional)</em></span><textarea name="message" rows="3"></textarea></label>
+</section>
+<div class="plate">
+  <div class="wrap">
+    <figure>
+      <picture>
+        <source type="image/avif" srcset="../_assets/hero/cosmetic-dentists/e-the-practice-2560.avif 2560w, ../_assets/hero/cosmetic-dentists/e-the-practice-1280.avif 1280w" sizes="(max-width: 1200px) 100vw, 1120px">
+        <img src="../_assets/hero/cosmetic-dentists/e-the-practice-1280.jpg" alt="The practice: a light reception with timber walls, a stone desk and plants by the window" width="1280" height="714" fetchpriority="high">
+      </picture>
+    </figure>
+  </div>
+</div>
+
+<section class="sec services" id="services" aria-labelledby="services-title">
+  <div class="wrap">
+    <p class="mark"><span class="n">One</span><span class="label">Services</span></p>
+    <div class="head">
+      <h2 id="services-title">Treatments</h2>
+      <p class="lede muted">Every case starts with the same thing: a scan, a preview, and a written plan with a number on&nbsp;it.</p>
+    </div>
+    <ul class="list">
+      <li><h3>Porcelain veneers</h3><p>Hand-layered by a master ceramist. You approve a digital preview and a trial smile before a single tooth is prepared.</p></li>
+      <li><h3>Dental implants</h3><p>Single tooth to full arch. Guided placement from a 3D scan, which is why they seat precisely and last.</p></li>
+      <li><h3>Full-mouth restoration</h3><p>For wear, bite collapse or years of patchwork dentistry. Planned as one outcome rather than a series of repairs.</p></li>
+      <li><h3>Whitening &amp; bonding</h3><p>The lower-commitment start. Often all somebody actually needs, and we’ll say so if that’s the case.</p></li>
+    </ul>
+    <p class="note">0% Financing available</p>
+  </div>
+</section>
+
+<section class="sec results" id="results" aria-labelledby="results-title">
+  <div class="wrap">
+    <p class="mark"><span class="n">Two</span><span class="label" id="results-title">Results</span></p>
+    <figure>
+      <blockquote>“I’d wanted this for eleven years and kept putting it off because I couldn’t picture it. They showed me the preview at the first appointment and I booked that&nbsp;afternoon.”</blockquote>
+      <figcaption><cite>Alina K. · Porcelain veneers, 10 units</cite></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="sec process" id="process" aria-labelledby="process-title">
+  <div class="wrap">
+    <p class="mark"><span class="n">Three</span><span class="label">Process</span></p>
+    <div class="head">
+      <h2 id="process-title">How treatment works</h2>
+      <p class="lede muted">No surprises and no moving numbers. You see the outcome and the price before anything is&nbsp;prepared.</p>
+    </div>
+    <ol class="steps">
+      <li><span class="n">1</span><div><h3>Consult &amp; scan</h3><p>3D scan, photographs, and a conversation about what actually bothers you. About an hour.</p></div></li>
+      <li><span class="n">2</span><div><h3>Digital preview</h3><p>You see your own result rendered before treatment starts, and we adjust it until you’re happy.</p></div></li>
+      <li><span class="n">3</span><div><h3>Written plan &amp; financing</h3><p>A fixed plan with a fixed number, plus monthly options. You take it away and think about it.</p></div></li>
+      <li><span class="n">4</span><div><h3>Treatment &amp; follow-up</h3><p>Most veneer cases are two visits. We review at six months and you have a direct line throughout.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec case" id="case" aria-labelledby="case-title">
+  <div class="wrap">
+    <p class="mark"><span class="n">Four</span><span class="label">A case</span></p>
+    <div class="head">
+      <h2 id="case-title">Worn, stained, and put&nbsp;right.</h2>
+      <p class="lede muted">Years of grinding had flattened the edges and the staining had settled into them. Drag to compare the same mouth before and&nbsp;after.</p>
+    </div>
+    <figure class="cmp" id="cmp">
+      <div class="cmp-frame">
+        <picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/smile-d-after-640.avif 640w, ../_assets/library/cosmetic-dentists/smile-d-after-1280.avif 1280w" sizes="(max-width: 800px) 100vw, 760px"><img src="../_assets/library/cosmetic-dentists/smile-d-after-720.jpg" width="1600" height="1200" alt="After treatment" loading="lazy" decoding="async"></picture>
+        <div class="cmp-before"><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/smile-d-before-640.avif 640w, ../_assets/library/cosmetic-dentists/smile-d-before-1280.avif 1280w" sizes="(max-width: 800px) 100vw, 760px"><img src="../_assets/library/cosmetic-dentists/smile-d-before-720.jpg" width="1600" height="1200" alt="Before treatment" loading="lazy" decoding="async"></picture></div>
+        <span class="cmp-tag cmp-tag-b">Before</span><span class="cmp-tag cmp-tag-a">After</span>
+        <input class="cmp-range" type="range" min="0" max="100" value="50" step="0.5" aria-label="Drag to compare the before and after photographs">
+        <span class="cmp-line" aria-hidden="true"><span class="cmp-grip"></span></span>
       </div>
-      <div class="gsw-cf-row">
-        <button type="submit" class="btn btn-primary">Request a call back</button>
-        <span class="gsw-cf-err" role="alert" hidden>Add your name and a way to reach you.</span>
+      <figcaption>Worn edges rebuilt, staining removed, shade lifted</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="sec plan" aria-labelledby="plan-title">
+  <div class="wrap">
+    <p class="mark"><span class="n">Five</span><span class="label">One plan</span></p>
+    <div class="head">
+      <h2 id="plan-title">The rooms the plan is made&nbsp;in.</h2>
+      <p class="lede muted">A scan, a shade match and a conversation. Then one written plan, which is the only thing you are asked to decide&nbsp;on.</p>
+    </div>
+    <div class="rooms">
+      <figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/aldridge-dental/scanner-640.avif 640w, ../_assets/library/cosmetic-dentists/aldridge-dental/scanner-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/cosmetic-dentists/aldridge-dental/scanner-720.jpg" alt="An intraoral scanner on its stand" width="720" height="537" loading="lazy"></picture><figcaption>Scanned, not moulded</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/aldridge-dental/shade-guide-640.avif 640w, ../_assets/library/cosmetic-dentists/aldridge-dental/shade-guide-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/cosmetic-dentists/aldridge-dental/shade-guide-720.jpg" alt="A porcelain shade guide" width="720" height="537" loading="lazy"></picture><figcaption>Shade matched</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/aldridge-dental/operatory-640.avif 640w, ../_assets/library/cosmetic-dentists/aldridge-dental/operatory-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/cosmetic-dentists/aldridge-dental/operatory-720.jpg" alt="The treatment room" width="720" height="537" loading="lazy"></picture><figcaption>The treatment room</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/aldridge-dental/veneer-macro-640.avif 640w, ../_assets/library/cosmetic-dentists/aldridge-dental/veneer-macro-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/cosmetic-dentists/aldridge-dental/veneer-macro-720.jpg" alt="A single porcelain veneer" width="720" height="587" loading="lazy"></picture><figcaption>Porcelain, one at a time</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/aldridge-dental/lab-bench-640.avif 640w, ../_assets/library/cosmetic-dentists/aldridge-dental/lab-bench-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/cosmetic-dentists/aldridge-dental/lab-bench-720.jpg" alt="The ceramist’s bench" width="720" height="537" loading="lazy"></picture><figcaption>On the technician’s bench</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/aldridge-dental/reception-640.avif 640w, ../_assets/library/cosmetic-dentists/aldridge-dental/reception-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/cosmetic-dentists/aldridge-dental/reception-720.jpg" alt="Reception, with two armchairs by the window" width="720" height="537" loading="lazy"></picture><figcaption>Reception</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="close" id="contact" aria-labelledby="close-title">
+  <div class="wrap">
+    <p class="mark"><span class="n">Six</span><span class="label">Contact</span></p>
+    <div class="grid">
+      <div>
+        <h2 id="close-title">Been sold something you didn’t need&nbsp;before?</h2>
+        <p class="lede">Most of our patients had. The consult is free, there’s no pressure, and you’ll leave knowing what it would look like and what it would&nbsp;cost.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#cb-name">Book a consult</a>
+          <a class="btn tnum" href="tel:+16607036612">(660)&nbsp;703-6612</a>
+        </div>
+        <p class="fine tnum">Free consultations with no treatment coordinator in the room. Financing from 0% APR, and we will tell you when the answer is to do&nbsp;nothing.</p>
       </div>
-      <p class="gsw-cf-done" role="status" hidden>Thanks. Someone will call you back within one business day.</p>
-    </form>
-    <!-- /gsw:contact-form -->
-    <p class="note">Free consultations with no treatment coordinator in the room. Financing from 0% APR, and we will tell you when the answer is to do nothing.</p>
-</div></div></section>
-<footer class="foot"><div class="wrap">
-  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="12" y="18" width="40" height="28" rx="4" fill="#4F6B52"/>
-<rect x="20" y="30" width="24" height="4" fill="#F1EEE7"/></svg><span>Aldridge Dental</span></span></a>
-  <p><a>(660) 703-6612</a> · One dentist · No treatment coordinators · New patients welcome</p>
-  <p>General and cosmetic dentistry · Accepting new patients</p>
-  <p>1834 Ridgeway Avenue Suite 4B, Lakeview Bend, NY 17673</p>
-</div></footer>
-<div class="callbar"><a class="book" href="#contact">Book a consult</a><a class="tel">(660) 703-6612</a></div>
+      <form class="form" id="callback" novalidate>
+        <p class="intro">Or leave your details and we’ll call you back.</p>
+        <div class="field"><label for="cb-name">Name</label><input id="cb-name" name="name" type="text" autocomplete="name" required></div>
+        <div class="field"><label for="cb-contact">Phone or email</label><input id="cb-contact" name="contact" type="text" autocomplete="tel" required></div>
+        <div class="field"><label for="cb-msg">What can we help with? <em>(optional)</em></label><textarea id="cb-msg" name="message" rows="3"></textarea></div>
+        <div class="row">
+          <button class="btn btn-primary" type="submit">Request a call back</button>
+          <span class="err" id="cb-err" role="alert" hidden>Add your name and a way to reach you.</span>
+        </div>
+        <p class="done" id="cb-done" role="status" hidden>Thanks. Someone will call you back within one business&nbsp;day.</p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
 
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="#"><img src="../_assets/identity/cosmetic-dentists/aldridge-dental-mark.svg" alt="" width="28" height="28">Aldridge Dental</a>
+      <p class="tnum"><a href="tel:+16607036612">(660)&nbsp;703-6612</a> · One dentist · No treatment coordinators · New patients welcome</p>
+      <p>General and cosmetic dentistry · Accepting new patients</p>
+    </div>
+    <div>
+      <p class="tnum">1834 Ridgeway Avenue Suite 4B, Lakeview Bend, NY 17673</p>
+      <p style="margin-top: var(--s1)"><a href="#contact">Book a consult</a> · <a class="tnum" href="tel:+16607036612">(660)&nbsp;703-6612</a></p>
+    </div>
+    <p class="fine">Aldridge Dental is a fictional business; this page is a design reference.</p>
+  </div>
+</footer>
 
-
-
-
-
-<!-- gsw:motion -->
-<style>
-  /* Motion pass. Everything here is gated on .gsw-m, which only the script
-     below adds, so a page without JavaScript never hides anything. */
-  .gsw-m [data-gsw-reveal] {
-    opacity: 0; transform: translateY(14px);
-    transition: opacity .7s cubic-bezier(.2,.6,.2,1), transform .7s cubic-bezier(.2,.6,.2,1);
-  }
-  .gsw-m [data-gsw-reveal].gsw-in { opacity: 1; transform: none; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(2) { transition-delay: .08s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(3) { transition-delay: .16s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(4) { transition-delay: .24s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(5) { transition-delay: .32s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(6) { transition-delay: .40s; }
-  @keyframes gsw-hero-in { from { opacity: 0; transform: scale(1.025); } to { opacity: 1; transform: none; } }
-  .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: gsw-hero-in 1s ease-out both; }
-  @media (prefers-reduced-motion: reduce) {
-    .gsw-m [data-gsw-reveal] { opacity: 1; transform: none; transition: none; }
-    .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: none; }
-  }
-</style>
-<script>
-(function () {
-  if (!('IntersectionObserver' in window)) return;
-  var targets = [].slice.call(document.querySelectorAll('body > section, .gsw-gal figure'));
-  // The first section is the hero; it is on screen already and owns its own entrance.
-  var first = document.querySelector('body > section');
-  targets = targets.filter(function (el) { return el !== first; });
-  if (!targets.length) return;
-  document.documentElement.classList.add('gsw-m');
-  targets.forEach(function (el) { el.setAttribute('data-gsw-reveal', ''); });
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) { e.target.classList.add('gsw-in'); io.unobserve(e.target); }
-    });
-  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-  targets.forEach(function (el) { io.observe(el); });
-})();
-</script>
-<!-- /gsw:motion -->
-
+<div class="bar" aria-label="Quick actions">
+  <a class="btn btn-primary" href="#contact">Book a consult</a>
+  <a class="btn tnum" href="tel:+16607036612">(660)&nbsp;703-6612</a>
+</div>
 
 <script>
-/* One listener per frame. Writing the position to a custom property keeps the
-   clip, the rule and the grip on a single source of truth. */
+/* One listener per frame. The position lives in a custom property so the clip, the rule and the grip share one source of truth. */
 (function () {
-  document.querySelectorAll('.gsw-cmp').forEach(function (frame) {
-    var range = frame.querySelector('.gsw-cmp-range');
-    if (!range) return;
+  document.querySelectorAll('.cmp').forEach(function (frame) {
+    var range = frame.querySelector('.cmp-range');
     var apply = function () { frame.style.setProperty('--pos', range.value + '%'); };
     range.addEventListener('input', apply);
-    frame.setAttribute('data-live', '');
     apply();
   });
-})();
-</script>
-
-<!-- gsw:contact-form -->
-<script>
-/* The enquiry form confirms in place. Nothing is sent: a reference build. */
-(function () {
-  var form = document.querySelector('.gsw-cf');
-  if (!form) return;
+  /* Static preview: validates locally and confirms in place. Nothing is sent. */
+  var form = document.getElementById('callback');
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    var name = form.name.value.trim(), contact = form.contact.value.trim();
-    var err = form.querySelector('.gsw-cf-err');
-    if (!name || !contact) { err.hidden = false; (name ? form.contact : form.name).focus(); return; }
-    err.hidden = true;
-    form.setAttribute('data-sent', '');
-    form.querySelector('.gsw-cf-done').hidden = false;
+    var name = form.elements.name, contact = form.elements.contact, err = document.getElementById('cb-err');
+    var ok = true;
+    [name, contact].forEach(function (el) {
+      var bad = !el.value.trim();
+      el.closest('.field').classList.toggle('is-invalid', bad);
+      el.setAttribute('aria-invalid', bad ? 'true' : 'false');
+      if (bad) ok = false;
+    });
+    err.hidden = ok;
+    if (!ok) { (name.value.trim() ? contact : name).focus(); return; }
+    form.classList.add('is-sent');
+    document.getElementById('cb-done').hidden = false;
   });
 })();
 </script>
-<!-- /gsw:contact-form -->
 </body>
 </html>
