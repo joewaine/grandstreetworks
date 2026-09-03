@@ -6,142 +6,10 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Calder Aesthetic Surgery · Board certified, accredited suite</title>
 <meta name="description" content="Aesthetic and reconstructive surgery in a private, accredited facility. Every consultation is with the surgeon who will operate.">
-<meta name="theme-color" content="#17141A">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-/* D2 — THE SUITE ONE. hero:fullbleed nav:centered services:tiles proof:testimonial-lead
-   ink #EDE9E1 · surface #17141A · accent #B39B6E · muted #9A948B · on-accent #17141A
-   H1 ramp: 30/36/46/60px · Marcellus display / Public Sans body
-   The dark direction for a practice whose ad spend lands on a weak page: one screen,
-   one claim, one action, and a single patient's sentence doing all the proving. */
-:root{--ink:#EDE9E1;--surface:#17141A;--accent:#B39B6E;--muted:#9A948B;--on-accent:#17141A;
---raise:#1F1B24;--rule:rgba(237,233,225,.14);--wrap:1120px}
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--surface);color:var(--ink);
-font:400 17px/1.66 "Public Sans",system-ui,-apple-system,sans-serif;padding-bottom:80px;
-overflow-x:hidden}
-.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
-h1,h2,h3{font-family:Marcellus,Georgia,serif;font-weight:400;margin:0;line-height:1.14;
-letter-spacing:.002em}
-a{color:inherit}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 26px;
-text-decoration:none;font-weight:500;font-size:15px;letter-spacing:.08em;text-transform:uppercase;
-border:1px solid transparent;text-align:center;line-height:1.2}
-.btn-primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
-.btn-ghost{background:transparent;color:var(--ink);border-color:rgba(237,233,225,.38)}
-.topbar{color:var(--muted);font-size:15px;border-bottom:1px solid var(--rule)}
-.topbar .wrap{padding:9px 24px;text-align:center;letter-spacing:.05em}
-.nav{position:sticky;top:0;z-index:30;background:rgba(23,20,26,.95);
-backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid var(--rule)}
-.navlinks{border-bottom:1px solid var(--rule)}
-.navlinks .wrap{display:flex;justify-content:center;gap:30px;padding:10px 24px;font-size:13px;
-letter-spacing:.18em;text-transform:uppercase;color:var(--muted);overflow-x:auto;
-scrollbar-width:none}
-.navlinks .wrap::-webkit-scrollbar{display:none}
-.navlinks a{text-decoration:none;white-space:nowrap}
-.navlinks a:hover{color:var(--accent)}
-.navmain .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:56px}
-.brand{font-family:Marcellus,Georgia,serif;font-size:20px;text-decoration:none;line-height:1;
-flex:none;letter-spacing:.22em;text-transform:uppercase}
-.navbook{min-height:40px;padding:0 13px;font-size:12px;flex:none;white-space:nowrap;letter-spacing:.1em}
-.hero{position:relative;overflow:hidden;padding:20px 0 40px;min-height:calc(100svh - 148px);
-display:flex;align-items:flex-start;
-background:radial-gradient(120% 80% at 80% 0%,rgba(179,155,110,.20),transparent 60%),
-radial-gradient(80% 60% at 8% 100%,rgba(237,233,225,.06),transparent 64%),var(--surface)}
-.hero::before{content:"";position:absolute;left:24px;right:24px;top:0;bottom:0;pointer-events:none;
-border-left:1px solid rgba(237,233,225,.07);border-right:1px solid rgba(237,233,225,.07)}
-.hero .wrap{position:relative}
-.eyebrow{font-size:13px;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);
-margin:0 0 12px;font-weight:500}
-.hero h1{font-size:clamp(30px,7.4vw,60px);max-width:15ch}
-.sub{font-size:16px;color:var(--muted);max-width:52ch;margin:14px 0 20px;line-height:1.55}
-.ctas{display:flex;flex-direction:column;gap:10px}
-.badges{list-style:none;margin:26px 0 0;padding:20px 0 0;border-top:1px solid var(--rule);
-display:grid;gap:9px}
-.badges li{font-size:15px;color:var(--muted);letter-spacing:.03em;padding-left:18px;position:relative}
-.badges li::before{content:"";position:absolute;left:0;top:11px;width:7px;height:7px;
-border:1px solid var(--accent);transform:rotate(45deg)}
-.sec{padding:56px 0;border-top:1px solid var(--rule)}
-.sec-head{text-align:center;max-width:62ch;margin:0 auto 32px}
-.kicker{font-size:13px;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);
-margin:0 0 11px;font-weight:500}
-.sec h2{font-size:clamp(28px,6vw,46px);margin-bottom:13px}
-.lede{color:var(--muted);margin:0;font-size:17px}
-.tiles{display:grid;gap:0;border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
-.tile{padding:28px 22px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}
-.tile .mark{width:9px;height:9px;border:1px solid var(--accent);transform:rotate(45deg);
-margin-bottom:18px}
-.tile h3{font-size:23px;margin-bottom:10px}
-.tile p{margin:0;color:var(--muted);font-size:16px}
-.quote{background:var(--raise)}
-.quote .kicker{color:var(--accent)}
-.quote blockquote{margin:26px 0 0;max-width:30ch}
-@media(min-width:760px){.quote blockquote{max-width:46ch}}
-.quote .q{font-family:Marcellus,Georgia,serif;font-size:clamp(23px,5.2vw,42px);line-height:1.3;
-margin:0;max-width:24ch}
-.quote cite{display:block;margin-top:24px;font-style:normal;font-size:16px;color:var(--muted)}
-.quote cite b{color:var(--ink);font-weight:600}
-.steps{list-style:none;margin:28px 0 0;padding:0;counter-reset:s;display:grid;gap:0;
-border-top:1px solid var(--rule)}
-.steps li{counter-increment:s;padding:22px 0;border-bottom:1px solid var(--rule);display:grid;
-grid-template-columns:44px 1fr;gap:16px}
-.steps li::before{content:counter(s,decimal-leading-zero);font-size:13px;letter-spacing:.16em;
-color:var(--accent);padding-top:5px;font-weight:500}
-.steps h3{font-size:20px;margin-bottom:6px}
-.steps p{margin:0;color:var(--muted);font-size:16px}
-.close{padding:60px 0 66px;border-top:1px solid var(--rule);
-background:radial-gradient(100% 130% at 50% 0%,rgba(179,155,110,.15),transparent 62%)}
-.close .wrap{text-align:center;display:flex;flex-direction:column;align-items:center}
-.close h2{font-size:clamp(29px,6.2vw,50px);max-width:17ch}
-.close p{max-width:54ch;font-size:18px;color:var(--muted);margin:14px 0 22px}
-.close .ctas{align-items:center}
-.note{font-size:15px;color:var(--muted);margin-top:20px;max-width:54ch}
-.foot{background:var(--raise);border-top:1px solid var(--rule);padding:42px 0 36px;font-size:15px;
-color:var(--muted);text-align:center}
-.foot .brand{color:var(--ink);display:inline-block;margin-bottom:14px}
-.foot p{margin:0 0 10px}
-.foot a{color:var(--ink)}
-.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--raise);padding:8px;
-border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:8px}
-.callbar a{display:flex;align-items:center;justify-content:center;min-height:60px;
-text-decoration:none;font-weight:500;font-size:13px;letter-spacing:.1em;text-transform:uppercase;
-text-align:center;line-height:1.2;padding:0 10px}
-.callbar .book{background:var(--accent);color:var(--on-accent)}
-.callbar .tel{border:1px solid rgba(237,233,225,.38);color:var(--ink);padding:0 16px;
-letter-spacing:.04em;text-transform:none;font-size:16px}
-@media(min-width:760px){.ctas{flex-direction:row;gap:12px}.badges{grid-template-columns:1fr 1fr}
-.tiles{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr;column-gap:48px}
-.sec{padding:88px 0}.sub{font-size:19px}.navmain .wrap{height:64px}.brand{font-size:22px}
-.navbook{font-size:13px;padding:0 18px}}
-@media(min-width:1000px){.hero{align-items:center;padding:80px 0 92px}body{padding-bottom:0}
-.callbar{display:none}}
-</style>
-
-<style>
-  /* Hero plate, added with the photography pass. Full-bleed between the hero
-     and the first content section, with no border of its own: every one of
-     these designs owns a different rule weight and ink colour, and a borrowed
-     hairline reads as a mistake in about half of them. */
-  .gsw-plate picture { display: block; width: 100%; }
-  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
-  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
-  .gsw-plate img {
-    display: block;
-    width: 100%;
-    height: clamp(220px, 40vw, 520px);
-    object-fit: cover;
-    object-position: center;
-  }
-  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
-</style>
-
 <!-- gsw:identity -->
 <link rel="icon" href="../_assets/identity/plastic-surgeons/calder-aesthetic-surgery-icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../_assets/identity/plastic-surgeons/calder-aesthetic-surgery-icon-180.png">
-<meta name="theme-color" content="#17141A">
+<meta name="theme-color" content="#2A3138">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Calder Aesthetic Surgery">
 <meta property="og:title" content="Calder Aesthetic Surgery · AAAASF accredited · One surgeon · One team">
@@ -150,216 +18,361 @@ letter-spacing:.04em;text-transform:none;font-size:16px}
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"MedicalClinic","name":"Calder Aesthetic Surgery","description":"AAAASF accredited \u00b7 One surgeon \u00b7 One team","telephone":"(662) 774-1128","areaServed":"Metro area","image":"https://grandstreetworks.com/work/_assets/identity/plastic-surgeons/calder-aesthetic-surgery-og.png","logo":"https://grandstreetworks.com/work/_assets/identity/plastic-surgeons/calder-aesthetic-surgery-mark.svg"}</script>
-
+<!-- /gsw:identity -->
+<link rel="preload" href="../_assets/fonts/libre-caslon-text-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../_assets/fonts/wix-madefor-text-var.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-  /* Identity pass. The lockup is the mark plus the wordmark the build already
-     had; the mark is sized in em so it tracks whatever display face this build
-     sets its brand in. */
-  .gsw-lockup { display: inline-flex; align-items: center; gap: .46em; }
-  .gsw-lockup svg { height: 1.16em; width: auto; flex: none; display: block; }
-</style>
+/* D2 — THE SUITE. hero:fullbleed nav:centered services:tiles proof:testimonial-lead
+   ink #2A3138 · stone #ECEAE5 · pale #9FB4C2 · muted #5C6169 · on-slate #ECEAE5
+   H1 ramp: 40/48/60/72px · Libre Caslon Text display / Wix Madefor Text body
+   Device: flush-set panels — services, process and the suite gallery share one
+   hairline grid with no gaps, so the page reads as the plan of a building; the
+   accredited suite fills the hero, desaturated, with centred Caslon over the
+   wall. The one patient's sentence leads the proof in a single wide column on
+   slate. Seven sizes, two families, three weights, one pale accent per screen. */
 
-<style>
-  /* Recent-work gallery. Everything here is drawn from the properties the build
-     already declares, so the band inherits each design's palette and heading
-     face rather than importing a seventh look. */
-  .gsw-gal { background: #17141A; color: #EDE9E1;
-             padding: clamp(38px, 6vw, 74px) 0; }
-  .gsw-gal-in { max-width: var(--wrap, 1140px); margin: 0 auto; padding: 0 20px; }
-  .gsw-gal-lab { font-size: 13px; letter-spacing: .18em; text-transform: uppercase;
-                 font-weight: 600; color: var(--accent); margin: 0 0 14px; }
-  .gsw-gal h2 { margin: 0; color: inherit; }
-  .gsw-gal-note { color: var(--muted); margin: 14px 0 30px; max-width: 58ch; }
-  .gsw-ba { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px; }
-  .gsw-gal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-  .gsw-gal figure { margin: 0; position: relative; overflow: hidden;
-                    background: var(--rule, rgba(0,0,0,.1)); }
-  .gsw-gal picture { display: block; }
-  /* height:auto matters — the width/height attributes are a presentational
-     hint, and without this the 1200px hint beats aspect-ratio. */
-  .gsw-gal img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3;
-                 object-fit: cover; transition: transform .5s ease; }
-  .gsw-gal figure:hover img { transform: scale(1.035); }
-  .gsw-gal figcaption { position: absolute; left: 0; bottom: 0;
-                        background: #EDE9E1; color: #17141A;
-                        font-size: 12px; font-weight: 600; letter-spacing: .14em;
-                        text-transform: uppercase; padding: 7px 12px; }
-  @media (max-width: 720px) {
-    .gsw-ba, .gsw-gal-grid { grid-template-columns: 1fr; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .gsw-gal img { transition: none; }
-    .gsw-gal figure:hover img { transform: none; }
-  }
-</style>
+@font-face { font-family: "Libre Caslon Text"; src: url("../_assets/fonts/libre-caslon-text-400.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Libre Caslon Text"; src: url("../_assets/fonts/libre-caslon-text-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Wix Madefor Text"; src: url("../_assets/fonts/wix-madefor-text-var.woff2") format("woff2"); font-weight: 400 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "Wix Madefor Text"; src: url("../_assets/fonts/wix-madefor-text-italic-var.woff2") format("woff2"); font-weight: 400 800; font-style: italic; font-display: swap; }
+@font-face { font-family: "Caslon Fallback"; src: local("Georgia"); size-adjust: 103%; ascent-override: 90%; descent-override: 26%; }
+@font-face { font-family: "Madefor Fallback"; src: local("Arial"); size-adjust: 100%; ascent-override: 92%; descent-override: 24%; }
 
-<style>
-  /* gsw:contact-form — the closing section takes a name. Borrows the section's
-     colour through currentColor and the build's own .btn for the button. */
-  .gsw-cf { max-width: 640px; margin: 28px 0 0; text-align: left; }
-  .gsw-cf--centred { margin-left: auto; margin-right: auto; }
-  .gsw-cf-lead { margin: 0 0 12px; font-size: 15px; opacity: .85; }
-  .gsw-cf-grid { display: grid; gap: 10px; }
-  .gsw-cf label { display: flex; flex-direction: column; gap: 5px; font-size: 11px;
-                  font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
-  .gsw-cf label em { font-style: normal; font-weight: 400; text-transform: none; letter-spacing: 0; opacity: .7; }
-  .gsw-cf input, .gsw-cf textarea { font: inherit; font-size: 16px; color: inherit; background: transparent;
-                                    border: 1.5px solid currentColor; border-radius: 0; padding: 10px 12px; width: 100%;
-                                    box-sizing: border-box; letter-spacing: 0; text-transform: none; font-weight: 400; }
-  .gsw-cf input:focus, .gsw-cf textarea:focus { outline: 2px solid currentColor; outline-offset: 2px; }
-  .gsw-cf textarea { resize: vertical; min-height: 84px; }
-  .gsw-cf-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 14px; }
-  .gsw-cf button.btn { font: inherit; cursor: pointer; appearance: none; }
-  .gsw-cf-err { font-size: 14px; font-weight: 600; }
-  .gsw-cf-done { margin: 0; font-size: 17px; font-weight: 600; }
-  .gsw-cf[data-sent] .gsw-cf-lead, .gsw-cf[data-sent] .gsw-cf-grid, .gsw-cf[data-sent] .gsw-cf-row { display: none; }
-  @media (min-width: 640px) {
-    .gsw-cf-grid { grid-template-columns: 1fr 1fr; }
-    .gsw-cf-wide { grid-column: 1 / -1; }
-  }
+:root {
+  --ink: #2A3138; --ink-2: #3D4650; --stone: #ECEAE5; --stone-2: #E1DED7; --stone-3: #F5F3EF;
+  --pale: #9FB4C2; --pale-2: #C9D6DE; --muted: #5C6169; --muted-on-slate: #B4BAC1;
+  --line: #CFCBC3; --line-slate: #4A535D;
+  --serif: "Libre Caslon Text", "Caslon Fallback", Georgia, serif;
+  --sans: "Wix Madefor Text", "Madefor Fallback", Arial, sans-serif;
+  --t-label: 0.8125rem; --t-small: 0.9375rem; --t-body: 1.0625rem;
+  --t-lede: clamp(1.125rem, 1rem + 0.5vw, 1.3125rem);
+  --t-h3: clamp(1.375rem, 1.1rem + 1.1vw, 1.75rem);
+  --t-h2: clamp(1.875rem, 1.3rem + 2.3vw, 2.75rem);
+  --t-display: clamp(2.5rem, 1.4rem + 4.8vw, 4.5rem);
+  --s1: 9px; --s2: 18px; --s3: 27px; --s4: 36px; --s6: 54px; --s8: 72px; --s12: 108px; --s16: 144px;
+  --wrap: 1180px; --gutter: clamp(20px, 4vw, 48px); --bar-h: 64px;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body { margin: 0; background: var(--stone); color: var(--ink); font: 400 var(--t-body)/1.6 var(--sans); overflow-x: hidden; padding-bottom: var(--bar-h); }
+h1, h2, h3, .display, .quote { font-family: var(--serif); font-weight: 400; margin: 0; text-wrap: balance; }
+p { margin: 0; text-wrap: pretty; }
+a { color: inherit; }
+img { display: block; max-width: 100%; height: auto; }
+ul, ol { list-style: none; margin: 0; padding: 0; }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+.label { font-size: var(--t-label); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; line-height: 1.3; }
+.lede { font-size: var(--t-lede); line-height: 1.45; max-width: 56ch; }
+.muted { color: var(--muted); }
+.on-slate { background: var(--ink); color: var(--stone); }
+.on-slate .muted { color: var(--muted-on-slate); }
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.on-slate :focus-visible { outline-color: var(--pale); }
+.skip { position: absolute; left: -999px; top: 0; background: var(--ink); color: var(--stone); padding: var(--s1) var(--s2); z-index: 100; }
+.skip:focus { left: var(--s2); top: var(--s2); }
+
+/* ---------- Buttons ---------- */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5em; min-height: 52px; padding: 0.7em 1.4em; border: 1px solid var(--ink); font: 500 var(--t-body)/1.2 var(--sans); text-decoration: none; cursor: pointer; transition: background-color 160ms, color 160ms, border-color 160ms; }
+.btn-primary { background: var(--ink); color: var(--stone); }
+.btn-primary:hover { background: var(--ink-2); border-color: var(--ink-2); }
+.btn-ghost { background: transparent; color: var(--ink); }
+.btn-ghost:hover { background: rgba(42, 49, 56, 0.08); }
+.on-slate .btn-primary { background: var(--stone); color: var(--ink); border-color: var(--stone); }
+.on-slate .btn-primary:hover { background: var(--stone-2); border-color: var(--stone-2); }
+.on-slate .btn-ghost { color: var(--stone); border-color: var(--line-slate); }
+.on-slate .btn-ghost:hover { border-color: var(--stone); background: rgba(236, 234, 229, 0.08); }
+
+/* ---------- Header: centred brand, nav either side ---------- */
+.top { position: absolute; inset: 0 0 auto 0; z-index: 5; }
+.top-line { text-align: center; font-size: var(--t-label); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); padding: 12px var(--gutter) 0; }
+.top .wrap { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: var(--s3); padding-top: var(--s2); padding-bottom: var(--s2); }
+.nav { display: flex; gap: var(--s3); font-size: var(--t-small); }
+.nav a { text-decoration: none; padding: 6px 0; border-bottom: 1px solid transparent; transition: border-color 160ms; }
+.nav a:hover { border-bottom-color: var(--ink); }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font: 400 var(--t-lede)/1 var(--serif); white-space: nowrap; }
+.brand img { width: 30px; height: 30px; }
+.top .act { justify-self: end; font-size: var(--t-small); font-weight: 500; text-decoration: none; border-bottom: 1px solid var(--pale); padding-bottom: 2px; }
+.top .act:hover { color: var(--ink-2); border-bottom-color: var(--ink); }
+
+/* ---------- Hero: the suite, full-bleed ---------- */
+.hero { position: relative; isolation: isolate; min-height: clamp(620px, 92svh, 860px); display: grid; place-items: center; text-align: center; overflow: hidden; }
+.hero-media { position: absolute; inset: 0; z-index: -1; }
+.hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 62%; filter: saturate(0.55); }
+/* a pale veil so slate type clears AA against the brightest wall */
+.hero-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(236, 234, 229, 0.62), rgba(236, 234, 229, 0.38) 60%, rgba(236, 234, 229, 0.1)); }
+.hero .wrap { padding-top: var(--s16); padding-bottom: var(--s12); max-width: 900px; }
+.hero .label { color: var(--ink-2); margin-bottom: var(--s3); }
+.hero h1 { font-size: var(--t-display); line-height: 1.05; letter-spacing: -0.01em; max-width: 16ch; margin: 0 auto; }
+.hero .lede { margin: var(--s3) auto 0; max-width: 52ch; color: var(--ink-2); }
+.hero .cta { display: flex; justify-content: center; flex-wrap: wrap; gap: var(--s2); margin-top: var(--s4); }
+.hero .marks { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--s1) var(--s4); margin-top: var(--s6); padding-top: var(--s3); border-top: 1px solid var(--pale); font-size: var(--t-small); color: var(--ink-2); }
+.hero .marks li { position: relative; }
+
+/* ---------- Section frame ---------- */
+.sec { padding: var(--s12) 0; }
+.frame { text-align: center; margin-bottom: var(--s6); }
+.frame .label { display: inline-flex; align-items: center; gap: var(--s2); color: var(--muted); }
+.frame .label::before, .frame .label::after { content: ""; width: 36px; height: 1px; background: var(--pale); }
+.on-slate .frame .label { color: var(--muted-on-slate); }
+h2 { font-size: var(--t-h2); line-height: 1.1; letter-spacing: -0.005em; max-width: 22ch; }
+h3 { font-size: var(--t-h3); line-height: 1.25; }
+.head { text-align: center; max-width: 720px; margin: 0 auto var(--s8); }
+.head h2 { margin: 0 auto; }
+.head .lede { margin: var(--s3) auto 0; }
+
+/* ---------- Procedures: flush-set panels ---------- */
+.panels { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--line); background: var(--line); gap: 1px; }
+.panels li { background: var(--stone-3); padding: var(--s4); }
+.panels h3 { margin-bottom: var(--s2); }
+.panels p { max-width: 44ch; color: var(--muted); }
+
+/* ---------- Testimonial ---------- */
+.proof .quote { font-size: var(--t-h3); line-height: 1.4; max-width: 30em; margin: 0 auto; text-align: center; }
+.proof cite { display: block; margin-top: var(--s3); font: 400 var(--t-small)/1.4 var(--sans); color: var(--muted-on-slate); text-align: center; }
+
+/* ---------- Process: ruled row ---------- */
+.process ol { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4) var(--s8); border-top: 1px solid var(--line); }
+.process li { display: grid; grid-template-columns: 3ch 1fr; gap: var(--s2); padding-top: var(--s3); }
+.process li:nth-child(n + 3) { border-top: 1px solid var(--line); }
+.process .n { font-family: var(--serif); font-size: var(--t-h3); color: var(--muted); font-variant-numeric: tabular-nums; line-height: 1.25; }
+.process h3 { margin-bottom: var(--s1); }
+.process p { color: var(--muted); max-width: 46ch; }
+
+/* ---------- The suite: gallery on the same grid ---------- */
+.suite { background: var(--stone-2); }
+.suite .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.suite figure { margin: 0; background: var(--stone-3); }
+.suite img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; filter: saturate(0.7); }
+.suite figcaption { padding: var(--s2) var(--s3); font-size: var(--t-small); color: var(--muted); display: flex; gap: var(--s2); }
+.suite figcaption .n { font-variant-numeric: tabular-nums; color: var(--ink); font-weight: 500; }
+
+/* ---------- Closing ---------- */
+.close .grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: var(--s8); align-items: start; }
+.close h2 { font-size: var(--t-display); line-height: 1.05; max-width: 12ch; }
+.close .lede { margin-top: var(--s3); }
+.close .cta { display: flex; flex-wrap: wrap; gap: var(--s2); margin-top: var(--s4); }
+.close .note { margin-top: var(--s4); font-size: var(--t-small); max-width: 46ch; }
+.form { border-top: 1px solid var(--line-slate); padding-top: var(--s3); }
+.form .intro { margin-bottom: var(--s3); }
+.field { display: grid; gap: 6px; margin-bottom: var(--s2); }
+.field label { font-size: var(--t-label); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted-on-slate); }
+.field label em { font-style: normal; text-transform: none; letter-spacing: 0; font-weight: 400; }
+.field input, .field textarea { width: 100%; font: 400 var(--t-body)/1.4 var(--sans); color: var(--stone); background: rgba(236, 234, 229, 0.06); border: 1px solid var(--line-slate); padding: 12px 14px; transition: border-color 160ms; }
+.field input:hover, .field textarea:hover { border-color: var(--muted-on-slate); }
+.field input:focus, .field textarea:focus { outline: none; border-color: var(--pale); }
+.field.is-invalid input { border-color: var(--pale); }
+.form .actions { display: flex; align-items: center; gap: var(--s2); flex-wrap: wrap; margin-top: var(--s3); }
+.form .hint { font-size: var(--t-small); color: var(--pale-2); }
+.form .hint[hidden], .form .done[hidden] { display: none; }
+.form .done { font-family: var(--serif); font-size: var(--t-lede); padding: var(--s3) 0; }
+.form.is-sent .field, .form.is-sent .actions { display: none; }
+
+/* ---------- Footer ---------- */
+.foot { padding: var(--s6) 0; font-size: var(--t-small); border-top: 1px solid var(--line); }
+.foot .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s3) var(--s8); }
+.foot p { color: var(--muted); max-width: 52ch; }
+.foot .fine { grid-column: 1 / -1; padding-top: var(--s3); border-top: 1px solid var(--line); font-size: var(--t-label); letter-spacing: 0.02em; }
+
+/* ---------- Mobile bar ---------- */
+.bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: grid; grid-template-columns: 1fr auto; gap: 1px; background: var(--line); border-top: 1px solid var(--line); }
+.bar .btn { min-height: var(--bar-h); border: 0; white-space: nowrap; }
+.bar .btn-ghost { background: var(--stone); }
+
+.tnum, .tnum * { font-variant-numeric: tabular-nums; }
+
+@media (min-width: 1000px) { body { padding-bottom: 0; } .bar { display: none; } }
+@media (max-width: 999px) {
+  .top .wrap { grid-template-columns: auto 1fr; }
+  .nav { display: none; }
+  .top .act { display: none; }
+  .suite .grid { grid-template-columns: 1fr 1fr; }
+  .close .grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 759px) {
+  .sec { padding: var(--s8) 0; }
+  .top-line { display: none; }
+  .hero { min-height: 0; }
+  .hero .wrap { padding-top: var(--s12); padding-bottom: var(--s8); }
+  .hero .cta .btn { width: 100%; }
+  .hero .marks { flex-direction: column; align-items: center; gap: var(--s1); }
+  .panels { grid-template-columns: 1fr; }
+  .process ol { grid-template-columns: 1fr; gap: var(--s3); }
+  .process li:nth-child(n + 2) { border-top: 1px solid var(--line); }
+  .suite .grid { grid-template-columns: 1fr; }
+  .foot .wrap { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+@media (forced-colors: active) { .hero-media::after { display: none; } .btn { border: 1px solid ButtonText; } }
+@media print { .hero-media, .bar { display: none; } }
 </style>
 </head>
 <body>
-<div class="topbar"><div class="wrap">AAAASF accredited · One surgeon · One team</div></div>
-<header class="nav">
-  <div class="navlinks"><div class="wrap"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></div></div>
-  <div class="navmain"><div class="wrap">
-    <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="12" y="12" width="40" height="40" rx="8" fill="#B39B6E"/>
-<circle cx="32" cy="32" r="6" fill="#17141A"/></svg><span>Calder Aesthetic Surgery</span></span></a>
-    <a class="btn btn-primary navbook" href="#contact">Request a consultation</a>
-  </div></div>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <p class="top-line">AAAASF accredited · One surgeon · One team</p>
+  <div class="wrap">
+    <nav class="nav" aria-label="Sections">
+      <a href="#services">Services</a>
+      <a href="#results">Results</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="brand" href="#"><img src="../_assets/identity/plastic-surgeons/calder-aesthetic-surgery-mark.svg" alt="" width="30" height="30">Calder Aesthetic Surgery</a>
+    <a class="act" href="#contact">Request a consultation</a>
+  </div>
 </header>
-<section class="hero"><div class="wrap">
-  <p class="eyebrow">Board certified · ABPS</p>
-  <h1>One suite. One surgeon. One team, every time.</h1>
-  <p class="sub">Aesthetic and reconstructive surgery in our own accredited facility. The same anaesthetist, the same nurses and the same surgeon on every case, which is the part of a result nobody photographs.</p>
-  <div class="ctas">
-    <a class="btn btn-primary" data-cta="primary" href="#contact">Request a consultation</a>
-    <a class="btn btn-ghost" href="#results">View results</a>
-  </div>
-  <ul class="badges"><li>ABPS board certified</li><li>AAAASF accredited suite</li><li>Consult with your surgeon</li><li>Financing available</li></ul>
-</div></section>
-<figure class="gsw-plate"><picture><source type="image/avif" srcset="../_assets/hero/plastic-surgeons/b-quiet-gallery-1280.avif 1280w, ../_assets/hero/plastic-surgeons/b-quiet-gallery-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/plastic-surgeons/b-quiet-gallery-1280.jpg" width="2560" height="1429" alt="Quiet gallery, plastic surgeons" loading="lazy" decoding="async"></picture></figure>
 
-<section class="sec" id="services"><div class="wrap">
-  <div class="sec-head"><p class="kicker">Services</p><h2>Procedures</h2>
-  <p class="lede">A short list, deliberately. These are the operations performed often enough to be performed exceptionally.</p></div>
-  <div class="tiles">
-    <article class="tile"><div class="mark" aria-hidden="true"></div><h3>Breast surgery</h3><p>Augmentation, lift, reduction and reconstruction. Sizing done with imaging so you see the projected outcome before deciding.</p></article>
-    <article class="tile"><div class="mark" aria-hidden="true"></div><h3>Body contouring</h3><p>Abdominoplasty, liposuction and post-weight-loss contouring, staged sensibly rather than crammed into one operation.</p></article>
-    <article class="tile"><div class="mark" aria-hidden="true"></div><h3>Facial surgery</h3><p>Facelift, blepharoplasty and rhinoplasty. Conservative by philosophy: the aim is that nobody can tell you've had anything done.</p></article>
-    <article class="tile"><div class="mark" aria-hidden="true"></div><h3>Non-surgical</h3><p>Injectables, resurfacing and skin. Often the right starting point, and we'll say so when surgery isn't warranted yet.</p></article>
+<main id="main">
+<section class="hero" aria-labelledby="promise">
+  <div class="hero-media" aria-hidden="true">
+    <picture>
+      <source srcset="../_assets/hero/plastic-surgeons/a-accredited-suite-2560.avif 2560w, ../_assets/hero/plastic-surgeons/a-accredited-suite-1280.avif 1280w" type="image/avif" sizes="100vw">
+      <img src="../_assets/hero/plastic-surgeons/a-accredited-suite-1280.jpg" alt="" width="1280" height="714" fetchpriority="high">
+    </picture>
   </div>
-</div></section>
-<section class="sec quote" id="results"><div class="wrap">
-  <p class="kicker">Results</p>
-  <blockquote><p class="q">I consulted with three surgeons. Two put me with a patient coordinator. Dr. Vance spent fifty minutes with me himself and talked me out of one of the two things I came in for.</p>
-  <cite><b>Renata S.</b> · Facial surgery patient</cite></blockquote>
-</div></section>
-<section class="sec" id="process"><div class="wrap">
-  <div class="sec-head"><p class="kicker">Process</p><h2>From consultation to recovery</h2>
-  <p class="lede">Unhurried, private, and with the surgeon throughout. Most people are deciding over months, not days.</p></div>
-  <ol class="steps">
-    <li><div><h3>Private consultation</h3><p>Fifty minutes with the surgeon. Examination, imaging where useful, and a frank conversation about what is and isn't achievable.</p></div></li>
-    <li><div><h3>Plan &amp; quote</h3><p>A written surgical plan and an all-inclusive quote covering facility, anaesthesia and follow-up, with no line items appearing later.</p></div></li>
-    <li><div><h3>Pre-operative</h3><p>Medical clearance, photographs and a second sit-down to confirm you're certain. You can change your mind at any point.</p></div></li>
-    <li><div><h3>Surgery &amp; aftercare</h3><p>Accredited suite, board-certified anaesthesia, and a structured follow-up schedule out to one year with photographs at each stage.</p></div></li>
-  </ol>
-</div></section>
-<!-- gsw:gallery -->
-<section class="gsw-gal"><div class="gsw-gal-in"><p class="gsw-gal-lab">One suite</p><h2>One surgeon, one team, one room.</h2><p class="gsw-gal-note">The same suite and the same team for every case, which is the only way the results stay consistent.</p><div class="gsw-gal-grid"><figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/calder-aesthetic-surgery/operating-suite-640.avif 640w, ../_assets/library/plastic-surgeons/calder-aesthetic-surgery/operating-suite-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/plastic-surgeons/calder-aesthetic-surgery/operating-suite-720.jpg" width="1600" height="1200" alt="The suite" loading="lazy" decoding="async"></picture><figcaption>The suite</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/calder-aesthetic-surgery/gloved-hands-640.avif 640w, ../_assets/library/plastic-surgeons/calder-aesthetic-surgery/gloved-hands-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/plastic-surgeons/calder-aesthetic-surgery/gloved-hands-720.jpg" width="1600" height="1200" alt="Preparation" loading="lazy" decoding="async"></picture><figcaption>Preparation</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/calder-aesthetic-surgery/recovery-room-640.avif 640w, ../_assets/library/plastic-surgeons/calder-aesthetic-surgery/recovery-room-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/plastic-surgeons/calder-aesthetic-surgery/recovery-room-720.jpg" width="1600" height="1200" alt="Recovery" loading="lazy" decoding="async"></picture><figcaption>Recovery</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/calder-aesthetic-surgery/instrument-tray-640.avif 640w, ../_assets/library/plastic-surgeons/calder-aesthetic-surgery/instrument-tray-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/plastic-surgeons/calder-aesthetic-surgery/instrument-tray-720.jpg" width="1600" height="1200" alt="Set out" loading="lazy" decoding="async"></picture><figcaption>Set out</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/calder-aesthetic-surgery/corridor-640.avif 640w, ../_assets/library/plastic-surgeons/calder-aesthetic-surgery/corridor-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/plastic-surgeons/calder-aesthetic-surgery/corridor-720.jpg" width="1600" height="1200" alt="The corridor" loading="lazy" decoding="async"></picture><figcaption>The corridor</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/calder-aesthetic-surgery/consult-room-640.avif 640w, ../_assets/library/plastic-surgeons/calder-aesthetic-surgery/consult-room-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/plastic-surgeons/calder-aesthetic-surgery/consult-room-720.jpg" width="1600" height="1200" alt="The consultation room" loading="lazy" decoding="async"></picture><figcaption>The consultation room</figcaption></figure></div></div></section>
-<!-- /gsw:gallery -->
-<section class="close" id="contact"><div class="wrap">
-  <h2>Want to see where you'd have it done?</h2>
-  <p>Most of our patients thought about it for a year or more. A consultation commits you to nothing and is the fastest way to replace guesswork with facts.</p>
-  <div class="ctas">
-    <a class="btn btn-primary" href="#contact">Request a consultation</a>
-    <a class="btn btn-ghost">(662) 774-1128</a>
+  <div class="wrap">
+    <p class="label">Board certified · ABPS</p>
+    <h1 id="promise">One suite. One surgeon. One team, every&nbsp;time.</h1>
+    <p class="lede">Aesthetic and reconstructive surgery in our own accredited facility. The same anaesthetist, the same nurses and the same surgeon on every case, which is the part of a result nobody&nbsp;photographs.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="#contact" data-cta="primary">Request a consultation</a>
+      <a class="btn btn-ghost" href="#results">View results</a>
+    </div>
+    <ul class="marks" aria-label="Credentials">
+      <li>ABPS board certified</li>
+      <li>AAAASF accredited suite</li>
+      <li>Consult with your surgeon</li>
+      <li>Financing available</li>
+    </ul>
   </div>
-  <!-- gsw:contact-form -->
-    <form class="gsw-cf" novalidate>
-      <p class="gsw-cf-lead">Or leave your details and we'll call you back.</p>
-      <div class="gsw-cf-grid">
-        <label><span>Name</span><input type="text" name="name" autocomplete="name" required></label>
-        <label><span>Phone or email</span><input type="text" name="contact" autocomplete="tel" required></label>
-        <label class="gsw-cf-wide"><span>What can we help with? <em>(optional)</em></span><textarea name="message" rows="3"></textarea></label>
+</section>
+
+<section class="sec" id="services" aria-labelledby="services-title">
+  <div class="wrap">
+    <div class="frame"><p class="label">Services</p></div>
+    <div class="head">
+      <h2 id="services-title">Procedures</h2>
+      <p class="lede muted">A short list, deliberately. These are the operations performed often enough to be performed&nbsp;exceptionally.</p>
+    </div>
+    <ul class="panels">
+      <li><h3>Breast surgery</h3><p>Augmentation, lift, reduction and reconstruction. Sizing done with imaging so you see the projected outcome before deciding.</p></li>
+      <li><h3>Body contouring</h3><p>Abdominoplasty, liposuction and post-weight-loss contouring, staged sensibly rather than crammed into one operation.</p></li>
+      <li><h3>Facial surgery</h3><p>Facelift, blepharoplasty and rhinoplasty. Conservative by philosophy: the aim is that nobody can tell you’ve had anything done.</p></li>
+      <li><h3>Non-surgical</h3><p>Injectables, resurfacing and skin. Often the right starting point, and we’ll say so when surgery isn’t warranted yet.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec proof on-slate" id="results" aria-label="Results">
+  <div class="wrap">
+    <div class="frame"><p class="label">Results</p></div>
+    <blockquote class="quote">“I consulted with three surgeons. Two put me with a patient coordinator. Dr. Vance spent fifty minutes with me himself and talked me out of one of the two things I came in&nbsp;for.”<cite>Renata S. · Facial surgery patient</cite></blockquote>
+  </div>
+</section>
+
+<section class="sec process" id="process" aria-labelledby="process-title">
+  <div class="wrap">
+    <div class="frame"><p class="label">Process</p></div>
+    <div class="head">
+      <h2 id="process-title">From consultation to&nbsp;recovery</h2>
+      <p class="lede muted">Unhurried, private, and with the surgeon throughout. Most people are deciding over months, not&nbsp;days.</p>
+    </div>
+    <ol>
+      <li><span class="n">1</span><div><h3>Private consultation</h3><p>Fifty minutes with the surgeon. Examination, imaging where useful, and a frank conversation about what is and isn’t achievable.</p></div></li>
+      <li><span class="n">2</span><div><h3>Plan &amp; quote</h3><p>A written surgical plan and an all-inclusive quote covering facility, anaesthesia and follow-up, with no line items appearing later.</p></div></li>
+      <li><span class="n">3</span><div><h3>Pre-operative</h3><p>Medical clearance, photographs and a second sit-down to confirm you’re certain. You can change your mind at any point.</p></div></li>
+      <li><span class="n">4</span><div><h3>Surgery &amp; aftercare</h3><p>Accredited suite, board-certified anaesthesia, and a structured follow-up schedule out to one year with photographs at each stage.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec suite" aria-labelledby="suite-title">
+  <div class="wrap">
+    <div class="frame"><p class="label">One suite</p></div>
+    <div class="head">
+      <h2 id="suite-title">One surgeon, one team, one&nbsp;room.</h2>
+      <p class="lede muted">The same suite and the same team for every case, which is the only way the results stay&nbsp;consistent.</p>
+    </div>
+    <div class="grid">
+      <figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/calder-aesthetic-surgery/operating-suite-1280.avif 1280w, ../_assets/library/plastic-surgeons/calder-aesthetic-surgery/operating-suite-640.avif 640w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/plastic-surgeons/calder-aesthetic-surgery/operating-suite-720.jpg" alt="The operating suite, set for a case" width="720" height="537" loading="lazy"></picture><figcaption><span class="n">1</span>The suite</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/calder-aesthetic-surgery/gloved-hands-1280.avif 1280w, ../_assets/library/plastic-surgeons/calder-aesthetic-surgery/gloved-hands-640.avif 640w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/plastic-surgeons/calder-aesthetic-surgery/gloved-hands-720.jpg" alt="Gloved hands preparing instruments" width="720" height="537" loading="lazy"></picture><figcaption><span class="n">2</span>Preparation</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/calder-aesthetic-surgery/recovery-room-1280.avif 1280w, ../_assets/library/plastic-surgeons/calder-aesthetic-surgery/recovery-room-640.avif 640w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/plastic-surgeons/calder-aesthetic-surgery/recovery-room-720.jpg" alt="The recovery room" width="720" height="537" loading="lazy"></picture><figcaption><span class="n">3</span>Recovery</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/calder-aesthetic-surgery/instrument-tray-1280.avif 1280w, ../_assets/library/plastic-surgeons/calder-aesthetic-surgery/instrument-tray-640.avif 640w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/plastic-surgeons/calder-aesthetic-surgery/instrument-tray-720.jpg" alt="An instrument tray set out" width="720" height="537" loading="lazy"></picture><figcaption><span class="n">4</span>Set out</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/calder-aesthetic-surgery/corridor-1280.avif 1280w, ../_assets/library/plastic-surgeons/calder-aesthetic-surgery/corridor-640.avif 640w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/plastic-surgeons/calder-aesthetic-surgery/corridor-720.jpg" alt="The corridor to the consultation rooms" width="720" height="537" loading="lazy"></picture><figcaption><span class="n">5</span>The corridor</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/calder-aesthetic-surgery/consult-room-1280.avif 1280w, ../_assets/library/plastic-surgeons/calder-aesthetic-surgery/consult-room-640.avif 640w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/plastic-surgeons/calder-aesthetic-surgery/consult-room-720.jpg" alt="The consultation room" width="720" height="537" loading="lazy"></picture><figcaption><span class="n">6</span>The consultation room</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec close on-slate" id="contact" aria-labelledby="close-title">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <h2 id="close-title">Want to see where you’d have it&nbsp;done?</h2>
+        <p class="lede muted">Most of our patients thought about it for a year or more. A consultation commits you to nothing and is the fastest way to replace guesswork with&nbsp;facts.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="#cb-name">Request a consultation</a>
+          <a class="btn btn-ghost tnum" href="tel:+16627741128">(662)&nbsp;774-1128</a>
+        </div>
+        <p class="note muted">Private consultations and a tour of the suite before you commit to anything. Financing available; all enquiries handled&nbsp;confidentially.</p>
       </div>
-      <div class="gsw-cf-row">
-        <button type="submit" class="btn btn-primary">Request a call back</button>
-        <span class="gsw-cf-err" role="alert" hidden>Add your name and a way to reach you.</span>
-      </div>
-      <p class="gsw-cf-done" role="status" hidden>Thanks. Someone will call you back within one business day.</p>
-    </form>
-    <!-- /gsw:contact-form -->
-    <p class="note">Private consultations and a tour of the suite before you commit to anything. Financing available; all enquiries handled confidentially.</p>
-</div></section>
-<footer class="foot"><div class="wrap">
-  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="12" y="12" width="40" height="40" rx="8" fill="#B39B6E"/>
-<circle cx="32" cy="32" r="6" fill="#17141A"/></svg><span>Calder Aesthetic Surgery</span></span></a>
-  <p><a>(662) 774-1128</a> · AAAASF accredited · One surgeon · One team</p>
-  <p>Board certified by the American Board of Plastic Surgery · AAAASF accredited facility</p>
-  <p>8902 Wexford Lane, Northfields, CT 15948</p>
-</div></footer>
-<div class="callbar"><a class="book" href="#contact">Request a consultation</a><a class="tel">(662) 774-1128</a></div>
-<!-- gsw:motion -->
-<style>
-  /* Motion pass. Everything here is gated on .gsw-m, which only the script
-     below adds, so a page without JavaScript never hides anything. */
-  .gsw-m [data-gsw-reveal] {
-    opacity: 0; transform: translateY(14px);
-    transition: opacity .7s cubic-bezier(.2,.6,.2,1), transform .7s cubic-bezier(.2,.6,.2,1);
-  }
-  .gsw-m [data-gsw-reveal].gsw-in { opacity: 1; transform: none; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(2) { transition-delay: .08s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(3) { transition-delay: .16s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(4) { transition-delay: .24s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(5) { transition-delay: .32s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(6) { transition-delay: .40s; }
-  @keyframes gsw-hero-in { from { opacity: 0; transform: scale(1.025); } to { opacity: 1; transform: none; } }
-  .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: gsw-hero-in 1s ease-out both; }
-  @media (prefers-reduced-motion: reduce) {
-    .gsw-m [data-gsw-reveal] { opacity: 1; transform: none; transition: none; }
-    .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: none; }
-  }
-</style>
+      <form class="form" id="callback" novalidate>
+        <p class="intro muted">Or leave your details and we’ll call you back.</p>
+        <div class="field"><label for="cb-name">Name</label><input id="cb-name" name="name" type="text" autocomplete="name" required></div>
+        <div class="field"><label for="cb-contact">Phone or email</label><input id="cb-contact" name="contact" type="text" autocomplete="tel" required></div>
+        <div class="field"><label for="cb-msg">What can we help with? <em>(optional)</em></label><textarea id="cb-msg" name="message" rows="3"></textarea></div>
+        <div class="actions">
+          <button class="btn btn-primary" type="submit">Request a call back</button>
+          <p class="hint" id="cb-hint" role="alert" hidden>Add your name and a way to reach you.</p>
+        </div>
+        <p class="done" id="cb-done" role="status" hidden>Thanks. Someone will call you back within one business&nbsp;day.</p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="#"><img src="../_assets/identity/plastic-surgeons/calder-aesthetic-surgery-mark.svg" alt="" width="30" height="30">Calder Aesthetic Surgery</a>
+      <p class="tnum" style="margin-top: var(--s2)"><a href="tel:+16627741128">(662)&nbsp;774-1128</a> · AAAASF accredited · One surgeon · One team</p>
+      <p>Board certified by the American Board of Plastic Surgery · AAAASF accredited facility</p>
+    </div>
+    <div>
+      <p class="tnum">8902 Wexford Lane, Northfields, CT 15948</p>
+      <p style="margin-top: var(--s1)"><a href="#contact">Request a consultation</a> · <a class="tnum" href="tel:+16627741128">(662)&nbsp;774-1128</a></p>
+    </div>
+    <p class="fine">Calder Aesthetic Surgery is a fictional business; this page is a design reference.</p>
+  </div>
+</footer>
+
+<div class="bar" aria-label="Quick actions">
+  <a class="btn btn-primary" href="#contact">Request a consultation</a>
+  <a class="btn btn-ghost tnum" href="tel:+16627741128">(662)&nbsp;774-1128</a>
+</div>
+
 <script>
 (function () {
-  if (!('IntersectionObserver' in window)) return;
-  var targets = [].slice.call(document.querySelectorAll('body > section, .gsw-gal figure'));
-  // The first section is the hero; it is on screen already and owns its own entrance.
-  var first = document.querySelector('body > section');
-  targets = targets.filter(function (el) { return el !== first; });
-  if (!targets.length) return;
-  document.documentElement.classList.add('gsw-m');
-  targets.forEach(function (el) { el.setAttribute('data-gsw-reveal', ''); });
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) { e.target.classList.add('gsw-in'); io.unobserve(e.target); }
-    });
-  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-  targets.forEach(function (el) { io.observe(el); });
-})();
-</script>
-<!-- /gsw:motion -->
-
-<!-- gsw:contact-form -->
-<script>
-/* The enquiry form confirms in place. Nothing is sent: a reference build. */
-(function () {
-  var form = document.querySelector('.gsw-cf');
-  if (!form) return;
+  // Static preview: validates locally and shows the confirmation state; nothing is sent.
+  var form = document.getElementById('callback');
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    var name = form.name.value.trim(), contact = form.contact.value.trim();
-    var err = form.querySelector('.gsw-cf-err');
-    if (!name || !contact) { err.hidden = false; (name ? form.contact : form.name).focus(); return; }
-    err.hidden = true;
-    form.setAttribute('data-sent', '');
-    form.querySelector('.gsw-cf-done').hidden = false;
+    var name = form.elements.name, contact = form.elements.contact, hint = document.getElementById('cb-hint');
+    var ok = true;
+    [name, contact].forEach(function (el) {
+      var bad = !el.value.trim();
+      el.closest('.field').classList.toggle('is-invalid', bad);
+      el.setAttribute('aria-invalid', bad ? 'true' : 'false');
+      if (bad) ok = false;
+    });
+    hint.hidden = ok;
+    if (!ok) { (name.value.trim() ? contact : name).focus(); return; }
+    form.classList.add('is-sent');
+    document.getElementById('cb-done').hidden = false;
   });
 })();
 </script>
-<!-- /gsw:contact-form -->
 </body>
 </html>

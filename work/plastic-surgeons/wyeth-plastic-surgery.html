@@ -6,137 +6,10 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Wyeth Plastic Surgery · Board certified, accredited suite</title>
 <meta name="description" content="Aesthetic and reconstructive surgery in a private, accredited facility. Every consultation is with the surgeon who will operate.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-/* D1 — THE PORTFOLIO ONE. hero:panel nav:inline services:grid-numbered proof:logos
-   ink #191714 · surface #F3F0EA · accent #7A5F42 · muted #6A6055 · on-accent #FFFFFF
-   H1 ramp: 30/36/48/62px · Cormorant Garamond display / Jost body
-   Device: the results index — a numbered gallery lattice drawn in CSS. The brief's first
-   objection is an underpowered gallery, so the gallery sits in the hero, not a sub-page. */
-:root{--ink:#191714;--surface:#F3F0EA;--accent:#7A5F42;--muted:#6A6055;--on-accent:#FFFFFF;
---paper:#FBF9F5;--rule:rgba(25,23,20,.16);--hair:rgba(25,23,20,.1);--wrap:1160px}
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--surface);color:var(--ink);
-font:400 17px/1.68 Jost,system-ui,-apple-system,sans-serif;padding-bottom:80px;overflow-x:hidden}
-.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
-h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;margin:0;line-height:1.1;
-letter-spacing:-.008em}
-a{color:inherit}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 26px;
-text-decoration:none;font-weight:500;font-size:15px;letter-spacing:.06em;text-transform:uppercase;
-border:1px solid transparent;text-align:center;line-height:1.2}
-.btn-primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
-.btn-ghost{background:transparent;color:var(--ink);border-color:var(--rule)}
-.topbar{color:var(--muted);font-size:15px;border-bottom:1px solid var(--hair)}
-.topbar .wrap{padding:9px 24px;text-align:center;letter-spacing:.05em}
-.nav{position:sticky;top:0;z-index:30;background:var(--surface);border-bottom:1px solid var(--hair)}
-.nav .wrap{display:flex;align-items:center;gap:12px;height:58px}
-.brand{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:20px;
-text-decoration:none;line-height:1;flex:none;letter-spacing:.14em;text-transform:uppercase}
-.navlinks{display:none;gap:26px;margin-left:auto;font-size:13px;letter-spacing:.16em;
-text-transform:uppercase;color:var(--muted)}
-.navlinks a{text-decoration:none}
-.navlinks a:hover{color:var(--accent)}
-.navbook{min-height:40px;padding:0 13px;font-size:12px;flex:none;margin-left:auto;
-white-space:nowrap;letter-spacing:.1em}
-.hero{padding:12px 0 38px}
-.panel{background:var(--paper);border:1px solid var(--hair);padding:22px 20px 26px}
-.eyebrow{font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);
-margin:0 0 11px;font-weight:500}
-.hero h1{font-size:clamp(30px,7.4vw,62px);max-width:15ch}
-.sub{font-size:16px;color:var(--muted);max-width:52ch;margin:13px 0 18px;line-height:1.55}
-.ctas{display:flex;flex-direction:column;gap:10px}
-.badges{list-style:none;margin:22px 0 0;padding:18px 0 0;border-top:1px solid var(--hair);
-display:grid;gap:8px}
-.badges li{font-size:15px;color:var(--muted);letter-spacing:.03em}
-.index{margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.cell{position:relative;aspect-ratio:4/5;border:1px solid var(--hair);
-background:linear-gradient(160deg,#E9E3D9,#F7F4EE 60%,#EFEAE1)}
-.cell:nth-child(2){background:linear-gradient(160deg,#E4DED6,#F3EFE8 55%,#E9E2D7)}
-.cell:nth-child(3){background:linear-gradient(200deg,#EDE7DC,#F6F2EB 60%,#E6DFD4)}
-.cell:nth-child(4){background:linear-gradient(140deg,#E7E1D8,#F4F0E9 58%,#EAE3D9)}
-.cell::after{content:attr(data-n);position:absolute;left:9px;bottom:8px;font-size:13px;
-letter-spacing:.18em;color:var(--accent);font-weight:500}
-.cell i{position:absolute;left:50%;top:18%;bottom:18%;width:1px;background:rgba(25,23,20,.18)}
-.sec{padding:54px 0;border-top:1px solid var(--hair)}
-.kicker{font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);
-margin:0 0 11px;font-weight:500}
-.sec h2{font-size:clamp(28px,6vw,48px);margin-bottom:13px}
-.lede{color:var(--muted);max-width:60ch;margin:0 0 28px;font-size:17px}
-.gridnum{display:grid;gap:0;border-top:1px solid var(--rule)}
-.gn{padding:24px 0;border-bottom:1px solid var(--hair);display:grid;grid-template-columns:54px 1fr;
-gap:16px;align-items:start}
-.gn .n{font-family:"Cormorant Garamond",Georgia,serif;font-weight:400;font-size:32px;
-color:var(--accent);line-height:.9}
-.gn h3{font-size:23px;margin-bottom:8px}
-.gn p{margin:0;color:var(--muted);font-size:16px}
-.logos{background:var(--paper)}
-.logolist{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:0;border-top:1px solid var(--hair)}
-.logolist li{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;
-font-size:clamp(17px,4vw,20px);color:var(--accent);padding:18px 6px;
-border-bottom:1px solid var(--hair);text-align:center;line-height:1.3;letter-spacing:.02em}
-.steps{list-style:none;margin:26px 0 0;padding:0;counter-reset:s;display:grid;gap:0;
-border-top:1px solid var(--rule)}
-.steps li{counter-increment:s;padding:22px 0;border-bottom:1px solid var(--hair);display:grid;
-grid-template-columns:46px 1fr;gap:16px}
-.steps li::before{content:counter(s,decimal-leading-zero);font-size:13px;letter-spacing:.16em;
-color:var(--accent);padding-top:5px;font-weight:500}
-.steps h3{font-size:20px;margin-bottom:6px}
-.steps p{margin:0;color:var(--muted);font-size:16px}
-.close{background:var(--ink);color:#EFEBE3;padding:58px 0 64px}
-.close h2{font-size:clamp(29px,6.4vw,52px);max-width:16ch}
-.close p{max-width:54ch;font-size:18px;color:#B0A89C;margin:14px 0 22px}
-.close .btn-primary{background:#EFEBE3;color:var(--ink);border-color:#EFEBE3}
-.close .btn-ghost{color:#EFEBE3;border-color:rgba(239,235,227,.42)}
-.note{font-size:15px;color:#9C9488;margin-top:20px;max-width:54ch}
-.foot{padding:42px 0 36px;font-size:15px;color:var(--muted);border-top:1px solid var(--hair)}
-.foot .brand{color:var(--ink);display:inline-block;margin-bottom:14px}
-.foot p{margin:0 0 10px;max-width:64ch}
-.foot a{color:var(--accent)}
-.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--surface);padding:8px;
-border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:8px}
-.callbar a{display:flex;align-items:center;justify-content:center;min-height:60px;
-text-decoration:none;font-weight:500;font-size:13px;letter-spacing:.1em;text-transform:uppercase;
-text-align:center;line-height:1.2;padding:0 10px}
-.callbar .book{background:var(--accent);color:#fff}
-.callbar .tel{border:1px solid var(--rule);color:var(--ink);padding:0 16px;letter-spacing:.04em;
-text-transform:none;font-size:16px}
-@media(min-width:760px){.ctas{flex-direction:row;gap:12px}.badges{grid-template-columns:1fr 1fr}
-.index{grid-template-columns:repeat(4,1fr)}.gridnum{grid-template-columns:1fr 1fr;column-gap:48px}
-.logolist{grid-template-columns:repeat(5,1fr)}.logolist li{border-bottom:none;
-border-right:1px solid var(--hair);padding:26px 12px}.logolist li:last-child{border-right:none}
-.steps{grid-template-columns:1fr 1fr;column-gap:48px}.sec{padding:88px 0}
-.sub{font-size:19px}.hero{padding:34px 0 58px}.panel{padding:48px 46px 52px}
-.navbook{font-size:13px;padding:0 18px}.brand{font-size:22px}}
-@media(min-width:940px){.navlinks{display:flex}.navbook{margin-left:0}}
-@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
-</style>
-
-<style>
-  /* Hero plate, added with the photography pass. Full-bleed between the hero
-     and the first content section, with no border of its own: every one of
-     these designs owns a different rule weight and ink colour, and a borrowed
-     hairline reads as a mistake in about half of them. */
-  .gsw-plate picture { display: block; width: 100%; }
-  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
-  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
-  .gsw-plate img {
-    display: block;
-    width: 100%;
-    height: clamp(220px, 40vw, 520px);
-    object-fit: cover;
-    object-position: center;
-  }
-  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
-</style>
-
 <!-- gsw:identity -->
 <link rel="icon" href="../_assets/identity/plastic-surgeons/wyeth-plastic-surgery-icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../_assets/identity/plastic-surgeons/wyeth-plastic-surgery-icon-180.png">
-<meta name="theme-color" content="#191714">
+<meta name="theme-color" content="#F6F4EF">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Wyeth Plastic Surgery">
 <meta property="og:title" content="Wyeth Plastic Surgery · Board certified · Cases photographed to one year">
@@ -145,251 +18,369 @@ border-right:1px solid var(--hair);padding:26px 12px}.logolist li:last-child{bor
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"MedicalClinic","name":"Wyeth Plastic Surgery","description":"Board certified \u00b7 Cases photographed to one year","telephone":"(205) 306-2214","areaServed":"Metro area","image":"https://grandstreetworks.com/work/_assets/identity/plastic-surgeons/wyeth-plastic-surgery-og.png","logo":"https://grandstreetworks.com/work/_assets/identity/plastic-surgeons/wyeth-plastic-surgery-mark.svg"}</script>
-
+<!-- /gsw:identity -->
+<link rel="preload" href="../_assets/fonts/eb-garamond-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../_assets/fonts/familjen-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-  /* Identity pass. The lockup is the mark plus the wordmark the build already
-     had; the mark is sized in em so it tracks whatever display face this build
-     sets its brand in. */
-  .gsw-lockup { display: inline-flex; align-items: center; gap: .46em; }
-  .gsw-lockup svg { height: 1.16em; width: auto; flex: none; display: block; }
-</style>
+/* D1 — THE FOLIO. hero:panel nav:inline services:grid-numbered proof:logos
+   ink #1A1917 · paper #F6F4EF · bronze #74573A · muted #6B665E · rule #CFC8BB
+   H1 ramp: 40/50/64/78px · EB Garamond display and body / Familjen Grotesk folios, labels, number
+   Device: the folio — every section opens on a hairline carrying its folio number ("01 / 06")
+   in the outer margin, one photograph per screen matted in white, credentials set as a
+   colophon. FIX answered first: the hero promised a gallery and showed an empty lattice;
+   the folio is honest about what it is and puts the evidence (accreditation, the suite,
+   the process) in order. Seven sizes, two families, two weights, no motion. */
 
-<style>
-  /* Recent-work gallery. Everything here is drawn from the properties the build
-     already declares, so the band inherits each design's palette and heading
-     face rather than importing a seventh look. */
-  .gsw-gal { background: #F3F0EA; color: #191714;
-             padding: clamp(38px, 6vw, 74px) 0; }
-  .gsw-gal-in { max-width: var(--wrap, 1140px); margin: 0 auto; padding: 0 20px; }
-  .gsw-gal-lab { font-size: 13px; letter-spacing: .18em; text-transform: uppercase;
-                 font-weight: 600; color: var(--accent); margin: 0 0 14px; }
-  .gsw-gal h2 { margin: 0; color: inherit; }
-  .gsw-gal-note { color: var(--muted); margin: 14px 0 30px; max-width: 58ch; }
-  .gsw-ba { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px; }
-  .gsw-gal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-  .gsw-gal figure { margin: 0; position: relative; overflow: hidden;
-                    background: var(--rule, rgba(0,0,0,.1)); }
-  .gsw-gal picture { display: block; }
-  /* height:auto matters — the width/height attributes are a presentational
-     hint, and without this the 1200px hint beats aspect-ratio. */
-  .gsw-gal img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3;
-                 object-fit: cover; transition: transform .5s ease; }
-  .gsw-gal figure:hover img { transform: scale(1.035); }
-  .gsw-gal figcaption { position: absolute; left: 0; bottom: 0;
-                        background: #191714; color: #F3F0EA;
-                        font-size: 12px; font-weight: 600; letter-spacing: .14em;
-                        text-transform: uppercase; padding: 7px 12px; }
-  @media (max-width: 720px) {
-    .gsw-ba, .gsw-gal-grid { grid-template-columns: 1fr; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .gsw-gal img { transition: none; }
-    .gsw-gal figure:hover img { transform: none; }
-  }
-</style>
+@font-face { font-family: "EB Garamond"; src: url("../_assets/fonts/eb-garamond-var.woff2") format("woff2"); font-weight: 400 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "EB Garamond"; src: url("../_assets/fonts/eb-garamond-italic-var.woff2") format("woff2"); font-weight: 400 800; font-style: italic; font-display: swap; }
+@font-face { font-family: "Familjen Grotesk"; src: url("../_assets/fonts/familjen-grotesk-var.woff2") format("woff2"); font-weight: 400 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Familjen Grotesk"; src: url("../_assets/fonts/familjen-grotesk-italic-var.woff2") format("woff2"); font-weight: 400 700; font-style: italic; font-display: swap; }
+@font-face { font-family: "Garamond Fallback"; src: local("Georgia"); size-adjust: 94%; ascent-override: 88%; descent-override: 26%; }
+@font-face { font-family: "Familjen Fallback"; src: local("Arial"); size-adjust: 97%; ascent-override: 92%; descent-override: 22%; }
 
+:root {
+  --ink: #1A1917; --paper: #F6F4EF; --paper-2: #ECE8E0; --bronze: #74573A; --bronze-hover: #5A4229;
+  --bronze-l: #C89A6B; --muted: #6B665E; --rule: #CFC8BB; --on-ink: #F6F4EF; --on-ink-muted: #A8A399; --rule-ink: #3A3835;
+  --serif: "EB Garamond", "Garamond Fallback", Georgia, serif;
+  --sans: "Familjen Grotesk", "Familjen Fallback", Arial, sans-serif;
+  --t-label: 0.8125rem; --t-small: 0.9375rem; --t-body: 1.125rem;
+  --t-lede: clamp(1.1875rem, 1.05rem + 0.6vw, 1.375rem);
+  --t-h3: clamp(1.5rem, 1.2rem + 1.1vw, 1.875rem);
+  --t-h2: clamp(2rem, 1.35rem + 2.4vw, 2.875rem);
+  --t-display: clamp(2.5rem, 1.2rem + 5.4vw, 4.875rem);
+  --s1: 10px; --s2: 20px; --s3: 30px; --s4: 40px; --s6: 60px; --s8: 80px; --s12: 120px; --s16: 160px;
+  --wrap: 1180px; --gutter: clamp(20px, 4vw, 56px); --bar-h: 64px;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 var(--t-body)/1.6 var(--serif); font-optical-sizing: auto; overflow-x: hidden; padding-bottom: var(--bar-h); }
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; margin: 0; text-wrap: balance; }
+p { margin: 0; text-wrap: pretty; }
+a { color: inherit; }
+img { display: block; max-width: 100%; height: auto; }
+ul, ol { list-style: none; margin: 0; padding: 0; }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+.label { font-family: var(--sans); font-size: var(--t-label); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.3; }
+.small { font-family: var(--sans); font-size: var(--t-small); line-height: 1.5; }
+.lede { font-size: var(--t-lede); line-height: 1.45; max-width: 56ch; }
+.muted { color: var(--muted); }
+em, .it { font-style: italic; }
+:focus-visible { outline: 2px solid var(--bronze); outline-offset: 3px; }
+.skip { position: absolute; left: -999px; top: 0; background: var(--ink); color: var(--paper); padding: var(--s1) var(--s2); z-index: 100; }
+.skip:focus { left: var(--s2); top: var(--s2); }
 
+/* ---------- Buttons ---------- */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5em; min-height: 52px; padding: 0.7em 1.4em; border: 1px solid var(--ink); font: 500 var(--t-small)/1.2 var(--sans); letter-spacing: 0.02em; text-decoration: none; cursor: pointer; background: transparent; color: var(--ink); transition: background-color 160ms, color 160ms, border-color 160ms; }
+.btn-primary { background: var(--ink); color: var(--paper); }
+.btn-primary:hover { background: var(--bronze); border-color: var(--bronze); }
+.btn-ghost:hover { background: var(--ink); color: var(--paper); }
+.on-ink .btn { border-color: var(--on-ink); color: var(--on-ink); }
+.on-ink .btn-primary { background: var(--on-ink); color: var(--ink); }
+.on-ink .btn-primary:hover { background: var(--bronze); border-color: var(--bronze); color: var(--paper); }
 
+/* ---------- Header ---------- */
+.top { border-bottom: 1px solid var(--rule); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: var(--s3); padding-top: var(--s2); padding-bottom: var(--s2); }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font: 400 var(--t-lede)/1 var(--serif); letter-spacing: -0.005em; white-space: nowrap; }
+.brand img { width: 28px; height: 28px; }
+.nav { display: flex; align-items: center; gap: var(--s3); }
+.nav a { font: 400 var(--t-small)/1 var(--sans); text-decoration: none; padding: 6px 0; border-bottom: 1px solid transparent; transition: border-color 160ms; }
+.nav a:hover { border-bottom-color: var(--bronze); }
+.top-line { font-family: var(--sans); font-size: var(--t-label); letter-spacing: 0.06em; color: var(--muted); white-space: nowrap; }
+@media (max-width: 1240px) { .top-line { display: none; } }
 
-<style>
-  /* gsw-cellfill: photographs in the hero's index cells. The cell keeps its own
-     border, ratio and number; the image sits behind them and the design's
-     gradient stays as the loading colour. */
-  .gsw-cellfill { position: absolute; inset: 0; display: block; }
-  /* The overlay needs a positioned parent; several of these cells have none. */
-  .gsw-cellfill-host { position: relative; overflow: hidden; }
-  /* A covered device keeps its frame but not its drawing: the shapes were
-     absolutely positioned siblings and painted over the photograph. */
-  .gsw-cellfill-cover > *:not(.gsw-cellfill) { display: none; }
-  /* Slideshow: the plates stack, the register switches them. Without
-     JavaScript the first plate is simply the one that shows. */
-  .gsw-cellfill-slide { position: absolute; inset: 0; opacity: 0; transition: opacity .45s ease; }
-  .gsw-cellfill-slide:first-of-type { opacity: 1; }
-  .gsw-cellfill-slide[data-on] { opacity: 1; }
-  .gsw-cellfill-live .gsw-cellfill-slide:first-of-type:not([data-on]) { opacity: 0; }
-  .gsw-cellfill-reg button { font: inherit; color: inherit; background: none; border: 0;
-                          padding: 0; cursor: pointer; opacity: .45;
-                          transition: opacity .2s ease; }
-  .gsw-cellfill-reg button[aria-current="true"] { opacity: 1; }
-  .gsw-cellfill-reg button:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
-  @media (prefers-reduced-motion: reduce) {
-    .gsw-cellfill-slide { transition: none; }
-  }
-  /* <picture> is inline by default, so the image inside it collapses. */
-  .gsw-cellfill picture { display: block; width: 100%; height: 100%; }
-  .gsw-cellfill img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .gsw-sr { position: absolute; width: 1px; height: 1px; overflow: hidden;
-             clip-path: inset(50%); white-space: nowrap; }
-</style>
+/* ---------- Folio marks ---------- */
+.sec { padding: var(--s12) 0; }
+.folio { display: flex; align-items: baseline; justify-content: space-between; gap: var(--s2); padding-top: var(--s2); border-top: 1px solid var(--rule); margin-bottom: var(--s6); }
+.folio .n { font-family: var(--sans); font-size: var(--t-small); font-weight: 500; letter-spacing: 0.06em; color: var(--bronze); }
+.folio .label { color: var(--muted); }
+.on-ink .folio { border-top-color: var(--rule-ink); }
+h2 { font-size: var(--t-h2); line-height: 1.08; letter-spacing: -0.005em; max-width: 20ch; }
+h3 { font-size: var(--t-h3); line-height: 1.18; }
+.head { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: var(--s3) var(--s8); align-items: end; margin-bottom: var(--s8); }
 
-<style>
-  /* gsw:contact-form — the closing section takes a name. Borrows the section's
-     colour through currentColor and the build's own .btn for the button. */
-  .gsw-cf { max-width: 640px; margin: 28px 0 0; text-align: left; }
-  .gsw-cf--centred { margin-left: auto; margin-right: auto; }
-  .gsw-cf-lead { margin: 0 0 12px; font-size: 15px; opacity: .85; }
-  .gsw-cf-grid { display: grid; gap: 10px; }
-  .gsw-cf label { display: flex; flex-direction: column; gap: 5px; font-size: 11px;
-                  font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
-  .gsw-cf label em { font-style: normal; font-weight: 400; text-transform: none; letter-spacing: 0; opacity: .7; }
-  .gsw-cf input, .gsw-cf textarea { font: inherit; font-size: 16px; color: inherit; background: transparent;
-                                    border: 1.5px solid currentColor; border-radius: 0; padding: 10px 12px; width: 100%;
-                                    box-sizing: border-box; letter-spacing: 0; text-transform: none; font-weight: 400; }
-  .gsw-cf input:focus, .gsw-cf textarea:focus { outline: 2px solid currentColor; outline-offset: 2px; }
-  .gsw-cf textarea { resize: vertical; min-height: 84px; }
-  .gsw-cf-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 14px; }
-  .gsw-cf button.btn { font: inherit; cursor: pointer; appearance: none; }
-  .gsw-cf-err { font-size: 14px; font-weight: 600; }
-  .gsw-cf-done { margin: 0; font-size: 17px; font-weight: 600; }
-  .gsw-cf[data-sent] .gsw-cf-lead, .gsw-cf[data-sent] .gsw-cf-grid, .gsw-cf[data-sent] .gsw-cf-row { display: none; }
-  @media (min-width: 640px) {
-    .gsw-cf-grid { grid-template-columns: 1fr 1fr; }
-    .gsw-cf-wide { grid-column: 1 / -1; }
-  }
+/* ---------- Hero: the title page ---------- */
+.hero { padding: var(--s8) 0 var(--s6); }
+.hero .grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--s8); align-items: center; }
+.hero .label { color: var(--bronze); margin-bottom: var(--s3); }
+.hero h1 { font-size: var(--t-display); line-height: 1.02; letter-spacing: -0.01em; max-width: 14ch; }
+.hero .lede { margin-top: var(--s3); }
+.hero .cta { display: flex; flex-wrap: wrap; gap: var(--s2); margin-top: var(--s4); }
+.plate { margin: 0; padding: var(--s2); border: 1px solid var(--rule); background: #fff; }
+.plate img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.plate figcaption { margin-top: var(--s2); }
+.colophon { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s2) var(--s3); margin-top: var(--s6); padding-top: var(--s2); border-top: 1px solid var(--rule); }
+.colophon li { font-family: var(--sans); font-size: var(--t-small); line-height: 1.4; display: grid; grid-template-columns: 1.6em 1fr; }
+.colophon li::before { content: "·"; color: var(--bronze); font-weight: 500; }
+
+/* ---------- Procedures: the index ---------- */
+.index ol { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s6) var(--s8); }
+.index li { display: grid; grid-template-columns: 3.2em 1fr; gap: var(--s2); padding-top: var(--s2); border-top: 1px solid var(--rule); }
+.index .n { font-family: var(--sans); font-size: var(--t-small); font-weight: 500; letter-spacing: 0.06em; color: var(--bronze); padding-top: 0.45em; }
+.index h3 { margin-bottom: var(--s1); }
+.index p { max-width: 44ch; color: var(--muted); }
+
+/* ---------- Credentials: the colophon ---------- */
+.cred { padding-top: 0; }
+.cred ul { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--s2); }
+.cred li { padding-top: var(--s2); border-top: 1px solid var(--rule); font-family: var(--sans); font-size: var(--t-small); font-weight: 500; line-height: 1.4; }
+
+/* ---------- Process ---------- */
+.process { background: var(--paper-2); }
+.process ol { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s6) var(--s8); }
+.process li { display: grid; grid-template-columns: 3.2em 1fr; gap: var(--s2); padding-top: var(--s2); border-top: 1px solid var(--rule); }
+.process .n { font-family: var(--sans); font-size: var(--t-small); font-weight: 500; letter-spacing: 0.06em; color: var(--bronze); padding-top: 0.45em; }
+.process h3 { margin-bottom: var(--s1); }
+.process p { max-width: 48ch; }
+
+/* ---------- Figures ---------- */
+.figs .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s4); }
+.figs figure { margin: 0; padding: var(--s2); border: 1px solid var(--rule); background: #fff; }
+.figs img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.figs figcaption { display: flex; gap: var(--s2); align-items: baseline; margin-top: var(--s2); font-family: var(--sans); font-size: var(--t-small); color: var(--muted); }
+.figs figcaption .n { color: var(--bronze); font-weight: 500; }
+
+/* ---------- Closing ---------- */
+.close { background: var(--paper-2); }
+.close .grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: var(--s8); align-items: start; }
+.close h2 { font-size: var(--t-display); line-height: 1.02; max-width: 12ch; }
+.close .lede { margin-top: var(--s3); }
+.close .cta { display: flex; flex-wrap: wrap; gap: var(--s2); margin-top: var(--s4); }
+.close .note { margin-top: var(--s4); font-size: var(--t-small); font-family: var(--sans); color: var(--muted); max-width: 52ch; }
+.form { border-top: 1px solid var(--rule); padding-top: var(--s3); }
+.form .intro { margin-bottom: var(--s3); }
+.field { display: grid; gap: 6px; margin-bottom: var(--s2); }
+.field label { font-family: var(--sans); font-size: var(--t-label); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.field input, .field textarea { width: 100%; font: 400 var(--t-body)/1.4 var(--sans); color: var(--ink); background: #fff; border: 1px solid var(--rule); padding: 12px 14px; transition: border-color 160ms; }
+.field input:hover, .field textarea:hover { border-color: var(--muted); }
+.field input:focus, .field textarea:focus { outline: none; border-color: var(--bronze); box-shadow: inset 0 0 0 1px var(--bronze); }
+.field.is-invalid input { border-color: var(--bronze); }
+.form .actions { display: flex; align-items: center; gap: var(--s2); flex-wrap: wrap; margin-top: var(--s3); }
+.form .hint { font-family: var(--sans); font-size: var(--t-small); color: var(--bronze); }
+.form .hint[hidden], .form .done[hidden] { display: none; }
+.form .done { font-size: var(--t-lede); font-style: italic; padding: var(--s3) 0; }
+.form.is-sent .field, .form.is-sent .actions { display: none; }
+
+/* ---------- Footer colophon ---------- */
+.foot { background: var(--ink); color: var(--on-ink); padding: var(--s6) 0; }
+.foot .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s3) var(--s8); align-items: start; }
+.foot p { font-family: var(--sans); font-size: var(--t-small); color: var(--on-ink-muted); max-width: 48ch; }
+.foot .fine { grid-column: 1 / -1; padding-top: var(--s3); border-top: 1px solid var(--rule-ink); font-family: var(--sans); font-size: var(--t-label); letter-spacing: 0.02em; }
+.foot a { text-decoration-color: var(--bronze-l); }
+
+/* ---------- Mobile bar ---------- */
+.bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: grid; grid-template-columns: 1fr auto; background: var(--ink); border-top: 1px solid var(--rule-ink); }
+.bar .btn { min-height: var(--bar-h); border: 0; white-space: nowrap; color: var(--on-ink); }
+.bar .btn-primary { background: var(--bronze); color: var(--paper); }
+.bar .btn-ghost { border-left: 1px solid var(--rule-ink); }
+
+/* ---------- Responsive ---------- */
+@media (min-width: 1000px) { body { padding-bottom: 0; } .bar { display: none; } }
+@media (max-width: 999px) {
+  .head, .close .grid { grid-template-columns: 1fr; }
+  .hero .grid { grid-template-columns: 1fr; }
+  .plate { max-width: 560px; }
+  .cred ul { grid-template-columns: repeat(3, 1fr); }
+  .figs .grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 759px) {
+  .nav, .top-line { display: none; }
+  .sec, .hero { padding: var(--s8) 0; }
+  .hero .cta .btn { width: 100%; }
+  .colophon { grid-template-columns: 1fr 1fr; }
+  .index ol, .process ol { grid-template-columns: 1fr; }
+  .cred ul { grid-template-columns: 1fr 1fr; }
+  .figs .grid { grid-template-columns: 1fr; }
+  .foot .wrap { grid-template-columns: 1fr; }
+}
+@media (max-width: 420px) { .colophon { grid-template-columns: 1fr; } }
+.tnum, .tnum * { font-variant-numeric: tabular-nums; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+@media (forced-colors: active) { .btn { border: 1px solid ButtonText; } }
+@media print { .bar { display: none; } }
 </style>
 </head>
 <body>
-<div class="topbar"><div class="wrap">Board certified · Cases photographed to one year</div></div>
-<header class="nav"><div class="wrap">
-  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="8" y="8" width="22" height="22" fill="#191714" opacity=".55"/><rect x="34" y="8" width="22" height="22" fill="#7A5F42"/>
-<rect x="8" y="34" width="22" height="22" fill="#7A5F42" opacity=".7"/><rect x="34" y="34" width="22" height="22" fill="#191714" opacity=".55"/></svg><span>Wyeth Plastic Surgery</span></span></a>
-  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
-  <a class="btn btn-primary navbook" href="#contact">Request a consultation</a>
-</div></header>
-<section class="hero"><div class="wrap"><div class="panel">
-  <p class="eyebrow">Board certified · ABPS</p>
-  <h1>Look through the cases before you ring anyone.</h1>
-  <p class="sub">Aesthetic and reconstructive surgery in a private, accredited facility. Before you speak to anybody, look through the cases: unretouched, photographed at the same angles under the same light, out to a year.</p>
-  <div class="ctas">
-    <a class="btn btn-primary" data-cta="primary" href="#contact">Request a consultation</a>
-    <a class="btn btn-ghost" href="#results">View results</a>
-  </div>
-  <div class="index" aria-hidden="true">
-    <div class="gsw-cellfill-host cell" data-n="01"><i></i><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/wyeth-plastic-surgery/operating-suite-640.avif 640w, ../_assets/library/plastic-surgeons/wyeth-plastic-surgery/operating-suite-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/plastic-surgeons/wyeth-plastic-surgery/operating-suite-720.jpg" alt="The operating suite" loading="lazy" decoding="async"></picture></span></div><div class="gsw-cellfill-host cell" data-n="02"><i></i><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/wyeth-plastic-surgery/imaging-room-640.avif 640w, ../_assets/library/plastic-surgeons/wyeth-plastic-surgery/imaging-room-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/plastic-surgeons/wyeth-plastic-surgery/imaging-room-720.jpg" alt="Imaging before surgery" loading="lazy" decoding="async"></picture></span></div>
-    <div class="gsw-cellfill-host cell" data-n="03"><i></i><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/wyeth-plastic-surgery/recovery-room-640.avif 640w, ../_assets/library/plastic-surgeons/wyeth-plastic-surgery/recovery-room-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/plastic-surgeons/wyeth-plastic-surgery/recovery-room-720.jpg" alt="A private recovery room" loading="lazy" decoding="async"></picture></span></div><div class="gsw-cellfill-host cell" data-n="04"><i></i><span class="gsw-cellfill"><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/wyeth-plastic-surgery/consult-room-640.avif 640w, ../_assets/library/plastic-surgeons/wyeth-plastic-surgery/consult-room-1280.avif 1280w" sizes="(max-width: 760px) 45vw, 22vw"><img src="../_assets/library/plastic-surgeons/wyeth-plastic-surgery/consult-room-720.jpg" alt="The consultation room" loading="lazy" decoding="async"></picture></span></div>
-  </div>
-  <ul class="badges"><li>ABPS board certified</li><li>AAAASF accredited suite</li><li>Consult with your surgeon</li><li>Financing available</li></ul>
-</div></div></section>
-<figure class="gsw-plate"><picture><source type="image/avif" srcset="../_assets/hero/plastic-surgeons/a-accredited-suite-1280.avif 1280w, ../_assets/hero/plastic-surgeons/a-accredited-suite-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/plastic-surgeons/a-accredited-suite-1280.jpg" width="2560" height="1429" alt="Accredited suite, plastic surgeons" loading="lazy" decoding="async"></picture></figure>
+<a class="skip" href="#main">Skip to content</a>
 
-<section class="sec" id="services"><div class="wrap">
-  <p class="kicker">Services</p><h2>Procedures</h2>
-  <p class="lede">A short list, deliberately. These are the operations performed often enough to be performed exceptionally.</p>
-  <div class="gridnum">
-    <article class="gn"><div class="n">01</div><div><h3>Breast surgery</h3><p>Augmentation, lift, reduction and reconstruction. Sizing done with imaging so you see the projected outcome before deciding.</p></div></article>
-    <article class="gn"><div class="n">02</div><div><h3>Body contouring</h3><p>Abdominoplasty, liposuction and post-weight-loss contouring, staged sensibly rather than crammed into one operation.</p></div></article>
-    <article class="gn"><div class="n">03</div><div><h3>Facial surgery</h3><p>Facelift, blepharoplasty and rhinoplasty. Conservative by philosophy: the aim is that nobody can tell you've had anything done.</p></div></article>
-    <article class="gn"><div class="n">04</div><div><h3>Non-surgical</h3><p>Injectables, resurfacing and skin. Often the right starting point, and we'll say so when surgery isn't warranted yet.</p></div></article>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#"><img src="../_assets/identity/plastic-surgeons/wyeth-plastic-surgery-mark.svg" alt="" width="28" height="28">Wyeth Plastic Surgery</a>
+    <span class="top-line">Board certified · Cases photographed to one year</span>
+    <nav class="nav" aria-label="Sections">
+      <a href="#services">Services</a>
+      <a href="#results">Results</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+      <a class="btn btn-ghost" href="#contact" style="min-height: 44px; padding: 0.5em 1.1em; white-space: nowrap">Request a consultation</a>
+    </nav>
   </div>
-</div></section>
-<section class="sec logos" id="results"><div class="wrap">
-  <p class="kicker">Results</p><h2>Certified and accredited</h2>
-  <ul class="logolist"><li>American Board of Plastic Surgery</li><li>AAAASF Accredited</li><li>ASPS Member</li><li>ASAPS Member</li><li>Castle Connolly Top Doctor</li></ul>
-</div></section>
-<section class="sec" id="process"><div class="wrap">
-  <p class="kicker">Process</p><h2>From consultation to recovery</h2>
-  <p class="lede">Unhurried, private, and with the surgeon throughout. Most people are deciding over months, not days.</p>
-  <ol class="steps">
-    <li><div><h3>Private consultation</h3><p>Fifty minutes with the surgeon. Examination, imaging where useful, and a frank conversation about what is and isn't achievable.</p></div></li>
-    <li><div><h3>Plan &amp; quote</h3><p>A written surgical plan and an all-inclusive quote covering facility, anaesthesia and follow-up, with no line items appearing later.</p></div></li>
-    <li><div><h3>Pre-operative</h3><p>Medical clearance, photographs and a second sit-down to confirm you're certain. You can change your mind at any point.</p></div></li>
-    <li><div><h3>Surgery &amp; aftercare</h3><p>Accredited suite, board-certified anaesthesia, and a structured follow-up schedule out to one year with photographs at each stage.</p></div></li>
-  </ol>
-</div></section>
-<!-- gsw:gallery -->
-<section class="gsw-gal"><div class="gsw-gal-in"><p class="gsw-gal-lab">Behind the cases</p><h2>Where the cases were done.</h2><p class="gsw-gal-note">The suite, the imaging and the recovery room behind every case in the portfolio above.</p><div class="gsw-gal-grid"><figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/wyeth-plastic-surgery/operating-suite-640.avif 640w, ../_assets/library/plastic-surgeons/wyeth-plastic-surgery/operating-suite-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/plastic-surgeons/wyeth-plastic-surgery/operating-suite-720.jpg" width="1600" height="1200" alt="The suite" loading="lazy" decoding="async"></picture><figcaption>The suite</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/wyeth-plastic-surgery/imaging-room-640.avif 640w, ../_assets/library/plastic-surgeons/wyeth-plastic-surgery/imaging-room-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/plastic-surgeons/wyeth-plastic-surgery/imaging-room-720.jpg" width="1600" height="1200" alt="Imaging" loading="lazy" decoding="async"></picture><figcaption>Imaging</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/wyeth-plastic-surgery/gloved-hands-640.avif 640w, ../_assets/library/plastic-surgeons/wyeth-plastic-surgery/gloved-hands-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/plastic-surgeons/wyeth-plastic-surgery/gloved-hands-720.jpg" width="1600" height="1200" alt="Preparation" loading="lazy" decoding="async"></picture><figcaption>Preparation</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/wyeth-plastic-surgery/instrument-tray-640.avif 640w, ../_assets/library/plastic-surgeons/wyeth-plastic-surgery/instrument-tray-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/plastic-surgeons/wyeth-plastic-surgery/instrument-tray-720.jpg" width="1600" height="1200" alt="Set out" loading="lazy" decoding="async"></picture><figcaption>Set out</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/wyeth-plastic-surgery/recovery-room-640.avif 640w, ../_assets/library/plastic-surgeons/wyeth-plastic-surgery/recovery-room-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/plastic-surgeons/wyeth-plastic-surgery/recovery-room-720.jpg" width="1600" height="1200" alt="Recovery" loading="lazy" decoding="async"></picture><figcaption>Recovery</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/wyeth-plastic-surgery/consult-room-640.avif 640w, ../_assets/library/plastic-surgeons/wyeth-plastic-surgery/consult-room-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/plastic-surgeons/wyeth-plastic-surgery/consult-room-720.jpg" width="1600" height="1200" alt="The consultation room" loading="lazy" decoding="async"></picture><figcaption>The consultation room</figcaption></figure></div></div></section>
-<!-- /gsw:gallery -->
-<section class="close" id="contact"><div class="wrap">
-  <h2>Want to see the outcomes first?</h2>
-  <p>Most of our patients thought about it for a year or more. A consultation commits you to nothing and is the fastest way to replace guesswork with facts.</p>
-  <div class="ctas">
-    <a class="btn btn-primary" href="#contact">Request a consultation</a>
-    <a class="btn btn-ghost">(205) 306-2214</a>
+</header>
+
+<main id="main">
+<section class="hero" aria-labelledby="title">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <p class="label">Board certified · ABPS</p>
+        <h1 id="title">Look through the cases before you ring&nbsp;anyone.</h1>
+        <p class="lede muted">Aesthetic and reconstructive surgery in a private, accredited facility. Before you speak to anybody, look through the cases: unretouched, photographed at the same angles under the same light, out to a&nbsp;year.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="#contact" data-cta="primary">Request a consultation</a>
+          <a class="btn btn-ghost" href="#results">View results</a>
+        </div>
+      </div>
+      <figure class="plate">
+        <picture>
+          <source type="image/avif" srcset="../_assets/hero/plastic-surgeons/b-quiet-gallery-1280.avif">
+          <img src="../_assets/hero/plastic-surgeons/b-quiet-gallery-1280.jpg" alt="An alabaster form on a stone plinth in a travertine gallery" width="1280" height="714" fetchpriority="high">
+        </picture>
+        <figcaption class="small muted">Accredited suite, plastic surgeons</figcaption>
+      </figure>
+    </div>
+    <ul class="colophon" aria-label="What you can expect">
+      <li>ABPS board certified</li>
+      <li>AAAASF accredited suite</li>
+      <li>Consult with your surgeon</li>
+      <li>Financing available</li>
+    </ul>
   </div>
-  <!-- gsw:contact-form -->
-    <form class="gsw-cf" novalidate>
-      <p class="gsw-cf-lead">Or leave your details and we'll call you back.</p>
-      <div class="gsw-cf-grid">
-        <label><span>Name</span><input type="text" name="name" autocomplete="name" required></label>
-        <label><span>Phone or email</span><input type="text" name="contact" autocomplete="tel" required></label>
-        <label class="gsw-cf-wide"><span>What can we help with? <em>(optional)</em></span><textarea name="message" rows="3"></textarea></label>
+</section>
+
+<section class="sec index" id="services" aria-labelledby="services-title">
+  <div class="wrap">
+    <p class="folio"><span class="label">Services</span><span class="n tnum">01 / 06</span></p>
+    <div class="head">
+      <h2 id="services-title">Procedures</h2>
+      <p class="lede muted">A short list, deliberately. These are the operations performed often enough to be performed&nbsp;exceptionally.</p>
+    </div>
+    <ol>
+      <li><span class="n tnum">01</span><div><h3>Breast surgery</h3><p>Augmentation, lift, reduction and reconstruction. Sizing done with imaging so you see the projected outcome before deciding.</p></div></li>
+      <li><span class="n tnum">02</span><div><h3>Body contouring</h3><p>Abdominoplasty, liposuction and post-weight-loss contouring, staged sensibly rather than crammed into one operation.</p></div></li>
+      <li><span class="n tnum">03</span><div><h3>Facial surgery</h3><p>Facelift, blepharoplasty and rhinoplasty. Conservative by philosophy: the aim is that nobody can tell you’ve had anything done.</p></div></li>
+      <li><span class="n tnum">04</span><div><h3>Non-surgical</h3><p>Injectables, resurfacing and skin. Often the right starting point, and we’ll say so when surgery isn’t warranted yet.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec cred" id="results" aria-labelledby="cred-title">
+  <div class="wrap">
+    <p class="folio"><span class="label">Results</span><span class="n tnum">02 / 06</span></p>
+    <h2 id="cred-title" style="margin-bottom: var(--s4)">Certified and&nbsp;accredited</h2>
+    <ul>
+      <li>American Board of Plastic Surgery</li>
+      <li>AAAASF Accredited</li>
+      <li>ASPS Member</li>
+      <li>ASAPS Member</li>
+      <li>Castle Connolly Top Doctor</li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec process" id="process" aria-labelledby="process-title">
+  <div class="wrap">
+    <p class="folio"><span class="label">Process</span><span class="n tnum">03 / 06</span></p>
+    <div class="head">
+      <h2 id="process-title">From consultation to&nbsp;recovery</h2>
+      <p class="lede muted">Unhurried, private, and with the surgeon throughout. Most people are deciding over months, not&nbsp;days.</p>
+    </div>
+    <ol>
+      <li><span class="n tnum">1</span><div><h3>Private consultation</h3><p>Fifty minutes with the surgeon. Examination, imaging where useful, and a frank conversation about what is and isn’t achievable.</p></div></li>
+      <li><span class="n tnum">2</span><div><h3>Plan &amp; quote</h3><p>A written surgical plan and an all-inclusive quote covering facility, anaesthesia and follow-up, with no line items appearing later.</p></div></li>
+      <li><span class="n tnum">3</span><div><h3>Pre-operative</h3><p>Medical clearance, photographs and a second sit-down to confirm you’re certain. You can change your mind at any point.</p></div></li>
+      <li><span class="n tnum">4</span><div><h3>Surgery &amp; aftercare</h3><p>Accredited suite, board-certified anaesthesia, and a structured follow-up schedule out to one year with photographs at each stage.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec figs" aria-labelledby="figs-title">
+  <div class="wrap">
+    <p class="folio"><span class="label">Behind the cases</span><span class="n tnum">04 / 06</span></p>
+    <div class="head">
+      <h2 id="figs-title">Where the cases were&nbsp;done.</h2>
+      <p class="lede muted">The suite, the imaging and the recovery room behind every case in the portfolio&nbsp;above.</p>
+    </div>
+    <div class="grid">
+      <figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/wyeth-plastic-surgery/operating-suite-1280.avif 1280w, ../_assets/library/plastic-surgeons/wyeth-plastic-surgery/operating-suite-640.avif 640w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/plastic-surgeons/wyeth-plastic-surgery/operating-suite-720.jpg" alt="The operating suite" width="720" height="537" loading="lazy"></picture><figcaption><span class="n tnum">1</span>The suite</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/wyeth-plastic-surgery/imaging-room-1280.avif 1280w, ../_assets/library/plastic-surgeons/wyeth-plastic-surgery/imaging-room-640.avif 640w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/plastic-surgeons/wyeth-plastic-surgery/imaging-room-720.jpg" alt="Imaging before surgery" width="720" height="537" loading="lazy"></picture><figcaption><span class="n tnum">2</span>Imaging</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/wyeth-plastic-surgery/gloved-hands-1280.avif 1280w, ../_assets/library/plastic-surgeons/wyeth-plastic-surgery/gloved-hands-640.avif 640w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/plastic-surgeons/wyeth-plastic-surgery/gloved-hands-720.jpg" alt="Preparation" width="720" height="537" loading="lazy"></picture><figcaption><span class="n tnum">3</span>Preparation</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/wyeth-plastic-surgery/instrument-tray-1280.avif 1280w, ../_assets/library/plastic-surgeons/wyeth-plastic-surgery/instrument-tray-640.avif 640w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/plastic-surgeons/wyeth-plastic-surgery/instrument-tray-720.jpg" alt="Set out" width="720" height="537" loading="lazy"></picture><figcaption><span class="n tnum">4</span>Set out</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/wyeth-plastic-surgery/recovery-room-1280.avif 1280w, ../_assets/library/plastic-surgeons/wyeth-plastic-surgery/recovery-room-640.avif 640w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/plastic-surgeons/wyeth-plastic-surgery/recovery-room-720.jpg" alt="A private recovery room" width="720" height="537" loading="lazy"></picture><figcaption><span class="n tnum">5</span>Recovery</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/wyeth-plastic-surgery/consult-room-1280.avif 1280w, ../_assets/library/plastic-surgeons/wyeth-plastic-surgery/consult-room-640.avif 640w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/plastic-surgeons/wyeth-plastic-surgery/consult-room-720.jpg" alt="The consultation room" width="720" height="537" loading="lazy"></picture><figcaption><span class="n tnum">6</span>The consultation room</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec close" id="contact" aria-labelledby="close-title">
+  <div class="wrap">
+    <p class="folio"><span class="label">Contact</span><span class="n tnum">05 / 06</span></p>
+    <div class="grid">
+      <div>
+        <h2 id="close-title">Want to see the outcomes&nbsp;first?</h2>
+        <p class="lede muted">Most of our patients thought about it for a year or more. A consultation commits you to nothing and is the fastest way to replace guesswork with&nbsp;facts.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="#cb-name">Request a consultation</a>
+          <a class="btn btn-ghost tnum" href="tel:+12053062214">(205)&nbsp;306-2214</a>
+        </div>
+        <p class="note">Private consultations, and every case shown here was performed by the surgeon you would sit with. All enquiries handled confidentially.</p>
       </div>
-      <div class="gsw-cf-row">
-        <button type="submit" class="btn btn-primary">Request a call back</button>
-        <span class="gsw-cf-err" role="alert" hidden>Add your name and a way to reach you.</span>
-      </div>
-      <p class="gsw-cf-done" role="status" hidden>Thanks. Someone will call you back within one business day.</p>
-    </form>
-    <!-- /gsw:contact-form -->
-    <p class="note">Private consultations, and every case shown here was performed by the surgeon you would sit with. All enquiries handled confidentially.</p>
-</div></section>
-<footer class="foot"><div class="wrap">
-  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="8" y="8" width="22" height="22" fill="#191714" opacity=".55"/><rect x="34" y="8" width="22" height="22" fill="#7A5F42"/>
-<rect x="8" y="34" width="22" height="22" fill="#7A5F42" opacity=".7"/><rect x="34" y="34" width="22" height="22" fill="#191714" opacity=".55"/></svg><span>Wyeth Plastic Surgery</span></span></a>
-  <p><a>(205) 306-2214</a> · Board certified · Cases photographed to one year</p>
-  <p>Board certified by the American Board of Plastic Surgery · AAAASF accredited facility</p>
-  <p>7544 Wexford Lane, Eastport Hills, NJ 16469</p>
-</div></footer>
-<div class="callbar"><a class="book" href="#contact">Request a consultation</a><a class="tel">(205) 306-2214</a></div>
-<!-- gsw:motion -->
-<style>
-  /* Motion pass. Everything here is gated on .gsw-m, which only the script
-     below adds, so a page without JavaScript never hides anything. */
-  .gsw-m [data-gsw-reveal] {
-    opacity: 0; transform: translateY(14px);
-    transition: opacity .7s cubic-bezier(.2,.6,.2,1), transform .7s cubic-bezier(.2,.6,.2,1);
-  }
-  .gsw-m [data-gsw-reveal].gsw-in { opacity: 1; transform: none; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(2) { transition-delay: .08s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(3) { transition-delay: .16s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(4) { transition-delay: .24s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(5) { transition-delay: .32s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(6) { transition-delay: .40s; }
-  @keyframes gsw-hero-in { from { opacity: 0; transform: scale(1.025); } to { opacity: 1; transform: none; } }
-  .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: gsw-hero-in 1s ease-out both; }
-  @media (prefers-reduced-motion: reduce) {
-    .gsw-m [data-gsw-reveal] { opacity: 1; transform: none; transition: none; }
-    .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: none; }
-  }
-</style>
+      <form class="form" id="callback" novalidate>
+        <p class="intro muted">Or leave your details and we’ll call you back.</p>
+        <div class="field"><label for="cb-name">Name</label><input id="cb-name" name="name" type="text" autocomplete="name" required></div>
+        <div class="field"><label for="cb-contact">Phone or email</label><input id="cb-contact" name="contact" type="text" autocomplete="tel" required></div>
+        <div class="field"><label for="cb-msg">What can we help with? (optional)</label><textarea id="cb-msg" name="message" rows="3"></textarea></div>
+        <div class="actions">
+          <button class="btn btn-primary" type="submit">Request a call back</button>
+          <p class="hint" id="cb-hint" role="alert" hidden>Add your name and a way to reach you.</p>
+        </div>
+        <p class="done" id="cb-done" role="status" hidden>Thanks. Someone will call you back within one business&nbsp;day.</p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot on-ink">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="#"><img src="../_assets/identity/plastic-surgeons/wyeth-plastic-surgery-mark.svg" alt="" width="28" height="28">Wyeth Plastic Surgery</a>
+      <p class="tnum" style="margin-top: var(--s2)"><a href="tel:+12053062214">(205)&nbsp;306-2214</a> · Board certified · Cases photographed to one year</p>
+      <p>Board certified by the American Board of Plastic Surgery · AAAASF accredited facility</p>
+    </div>
+    <div>
+      <p class="tnum">7544 Wexford Lane, Eastport Hills, NJ 16469</p>
+      <p style="margin-top: var(--s1)"><a href="#contact">Request a consultation</a> · <a class="tnum" href="tel:+12053062214">(205)&nbsp;306-2214</a></p>
+      <p class="folio-end tnum" style="margin-top: var(--s2); color: var(--bronze-l)">06 / 06</p>
+    </div>
+    <p class="fine">Wyeth Plastic Surgery is a fictional business; this page is a design reference.</p>
+  </div>
+</footer>
+
+<div class="bar" aria-label="Quick actions">
+  <a class="btn btn-primary" href="#contact">Request a consultation</a>
+  <a class="btn btn-ghost tnum" href="tel:+12053062214">(205)&nbsp;306-2214</a>
+</div>
+
 <script>
 (function () {
-  if (!('IntersectionObserver' in window)) return;
-  var targets = [].slice.call(document.querySelectorAll('body > section, .gsw-gal figure'));
-  // The first section is the hero; it is on screen already and owns its own entrance.
-  var first = document.querySelector('body > section');
-  targets = targets.filter(function (el) { return el !== first; });
-  if (!targets.length) return;
-  document.documentElement.classList.add('gsw-m');
-  targets.forEach(function (el) { el.setAttribute('data-gsw-reveal', ''); });
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) { e.target.classList.add('gsw-in'); io.unobserve(e.target); }
-    });
-  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-  targets.forEach(function (el) { io.observe(el); });
-})();
-</script>
-<!-- /gsw:motion -->
-
-<!-- gsw:contact-form -->
-<script>
-/* The enquiry form confirms in place. Nothing is sent: a reference build. */
-(function () {
-  var form = document.querySelector('.gsw-cf');
-  if (!form) return;
+  // Static preview: validates locally and shows the confirmation state; nothing is sent.
+  var form = document.getElementById('callback');
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    var name = form.name.value.trim(), contact = form.contact.value.trim();
-    var err = form.querySelector('.gsw-cf-err');
-    if (!name || !contact) { err.hidden = false; (name ? form.contact : form.name).focus(); return; }
-    err.hidden = true;
-    form.setAttribute('data-sent', '');
-    form.querySelector('.gsw-cf-done').hidden = false;
+    var name = form.elements.name, contact = form.elements.contact, hint = document.getElementById('cb-hint');
+    var ok = true;
+    [name, contact].forEach(function (el) {
+      var bad = !el.value.trim();
+      el.closest('.field').classList.toggle('is-invalid', bad);
+      el.setAttribute('aria-invalid', bad ? 'true' : 'false');
+      if (bad) ok = false;
+    });
+    hint.hidden = ok;
+    if (!ok) { (name.value.trim() ? contact : name).focus(); return; }
+    form.classList.add('is-sent');
+    document.getElementById('cb-done').hidden = false;
   });
 })();
 </script>
-<!-- /gsw:contact-form -->
 </body>
 </html>

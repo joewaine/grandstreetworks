@@ -6,130 +6,10 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Aldenmore Surgical Aesthetics · Board certified, accredited suite</title>
 <meta name="description" content="Aesthetic and reconstructive surgery in a private, accredited facility. Every consultation is with the surgeon who will operate.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-/* D4 — THE CREDENTIAL ONE. hero:stack nav:bar services:list proof:stats
-   ink #16191D · surface #FCFCFA · accent #33414E · muted #5D6670 · on-accent #FFFFFF
-   H1 ramp: 29/34/44/56px · Bodoni Moda display / Inter Tight body
-   Certification is the objection here, so the certification is the composition: a ruled
-   seal under the wordmark, the four credentials as the proof block, nothing decorative. */
-:root{--ink:#16191D;--surface:#FCFCFA;--accent:#33414E;--muted:#5D6670;--on-accent:#FFFFFF;
---paper:#F4F4F1;--rule:rgba(22,25,29,.16);--hair:rgba(22,25,29,.1);--wrap:1080px}
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--surface);color:var(--ink);
-font:400 17px/1.65 "Inter Tight",system-ui,-apple-system,sans-serif;padding-bottom:80px;
-overflow-x:hidden}
-.wrap{max-width:var(--wrap);margin:0 auto;padding:0 22px}
-h1,h2,h3{font-family:"Bodoni Moda",Didot,Georgia,serif;font-weight:700;margin:0;line-height:1.14;
-letter-spacing:-.012em}
-a{color:inherit}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 24px;
-text-decoration:none;font-weight:500;font-size:16px;border:1px solid transparent;text-align:center;
-line-height:1.2}
-.btn-primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
-.btn-ghost{background:transparent;color:var(--accent);border-color:var(--accent)}
-.topbar{background:var(--paper);color:var(--muted);font-size:15px;border-bottom:1px solid var(--hair)}
-.topbar .wrap{padding:9px 22px;text-align:center;letter-spacing:.03em}
-.nav{position:sticky;top:0;z-index:30;background:var(--accent);color:#fff}
-.nav .wrap{display:flex;align-items:center;gap:12px;height:56px}
-.brand{font-family:"Bodoni Moda",Didot,serif;font-weight:700;font-size:21px;text-decoration:none;
-line-height:1;flex:none;letter-spacing:.04em}
-.navlinks{display:none;gap:22px;margin-left:auto;font-size:15px;color:rgba(255,255,255,.86)}
-.navlinks a{text-decoration:none}
-.navlinks a:hover{color:#fff}
-.navbook{min-height:40px;padding:0 13px;font-size:14px;flex:none;margin-left:auto;white-space:nowrap;
-background:#fff;color:var(--accent);border-color:#fff}
-.hero{text-align:center;padding:20px 0 38px;border-bottom:1px solid var(--hair);
-background:linear-gradient(180deg,rgba(51,65,78,.05),transparent 46%),var(--surface)}
-.hero .wrap{display:flex;flex-direction:column;align-items:center}
-/* the seal: a ruled lozenge, drawn not photographed */
-.seal{width:64px;height:64px;border:1px solid var(--accent);border-radius:50%;position:relative;
-margin-bottom:14px;display:flex;align-items:center;justify-content:center;flex:none}
-.seal::before{content:"";position:absolute;inset:5px;border:1px solid var(--accent);opacity:.4;
-border-radius:50%}
-.seal span{font-family:"Bodoni Moda",Didot,serif;font-weight:700;font-size:17px;color:var(--accent);
-letter-spacing:.04em}
-.eyebrow{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);
-margin:0 0 10px;font-weight:600}
-.hero h1{font-size:clamp(29px,6.8vw,56px);max-width:17ch}
-.sub{font-size:16px;color:var(--muted);max-width:56ch;margin:13px 0 18px;line-height:1.5}
-.ctas{display:flex;flex-direction:column;gap:10px;width:100%;max-width:410px}
-.badges{display:grid;grid-template-columns:1fr 1fr;gap:0;list-style:none;margin:26px 0 0;padding:0;
-width:100%;max-width:720px;border-top:1px solid var(--hair)}
-.badges li{font-size:15px;color:var(--muted);padding:11px 8px;border-bottom:1px solid var(--hair)}
-.sec{padding:56px 0;border-bottom:1px solid var(--hair)}
-.kicker{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);
-margin:0 0 11px;font-weight:600}
-.sec h2{font-size:clamp(27px,5.6vw,44px);margin-bottom:13px}
-.lede{color:var(--muted);max-width:60ch;margin:0 0 26px;font-size:17px}
-.list{margin:0;padding:0;list-style:none;border-top:1px solid var(--rule)}
-.list li{padding:24px 0;border-bottom:1px solid var(--hair);display:grid;gap:8px}
-.list h3{font-size:23px}
-.list p{margin:0;color:var(--muted);font-size:16px;max-width:66ch}
-.stats{background:var(--accent);color:#fff;padding:50px 0;border:none}
-.stats .kicker{color:#A9BDD0}
-.statgrid{display:grid;grid-template-columns:1fr 1fr;gap:26px 16px;margin-top:24px}
-.stat b{display:block;font-family:"Bodoni Moda",Didot,serif;font-weight:700;
-font-size:clamp(30px,7.4vw,48px);line-height:1;color:#fff;letter-spacing:-.02em}
-.stat span{display:block;font-size:16px;color:#B9C7D4;margin-top:7px;line-height:1.3}
-.steps{list-style:none;margin:26px 0 0;padding:0;counter-reset:s;display:grid;gap:0;
-border-top:1px solid var(--rule)}
-.steps li{counter-increment:s;padding:22px 0;border-bottom:1px solid var(--hair);display:grid;
-grid-template-columns:44px 1fr;gap:16px}
-.steps li::before{content:counter(s,decimal-leading-zero);font-family:"Bodoni Moda",Didot,serif;
-font-weight:500;font-size:20px;color:var(--accent);padding-top:3px}
-.steps h3{font-size:20px;margin-bottom:6px}
-.steps p{margin:0;color:var(--muted);font-size:16px}
-.close{background:var(--paper);padding:56px 0 62px;text-align:center;border:none}
-.close .wrap{display:flex;flex-direction:column;align-items:center}
-.close h2{font-size:clamp(28px,6vw,48px);max-width:18ch}
-.close p{max-width:54ch;font-size:18px;color:var(--muted);margin:14px 0 22px}
-.note{font-size:15px;color:var(--muted);margin-top:20px;max-width:54ch}
-.foot{padding:42px 0 36px;font-size:15px;color:var(--muted);text-align:center}
-.foot .brand{color:var(--ink);display:inline-block;margin-bottom:14px}
-.foot p{margin:0 0 10px}
-.foot a{color:var(--accent)}
-.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--surface);padding:8px;
-border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:8px}
-.callbar a{display:flex;align-items:center;justify-content:center;min-height:60px;
-text-decoration:none;font-weight:500;font-size:15px;text-align:center;line-height:1.2;padding:0 10px}
-.callbar .book{background:var(--accent);color:#fff}
-.callbar .tel{border:1px solid var(--accent);color:var(--accent);padding:0 16px;font-size:16px}
-@media(min-width:760px){.ctas{flex-direction:row;justify-content:center;max-width:none}
-.badges{grid-template-columns:repeat(4,1fr)}.badges li{border-bottom:none;
-border-right:1px solid var(--hair);text-align:center}.badges li:last-child{border-right:none}
-.statgrid{grid-template-columns:repeat(4,1fr);gap:28px}.steps{grid-template-columns:1fr 1fr;column-gap:46px}
-.sec{padding:86px 0}.sub{font-size:19px;line-height:1.55}.hero{padding:66px 0 70px}
-.nav .wrap{height:62px}.navbook{font-size:15px;padding:0 18px}}
-@media(min-width:900px){.navlinks{display:flex}.navbook{margin-left:0}}
-@media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
-</style>
-
-<style>
-  /* Hero plate, added with the photography pass. Full-bleed between the hero
-     and the first content section, with no border of its own: every one of
-     these designs owns a different rule weight and ink colour, and a borrowed
-     hairline reads as a mistake in about half of them. */
-  .gsw-plate picture { display: block; width: 100%; }
-  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
-  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
-  .gsw-plate img {
-    display: block;
-    width: 100%;
-    height: clamp(220px, 40vw, 520px);
-    object-fit: cover;
-    object-position: center;
-  }
-  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
-</style>
-
 <!-- gsw:identity -->
 <link rel="icon" href="../_assets/identity/plastic-surgeons/aldenmore-surgical-aesthetics-icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../_assets/identity/plastic-surgeons/aldenmore-surgical-aesthetics-icon-180.png">
-<meta name="theme-color" content="#16191D">
+<meta name="theme-color" content="#1F3A2E">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Aldenmore Surgical Aesthetics">
 <meta property="og:title" content="Aldenmore Surgical Aesthetics · ABPS certified · Hospital privileges · AAAASF suite">
@@ -138,221 +18,366 @@ border-right:1px solid var(--hair);text-align:center}.badges li:last-child{borde
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"MedicalClinic","name":"Aldenmore Surgical Aesthetics","description":"ABPS certified \u00b7 Hospital privileges \u00b7 AAAASF suite","telephone":"(971) 445-7702","areaServed":"Metro area","image":"https://grandstreetworks.com/work/_assets/identity/plastic-surgeons/aldenmore-surgical-aesthetics-og.png","logo":"https://grandstreetworks.com/work/_assets/identity/plastic-surgeons/aldenmore-surgical-aesthetics-mark.svg"}</script>
-
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"MedicalClinic","name":"Aldenmore Surgical Aesthetics","description":"ABPS certified · Hospital privileges · AAAASF suite","telephone":"(971) 445-7702","areaServed":"Metro area","image":"https://grandstreetworks.com/work/_assets/identity/plastic-surgeons/aldenmore-surgical-aesthetics-og.png","logo":"https://grandstreetworks.com/work/_assets/identity/plastic-surgeons/aldenmore-surgical-aesthetics-mark.svg"}</script>
+<!-- /gsw:identity -->
+<link rel="preload" href="../_assets/fonts/spectral-300.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../_assets/fonts/chivo-var.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-  /* Identity pass. The lockup is the mark plus the wordmark the build already
-     had; the mark is sized in em so it tracks whatever display face this build
-     sets its brand in. */
-  .gsw-lockup { display: inline-flex; align-items: center; gap: .46em; }
-  .gsw-lockup svg { height: 1.16em; width: auto; flex: none; display: block; }
-</style>
+/* D4 — THE CREDENTIAL WALL. hero:stack nav:bar services:list proof:stats
+   green #1F3A2E · bone #F2EDE3 · ink #171A18 · muted #5B6660 · on-green #F2EDE3
+   H1 ramp: 38/46/54/60px · Spectral (light) display and body / Chivo labels, figures, actions
+   Device: the credential wall — the four credentials set as ruled rows on deep green directly
+   under the headline, so the page is the sentence "here is what that actually means"; the
+   stats row later restates the same four as figures. No photograph behind text: the
+   alabaster plate is a full-width band and the six suite photographs are shown large with
+   plain captions. Seven sizes, two families, three weights, everything left-set on a measure. */
 
-<style>
-  /* Recent-work gallery. Everything here is drawn from the properties the build
-     already declares, so the band inherits each design's palette and heading
-     face rather than importing a seventh look. */
-  .gsw-gal { background: #FCFCFA; color: #16191D;
-             padding: clamp(38px, 6vw, 74px) 0; }
-  .gsw-gal-in { max-width: var(--wrap, 1140px); margin: 0 auto; padding: 0 20px; }
-  .gsw-gal-lab { font-size: 13px; letter-spacing: .18em; text-transform: uppercase;
-                 font-weight: 600; color: var(--accent); margin: 0 0 14px; }
-  .gsw-gal h2 { margin: 0; color: inherit; }
-  .gsw-gal-note { color: var(--muted); margin: 14px 0 30px; max-width: 58ch; }
-  .gsw-ba { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px; }
-  .gsw-gal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-  .gsw-gal figure { margin: 0; position: relative; overflow: hidden;
-                    background: var(--rule, rgba(0,0,0,.1)); }
-  .gsw-gal picture { display: block; }
-  /* height:auto matters — the width/height attributes are a presentational
-     hint, and without this the 1200px hint beats aspect-ratio. */
-  .gsw-gal img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3;
-                 object-fit: cover; transition: transform .5s ease; }
-  .gsw-gal figure:hover img { transform: scale(1.035); }
-  .gsw-gal figcaption { position: absolute; left: 0; bottom: 0;
-                        background: #16191D; color: #FCFCFA;
-                        font-size: 12px; font-weight: 600; letter-spacing: .14em;
-                        text-transform: uppercase; padding: 7px 12px; }
-  @media (max-width: 720px) {
-    .gsw-ba, .gsw-gal-grid { grid-template-columns: 1fr; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .gsw-gal img { transition: none; }
-    .gsw-gal figure:hover img { transform: none; }
-  }
-</style>
+@font-face { font-family: "Spectral"; src: url("../_assets/fonts/spectral-300.woff2") format("woff2"); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: "Spectral"; src: url("../_assets/fonts/spectral-400.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Spectral"; src: url("../_assets/fonts/spectral-italic-400.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Chivo"; src: url("../_assets/fonts/chivo-var.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Chivo"; src: url("../_assets/fonts/chivo-italic-var.woff2") format("woff2"); font-weight: 100 900; font-style: italic; font-display: swap; }
+@font-face { font-family: "Spectral Fallback"; src: local("Georgia"); size-adjust: 102%; ascent-override: 90%; descent-override: 26%; }
+@font-face { font-family: "Chivo Fallback"; src: local("Arial"); size-adjust: 100%; ascent-override: 92%; descent-override: 24%; }
 
-<style>
-  /* gsw:contact-form — the closing section takes a name. Borrows the section's
-     colour through currentColor and the build's own .btn for the button. */
-  .gsw-cf { max-width: 640px; margin: 28px 0 0; text-align: left; }
-  .gsw-cf--centred { margin-left: auto; margin-right: auto; }
-  .gsw-cf-lead { margin: 0 0 12px; font-size: 15px; opacity: .85; }
-  .gsw-cf-grid { display: grid; gap: 10px; }
-  .gsw-cf label { display: flex; flex-direction: column; gap: 5px; font-size: 11px;
-                  font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
-  .gsw-cf label em { font-style: normal; font-weight: 400; text-transform: none; letter-spacing: 0; opacity: .7; }
-  .gsw-cf input, .gsw-cf textarea { font: inherit; font-size: 16px; color: inherit; background: transparent;
-                                    border: 1.5px solid currentColor; border-radius: 0; padding: 10px 12px; width: 100%;
-                                    box-sizing: border-box; letter-spacing: 0; text-transform: none; font-weight: 400; }
-  .gsw-cf input:focus, .gsw-cf textarea:focus { outline: 2px solid currentColor; outline-offset: 2px; }
-  .gsw-cf textarea { resize: vertical; min-height: 84px; }
-  .gsw-cf-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 14px; }
-  .gsw-cf button.btn { font: inherit; cursor: pointer; appearance: none; }
-  .gsw-cf-err { font-size: 14px; font-weight: 600; }
-  .gsw-cf-done { margin: 0; font-size: 17px; font-weight: 600; }
-  .gsw-cf[data-sent] .gsw-cf-lead, .gsw-cf[data-sent] .gsw-cf-grid, .gsw-cf[data-sent] .gsw-cf-row { display: none; }
-  @media (min-width: 640px) {
-    .gsw-cf-grid { grid-template-columns: 1fr 1fr; }
-    .gsw-cf-wide { grid-column: 1 / -1; }
-  }
+:root {
+  --green: #1F3A2E; --green-2: #244535; --bone: #F2EDE3; --bone-2: #E9E2D5;
+  --ink: #171A18; --muted: #5B6660; --muted-g: #A8B5AC; --rule: #D6CEC0; --rule-g: #35513F;
+  --serif: "Spectral", "Spectral Fallback", Georgia, serif;
+  --sans: "Chivo", "Chivo Fallback", Arial, sans-serif;
+  --t-label: 0.8125rem; --t-small: 0.9375rem; --t-body: 1.0625rem;
+  --t-lede: clamp(1.125rem, 1rem + 0.5vw, 1.3125rem);
+  --t-h3: clamp(1.3125rem, 1.05rem + 1vw, 1.625rem);
+  --t-h2: clamp(1.75rem, 1.2rem + 2.1vw, 2.5rem);
+  --t-display: clamp(2.375rem, 1.5rem + 3.3vw, 3.75rem);
+  --s1: 9px; --s2: 18px; --s3: 27px; --s4: 36px; --s6: 54px; --s8: 72px; --s12: 108px;
+  --wrap: 1140px; --gutter: clamp(20px, 4vw, 48px); --bar-h: 64px;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body { margin: 0; background: var(--bone); color: var(--ink); font: 400 var(--t-body)/1.6 var(--serif); font-optical-sizing: auto; overflow-x: hidden; padding-bottom: var(--bar-h); }
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; margin: 0; text-wrap: balance; }
+p { margin: 0; text-wrap: pretty; }
+a { color: inherit; }
+img { display: block; max-width: 100%; height: auto; }
+ul, ol { list-style: none; margin: 0; padding: 0; }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+.label { font-family: var(--sans); font-size: var(--t-label); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.3; }
+.lede { font-size: var(--t-lede); line-height: 1.45; max-width: 56ch; }
+.muted { color: var(--muted); }
+.on-green { background: var(--green); color: var(--bone); }
+.on-green .muted { color: var(--muted-g); }
+.on-green .label { color: var(--muted-g); }
+:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+.on-green :focus-visible { outline-color: var(--bone); }
+.skip { position: absolute; left: -999px; top: 0; background: var(--ink); color: var(--bone); padding: var(--s1) var(--s2); z-index: 100; }
+.skip:focus { left: var(--s2); top: var(--s2); }
+
+/* ---------- Buttons ---------- */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5em; min-height: 52px; padding: 0.7em 1.4em; border: 1px solid transparent; font: 500 var(--t-body)/1.2 var(--sans); text-decoration: none; cursor: pointer; transition: background-color 160ms, border-color 160ms, color 160ms; }
+.btn-primary { background: var(--green); color: var(--bone); border-color: var(--green); }
+.btn-primary:hover { background: var(--ink); border-color: var(--ink); }
+.btn-ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+.btn-ghost:hover { background: var(--ink); color: var(--bone); }
+.on-green .btn-primary { background: var(--bone); color: var(--green); border-color: var(--bone); }
+.on-green .btn-primary:hover { background: #fff; border-color: #fff; }
+.on-green .btn-ghost { color: var(--bone); border-color: rgba(242, 237, 227, 0.5); }
+.on-green .btn-ghost:hover { border-color: var(--bone); background: rgba(242, 237, 227, 0.08); }
+
+/* ---------- Header ---------- */
+.topbar { border-bottom: 1px solid var(--rule); }
+.topbar .wrap { padding-top: 10px; padding-bottom: 10px; font-family: var(--sans); font-size: var(--t-label); letter-spacing: 0.06em; color: var(--muted); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: var(--s3); padding-top: var(--s2); padding-bottom: var(--s2); }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font: 400 var(--t-lede)/1 var(--serif); letter-spacing: -0.005em; }
+.brand img { width: 28px; height: 28px; }
+.nav { display: flex; gap: var(--s3); font-family: var(--sans); font-size: var(--t-small); }
+.nav a { text-decoration: none; padding: 6px 0; border-bottom: 1px solid transparent; transition: border-color 160ms; }
+.nav a:hover { border-bottom-color: var(--green); }
+.top .btn { min-height: 44px; padding: 0.5em 1.1em; font-size: var(--t-small); }
+
+/* ---------- Hero and the wall ---------- */
+.hero .wrap { padding-top: var(--s12); padding-bottom: var(--s8); }
+.hero .label { color: var(--green); margin-bottom: var(--s3); }
+.hero h1 { font-size: var(--t-display); font-weight: 300; line-height: 1.05; letter-spacing: -0.01em; max-width: 18ch; }
+.hero .lede { margin-top: var(--s3); color: var(--muted); }
+.hero .cta { display: flex; flex-wrap: wrap; gap: var(--s2); margin-top: var(--s4); }
+.wall .wrap { padding-top: var(--s6); padding-bottom: var(--s6); }
+.wall ol { border-top: 1px solid var(--rule-g); }
+.wall li { display: grid; grid-template-columns: 3em 1fr; gap: var(--s2); align-items: baseline; padding: var(--s3) 0; border-bottom: 1px solid var(--rule-g); }
+.wall .n { font-family: var(--sans); font-size: var(--t-small); font-weight: 500; color: var(--muted-g); font-variant-numeric: tabular-nums; }
+.wall .c { font-family: var(--sans); font-weight: 500; font-size: var(--t-h2); line-height: 1.1; letter-spacing: -0.01em; }
+.wall .label { margin-bottom: var(--s3); }
+
+/* ---------- Plate ---------- */
+.plate { background: var(--bone-2); }
+.plate img { width: 100%; aspect-ratio: 21 / 9; object-fit: cover; object-position: center 60%; }
+
+/* ---------- Sections ---------- */
+.sec { padding: var(--s12) 0; }
+.sec .label { color: var(--green); margin-bottom: var(--s2); }
+.on-green.sec .label { color: var(--muted-g); }
+h2 { font-size: var(--t-h2); font-weight: 300; line-height: 1.1; letter-spacing: -0.01em; max-width: 22ch; }
+h3 { font-size: var(--t-h3); line-height: 1.25; }
+.head { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: var(--s3) var(--s8); align-items: end; margin-bottom: var(--s6); }
+.head .lede { color: var(--muted); }
+.list { display: grid; grid-template-columns: 1fr 1fr; gap: 0 var(--s8); border-top: 1px solid var(--rule); }
+.list li { padding: var(--s3) 0; border-bottom: 1px solid var(--rule); }
+.list h3 { margin-bottom: var(--s1); }
+.list p { color: var(--muted); max-width: 46ch; }
+
+/* ---------- Stats ---------- */
+.stats .wrap { padding-top: var(--s8); padding-bottom: var(--s8); }
+.stats ul { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s3); border-top: 1px solid var(--rule-g); }
+.stats li { padding-top: var(--s3); }
+.stats b { display: block; font-family: var(--sans); font-weight: 500; font-size: var(--t-h2); line-height: 1.1; letter-spacing: 0.01em; font-variant-numeric: tabular-nums; }
+.stats span { display: block; margin-top: var(--s1); font-size: var(--t-small); color: var(--muted-g); }
+
+/* ---------- Process ---------- */
+.steps { display: grid; grid-template-columns: 1fr 1fr; gap: 0 var(--s8); border-top: 1px solid var(--rule); }
+.steps li { display: grid; grid-template-columns: 3ch 1fr; gap: var(--s2); padding: var(--s3) 0; border-bottom: 1px solid var(--rule); }
+.steps .n { font-family: var(--sans); font-size: var(--t-small); font-weight: 500; color: var(--green); font-variant-numeric: tabular-nums; padding-top: 0.35em; }
+.steps h3 { margin-bottom: var(--s1); }
+.steps p { color: var(--muted); max-width: 44ch; }
+
+/* ---------- Gallery ---------- */
+.gal { background: var(--bone-2); }
+.gal .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s3) var(--s2); }
+.gal figure { margin: 0; }
+.gal img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: var(--rule); }
+.gal figcaption { padding-top: var(--s1); margin-top: var(--s1); border-top: 1px solid var(--rule); font-family: var(--sans); font-size: var(--t-small); color: var(--muted); }
+
+/* ---------- Close ---------- */
+.close .grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: var(--s8); align-items: start; }
+.close h2 { font-size: var(--t-h2); max-width: 16ch; }
+.close .lede { margin-top: var(--s3); color: var(--muted-g); }
+.close .cta { display: flex; flex-wrap: wrap; gap: var(--s2); margin-top: var(--s4); }
+.close .note { margin-top: var(--s4); font-size: var(--t-small); color: var(--muted-g); max-width: 50ch; }
+.form { border-top: 1px solid var(--rule-g); padding-top: var(--s3); }
+.form .intro { margin-bottom: var(--s3); color: var(--muted-g); }
+.field { display: grid; gap: 6px; margin-bottom: var(--s2); }
+.field label { font-family: var(--sans); font-size: var(--t-label); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted-g); }
+.field input, .field textarea { width: 100%; font: 400 var(--t-body)/1.4 var(--sans); color: var(--bone); background: rgba(242, 237, 227, 0.06); border: 1px solid var(--rule-g); padding: 12px 14px; transition: border-color 160ms; }
+.field input:hover, .field textarea:hover { border-color: var(--muted-g); }
+.field input:focus, .field textarea:focus { outline: none; border-color: var(--bone); }
+.field.is-invalid input { border-color: #E4B27A; }
+.form .actions { display: flex; align-items: center; gap: var(--s2); flex-wrap: wrap; margin-top: var(--s3); }
+.form .hint { font-family: var(--sans); font-size: var(--t-small); color: #E4B27A; }
+.form .hint[hidden], .form .done[hidden] { display: none; }
+.form .done { font-size: var(--t-lede); font-style: italic; padding: var(--s3) 0; }
+.form.is-sent .field, .form.is-sent .actions { display: none; }
+
+/* ---------- Footer ---------- */
+.foot { border-top: 1px solid var(--rule); padding: var(--s6) 0; font-size: var(--t-small); }
+.foot .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s3) var(--s8); align-items: start; }
+.foot p { color: var(--muted); max-width: 52ch; }
+.foot .fine { grid-column: 1 / -1; padding-top: var(--s3); border-top: 1px solid var(--rule); font-family: var(--sans); font-size: var(--t-label); letter-spacing: 0.02em; }
+
+/* ---------- Mobile bar ---------- */
+.bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: grid; grid-template-columns: 1fr auto; gap: 1px; background: var(--rule-g); border-top: 1px solid var(--rule-g); }
+.bar .btn { min-height: var(--bar-h); border: 0; white-space: nowrap; }
+.bar .btn-ghost { background: var(--bone); color: var(--ink); }
+
+@media (min-width: 1000px) { body { padding-bottom: 0; } .bar { display: none; } }
+@media (max-width: 999px) {
+  .head, .close .grid { grid-template-columns: 1fr; }
+  .stats ul { grid-template-columns: 1fr 1fr; }
+  .gal .grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 759px) {
+  .nav, .top .btn, .topbar { display: none; }
+  .sec { padding: var(--s8) 0; }
+  .hero .wrap { padding-top: var(--s8); padding-bottom: var(--s6); }
+  .hero .cta .btn { width: 100%; }
+  .list, .steps { grid-template-columns: 1fr; }
+  .wall .c { font-size: var(--t-h3); }
+  .gal .grid { grid-template-columns: 1fr; }
+  .foot .wrap { grid-template-columns: 1fr; }
+  .plate img { aspect-ratio: 3 / 2; }
+}
+@media (max-width: 420px) { .stats ul { grid-template-columns: 1fr; } }
+.tnum, .tnum * { font-variant-numeric: tabular-nums; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+@media (forced-colors: active) { .btn { border: 1px solid ButtonText; } }
+@media print { .bar { display: none; } }
 </style>
 </head>
 <body>
-<div class="topbar"><div class="wrap">ABPS certified · Hospital privileges · AAAASF suite</div></div>
-<header class="nav"><div class="wrap">
-  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="22" fill="#33414E"/>
-<circle cx="32" cy="32" r="14" fill="none" stroke="#FCFCFA" stroke-width="3"/>
-<circle cx="32" cy="32" r="5" fill="#FCFCFA"/></svg><span>Aldenmore Surgical Aesthetics</span></span></a>
-  <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
-  <a class="btn btn-primary navbook" href="#contact">Request a consultation</a>
-</div></header>
-<section class="hero"><div class="wrap">
-  <div class="seal" aria-hidden="true"><span>A</span></div>
-  <p class="eyebrow">Board certified · ABPS</p>
-  <h1>Board certified, and here is what that actually means.</h1>
-  <p class="sub">Aesthetic and reconstructive surgery in a private, accredited facility. Certification, hospital privileges and facility accreditation all published here, because almost nobody explains which of the three actually protects you.</p>
-  <div class="ctas">
-    <a class="btn btn-primary" data-cta="primary" href="#contact">Request a consultation</a>
-    <a class="btn btn-ghost" href="#results">View results</a>
-  </div>
-  <ul class="badges"><li>ABPS board certified</li><li>AAAASF accredited suite</li><li>Consult with your surgeon</li><li>Financing available</li></ul>
-</div></section>
-<figure class="gsw-plate"><picture><source type="image/avif" srcset="../_assets/hero/plastic-surgeons/d-alabaster-form-1280.avif 1280w, ../_assets/hero/plastic-surgeons/d-alabaster-form-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/plastic-surgeons/d-alabaster-form-1280.jpg" width="2560" height="1429" alt="Alabaster form, plastic surgeons" loading="lazy" decoding="async"></picture></figure>
-
-<section class="sec" id="services"><div class="wrap">
-  <p class="kicker">Services</p><h2>Procedures</h2>
-  <p class="lede">A short list, deliberately. These are the operations performed often enough to be performed exceptionally.</p>
-  <ul class="list">
-    <li><h3>Breast surgery</h3><p>Augmentation, lift, reduction and reconstruction. Sizing done with imaging so you see the projected outcome before deciding.</p></li>
-    <li><h3>Body contouring</h3><p>Abdominoplasty, liposuction and post-weight-loss contouring, staged sensibly rather than crammed into one operation.</p></li>
-    <li><h3>Facial surgery</h3><p>Facelift, blepharoplasty and rhinoplasty. Conservative by philosophy: the aim is that nobody can tell you've had anything done.</p></li>
-    <li><h3>Non-surgical</h3><p>Injectables, resurfacing and skin. Often the right starting point, and we'll say so when surgery isn't warranted yet.</p></li>
-  </ul>
-</div></section>
-<section class="sec stats" id="results"><div class="wrap">
-  <p class="kicker">Results</p>
-  <div class="statgrid">
-    <div class="stat"><b>ABPS</b><span>Board certified</span></div>
-    <div class="stat"><b>4,800+</b><span>Procedures performed</span></div>
-    <div class="stat"><b>AAAASF</b><span>Accredited facility</span></div>
-    <div class="stat"><b>100%</b><span>Consults with your surgeon</span></div>
-  </div>
-</div></section>
-<section class="sec" id="process"><div class="wrap">
-  <p class="kicker">Process</p><h2>From consultation to recovery</h2>
-  <p class="lede">Unhurried, private, and with the surgeon throughout. Most people are deciding over months, not days.</p>
-  <ol class="steps">
-    <li><div><h3>Private consultation</h3><p>Fifty minutes with the surgeon. Examination, imaging where useful, and a frank conversation about what is and isn't achievable.</p></div></li>
-    <li><div><h3>Plan &amp; quote</h3><p>A written surgical plan and an all-inclusive quote covering facility, anaesthesia and follow-up, with no line items appearing later.</p></div></li>
-    <li><div><h3>Pre-operative</h3><p>Medical clearance, photographs and a second sit-down to confirm you're certain. You can change your mind at any point.</p></div></li>
-    <li><div><h3>Surgery &amp; aftercare</h3><p>Accredited suite, board-certified anaesthesia, and a structured follow-up schedule out to one year with photographs at each stage.</p></div></li>
-  </ol>
-</div></section>
-<!-- gsw:gallery -->
-<section class="gsw-gal"><div class="gsw-gal-in"><p class="gsw-gal-lab">What accredited means</p><h2>The suite the certification refers to.</h2><p class="gsw-gal-note">An accredited suite, a dedicated anaesthetist, and instruments set out for one operation at a time.</p><div class="gsw-gal-grid"><figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/aldenmore-surgical-aesthetics/operating-suite-640.avif 640w, ../_assets/library/plastic-surgeons/aldenmore-surgical-aesthetics/operating-suite-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/plastic-surgeons/aldenmore-surgical-aesthetics/operating-suite-720.jpg" width="1600" height="1200" alt="The suite" loading="lazy" decoding="async"></picture><figcaption>The suite</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/aldenmore-surgical-aesthetics/instrument-tray-640.avif 640w, ../_assets/library/plastic-surgeons/aldenmore-surgical-aesthetics/instrument-tray-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/plastic-surgeons/aldenmore-surgical-aesthetics/instrument-tray-720.jpg" width="1600" height="1200" alt="Set out" loading="lazy" decoding="async"></picture><figcaption>Set out</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/aldenmore-surgical-aesthetics/recovery-room-640.avif 640w, ../_assets/library/plastic-surgeons/aldenmore-surgical-aesthetics/recovery-room-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/plastic-surgeons/aldenmore-surgical-aesthetics/recovery-room-720.jpg" width="1600" height="1200" alt="Recovery" loading="lazy" decoding="async"></picture><figcaption>Recovery</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/aldenmore-surgical-aesthetics/gloved-hands-640.avif 640w, ../_assets/library/plastic-surgeons/aldenmore-surgical-aesthetics/gloved-hands-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/plastic-surgeons/aldenmore-surgical-aesthetics/gloved-hands-720.jpg" width="1600" height="1200" alt="Preparation" loading="lazy" decoding="async"></picture><figcaption>Preparation</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/aldenmore-surgical-aesthetics/consult-room-640.avif 640w, ../_assets/library/plastic-surgeons/aldenmore-surgical-aesthetics/consult-room-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/plastic-surgeons/aldenmore-surgical-aesthetics/consult-room-720.jpg" width="1600" height="1200" alt="The consultation room" loading="lazy" decoding="async"></picture><figcaption>The consultation room</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/aldenmore-surgical-aesthetics/imaging-room-640.avif 640w, ../_assets/library/plastic-surgeons/aldenmore-surgical-aesthetics/imaging-room-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/plastic-surgeons/aldenmore-surgical-aesthetics/imaging-room-720.jpg" width="1600" height="1200" alt="Imaging" loading="lazy" decoding="async"></picture><figcaption>Imaging</figcaption></figure></div></div></section>
-<!-- /gsw:gallery -->
-<section class="close" id="contact"><div class="wrap">
-  <h2>Comparing surgeons and finding it opaque?</h2>
-  <p>Most of our patients thought about it for a year or more. A consultation commits you to nothing and is the fastest way to replace guesswork with facts.</p>
-  <div class="ctas">
+<a class="skip" href="#main">Skip to content</a>
+<div class="topbar tnum"><div class="wrap">ABPS certified · Hospital privileges · AAAASF suite</div></div>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#"><img src="../_assets/identity/plastic-surgeons/aldenmore-surgical-aesthetics-mark.svg" alt="" width="28" height="28">Aldenmore Surgical Aesthetics</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#services">Services</a>
+      <a href="#results">Results</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </nav>
     <a class="btn btn-primary" href="#contact">Request a consultation</a>
-    <a class="btn btn-ghost">(971) 445-7702</a>
   </div>
-  <!-- gsw:contact-form -->
-    <form class="gsw-cf gsw-cf--centred" novalidate>
-      <p class="gsw-cf-lead">Or leave your details and we'll call you back.</p>
-      <div class="gsw-cf-grid">
-        <label><span>Name</span><input type="text" name="name" autocomplete="name" required></label>
-        <label><span>Phone or email</span><input type="text" name="contact" autocomplete="tel" required></label>
-        <label class="gsw-cf-wide"><span>What can we help with? <em>(optional)</em></span><textarea name="message" rows="3"></textarea></label>
-      </div>
-      <div class="gsw-cf-row">
-        <button type="submit" class="btn btn-primary">Request a call back</button>
-        <span class="gsw-cf-err" role="alert" hidden>Add your name and a way to reach you.</span>
-      </div>
-      <p class="gsw-cf-done" role="status" hidden>Thanks. Someone will call you back within one business day.</p>
-    </form>
-    <!-- /gsw:contact-form -->
-    <p class="note">Private consultations. Bring the other quotes and we will go through what each credential on them does and doesn't mean. Enquiries handled confidentially.</p>
-</div></section>
-<footer class="foot"><div class="wrap">
-  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="22" fill="#33414E"/>
-<circle cx="32" cy="32" r="14" fill="none" stroke="#FCFCFA" stroke-width="3"/>
-<circle cx="32" cy="32" r="5" fill="#FCFCFA"/></svg><span>Aldenmore Surgical Aesthetics</span></span></a>
-  <p><a>(971) 445-7702</a> · ABPS certified · Hospital privileges · AAAASF suite</p>
-  <p>Board certified by the American Board of Plastic Surgery · AAAASF accredited facility</p>
-  <p>7604 Thistle Lane Floor 2, Eastport Hills, NJ 13653</p>
-</div></footer>
-<div class="callbar"><a class="book" href="#contact">Request a consultation</a><a class="tel">(971) 445-7702</a></div>
-<!-- gsw:motion -->
-<style>
-  /* Motion pass. Everything here is gated on .gsw-m, which only the script
-     below adds, so a page without JavaScript never hides anything. */
-  .gsw-m [data-gsw-reveal] {
-    opacity: 0; transform: translateY(14px);
-    transition: opacity .7s cubic-bezier(.2,.6,.2,1), transform .7s cubic-bezier(.2,.6,.2,1);
-  }
-  .gsw-m [data-gsw-reveal].gsw-in { opacity: 1; transform: none; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(2) { transition-delay: .08s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(3) { transition-delay: .16s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(4) { transition-delay: .24s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(5) { transition-delay: .32s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(6) { transition-delay: .40s; }
-  @keyframes gsw-hero-in { from { opacity: 0; transform: scale(1.025); } to { opacity: 1; transform: none; } }
-  .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: gsw-hero-in 1s ease-out both; }
-  @media (prefers-reduced-motion: reduce) {
-    .gsw-m [data-gsw-reveal] { opacity: 1; transform: none; transition: none; }
-    .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: none; }
-  }
-</style>
-<script>
-(function () {
-  if (!('IntersectionObserver' in window)) return;
-  var targets = [].slice.call(document.querySelectorAll('body > section, .gsw-gal figure'));
-  // The first section is the hero; it is on screen already and owns its own entrance.
-  var first = document.querySelector('body > section');
-  targets = targets.filter(function (el) { return el !== first; });
-  if (!targets.length) return;
-  document.documentElement.classList.add('gsw-m');
-  targets.forEach(function (el) { el.setAttribute('data-gsw-reveal', ''); });
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) { e.target.classList.add('gsw-in'); io.unobserve(e.target); }
-    });
-  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-  targets.forEach(function (el) { io.observe(el); });
-})();
-</script>
-<!-- /gsw:motion -->
+</header>
 
-<!-- gsw:contact-form -->
+<main id="main">
+<section class="hero" aria-labelledby="promise">
+  <div class="wrap">
+    <p class="label">Board certified · ABPS</p>
+    <h1 id="promise">Board certified, and here is what that actually&nbsp;means.</h1>
+    <p class="lede">Aesthetic and reconstructive surgery in a private, accredited facility. Certification, hospital privileges and facility accreditation all published here, because almost nobody explains which of the three actually protects&nbsp;you.</p>
+    <div class="cta">
+      <a class="btn btn-primary" data-cta="primary" href="#contact">Request a consultation</a>
+      <a class="btn btn-ghost" href="#results">View results</a>
+    </div>
+  </div>
+</section>
+
+<section class="wall on-green" aria-label="Credentials">
+  <div class="wrap">
+    <ol>
+      <li><span class="n">01</span><span class="c">ABPS board certified</span></li>
+      <li><span class="n">02</span><span class="c">AAAASF accredited suite</span></li>
+      <li><span class="n">03</span><span class="c">Consult with your surgeon</span></li>
+      <li><span class="n">04</span><span class="c">Financing available</span></li>
+    </ol>
+  </div>
+</section>
+
+<figure class="plate" aria-hidden="true">
+  <picture>
+    <source type="image/avif" srcset="../_assets/hero/plastic-surgeons/d-alabaster-form-1280.avif 1280w, ../_assets/hero/plastic-surgeons/d-alabaster-form-2560.avif 2560w" sizes="100vw">
+    <img src="../_assets/hero/plastic-surgeons/d-alabaster-form-1280.jpg" alt="" width="1280" height="714" loading="lazy" decoding="async">
+  </picture>
+</figure>
+
+<section class="sec services" id="services" aria-labelledby="services-title">
+  <div class="wrap">
+    <p class="label">Services</p>
+    <div class="head">
+      <h2 id="services-title">Procedures</h2>
+      <p class="lede">A short list, deliberately. These are the operations performed often enough to be performed&nbsp;exceptionally.</p>
+    </div>
+    <ul class="list">
+      <li><h3>Breast surgery</h3><p>Augmentation, lift, reduction and reconstruction. Sizing done with imaging so you see the projected outcome before deciding.</p></li>
+      <li><h3>Body contouring</h3><p>Abdominoplasty, liposuction and post-weight-loss contouring, staged sensibly rather than crammed into one operation.</p></li>
+      <li><h3>Facial surgery</h3><p>Facelift, blepharoplasty and rhinoplasty. Conservative by philosophy: the aim is that nobody can tell you’ve had anything done.</p></li>
+      <li><h3>Non-surgical</h3><p>Injectables, resurfacing and skin. Often the right starting point, and we’ll say so when surgery isn’t warranted yet.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="stats on-green" id="results" aria-label="Results">
+  <div class="wrap">
+    <p class="label">Results</p>
+    <ul>
+      <li><b>ABPS</b><span>Board certified</span></li>
+      <li><b class="tnum">4,800+</b><span>Procedures performed</span></li>
+      <li><b>AAAASF</b><span>Accredited facility</span></li>
+      <li><b class="tnum">100%</b><span>Consults with your surgeon</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec process" id="process" aria-labelledby="process-title">
+  <div class="wrap">
+    <p class="label">Process</p>
+    <div class="head">
+      <h2 id="process-title">From consultation to&nbsp;recovery</h2>
+      <p class="lede">Unhurried, private, and with the surgeon throughout. Most people are deciding over months, not&nbsp;days.</p>
+    </div>
+    <ol class="steps">
+      <li><span class="n">01</span><div><h3>Private consultation</h3><p>Fifty minutes with the surgeon. Examination, imaging where useful, and a frank conversation about what is and isn’t achievable.</p></div></li>
+      <li><span class="n">02</span><div><h3>Plan &amp; quote</h3><p>A written surgical plan and an all-inclusive quote covering facility, anaesthesia and follow-up, with no line items appearing later.</p></div></li>
+      <li><span class="n">03</span><div><h3>Pre-operative</h3><p>Medical clearance, photographs and a second sit-down to confirm you’re certain. You can change your mind at any point.</p></div></li>
+      <li><span class="n">04</span><div><h3>Surgery &amp; aftercare</h3><p>Accredited suite, board-certified anaesthesia, and a structured follow-up schedule out to one year with photographs at each stage.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec gal" aria-labelledby="gal-title">
+  <div class="wrap">
+    <p class="label">What accredited means</p>
+    <div class="head">
+      <h2 id="gal-title">The suite the certification refers&nbsp;to.</h2>
+      <p class="lede">An accredited suite, a dedicated anaesthetist, and instruments set out for one operation at a&nbsp;time.</p>
+    </div>
+    <div class="grid">
+      <figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/aldenmore-surgical-aesthetics/operating-suite-640.avif 640w, ../_assets/library/plastic-surgeons/aldenmore-surgical-aesthetics/operating-suite-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/plastic-surgeons/aldenmore-surgical-aesthetics/operating-suite-720.jpg" alt="The operating suite" width="720" height="537" loading="lazy" decoding="async"></picture><figcaption>The suite</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/aldenmore-surgical-aesthetics/instrument-tray-640.avif 640w, ../_assets/library/plastic-surgeons/aldenmore-surgical-aesthetics/instrument-tray-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/plastic-surgeons/aldenmore-surgical-aesthetics/instrument-tray-720.jpg" alt="Instruments set out on a tray" width="720" height="537" loading="lazy" decoding="async"></picture><figcaption>Set out</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/aldenmore-surgical-aesthetics/recovery-room-640.avif 640w, ../_assets/library/plastic-surgeons/aldenmore-surgical-aesthetics/recovery-room-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/plastic-surgeons/aldenmore-surgical-aesthetics/recovery-room-720.jpg" alt="The recovery room" width="720" height="537" loading="lazy" decoding="async"></picture><figcaption>Recovery</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/aldenmore-surgical-aesthetics/gloved-hands-640.avif 640w, ../_assets/library/plastic-surgeons/aldenmore-surgical-aesthetics/gloved-hands-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/plastic-surgeons/aldenmore-surgical-aesthetics/gloved-hands-720.jpg" alt="Gloved hands during preparation" width="720" height="537" loading="lazy" decoding="async"></picture><figcaption>Preparation</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/aldenmore-surgical-aesthetics/consult-room-640.avif 640w, ../_assets/library/plastic-surgeons/aldenmore-surgical-aesthetics/consult-room-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/plastic-surgeons/aldenmore-surgical-aesthetics/consult-room-720.jpg" alt="The consultation room" width="720" height="537" loading="lazy" decoding="async"></picture><figcaption>The consultation room</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/aldenmore-surgical-aesthetics/imaging-room-640.avif 640w, ../_assets/library/plastic-surgeons/aldenmore-surgical-aesthetics/imaging-room-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/plastic-surgeons/aldenmore-surgical-aesthetics/imaging-room-720.jpg" alt="The imaging room" width="720" height="537" loading="lazy" decoding="async"></picture><figcaption>Imaging</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec close on-green" id="contact" aria-labelledby="close-title">
+  <div class="wrap">
+    <p class="label">Contact</p>
+    <div class="grid">
+      <div>
+        <h2 id="close-title">Comparing surgeons and finding it&nbsp;opaque?</h2>
+        <p class="lede">Most of our patients thought about it for a year or more. A consultation commits you to nothing and is the fastest way to replace guesswork with&nbsp;facts.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="#cb-name">Request a consultation</a>
+          <a class="btn btn-ghost tnum" href="tel:+19714457702">(971)&nbsp;445-7702</a>
+        </div>
+        <p class="note">Private consultations. Bring the other quotes and we will go through what each credential on them does and doesn’t mean. Enquiries handled&nbsp;confidentially.</p>
+      </div>
+      <form class="form" id="callback" novalidate>
+        <p class="intro">Or leave your details and we’ll call you back.</p>
+        <div class="field"><label for="cb-name">Name</label><input id="cb-name" name="name" type="text" autocomplete="name" required></div>
+        <div class="field"><label for="cb-contact">Phone or email</label><input id="cb-contact" name="contact" type="text" autocomplete="tel" required></div>
+        <div class="field"><label for="cb-msg">What can we help with? (optional)</label><textarea id="cb-msg" name="message" rows="3"></textarea></div>
+        <div class="actions">
+          <button class="btn btn-primary" type="submit">Request a call back</button>
+          <p class="hint" id="cb-hint" role="alert" hidden>Add your name and a way to reach you.</p>
+        </div>
+        <p class="done" id="cb-done" role="status" hidden>Thanks. Someone will call you back within one business&nbsp;day.</p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="#"><img src="../_assets/identity/plastic-surgeons/aldenmore-surgical-aesthetics-mark.svg" alt="" width="28" height="28">Aldenmore Surgical Aesthetics</a>
+      <p class="tnum" style="margin-top: var(--s2)"><a href="tel:+19714457702">(971)&nbsp;445-7702</a> · ABPS certified · Hospital privileges · AAAASF suite</p>
+    </div>
+    <div>
+      <p>Board certified by the American Board of Plastic Surgery · AAAASF accredited facility</p>
+      <p class="tnum" style="margin-top: var(--s1)">7604 Thistle Lane Floor 2, Eastport Hills, NJ 13653</p>
+    </div>
+    <p class="fine">Aldenmore Surgical Aesthetics is a fictional business; this page is a design reference.</p>
+  </div>
+</footer>
+
+<div class="bar" aria-label="Quick actions">
+  <a class="btn btn-primary" href="#contact">Request a consultation</a>
+  <a class="btn btn-ghost tnum" href="tel:+19714457702">(971)&nbsp;445-7702</a>
+</div>
+
 <script>
-/* The enquiry form confirms in place. Nothing is sent: a reference build. */
 (function () {
-  var form = document.querySelector('.gsw-cf');
-  if (!form) return;
+  // Static preview: validates locally and shows the confirmation state; nothing is sent.
+  var form = document.getElementById('callback');
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    var name = form.name.value.trim(), contact = form.contact.value.trim();
-    var err = form.querySelector('.gsw-cf-err');
-    if (!name || !contact) { err.hidden = false; (name ? form.contact : form.name).focus(); return; }
-    err.hidden = true;
-    form.setAttribute('data-sent', '');
-    form.querySelector('.gsw-cf-done').hidden = false;
+    var name = form.elements.name, contact = form.elements.contact, hint = document.getElementById('cb-hint');
+    var ok = true;
+    [name, contact].forEach(function (el) {
+      var bad = !el.value.trim();
+      el.closest('.field').classList.toggle('is-invalid', bad);
+      el.setAttribute('aria-invalid', bad ? 'true' : 'false');
+      if (bad) ok = false;
+    });
+    hint.hidden = ok;
+    if (!ok) { (name.value.trim() ? contact : name).focus(); return; }
+    form.classList.add('is-sent');
+    document.getElementById('cb-done').hidden = false;
   });
 })();
 </script>
-<!-- /gsw:contact-form -->
 </body>
 </html>
