@@ -206,9 +206,14 @@ header {
 
 .principal-photo img { display: block; width: 100%; height: auto; }
 
+/* Keeps a second person's text on the same column as the first's when there
+   is no portrait to hold the space. */
+.principal-spacer { flex: none; width: 200px; }
+
 @media (max-width: 700px) {
   .principal { flex-direction: column; gap: 1.5rem; }
   .principal-photo { width: 160px; }
+  .principal-spacer { display: none; }
 }
 
 .hero-main {
