@@ -10,7 +10,7 @@
 <link rel="icon" href="../_assets/identity/med-spas/bright-hour-med-spa-icon-32.png" type="image/png" sizes="32x32">
 <link rel="icon" href="../_assets/identity/med-spas/bright-hour-med-spa-icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../_assets/identity/med-spas/bright-hour-med-spa-icon-180.png">
-<meta name="theme-color" content="#1B1A17">
+<meta name="theme-color" content="#A8471F">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Bright Hour Med Spa">
 <meta property="og:title" content="Bright Hour Med Spa · Book online in under a minute · Memberships from $149/mo">
@@ -23,16 +23,21 @@
 <!-- /gsw:identity -->
 <link rel="preload" href="../_assets/fonts/geologica-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../_assets/fonts/azeret-mono-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" type="image/avif" imagesrcset="../_assets/hero/med-spas/e-the-whole-space-1280.avif 1280w, ../_assets/hero/med-spas/e-the-whole-space-2560.avif 2560w" imagesizes="(max-width: 999px) 100vw, 50vw" fetchpriority="high">
 <style>
-/* D3 — THE TWO TAPS. hero:band nav:inline services:list proof:stats
-   ink #1B1A17 · surface #F8F4DF · accent #B7C400 (signal only, never text) · muted #5B5A52 · on-dark #F8F4DF
-   H1 ramp: 40/48/60/72px · Geologica (geometric sans) words / Azeret Mono figures, labels, times, prices
-   Device: the tap panels — two flush ruled panels that fill the hero band, indexed 01 and 02
-   with a live mark, and the same two panels return at the close and in the mobile bar, so the
-   interface is identical wherever the visitor is. Every figure is mono and tabular; one price
-   ledger instead of two; no photograph behind text; no motion. FIX answered first: "booking
-   requires an account" — the two actions are the largest objects on the page and nothing
-   sits between arriving and a slot. Seven sizes, two families, two weights. */
+/* D3 — THE TWO TAPS, IN DAYLIGHT. hero:split nav:inline services:ledger proof:stats-band
+   v2 (client feedback 2026-09-07): the v1 page was one cream tint, no hero photograph, 33 % room
+   tiles and 13 px labels. Same idea — the page is the booking interface — now with a palette used
+   as bands and the photographs at column scale.
+   cream #F7F2E4 · ink #1B1A17 · terracotta #A8471F (primary tap, stats band, eyebrows) ·
+   bottle green #24483A (closing band) · lime #D9E04B (badge strip, the open signal) · blush #F1DCCF (process)
+   Type: Geologica 400/500/600 words · Azeret Mono 400 figures, labels, times, prices. Seven sizes on one
+   clamp() curve, body 18 px at 1440 / 16 px at 390, display 84 / 44.
+   Device: the two tap panels — terracotta and outline — in the hero, at the close and in the mobile bar.
+   Hero: e-the-whole-space at column height, bleeding to the viewport edge. Stats band: terracotta whose
+   right half is the flatlay plate on the same terracotta. Every photograph appears once.
+   FIX answered first: "booking requires an account" — the two actions are the largest objects on the
+   page and nothing sits between arriving and a slot. */
 
 @font-face { font-family: "Geologica"; src: url("../_assets/fonts/geologica-var.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
 @font-face { font-family: "Azeret Mono"; src: url("../_assets/fonts/azeret-mono-var.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
@@ -40,183 +45,223 @@
 @font-face { font-family: "Azeret Fallback"; src: local("Menlo"), local("Courier New"); size-adjust: 96%; ascent-override: 92%; descent-override: 24%; }
 
 :root {
-  --citrus: #F8F4DF; --citrus-2: #F0EAC6; --ink: #1B1A17; --ink-2: #26251F;
-  --muted: #5B5A52; --muted-i: #B9B6A6; --line: #D8D2AE; --line-i: #3B3A33; --lime: #B7C400;
+  --cream: #F7F2E4; --cream-2: #EFE7CF; --ink: #1B1A17; --ink-2: #2A2823;
+  --terra: #A8471F; --terra-2: #8F3B18; --green: #24483A; --green-2: #1B3A2E;
+  --lime: #D9E04B; --blush: #F1DCCF;
+  --muted: #5B5A52; --muted-i: #C9CFC2;
+  --line: rgba(27, 26, 23, 0.18); --line-i: rgba(247, 242, 228, 0.24);
   --sans: "Geologica", "Geologica Fallback", Arial, sans-serif;
   --mono: "Azeret Mono", "Azeret Fallback", Menlo, monospace;
-  /* seven sizes; the top four are two points on one curve */
-  --t-label: 0.8125rem; --t-small: 0.9375rem; --t-body: 1.0625rem;
-  --t-lede: clamp(1.125rem, 1rem + 0.5vw, 1.3125rem);
-  --t-h3: clamp(1.375rem, 1.1rem + 1.1vw, 1.75rem);
-  --t-h2: clamp(1.875rem, 1.3rem + 2.3vw, 2.75rem);
-  --t-display: clamp(2.5rem, 1.4rem + 4.6vw, 4.5rem);
-  /* spacing from the body leading: 17 × 1.6 ≈ 27 */
-  --s1: 9px; --s2: 18px; --s3: 27px; --s4: 36px; --s6: 54px; --s8: 72px; --s12: 108px;
-  --wrap: 1180px; --gutter: clamp(20px, 4vw, 48px); --bar-h: 64px;
+  /* seven sizes; body 16 → 18, display 44 → 84, on one curve */
+  --t-label: 0.8125rem;
+  --t-small: 0.9375rem;
+  --t-body: clamp(1rem, 0.93rem + 0.3vw, 1.125rem);
+  --t-lede: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);
+  --t-h3: clamp(1.375rem, 1.15rem + 1vw, 1.75rem);
+  --t-h2: clamp(2rem, 1.3rem + 3vw, 3.25rem);
+  --t-display: clamp(2.75rem, 1.6rem + 5.4vw, 5.25rem);
+  /* spacing from the body leading: 18 × 1.55 ≈ 28 */
+  --s1: 7px; --s2: 14px; --s3: 28px; --s4: 42px; --s6: 56px; --s8: 84px; --s12: 112px;
+  --wrap: 1240px; --gutter: clamp(20px, 4vw, 56px); --bar-h: 64px;
 }
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
-body { margin: 0; background: var(--citrus); color: var(--ink); font: 400 var(--t-body)/1.6 var(--sans); overflow-x: hidden; padding-bottom: var(--bar-h); }
+body { margin: 0; background: var(--cream); color: var(--ink); font: 400 var(--t-body)/1.55 var(--sans); font-optical-sizing: auto; overflow-x: hidden; padding-bottom: var(--bar-h); }
 h1, h2, h3 { margin: 0; font-weight: 500; text-wrap: balance; letter-spacing: -0.01em; }
-h1 { font-size: var(--t-display); line-height: 1.02; letter-spacing: -0.02em; max-width: 14ch; }
-h2 { font-size: var(--t-h2); line-height: 1.08; max-width: 20ch; }
+h1 { font-size: var(--t-display); line-height: 1; letter-spacing: -0.025em; max-width: 12ch; }
+h2 { font-size: var(--t-h2); line-height: 1.04; letter-spacing: -0.02em; max-width: 18ch; }
 h3 { font-size: var(--t-h3); line-height: 1.2; }
 p { margin: 0; text-wrap: pretty; }
 a { color: inherit; }
 img { display: block; max-width: 100%; height: auto; }
 ul, ol { list-style: none; margin: 0; padding: 0; }
+figure { margin: 0; }
 .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
 .mono { font-family: var(--mono); font-weight: 400; }
-.label { font-family: var(--mono); font-size: var(--t-label); letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.3; color: var(--muted); }
-.lede { font-size: var(--t-lede); line-height: 1.45; max-width: 56ch; }
+.label { font-family: var(--mono); font-size: var(--t-label); letter-spacing: 0.12em; text-transform: uppercase; line-height: 1.3; color: var(--terra); }
+.lede { font-size: var(--t-lede); line-height: 1.45; max-width: 52ch; }
 .muted { color: var(--muted); }
-.on-ink { background: var(--ink); color: var(--citrus); }
-.on-ink .muted, .on-ink .label { color: var(--muted-i); }
+.on-dark { -webkit-font-smoothing: antialiased; }
+.on-dark .label { color: var(--lime); }
+.on-dark .muted { color: var(--muted-i); }
 :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
-.on-ink :focus-visible { outline-color: var(--citrus); }
-.skip { position: absolute; left: -999px; top: 0; background: var(--ink); color: var(--citrus); padding: var(--s1) var(--s2); z-index: 100; }
+.on-dark :focus-visible, .topline :focus-visible { outline-color: var(--cream); }
+.skip { position: absolute; left: -999px; top: 0; background: var(--ink); color: var(--cream); padding: var(--s1) var(--s2); z-index: 100; }
 .skip:focus { left: var(--s2); top: var(--s2); }
-.live { display: inline-block; width: 8px; height: 8px; background: var(--lime); border-radius: 50%; flex: none; }
+.live { display: inline-block; width: 10px; height: 10px; background: var(--lime); border-radius: 50%; flex: none; }
 .live-off { visibility: hidden; }
 
 /* ---------- Buttons ---------- */
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.6em; min-height: 52px; padding: 0.7em 1.4em; border: 1px solid var(--ink); font: 500 var(--t-body)/1.2 var(--sans); text-decoration: none; cursor: pointer; background: transparent; color: var(--ink); transition: background-color 140ms, color 140ms, border-color 140ms; }
-.btn-primary { background: var(--ink); color: var(--citrus); }
-.btn-primary:hover { background: var(--ink-2); }
+.btn-primary { background: var(--terra); border-color: var(--terra); color: var(--cream); }
+.btn-primary:hover { background: var(--terra-2); border-color: var(--terra-2); }
 .btn-ghost:hover { background: rgba(27, 26, 23, 0.06); }
-.on-ink .btn { border-color: var(--citrus); color: var(--citrus); }
-.on-ink .btn-primary { background: var(--citrus); color: var(--ink); }
-.on-ink .btn-primary:hover { background: #fff; }
-.on-ink .btn-ghost:hover { background: rgba(248, 244, 223, 0.1); }
 
 /* ---------- Top line + header ---------- */
-.topline { border-bottom: 1px solid var(--line); }
-.topline .wrap { display: flex; justify-content: space-between; gap: var(--s2); padding-top: 10px; padding-bottom: 10px; }
-.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: var(--s3); padding-top: var(--s2); padding-bottom: var(--s2); border-bottom: 1px solid var(--line); }
-.brand { display: inline-flex; align-items: center; gap: 0.5em; text-decoration: none; font-size: var(--t-lede); font-weight: 500; letter-spacing: -0.01em; }
-.brand svg { height: 1.1em; width: auto; flex: none; }
-.nav { display: flex; gap: var(--s3); font-size: var(--t-small); }
-.nav a { text-decoration: none; padding: 6px 0; border-bottom: 1px solid transparent; transition: border-color 140ms; }
-.nav a:hover { border-bottom-color: var(--ink); }
+.topline { background: var(--terra); color: var(--cream); }
+.topline .wrap { display: flex; justify-content: space-between; gap: var(--s2); padding-top: 9px; padding-bottom: 9px; }
+.topline .label { color: var(--cream); }
+.top { position: sticky; top: 0; z-index: 30; background: var(--cream); border-bottom: 1px solid var(--line); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: var(--s3); padding-top: var(--s2); padding-bottom: var(--s2); }
+.brand { display: inline-flex; align-items: center; gap: 0.5em; text-decoration: none; font-size: var(--t-lede); font-weight: 600; letter-spacing: -0.01em; }
+.brand svg { height: 1.05em; width: auto; flex: none; fill: currentColor; }
+.nav { display: flex; gap: var(--s3); font-size: var(--t-small); font-weight: 500; }
+.nav a { text-decoration: none; padding: 6px 0; border-bottom: 2px solid transparent; transition: border-color 140ms; }
+.nav a:hover { border-bottom-color: var(--terra); }
 .top .btn { min-height: 44px; padding: 0.5em 1.1em; font-size: var(--t-small); }
 
-/* ---------- Hero band ---------- */
-.band { padding: var(--s8) 0 var(--s6); }
-.band .label { display: flex; align-items: center; gap: 10px; margin-bottom: var(--s3); }
-.band .lede { margin-top: var(--s3); color: var(--muted); }
-.taps { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s2); margin-top: var(--s6); }
-.tap { display: grid; grid-template-columns: auto 1fr auto; align-items: end; gap: var(--s2); min-height: 176px; padding: var(--s3); text-decoration: none; border: 1px solid var(--ink); transition: background-color 140ms, color 140ms; }
-.tap .n { font-family: var(--mono); font-size: var(--t-label); letter-spacing: 0.1em; align-self: start; }
-.tap b { font-weight: 500; font-size: var(--t-h2); line-height: 1; letter-spacing: -0.02em; }
-.tap .live { align-self: start; margin-top: 4px; }
-.tap-1 { background: var(--ink); color: var(--citrus); }
-.tap-1:hover { background: var(--ink-2); }
+/* ---------- Hero: type left, the whole space right ---------- */
+.hero { position: relative; }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: var(--s8); align-items: center; padding-top: var(--s8); padding-bottom: var(--s8); min-height: 84svh; }
+.hero .label { display: flex; align-items: center; gap: 10px; margin-bottom: var(--s3); }
+.hero .lede { margin-top: var(--s3); color: var(--muted); }
+.plate { position: relative; align-self: stretch; }
+.hero .plate { margin-right: calc(-1 * var(--gutter)); min-height: 560px; }
+@media (min-width: 1400px) { .hero .plate { margin-right: calc((var(--wrap) - 100vw) / 2 - var(--gutter)); } }
+.plate img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.plate figcaption { position: absolute; left: var(--s2); bottom: var(--s2); font-family: var(--mono); font-size: var(--t-label); letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream); background: rgba(27, 26, 23, 0.72); padding: 6px 10px; }
+.taps { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s2); margin-top: var(--s4); }
+.tap { display: grid; grid-template-columns: auto 1fr auto; align-items: end; gap: var(--s2); min-height: 152px; padding: var(--s3); text-decoration: none; border: 1px solid var(--ink); transition: background-color 140ms, color 140ms, border-color 140ms; }
+.tap .n { font-family: var(--mono); font-size: var(--t-label); letter-spacing: 0.12em; align-self: start; }
+.tap b { font-weight: 500; font-size: var(--t-h3); line-height: 1; letter-spacing: -0.02em; }
+.tap .live { align-self: start; margin-top: 3px; }
+.tap-1 { background: var(--terra); border-color: var(--terra); color: var(--cream); }
+.tap-1:hover { background: var(--terra-2); border-color: var(--terra-2); }
 .tap-2:hover { background: rgba(27, 26, 23, 0.06); }
-.badges { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s2) var(--s3); margin-top: var(--s4); padding-top: var(--s2); border-top: 1px solid var(--line); font-size: var(--t-small); }
-.badges li { display: flex; gap: 10px; align-items: baseline; }
-.badges .n { font-family: var(--mono); font-size: var(--t-label); color: var(--muted); }
+
+/* ---------- Receipt strip ---------- */
+.strip { background: var(--lime); }
+.strip ul { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s2) var(--s3); padding: var(--s3) 0; }
+.strip li { display: flex; gap: 10px; align-items: baseline; font-weight: 500; font-size: var(--t-small); }
+.strip .n { font-family: var(--mono); font-weight: 400; font-size: var(--t-label); letter-spacing: 0.12em; }
 
 /* ---------- Sections ---------- */
 .sec { padding: var(--s12) 0; }
-.sec + .sec { padding-top: 0; }
-.head { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: var(--s3) var(--s8); align-items: end; padding-top: var(--s2); border-top: 1px solid var(--line); margin-bottom: var(--s6); }
+.head { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--s3) var(--s8); align-items: end; margin-bottom: var(--s6); }
 .head .label { grid-column: 1 / -1; }
 .head .lede { color: var(--muted); }
 
-/* ---------- Ledger ---------- */
+/* ---------- Services: ledger + sticky photograph ---------- */
+.services .grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--s8); align-items: start; }
 .ledger li { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "name price" "desc desc"; column-gap: var(--s3); row-gap: var(--s1); align-items: baseline; padding: var(--s3) 0; border-top: 1px solid var(--line); }
 .ledger li:last-child { border-bottom: 1px solid var(--line); }
 .ledger h3 { grid-area: name; display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px var(--s2); }
-.ledger .tag { font-family: var(--mono); font-size: var(--t-label); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); font-weight: 400; }
-.ledger .price { grid-area: price; font-family: var(--mono); font-size: var(--t-h3); line-height: 1.2; white-space: nowrap; }
-.ledger p { grid-area: desc; color: var(--muted); max-width: 60ch; }
+.ledger .tag { font-family: var(--mono); font-size: var(--t-label); letter-spacing: 0.12em; text-transform: uppercase; color: var(--terra); font-weight: 400; }
+.ledger .price { grid-area: price; font-family: var(--mono); font-size: var(--t-h3); line-height: 1.2; white-space: nowrap; color: var(--terra); }
+.ledger p { grid-area: desc; color: var(--muted); max-width: 58ch; }
+.photo { position: relative; overflow: hidden; background: var(--cream-2); }
+.photo img { width: 100%; height: 100%; object-fit: cover; }
+.photo.tall { aspect-ratio: 4 / 5; }
+.photo.wide { aspect-ratio: 21 / 9; }
+.photo figcaption { position: absolute; left: 0; bottom: 0; display: flex; gap: var(--s2); align-items: baseline; padding: 8px 12px; font-family: var(--mono); font-size: var(--t-label); letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream); background: var(--ink); }
+.services .photo { position: sticky; top: calc(var(--s8) + 10px); }
 
-/* ---------- Stats ---------- */
-.stats { background: var(--citrus-2); }
-.stats ul { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s2); }
-.stats li { padding: var(--s2) 0; border-top: 1px solid var(--line); }
-.stats .v { display: block; font-family: var(--mono); font-size: var(--t-h2); line-height: 1.1; letter-spacing: -0.01em; }
-.stats .l { display: block; margin-top: var(--s1); font-size: var(--t-small); color: var(--muted); }
+/* ---------- Stats band: terracotta, half photograph ---------- */
+.stats { background: var(--terra); color: var(--cream); overflow: hidden; }
+.stats .wrap { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: var(--s8); align-items: stretch; }
+.stats .copy { padding: var(--s8) 0; }
+.stats .label { color: var(--cream); }
+.stats h2.label { font-family: var(--mono); font-size: var(--t-label); font-weight: 400; letter-spacing: 0.12em; line-height: 1.3; max-width: none; }
+.stats ul { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s3) var(--s4); margin-top: var(--s4); }
+.stats li { padding-top: var(--s2); border-top: 1px solid var(--line-i); }
+.stats .v { display: block; font-family: var(--mono); font-size: var(--t-h2); line-height: 1.05; letter-spacing: -0.02em; }
+.stats .l { display: block; margin-top: var(--s1); font-size: var(--t-small); font-weight: 500; }
+.stats .plate { margin-right: calc(-1 * var(--gutter)); min-height: 420px; }
+@media (min-width: 1400px) { .stats .plate { margin-right: calc((var(--wrap) - 100vw) / 2 - var(--gutter)); } }
 
-/* ---------- Process ---------- */
-.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s4); }
+/* ---------- Process: blush band, wide photograph, numbered row ---------- */
+.process { background: var(--blush); }
+.process .head { margin-bottom: var(--s4); }
+.process .label { color: var(--terra-2); }
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s4); margin-top: var(--s6); }
 .steps li { padding-top: var(--s2); border-top: 1px solid var(--line); }
-.steps .n { display: block; font-family: var(--mono); font-size: var(--t-label); letter-spacing: 0.1em; color: var(--muted); margin-bottom: var(--s2); }
+.steps .n { display: block; font-family: var(--mono); font-size: var(--t-h2); line-height: 1; color: var(--terra); margin-bottom: var(--s2); }
 .steps h3 { margin-bottom: var(--s1); }
-.steps p { color: var(--muted); max-width: 34ch; }
+.steps p { color: var(--muted); max-width: 42ch; }
 
-/* ---------- Rooms ---------- */
-.rooms .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s2); }
-.rooms figure { margin: 0; }
-.rooms img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: var(--citrus-2); }
-.rooms figcaption { display: flex; gap: var(--s2); align-items: baseline; padding-top: var(--s1); margin-top: var(--s1); border-top: 1px solid var(--line); font-family: var(--mono); font-size: var(--t-label); letter-spacing: 0.06em; color: var(--muted); }
+/* ---------- Rooms: 8/4 then 4/8 ---------- */
+.rooms .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--s2); }
+.rooms .photo { aspect-ratio: 4 / 3; }
+.rooms .a { grid-column: span 8; aspect-ratio: 16 / 10; }
+.rooms .b { grid-column: span 4; aspect-ratio: auto; }
+.rooms .c { grid-column: span 4; aspect-ratio: auto; }
+.rooms .d { grid-column: span 8; aspect-ratio: 16 / 10; }
 
-/* ---------- Close ---------- */
+/* ---------- Close: bottle green, the taps again, a cream form card ---------- */
+.close { background: var(--green); color: var(--cream); }
 .close .grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: var(--s8); align-items: start; }
-.close h2 { font-size: var(--t-h2); line-height: 1.08; letter-spacing: -0.02em; max-width: 14ch; }
-.close .lede { margin-top: var(--s3); }
-.close .taps { margin-top: var(--s4); grid-template-columns: 1fr; }
-.close .tap { border-color: var(--citrus); min-height: 108px; }
-.close .tap-1 { background: var(--citrus); color: var(--ink); }
-.close .tap-1:hover { background: #fff; }
-.close .tap-2 { color: var(--citrus); }
-.close .tap-2:hover { background: rgba(248, 244, 223, 0.1); }
-.close .tap .live { background: var(--lime); }
+.close h2 { max-width: 14ch; }
+.close .lede { margin-top: var(--s3); color: var(--muted-i); }
+.close .taps { grid-template-columns: 1fr; }
+.close .tap { border-color: var(--cream); color: var(--cream); min-height: 104px; }
+.close .tap-1 { background: var(--lime); border-color: var(--lime); color: var(--ink); }
+.close .tap-1:hover { background: #E6EC6A; border-color: #E6EC6A; }
+.close .tap-1 .live { background: var(--terra); }
+.close .tap-2:hover { background: rgba(247, 242, 228, 0.1); }
 .close .note { margin-top: var(--s4); font-size: var(--t-small); color: var(--muted-i); max-width: 48ch; }
-.form { border-top: 1px solid var(--line-i); padding-top: var(--s3); }
-.form .intro { margin-bottom: var(--s3); }
+.form { background: var(--cream); color: var(--ink); padding: var(--s4); }
+.form .intro { margin-bottom: var(--s3); font-weight: 500; }
 .field { display: grid; gap: 6px; margin-bottom: var(--s2); }
-.field label { font-family: var(--mono); font-size: var(--t-label); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted-i); }
-.field input, .field textarea { width: 100%; font: 400 var(--t-body)/1.4 var(--sans); color: var(--citrus); background: rgba(248, 244, 223, 0.05); border: 1px solid var(--line-i); padding: 12px 14px; transition: border-color 140ms; }
-.field input:hover, .field textarea:hover { border-color: var(--muted-i); }
-.field input:focus, .field textarea:focus { outline: none; border-color: var(--citrus); }
-.field.is-invalid input { border-color: var(--lime); }
+.field label { font-family: var(--mono); font-size: var(--t-label); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.field input, .field textarea { width: 100%; font: 400 var(--t-body)/1.4 var(--sans); color: var(--ink); background: #fff; border: 1px solid var(--ink); padding: 12px 14px; transition: border-color 140ms, box-shadow 140ms; }
+.field input:hover, .field textarea:hover { border-color: var(--terra); }
+.field input:focus, .field textarea:focus { outline: none; border-color: var(--terra); box-shadow: 0 0 0 3px rgba(168, 71, 31, 0.25); }
+.field.is-invalid input { border-color: var(--terra); box-shadow: 0 0 0 3px rgba(168, 71, 31, 0.25); }
 .form .actions { display: flex; align-items: center; gap: var(--s2); flex-wrap: wrap; margin-top: var(--s3); }
-.form .hint { font-size: var(--t-small); color: var(--citrus); }
+.form .hint { font-size: var(--t-small); color: var(--terra); font-weight: 500; }
 .form .hint[hidden], .form .done[hidden] { display: none; }
 .form .done { font-size: var(--t-lede); padding: var(--s3) 0; }
 .form.is-sent .field, .form.is-sent .actions, .form.is-sent .intro { display: none; }
 
 /* ---------- Footer ---------- */
-.foot { padding: var(--s6) 0; font-size: var(--t-small); border-top: 1px solid var(--line); }
+.foot { background: var(--ink); color: var(--cream); padding: var(--s6) 0; font-size: var(--t-small); }
 .foot .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s3) var(--s8); align-items: start; }
-.foot p { color: var(--muted); max-width: 50ch; }
-.foot .fine { grid-column: 1 / -1; padding-top: var(--s3); border-top: 1px solid var(--line); font-family: var(--mono); font-size: var(--t-label); letter-spacing: 0.02em; }
+.foot p { color: var(--muted-i); max-width: 50ch; }
+.foot a { color: var(--cream); }
+.foot .fine { grid-column: 1 / -1; padding-top: var(--s3); border-top: 1px solid var(--line-i); font-family: var(--mono); font-size: var(--t-label); letter-spacing: 0.02em; }
 
 /* ---------- Mobile bar: the same two taps ---------- */
 .bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--ink); border-top: 1px solid var(--ink); }
 .bar a { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: var(--bar-h); font: 500 var(--t-body)/1.2 var(--sans); text-decoration: none; }
-.bar .b1 { background: var(--ink); color: var(--citrus); }
-.bar .b2 { background: var(--citrus); color: var(--ink); }
-.bar .n { font-family: var(--mono); font-size: var(--t-label); letter-spacing: 0.1em; opacity: 0.7; }
+.bar .b1 { background: var(--terra); color: var(--cream); }
+.bar .b2 { background: var(--cream); color: var(--ink); }
+.bar .n { font-family: var(--mono); font-weight: 400; font-size: var(--t-label); letter-spacing: 0.12em; opacity: 0.8; }
 
 /* tabular figures must beat the font shorthand on buttons, taps and the bar */
-.tnum, .tnum *, .btn.tnum, .bar a.tnum, .stats .v, .ledger .price, .tap .n, .steps .n { font-variant-numeric: tabular-nums; }
+.tnum, .tnum *, .btn.tnum, .bar a.tnum, .stats .v, .ledger .price, .tap .n, .steps .n, .strip .n { font-variant-numeric: tabular-nums; }
 
 /* ---------- Responsive ---------- */
 @media (min-width: 1000px) { body { padding-bottom: 0; } .bar { display: none; } }
 @media (max-width: 999px) {
-  .head, .close .grid { grid-template-columns: 1fr; }
+  .hero .wrap { grid-template-columns: 1fr; gap: var(--s4); min-height: 0; padding-top: 0; padding-bottom: var(--s6); }
+  .hero .plate { order: -1; height: 46svh; min-height: 260px; max-height: 520px; margin: 0 calc(-1 * var(--gutter)); }
+  .hero .copy { padding-top: var(--s4); }
+  .head, .services .grid, .stats .wrap, .close .grid { grid-template-columns: 1fr; }
+  .services .photo { position: static; aspect-ratio: 4 / 3; }
+  .stats .copy { padding-bottom: var(--s6); }
+  .stats .plate { margin: 0 calc(-1 * var(--gutter)); min-height: 0; height: 52vw; }
   .steps { grid-template-columns: 1fr 1fr; }
-  .stats ul { grid-template-columns: 1fr 1fr; }
-  .rooms .grid { grid-template-columns: 1fr 1fr; }
+  .strip ul { grid-template-columns: 1fr 1fr; }
+  .rooms .a, .rooms .b, .rooms .c, .rooms .d { grid-column: span 6; aspect-ratio: 4 / 3; }
 }
 @media (max-width: 759px) {
   .nav, .topline .right { display: none; }
   .top .btn { display: none; }
   .sec { padding: var(--s8) 0; }
-  .band { padding-top: var(--s6); }
   .taps { grid-template-columns: 1fr; }
-  .tap { min-height: 120px; }
-  .badges { grid-template-columns: 1fr; gap: var(--s1); }
+  .tap { min-height: 108px; }
+  .strip ul { grid-template-columns: 1fr; gap: var(--s1); }
   .ledger li { grid-template-columns: 1fr; grid-template-areas: "name" "price" "desc"; }
-  .steps, .stats ul, .rooms .grid { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr; }
+  .stats ul { grid-template-columns: 1fr 1fr; }
+  .rooms .a, .rooms .b, .rooms .c, .rooms .d { grid-column: span 12; }
+  .form { padding: var(--s3); }
   .foot .wrap { grid-template-columns: 1fr; }
 }
-@media (max-width: 419px) { .bar .n { display: none; } .bar a { font-size: var(--t-small); } }
+@media (max-width: 419px) { .bar .n { display: none; } .bar a { font-size: var(--t-small); } .stats ul { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
-@media (forced-colors: active) { .btn, .tap { border: 1px solid ButtonText; } .live { background: Highlight; } }
-@media print { .bar { display: none; } }
+@media (forced-colors: active) { .btn, .tap, .form { border: 1px solid ButtonText; } .live { background: Highlight; } }
+@media print { .bar, .top .btn { display: none; } .top { position: static; } }
 </style>
 </head>
 <body>
@@ -224,11 +269,12 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 
 <div class="topline"><div class="wrap">
   <span class="label tnum">Book online in under a minute · Memberships from $149/mo</span>
+  <span class="label right">Injectables · Laser · Skin</span>
 </div></div>
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M8 14 H56 V26 a6 6 0 0 0 0 12 V50 H8 V38 a6 6 0 0 0 0 -12 Z" fill="#1B1A17"/></svg>Bright Hour Med Spa</a>
+    <a class="brand" href="#"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M8 14 H56 V26 a6 6 0 0 0 0 12 V50 H8 V38 a6 6 0 0 0 0 -12 Z"/></svg>Bright Hour Med Spa</a>
     <nav class="nav" aria-label="Sections">
       <a href="#services">Services</a>
       <a href="#results">Results</a>
@@ -240,63 +286,101 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 </header>
 
 <main id="main">
-<section class="band" aria-labelledby="promise">
+<section class="hero" aria-labelledby="promise">
   <div class="wrap">
-    <p class="label"><span class="live" aria-hidden="true"></span>Injectables · Laser · Skin</p>
-    <h1 id="promise">Book in two taps. No account, no&nbsp;callback.</h1>
-    <p class="lede">Botox, filler, laser and medical-grade skincare from licensed injectors. Real slots on a real calendar, bookable in about forty seconds, with no account to create and nobody ringing you back to&nbsp;confirm.</p>
-    <div class="taps">
-      <a class="tap tap-1" href="#contact" data-cta="primary"><span class="n">01</span><b>Book now</b><span class="live" aria-hidden="true"></span></a>
-      <a class="tap tap-2" href="#services"><span class="n">02</span><b>See pricing</b><span class="live live-off" aria-hidden="true"></span></a>
+    <div class="copy">
+      <p class="label"><span class="live" aria-hidden="true"></span>Injectables · Laser · Skin</p>
+      <h1 id="promise">Book in two taps. No account, no&nbsp;callback.</h1>
+      <p class="lede">Botox, filler, laser and medical-grade skincare from licensed injectors. Real slots on a real calendar, bookable in about forty seconds, with no account to create and nobody ringing you back to&nbsp;confirm.</p>
+      <div class="taps">
+        <a class="tap tap-1" href="#contact" data-cta="primary"><span class="n" aria-hidden="true">01</span><b>Book now</b><span class="live" aria-hidden="true"></span></a>
+        <a class="tap tap-2" href="#services"><span class="n" aria-hidden="true">02</span><b>See pricing</b><span class="live live-off" aria-hidden="true"></span></a>
+      </div>
     </div>
-    <ul class="badges" aria-label="What you get">
-      <li><span class="n">01</span>All pricing published</li>
-      <li><span class="n">02</span>Book without an account</li>
-      <li><span class="n">03</span>Licensed injectors only</li>
-      <li class="tnum"><span class="n">04</span>Memberships from $149/mo</li>
+    <figure class="plate">
+      <picture>
+        <source type="image/avif" srcset="../_assets/hero/med-spas/e-the-whole-space-1280.avif 1280w, ../_assets/hero/med-spas/e-the-whole-space-2560.avif 2560w" sizes="(max-width: 999px) 100vw, 50vw">
+        <img src="../_assets/hero/med-spas/e-the-whole-space-1280.jpg" alt="The clinic in daylight: plaster arches, hanging plants and a brass reception desk on a terrazzo floor" width="1280" height="714" fetchpriority="high" decoding="async">
+      </picture>
+    </figure>
+  </div>
+</section>
+
+<section class="strip" aria-label="What you get">
+  <div class="wrap">
+    <ul>
+      <li><span class="n" aria-hidden="true">01</span>All pricing published</li>
+      <li><span class="n" aria-hidden="true">02</span>Book without an account</li>
+      <li><span class="n" aria-hidden="true">03</span>Licensed injectors only</li>
+      <li class="tnum"><span class="n" aria-hidden="true">04</span>Memberships from $149/mo</li>
     </ul>
   </div>
 </section>
 
-<section class="sec" id="services" aria-labelledby="services-title">
+<section class="sec services" id="services" aria-labelledby="services-title">
   <div class="wrap">
     <div class="head">
-      <p class="label">Services · Treatments &amp; prices</p>
+      <p class="label">01 — Services · Treatments &amp; prices</p>
       <h2 id="services-title">Treatments &amp;&nbsp;prices</h2>
       <p class="lede">No ‘call for pricing’. You should be able to work out what your visit costs before you&nbsp;arrive.</p>
     </div>
-    <ul class="ledger">
-      <li><h3>Neurotoxin</h3><span class="price">from $12/unit</span><p>Botox and Dysport for lines and prevention. Most first-time treatments land between $240 and $420 depending on&nbsp;areas.</p></li>
-      <li><h3>Dermal filler</h3><span class="price">from $650/syringe</span><p>Lip, cheek and jawline. We are conservative by default and will always start with less than you asked&nbsp;for.</p></li>
-      <li><h3>Laser &amp; resurfacing</h3><span class="price">from $300</span><p>Pigment, redness, texture and hair. Package pricing published, because a single session is rarely the whole&nbsp;answer.</p></li>
-      <li><h3>Memberships <span class="tag">Membership</span></h3><span class="price">from $149/mo</span><p>Monthly credit that rolls over, member pricing on everything, and priority booking. Most regulars save around&nbsp;20%.</p></li>
-    </ul>
+    <div class="grid">
+      <ul class="ledger">
+        <li><h3>Neurotoxin</h3><span class="price">from $12/unit</span><p>Botox and Dysport for lines and prevention. Most first-time treatments land between $240 and $420 depending on&nbsp;areas.</p></li>
+        <li><h3>Dermal filler</h3><span class="price">from $650/syringe</span><p>Lip, cheek and jawline. We are conservative by default and will always start with less than you asked&nbsp;for.</p></li>
+        <li><h3>Laser &amp; resurfacing</h3><span class="price">from $300</span><p>Pigment, redness, texture and hair. Package pricing published, because a single session is rarely the whole&nbsp;answer.</p></li>
+        <li><h3>Memberships <span class="tag">Membership</span></h3><span class="price">from $149/mo</span><p>Monthly credit that rolls over, member pricing on everything, and priority booking. Most regulars save around&nbsp;20%.</p></li>
+      </ul>
+      <figure class="photo tall">
+        <picture>
+          <source type="image/avif" srcset="../_assets/library/med-spas/laser-device-640.avif 640w, ../_assets/library/med-spas/laser-device-1280.avif 1280w" sizes="(max-width: 999px) 100vw, 40vw">
+          <img src="../_assets/library/med-spas/laser-device-720.jpg" alt="A laser handpiece resting on its cradle on a wooden table beside a linen-covered treatment bed" width="720" height="537" loading="lazy" decoding="async">
+        </picture>
+        <figcaption><span aria-hidden="true">02</span>Laser &amp; resurfacing</figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
-<section class="sec stats" id="results" aria-label="Results">
+<section class="sec stats on-dark" id="results" aria-labelledby="results-title">
   <div class="wrap">
-    <ul>
-      <li><span class="v">$149/mo</span><span class="l">Memberships from</span></li>
-      <li><span class="v">4.9★</span><span class="l">Across 730 reviews</span></li>
-      <li><span class="v">60sec</span><span class="l">To book online</span></li>
-      <li><span class="v">100%</span><span class="l">Licensed injectors</span></li>
-    </ul>
+    <div class="copy">
+      <h2 id="results-title" class="label">02 — Results</h2>
+      <ul>
+        <li><span class="v">$149/mo</span><span class="l">Memberships from</span></li>
+        <li><span class="v">4.9★</span><span class="l">Across 730 reviews</span></li>
+        <li><span class="v">60sec</span><span class="l">To book online</span></li>
+        <li><span class="v">100%</span><span class="l">Licensed injectors</span></li>
+      </ul>
+    </div>
+    <figure class="plate">
+      <picture>
+        <source type="image/avif" srcset="../_assets/hero/med-spas/b-clean-flatlay-1280.avif 1280w, ../_assets/hero/med-spas/b-clean-flatlay-2560.avif 2560w" sizes="(max-width: 999px) 100vw, 50vw">
+        <img src="../_assets/hero/med-spas/b-clean-flatlay-1280.jpg" alt="Frosted serum bottles, a folded towel and a sprig of eucalyptus laid out on terracotta plaster" width="1280" height="714" loading="lazy" decoding="async">
+      </picture>
+    </figure>
   </div>
 </section>
 
-<section class="sec" id="process" aria-labelledby="process-title">
+<section class="sec process" id="process" aria-labelledby="process-title">
   <div class="wrap">
     <div class="head">
-      <p class="label">Process</p>
+      <p class="label">03 — Process</p>
       <h2 id="process-title">Your first&nbsp;visit</h2>
       <p class="lede">About ninety minutes, most of which is talking rather than&nbsp;treating.</p>
     </div>
+    <figure class="photo wide">
+      <picture>
+        <source type="image/avif" srcset="../_assets/library/med-spas/bright-hour-med-spa/consult-room-640.avif 640w, ../_assets/library/med-spas/bright-hour-med-spa/consult-room-1280.avif 1280w" sizes="(max-width: 1240px) 100vw, 1240px">
+        <img src="../_assets/library/med-spas/bright-hour-med-spa/consult-room-720.jpg" alt="Two upholstered armchairs and a low oak table by a bright window in the consultation room" width="720" height="537" loading="lazy" decoding="async">
+      </picture>
+      <figcaption><span aria-hidden="true">03</span>The consultation</figcaption>
+    </figure>
     <ol class="steps">
-      <li><span class="n">01</span><h3>Book online</h3><p>Real slots, real availability, no account required. Evenings and Saturdays included.</p></li>
-      <li><span class="n">02</span><h3>Consultation</h3><p>Photographs, a conversation about what actually bothers you, and a plan. Sometimes the plan is ‘not yet’.</p></li>
-      <li><span class="n">03</span><h3>Treat</h3><p>Same visit where it’s appropriate. You’ll know the exact cost before anything is drawn up.</p></li>
-      <li><span class="n">04</span><h3>Two-week review</h3><p>Included, always. Neurotoxin settles over two weeks and small adjustments are free within that window.</p></li>
+      <li><span class="n" aria-hidden="true">01</span><h3>Book online</h3><p>Real slots, real availability, no account required. Evenings and Saturdays included.</p></li>
+      <li><span class="n" aria-hidden="true">02</span><h3>Consultation</h3><p>Photographs, a conversation about what actually bothers you, and a plan. Sometimes the plan is ‘not yet’.</p></li>
+      <li><span class="n" aria-hidden="true">03</span><h3>Treat</h3><p>Same visit where it’s appropriate. You’ll know the exact cost before anything is drawn up.</p></li>
+      <li><span class="n" aria-hidden="true">04</span><h3>Two-week review</h3><p>Included, always. Neurotoxin settles over two weeks and small adjustments are free within that window.</p></li>
     </ol>
   </div>
 </section>
@@ -304,35 +388,58 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 <section class="sec rooms" aria-labelledby="rooms-title">
   <div class="wrap">
     <div class="head">
-      <p class="label">Two taps later</p>
-      <h2 id="rooms-title">Where the appointment&nbsp;happens.</h2>
+      <p class="label">04 — Two taps later</p>
+      <h2 id="rooms-title">Where the appointment happens.</h2>
       <p class="lede">Book the slot, walk in, sit down. There is nothing between the&nbsp;two.</p>
     </div>
     <div class="grid">
-      <figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/bright-hour-med-spa/reception-640.avif 640w, ../_assets/library/med-spas/bright-hour-med-spa/reception-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/med-spas/bright-hour-med-spa/reception-720.jpg" alt="Reception" width="720" height="537" loading="lazy"></picture><figcaption><span>01</span>Reception</figcaption></figure>
-      <figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/bright-hour-med-spa/treatment-room-640.avif 640w, ../_assets/library/med-spas/bright-hour-med-spa/treatment-room-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/med-spas/bright-hour-med-spa/treatment-room-720.jpg" alt="Treatment room" width="720" height="537" loading="lazy"></picture><figcaption><span>02</span>Treatment room</figcaption></figure>
-      <figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/bright-hour-med-spa/flatlay-640.avif 640w, ../_assets/library/med-spas/bright-hour-med-spa/flatlay-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/med-spas/bright-hour-med-spa/flatlay-720.jpg" alt="Set up for the appointment" width="720" height="537" loading="lazy"></picture><figcaption><span>03</span>Set up for the appointment</figcaption></figure>
-      <figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/bright-hour-med-spa/consult-room-640.avif 640w, ../_assets/library/med-spas/bright-hour-med-spa/consult-room-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/med-spas/bright-hour-med-spa/consult-room-720.jpg" alt="The consultation" width="720" height="537" loading="lazy"></picture><figcaption><span>04</span>The consultation</figcaption></figure>
-      <figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/bright-hour-med-spa/lounge-640.avif 640w, ../_assets/library/med-spas/bright-hour-med-spa/lounge-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/med-spas/bright-hour-med-spa/lounge-720.jpg" alt="The lounge" width="720" height="537" loading="lazy"></picture><figcaption><span>05</span>The lounge</figcaption></figure>
-      <figure><picture><source type="image/avif" srcset="../_assets/library/med-spas/bright-hour-med-spa/evening-window-640.avif 640w, ../_assets/library/med-spas/bright-hour-med-spa/evening-window-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/med-spas/bright-hour-med-spa/evening-window-720.jpg" alt="Evening appointments" width="720" height="537" loading="lazy"></picture><figcaption><span>06</span>Evening appointments</figcaption></figure>
+      <figure class="photo a">
+        <picture>
+          <source type="image/avif" srcset="../_assets/library/med-spas/bright-hour-med-spa/reception-640.avif 640w, ../_assets/library/med-spas/bright-hour-med-spa/reception-1280.avif 1280w" sizes="(max-width: 759px) 100vw, (max-width: 999px) 50vw, 66vw">
+          <img src="../_assets/library/med-spas/bright-hour-med-spa/reception-720.jpg" alt="Reception: a white stone desk, oak cabinetry and potted fig trees in front of a window wall" width="720" height="537" loading="lazy" decoding="async">
+        </picture>
+        <figcaption><span aria-hidden="true">01</span>Reception</figcaption>
+      </figure>
+      <figure class="photo b">
+        <picture>
+          <source type="image/avif" srcset="../_assets/library/med-spas/bright-hour-med-spa/treatment-room-640.avif 640w, ../_assets/library/med-spas/bright-hour-med-spa/treatment-room-1280.avif 1280w" sizes="(max-width: 759px) 100vw, (max-width: 999px) 50vw, 33vw">
+          <img src="../_assets/library/med-spas/bright-hour-med-spa/treatment-room-720.jpg" alt="A treatment bed under a sheer-curtained window with a ring light on a stand" width="720" height="537" loading="lazy" decoding="async">
+        </picture>
+        <figcaption><span aria-hidden="true">02</span>Treatment room</figcaption>
+      </figure>
+      <figure class="photo c">
+        <picture>
+          <source type="image/avif" srcset="../_assets/library/med-spas/bright-hour-med-spa/lounge-640.avif 640w, ../_assets/library/med-spas/bright-hour-med-spa/lounge-1280.avif 1280w" sizes="(max-width: 759px) 100vw, (max-width: 999px) 50vw, 33vw">
+          <img src="../_assets/library/med-spas/bright-hour-med-spa/lounge-720.jpg" alt="The lounge: a linen sofa with a throw, a tray with two drinks, and a fiddle-leaf fig by the window" width="720" height="537" loading="lazy" decoding="async">
+        </picture>
+        <figcaption><span aria-hidden="true">03</span>The lounge</figcaption>
+      </figure>
+      <figure class="photo d">
+        <picture>
+          <source type="image/avif" srcset="../_assets/library/med-spas/bright-hour-med-spa/evening-window-640.avif 640w, ../_assets/library/med-spas/bright-hour-med-spa/evening-window-1280.avif 1280w" sizes="(max-width: 759px) 100vw, (max-width: 999px) 50vw, 66vw">
+          <img src="../_assets/library/med-spas/bright-hour-med-spa/evening-window-720.jpg" alt="The treatment room at dusk, lamp-lit, with the blue evening sky through the window" width="720" height="537" loading="lazy" decoding="async">
+        </picture>
+        <figcaption><span aria-hidden="true">04</span>Evening appointments</figcaption>
+      </figure>
     </div>
   </div>
 </section>
 
-<section class="sec close on-ink" id="contact" aria-labelledby="close-title">
+<section class="sec close on-dark" id="contact" aria-labelledby="close-title">
   <div class="wrap">
     <div class="grid">
       <div>
+        <p class="label">05 — Contact</p>
         <h2 id="close-title">Given up on booking&nbsp;somewhere?</h2>
         <p class="lede">Book a consultation. It’s free, there’s no obligation, and you’ll leave with a written plan and real prices whether or not you treat that&nbsp;day.</p>
         <div class="taps">
-          <a class="tap tap-1" href="#cb-name"><span class="n">01</span><b>Book now</b><span class="live" aria-hidden="true"></span></a>
-          <a class="tap tap-2 tnum" href="tel:+12176903376"><span class="n">02</span><b>(217)&nbsp;690-3376</b><span class="live live-off" aria-hidden="true"></span></a>
+          <a class="tap tap-1" href="#cb-name"><span class="n" aria-hidden="true">01</span><b>Book now</b><span class="live" aria-hidden="true"></span></a>
+          <a class="tap tap-2 tnum" href="tel:+12176903376"><span class="n" aria-hidden="true">02</span><b>(217)&nbsp;690-3376</b><span class="live live-off" aria-hidden="true"></span></a>
         </div>
         <p class="note">Free consultations, live availability, and evening and Saturday slots. Book it now and get a text, not a phone&nbsp;call.</p>
       </div>
       <form class="form" id="callback" novalidate>
-        <p class="intro muted">Or leave your details and we’ll call you back.</p>
+        <p class="intro">Or leave your details and we’ll call you back.</p>
         <div class="field"><label for="cb-name">Name</label><input id="cb-name" name="name" type="text" autocomplete="name" required></div>
         <div class="field"><label for="cb-contact">Phone or email</label><input id="cb-contact" name="contact" type="text" autocomplete="tel" required></div>
         <div class="field"><label for="cb-msg">What can we help with? (optional)</label><textarea id="cb-msg" name="message" rows="3"></textarea></div>
@@ -347,10 +454,10 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 </section>
 </main>
 
-<footer class="foot">
+<footer class="foot on-dark">
   <div class="wrap">
     <div>
-      <a class="brand" href="#"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M8 14 H56 V26 a6 6 0 0 0 0 12 V50 H8 V38 a6 6 0 0 0 0 -12 Z" fill="#1B1A17"/></svg>Bright Hour Med Spa</a>
+      <a class="brand" href="#"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M8 14 H56 V26 a6 6 0 0 0 0 12 V50 H8 V38 a6 6 0 0 0 0 -12 Z"/></svg>Bright Hour Med Spa</a>
       <p class="tnum" style="margin-top: var(--s2)"><a href="tel:+12176903376">(217)&nbsp;690-3376</a> · Medical director on site · Licensed injectors · Live booking, no account</p>
     </div>
     <div>
@@ -362,8 +469,8 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 </footer>
 
 <div class="bar" aria-label="Quick actions">
-  <a class="b1" href="#contact"><span class="n">01</span>Book now</a>
-  <a class="b2 tnum" href="tel:+12176903376"><span class="n">02</span>(217)&nbsp;690-3376</a>
+  <a class="b1" href="#contact"><span class="n" aria-hidden="true">01</span>Book now</a>
+  <a class="b2 tnum" href="tel:+12176903376"><span class="n" aria-hidden="true">02</span>(217)&nbsp;690-3376</a>
 </div>
 
 <script>
