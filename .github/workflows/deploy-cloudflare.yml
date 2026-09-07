@@ -12,3 +12,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          # Assets-only Workers need wrangler 4; the action's fallback install
+          # is older and fails with "Missing entry-point".
+          wranglerVersion: "4"
+
