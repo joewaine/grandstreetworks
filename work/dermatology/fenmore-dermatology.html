@@ -8,16 +8,17 @@
 <meta name="description" content="Skin checks within 2 weeks and a separate cosmetic clinic. Two booking paths, both reachable in one tap.">
 <link rel="preload" href="../_assets/fonts/libre-franklin-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../_assets/fonts/literata-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../_assets/hero/dermatology/e-bright-clinic-1280.avif" as="image" type="image/avif" imagesrcset="../_assets/hero/dermatology/e-bright-clinic-1280.avif 1280w, ../_assets/hero/dermatology/e-bright-clinic-2560.avif 2560w" imagesizes="100vw">
 <style>
-/* D6 — THE PHONE. hero:fullbleed nav:bar services:list proof:testimonial-lead
-   paper #FBF7F1 · ink #1B2229 · rust #9C4F2A · muted #5A6068 · rule rgba(27,34,41,.16)
-   Ramp: 13 / 15 / 17 / 20 px, then h2 28→40, h1 34→56, number 44→84 on one clamp curve
+/* D6 — THE PHONE, IN COLOUR (v2). hero:fullbleed nav:bar services:split-sticky proof:quote+photo
+   paper #FBF7F1 · ink #1B2229 · spruce #1E3A34 · rust #9C4F2A · sage #E3EBE4 · blush #F1D3C2 · muted #5A6068
+   Ramp: 13 / 15 / 18 (17 on phones) / 21 px, then h2 32→44, h1 40→72, number 48→96 on one clamp curve
    Libre Franklin (variable, 500 / 600) for everything you operate · Literata (variable, 400) for everything you read
-   Device: the clinic photograph fills the first screen and the phone number is the one large object on it, set
-   tabular in the grotesque, with the practice's promise as its caption. A measured dark foot only where the text
-   sits, no gradient. Services as a ruled list, the patient's sentence spoken at display size, no motion at all.
-   FIX answered: the source described a person and showed a coloured wedge; the number was below the fold on desktop
-   and the type ran to fifteen sizes in two hosted families. Seven sizes, two self-hosted families, three weights. */
+   Device: the bright-clinic plate fills 88 svh and the spruce foot sits on its lower third, the number the largest
+   object on it in blush. Rust badge strip, sage band for the spoken line, spruce closing with the form on a paper
+   card. Ten photographs, each once, at the width of the copy they belong to; every section a different shape.
+   FIX answered (client, 2026-09-07): v1 was one colour, six photographs at tile size, 17 px body and the same
+   two-column stack five times. Three chromatic surfaces, three coloured bands, 72 / 96 / 18 px, numbered eyebrows. */
 
 @font-face { font-family: "Libre Franklin"; src: url("../_assets/fonts/libre-franklin-var.woff2") format("woff2"); font-weight: 300 800; font-style: normal; font-display: swap; }
 @font-face { font-family: "Literata"; src: url("../_assets/fonts/literata-var.woff2") format("woff2"); font-weight: 200 900; font-style: normal; font-display: swap; }
@@ -25,19 +26,20 @@
 @font-face { font-family: "Literata Fallback"; src: local("Georgia"); size-adjust: 102%; ascent-override: 90%; descent-override: 24%; }
 
 :root {
-  --paper: #FBF7F1; --paper-2: #F2ECE2; --ink: #1B2229; --ink-2: #262E36; --rust: #9C4F2A; --muted: #5A6068;
-  --rule: rgba(27,34,41,.16); --rule-dark: rgba(251,247,241,.22); --paper-dim: rgba(251,247,241,.8);
+  --paper: #FBF7F1; --paper-2: #F3EDE3; --ink: #1B2229; --muted: #5A6068;
+  --spruce: #1E3A34; --spruce-2: #16302B; --rust: #9C4F2A; --rust-2: #7E3F21; --sage: #E3EBE4; --blush: #F1D3C2;
+  --rule: rgba(27,34,41,.16); --rule-dark: rgba(251,247,241,.24); --paper-dim: rgba(251,247,241,.8);
   --sans: "Libre Franklin", "Franklin Fallback", Arial, sans-serif;
   --serif: "Literata", "Literata Fallback", Georgia, serif;
   --t-1: .8125rem;                                   /* 13 · tracked labels */
   --t0: .9375rem;                                    /* 15 · nav, captions, fine print */
-  --t1: 1.0625rem;                                   /* 17 · body */
-  --t2: 1.25rem;                                     /* 20 · ledes, list heads, masthead */
-  --t3: clamp(1.75rem, 1.35rem + 1.1vw, 2.5rem);     /* 28 → 40 · h2, the spoken line */
-  --t4: clamp(2.125rem, 1.4rem + 2vw, 3.5rem);       /* 34 → 56 · h1 */
-  --t5: clamp(2.75rem, 1.6rem + 3.6vw, 5.25rem);     /* 44 → 84 · the number */
-  --s1: 8px; --s2: 16px; --s3: 24px; --s4: 40px; --s5: 64px; --s6: 104px;
-  --wrap: 1160px;
+  --t1: 1.125rem;                                    /* 18 · body (17 under 720) */
+  --t2: 1.3125rem;                                   /* 21 · ledes, list heads, masthead */
+  --t3: clamp(2rem, 1.4rem + 1.6vw, 2.75rem);        /* 32 → 44 · h2, numerals, the spoken line */
+  --t4: clamp(2.5rem, 1.5rem + 3.4vw, 4.5rem);       /* 40 → 72 · h1 */
+  --t5: clamp(3rem, 1.6rem + 4.8vw, 6rem);           /* 48 → 96 · the number */
+  --s1: 8px; --s2: 16px; --s3: 24px; --s4: 40px; --s5: 64px; --s6: 112px;
+  --wrap: 1200px;
 }
 
 * { box-sizing: border-box; }
@@ -47,21 +49,24 @@ img { display: block; max-width: 100%; }
 a { color: inherit; }
 p { margin: 0; text-wrap: pretty; }
 h1, h2, h3 { margin: 0; font-weight: 400; text-wrap: balance; }
-h1 { font-family: var(--serif); font-size: var(--t4); line-height: 1.05; letter-spacing: -.01em; max-width: 16ch; }
-h2 { font-family: var(--serif); font-size: var(--t3); line-height: 1.1; letter-spacing: -.005em; max-width: 20ch; }
+h1 { font-family: var(--serif); font-size: var(--t4); line-height: 1.02; letter-spacing: -.015em; max-width: 14ch; }
+h2 { font-family: var(--serif); font-size: var(--t3); line-height: 1.08; letter-spacing: -.01em; max-width: 18ch; }
 h3 { font-family: var(--sans); font-weight: 600; font-size: var(--t2); line-height: 1.25; }
 .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--s3); }
-.kicker { font-family: var(--sans); font-weight: 500; font-size: var(--t-1); letter-spacing: .12em; text-transform: uppercase; color: var(--rust); margin: 0 0 var(--s2); }
-.lede { font-size: var(--t2); line-height: 1.5; max-width: 54ch; margin-top: var(--s3); }
+.eyebrow { display: flex; align-items: center; gap: var(--s2); font-family: var(--sans); font-weight: 500; font-size: var(--t-1); letter-spacing: .12em; text-transform: uppercase; color: var(--rust); margin: 0 0 var(--s3); }
+.eyebrow::before { content: ""; width: 28px; height: 1px; background: currentColor; }
+.on-dark .eyebrow { color: var(--blush); }
+.lede { font-size: var(--t2); line-height: 1.5; max-width: 52ch; margin-top: var(--s3); }
 .small { font-family: var(--sans); font-weight: 500; font-size: var(--t0); line-height: 1.5; }
 .skip { position: absolute; left: var(--s3); top: -100px; z-index: 30; background: var(--ink); color: var(--paper); padding: var(--s1) var(--s2); font-family: var(--sans); font-weight: 500; font-size: var(--t0); text-decoration: none; }
 .skip:focus { top: var(--s2); }
 :focus-visible { outline: 2px solid var(--rust); outline-offset: 3px; }
-.dark :focus-visible, .hero :focus-visible, .close :focus-visible, .callbar :focus-visible { outline-color: var(--paper); }
+.on-dark :focus-visible, .callbar :focus-visible, .strip :focus-visible { outline-color: var(--paper); }
+.on-dark { -webkit-font-smoothing: antialiased; }
 
 /* Masthead */
 .mast { background: var(--paper); border-bottom: 1px solid var(--rule); position: relative; z-index: 20; }
-.mast .wrap { display: flex; align-items: center; gap: var(--s4); min-height: 76px; }
+.mast .wrap { display: flex; align-items: center; gap: var(--s4); min-height: 80px; }
 .brand { font-family: var(--sans); font-weight: 600; font-size: var(--t2); letter-spacing: -.01em; color: var(--ink); text-decoration: none; flex: none; line-height: 1; }
 .gsw-lockup { display: inline-flex; align-items: center; gap: .46em; }
 .gsw-lockup svg { height: 1.16em; width: auto; flex: none; display: block; }
@@ -70,6 +75,7 @@ h3 { font-family: var(--sans); font-weight: 600; font-size: var(--t2); line-heig
 .nav a:hover { border-bottom-color: var(--ink); }
 .mast-tel { font-family: var(--sans); font-weight: 600; font-size: var(--t2); text-decoration: none; white-space: nowrap; flex: none; }
 .mast-tel:hover { color: var(--rust); }
+.mast .btn { min-height: 48px; padding: 0 var(--s3); flex: none; }
 .menu { display: none; margin-left: auto; }
 .menu summary { list-style: none; cursor: pointer; font-family: var(--sans); font-weight: 500; font-size: var(--t0); padding: var(--s1) 0; }
 .menu summary::-webkit-details-marker { display: none; }
@@ -78,87 +84,103 @@ h3 { font-family: var(--sans); font-weight: 600; font-size: var(--t2); line-heig
 .menu-list a { font-family: var(--sans); font-weight: 500; font-size: var(--t2); text-decoration: none; padding: var(--s2) 0; border-top: 1px solid var(--rule); }
 .menu-list a:first-child { border-top: 0; }
 
-/* Hero: the photograph, then the foot */
-.hero { position: relative; background: var(--ink); color: var(--paper); display: flex; flex-direction: column; justify-content: flex-end; min-height: min(90svh, 860px); -webkit-font-smoothing: antialiased; }
-.hero-pic { position: absolute; inset: 0; overflow: hidden; }
-.hero-pic img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 68%; }
-.foot { position: relative; background: var(--ink); padding: var(--s4) 0 var(--s5); }
-.foot .wrap { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: var(--s4) var(--s5); align-items: end; }
-.eyebrow { font-family: var(--sans); font-weight: 500; font-size: var(--t-1); letter-spacing: .12em; text-transform: uppercase; color: var(--paper-dim); margin: 0 0 var(--s2); }
-.hero h1 { color: var(--paper); }
-.hero .sub { font-size: var(--t2); line-height: 1.5; color: var(--paper-dim); margin-top: var(--s3); max-width: 46ch; }
-.number { display: grid; gap: var(--s2); justify-items: start; }
-.tel-big { font-family: var(--sans); font-weight: 600; font-size: var(--t5); line-height: 1; letter-spacing: -.025em; text-decoration: none; color: var(--paper); white-space: nowrap; }
-.tel-big:hover { color: #E7C9B6; }
-.number .caption { font-family: var(--sans); font-weight: 500; font-size: var(--t0); line-height: 1.5; color: var(--paper-dim); max-width: 34ch; }
-.ctas { display: flex; align-items: center; gap: var(--s3); flex-wrap: wrap; margin-top: var(--s1); }
-.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 56px; padding: 0 var(--s4); font-family: var(--sans); font-weight: 600; font-size: var(--t1); line-height: 1.2; text-decoration: none; border: 1px solid transparent; cursor: pointer; }
-.btn-light { background: var(--paper); color: var(--ink); border-color: var(--paper); }
-.btn-light:hover { background: #fff; }
-.btn-dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-.btn-dark:hover { background: var(--ink-2); }
+/* Buttons and links */
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 58px; padding: 0 var(--s4); font-family: var(--sans); font-weight: 600; font-size: var(--t1); line-height: 1.2; text-decoration: none; border: 1px solid transparent; cursor: pointer; }
+.btn-rust { background: var(--rust); color: var(--paper); border-color: var(--rust); }
+.btn-rust:hover { background: var(--rust-2); border-color: var(--rust-2); }
+.btn-paper { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+.btn-paper:hover { background: #fff; }
+.btn-ghost { background: transparent; color: var(--paper); border-color: var(--rule-dark); }
+.btn-ghost:hover { border-color: var(--paper); }
 .link { font-family: var(--sans); font-weight: 500; font-size: var(--t1); text-decoration: underline; text-underline-offset: .22em; text-decoration-thickness: 1px; }
 .link:hover { text-decoration-thickness: 2px; }
 
-/* Badges */
-.badges { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-bottom: 1px solid var(--rule); }
-.badges li { font-family: var(--sans); font-weight: 500; font-size: var(--t0); line-height: 1.4; padding: var(--s2) var(--s3) var(--s2) 0; border-right: 1px solid var(--rule); margin-right: var(--s3); }
-.badges li:last-child { border-right: 0; margin-right: 0; }
+/* Hero: the room, then the foot laid on it */
+.hero { position: relative; background: var(--spruce); color: var(--paper); min-height: min(88svh, 900px); display: flex; flex-direction: column; justify-content: flex-end; }
+.hero-pic { position: absolute; inset: 0; overflow: hidden; }
+.hero-pic img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 60%; }
+.foot { position: relative; width: min(100%, calc(50% + var(--wrap) / 2 + 24px)); background: var(--spruce); padding: var(--s5) 0 var(--s5); }
+.foot .wrap { margin: 0 0 0 auto; padding-right: var(--s5); display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: var(--s4) var(--s5); align-items: end; min-width: 0; }
+.foot .wrap > * { min-width: 0; }
+.number { min-width: 0; }
+.hero h1 { color: var(--paper); }
+.hero .sub { font-size: var(--t2); line-height: 1.5; color: var(--paper-dim); margin-top: var(--s3); max-width: 44ch; }
+.number { display: grid; gap: var(--s2); justify-items: start; }
+.tel-big { font-family: var(--sans); font-weight: 600; font-size: var(--t5); line-height: 1; letter-spacing: -.03em; text-decoration: none; color: var(--blush); }
+.tel-big:hover { color: var(--paper); }
+.number .caption { font-family: var(--sans); font-weight: 500; font-size: var(--t0); line-height: 1.5; color: var(--paper-dim); max-width: 34ch; }
+.ctas { display: flex; align-items: center; gap: var(--s3); flex-wrap: wrap; margin-top: var(--s2); }
+
+/* Badge strip — the first coloured band */
+.strip { background: var(--rust); color: var(--paper); }
+.strip ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.strip li { display: flex; align-items: center; gap: var(--s2); font-family: var(--sans); font-weight: 500; font-size: var(--t0); line-height: 1.4; padding: var(--s3) var(--s3) var(--s3) 0; border-right: 1px solid var(--rule-dark); margin-right: var(--s3); }
+.strip li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--blush); flex: none; }
+.strip li:last-child { border-right: 0; margin-right: 0; }
 
 /* Sections */
 .sec { padding: var(--s6) 0; }
-.sec + .sec { padding-top: 0; }
 .sec-head { max-width: 62ch; }
-.ruled { margin-top: var(--s5); border-top: 1px solid var(--rule); }
-.ruled article { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: var(--s2) var(--s5); padding: var(--s3) 0; border-bottom: 1px solid var(--rule); }
+.split { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--s5); align-items: start; margin-top: var(--s5); }
+.sticky { position: sticky; top: var(--s3); }
+.photo { margin: 0; }
+.photo img { width: 100%; height: auto; object-fit: cover; background: var(--paper-2); }
+.photo.r45 img { aspect-ratio: 4 / 5; }
+.photo.r1610 img { aspect-ratio: 16 / 10; }
+.photo.r219 img { aspect-ratio: 21 / 9; }
+.photo.r43 img { aspect-ratio: 4 / 3; }
+.photo figcaption { font-family: var(--sans); font-weight: 500; font-size: var(--t-1); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-top: var(--s2); }
+.ruled { border-top: 1px solid var(--rule); }
+.ruled article { display: grid; grid-template-columns: 4rem minmax(0, 1fr); gap: var(--s1) var(--s3); padding: var(--s4) 0; border-bottom: 1px solid var(--rule); }
+.ruled .n { grid-row: 1 / 3; font-family: var(--sans); font-weight: 600; font-size: var(--t3); line-height: 1; letter-spacing: -.02em; color: var(--rust); }
 .ruled p { max-width: 56ch; }
 
-/* The spoken line */
-.tlead { background: var(--paper-2); padding: var(--s6) 0; }
+/* The spoken line — the second coloured band */
+.tlead { background: var(--sage); padding: var(--s6) 0; }
 .spoken { margin: 0; }
 .spoken blockquote { margin: 0; }
-.spoken blockquote p { font-family: var(--serif); font-size: var(--t3); line-height: 1.3; letter-spacing: -.005em; max-width: 34ch; }
+.spoken blockquote p { font-family: var(--serif); font-size: var(--t3); line-height: 1.25; letter-spacing: -.01em; max-width: 42ch; }
 .spoken blockquote p::before { content: "“"; color: var(--rust); }
 .spoken blockquote p::after { content: "”"; color: var(--rust); }
-.spoken figcaption { font-family: var(--sans); font-weight: 500; font-size: var(--t0); color: var(--muted); margin-top: var(--s3); }
-.spoken figcaption b { font-weight: 600; color: var(--ink); }
+.proof { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--s5); align-items: end; margin-top: var(--s5); }
+.spoken figcaption { font-family: var(--sans); font-weight: 500; font-size: var(--t0); color: var(--muted); }
+.spoken figcaption b { display: block; font-weight: 600; font-size: var(--t2); color: var(--ink); margin-bottom: var(--s1); }
+.proof-note { max-width: 40ch; margin-top: var(--s3); }
 
-/* Process */
-.steps { list-style: none; margin: var(--s5) 0 0; padding: 0; counter-reset: step; border-top: 1px solid var(--rule); }
-.steps li { counter-increment: step; display: grid; grid-template-columns: 3rem minmax(0, 1fr) minmax(0, 2fr); gap: var(--s2) var(--s4); padding: var(--s3) 0; border-bottom: 1px solid var(--rule); }
-.steps li::before { content: counter(step, decimal-leading-zero); font-family: var(--sans); font-weight: 600; font-size: var(--t2); line-height: 1.25; color: var(--rust); }
-.steps p { max-width: 56ch; }
+/* Process: a wide plate, then a 2 × 2 grid */
+.plate { margin: var(--s5) 0 0; }
+.steps { list-style: none; margin: var(--s5) 0 0; padding: 0; counter-reset: step; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s4) var(--s5); }
+.steps li { counter-increment: step; display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s2); padding-top: var(--s3); border-top: 1px solid var(--rule); }
+.steps li::before { content: counter(step, decimal-leading-zero); font-family: var(--sans); font-weight: 600; font-size: var(--t3); line-height: 1; letter-spacing: -.02em; color: var(--rust); }
+.steps p { max-width: 48ch; }
 
-/* Gallery */
-.gsw-gal { padding: 0 0 var(--s6); }
-.gsw-gal-in { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--s3); }
-.gsw-gal-lab { font-family: var(--sans); font-weight: 500; font-size: var(--t-1); letter-spacing: .12em; text-transform: uppercase; color: var(--rust); margin: 0 0 var(--s2); }
-.gsw-gal-note { font-size: var(--t2); line-height: 1.5; max-width: 54ch; margin-top: var(--s3); color: var(--muted); }
-.gsw-gal-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s4) var(--s3); margin-top: var(--s5); }
-.gsw-gal figure { margin: 0; }
-.gsw-gal img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; background: var(--paper-2); }
-.gsw-gal figcaption { font-family: var(--sans); font-weight: 500; font-size: var(--t-1); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-top: var(--s2); }
+/* The building: a 2 + 4 hang on paper-2 */
+.hang { background: var(--paper-2); padding: var(--s6) 0; }
+.hang-note { font-size: var(--t2); line-height: 1.5; max-width: 52ch; margin-top: var(--s3); color: var(--muted); }
+.hang-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s4) var(--s3); margin-top: var(--s5); }
+.hang-grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: var(--s4); }
 
-/* Close */
-.close { background: var(--ink); color: var(--paper); padding: var(--s6) 0; -webkit-font-smoothing: antialiased; }
+/* Close — the third coloured band */
+.close { background: var(--spruce); color: var(--paper); padding: var(--s6) 0; }
 .close .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--s5); align-items: start; }
-.close h2 { color: var(--paper); }
+.close h2 { color: var(--paper); max-width: 16ch; }
 .close .lede { color: var(--paper-dim); }
 .close .tel-big { display: inline-block; margin-top: var(--s4); }
 .close .note { font-family: var(--sans); font-weight: 500; font-size: var(--t0); line-height: 1.5; color: var(--paper-dim); max-width: 44ch; margin-top: var(--s3); }
+.card { background: var(--paper); color: var(--ink); padding: var(--s4); }
 .gsw-cf { margin: 0; }
 .gsw-cf-lead { font-size: var(--t2); line-height: 1.5; margin: 0 0 var(--s3); }
 .gsw-cf-grid { display: grid; gap: var(--s2); grid-template-columns: 1fr 1fr; }
 .gsw-cf-wide { grid-column: 1 / -1; }
-.gsw-cf label { display: flex; flex-direction: column; gap: 6px; font-family: var(--sans); font-weight: 500; font-size: var(--t-1); letter-spacing: .08em; text-transform: uppercase; color: var(--paper-dim); }
+.gsw-cf label { display: flex; flex-direction: column; gap: 6px; font-family: var(--sans); font-weight: 500; font-size: var(--t-1); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
 .gsw-cf label em { font-style: normal; text-transform: none; letter-spacing: 0; }
-.gsw-cf input, .gsw-cf textarea { font-family: var(--serif); font-size: var(--t1); line-height: 1.4; color: var(--paper); background: transparent; border: 1px solid var(--rule-dark); border-radius: 0; padding: 12px 14px; width: 100%; }
-.gsw-cf input:hover, .gsw-cf textarea:hover { border-color: var(--paper-dim); }
-.gsw-cf input:focus, .gsw-cf textarea:focus { outline: 2px solid var(--paper); outline-offset: 2px; border-color: var(--paper); }
+.gsw-cf input, .gsw-cf textarea { font-family: var(--serif); font-size: var(--t1); line-height: 1.4; color: var(--ink); background: #fff; border: 1px solid var(--rule); border-radius: 0; padding: 12px 14px; width: 100%; }
+.gsw-cf input:hover, .gsw-cf textarea:hover { border-color: var(--ink); }
+.gsw-cf input:focus, .gsw-cf textarea:focus { outline: 2px solid var(--rust); outline-offset: 2px; border-color: var(--ink); }
 .gsw-cf textarea { resize: vertical; min-height: 96px; }
 .gsw-cf-row { display: flex; align-items: center; gap: var(--s3); flex-wrap: wrap; margin-top: var(--s3); }
 .gsw-cf button.btn { appearance: none; }
-.gsw-cf-err { font-family: var(--sans); font-weight: 500; font-size: var(--t0); color: #F1B9A0; }
+.gsw-cf-err { font-family: var(--sans); font-weight: 500; font-size: var(--t0); color: var(--rust); }
 .gsw-cf-done { font-size: var(--t2); line-height: 1.5; }
 .gsw-cf[data-sent] .gsw-cf-lead, .gsw-cf[data-sent] .gsw-cf-grid, .gsw-cf[data-sent] .gsw-cf-row { display: none; }
 
@@ -173,59 +195,63 @@ h3 { font-family: var(--sans); font-weight: 600; font-size: var(--t2); line-heig
 /* The mobile bar */
 .callbar { display: none; }
 
-/* Tabular figures, declared last so no shorthand resets them */
-.tel-big, .mast-tel, .callbar a, .foot-end p, .menu-list .tel { font-variant-numeric: tabular-nums; }
-
 @media (max-width: 1199px) {
-  .foot .wrap { grid-template-columns: minmax(0, 1fr); align-items: start; }
-  .hero { min-height: min(84svh, 820px); }
+  .mast .btn { display: none; }
+  .foot { width: 100%; }
+  .foot .wrap { margin: 0 auto; padding-right: var(--s3); grid-template-columns: minmax(0, 1fr); align-items: start; }
+  .hero { min-height: min(84svh, 860px); }
+  .hang-grid.four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 899px) {
-  .nav, .mast-tel { display: none; }
+  .nav, .mast-tel, .mast .btn { display: none; }
   .menu { display: block; }
   .mast .wrap { min-height: 64px; }
-  .foot .wrap, .close .wrap { grid-template-columns: minmax(0, 1fr); }
-  .ruled article, .steps li { grid-template-columns: minmax(0, 1fr); gap: var(--s1); }
-  .steps li { grid-template-columns: 3rem minmax(0, 1fr); }
-  .steps p { grid-column: 2; }
-  .badges { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .badges li:nth-child(2n) { border-right: 0; margin-right: 0; }
-  .gsw-gal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .sec, .tlead, .close { padding-top: var(--s5); padding-bottom: var(--s5); }
-  .gsw-gal { padding-bottom: var(--s5); }
-  .sec + .sec { padding-top: 0; }
+  .close .wrap { grid-template-columns: minmax(0, 1fr); }
+  .split { grid-template-columns: minmax(0, 1fr); gap: var(--s4); }
+  .sticky { position: static; }
+  .proof { grid-template-columns: minmax(0, 1fr); gap: var(--s4); }
+  .steps { grid-template-columns: minmax(0, 1fr); gap: var(--s3); }
+  .strip ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .strip li:nth-child(2n) { border-right: 0; margin-right: 0; }
+  .sec, .tlead, .hang, .close { padding-top: var(--s5); padding-bottom: var(--s5); }
 }
 @media (max-width: 719px) {
+  :root { --t1: 1.0625rem; }
   .hero { min-height: 0; display: block; }
-  .hero-pic { position: relative; height: max(240px, 42svh); }
+  .hero-pic { position: relative; height: max(300px, 52svh); }
   .foot { padding: var(--s4) 0 var(--s4); }
   .foot .wrap { gap: var(--s4); }
   .hero .sub { max-width: none; }
   .ctas { width: 100%; }
   .ctas .btn { width: 100%; }
-  .gsw-gal-grid { grid-template-columns: minmax(0, 1fr); gap: var(--s4); }
+  .hang-grid, .hang-grid.four { grid-template-columns: minmax(0, 1fr); gap: var(--s4); }
   .gsw-cf-grid { grid-template-columns: 1fr; }
   .gsw-cf-wide { grid-column: auto; }
-  .badges li { padding-right: var(--s2); margin-right: var(--s2); }
+  .card { padding: var(--s3); }
+  .strip li { padding-right: var(--s2); margin-right: var(--s2); }
+  .ruled article { grid-template-columns: 3rem minmax(0, 1fr); }
 }
 @media (max-width: 999px) {
   body { padding-bottom: 72px; }
-  .callbar { display: grid; grid-template-columns: 1fr 1fr; position: fixed; left: 0; right: 0; bottom: 0; z-index: 25; background: var(--ink); padding: var(--s1); gap: var(--s1); border-top: 1px solid var(--rule-dark); }
+  .callbar { display: grid; grid-template-columns: 1fr 1fr; position: fixed; left: 0; right: 0; bottom: 0; z-index: 25; background: var(--spruce); padding: var(--s1); gap: var(--s1); border-top: 1px solid var(--rule-dark); }
   .callbar a { display: flex; align-items: center; justify-content: center; min-height: 56px; font-family: var(--sans); font-weight: 600; font-size: var(--t1); text-decoration: none; }
-  .callbar .book { background: var(--paper); color: var(--ink); }
+  .callbar .book { background: var(--rust); color: var(--paper); }
   .callbar .tel { color: var(--paper); border: 1px solid var(--rule-dark); }
 }
 @media (max-width: 379px) { .tel-big { font-size: 2.5rem; } }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 @media (forced-colors: active) { .btn, .callbar a { border: 1px solid ButtonText; } }
 @media print { .callbar, .menu, .skip { display: none; } .hero-pic { display: none; } }
+
+/* Tabular figures, declared last so no shorthand resets them */
+.tel-big, .mast-tel, .callbar a, .foot-end p, .menu-list .tel, .ruled .n, .steps li::before { font-variant-numeric: tabular-nums; }
 </style>
 
 <!-- gsw:identity -->
 <link rel="icon" href="../_assets/identity/dermatology/fenmore-dermatology-icon-32.png" type="image/png" sizes="32x32">
 <link rel="icon" href="../_assets/identity/dermatology/fenmore-dermatology-icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../_assets/identity/dermatology/fenmore-dermatology-icon-180.png">
-<meta name="theme-color" content="#1B2229">
+<meta name="theme-color" content="#1E3A34">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Fenmore Dermatology">
 <meta property="og:title" content="Fenmore Dermatology · Results by phone in a week · Next step booked on the call">
@@ -242,13 +268,14 @@ h3 { font-family: var(--sans); font-weight: 600; font-size: var(--t2); line-heig
   <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="22" y="6" width="20" height="52" rx="10" fill="#9C4F2A"/><circle cx="32" cy="46" r="4" fill="#FBF6F2"/></svg><span>Fenmore Dermatology</span></span></a>
   <nav class="nav" aria-label="Sections"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
   <a class="mast-tel" href="tel:+14136072284">(413)&nbsp;607-2284</a>
+  <a class="btn btn-rust" href="#contact">Book a skin check</a>
   <details class="menu">
     <summary>Menu</summary>
     <nav class="menu-list" aria-label="Sections"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a><a class="tel" href="tel:+14136072284">(413)&nbsp;607-2284</a></nav>
   </details>
 </div></header>
 
-<section class="hero" aria-labelledby="h1">
+<section class="hero on-dark" aria-labelledby="h1">
   <div class="hero-pic"><picture><source type="image/avif" srcset="../_assets/hero/dermatology/e-bright-clinic-1280.avif 1280w, ../_assets/hero/dermatology/e-bright-clinic-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/dermatology/e-bright-clinic-1280.jpg" width="2560" height="1429" alt="The waiting room in daylight: oak reception desk, armchairs, plants by the windows" fetchpriority="high" decoding="async"></picture></div>
   <div class="foot"><div class="wrap">
     <div>
@@ -260,48 +287,56 @@ h3 { font-family: var(--sans); font-weight: 600; font-size: var(--t2); line-heig
       <a class="tel-big" href="tel:+14136072284">(413)&nbsp;607-2284</a>
       <p class="caption">Results by phone in a week · Next step booked on the call</p>
       <div class="ctas">
-        <a class="btn btn-light" data-cta="primary" href="#contact">Book a skin check</a>
-        <a class="link" href="#contact">Cosmetic consultations</a>
+        <a class="btn btn-paper" data-cta="primary" href="#contact">Book a skin check</a>
+        <a class="btn btn-ghost" href="#contact">Cosmetic consultations</a>
       </div>
     </div>
   </div></div>
 </section>
 
 <main id="main">
-<div class="wrap">
-  <ul class="badges">
+<div class="strip"><div class="wrap">
+  <ul>
     <li>Skin checks within 2 weeks</li><li>Mohs surgery on site</li>
     <li>Most insurance accepted</li><li>Separate cosmetic clinic</li>
   </ul>
-</div>
+</div></div>
 
 <section class="sec" id="services"><div class="wrap">
   <header class="sec-head">
-    <p class="kicker">Services</p>
+    <p class="eyebrow">01 — Services</p>
     <h2>Two clinics, one practice</h2>
     <p class="lede">Medical dermatology runs on insurance and referral. The cosmetic clinic runs separately, with its own booking and published pricing.</p>
   </header>
-  <div class="ruled">
-    <article><h3>Skin cancer &amp; Mohs surgery</h3><p>Screening, biopsy and Mohs micrographic surgery on site, so diagnosis and removal don’t mean two separate waits.</p></article>
-    <article><h3>Medical dermatology</h3><p>Acne, eczema, psoriasis, rosacea and hair loss. Most insurance accepted, and biologics managed in house.</p></article>
-    <article><h3>Paediatric dermatology</h3><p>Eczema, birthmarks and adolescent acne, in appointments long enough for a child to settle.</p></article>
-    <article><h3>Cosmetic clinic</h3><p>Injectables, lasers and medical-grade skincare, with published pricing. Booked separately from medical visits.</p></article>
+  <div class="split">
+    <figure class="photo r45 sticky"><picture><source type="image/avif" srcset="../_assets/library/dermatology/fenmore-dermatology/dermatoscope-640.avif 640w, ../_assets/library/dermatology/fenmore-dermatology/dermatoscope-1280.avif 1280w" sizes="(max-width: 899px) 100vw, 40vw"><img src="../_assets/library/dermatology/fenmore-dermatology/dermatoscope-720.jpg" width="1280" height="1600" alt="A gloved hand holding a dermatoscope to a patient’s forearm" loading="lazy" decoding="async"></picture><figcaption>The dermatoscope, every check</figcaption></figure>
+    <div class="ruled">
+      <article><span class="n" aria-hidden="true">01</span><h3>Skin cancer &amp; Mohs surgery</h3><p>Screening, biopsy and Mohs micrographic surgery on site, so diagnosis and removal don’t mean two separate waits.</p></article>
+      <article><span class="n" aria-hidden="true">02</span><h3>Medical dermatology</h3><p>Acne, eczema, psoriasis, rosacea and hair loss. Most insurance accepted, and biologics managed in house.</p></article>
+      <article><span class="n" aria-hidden="true">03</span><h3>Paediatric dermatology</h3><p>Eczema, birthmarks and adolescent acne, in appointments long enough for a child to settle.</p></article>
+      <article><span class="n" aria-hidden="true">04</span><h3>Cosmetic clinic</h3><p>Injectables, lasers and medical-grade skincare, with published pricing. Booked separately from medical visits.</p></article>
+    </div>
   </div>
 </div></section>
 
 <section class="tlead" id="results"><div class="wrap">
+  <p class="eyebrow">02 — Results</p>
   <figure class="spoken">
     <blockquote><p>I found something in November and was terrified. Their site said two weeks for a skin check and I got in in nine days. The biopsy and the removal happened in the same building.</p></blockquote>
-    <figcaption><b>Gordon E.</b> · Skin cancer patient</figcaption>
+    <div class="proof">
+      <figure class="photo r1610"><picture><source type="image/avif" srcset="../_assets/library/dermatology/fenmore-dermatology/mohs-lab-640.avif 640w, ../_assets/library/dermatology/fenmore-dermatology/mohs-lab-1280.avif 1280w" sizes="(max-width: 899px) 100vw, 56vw"><img src="../_assets/library/dermatology/fenmore-dermatology/mohs-lab-720.jpg" width="1600" height="1000" alt="The Mohs lab: microscope, slide rack and cryostat by a brick-framed window" loading="lazy" decoding="async"></picture><figcaption>Mohs lab, same day</figcaption></figure>
+      <figcaption><b>Gordon E.</b> Skin cancer patient</figcaption>
+    </div>
   </figure>
 </div></section>
 
 <section class="sec" id="process"><div class="wrap">
   <header class="sec-head">
-    <p class="kicker">Process</p>
+    <p class="eyebrow">03 — Process</p>
     <h2>Booking the right visit</h2>
     <p class="lede">Medical and cosmetic run on different calendars and different money. Getting this right saves you weeks.</p>
   </header>
+  <figure class="photo r219 plate"><picture><source type="image/avif" srcset="../_assets/library/dermatology/fenmore-dermatology/phone-call-640.avif 640w, ../_assets/library/dermatology/fenmore-dermatology/phone-call-1280.avif 1280w" sizes="(max-width: 1240px) 100vw, 1200px"><img src="../_assets/library/dermatology/fenmore-dermatology/phone-call-720.jpg" width="1600" height="686" alt="A telephone and a notepad on an oak desk by the window" loading="lazy" decoding="async"></picture><figcaption>Results, by phone</figcaption></figure>
   <ol class="steps">
     <li><h3>Pick your clinic</h3><p>Worried about a spot, a rash or a mole? Medical. Wanting to change how your skin looks? Cosmetic. If unsure, book medical.</p></li>
     <li><h3>Book &amp; pre-register</h3><p>Online, with insurance details taken up front, so the first visit isn’t twenty minutes of paperwork.</p></li>
@@ -311,18 +346,33 @@ h3 { font-family: var(--sans); font-weight: 600; font-size: var(--t2); line-heig
 </div></section>
 
 <!-- gsw:gallery -->
-<section class="gsw-gal"><div class="gsw-gal-in"><p class="gsw-gal-lab">Results, from a person</p><h2>The call, and where it comes from.</h2><p class="gsw-gal-note">The slide is read here. The person who read it rings you.</p><div class="gsw-gal-grid"><figure><picture><source type="image/avif" srcset="../_assets/library/dermatology/fenmore-dermatology/phone-call-640.avif 640w, ../_assets/library/dermatology/fenmore-dermatology/phone-call-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/dermatology/fenmore-dermatology/phone-call-720.jpg" width="1600" height="1200" alt="Results, by phone" loading="lazy" decoding="async"></picture><figcaption>Results, by phone</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/dermatology/fenmore-dermatology/mohs-lab-640.avif 640w, ../_assets/library/dermatology/fenmore-dermatology/mohs-lab-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/dermatology/fenmore-dermatology/mohs-lab-720.jpg" width="1600" height="1200" alt="Mohs lab, same day" loading="lazy" decoding="async"></picture><figcaption>Mohs lab, same day</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/dermatology/fenmore-dermatology/dermatoscope-640.avif 640w, ../_assets/library/dermatology/fenmore-dermatology/dermatoscope-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/dermatology/fenmore-dermatology/dermatoscope-720.jpg" width="1600" height="1200" alt="The dermatoscope, every check" loading="lazy" decoding="async"></picture><figcaption>The dermatoscope, every check</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/dermatology/fenmore-dermatology/exam-room-640.avif 640w, ../_assets/library/dermatology/fenmore-dermatology/exam-room-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/dermatology/fenmore-dermatology/exam-room-720.jpg" width="1600" height="1200" alt="Exam room" loading="lazy" decoding="async"></picture><figcaption>Exam room</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/dermatology/fenmore-dermatology/instrument-tray-640.avif 640w, ../_assets/library/dermatology/fenmore-dermatology/instrument-tray-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/dermatology/fenmore-dermatology/instrument-tray-720.jpg" width="1600" height="1200" alt="The biopsy tray" loading="lazy" decoding="async"></picture><figcaption>The biopsy tray</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/dermatology/fenmore-dermatology/sunlight-window-640.avif 640w, ../_assets/library/dermatology/fenmore-dermatology/sunlight-window-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/dermatology/fenmore-dermatology/sunlight-window-720.jpg" width="1600" height="1200" alt="The waiting room" loading="lazy" decoding="async"></picture><figcaption>The waiting room</figcaption></figure></div></div></section>
+<section class="hang" aria-labelledby="h-hang"><div class="wrap">
+  <p class="eyebrow">04 — The building</p>
+  <h2 id="h-hang">The call, and where it comes from.</h2>
+  <p class="hang-note">The slide is read here. The person who read it rings you.</p>
+  <div class="hang-grid">
+    <figure class="photo r1610"><picture><source type="image/avif" srcset="../_assets/library/dermatology/fenmore-dermatology/exam-room-640.avif 640w, ../_assets/library/dermatology/fenmore-dermatology/exam-room-1280.avif 1280w" sizes="(max-width: 719px) 100vw, 50vw"><img src="../_assets/library/dermatology/fenmore-dermatology/exam-room-720.jpg" width="1600" height="1000" alt="Exam room" loading="lazy" decoding="async"></picture><figcaption>Exam room</figcaption></figure>
+    <figure class="photo r1610"><picture><source type="image/avif" srcset="../_assets/library/dermatology/laser-suite-640.avif 640w, ../_assets/library/dermatology/laser-suite-1280.avif 1280w" sizes="(max-width: 719px) 100vw, 50vw"><img src="../_assets/library/dermatology/laser-suite-720.jpg" width="1600" height="1000" alt="Laser suite" loading="lazy" decoding="async"></picture><figcaption>Laser suite</figcaption></figure>
+  </div>
+  <div class="hang-grid four">
+    <figure class="photo r43"><picture><source type="image/avif" srcset="../_assets/library/dermatology/pediatric-room-640.avif 640w, ../_assets/library/dermatology/pediatric-room-1280.avif 1280w" sizes="(max-width: 719px) 100vw, (max-width: 1199px) 50vw, 25vw"><img src="../_assets/library/dermatology/pediatric-room-720.jpg" width="1600" height="1200" alt="Paediatric room" loading="lazy" decoding="async"></picture><figcaption>Paediatric room</figcaption></figure>
+    <figure class="photo r43"><picture><source type="image/avif" srcset="../_assets/library/dermatology/fenmore-dermatology/instrument-tray-640.avif 640w, ../_assets/library/dermatology/fenmore-dermatology/instrument-tray-1280.avif 1280w" sizes="(max-width: 719px) 100vw, (max-width: 1199px) 50vw, 25vw"><img src="../_assets/library/dermatology/fenmore-dermatology/instrument-tray-720.jpg" width="1600" height="1200" alt="The biopsy tray" loading="lazy" decoding="async"></picture><figcaption>The biopsy tray</figcaption></figure>
+    <figure class="photo r43"><picture><source type="image/avif" srcset="../_assets/library/dermatology/reception-640.avif 640w, ../_assets/library/dermatology/reception-1280.avif 1280w" sizes="(max-width: 719px) 100vw, (max-width: 1199px) 50vw, 25vw"><img src="../_assets/library/dermatology/reception-720.jpg" width="1600" height="1200" alt="Reception" loading="lazy" decoding="async"></picture><figcaption>Reception</figcaption></figure>
+    <figure class="photo r43"><picture><source type="image/avif" srcset="../_assets/library/dermatology/fenmore-dermatology/sunlight-window-640.avif 640w, ../_assets/library/dermatology/fenmore-dermatology/sunlight-window-1280.avif 1280w" sizes="(max-width: 719px) 100vw, (max-width: 1199px) 50vw, 25vw"><img src="../_assets/library/dermatology/fenmore-dermatology/sunlight-window-720.jpg" width="1600" height="1200" alt="The waiting room" loading="lazy" decoding="async"></picture><figcaption>The waiting room</figcaption></figure>
+  </div>
+</div></section>
 <!-- /gsw:gallery -->
 
-<section class="close" id="contact"><div class="wrap">
+<section class="close on-dark" id="contact"><div class="wrap">
   <div>
+    <p class="eyebrow">05 — Contact</p>
     <h2>Waiting on a result right now?</h2>
     <p class="lede">Don’t sit on it. Skin checks are booking about two weeks out and we hold urgent slots every week for exactly this reason.</p>
     <a class="tel-big" href="tel:+14136072284">(413)&nbsp;607-2284</a>
     <p class="note">Most major insurance accepted. Results delivered by phone within a week, never left sitting in a portal for you to find.</p>
   </div>
   <!-- gsw:contact-form -->
-  <form class="gsw-cf" novalidate>
+  <form class="gsw-cf card" novalidate>
     <p class="gsw-cf-lead">Or leave your details and we’ll call you back.</p>
     <div class="gsw-cf-grid">
       <label><span>Name</span><input type="text" name="name" autocomplete="name" required></label>
@@ -330,7 +380,7 @@ h3 { font-family: var(--sans); font-weight: 600; font-size: var(--t2); line-heig
       <label class="gsw-cf-wide"><span>What can we help with? <em>(optional)</em></span><textarea name="message" rows="3"></textarea></label>
     </div>
     <div class="gsw-cf-row">
-      <button type="submit" class="btn btn-light">Request a call back</button>
+      <button type="submit" class="btn btn-rust">Request a call back</button>
       <span class="gsw-cf-err" role="alert" hidden>Add your name and a way to reach you.</span>
     </div>
     <p class="gsw-cf-done" role="status" hidden>Thanks. Someone will call you back within one business day.</p>
