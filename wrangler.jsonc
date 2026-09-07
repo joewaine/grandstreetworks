@@ -1,0 +1,13 @@
+{
+  "name": "grandstreetworks",
+  "compatibility_date": "2026-08-01",
+  "observability": { "enabled": true },
+  // No Worker script: Cloudflare serves the built site straight from its edge.
+  // auto-trailing-slash gives the same clean URLs Render did.
+  "assets": {
+    "directory": "./.",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  "workers_dev": true
+}
