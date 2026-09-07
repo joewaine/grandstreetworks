@@ -12,6 +12,7 @@ Per build this writes, into work/_assets/identity/<trade>/:
     <slug>-mark.svg      the mark on its own, transparent
     <slug>-icon.svg      favicon — the mark on its card ground, padded
     <slug>-icon-180.png  apple-touch-icon
+    <slug>-icon-32.png   favicon fallback — Safari ignores SVG favicons
     <slug>-og.png        1200x630 social card
 
 and patches the build itself: icon + Open Graph + Twitter tags in the head,
@@ -59,6 +60,21 @@ def shot(html_text: str, out: Path, width: int, height: int, scale: int = 1) -> 
              f"--window-size={width},{height}",
              f"--screenshot={out}", str(page)],
             check=True, capture_output=True)
+
+
+def downscale(src: Path, out: Path, px: int) -> None:
+    """Derive a small raster from the 180px icon with sips (macOS built-in),
+    so the two never drift the way a second Chrome pass could."""
+    subprocess.run(["sips", "-z", str(px), str(px), str(src), "--out", str(out)],
+                   check=True, capture_output=True)
+
+
+def icon_links(rel: str, slug: str) -> str:
+    """PNG first, SVG second: Chrome takes the SVG, Safari the PNG."""
+    return (
+        f'<link rel="icon" href="{rel}/{slug}-icon-32.png" type="image/png" sizes="32x32">\n'
+        f'<link rel="icon" href="{rel}/{slug}-icon.svg" type="image/svg+xml">\n'
+        f'<link rel="apple-touch-icon" href="{rel}/{slug}-icon-180.png">\n')
 
 
 def og_card(spec: dict, trade_label: str) -> str:
@@ -137,10 +153,18 @@ HEAD_CSS = """
 
 def patch(page: Path, spec: dict, trade: dict, slug: str, trade_slug: str) -> str:
     src = page.read_text()
-    if MARKER in src:
-        return "already has identity"
-
     rel = f"../_assets/identity/{trade_slug}"
+    if MARKER in src:
+        # Builds patched before the PNG fallback existed get just that link.
+        svg_link = f'<link rel="icon" href="{rel}/{slug}-icon.svg" type="image/svg+xml">\n'
+        if f"{slug}-icon-32.png" in src:
+            return "already has identity"
+        if svg_link not in src:
+            return "already has identity (icon link not recognised, left alone)"
+        png_link = f'<link rel="icon" href="{rel}/{slug}-icon-32.png" type="image/png" sizes="32x32">\n'
+        page.write_text(src.replace(svg_link, png_link + svg_link, 1))
+        return "png favicon added"
+
     name_esc = html.escape(spec["name"])
     # The builds carry a plain company name in .brand; wrap it in a lockup.
     mark_inline = mark_svg(spec, None).replace(
@@ -154,15 +178,19 @@ def patch(page: Path, spec: dict, trade: dict, slug: str, trade_slug: str) -> st
     # Some brands carry inner markup — a split wordmark in a <span>, or a
     # decorative element before the name — so the lockup wraps whatever is
     # inside the anchor rather than insisting on bare text.
-    src, n = re.subn(
-        r'(?P<open><a class="brand"[^>]*>)(?P<text>.*?)</a>', brand_repl, src, flags=re.S)
-    if not n:
-        return "no .brand lockup found"
+    # A build on a template without the shared .brand anchor opts out of the
+    # nav lockup and takes the head tags only.
+    if spec.get("lockup", True):
+        src, n = re.subn(
+            r'(?P<open><a class="brand"[^>]*>)(?P<text>.*?)</a>', brand_repl, src, flags=re.S)
+        if not n:
+            return "no .brand lockup found"
+    else:
+        n = 0
 
     head = (
         f'{MARKER}\n'
-        f'<link rel="icon" href="{rel}/{slug}-icon.svg" type="image/svg+xml">\n'
-        f'<link rel="apple-touch-icon" href="{rel}/{slug}-icon-180.png">\n'
+        + icon_links(rel, slug) +
         f'<meta name="theme-color" content="{spec["card_bg"]}">\n'
         f'<meta property="og:type" content="website">\n'
         f'<meta property="og:site_name" content="{name_esc}">\n'
@@ -173,7 +201,7 @@ def patch(page: Path, spec: dict, trade: dict, slug: str, trade_slug: str) -> st
         f'<meta property="og:image:height" content="630">\n'
         f'<meta name="twitter:card" content="summary_large_image">\n'
         f'{jsonld(spec, trade, slug)}\n'
-        f'{HEAD_CSS}\n')
+        + (f'{HEAD_CSS}\n' if n else ""))
     src = src.replace("</head>", head + "</head>", 1)
     page.write_text(src)
     return f"identity added ({n} lockups)"
@@ -195,14 +223,23 @@ def main() -> None:
         out_dir.mkdir(parents=True, exist_ok=True)
 
         for slug, spec in identity_specs.resolved_builds(trade_slug).items():
-            (out_dir / f"{slug}-mark.svg").write_text(mark_svg(spec))
-            (out_dir / f"{slug}-icon.svg").write_text(favicon_svg(spec))
+            # Marks are kept once written, like the rasters: a derived spec
+            # reads the page's tokens, and a build refreshed after its
+            # identity pass may no longer carry them under the same names.
+            for name, text in ((f"{slug}-mark.svg", mark_svg(spec)),
+                               (f"{slug}-icon.svg", favicon_svg(spec))):
+                if args.force or not (out_dir / name).exists():
+                    (out_dir / name).write_text(text)
 
             png180 = out_dir / f"{slug}-icon-180.png"
             if args.force or not png180.exists():
                 shot(f'<style>*{{margin:0}}body{{width:180px;height:180px}}'
                      f'svg{{width:180px;height:180px;display:block}}</style>'
                      + favicon_svg(spec), png180, 180, 180)
+
+            png32 = out_dir / f"{slug}-icon-32.png"
+            if args.force or not png32.exists():
+                downscale(png180, png32, 32)
 
             og = out_dir / f"{slug}-og.png"
             if args.force or not og.exists():

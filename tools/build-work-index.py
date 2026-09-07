@@ -217,9 +217,13 @@ def swatch(accent, trade_slug=None, build_slug=None):
     shows it, on the page a prospect actually lands on. Falls back to the
     harness accent chip for trades the identity pass has not reached yet.
     """
-    spec = identity_specs.resolve(trade_slug, build_slug) if trade_slug else None
-    if spec:
-        mark = identity_specs.mark_svg(spec).replace(
+    # The shipped mark file is the source of truth: it is what the favicon
+    # and social card were rasterised from, and re-deriving a spec from the
+    # page can drift once a build's tokens are renamed in a later refresh.
+    shipped = (WORK / "_assets" / "identity" / str(trade_slug) / f"{build_slug}-mark.svg"
+               if trade_slug and build_slug else None)
+    if shipped and shipped.exists():
+        mark = shipped.read_text().replace(
             "<svg ", '<svg class="sw sw-mark" aria-hidden="true" ', 1)
         return re.sub(r' role="img" aria-label="[^"]*"', "", mark)
     if not accent:
@@ -249,7 +253,6 @@ def render(slug, industry, company, sub, disclaimer, directions):
         <div class="bar">
           <span class="bar-head">
             {swatch(d['accent'], trade_slug, Path(d['href']).stem)}
-            <span class="label">C{i + 1}</span>
             <span class="bar-name">{esc(firm_of(WORK / trade_dir(slug) / d['href']) or d['label'])}</span>
           </span>
           <div class="bar-actions">
@@ -376,13 +379,13 @@ def render(slug, industry, company, sub, disclaimer, directions):
 
   .bar {{
     display: flex; align-items: center; justify-content: space-between;
-    gap: 2rem; padding: 0.85rem 1.5rem;
+    gap: 1rem; padding: 0.5rem 1rem;
     border-bottom: 1px solid var(--border-color);
     background: var(--bg-color);
   }}
   .bar-head {{ display: flex; align-items: center; gap: 0.7rem; min-width: 0; }}
   .bar-name {{
-    font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.01em;
+    font-size: 0.9375rem; font-weight: 600; letter-spacing: -0.01em;
     white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }}
   .sw {{ width: 12px; height: 12px; flex: none; border: 1px solid rgba(0, 0, 0, 0.25); }}
@@ -396,10 +399,9 @@ def render(slug, industry, company, sub, disclaimer, directions):
   .open {{
     font-family: var(--font-mono); font-size: 0.6875rem;
     text-transform: uppercase; letter-spacing: 0.05em;
-    padding: 0.5rem 0.85rem; border: 1px solid var(--border-color);
-    white-space: nowrap;
+    padding: 0.25rem 0; white-space: nowrap;
   }}
-  .open:hover {{ background: var(--text-color); color: var(--bg-color); }}
+  .open:hover {{ text-decoration: underline; text-underline-offset: 0.2em; }}
 
   footer {{
     display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
@@ -448,7 +450,7 @@ def render(slug, industry, company, sub, disclaimer, directions):
   }}
 
   @media (max-width: 860px) {{
-    .bar {{ flex-direction: column; align-items: flex-start; gap: 0.85rem; }}
+    .bar {{ flex-direction: column; align-items: flex-start; gap: 0.35rem; }}
     .bar-actions {{ width: 100%; }}
     .frame-well {{ padding: 0; height: 640px; min-height: 0; }}
     .builds {{ padding: 1.5rem 1.25rem; gap: 1.25rem; }}
@@ -461,7 +463,7 @@ def render(slug, industry, company, sub, disclaimer, directions):
     header, .section-header, footer {{
       padding-left: 1.25rem; padding-right: 1.25rem;
     }}
-    .bar {{ padding-left: 1.25rem; padding-right: 1.25rem; }}
+    .bar {{ padding-left: 0.85rem; padding-right: 0.85rem; }}
   }}
   @media (prefers-reduced-motion: reduce) {{ .open {{ transition: none; }} }}
 </style>

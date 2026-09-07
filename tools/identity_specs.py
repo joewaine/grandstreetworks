@@ -867,6 +867,117 @@ BUILDS = {
 <rect x="6" y="34" width="15" height="18" fill="{fg}" opacity=".5"/><rect x="24.5" y="34" width="15" height="18" fill="{accent}" opacity=".8"/><rect x="43" y="34" width="15" height="18" fill="{fg}" opacity=".35"/>"""},
         },
     },
+    # Personal injury is the one trade whose six builds came off six different
+    # deck templates, so nothing here can be derived: no shared :root tokens,
+    # no .brand anchor. Specs are typed in full like roofing's, and every build
+    # opts out of the nav lockup — the kit gives it a favicon, a social card
+    # and structured data, and leaves each template's own nav alone.
+    "personal-injury": {
+        "trade_label": "Personal injury law",
+        "schema_type": "Attorney",
+        "builds": {
+            "brightmoor-injury-law": {
+                "name": "Brightmoor Injury Law",
+                "device": "evidence fading week by week",
+                "lockup": False,
+                "mark": """\
+<rect x="6" y="12" width="52" height="11" fill="{accent}"/>
+<rect x="6" y="27" width="38" height="11" fill="{accent}" opacity=".62"/>
+<rect x="6" y="42" width="22" height="11" fill="{accent}" opacity=".3"/>""",
+                "palette": {"ink": "#000000", "surface": "#FFFFFF", "accent": "#E61919",
+                            "fg": "#000000", "bg": "#FFFFFF"},
+                "card_bg": "#000000", "card_fg": "#FFFFFF", "card_accent": "#E61919",
+                "display_font": "Unbounded", "display_css": "Unbounded:wght@700;900",
+                "display_weight": 900, "uppercase": True,
+                "headline": "The evidence is gone in a week.",
+                "phone": "(564) 447-1180",
+                "tagline": "Same-day case review · No fee unless we win · Hablamos español",
+            },
+            "harlan-and-vega": {
+                "name": "Harlan & Vega",
+                "device": "the midnight call",
+                "lockup": False,
+                "mark": """\
+<path fill-rule="evenodd" d="M6 32 a26 26 0 1 0 52 0 a26 26 0 1 0 -52 0 M22 32 a18 18 0 1 0 36 0 a18 18 0 1 0 -36 0" fill="{accent}"/>""",
+                "palette": {"ink": "#000000", "surface": "#FFFFFF", "accent": "#FFB380",
+                            "fg": "#000000", "bg": "#FFFFFF"},
+                "card_bg": "#000000", "card_fg": "#FFFFFF", "card_accent": "#FFB380",
+                "display_font": "Space Grotesk", "display_css": "Space+Grotesk:wght@500;700",
+                "display_weight": 700, "uppercase": False,
+                "headline": "Call at midnight. A lawyer picks up.",
+                "phone": "(231) 204-8810",
+                "tagline": "Free case review · No fee unless we win · Hablamos español",
+            },
+            "merrow-injury-group": {
+                "name": "Merrow Injury Group",
+                "device": "the fee agreement, in writing",
+                "lockup": False,
+                "mark": """\
+<rect x="14" y="6" width="36" height="52" rx="3" fill="{accent}"/>
+<rect x="21" y="16" width="22" height="4" fill="{bg}" opacity=".85"/>
+<rect x="21" y="25" width="22" height="4" fill="{bg}" opacity=".85"/>
+<rect x="21" y="34" width="13" height="4" fill="{bg}" opacity=".85"/>
+<rect x="21" y="47" width="22" height="3" fill="{bg}"/>""",
+                "palette": {"ink": "#2D231E", "surface": "#FAFAFA", "accent": "#1C3F35",
+                            "fg": "#2D231E", "bg": "#FAFAFA"},
+                "card_bg": "#1C3F35", "card_fg": "#FAFAFA", "card_accent": "#FAFAFA",
+                "card_mark": "#FAFAFA",
+                "display_font": "Outfit", "display_css": "Outfit:wght@500;600",
+                "display_weight": 600, "uppercase": False,
+                "headline": "No fee unless we win. In writing, before you sign anything.",
+                "phone": "(316) 636-7744",
+                "tagline": "Free consultation · One third, nothing if we lose · Hablamos español",
+            },
+            "okonkwo-trial-law": {
+                "name": "Okonkwo Trial Law",
+                "device": "the block on the bench",
+                "lockup": False,
+                "mark": """\
+<rect x="6" y="46" width="52" height="8" fill="{fg}"/>
+<rect x="19" y="10" width="26" height="28" fill="{fg}"/>""",
+                "palette": {"ink": "#000000", "surface": "#FFFFFF", "accent": "#E5E5E5",
+                            "fg": "#000000", "bg": "#FFFFFF"},
+                "card_bg": "#000000", "card_fg": "#FFFFFF", "card_accent": "#FFFFFF",
+                "display_font": "Playfair Display", "display_css": "Playfair+Display:wght@400;600",
+                "display_weight": 400, "uppercase": False,
+                "headline": "Most firms settle. We try cases.",
+                "phone": "(743) 316-4020",
+                "tagline": "Free case review · No fee unless we win · Hablamos español",
+            },
+            "prentice-and-aldana": {
+                "name": "Prentice & Aldana",
+                "device": "first offer, last offer",
+                "lockup": False,
+                "mark": """\
+<rect x="8" y="14" width="24" height="13" fill="{accent}" opacity=".45"/>
+<rect x="8" y="37" width="48" height="13" fill="{accent}"/>""",
+                "palette": {"ink": "#001524", "surface": "#001B2E", "accent": "#FFD166",
+                            "fg": "#FFFFFF", "bg": "#001524"},
+                "card_bg": "#001524", "card_fg": "#FFFFFF", "card_accent": "#FFD166",
+                "display_font": "Space Grotesk", "display_css": "Space+Grotesk:wght@500;700",
+                "display_weight": 700, "uppercase": False,
+                "headline": "The first offer is never the last offer.",
+                "phone": "(458) 573-6690",
+                "tagline": "Free offer review · No fee unless we win · Hablamos español",
+            },
+            "salcedo-and-roth": {
+                "name": "Salcedo & Roth",
+                "device": "the second claim",
+                "lockup": False,
+                "mark": """\
+<rect x="6" y="6" width="34" height="34" fill="{accent}" opacity=".5"/>
+<rect x="24" y="24" width="34" height="34" fill="{accent}"/>""",
+                "palette": {"ink": "#000000", "surface": "#000000", "accent": "#FFCC00",
+                            "fg": "#FFFFFF", "bg": "#000000"},
+                "card_bg": "#000000", "card_fg": "#FFFFFF", "card_accent": "#FFCC00",
+                "display_font": "Oswald", "display_css": "Oswald:wght@500;700",
+                "display_weight": 700, "uppercase": True,
+                "headline": "Hurt at work? There is usually a second claim.",
+                "phone": "(715) 962-3315",
+                "tagline": "Consulta gratis · No fee unless we win · Hablamos español",
+            },
+        },
+    },
 }
 
 
@@ -877,6 +988,7 @@ BUILDS = {
 # from there means a copy change in the harness cannot leave a stale social
 # card behind.
 
+import html
 import re
 from pathlib import Path
 
@@ -1004,4 +1116,4 @@ def mark_svg(spec: dict, size: int | None = None, background: str | None = None)
     dims = f' width="{size}" height="{size}"' if size else ""
     ground = f'<rect width="64" height="64" fill="{background}"/>' if background else ""
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"{dims} '
-            f'role="img" aria-label="{spec["name"]}">{ground}{inner}</svg>')
+            f'role="img" aria-label="{html.escape(spec["name"])}">{ground}{inner}</svg>')
