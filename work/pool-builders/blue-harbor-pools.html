@@ -6,16 +6,18 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Blue Harbor Pools · Gunite pools, spas and outdoor living</title>
 <meta name="description" content="Every project starts with a 3D design of your actual garden. Gunite pools, spas and full outdoor living builds, booked over the winter for next season.">
+<link rel="preload" as="image" imagesrcset="../_assets/hero/pool-builders/a-see-it-in-your-garden-1280.avif 1280w, ../_assets/hero/pool-builders/a-see-it-in-your-garden-2560.avif 2560w" imagesizes="100vw" type="image/avif">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
-/* D1 — THE WATER LINE ONE. hero:band nav:minimal services:list proof:stats
+/* D1 — THE WATER LINE ONE. hero:plate nav:minimal services:list proof:stats
    ink #12232B · surface #F1EFE9 · accent #0B7080 · muted #4A5C66 · on-accent #FFFFFF
-   H1 ramp: 30/35/45/58px · Outfit display / Karla body
-   Device: the water plane — a full-width CSS band, waterline at the top edge, caustics
-   raked across it, deepening downward. Fixes "the gallery is the sale and it's small and
-   slow": the picture is drawn in gradients, so it is already there when the page paints. */
+   Ramp (7): 13/15/17/20/34/44/58px · Outfit display / Karla body
+   Device: the water plane — the dusk infinity-pool plate sits behind the hero, waterline
+   at the top edge, caustics raked across a dark scrim, deepening downward. v2 (client
+   note): the plate moved up from its own band below the hero; every photograph on the
+   page appears once. Fixes "the gallery is the sale and it's small and slow". */
 :root{--ink:#12232B;--surface:#F1EFE9;--paper:#FFFFFF;--accent:#0B7080;--muted:#4A5C66;
 --deep:#07323F;--rule:rgba(18,35,43,.16);--wrap:1120px}
 *{box-sizing:border-box}
@@ -27,7 +29,7 @@ h1,h2,h3{font-family:"Outfit",system-ui,sans-serif;font-weight:600;margin:0;line
 letter-spacing:-.015em}
 a{color:inherit}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 22px;
-text-decoration:none;font-weight:600;font-size:16px;line-height:1.2;text-align:center;
+text-decoration:none;font-weight:600;font-size:17px;line-height:1.2;text-align:center;
 border:2px solid transparent;border-radius:3px;font-family:"Outfit",system-ui,sans-serif}
 .btn-primary{background:var(--accent);color:#fff;border-color:var(--accent)}
 .btn-light{background:#fff;color:var(--deep);border-color:#fff}
@@ -36,32 +38,35 @@ border:2px solid transparent;border-radius:3px;font-family:"Outfit",system-ui,sa
 .topbar .wrap{padding:9px 20px;text-align:center}
 .nav{position:sticky;top:0;z-index:30;background:var(--surface);border-bottom:1px solid var(--rule)}
 .navrow{display:flex;align-items:center;justify-content:space-between;height:52px}
-.brand{font-family:"Outfit",system-ui,sans-serif;font-weight:700;font-size:19px;
+.brand{font-family:"Outfit",system-ui,sans-serif;font-weight:700;font-size:20px;
 text-decoration:none;letter-spacing:-.02em;line-height:1}
-.navact{min-height:38px;padding:0 14px;font-size:14px;white-space:nowrap}
+.navact{min-height:38px;padding:0 14px;font-size:15px;white-space:nowrap}
 .navlinks{border-top:1px solid var(--rule);background:var(--paper)}
-.navlinks .wrap{display:flex;gap:20px;padding-top:9px;padding-bottom:9px;font-size:14px;
+.navlinks .wrap{display:flex;gap:20px;padding-top:9px;padding-bottom:9px;font-size:15px;
 letter-spacing:.14em;text-transform:uppercase;color:var(--muted);overflow-x:auto;scrollbar-width:none}
 .navlinks .wrap::-webkit-scrollbar{display:none}
 .navlinks a{text-decoration:none;white-space:nowrap;font-weight:700}
 
 /* ---- the water plane ---- */
-.band{position:relative;overflow:hidden;color:#fff;
-background:linear-gradient(180deg,#0B5E73 0%,#083E4E 34%,#062B38 72%,#04202A 100%)}
-.band::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;
+.band{position:relative;overflow:hidden;color:#fff;background:#062B38;
+min-height:clamp(540px,74svh,780px);display:flex;flex-direction:column;justify-content:flex-end}
+.band .plate{position:absolute;inset:0;z-index:0;margin:0}
+.band .plate img{display:block;width:100%;height:100%;object-fit:cover;object-position:62% 55%}
+.band::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;z-index:3;
 background:linear-gradient(90deg,#63D2DE,#A9EDF2 38%,#4FBACB 72%,#8FE4EC);
 box-shadow:0 4px 18px rgba(99,210,222,.55)}
-.band::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+/* scrim: solid enough behind the text column for AA, opening to the right where the
+   pool and house sit; the caustic rake stays on top of it at a quarter strength */
+.band::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;
 background:
- repeating-linear-gradient(99deg,rgba(255,255,255,.16) 0 2px,rgba(255,255,255,0) 2px 13px,rgba(255,255,255,.09) 13px 14px,rgba(255,255,255,0) 14px 34px),
- repeating-linear-gradient(-100deg,rgba(255,255,255,.07) 0 1px,rgba(255,255,255,0) 1px 47px),
- radial-gradient(130% 55% at 12% 0%,rgba(169,237,242,.34),transparent 62%),
- radial-gradient(80% 40% at 88% 12%,rgba(169,237,242,.18),transparent 66%)}
+ repeating-linear-gradient(99deg,rgba(255,255,255,.035) 0 2px,rgba(255,255,255,0) 2px 13px,rgba(255,255,255,.02) 13px 14px,rgba(255,255,255,0) 14px 34px),
+ linear-gradient(180deg,rgba(6,43,56,.42) 0%,rgba(6,43,56,.22) 38%,rgba(4,32,42,.78) 100%),
+ linear-gradient(90deg,rgba(4,32,42,.86) 0%,rgba(4,32,42,.62) 46%,rgba(4,32,42,.18) 100%)}
 .band .wrap{position:relative;z-index:2;padding-top:40px;padding-bottom:36px}
 .eyebrow{font-size:13px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;
 margin:0 0 12px;color:#A9EDF2}
 .hero h1{font-size:clamp(30px,7.6vw,58px);max-width:15ch;text-wrap:balance}
-.sub{margin:14px 0 0;max-width:52ch;font-size:16px;line-height:1.55;color:#D3E6EA}
+.sub{margin:14px 0 0;max-width:52ch;font-size:17px;line-height:1.55;color:#D3E6EA}
 .ctas{display:flex;flex-direction:column;gap:10px;margin-top:22px}
 .deck{background:var(--paper);border-bottom:1px solid var(--rule)}
 .badges{list-style:none;margin:0;padding:0;display:grid}
@@ -74,12 +79,12 @@ border-radius:2px;background:var(--accent)}
 .sec{padding:50px 0;border-top:1px solid var(--rule)}
 .kicker{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);
 font-weight:700;margin:0 0 10px}
-.sec h2{font-size:clamp(27px,6.2vw,42px)}
+.sec h2{font-size:clamp(27px,6.2vw,44px)}
 .lede{color:var(--muted);max-width:58ch;margin:12px 0 0;font-size:17px}
 .rows{list-style:none;margin:26px 0 0;padding:0;border-top:2px solid var(--ink)}
 .rows li{padding:20px 0;border-bottom:1px solid var(--rule)}
-.rows h3{font-size:21px;margin-bottom:6px}
-.rows p{margin:0;color:var(--muted);font-size:16px;max-width:62ch}
+.rows h3{font-size:20px;margin-bottom:6px}
+.rows p{margin:0;color:var(--muted);font-size:17px;max-width:62ch}
 
 .stats{background:var(--ink);color:#fff;position:relative;overflow:hidden}
 .stats::after{content:"";position:absolute;inset:0;opacity:.5;pointer-events:none;
@@ -90,9 +95,9 @@ background:repeating-linear-gradient(96deg,rgba(99,210,222,.16) 0 2px,rgba(99,21
 display:flex;align-items:baseline;gap:14px}
 .statgrid b{font-family:"Outfit",system-ui,sans-serif;font-size:34px;font-weight:700;
 color:#8FE4EC;line-height:1;letter-spacing:-.02em;min-width:120px}
-.statgrid span{font-size:16px;color:#D3E6EA}
+.statgrid span{font-size:17px;color:#D3E6EA}
 .stats .kicker{color:#8FE4EC}
-.stats h2{color:#fff}
+.stats h2{color:#fff;font-size:clamp(27px,6.2vw,44px)}
 
 .gauge{list-style:none;margin:28px 0 0;padding:0 0 0 46px;counter-reset:s;position:relative}
 .gauge::before{content:"";position:absolute;left:15px;top:6px;bottom:6px;width:2px;
@@ -100,16 +105,16 @@ background:linear-gradient(180deg,var(--accent),rgba(11,112,128,.15))}
 .gauge li{counter-increment:s;position:relative;padding:0 0 26px}
 .gauge li::before{content:counter(s,decimal-leading-zero);position:absolute;left:-46px;top:0;
 width:32px;height:32px;border-radius:50%;background:var(--accent);color:#fff;
-font-family:"Outfit",system-ui,sans-serif;font-weight:700;font-size:14px;
+font-family:"Outfit",system-ui,sans-serif;font-weight:700;font-size:15px;
 display:flex;align-items:center;justify-content:center;letter-spacing:.02em}
 .gauge h3{font-size:20px;margin-bottom:5px}
-.gauge p{margin:0;color:var(--muted);font-size:16px;max-width:60ch}
+.gauge p{margin:0;color:var(--muted);font-size:17px;max-width:60ch}
 
 .close{background:var(--accent);color:#fff;position:relative;overflow:hidden}
 .close::before{content:"";position:absolute;left:0;right:0;bottom:0;height:80px;opacity:.55;
 background:repeating-linear-gradient(100deg,rgba(255,255,255,.18) 0 2px,rgba(255,255,255,0) 2px 24px)}
 .close .wrap{position:relative;z-index:2;padding-top:50px;padding-bottom:56px}
-.close h2{font-size:clamp(28px,6.4vw,46px);max-width:16ch}
+.close h2{font-size:clamp(27px,6.2vw,44px);max-width:16ch}
 .close p{max-width:56ch;font-size:17px;color:#DDF1F3;margin:14px 0 22px}
 .note{font-size:15px;color:#CFEAEC;margin-top:18px;max-width:56ch}
 .foot{padding:38px 0 34px;font-size:15px;color:var(--muted);background:var(--paper);
@@ -124,7 +129,7 @@ box-shadow:0 -3px 14px rgba(18,35,43,.13)}
 text-decoration:none;font-weight:700;font-size:15px;text-align:center;line-height:1.2;padding:0 12px;
 border-radius:3px;font-family:"Outfit",system-ui,sans-serif}
 .callbar .book{background:var(--accent);color:#fff}
-.callbar .tel{border:2px solid var(--ink);color:var(--ink);padding:0 16px;font-size:16px}
+.callbar .tel{border:2px solid var(--ink);color:var(--ink);padding:0 16px;font-size:17px}
 @media(max-width:559px){.navact{display:none}}
 @media(min-width:700px){
  .ctas{flex-direction:row}
@@ -135,7 +140,7 @@ border-radius:3px;font-family:"Outfit",system-ui,sans-serif}
  .statgrid{grid-template-columns:1fr 1fr;column-gap:36px}
  .gauge{padding-left:56px}
  .band .wrap{padding-top:74px;padding-bottom:70px}
- .sec{padding:80px 0}.sub{font-size:19px}.navrow{height:60px}.brand{font-size:22px}
+ .sec{padding:80px 0}.sub{font-size:20px}.navrow{height:60px}.brand{font-size:20px}
 }
 @media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
 </style>
@@ -191,7 +196,7 @@ border-radius:3px;font-family:"Outfit",system-ui,sans-serif}
   .gsw-gal-in { max-width: var(--wrap, 1140px); margin: 0 auto; padding: 0 20px; }
   .gsw-gal-lab { font-size: 13px; letter-spacing: .18em; text-transform: uppercase;
                  font-weight: 600; color: var(--accent); margin: 0 0 14px; }
-  .gsw-gal h2 { margin: 0; color: inherit; }
+  .gsw-gal h2 { margin: 0; color: inherit; font-size: clamp(27px,6.2vw,44px); }
   .gsw-gal-note { color: var(--muted); margin: 14px 0 30px; max-width: 58ch; }
   .gsw-ba { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px; }
   .gsw-gal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
@@ -205,7 +210,7 @@ border-radius:3px;font-family:"Outfit",system-ui,sans-serif}
   .gsw-gal figure:hover img { transform: scale(1.035); }
   .gsw-gal figcaption { position: absolute; left: 0; bottom: 0;
                         background: #12232B; color: #F1EFE9;
-                        font-size: 12px; font-weight: 600; letter-spacing: .14em;
+                        font-size:13px; font-weight: 600; letter-spacing: .14em;
                         text-transform: uppercase; padding: 7px 12px; }
   @media (max-width: 720px) {
     .gsw-ba, .gsw-gal-grid { grid-template-columns: 1fr; }
@@ -223,17 +228,17 @@ border-radius:3px;font-family:"Outfit",system-ui,sans-serif}
   .gsw-cf--centred { margin-left: auto; margin-right: auto; }
   .gsw-cf-lead { margin: 0 0 12px; font-size: 15px; opacity: .85; }
   .gsw-cf-grid { display: grid; gap: 10px; }
-  .gsw-cf label { display: flex; flex-direction: column; gap: 5px; font-size: 11px;
+  .gsw-cf label { display: flex; flex-direction: column; gap: 5px; font-size: 13px;
                   font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
   .gsw-cf label em { font-style: normal; font-weight: 400; text-transform: none; letter-spacing: 0; opacity: .7; }
-  .gsw-cf input, .gsw-cf textarea { font: inherit; font-size: 16px; color: inherit; background: transparent;
+  .gsw-cf input, .gsw-cf textarea { font: inherit; font-size: 17px; color: inherit; background: transparent;
                                     border: 1.5px solid currentColor; border-radius: 0; padding: 10px 12px; width: 100%;
                                     box-sizing: border-box; letter-spacing: 0; text-transform: none; font-weight: 400; }
   .gsw-cf input:focus, .gsw-cf textarea:focus { outline: 2px solid currentColor; outline-offset: 2px; }
   .gsw-cf textarea { resize: vertical; min-height: 84px; }
   .gsw-cf-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 14px; }
   .gsw-cf button.btn { font: inherit; cursor: pointer; appearance: none; }
-  .gsw-cf-err { font-size: 14px; font-weight: 600; }
+  .gsw-cf-err { font-size: 15px; font-weight: 600; }
   .gsw-cf-done { margin: 0; font-size: 17px; font-weight: 600; }
   .gsw-cf[data-sent] .gsw-cf-lead, .gsw-cf[data-sent] .gsw-cf-grid, .gsw-cf[data-sent] .gsw-cf-row { display: none; }
   @media (min-width: 640px) {
@@ -255,8 +260,9 @@ border-radius:3px;font-family:"Outfit",system-ui,sans-serif}
     <a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a>
   </div></div>
 </header>
+<main>
 <section class="hero">
-  <div class="band"><div class="wrap">
+  <div class="band"><figure class="plate" aria-hidden="true"><picture><source type="image/avif" srcset="../_assets/hero/pool-builders/a-see-it-in-your-garden-1280.avif 1280w, ../_assets/hero/pool-builders/a-see-it-in-your-garden-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/pool-builders/a-see-it-in-your-garden-1280.jpg" width="2560" height="1429" alt="" loading="eager" fetchpriority="high" decoding="async"></picture></figure><div class="wrap">
     <p class="eyebrow">Booking next season now</p>
     <h1>See your garden with the pool in it. Before you commit.</h1>
     <p class="sub">Gunite pools, spas and full outdoor living builds. Before anything is signed you see your own garden rendered with the pool in it: your fence, your trees, your afternoon shade.</p>
@@ -272,14 +278,13 @@ border-radius:3px;font-family:"Outfit",system-ui,sans-serif}
     <li>25-year structural warranty</li>
   </ul></div></div>
 </section>
-<figure class="gsw-plate"><picture><source type="image/avif" srcset="../_assets/hero/pool-builders/a-see-it-in-your-garden-1280.avif 1280w, ../_assets/hero/pool-builders/a-see-it-in-your-garden-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/pool-builders/a-see-it-in-your-garden-1280.jpg" width="2560" height="1429" alt="See it in your garden, pool builders" loading="lazy" decoding="async"></picture></figure>
 
 <section class="sec" id="services"><div class="wrap">
   <p class="kicker">Services</p>
   <h2>What we build</h2>
   <p class="lede">A pool is rarely just a pool. Most of our projects are the whole back garden reconsidered.</p>
   <ul class="rows">
-    <li><h3>Gunite pools</h3><p>Engineered, steel-reinforced and built to last decades. Any shape, because gunite doesn't come out of a mould.</p></li>
+    <li><h3>Gunite pools</h3><p>Engineered, steel-reinforced and built to last decades. Any shape, because gunite doesn’t come out of a mould.</p></li>
     <li><h3>Spas &amp; water features</h3><p>Integrated spas, spillovers, and the quiet engineering that keeps them warm without a ruinous bill.</p></li>
     <li><h3>Outdoor living</h3><p>Hardscape, outdoor kitchens, pergolas and lighting, designed together with the pool rather than bolted on after.</p></li>
     <li><h3>Renovation &amp; resurfacing</h3><p>Older pools brought back: resurfacing, new tile and coping, and modern equipment that halves the running cost.</p></li>
@@ -299,14 +304,14 @@ border-radius:3px;font-family:"Outfit",system-ui,sans-serif}
   <h2>From first call to first swim</h2>
   <p class="lede">Roughly nine months if you start in autumn, and considerably longer if you start in May with everyone else.</p>
   <ol class="gauge">
-    <li><h3>Design consult</h3><p>We visit, measure and talk about how you'd actually use it. Free, and no obligation to go further.</p></li>
-    <li><h3>3D design &amp; fixed price</h3><p>Your garden, rendered, with the pool in it. Change it as often as you like before there's a contract.</p></li>
+    <li><h3>Design consult</h3><p>We visit, measure and talk about how you’d actually use it. Free, and no obligation to go further.</p></li>
+    <li><h3>3D design &amp; fixed price</h3><p>Your garden, rendered, with the pool in it. Change it as often as you like before there’s a contract.</p></li>
     <li><h3>Permits &amp; engineering</h3><p>We handle drawings, engineering and the city. This is the stage that quietly takes months.</p></li>
     <li><h3>Build &amp; handover</h3><p>Excavation to first fill, typically eight to twelve weeks. We teach you the equipment and stay on call after.</p></li>
   </ol>
 </div></section>
 <!-- gsw:gallery -->
-<section class="gsw-gal"><div class="gsw-gal-in"><p class="gsw-gal-lab">In your garden</p><h2>The yard before, and the yard after.</h2><p class="gsw-gal-note">Every one of these started as a lawn and a fence. The design is drawn into your garden before anything is dug.</p><div class="gsw-ba"><figure><picture><source type="image/avif" srcset="../_assets/library/pool-builders/blue-harbor-pools/yard-before-640.avif 640w, ../_assets/library/pool-builders/blue-harbor-pools/yard-before-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 50vw"><img src="../_assets/library/pool-builders/blue-harbor-pools/yard-before-720.jpg" width="1600" height="1200" alt="Before" loading="lazy" decoding="async"></picture><figcaption>Before</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/pool-builders/blue-harbor-pools/yard-after-640.avif 640w, ../_assets/library/pool-builders/blue-harbor-pools/yard-after-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 50vw"><img src="../_assets/library/pool-builders/blue-harbor-pools/yard-after-720.jpg" width="1600" height="1200" alt="After" loading="lazy" decoding="async"></picture><figcaption>After</figcaption></figure></div><div class="gsw-gal-grid"><figure><picture><source type="image/avif" srcset="../_assets/library/pool-builders/blue-harbor-pools/outdoor-living-640.avif 640w, ../_assets/library/pool-builders/blue-harbor-pools/outdoor-living-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/pool-builders/blue-harbor-pools/outdoor-living-720.jpg" width="1600" height="1200" alt="The rest of the garden" loading="lazy" decoding="async"></picture><figcaption>The rest of the garden</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/pool-builders/blue-harbor-pools/night-lights-640.avif 640w, ../_assets/library/pool-builders/blue-harbor-pools/night-lights-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/pool-builders/blue-harbor-pools/night-lights-720.jpg" width="1600" height="1200" alt="Lit for the evening" loading="lazy" decoding="async"></picture><figcaption>Lit for the evening</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/pool-builders/blue-harbor-pools/spa-spillover-640.avif 640w, ../_assets/library/pool-builders/blue-harbor-pools/spa-spillover-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/pool-builders/blue-harbor-pools/spa-spillover-720.jpg" width="1600" height="1200" alt="Spa spillover, dusk" loading="lazy" decoding="async"></picture><figcaption>Spa spillover, dusk</figcaption></figure></div></div></section>
+<section class="gsw-gal"><div class="gsw-gal-in"><p class="gsw-gal-lab">In your garden</p><h2>The yard before, and the yard after.</h2><p class="gsw-gal-note">Every one of these started as a lawn and a fence. The design is drawn into your garden before anything is dug.</p><div class="gsw-ba"><figure><picture><source type="image/avif" srcset="../_assets/library/pool-builders/blue-harbor-pools/yard-before-640.avif 640w, ../_assets/library/pool-builders/blue-harbor-pools/yard-before-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 50vw"><img src="../_assets/library/pool-builders/blue-harbor-pools/yard-before-720.jpg" width="1600" height="1200" alt="Before" loading="lazy" decoding="async"></picture><figcaption>Before</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/pool-builders/blue-harbor-pools/yard-after-640.avif 640w, ../_assets/library/pool-builders/blue-harbor-pools/yard-after-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 50vw"><img src="../_assets/library/pool-builders/blue-harbor-pools/yard-after-720.jpg" width="1600" height="1200" alt="After" loading="lazy" decoding="async"></picture><figcaption>After</figcaption></figure></div><div class="gsw-gal-grid"><figure><picture><source type="image/avif" srcset="../_assets/library/pool-builders/blue-harbor-pools/outdoor-living-640.avif 640w, ../_assets/library/pool-builders/blue-harbor-pools/outdoor-living-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/pool-builders/blue-harbor-pools/outdoor-living-720.jpg" width="1600" height="1200" alt="The rest of the garden" loading="lazy" decoding="async"></picture><figcaption>The rest of the garden</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/pool-builders/tile-line-640.avif 640w, ../_assets/library/pool-builders/tile-line-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/pool-builders/tile-line-720.jpg" width="1600" height="1200" alt="The tile line and coping" loading="lazy" decoding="async"></picture><figcaption>The tile line and coping</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/pool-builders/blue-harbor-pools/spa-spillover-640.avif 640w, ../_assets/library/pool-builders/blue-harbor-pools/spa-spillover-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/pool-builders/blue-harbor-pools/spa-spillover-720.jpg" width="1600" height="1200" alt="Spa spillover, dusk" loading="lazy" decoding="async"></picture><figcaption>Spa spillover, dusk</figcaption></figure></div></div></section>
 <!-- /gsw:gallery -->
 <section class="close" id="contact"><div class="wrap">
   <h2>Want it for next summer?</h2>
@@ -317,7 +322,7 @@ border-radius:3px;font-family:"Outfit",system-ui,sans-serif}
   </div>
   <!-- gsw:contact-form -->
     <form class="gsw-cf" novalidate>
-      <p class="gsw-cf-lead">Or leave your details and we'll call you back.</p>
+      <p class="gsw-cf-lead">Or leave your details and we’ll call you back.</p>
       <div class="gsw-cf-grid">
         <label><span>Name</span><input type="text" name="name" autocomplete="name" required></label>
         <label><span>Phone or email</span><input type="text" name="contact" autocomplete="tel" required></label>
@@ -332,6 +337,7 @@ border-radius:3px;font-family:"Outfit",system-ui,sans-serif}
     <!-- /gsw:contact-form -->
     <p class="note">Free design consultations. 3D rendering included at no cost, no obligation.</p>
 </div></section>
+</main>
 <footer class="foot"><div class="wrap">
   <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M6 22q8-8 16 0t16 0 16 0" fill="none" stroke="#0B7080" stroke-width="5" stroke-linecap="round"/>
 <path d="M6 36q8-8 16 0t16 0 16 0" fill="none" stroke="#12232B" stroke-width="5" stroke-linecap="round" opacity=".6"/>
@@ -359,10 +365,10 @@ border-radius:3px;font-family:"Outfit",system-ui,sans-serif}
   .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(5) { transition-delay: .32s; }
   .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(6) { transition-delay: .40s; }
   @keyframes gsw-hero-in { from { opacity: 0; transform: scale(1.025); } to { opacity: 1; transform: none; } }
-  .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: gsw-hero-in 1s ease-out both; }
+  .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img, .gsw-m .band .plate img { animation: gsw-hero-in 1s ease-out both; }
   @media (prefers-reduced-motion: reduce) {
     .gsw-m [data-gsw-reveal] { opacity: 1; transform: none; transition: none; }
-    .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: none; }
+    .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img, .gsw-m .band .plate img { animation: none; }
   }
 </style>
 <script>
