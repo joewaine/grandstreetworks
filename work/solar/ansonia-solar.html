@@ -11,6 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Heebo:wght@400;500&display=swap" rel="stylesheet">
 <style>
 /* D5 — THE QUIET ONE. hero:stack nav:inline services:list proof:testimonial-lead
+   v2 2026-09-07 (client note: 'a little more opacity'): hero plate visible at ~50–82% on the right, ~5% behind the text column; hero secondary text set in ink; gauge readings on cream chips.
    ink #1A1C1A · surface #F2F2EE · accent #7E5214 · amber #F2B23D · muted #4C555B
    H1 ramp: 29/33/40/48px · Noto Sans display / Heebo body
    Device: the figure slot left open between two rules — no card, no shadow, no badge,
@@ -139,12 +140,22 @@ margin-left:auto;flex:0 0 auto}
   .gsw-imaged > *:not(.gsw-backdrop) { position: relative; z-index: 1; }
   .gsw-backdrop { position: absolute; inset: 0; z-index: 0; }
   .gsw-backdrop img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  /* v2: the client asked to see more of the photograph. The scrim stays near
+     solid behind the text column (left 40%) and under the badge rows (bottom
+     band), and clears to 18% over the roofs and panels on the right. */
   .gsw-backdrop::after {
     content: ""; position: absolute; inset: 0;
-    background: linear-gradient(100deg,
-      rgb(242 242 238 / 0.97) 0%, rgb(242 242 238 / 0.95) 38%, rgb(242 242 238 / 0.7) 68%, rgb(242 242 238 / 0.52) 100%);
+    background:
+      linear-gradient(180deg, rgb(242 242 238 / 0) 0%, rgb(242 242 238 / 0) 66%, rgb(242 242 238 / 0.9) 100%),
+      linear-gradient(100deg,
+        rgb(242 242 238 / 0.96) 0%, rgb(242 242 238 / 0.95) 44%, rgb(242 242 238 / 0.88) 57%,
+        rgb(242 242 238 / 0.5) 66%, rgb(242 242 238 / 0.25) 76%, rgb(242 242 238 / 0.18) 100%);
   }
-  @media (max-width: 60rem) { .gsw-backdrop::after { background: rgb(242 242 238 / 0.93); } }
+  /* The hero's secondary text now sits over the photograph on wide screens;
+     ink instead of the muted grey keeps it at AA without a heavier scrim. */
+  .hero .sub, .hero .badges, .hero .figure dt { color: var(--ink); }
+  .hero .figure dl > div { background: rgb(242 242 238 / 0.82); padding: 3px 8px; margin: 0 -8px; border-radius: 3px; }
+  @media (max-width: 60rem) { .gsw-backdrop::after { background: rgb(242 242 238 / 0.88); } }
   @media (forced-colors: active) { .gsw-backdrop { display: none; } }
   @media print { .gsw-backdrop { display: none; } }
 </style>
