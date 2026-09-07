@@ -10,7 +10,7 @@
 <link rel="icon" href="../_assets/identity/plastic-surgeons/rothbury-plastic-surgery-icon-32.png" type="image/png" sizes="32x32">
 <link rel="icon" href="../_assets/identity/plastic-surgeons/rothbury-plastic-surgery-icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../_assets/identity/plastic-surgeons/rothbury-plastic-surgery-icon-180.png">
-<meta name="theme-color" content="#F6F2EA">
+<meta name="theme-color" content="#3A4A5C">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Rothbury Plastic Surgery">
 <meta property="og:title" content="Rothbury Plastic Surgery · Board certified · Fifty-minute consultations · No coordinators">
@@ -23,16 +23,16 @@
 <!-- /gsw:identity -->
 <link rel="preload" href="../_assets/fonts/vollkorn-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../_assets/fonts/golos-text-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../_assets/library/plastic-surgeons/rothbury-plastic-surgery/consult-room-1280.avif" as="image" type="image/avif" media="(min-width: 760px)">
 <style>
-/* D3 — THE CONSULTATION. hero:band nav:minimal services:cards proof:review-wall
-   graphite #26282A · paper #F6F2EA · verdigris #4B5E56 · muted #5C5B55 · rule #D8D1C4
-   H1 ramp: 36/44/52/60px · Vollkorn display + body / Golos Text labels, figures, form
-   Device: the ruled slip — the hero is the consultation booking drawn in hairlines,
-   listing what the fifty minutes contain, with the request as its last line; every
-   later section repeats the rule language (entries, not boxes). No photograph sits
-   behind text and there are no dark sections. FIX answered first: consult conversion —
-   the slip is the first object on the page, the bar repeats it, and the number is a
-   live link everywhere. Two families, three weights, seven sizes. */
+/* D3 — THE CONSULTATION (v2). hero:split nav:inline services:entries proof:review-cards
+   chalk #F3EFE6 · slate #3A4A5C · deep slate #2A3644 · terracotta #A64B31 · clay #EAD9CD · ink #1F2429 · muted #4F5A66
+   Ramp: 13 / 15 / 17 / 19–22 / 22–28 / 32–52 / 44–80 px · Vollkorn display, ledes, quotes / Golos Text body, labels, figures, form
+   Device: the ruled slip stays as the hero's object, now beside a full-height photograph; its four
+   lines return as a slate credentials band with the key word set large. Three chromatic surfaces
+   (slate, terracotta, clay), three coloured bands, ten photographs each used once, alabaster loop
+   beside the procedures. FIX answered: consult conversion — slip first, band repeats it, number live.
+   v2 (2026-09-07) answers the client's note: palette, imagery at scale, type with confidence. */
 
 @font-face { font-family: "Vollkorn"; src: url("../_assets/fonts/vollkorn-var.woff2") format("woff2"); font-weight: 400 900; font-style: normal; font-display: swap; }
 @font-face { font-family: "Vollkorn"; src: url("../_assets/fonts/vollkorn-italic-var.woff2") format("woff2"); font-weight: 400 900; font-style: italic; font-display: swap; }
@@ -41,181 +41,225 @@
 @font-face { font-family: "Golos Fallback"; src: local("Arial"); size-adjust: 101%; ascent-override: 92%; descent-override: 24%; }
 
 :root {
-  --paper: #F6F2EA; --paper-2: #ECE6DB; --white: #FCFAF6;
-  --ink: #26282A; --muted: #5C5B55; --verd: #4B5E56; --verd-deep: #38473F;
-  --rule: #D8D1C4; --rule-strong: #26282A;
+  --chalk: #F3EFE6; --chalk-2: #FBF9F4; --clay: #EAD9CD; --clay-2: #F4EAE2;
+  --slate: #3A4A5C; --slate-2: #2A3644; --ink: #1F2429;
+  --terra: #A64B31; --terra-2: #8E3E27; --terra-light: #ECB59E;
+  --muted: #4F5A66; --muted-on-slate: #C9CFD6;
+  --rule: #D6CFC3; --rule-strong: #1F2429; --rule-on-slate: rgba(243, 239, 230, .22);
   --serif: "Vollkorn", "Vollkorn Fallback", Georgia, serif;
   --sans: "Golos Text", "Golos Fallback", Arial, sans-serif;
   --t-label: 0.8125rem; --t-small: 0.9375rem; --t-body: 1.0625rem;
-  --t-lede: clamp(1.125rem, 1rem + 0.5vw, 1.3125rem);
-  --t-h3: clamp(1.375rem, 1.1rem + 1.1vw, 1.75rem);
-  --t-h2: clamp(1.75rem, 1.2rem + 2vw, 2.5rem);
-  --t-display: clamp(2.25rem, 1.2rem + 3.6vw, 3.75rem);
+  --t-lede: clamp(1.1875rem, 1.05rem + 0.6vw, 1.375rem);
+  --t-h3: clamp(1.375rem, 1.15rem + 1vw, 1.75rem);
+  --t-h2: clamp(2rem, 1.3rem + 2.6vw, 3.25rem);
+  --t-display: clamp(2.75rem, 1.6rem + 4.4vw, 5rem);
   --s1: 9px; --s2: 18px; --s3: 27px; --s4: 36px; --s6: 54px; --s8: 72px; --s12: 108px;
-  --wrap: 1140px; --gutter: clamp(20px, 4vw, 48px); --bar-h: 64px;
+  --wrap: 1180px; --gutter: clamp(20px, 4vw, 48px); --bar-h: 64px;
 }
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
-body { margin: 0; background: var(--paper); color: var(--ink); font: 400 var(--t-body)/1.6 var(--sans); font-optical-sizing: auto; overflow-x: hidden; padding-bottom: var(--bar-h); }
+body { margin: 0; background: var(--chalk); color: var(--ink); font: 400 var(--t-body)/1.6 var(--sans); font-optical-sizing: auto; overflow-x: hidden; padding-bottom: var(--bar-h); }
 h1, h2, h3, .serif { font-family: var(--serif); font-weight: 400; margin: 0; text-wrap: balance; }
 p { margin: 0; text-wrap: pretty; }
 a { color: inherit; }
-img { display: block; max-width: 100%; height: auto; }
+img, video { display: block; max-width: 100%; height: auto; }
 ul, ol { list-style: none; margin: 0; padding: 0; }
 figure { margin: 0; }
 .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
-.label { font-size: var(--t-label); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.3; color: var(--verd); }
-.lede { font-family: var(--serif); font-size: var(--t-lede); line-height: 1.5; max-width: 56ch; }
+.label { font-size: var(--t-label); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.3; color: var(--terra); }
+.label.num::before { content: attr(data-n) " — "; }
+.lede { font-family: var(--serif); font-size: var(--t-lede); line-height: 1.5; max-width: 52ch; }
 .muted { color: var(--muted); }
-.serif-body { font-family: var(--serif); font-size: var(--t-body); line-height: 1.65; }
-:focus-visible { outline: 2px solid var(--verd); outline-offset: 3px; }
-.skip { position: absolute; left: -999px; top: 0; background: var(--ink); color: var(--paper); padding: var(--s1) var(--s2); z-index: 100; }
+:focus-visible { outline: 2px solid var(--terra); outline-offset: 3px; }
+.on-slate :focus-visible { outline-color: var(--terra-light); }
+.skip { position: absolute; left: -999px; top: 0; background: var(--ink); color: var(--chalk); padding: var(--s1) var(--s2); z-index: 100; }
 .skip:focus { left: var(--s2); top: var(--s2); }
-
 /* ---------- Buttons ---------- */
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5em; min-height: 50px; padding: 0.65em 1.4em; border: 1px solid var(--verd); font: 500 var(--t-body)/1.2 var(--sans); text-decoration: none; cursor: pointer; transition: background-color 160ms, color 160ms, border-color 160ms; }
-.btn-primary { background: var(--verd); color: var(--paper); }
-.btn-primary:hover { background: var(--verd-deep); border-color: var(--verd-deep); }
-.btn-ghost { background: transparent; color: var(--ink); border-color: var(--rule-strong); }
-.btn-ghost:hover { background: var(--ink); color: var(--paper); }
-.link { color: var(--verd); text-decoration: underline; text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5em; min-height: 52px; padding: 0.65em 1.5em; border: 1px solid var(--terra); border-radius: 2px; font: 500 var(--t-body)/1.2 var(--sans); text-decoration: none; cursor: pointer; transition: background-color 160ms, color 160ms, border-color 160ms; }
+.btn-primary { background: var(--terra); color: var(--chalk-2); }
+.btn-primary:hover { background: var(--terra-2); border-color: var(--terra-2); }
+.btn-ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+.btn-ghost:hover { background: var(--ink); color: var(--chalk); }
+.on-slate .btn-ghost { color: var(--chalk); border-color: var(--chalk); }
+.on-slate .btn-ghost:hover { background: var(--chalk); color: var(--slate-2); }
+.link { color: var(--terra); text-decoration: underline; text-underline-offset: 0.22em; text-decoration-thickness: 1px; }
 .link:hover { color: var(--ink); }
+/* after the button shorthand, which resets numeric variants */
+.tnum, .tnum * { font-variant-numeric: tabular-nums; }
 
 /* ---------- Masthead ---------- */
-.topline { border-bottom: 1px solid var(--rule); font-size: var(--t-label); letter-spacing: 0.06em; color: var(--muted); }
+.topline { background: var(--slate-2); color: var(--muted-on-slate); font-size: var(--t-label); letter-spacing: 0.06em; }
 .topline .wrap { padding-top: var(--s1); padding-bottom: var(--s1); }
-.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: var(--s3); padding-top: var(--s3); padding-bottom: var(--s3); }
+.top { background: var(--chalk); border-bottom: 1px solid var(--rule); position: sticky; top: 0; z-index: 30; }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: var(--s3); padding-top: var(--s2); padding-bottom: var(--s2); }
 .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font: 400 var(--t-lede)/1 var(--serif); }
 .brand img { width: 30px; height: 30px; }
-.nav { display: flex; gap: var(--s3); font-size: var(--t-small); }
+.nav { display: flex; gap: var(--s3); font-size: var(--t-small); font-weight: 500; }
 .nav a { text-decoration: none; padding: 6px 0; border-bottom: 1px solid transparent; transition: border-color 160ms; }
-.nav a:hover { border-bottom-color: var(--verd); }
+.nav a:hover { border-bottom-color: var(--terra); }
+.top-actions { display: flex; align-items: center; gap: var(--s3); }
+.tel-top { font-family: var(--serif); font-size: var(--t-lede); text-decoration: none; }
+.tel-top:hover { color: var(--terra); }
 
-/* ---------- The slip (hero) ---------- */
-.hero { padding: var(--s6) 0 var(--s12); border-bottom: 1px solid var(--rule-strong); }
-.hero .grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--s8); align-items: start; }
+/* ---------- Hero: the slip beside the room ---------- */
+.hero { border-bottom: 1px solid var(--rule); }
+.hero .grid { display: grid; grid-template-columns: minmax(0, 11fr) minmax(0, 9fr); gap: 0 var(--s8); align-items: stretch; }
+.hero .copy { padding: var(--s8) 0 var(--s8); align-self: center; }
 .hero .label { margin-bottom: var(--s3); }
-.hero h1 { font-size: var(--t-display); line-height: 1.05; letter-spacing: -0.01em; max-width: 16ch; }
+.hero h1 { font-size: var(--t-display); line-height: 1.02; letter-spacing: -0.015em; max-width: 14ch; }
 .hero .lede { margin-top: var(--s3); color: var(--muted); }
-.slip { margin-top: var(--s6); border-top: 1px solid var(--rule-strong); border-bottom: 1px solid var(--rule-strong); }
-.slip li { display: grid; grid-template-columns: 3ch 1fr; gap: var(--s2); padding: var(--s2) 0; border-bottom: 1px solid var(--rule); font-family: var(--serif); font-size: var(--t-lede); line-height: 1.4; }
-.slip li:last-of-type { border-bottom: 0; }
-.slip .n { font-family: var(--sans); font-size: var(--t-label); font-weight: 500; letter-spacing: 0.1em; color: var(--verd); padding-top: 0.45em; font-variant-numeric: tabular-nums; }
-.slip .actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s3); padding: var(--s3) 0; border-top: 1px solid var(--rule); }
-.hero figure { border: 1px solid var(--rule); padding: 10px; background: var(--white); }
-.hero figure img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 40%; }
-.hero figcaption { display: flex; justify-content: space-between; gap: var(--s2); padding-top: 10px; font-size: var(--t-label); letter-spacing: 0.06em; color: var(--muted); }
+.slip { margin-top: var(--s6); border-top: 1px solid var(--rule-strong); }
+.slip li { display: grid; grid-template-columns: 3ch 1fr; gap: var(--s2); padding: 14px 0; border-bottom: 1px solid var(--rule); font-family: var(--serif); font-size: var(--t-lede); line-height: 1.35; }
+.slip .n { font-family: var(--sans); font-size: var(--t-label); font-weight: 500; letter-spacing: 0.1em; color: var(--terra); padding-top: 0.45em; font-variant-numeric: tabular-nums; }
+.slip .actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s3); padding: var(--s3) 0 0; border-bottom: 0; }
+.hero figure { position: relative; min-height: 72svh; margin-right: calc(-1 * var(--gutter)); }
+.hero figure picture, .hero figure img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 55%; }
+.hero figcaption { position: absolute; left: 0; bottom: 0; background: var(--chalk); color: var(--muted); padding: 10px var(--s2) 10px 0; font-size: var(--t-label); letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500; }
 
-/* ---------- Credentials ---------- */
-.creds { border-top: 1px solid var(--rule-strong); border-bottom: 1px solid var(--rule-strong); }
+/* ---------- Credentials band: the slip, set large ---------- */
+.creds { background: var(--slate); color: var(--chalk); }
 .creds ul { display: grid; grid-template-columns: repeat(4, 1fr); }
-.creds li { padding: var(--s2) var(--s3) var(--s2) 0; font-size: var(--t-small); font-weight: 500; border-right: 1px solid var(--rule); }
-.creds li:last-child { border-right: 0; }
-.creds li + li { padding-left: var(--s3); }
+.creds li { padding: var(--s6) var(--s3) var(--s6) 0; border-left: 1px solid var(--rule-on-slate); padding-left: var(--s3); }
+.creds li:first-child { border-left: 0; padding-left: 0; }
+.creds .big { display: block; font-family: var(--serif); font-size: var(--t-display); line-height: 1; letter-spacing: -0.01em; color: var(--chalk-2); }
+.creds .sub { display: block; margin-top: var(--s2); font-size: var(--t-small); color: var(--muted-on-slate); max-width: 22ch; }
+.creds .sub b { font-weight: 500; color: var(--terra-light); }
 
 /* ---------- Sections ---------- */
 .sec { padding: var(--s12) 0; }
-.head { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--s3) var(--s8); align-items: end; margin-bottom: var(--s6); }
-h2 { font-size: var(--t-h2); line-height: 1.12; max-width: 18ch; }
-h3 { font-size: var(--t-h3); line-height: 1.25; }
+.head { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: var(--s3) var(--s8); align-items: end; margin-bottom: var(--s8); }
 .head .label { grid-column: 1 / -1; }
+h2 { font-size: var(--t-h2); line-height: 1.08; letter-spacing: -0.01em; max-width: 16ch; }
+h3 { font-size: var(--t-h3); line-height: 1.25; }
 
-/* Procedures: ruled entries */
-.entries { border-top: 1px solid var(--rule-strong); display: grid; grid-template-columns: 1fr 1fr; column-gap: var(--s8); }
-.entries li { padding: var(--s3) 0; border-bottom: 1px solid var(--rule); }
+/* Procedures: ruled entries beside the alabaster loop */
+.services .grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--s8); align-items: start; }
+.entries { border-top: 1px solid var(--rule-strong); }
+.entries li { display: grid; grid-template-columns: 3ch 1fr; gap: var(--s3); padding: var(--s4) 0; border-bottom: 1px solid var(--rule); }
+.entries .n { font-size: var(--t-label); font-weight: 500; letter-spacing: 0.1em; color: var(--terra); padding-top: 0.6em; font-variant-numeric: tabular-nums; }
 .entries h3 { margin-bottom: var(--s1); }
-.entries p { font-family: var(--serif); max-width: 40ch; color: var(--muted); line-height: 1.6; }
+.entries p { max-width: 52ch; color: var(--muted); }
+.loop { position: sticky; top: 96px; background: var(--slate-2); overflow: hidden; }
+.loop .frame { position: relative; aspect-ratio: 4 / 5; }
+.loop picture, .loop img, .loop video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.loop video { opacity: 0; transition: opacity 600ms; }
+.loop.is-playing video { opacity: 1; }
+.loop figcaption { display: flex; justify-content: space-between; align-items: center; gap: var(--s2); padding: 12px var(--s2); background: var(--slate-2); color: var(--muted-on-slate); font-size: var(--t-label); letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500; }
+.loop button { font: 500 var(--t-label)/1 var(--sans); letter-spacing: 0.06em; text-transform: uppercase; background: transparent; color: var(--chalk); border: 1px solid var(--rule-on-slate); border-radius: 2px; padding: 8px 12px; cursor: pointer; }
+.loop button[hidden] { display: none; }
 
-/* Reviews: a column of short lines */
-.reviews .grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--s8); align-items: start; }
-.column { border-top: 1px solid var(--rule-strong); }
-.column figure { padding: var(--s3) 0; border-bottom: 1px solid var(--rule); }
-.column blockquote { margin: 0; font-family: var(--serif); font-style: italic; font-size: var(--t-h3); line-height: 1.35; max-width: 30ch; }
-.column figcaption { margin-top: var(--s1); font-size: var(--t-small); color: var(--muted); }
-.column figcaption b { font-weight: 500; color: var(--ink); }
-.reviews figure.photo { border: 1px solid var(--rule); padding: 10px; background: var(--white); }
-.reviews figure.photo img { aspect-ratio: 3 / 4; object-fit: cover; width: 100%; }
-.reviews figure.photo figcaption { padding-top: 10px; font-size: var(--t-label); letter-spacing: 0.06em; color: var(--muted); }
+/* Reviews: a clay band, cards beside the lounge */
+.reviews { background: var(--clay); }
+.reviews .label { color: var(--terra-2); } /* 5.4:1 on clay; the lighter terracotta is 4.2 */
+.reviews .grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--s8); align-items: start; }
+.reviews figure.photo { position: relative; }
+.reviews figure.photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.reviews figure.photo figcaption { position: absolute; left: 0; bottom: 0; background: var(--clay); padding: 10px var(--s2) 10px 0; font-size: var(--t-label); letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500; color: var(--slate); }
+.cards { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s3); }
+.cards figure { background: var(--chalk-2); padding: var(--s4) var(--s4) var(--s3); border-top: 3px solid var(--terra); }
+.cards blockquote { margin: 0; font-family: var(--serif); font-style: italic; font-size: var(--t-h3); line-height: 1.35; }
+.cards figcaption { margin-top: var(--s3); font-size: var(--t-small); color: var(--muted); }
+.cards figcaption b { font-weight: 500; color: var(--ink); }
 
-/* Process */
-.process { background: var(--paper-2); }
-.steps { border-top: 1px solid var(--rule-strong); display: grid; grid-template-columns: 1fr 1fr; column-gap: var(--s8); }
-.steps li { display: grid; grid-template-columns: 3ch 1fr; gap: var(--s2); padding: var(--s3) 0; border-bottom: 1px solid var(--rule); }
-.steps .n { font-size: var(--t-label); font-weight: 500; letter-spacing: 0.1em; color: var(--verd); padding-top: 0.55em; font-variant-numeric: tabular-nums; }
+/* Process: four columns, then the suite full-bleed */
+.steps { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s4) var(--s8); border-top: 1px solid var(--rule-strong); }
+.steps li { padding-top: var(--s3); border-top: 1px solid var(--rule); margin-top: -1px; }
+.steps .n { display: block; font-family: var(--serif); font-size: var(--t-h2); line-height: 1; color: var(--terra); font-variant-numeric: tabular-nums; margin-bottom: var(--s2); }
 .steps h3 { margin-bottom: var(--s1); }
-.steps p { font-family: var(--serif); color: var(--muted); max-width: 40ch; line-height: 1.6; }
+.steps p { color: var(--muted); max-width: 46ch; }
+.plate { position: relative; margin-top: var(--s8); }
+.plate img { width: 100%; aspect-ratio: 21 / 9; object-fit: cover; object-position: center 55%; }
+.plate figcaption { position: absolute; left: 0; bottom: 0; background: var(--chalk); padding: 10px var(--s2) 10px 0; font-size: var(--t-label); letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500; color: var(--slate); }
 
-/* Rooms */
-.rooms .strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s3); }
-.rooms figure { border: 1px solid var(--rule); padding: 8px; background: var(--white); }
+/* Rooms: 2 + 3 */
+.rooms .gallery { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--s3); }
+.rooms figure { position: relative; grid-column: span 2; }
+.rooms figure.wide { grid-column: span 3; }
 .rooms img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
-.rooms figcaption { padding-top: 8px; font-size: var(--t-label); letter-spacing: 0.06em; color: var(--muted); }
+.rooms figure.wide img { aspect-ratio: 3 / 2; }
+.rooms figcaption { position: absolute; left: 0; bottom: 0; background: var(--chalk); padding: 8px var(--s2) 8px 0; font-size: var(--t-label); letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500; color: var(--slate); }
 
-/* Close */
-.close { background: var(--paper-2); border-top: 1px solid var(--rule-strong); }
+/* Close: slate band over the arrival plate, form in a chalk card */
+.close { position: relative; background: var(--slate-2); color: var(--chalk); overflow: hidden; }
+.close .bg { position: absolute; inset: 0; }
+.close .bg img { width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: .28; }
+.close .bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(42, 54, 68, .92) 0%, rgba(42, 54, 68, .55) 55%, rgba(42, 54, 68, .35) 100%); }
+.close .wrap { position: relative; }
 .close .grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: var(--s8); align-items: start; }
-.close h2 { font-size: var(--t-display); line-height: 1.05; letter-spacing: -0.01em; max-width: 12ch; }
-.close .lede { margin-top: var(--s3); color: var(--muted); }
+.close h2 { font-size: var(--t-display); line-height: 1.02; letter-spacing: -0.015em; max-width: 12ch; color: var(--chalk-2); }
+.close .lede { margin-top: var(--s3); color: var(--muted-on-slate); }
 .close .cta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s3); margin-top: var(--s4); }
-.close .tel { font-family: var(--serif); font-size: var(--t-h3); text-decoration: none; border-bottom: 1px solid var(--verd); }
-.close .tel:hover { color: var(--verd); }
-.close .note { margin-top: var(--s4); font-size: var(--t-small); color: var(--muted); max-width: 46ch; }
-.form { border-top: 1px solid var(--rule-strong); padding-top: var(--s3); }
-.form .intro { margin-bottom: var(--s3); font-family: var(--serif); }
+.close .tel { font-family: var(--serif); font-size: var(--t-h3); text-decoration: none; border-bottom: 1px solid var(--terra-light); color: var(--chalk-2); }
+.close .tel:hover { color: var(--terra-light); }
+.close .note { margin-top: var(--s4); font-size: var(--t-small); color: var(--muted-on-slate); max-width: 46ch; }
+.form { background: var(--chalk); color: var(--ink); padding: var(--s4); border-radius: 2px; }
+.form .intro { margin-bottom: var(--s3); font-family: var(--serif); font-size: var(--t-lede); line-height: 1.4; }
 .field { display: grid; gap: 6px; margin-bottom: var(--s2); }
 .field label { font-size: var(--t-label); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
-.field input, .field textarea { width: 100%; font: 400 var(--t-body)/1.4 var(--sans); color: var(--ink); background: var(--white); border: 1px solid var(--rule); border-bottom-color: var(--rule-strong); padding: 12px 14px; transition: border-color 160ms; }
+.field input, .field textarea { width: 100%; font: 400 var(--t-body)/1.4 var(--sans); color: var(--ink); background: var(--chalk-2); border: 1px solid var(--rule); border-bottom-color: var(--slate); padding: 12px 14px; transition: border-color 160ms; }
 .field input:hover, .field textarea:hover { border-color: var(--muted); }
-.field input:focus, .field textarea:focus { outline: none; border-color: var(--verd); }
-.field.is-invalid input { border-color: var(--verd); background: #F1EBDF; }
+.field input:focus, .field textarea:focus { outline: none; border-color: var(--terra); }
+.field.is-invalid input { border-color: var(--terra); background: var(--clay-2); }
 .form .actions { display: flex; align-items: center; gap: var(--s2); flex-wrap: wrap; margin-top: var(--s3); }
-.form .hint { font-size: var(--t-small); color: var(--verd); font-weight: 500; }
+.form .hint { font-size: var(--t-small); color: var(--terra); font-weight: 500; }
 .form .hint[hidden], .form .done[hidden] { display: none; }
 .form .done { font-family: var(--serif); font-size: var(--t-lede); padding: var(--s3) 0; }
 .form.is-sent .field, .form.is-sent .actions { display: none; }
 
 /* Footer */
-.foot { border-top: 1px solid var(--rule-strong); padding: var(--s6) 0; font-size: var(--t-small); }
+.foot { background: var(--ink); color: var(--muted-on-slate); padding: var(--s6) 0; font-size: var(--t-small); }
 .foot .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s3) var(--s8); align-items: start; }
-.foot p { color: var(--muted); max-width: 52ch; }
-.foot .fine { grid-column: 1 / -1; padding-top: var(--s3); border-top: 1px solid var(--rule); font-size: var(--t-label); letter-spacing: 0.02em; }
+.foot .brand { color: var(--chalk); }
+.foot p { max-width: 52ch; }
+.foot a { color: var(--chalk); }
+.foot .fine { grid-column: 1 / -1; padding-top: var(--s3); border-top: 1px solid var(--rule-on-slate); font-size: var(--t-label); letter-spacing: 0.02em; }
 
 /* Mobile bar */
-.bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: grid; grid-template-columns: 1fr auto; gap: 1px; background: var(--rule-strong); border-top: 1px solid var(--rule-strong); }
-.bar .btn { min-height: var(--bar-h); border: 0; white-space: nowrap; }
-.bar .btn-ghost { background: var(--paper); }
+.bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: grid; grid-template-columns: 1fr auto; gap: 1px; background: var(--ink); border-top: 1px solid var(--ink); }
+.bar .btn { min-height: var(--bar-h); border: 0; border-radius: 0; white-space: nowrap; font-size: var(--t-small); padding: 0.5em 1em; }
+.bar .btn-ghost { background: var(--chalk); color: var(--ink); }
 
 /* ---------- Responsive ---------- */
 @media (min-width: 1000px) { body { padding-bottom: 0; } .bar { display: none; } }
 @media (max-width: 999px) {
-  .hero .grid, .reviews .grid, .close .grid { grid-template-columns: 1fr; }
-  .hero figure img { aspect-ratio: 4 / 3; }
-  .reviews figure.photo img { aspect-ratio: 4 / 3; }
+  .tel-top { display: none; }
+  .hero .grid { grid-template-columns: 1fr; }
+  .hero figure { order: -1; min-height: 0; margin: 0 calc(-1 * var(--gutter)); }
+  .hero figure picture, .hero figure img { position: static; aspect-ratio: 4 / 3; }
+  .hero .copy { padding-top: var(--s6); }
   .head { grid-template-columns: 1fr; }
   .creds ul { grid-template-columns: 1fr 1fr; }
-  .creds li:nth-child(2) { border-right: 0; }
-  .creds li:nth-child(3) { padding-left: 0; }
-  .creds li:nth-child(n + 3) { border-top: 1px solid var(--rule); }
-  .rooms .strip { grid-template-columns: 1fr 1fr; }
+  .creds li { padding-top: var(--s4); padding-bottom: var(--s4); }
+  .creds li:nth-child(3) { border-left: 0; padding-left: 0; }
+  .creds li:nth-child(n + 3) { border-top: 1px solid var(--rule-on-slate); }
+  .services .grid, .reviews .grid, .close .grid { grid-template-columns: 1fr; }
+  .loop { position: static; }
+  .loop .frame { aspect-ratio: 16 / 10; }
+  .reviews figure.photo img { aspect-ratio: 3 / 2; }
+  .rooms .gallery { grid-template-columns: 1fr 1fr; }
+  .rooms figure, .rooms figure.wide { grid-column: span 1; }
+  .rooms figure.wide img { aspect-ratio: 4 / 3; }
 }
 @media (max-width: 759px) {
-  .nav, .topline, .top .btn { display: none; }
+  .nav, .topline, .top .btn, .tel-top { display: none; }
   .sec { padding: var(--s8) 0; }
-  .hero { padding: var(--s4) 0 var(--s8); }
-  .hero .grid { gap: var(--s6); }
+  .head { margin-bottom: var(--s6); }
+  .hero .copy { padding: var(--s4) 0 var(--s6); }
   .slip .actions .btn { width: 100%; }
-  .entries, .steps { grid-template-columns: 1fr; }
   .creds ul { grid-template-columns: 1fr; }
-  .creds li { border-right: 0; padding-left: 0; }
-  .creds li + li { border-top: 1px solid var(--rule); padding-left: 0; }
-  .rooms .strip { grid-template-columns: 1fr; }
+  .creds li { border-left: 0; padding-left: 0; border-top: 1px solid var(--rule-on-slate); padding-top: var(--s3); padding-bottom: var(--s3); }
+  .creds li:first-child { border-top: 0; }
+  .cards { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr; }
+  .plate img { aspect-ratio: 4 / 3; }
+  .rooms .gallery { grid-template-columns: 1fr; }
   .close .cta .btn { width: 100%; }
+  .form { padding: var(--s3); }
   .foot .wrap { grid-template-columns: 1fr; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
-.tnum, .tnum * { font-variant-numeric: tabular-nums; }
 @media (forced-colors: active) { .btn { border: 1px solid ButtonText; } }
-@media print { .bar { display: none; } }
+@media print { .bar, .topline { display: none; } .close .bg { display: none; } }
 </style>
 </head>
 <body>
@@ -230,14 +274,14 @@ h3 { font-size: var(--t-h3); line-height: 1.25; }
       <a href="#process">Process</a>
       <a href="#contact">Contact</a>
     </nav>
-    <a class="btn btn-primary" href="#contact">Request a consultation</a>
+    <div class="top-actions"><a class="tel-top tnum" href="tel:+12519628840">(251)&nbsp;962-8840</a><a class="btn btn-primary" href="#contact">Request a consultation</a></div>
   </div>
 </header>
 
 <main id="main">
 <section class="hero" aria-labelledby="promise">
   <div class="wrap grid">
-    <div>
+    <div class="copy">
       <p class="label">Board certified · ABPS</p>
       <h1 id="promise">Fifty unhurried minutes with the surgeon who&nbsp;operates.</h1>
       <p class="lede">Aesthetic and reconstructive surgery in a private, accredited facility. The consultation is with the surgeon, it runs fifty minutes, and it ends with a written plan rather than a deposit&nbsp;request.</p>
@@ -254,44 +298,61 @@ h3 { font-size: var(--t-h3); line-height: 1.25; }
     </div>
     <figure>
       <picture>
-        <source type="image/avif" srcset="../_assets/library/plastic-surgeons/rothbury-plastic-surgery/consult-room-640.avif 640w, ../_assets/library/plastic-surgeons/rothbury-plastic-surgery/consult-room-1280.avif 1280w" sizes="(max-width: 999px) 100vw, 40vw">
+        <source type="image/avif" srcset="../_assets/library/plastic-surgeons/rothbury-plastic-surgery/consult-room-640.avif 640w, ../_assets/library/plastic-surgeons/rothbury-plastic-surgery/consult-room-1280.avif 1280w" sizes="(max-width: 999px) 100vw, 45vw">
         <img src="../_assets/library/plastic-surgeons/rothbury-plastic-surgery/consult-room-720.jpg" alt="The consultation room: two chairs, a small table, one file" width="720" height="537" fetchpriority="high">
       </picture>
-      <figcaption><span>The consultation room</span><span>Fifty minutes</span></figcaption>
+      <figcaption>The consultation room · Fifty minutes</figcaption>
     </figure>
   </div>
 </section>
 
+<section class="creds on-slate" aria-label="Credentials">
+  <div class="wrap">
+    <ul>
+      <li><span class="big">Fifty</span><span class="sub">minute consultations, <b>with the surgeon</b></span></li>
+      <li><span class="big">ABPS</span><span class="sub">Board certified by the <b>American Board of Plastic Surgery</b></span></li>
+      <li><span class="big">AAAASF</span><span class="sub"><b>accredited</b> facility</span></li>
+      <li><span class="big">One</span><span class="sub">year of structured <b>follow-up</b>, with photographs at each stage</span></li>
+    </ul>
+  </div>
+</section>
 
 <section class="sec services" id="services" aria-labelledby="services-title">
   <div class="wrap">
     <div class="head">
-      <p class="label">Services</p>
+      <p class="label num" data-n="01">Services</p>
       <h2 id="services-title">Procedures</h2>
       <p class="lede muted">A short list, deliberately. These are the operations performed often enough to be performed&nbsp;exceptionally.</p>
     </div>
-    <ul class="entries">
-      <li><h3>Breast surgery</h3><p>Augmentation, lift, reduction and reconstruction. Sizing done with imaging so you see the projected outcome before deciding.</p></li>
-      <li><h3>Body contouring</h3><p>Abdominoplasty, liposuction and post-weight-loss contouring, staged sensibly rather than crammed into one operation.</p></li>
-      <li><h3>Facial surgery</h3><p>Facelift, blepharoplasty and rhinoplasty. Conservative by philosophy: the aim is that nobody can tell you’ve had anything done.</p></li>
-      <li><h3>Non-surgical</h3><p>Injectables, resurfacing and skin. Often the right starting point, and we’ll say so when surgery isn’t warranted yet.</p></li>
-    </ul>
+    <div class="grid">
+      <ul class="entries">
+        <li><span class="n">01</span><div><h3>Breast surgery</h3><p>Augmentation, lift, reduction and reconstruction. Sizing done with imaging so you see the projected outcome before deciding.</p></div></li>
+        <li><span class="n">02</span><div><h3>Body contouring</h3><p>Abdominoplasty, liposuction and post-weight-loss contouring, staged sensibly rather than crammed into one operation.</p></div></li>
+        <li><span class="n">03</span><div><h3>Facial surgery</h3><p>Facelift, blepharoplasty and rhinoplasty. Conservative by philosophy: the aim is that nobody can tell you’ve had anything done.</p></div></li>
+        <li><span class="n">04</span><div><h3>Non-surgical</h3><p>Injectables, resurfacing and skin. Often the right starting point, and we’ll say so when surgery isn’t warranted yet.</p></div></li>
+      </ul>
+      <figure class="loop" id="loop">
+        <div class="frame">
+          <picture>
+            <source type="image/avif" srcset="../_assets/hero/plastic-surgeons/d-alabaster-form-1280.avif 1280w, ../_assets/hero/plastic-surgeons/d-alabaster-form-2560.avif 2560w" sizes="(max-width: 999px) 100vw, 40vw">
+            <img src="../_assets/hero/plastic-surgeons/d-alabaster-form-1280.jpg" alt="An alabaster form on a stone plinth" width="1280" height="714" loading="lazy">
+          </picture>
+          <video muted loop playsinline preload="none" aria-hidden="true" tabindex="-1" poster="../_assets/hero/plastic-surgeons/d-alabaster-form-poster.jpg" data-src="../_assets/hero/plastic-surgeons/d-alabaster-form.mp4"></video>
+        </div>
+        <figcaption><span>Conservative by philosophy</span><button type="button" id="loop-toggle" hidden aria-pressed="false">Pause</button></figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
 <section class="sec reviews" id="results" aria-labelledby="results-title">
   <div class="wrap">
     <div class="head">
-      <p class="label">Results</p>
+      <p class="label num" data-n="02">Results</p>
       <h2 id="results-title">Patient experiences</h2>
+      <p class="lede muted">Private, discreet, and with the surgeon&nbsp;throughout.</p>
     </div>
     <div class="grid">
-      <div class="column">
-        <figure><blockquote>“The imaging meant I knew what I was choosing. No&nbsp;guessing.”</blockquote><figcaption><b>Amara O.</b> · Breast augmentation</figcaption></figure>
-        <figure><blockquote>“He recommended less than I asked for. That’s why I trusted&nbsp;him.”</blockquote><figcaption><b>Kirsten V.</b> · Facelift</figcaption></figure>
-        <figure><blockquote>“Aftercare was as thorough as the surgery. Called me himself at day&nbsp;three.”</blockquote><figcaption><b>Louise M.</b> · Abdominoplasty</figcaption></figure>
-        <figure><blockquote>“Private, discreet, and never once felt like a sales&nbsp;process.”</blockquote><figcaption><b>J. R.</b> · Rhinoplasty</figcaption></figure>
-      </div>
       <figure class="photo">
         <picture>
           <source type="image/avif" srcset="../_assets/library/plastic-surgeons/rothbury-plastic-surgery/waiting-lounge-640.avif 640w, ../_assets/library/plastic-surgeons/rothbury-plastic-surgery/waiting-lounge-1280.avif 1280w" sizes="(max-width: 999px) 100vw, 40vw">
@@ -299,6 +360,12 @@ h3 { font-size: var(--t-h3); line-height: 1.25; }
         </picture>
         <figcaption>One patient at a time</figcaption>
       </figure>
+      <div class="cards">
+        <figure><blockquote>“The imaging meant I knew what I was choosing. No&nbsp;guessing.”</blockquote><figcaption><b>Amara O.</b> · Breast augmentation</figcaption></figure>
+        <figure><blockquote>“He recommended less than I asked for. That’s why I trusted&nbsp;him.”</blockquote><figcaption><b>Kirsten V.</b> · Facelift</figcaption></figure>
+        <figure><blockquote>“Aftercare was as thorough as the surgery. Called me himself at day&nbsp;three.”</blockquote><figcaption><b>Louise M.</b> · Abdominoplasty</figcaption></figure>
+        <figure><blockquote>“Private, discreet, and never once felt like a sales&nbsp;process.”</blockquote><figcaption><b>J. R.</b> · Rhinoplasty</figcaption></figure>
+      </div>
     </div>
   </div>
 </section>
@@ -306,41 +373,54 @@ h3 { font-size: var(--t-h3); line-height: 1.25; }
 <section class="sec process" id="process" aria-labelledby="process-title">
   <div class="wrap">
     <div class="head">
-      <p class="label">Process</p>
+      <p class="label num" data-n="03">Process</p>
       <h2 id="process-title">From consultation to&nbsp;recovery</h2>
       <p class="lede muted">Unhurried, private, and with the surgeon throughout. Most people are deciding over months, not&nbsp;days.</p>
     </div>
     <ol class="steps">
-      <li><span class="n">01</span><div><h3>Private consultation</h3><p>Fifty minutes with the surgeon. Examination, imaging where useful, and a frank conversation about what is and isn’t achievable.</p></div></li>
-      <li><span class="n">02</span><div><h3>Plan &amp; quote</h3><p>A written surgical plan and an all-inclusive quote covering facility, anaesthesia and follow-up, with no line items appearing later.</p></div></li>
-      <li><span class="n">03</span><div><h3>Pre-operative</h3><p>Medical clearance, photographs and a second sit-down to confirm you’re certain. You can change your mind at any point.</p></div></li>
-      <li><span class="n">04</span><div><h3>Surgery &amp; aftercare</h3><p>Accredited suite, board-certified anaesthesia, and a structured follow-up schedule out to one year with photographs at each stage.</p></div></li>
+      <li><span class="n">01</span><h3>Private consultation</h3><p>Fifty minutes with the surgeon. Examination, imaging where useful, and a frank conversation about what is and isn’t achievable.</p></li>
+      <li><span class="n">02</span><h3>Plan &amp; quote</h3><p>A written surgical plan and an all-inclusive quote covering facility, anaesthesia and follow-up, with no line items appearing later.</p></li>
+      <li><span class="n">03</span><h3>Pre-operative</h3><p>Medical clearance, photographs and a second sit-down to confirm you’re certain. You can change your mind at any point.</p></li>
+      <li><span class="n">04</span><h3>Surgery &amp; aftercare</h3><p>Accredited suite, board-certified anaesthesia, and a structured follow-up schedule out to one year with photographs at each stage.</p></li>
     </ol>
+    <figure class="plate">
+      <picture>
+        <source type="image/avif" srcset="../_assets/hero/plastic-surgeons/a-accredited-suite-1280.avif 1280w, ../_assets/hero/plastic-surgeons/a-accredited-suite-2560.avif 2560w" sizes="(max-width: 1240px) 100vw, 1180px">
+        <img src="../_assets/hero/plastic-surgeons/a-accredited-suite-1280.jpg" alt="The operating suite, lit and empty" width="1280" height="714" loading="lazy">
+      </picture>
+      <figcaption>AAAASF accredited suite</figcaption>
+    </figure>
   </div>
 </section>
 
 <section class="sec rooms" aria-labelledby="rooms-title">
   <div class="wrap">
     <div class="head">
-      <p class="label">Fifty minutes</p>
+      <p class="label num" data-n="04">Fifty minutes</p>
       <h2 id="rooms-title">The room the consultation happens&nbsp;in.</h2>
       <p class="lede muted">One chair for you, one for the surgeon who will operate, and nothing on the table but your&nbsp;file.</p>
     </div>
-    <div class="strip">
-      <figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/rothbury-plastic-surgery/consult-room-640.avif 640w, ../_assets/library/plastic-surgeons/rothbury-plastic-surgery/consult-room-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/plastic-surgeons/rothbury-plastic-surgery/consult-room-720.jpg" alt="The consultation room" width="720" height="537" loading="lazy"></picture><figcaption>The consultation room</figcaption></figure>
-      <figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/rothbury-plastic-surgery/waiting-lounge-640.avif 640w, ../_assets/library/plastic-surgeons/rothbury-plastic-surgery/waiting-lounge-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/plastic-surgeons/rothbury-plastic-surgery/waiting-lounge-720.jpg" alt="One patient at a time" width="720" height="537" loading="lazy"></picture><figcaption>One patient at a time</figcaption></figure>
-      <figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/rothbury-plastic-surgery/imaging-room-640.avif 640w, ../_assets/library/plastic-surgeons/rothbury-plastic-surgery/imaging-room-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/plastic-surgeons/rothbury-plastic-surgery/imaging-room-720.jpg" alt="Imaging" width="720" height="537" loading="lazy"></picture><figcaption>Imaging</figcaption></figure>
-      <figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/rothbury-plastic-surgery/corridor-640.avif 640w, ../_assets/library/plastic-surgeons/rothbury-plastic-surgery/corridor-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/plastic-surgeons/rothbury-plastic-surgery/corridor-720.jpg" alt="The corridor" width="720" height="537" loading="lazy"></picture><figcaption>The corridor</figcaption></figure>
-      <figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/rothbury-plastic-surgery/recovery-room-640.avif 640w, ../_assets/library/plastic-surgeons/rothbury-plastic-surgery/recovery-room-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/plastic-surgeons/rothbury-plastic-surgery/recovery-room-720.jpg" alt="Recovery" width="720" height="537" loading="lazy"></picture><figcaption>Recovery</figcaption></figure>
-      <figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/rothbury-plastic-surgery/operating-suite-640.avif 640w, ../_assets/library/plastic-surgeons/rothbury-plastic-surgery/operating-suite-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/plastic-surgeons/rothbury-plastic-surgery/operating-suite-720.jpg" alt="The suite" width="720" height="537" loading="lazy"></picture><figcaption>The suite</figcaption></figure>
+    <div class="gallery">
+      <figure class="wide"><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/rothbury-plastic-surgery/corridor-640.avif 640w, ../_assets/library/plastic-surgeons/rothbury-plastic-surgery/corridor-1280.avif 1280w" sizes="(max-width: 759px) 100vw, (max-width: 999px) 50vw, 590px"><img src="../_assets/library/plastic-surgeons/rothbury-plastic-surgery/corridor-720.jpg" alt="The corridor: a leather chair by the fire" width="720" height="537" loading="lazy"></picture><figcaption>The corridor</figcaption></figure>
+      <figure class="wide"><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/rothbury-plastic-surgery/recovery-room-640.avif 640w, ../_assets/library/plastic-surgeons/rothbury-plastic-surgery/recovery-room-1280.avif 1280w" sizes="(max-width: 759px) 100vw, (max-width: 999px) 50vw, 590px"><img src="../_assets/library/plastic-surgeons/rothbury-plastic-surgery/recovery-room-720.jpg" alt="Recovery: a bed by a garden window" width="720" height="537" loading="lazy"></picture><figcaption>Recovery</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/rothbury-plastic-surgery/imaging-room-640.avif 640w, ../_assets/library/plastic-surgeons/rothbury-plastic-surgery/imaging-room-1280.avif 1280w" sizes="(max-width: 759px) 100vw, (max-width: 999px) 50vw, 380px"><img src="../_assets/library/plastic-surgeons/rothbury-plastic-surgery/imaging-room-720.jpg" alt="Imaging" width="720" height="537" loading="lazy"></picture><figcaption>Imaging</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/aftercare-kit-640.avif 640w, ../_assets/library/plastic-surgeons/aftercare-kit-1280.avif 1280w" sizes="(max-width: 759px) 100vw, (max-width: 999px) 50vw, 380px"><img src="../_assets/library/plastic-surgeons/aftercare-kit-720.jpg" alt="Aftercare: dressings and a plan on linen" width="720" height="537" loading="lazy"></picture><figcaption>Aftercare</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/plastic-surgeons/private-entrance-640.avif 640w, ../_assets/library/plastic-surgeons/private-entrance-1280.avif 1280w" sizes="(max-width: 759px) 100vw, (max-width: 999px) 50vw, 380px"><img src="../_assets/library/plastic-surgeons/private-entrance-720.jpg" alt="The private entrance" width="720" height="537" loading="lazy"></picture><figcaption>Private entrance</figcaption></figure>
     </div>
   </div>
 </section>
 
-<section class="sec close" id="contact" aria-labelledby="close-title">
+<section class="sec close on-slate" id="contact" aria-labelledby="close-title">
+  <div class="bg" aria-hidden="true">
+    <picture>
+      <source type="image/avif" srcset="../_assets/hero/plastic-surgeons/e-discreet-arrival-1280.avif 1280w, ../_assets/hero/plastic-surgeons/e-discreet-arrival-2560.avif 2560w" sizes="100vw">
+      <img src="../_assets/hero/plastic-surgeons/e-discreet-arrival-1280.jpg" alt="" width="1280" height="714" loading="lazy">
+    </picture>
+  </div>
   <div class="wrap grid">
     <div>
-      <h2 id="close-title">Not ready to decide&nbsp;anything?</h2>
+      <p class="label num" data-n="05" style="color: var(--terra-light)">Contact</p>
+      <h2 id="close-title" style="margin-top: var(--s3)">Not ready to decide&nbsp;anything?</h2>
       <p class="lede">Most of our patients thought about it for a year or more. A consultation commits you to nothing and is the fastest way to replace guesswork with&nbsp;facts.</p>
       <div class="cta">
         <a class="btn btn-primary" href="#cb-name">Request a consultation</a>
@@ -401,6 +481,26 @@ h3 { font-size: var(--t-h3); line-height: 1.25; }
     if (!ok) { (name.value.trim() ? contact : name).focus(); return; }
     form.classList.add('is-sent');
     document.getElementById('cb-done').hidden = false;
+  });
+
+  // The alabaster loop loads only when motion is welcome and the connection can carry it;
+  // otherwise the still stays. A pause control appears once it plays (WCAG 2.2.2).
+  var fig = document.getElementById('loop'), video = fig.querySelector('video'), toggle = document.getElementById('loop-toggle');
+  var conn = navigator.connection || {};
+  var allowed = !window.matchMedia('(prefers-reduced-motion: reduce)').matches && !conn.saveData && !/2g/.test(conn.effectiveType || '');
+  if (!allowed || !video.canPlayType('video/mp4')) return;
+  var io = new IntersectionObserver(function (entries) {
+    if (!entries[0].isIntersecting) return;
+    io.disconnect();
+    video.src = video.getAttribute('data-src');
+    video.play().then(function () { fig.classList.add('is-playing'); toggle.hidden = false; }).catch(function () {});
+  }, { rootMargin: '200px' });
+  io.observe(fig);
+  toggle.addEventListener('click', function () {
+    var paused = video.paused;
+    if (paused) { video.play(); } else { video.pause(); }
+    toggle.textContent = paused ? 'Pause' : 'Play';
+    toggle.setAttribute('aria-pressed', paused ? 'false' : 'true');
   });
 })();
 </script>
