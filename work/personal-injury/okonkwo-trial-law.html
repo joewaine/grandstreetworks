@@ -1,297 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="robots" content="noindex"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<link href="../_assets/fonts/19b40698fdf5.css" rel="stylesheet"/>
-<style>
-        
-        :root {
-            --font-serif: 'Playfair Display', serif;
-            --font-sans: 'Inter', sans-serif;
-            --border-thin: 1px solid var(--ink);
-            --border-thick: 3px solid var(--ink);
-            --radius-pill: 999px;
-        }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: var(--font-sans); -webkit-font-smoothing: antialiased; background: #E5E5E5; color: #111; overflow-y: scroll; }
-        
-        
-        .presentation-deck { max-width: 1400px; margin: 0 auto; padding: 2rem 1rem 8rem; }
-        .deck-header { text-align: center; margin-bottom: 3rem; font-family: var(--font-serif); }
-        .deck-header h1 { font-size: 2rem; font-weight: 400; letter-spacing: -0.02em; }
-        
-        .controls { 
-            position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%);
-            display: flex; gap: 0.5rem; background: #111; padding: 0.5rem; border-radius: var(--radius-pill);
-            z-index: 1000; box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-        }
-        .controls label {
-            color: #fff; padding: 0.75rem 1.5rem; cursor: pointer; border-radius: var(--radius-pill);
-            font-size: 0.85rem; font-weight: 500; letter-spacing: 0.02em; transition: all 0.2s;
-        }
-        .controls label:hover { background: #333; }
-        input[type="radio"] { display: none; }
-        
-        #t1:checked ~ .controls label[for="t1"], #t2:checked ~ .controls label[for="t2"],
-        #t3:checked ~ .controls label[for="t3"], #t4:checked ~ .controls label[for="t4"],
-        #t5:checked ~ .controls label[for="t5"], #t6:checked ~ .controls label[for="t6"] {
-            background: #fff; color: #111;
-        }
-
-        .direction-container { display: none; animation: fadeIn 0.4s ease; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-        #t1:checked ~ .deck-content #d1, #t2:checked ~ .deck-content #d2,
-        #t3:checked ~ .deck-content #d3, #t4:checked ~ .deck-content #d4,
-        #t5:checked ~ .deck-content #d5, #t6:checked ~ .deck-content #d6 { display: block; }
-
-        .meta-panel { 
-            background: #111; color: #fff; padding: 2rem; margin-bottom: 2rem; border-radius: 8px;
-            display: grid; gap: 1rem;
-        }
-        .meta-panel h2 { font-family: var(--font-serif); font-size: 2rem; font-weight: 400; margin-bottom: 0.5rem; color: var(--accent, #fff); }
-        .meta-panel p.rationale { font-size: 1.1rem; line-height: 1.5; color: #ccc; margin-bottom: 1rem; }
-        .meta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; font-size: 0.85rem; color: #aaa; }
-        .meta-grid strong { color: #fff; display: block; margin-bottom: 0.25rem; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.7rem; }
-        .defend-callout { background: #222; padding: 1rem; border-left: 2px solid var(--accent, #fff); margin-top: 1rem; color: #fff; }
-
-        
-        .page { 
-            background: var(--surface); color: var(--ink); 
-            width: 100%; max-width: 1200px; margin: 0 auto; 
-            position: relative; overflow: hidden;
-            border: 1px solid rgba(0,0,0,0.1); box-shadow: 0 20px 60px rgba(0,0,0,0.05);
-        }
-
-        
-        .page h1, .page h2, .page h3, .page .serif { font-family: var(--font-serif); font-weight: 400; line-height: 1; letter-spacing: -0.02em; }
-        .page p { line-height: 1.6; font-size: 1rem; }
-        
-        .topbar { background: var(--ink); color: var(--surface); text-align: center; padding: 0.5rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
-        .topbar .dot { opacity: 0.5; }
-        
-        .btn-primary, .btn-secondary { display: inline-flex; justify-content: center; align-items: center; padding: 1rem 2rem; font-weight: 500; text-decoration: none; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.85rem; cursor: pointer; transition: all 0.2s; border-radius: var(--radius-pill); width: 100%; }
-        @media(min-width: 768px) { .btn-primary, .btn-secondary { width: auto; } }
-        .btn-primary { background: var(--ink); color: var(--surface); border: 2px solid var(--ink); }
-        .btn-primary:hover { background: transparent; color: var(--ink); }
-        .btn-secondary { background: transparent; color: var(--ink); border: 2px solid var(--ink); }
-        .btn-secondary:hover { background: var(--ink); color: var(--surface); }
-
-        .section-pad { padding: 4rem 1.5rem; }
-        @media(min-width: 768px) { .section-pad { padding: 6rem 4rem; } }
-        
-        .section-header { margin-bottom: 3rem; max-width: 600px; }
-        .section-header h2 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1rem; }
-        .section-header p { color: var(--muted); }
-
-        .badge-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2rem; }
-        .badge { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.5rem 1rem; border: var(--border-thin); border-radius: var(--radius-pill); }
-
-        
-        .nav-inline { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem; border-bottom: var(--border-thin); flex-wrap: wrap; gap: 1rem; }
-        .nav-inline .logo { font-family: var(--font-serif); font-size: 1.5rem; }
-        .nav-inline .links { display: none; gap: 2rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
-        .nav-inline .phone { font-weight: 600; color: var(--ink); text-decoration: none; }
-        @media(min-width: 768px) { .nav-inline .links { display: flex; } }
-
-        .nav-bar { border-bottom: var(--border-thick); }
-        .nav-bar .inner { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem; }
-        .nav-bar .logo { font-family: var(--font-serif); font-size: 1.75rem; text-transform: uppercase; }
-        .nav-bar .links { display: none; gap: 2rem; font-size: 0.85rem; font-weight: 500; }
-        .nav-bar .phone { background: var(--ink); color: var(--surface); padding: 0.75rem 1.5rem; border-radius: var(--radius-pill); text-decoration: none; font-size: 0.85rem; }
-        @media(min-width: 768px) { .nav-bar .links { display: flex; } }
-
-        .nav-minimal { display: flex; justify-content: space-between; align-items: center; padding: 2rem; }
-        .nav-minimal .logo { font-family: var(--font-serif); font-size: 1.5rem; }
-        .nav-minimal .menu-btn { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; }
-
-        .nav-centered { display: flex; flex-direction: column; align-items: center; gap: 1rem; padding: 2rem; border-bottom: var(--border-thin); }
-        .nav-centered .logo { font-family: var(--font-serif); font-size: 2rem; }
-        .nav-centered .links { display: flex; gap: 1rem; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; flex-wrap: wrap; justify-content: center; }
-
-        
-        
-        .hero-split { display: grid; grid-template-columns: 1fr; border-bottom: var(--border-thick); }
-        @media(min-width: 900px) { .hero-split { grid-template-columns: 1.2fr 0.8fr; } }
-        .hero-split .content { padding: 3rem 1.5rem; display: flex; flex-direction: column; justify-content: center; }
-        @media(min-width: 900px) { .hero-split .content { padding: 6rem 4rem; } }
-        .hero-split .eyebrow { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 2rem; display: block; }
-        .hero-split h1 { font-size: clamp(3rem, 7vw, 6rem); margin-bottom: 1.5rem; }
-        .hero-split .ctas { display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap; }
-        .hero-split .side { background: var(--accent); padding: 3rem 1.5rem; border-top: var(--border-thin); display: flex; flex-direction: column; justify-content: center; }
-        @media(min-width: 900px) { .hero-split .side { border-top: none; border-left: var(--border-thin); padding: 4rem; } }
-        .hero-split .side .badge-list { flex-direction: column; gap: 1rem; margin: 0; }
-        .hero-split .side .badge { border-color: var(--on-accent); color: var(--on-accent); padding: 1rem; text-align: center; background: transparent; }
-
-        
-        .hero-stack { text-align: center; padding: 4rem 1.5rem; border-bottom: var(--border-thick); display: flex; flex-direction: column; align-items: center; }
-        @media(min-width: 768px) { .hero-stack { padding: 8rem 2rem; } }
-        .hero-stack .eyebrow { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; border: var(--border-thin); padding: 0.5rem 1.5rem; border-radius: var(--radius-pill); margin-bottom: 3rem; }
-        .hero-stack h1 { font-size: clamp(3.5rem, 10vw, 8rem); max-width: 1000px; margin-bottom: 2rem; text-transform: uppercase; }
-        .hero-stack p { max-width: 600px; margin: 0 auto 3rem; font-size: 1.1rem; }
-        .hero-stack .ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-
-        
-        .hero-panel { padding: 1rem; background: var(--surface); }
-        .hero-panel .inner { border: var(--border-thick); background: var(--accent); padding: 3rem 1.5rem; text-align: center; }
-        @media(min-width: 768px) { .hero-panel .inner { padding: 6rem 4rem; } }
-        .hero-panel h1 { font-size: clamp(3rem, 8vw, 7rem); color: var(--on-accent); margin: 2rem 0; }
-        .hero-panel p { color: var(--on-accent); opacity: 0.9; max-width: 600px; margin: 0 auto 3rem; }
-        .hero-panel .badge-list { justify-content: center; border-top: 1px solid var(--on-accent); padding-top: 2rem; margin-top: 3rem; }
-
-        
-        .hero-fullbleed { background: var(--ink); color: var(--surface); padding: 6rem 1.5rem; text-align: center; border-bottom: var(--border-thin); }
-        @media(min-width: 768px) { .hero-fullbleed { padding: 10rem 2rem; } }
-        .hero-fullbleed h1 { font-size: clamp(3.5rem, 9vw, 8rem); margin-bottom: 2rem; }
-        .hero-fullbleed p { color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto 3rem; font-size: 1.25rem; }
-        .hero-fullbleed .btn-primary { background: var(--surface); color: var(--ink); border-color: var(--surface); }
-        .hero-fullbleed .btn-secondary { color: var(--surface); border-color: var(--surface); }
-        .hero-fullbleed .badge { border-color: rgba(255,255,255,0.3); }
-        .hero-fullbleed .badge-list { justify-content: center; }
-
-        
-        .hero-band { background: var(--accent); color: var(--on-accent); padding: 4rem 1.5rem; border-bottom: var(--border-thick); }
-        @media(min-width: 768px) { .hero-band { padding: 6rem 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; } }
-        .hero-band h1 { font-size: clamp(3rem, 6vw, 5rem); margin-bottom: 1rem; }
-        .hero-band .right { border-top: 2px solid var(--on-accent); padding-top: 2rem; }
-        @media(min-width: 768px) { .hero-band .right { border-top: none; border-left: 2px solid var(--on-accent); padding-top: 0; padding-left: 4rem; } }
-        
-        
-        
-        .services-list .s-item { border-bottom: var(--border-thin); padding: 2rem 0; display: grid; gap: 1rem; }
-        @media(min-width: 768px) { .services-list .s-item { grid-template-columns: 300px 1fr; align-items: baseline; padding: 3rem 0; } }
-        .services-list .s-item:first-child { border-top: var(--border-thick); }
-        .services-list h3 { font-size: 1.5rem; }
-        .services-list p { color: var(--muted); }
-
-        
-        .services-grid-num { display: grid; gap: 1px; background: var(--ink); border: var(--border-thin); }
-        @media(min-width: 768px) { .services-grid-num { grid-template-columns: 1fr 1fr; } }
-        .services-grid-num .s-item { background: var(--surface); padding: 3rem 2rem; position: relative; }
-        .services-grid-num h3 { font-size: 1.75rem; margin-bottom: 1rem; position: relative; z-index: 2; }
-        .services-grid-num p { color: var(--muted); position: relative; z-index: 2; }
-        .services-grid-num .num { position: absolute; top: 1rem; right: 1rem; font-family: var(--font-serif); font-size: 6rem; color: var(--accent); opacity: 0.5; line-height: 0.8; z-index: 1; }
-
-        
-        .services-cards { display: grid; gap: 1.5rem; padding: 1.5rem; background: var(--accent); }
-        @media(min-width: 768px) { .services-cards { grid-template-columns: 1fr 1fr; padding: 4rem; gap: 2rem; } }
-        .services-cards .s-item { background: var(--surface); border: var(--border-thick); padding: 2rem; }
-        .services-cards h3 { font-size: 1.5rem; margin-bottom: 1rem; }
-
-        
-        .services-tiles { display: grid; grid-template-columns: 1fr; }
-        @media(min-width: 768px) { .services-tiles { grid-template-columns: repeat(4, 1fr); } }
-        .services-tiles .s-item { background: var(--ink); color: var(--surface); padding: 3rem 2rem; border-right: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .services-tiles h3 { font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--accent); }
-        .services-tiles p { opacity: 0.8; font-size: 0.9rem; }
-
-        
-        
-        .proof-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; border-top: var(--border-thick); padding-top: 4rem; }
-        @media(min-width: 768px) { .proof-stats { grid-template-columns: repeat(4, 1fr); } }
-        .proof-stats .stat { display: flex; flex-direction: column; border-left: var(--border-thin); padding-left: 1rem; }
-        .proof-stats .val { font-family: var(--font-serif); font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1; margin-bottom: 0.5rem; }
-        .proof-stats .lbl { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
-
-        
-        .proof-test-lead { background: var(--ink); color: var(--surface); padding: 6rem 1.5rem; text-align: center; }
-        @media(min-width: 768px) { .proof-test-lead { padding: 10rem 4rem; } }
-        .proof-test-lead blockquote { font-family: var(--font-serif); font-size: clamp(2rem, 5vw, 4rem); line-height: 1.2; margin-bottom: 2rem; max-width: 900px; margin-inline: auto; }
-        .proof-test-lead cite { display: block; font-style: normal; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); }
-
-        
-        .proof-logos { display: flex; flex-wrap: wrap; justify-content: center; gap: 3rem; padding: 4rem 1.5rem; border-y: var(--border-thin); }
-        .proof-logos .logo-item { font-family: var(--font-serif); font-size: 1.25rem; color: var(--muted); text-transform: uppercase; text-align: center; max-width: 150px; line-height: 1.2; }
-
-        
-        .proof-wall { display: grid; gap: 1px; background: var(--ink); border: var(--border-thin); }
-        @media(min-width: 768px) { .proof-wall { grid-template-columns: 1fr 1fr; } }
-        .proof-wall .rev { background: var(--surface); padding: 3rem; }
-        .proof-wall p { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 1.5rem; }
-        .proof-wall cite { font-style: normal; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
-
-        
-        .process-grid { display: grid; gap: 2rem; }
-        @media(min-width: 768px) { .process-grid { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; } }
-        .process-item { border-top: 2px solid var(--ink); padding-top: 1.5rem; }
-        .process-item .step { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 0.5rem; display: block; }
-        .process-item h3 { font-size: 1.1rem; margin-bottom: 1rem; font-family: var(--font-sans); font-weight: 600; }
-        .process-item p { font-size: 0.9rem; color: var(--muted); }
-
-        
-        .closing-cta { background: var(--accent); color: var(--on-accent); text-align: center; padding: 6rem 1.5rem; border-top: var(--border-thick); }
-        .closing-cta h2 { font-size: clamp(3rem, 6vw, 5rem); margin-bottom: 1.5rem; }
-        .closing-cta p { max-width: 600px; margin: 0 auto 2rem; font-size: 1.1rem; }
-        .closing-cta .note { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 2rem; opacity: 0.7; }
-
-        
-        .footer { background: var(--ink); color: var(--surface); padding: 2rem; text-align: center; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
-
-        
-        #d1 .page { --ink: #0A0A0A; --surface: #FAFAFA; --accent: #BCA38F; --muted: #666; --on-accent: #0A0A0A; }
-        #d2 .page { --ink: #000000; --surface: #FFFFFF; --accent: #E5E5E5; --muted: #777; --on-accent: #000000; }
-        #d3 .page { --ink: #111111; --surface: #ECEAE5; --accent: #A89B86; --muted: #555; --on-accent: #111111; }
-        #d4 .page { --ink: #FAFAFA; --surface: #0F0F0F; --accent: #222222; --muted: #888; --on-accent: #FAFAFA; --border-thin: 1px solid var(--ink); --border-thick: 3px solid var(--ink); }
-        #d5 .page { --ink: #050505; --surface: #F4F4F4; --accent: #D4D0C9; --muted: #444; --on-accent: #050505; }
-        #d6 .page { --ink: #141311; --surface: #F5F3EE; --accent: #C2B59B; --muted: #6E6B66; --on-accent: #141311; }
-    </style>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Okonkwo Trial Law · Free case review · No fee unless we win · Hablamos español. Most firms settle. We try cases.">
 <title>Okonkwo Trial Law · Injury cases tried, not just settled</title>
+<link rel="preload" href="../_assets/fonts/spectral-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../_assets/fonts/chivo-var.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-/* --- standalone overrides: strip the pitch-deck device frame --- */
+/* D2 — THE VERDICT. hero:split nav:inline services:list proof:stats
+   palette: paper #F4EFE6 · ink #141519 · oxblood #7A1C24 · navy #1C2A40 · brass #B8924A
+   ramp: 76/56/24/20/17/15/13 — Spectral 400 + italic for display and the human line, Chivo 400/600 for text and labels
+   device: the verdict sheet — a ruled results row as the largest object, under the courthouse steps
+   FIX answered (v2): no palette, text-only hero, one grey plate → three coloured bands, six real photographs each used once, 17 px body */
 
-html, body { margin: 0; padding: 0; width: 100%; max-width: none; }
-body { display: block; background: #fff; }
-body > * { margin: 0; }
+@font-face { font-family: "Spectral"; src: url("../_assets/fonts/spectral-400.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Spectral"; src: url("../_assets/fonts/spectral-400-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Chivo"; src: url("../_assets/fonts/chivo-var.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Spectral Fallback"; src: local("Georgia"); size-adjust: 100%; ascent-override: 106%; descent-override: 46%; line-gap-override: 0%; }
+@font-face { font-family: "Chivo Fallback"; src: local("Arial"); size-adjust: 106%; ascent-override: 89%; descent-override: 24%; line-gap-override: 0%; }
 
-.direction-container { display: block !important; animation: none !important; }
-.page { max-width: none !important; border: 0 !important; box-shadow: none !important;
-        min-height: 100vh; }
+:root {
+  --paper: #F4EFE6; --paper-2: #E9E2D4;
+  --ink: #141519; --ink-2: #2A2C33;
+  --oxblood: #7A1C24; --oxblood-2: #5E141B;
+  --navy: #1C2A40; --navy-2: #142033;
+  --brass: #B8924A; --brass-2: #D9BC7A;
+  --muted: #5B5D66;           /* on paper 5.9:1 */
+  --mist: #C3C8D3;            /* on navy 9.4:1 */
+  --rule: rgba(20, 21, 25, .18);
+  --rule-dark: rgba(244, 239, 230, .22);
+  --focus: #2F6FED;
 
-#d2 .broadside { border-bottom: var(--border-thick); background: #000; }
-        #d2 .broadside figure { margin: 0; position: relative; overflow: hidden; }
-        #d2 .broadside img { display: block; width: 100%; aspect-ratio: 21 / 8; object-fit: cover;
-              object-position: 50% 60%; filter: grayscale(1) contrast(1.35) brightness(.95); }
-        #d2 .broadside figcaption { display: flex; justify-content: space-between; gap: 2rem;
-              flex-wrap: wrap; align-items: baseline; padding: 1rem 1.5rem; background: #000; color: #fff;
-              font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; }
-        @media(min-width: 768px) { #d2 .broadside figcaption { padding: 1.25rem 4rem; } }
-        #d2 .broadside figcaption em { font-family: var(--font-serif); font-style: italic;
-              font-size: 1.1rem; letter-spacing: 0; text-transform: none; }
-</style>
+  --serif: "Spectral", "Spectral Fallback", Georgia, serif;
+  --sans: "Chivo", "Chivo Fallback", Arial, sans-serif;
+  --fs-1: clamp(2.75rem, 1.6rem + 4.2vw, 4.75rem);
+  --fs-2: clamp(2rem, 1.35rem + 2.5vw, 3.5rem);
+  --fs-3: 1.5rem;
+  --fs-lede: 1.25rem;
+  --fs-body: clamp(1rem, 0.95rem + 0.2vw, 1.0625rem);
+  --fs-small: 0.9375rem;
+  --fs-label: 0.8125rem;
 
-<style>
-  /* gsw:contact-form — the closing section takes a name. Borrows the section's
-     colour through currentColor and the build's own .btn for the button. */
-  .gsw-cf { max-width: 640px; margin: 28px 0 0; text-align: left; }
-  .gsw-cf--centred { margin-left: auto; margin-right: auto; }
-  .gsw-cf-lead { margin: 0 0 12px; font-size: 15px; opacity: .85; }
-  .gsw-cf-grid { display: grid; gap: 10px; }
-  .gsw-cf label { display: flex; flex-direction: column; gap: 5px; font-size: 11px;
-                  font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
-  .gsw-cf label em { font-style: normal; font-weight: 400; text-transform: none; letter-spacing: 0; opacity: .7; }
-  .gsw-cf input, .gsw-cf textarea { font: inherit; font-size: 16px; color: inherit; background: transparent;
-                                    border: 1.5px solid currentColor; border-radius: 0; padding: 10px 12px; width: 100%;
-                                    box-sizing: border-box; letter-spacing: 0; text-transform: none; font-weight: 400; }
-  .gsw-cf input:focus, .gsw-cf textarea:focus { outline: 2px solid currentColor; outline-offset: 2px; }
-  .gsw-cf textarea { resize: vertical; min-height: 84px; }
-  .gsw-cf-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 14px; }
-  .gsw-cf button.btn { font: inherit; cursor: pointer; appearance: none; }
-  .gsw-cf-err { font-size: 14px; font-weight: 600; }
-  .gsw-cf-done { margin: 0; font-size: 17px; font-weight: 600; }
-  .gsw-cf[data-sent] .gsw-cf-lead, .gsw-cf[data-sent] .gsw-cf-grid, .gsw-cf[data-sent] .gsw-cf-row { display: none; }
-  @media (min-width: 640px) {
-    .gsw-cf-grid { grid-template-columns: 1fr 1fr; }
-    .gsw-cf-wide { grid-column: 1 / -1; }
-  }
+  --lh: 1.6;
+  --sp-1: 0.5rem; --sp-2: 1rem; --sp-3: 1.7rem; --sp-4: 2.55rem; --sp-5: 3.4rem; --sp-6: 5.1rem; --sp-7: 6.8rem;
+  --wrap: 1200px; --gutter: clamp(1.25rem, 4vw, 3.5rem);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: var(--fs-body); line-height: var(--lh); font-optical-sizing: auto; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; margin: 0; letter-spacing: -0.01em; }
+h1 { font-size: var(--fs-1); line-height: 1; text-wrap: balance; }
+h2 { font-size: var(--fs-2); line-height: 1.05; text-wrap: balance; }
+h3 { font-size: var(--fs-3); line-height: 1.2; }
+p { margin: 0; text-wrap: pretty; }
+.wrap { max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gutter); }
+.label { font-family: var(--sans); font-size: var(--fs-label); font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.tnum { font-variant-numeric: tabular-nums; }
+.measure { max-width: 62ch; }
+.lede { font-size: var(--fs-lede); line-height: 1.5; max-width: 50ch; }
+.on-dark { -webkit-font-smoothing: antialiased; }
+
+/* buttons */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; min-height: 3.25rem; padding: .85rem 1.6rem; font-family: var(--sans); font-size: var(--fs-body); font-weight: 600; line-height: 1.2; text-decoration: none; border: 1.5px solid transparent; border-radius: 2px; cursor: pointer; transition: background-color .18s ease, color .18s ease, border-color .18s ease; }
+.btn-primary { background: var(--oxblood); color: var(--paper); border-color: var(--oxblood); }
+.btn-primary:hover { background: var(--oxblood-2); border-color: var(--oxblood-2); }
+.btn-outline { background: transparent; color: var(--ink); border-color: var(--ink); }
+.btn-outline:hover { background: var(--ink); color: var(--paper); }
+.btn-paper { background: var(--paper); color: var(--navy); border-color: var(--paper); }
+.btn-paper:hover { background: var(--brass-2); border-color: var(--brass-2); color: var(--ink); }
+.btn-ghost { background: transparent; color: var(--paper); border-color: var(--paper); }
+.btn-ghost:hover { background: var(--paper); color: var(--navy); }
+.btn .tnum { font-variant-numeric: tabular-nums; }
+
+/* topbar */
+.topbar { background: var(--oxblood); color: var(--paper); }
+.topbar .wrap { display: flex; justify-content: center; gap: 1.25rem; flex-wrap: wrap; padding-block: .55rem; }
+.topbar span { font-size: var(--fs-label); font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.topbar .dot { opacity: .55; }
+@media (max-width: 599px) { .topbar .wrap { flex-direction: column; align-items: center; gap: .1rem; } .topbar .dot { display: none; } }
+
+/* header */
+.masthead { position: sticky; top: 0; z-index: 30; background: var(--paper); border-bottom: 1px solid var(--rule); }
+.masthead .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; min-height: 4.5rem; }
+.brand { display: inline-flex; align-items: center; gap: .75rem; text-decoration: none; font-family: var(--serif); font-size: var(--fs-3); line-height: 1; }
+.brand img { width: 2.25rem; height: 2.25rem; }
+@media (max-width: 599px) { .masthead .brand { font-size: var(--fs-lede); white-space: nowrap; } }
+.nav { display: none; gap: 2rem; }
+.nav a { font-size: var(--fs-small); font-weight: 600; text-decoration: none; padding-block: .25rem; border-bottom: 1.5px solid transparent; }
+.nav a:hover { border-bottom-color: var(--oxblood); }
+.mast-actions { display: flex; align-items: center; gap: 1rem; }
+.mast-phone { display: none; }
+.menu-btn { appearance: none; background: none; border: 1.5px solid var(--ink); border-radius: 2px; padding: .55rem .8rem; font: inherit; font-size: var(--fs-label); font-weight: 600; letter-spacing: .1em; text-transform: uppercase; cursor: pointer; }
+.drawer { display: none; border-top: 1px solid var(--rule); background: var(--paper); }
+.drawer[data-open] { display: block; }
+.drawer .wrap { display: grid; gap: .25rem; padding-block: 1rem 1.5rem; }
+.drawer a { font-size: var(--fs-lede); font-family: var(--serif); text-decoration: none; padding: .55rem 0; border-bottom: 1px solid var(--rule); }
+@media (min-width: 900px) {
+  .nav { display: flex; }
+  .mast-phone { display: inline-flex; }
+  .menu-btn, .drawer { display: none !important; }
+}
+
+/* hero */
+.hero { display: grid; grid-template-columns: 1fr; background: var(--paper-2); }
+.hero-media { position: relative; min-height: 46svh; overflow: hidden; order: -1; }
+.hero-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 60%; }
+.hero-panel { padding: var(--sp-5) var(--gutter) var(--sp-5); display: flex; flex-direction: column; justify-content: center; gap: var(--sp-3); }
+.hero-panel .eyebrow { color: var(--oxblood); }
+.hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+.hero-badges { list-style: none; margin: 0; padding: 0; display: grid; border-top: 1px solid var(--rule); }
+.hero-badges li { display: flex; align-items: baseline; gap: .8rem; padding: .7rem 0; border-bottom: 1px solid var(--rule); font-weight: 600; font-size: var(--fs-small); }
+.hero-badges li::before { content: ""; width: 1.4rem; height: 2px; background: var(--oxblood); flex: none; transform: translateY(-.3em); }
+@media (min-width: 900px) {
+  .hero { grid-template-columns: minmax(0, 8fr) minmax(0, 5fr); min-height: 84svh; }
+  .hero-media { order: 2; min-height: 100%; }
+  .hero-panel { order: 1; padding: var(--sp-6) var(--sp-6) var(--sp-6) max(var(--gutter), calc((100vw - var(--wrap)) / 2)); }
+  .hero-badges { grid-template-columns: 1fr 1fr; column-gap: 2rem; }
+  .hero-badges li:nth-child(3) { grid-column: 1 / -1; }
+}
+@media (min-width: 1200px) { .hero-badges { grid-template-columns: repeat(3, 1fr); } .hero-badges li:nth-child(3) { grid-column: auto; } }
+
+/* results row */
+.results { background: var(--navy); color: var(--paper); }
+.results .wrap { padding-block: var(--sp-5); }
+.results-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; margin-bottom: var(--sp-3); }
+.results-head .label { color: var(--brass-2); }
+.results-head p { color: var(--mist); font-size: var(--fs-small); max-width: 52ch; }
+.results-row { list-style: none; margin: 0; padding: 0; display: grid; border-top: 1px solid var(--rule-dark); }
+.results-row li { padding: var(--sp-3) 0; border-bottom: 1px solid var(--rule-dark); display: grid; grid-template-columns: auto 1fr; align-items: baseline; gap: 1.25rem; }
+.results-row .fig { font-family: var(--serif); font-size: var(--fs-1); line-height: 1; color: var(--brass-2); font-variant-numeric: tabular-nums; }
+.results-row .fig-text { font-size: var(--fs-2); }
+.results-row .what { color: var(--mist); max-width: 26ch; font-size: var(--fs-small); line-height: 1.45; }
+@media (min-width: 900px) {
+  .results-row { grid-template-columns: repeat(3, 1fr); border-top: 0; }
+  .results-row li { grid-template-columns: 1fr; gap: .8rem; border-bottom: 0; border-top: 1px solid var(--rule-dark); padding-right: 2rem; }
+}
+
+/* sections */
+.section { padding-block: var(--sp-7); }
+.section-head { display: grid; gap: var(--sp-2); margin-bottom: var(--sp-5); }
+.section-head .label { color: var(--oxblood); }
+.section-head p { color: var(--muted); max-width: 58ch; }
+@media (min-width: 900px) { .section-head { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: end; gap: var(--sp-4); } .section-head p { justify-self: end; } }
+
+/* services */
+.services { list-style: none; margin: 0; padding: 0; display: grid; border-top: 1px solid var(--ink); }
+.services li { display: grid; gap: .5rem; padding: var(--sp-3) 0; border-bottom: 1px solid var(--rule); }
+.services .num { color: var(--oxblood); }
+.services p { color: var(--muted); max-width: 50ch; }
+@media (min-width: 720px) { .services { grid-template-columns: 1fr 1fr; column-gap: var(--sp-5); } }
+.tiles { display: grid; gap: var(--sp-2); margin-top: var(--sp-5); }
+.tiles figure { margin: 0; }
+.tiles img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.tiles figcaption { display: flex; gap: 1rem; padding-top: .7rem; font-size: var(--fs-label); font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.tiles figcaption span:first-child { color: var(--oxblood); }
+@media (min-width: 720px) { .tiles { grid-template-columns: 1fr 1fr; gap: var(--sp-3); } }
+
+/* fig 1 — the night floor */
+.night { background: var(--ink); color: var(--paper); }
+.night img { width: 100%; aspect-ratio: 21 / 9; object-fit: cover; object-position: 50% 45%; }
+@media (max-width: 719px) { .night img { aspect-ratio: 4 / 3; } }
+.night .cap { display: flex; justify-content: space-between; align-items: baseline; gap: 1.5rem; flex-wrap: wrap; padding-block: 1.1rem; }
+.night .cap .label { color: var(--brass-2); }
+.night .cap em { font-family: var(--serif); font-style: italic; font-size: var(--fs-lede); }
+
+/* testimonial */
+.quote { background: var(--oxblood); color: var(--paper); }
+.quote .wrap { padding-block: var(--sp-7); display: grid; gap: var(--sp-4); }
+.quote blockquote { margin: 0; font-family: var(--serif); font-style: italic; font-size: var(--fs-2); line-height: 1.2; max-width: 46ch; text-wrap: balance; }
+.quote cite { font-style: normal; display: flex; align-items: center; gap: 1rem; }
+.quote cite::before { content: ""; width: 2.5rem; height: 2px; background: var(--brass-2); }
+.quote .label { color: var(--brass-2); }
+@media (min-width: 900px) { .quote .wrap { gap: var(--sp-5); } }
+
+/* process */
+.process { display: grid; gap: var(--sp-5); }
+.process-media { margin: 0; }
+.process-media img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.process-media figcaption { padding-top: .7rem; font-size: var(--fs-label); font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); display: flex; gap: 1rem; }
+.process-media figcaption span:first-child { color: var(--oxblood); }
+.steps { list-style: none; margin: 0; padding: 0; counter-reset: step; border-top: 1px solid var(--ink); }
+.steps li { display: grid; grid-template-columns: 3.5rem 1fr; gap: 1rem; padding: var(--sp-3) 0; border-bottom: 1px solid var(--rule); }
+.steps .num { font-family: var(--serif); font-size: var(--fs-3); line-height: 1.2; color: var(--oxblood); font-variant-numeric: tabular-nums; }
+.steps p { color: var(--muted); max-width: 52ch; margin-top: .4rem; }
+@media (min-width: 900px) { .process { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); align-items: start; } .process-media { position: sticky; top: 5.5rem; } }
+
+/* closing */
+.closing { background: var(--navy); color: var(--paper); }
+.closing-grid { display: grid; gap: var(--sp-5); }
+.closing-copy { display: grid; gap: var(--sp-3); align-content: start; }
+.closing-copy .label { color: var(--brass-2); }
+.closing-copy p { color: var(--mist); max-width: 48ch; }
+.closing-copy .note { font-size: var(--fs-small); }
+.closing-media { margin: 0; display: none; }
+.closing-media img { width: 100%; height: 100%; object-fit: cover; }
+@media (min-width: 900px) {
+  .closing-grid { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); }
+  .closing-media { display: block; }
+  .closing-body { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-5); }
+}
+.closing .wrap { padding-block: var(--sp-7); }
+.form { display: grid; gap: .9rem; align-content: start; }
+.form label { display: grid; gap: .4rem; font-size: var(--fs-label); font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--mist); }
+.form label em { font-style: normal; font-weight: 400; letter-spacing: 0; text-transform: none; }
+.form input, .form textarea { font: inherit; font-size: var(--fs-body); color: var(--paper); background: var(--navy-2); border: 1.5px solid var(--rule-dark); border-radius: 2px; padding: .8rem .9rem; width: 100%; }
+.form input:focus, .form textarea:focus { outline: 3px solid var(--brass-2); outline-offset: 2px; border-color: var(--brass-2); }
+.form textarea { resize: vertical; min-height: 6rem; }
+.form-row { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.form-err { font-size: var(--fs-small); font-weight: 600; color: var(--brass-2); }
+.form-done { font-size: var(--fs-lede); font-family: var(--serif); }
+.form[data-sent] .form-lead, .form[data-sent] .form-grid, .form[data-sent] .form-row { display: none; }
+.form-lead { color: var(--mist); font-size: var(--fs-small); }
+
+/* footer */
+.footer { background: var(--ink); color: var(--paper); }
+.footer .wrap { padding-block: var(--sp-5); display: grid; gap: var(--sp-3); }
+.footer .brand { color: var(--paper); }
+.footer p { color: var(--mist); font-size: var(--fs-small); max-width: 60ch; }
+.footer .fine { font-size: var(--fs-label); letter-spacing: .06em; text-transform: uppercase; font-weight: 600; color: var(--mist); max-width: none; }
+@media (min-width: 900px) { .footer .wrap { grid-template-columns: 1fr 1fr; align-items: start; } .footer .fine { grid-column: 1 / -1; } }
+
+/* mobile sticky action bar */
+.sticky-bar { position: fixed; inset-inline: 0; bottom: 0; z-index: 40; display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; padding: .6rem var(--gutter) calc(.6rem + env(safe-area-inset-bottom)); background: var(--paper); border-top: 1px solid var(--rule); }
+.sticky-bar .btn { min-height: 3rem; padding-inline: 1rem; font-size: var(--fs-small); }
+@media (min-width: 900px) { .sticky-bar { display: none; } }
+@media (max-width: 899px) { body { padding-bottom: 5rem; } }
+
+/* motion */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal { opacity: 0; transform: translateY(12px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+}
 </style>
 <!-- gsw:identity -->
 <link rel="icon" href="../_assets/identity/personal-injury/okonkwo-trial-law-icon-32.png" type="image/png" sizes="32x32">
 <link rel="icon" href="../_assets/identity/personal-injury/okonkwo-trial-law-icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../_assets/identity/personal-injury/okonkwo-trial-law-icon-180.png">
-<meta name="theme-color" content="#000000">
+<meta name="theme-color" content="#7A1C24">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Okonkwo Trial Law">
 <meta property="og:title" content="Okonkwo Trial Law · Free case review · No fee unless we win · Hablamos español">
@@ -300,102 +252,213 @@ body > * { margin: 0; }
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Attorney","name":"Okonkwo Trial Law","description":"Free case review \u00b7 No fee unless we win \u00b7 Hablamos espa\u00f1ol","telephone":"(743) 316-4020","areaServed":"Metro area","image":"https://grandstreetworks.com/work/_assets/identity/personal-injury/okonkwo-trial-law-og.png","logo":"https://grandstreetworks.com/work/_assets/identity/personal-injury/okonkwo-trial-law-mark.svg"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Attorney","name":"Okonkwo Trial Law","description":"Free case review · No fee unless we win · Hablamos español","telephone":"(743) 316-4020","areaServed":"Metro area","image":"https://grandstreetworks.com/work/_assets/identity/personal-injury/okonkwo-trial-law-og.png","logo":"https://grandstreetworks.com/work/_assets/identity/personal-injury/okonkwo-trial-law-mark.svg"}</script>
 </head>
 <body>
-<div id="d2" class="direction-container"><div class="page">
-<div class="topbar"><span>Free case review</span><span class="dot">·</span><span>No fee unless we win</span><span class="dot">·</span><span>Hablamos español</span></div>
-<header class="nav-inline">
-<div class="logo">Okonkwo Trial Law</div>
-<nav class="links"><a href="#">Services</a><a href="#">Results</a><a href="#">Process</a><a href="#">Contact</a></nav>
-<a class="phone">(743) 316-4020</a>
-</header>
-<section class="hero-stack">
-<span class="eyebrow">Trial counsel · Se habla español</span>
-<h1>Most firms settle.<br/>We try cases.</h1>
-<p>Injury and accident claims across the state. Ninety-odd per cent of these end in a settlement, and the size of that settlement depends entirely on whether the insurer believes you will go to trial. Ours know we will.</p>
-<div class="ctas">
-<a class="btn-primary" href="#contact">Talk to a trial lawyer</a>
-<a class="btn-secondary" href="#">See our verdicts</a>
-</div>
-<div class="badge-list" style="justify-content: center; margin-top: 3rem;">
-<div class="badge">No fee unless we win</div><div class="badge">Free case review</div><div class="badge">Home &amp; hospital visits</div>
-</div>
-</section>
-<div class="broadside">
-<figure>
-<img alt="Downtown at 2am, one window still lit" src="../_assets/hero/city.jpg"/>
-<figcaption><span>Fig. 1 &mdash; 02:14, from our floor</span><em>&ldquo;Somebody is always up here.&rdquo;</em><span>OTL / TRIAL</span></figcaption>
-</figure>
-</div><section class="section-pad">
-<div class="section-header">
-<h2>What we try</h2>
-<p>If your situation isn't listed, ring anyway. We will tell you what it is worth and whether it needs a courtroom, including when the answer is no.</p>
-</div>
-<div class="services-grid-num">
-<div class="s-item"><span class="num">1</span><h3>Catastrophic vehicle collisions</h3><p>Commercial trucking, multi-vehicle and wrongful-death collisions. The cases where the carrier's own lawyers arrive within hours and we need to be there first.</p></div>
-<div class="s-item"><span class="num">2</span><h3>Industrial and site injury</h3><p>Scaffold and machinery cases against general contractors and equipment makers. Comp pays a fraction; the third-party claim is where the real recovery lives.</p></div>
-<div class="s-item"><span class="num">3</span><h3>Premises and negligent security</h3><p>Owners and managers who knew and did nothing. These turn on maintenance logs and prior complaints, and those only surface in discovery.</p></div>
-<div class="s-item"><span class="num">4</span><h3>Wrongful death</h3><p>Tried when they must be tried. Families are not asked to relive it in a deposition until we are certain the case needs it.</p></div>
-</div>
-</section>
-<section class="proof-test-lead">
-<blockquote>"The insurer offered forty thousand and told me that was the ceiling. Okonkwo filed. Eleven months later a jury came back with just under two million."</blockquote>
-<cite>Ray M., commercial truck collision</cite>
-</section>
-<section class="section-pad">
-<div class="section-header">
-<h2>How a case gets tried</h2>
-<p>Almost everyone who calls us is frightened of a courtroom. Most never see one, but the preparation for it is what pays.</p>
-</div>
-<div class="process-grid">
-<div class="process-item"><span class="step">1</span><h3>The case review</h3><p>Free, unhurried, and honest about what your case is worth. If it belongs with a different firm we will say so on that call.</p></div>
-<div class="process-item"><span class="step">2</span><h3>Discovery</h3><p>Depositions, maintenance records, black-box data, internal email. This is the stage that separates a nuisance offer from a real one.</p></div>
-<div class="process-item"><span class="step">3</span><h3>The demand</h3><p>Everything discovery produced, put in front of the carrier with a number attached. Most cases end here, at a price set by what we found.</p></div>
-<div class="process-item"><span class="step">4</span><h3>Trial</h3><p>If the number is not serious, we pick a jury. Thirty-one times so far, which is precisely why the numbers usually are serious.</p></div>
-</div>
-</section>
-<section class="closing-cta" id="contact">
-<h2>Been told what your case is worth?</h2>
-<p>Get a second read before you sign anything. Free, no obligation, and we will tell you honestly if the offer in front of you is already fair.</p>
-<a class="btn-primary" style="background:var(--on-accent); color:var(--accent); border:none;" href="#contact">Talk to a trial lawyer</a>
-<div class="note">No fee unless we recover for you. Consultations at our office, your home, or the hospital.<!-- gsw:contact-form -->
-    <form class="gsw-cf" novalidate>
-      <p class="gsw-cf-lead">Or leave your details and we'll call you back.</p>
-      <div class="gsw-cf-grid">
-        <label><span>Name</span><input type="text" name="name" autocomplete="name" required></label>
-        <label><span>Phone or email</span><input type="text" name="contact" autocomplete="tel" required></label>
-        <label class="gsw-cf-wide"><span>What can we help with? <em>(optional)</em></span><textarea name="message" rows="3"></textarea></label>
-      </div>
-      <div class="gsw-cf-row">
-        <button type="submit" class="btn btn-primary">Request a call back</button>
-        <span class="gsw-cf-err" role="alert" hidden>Add your name and a way to reach you.</span>
-      </div>
-      <p class="gsw-cf-done" role="status" hidden>Thanks. Someone will call you back within one business day.</p>
-    </form>
-    <!-- /gsw:contact-form -->
-    </div>
-</section>
-<footer class="footer">Okonkwo Trial Law · 3148 Ridgeway Avenue Suite 4B, Millbrook Park, NY 18424 · (743) 316-4020 · Attorney advertising. Prior results do not guarantee a similar outcome.</footer>
-</div></div>
 
-<!-- gsw:contact-form -->
+<div class="topbar on-dark"><div class="wrap"><span>Free case review</span><span class="dot">·</span><span>No fee unless we win</span><span class="dot">·</span><span>Hablamos español</span></div></div>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="../_assets/identity/personal-injury/okonkwo-trial-law-icon.svg" alt="" width="36" height="36">Okonkwo Trial Law</a>
+    <nav class="nav" aria-label="Sections"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+    <div class="mast-actions">
+      <a class="btn btn-outline mast-phone tnum" href="tel:+17433164020">(743)&nbsp;316‑4020</a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="drawer">Menu</button>
+    </div>
+  </div>
+  <div class="drawer" id="drawer">
+    <nav class="wrap" aria-label="Sections"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a><a class="tnum" href="tel:+17433164020">(743)&nbsp;316‑4020</a></nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" aria-labelledby="h1">
+  <div class="hero-panel">
+    <span class="label eyebrow">Trial counsel · Se habla español</span>
+    <h1 id="h1">Most firms settle.<br>We try cases.</h1>
+    <p class="lede">Injury and accident claims across the state. Ninety-odd per cent of these end in a settlement, and the size of that settlement depends entirely on whether the insurer believes you will go to trial. Ours know we will.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#contact" data-cta="primary">Talk to a trial lawyer</a>
+      <a class="btn btn-outline" href="#results">See our verdicts</a>
+    </div>
+    <ul class="hero-badges"><li>No fee unless we win</li><li>Free case review</li><li>Home &amp; hospital visits</li></ul>
+  </div>
+  <div class="hero-media">
+    <picture>
+      <source type="image/avif" srcset="../_assets/hero/personal-injury/f-courthouse-steps-1280.avif 1280w, ../_assets/hero/personal-injury/f-courthouse-steps-2560.avif 2560w" sizes="(min-width: 900px) 46vw, 100vw">
+      <img src="../_assets/hero/personal-injury/f-courthouse-steps-1280.jpg" width="1280" height="853" alt="Stone steps rising between the columns of a courthouse" fetchpriority="high">
+    </picture>
+  </div>
+</section>
+
+<section class="results on-dark" id="results" aria-labelledby="results-h">
+  <div class="wrap">
+    <div class="results-head">
+      <h2 class="label" id="results-h">Results</h2>
+      <p>The size of a settlement depends entirely on whether the insurer believes you will go to trial.</p>
+    </div>
+    <ul class="results-row">
+      <li><span class="fig">31</span><span class="what">Times so far we have picked a jury when the number was not serious</span></li>
+      <li><span class="fig tnum">90‑odd&nbsp;%</span><span class="what">Of injury and accident claims end in a settlement</span></li>
+      <li><span class="fig fig-text">No fee</span><span class="what">Unless we win. The case review is free, and honest about what your case is worth</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="services" aria-labelledby="services-h">
+  <div class="wrap">
+    <div class="section-head">
+      <div><span class="label">01 — What we try</span><h2 id="services-h" style="margin-top:.6rem">What we try</h2></div>
+      <p>If your situation isn’t listed, ring anyway. We will tell you what it is worth and whether it needs a courtroom, including when the answer is no.</p>
+    </div>
+    <ul class="services">
+      <li><span class="label num tnum">01</span><h3>Catastrophic vehicle collisions</h3><p>Commercial trucking, multi-vehicle and wrongful-death collisions. The cases where the carrier’s own lawyers arrive within hours and we need to be there first.</p></li>
+      <li><span class="label num tnum">02</span><h3>Industrial and site injury</h3><p>Scaffold and machinery cases against general contractors and equipment makers. Comp pays a fraction; the third-party claim is where the real recovery lives.</p></li>
+      <li><span class="label num tnum">03</span><h3>Premises and negligent security</h3><p>Owners and managers who knew and did nothing. These turn on maintenance logs and prior complaints, and those only surface in discovery.</p></li>
+      <li><span class="label num tnum">04</span><h3>Wrongful death</h3><p>Tried when they must be tried. Families are not asked to relive it in a deposition until we are certain the case needs it.</p></li>
+    </ul>
+    <div class="tiles">
+      <figure class="reveal">
+        <picture>
+          <source type="image/avif" srcset="../_assets/library/personal-injury/okonkwo-trial-law/courtroom-red-640.avif 640w, ../_assets/library/personal-injury/okonkwo-trial-law/courtroom-red-1280.avif 1280w" sizes="(min-width: 720px) 50vw, 100vw">
+          <img src="../_assets/library/personal-injury/okonkwo-trial-law/courtroom-red-720.jpg" width="720" height="540" alt="An empty courtroom in wood panelling with a red curtain behind the bench" loading="lazy">
+        </picture>
+        <figcaption><span>Fig. 2</span><span>The courtroom</span></figcaption>
+      </figure>
+      <figure class="reveal">
+        <picture>
+          <source type="image/avif" srcset="../_assets/library/personal-injury/okonkwo-trial-law/law-library-640.avif 640w, ../_assets/library/personal-injury/okonkwo-trial-law/law-library-1280.avif 1280w" sizes="(min-width: 720px) 50vw, 100vw">
+          <img src="../_assets/library/personal-injury/okonkwo-trial-law/law-library-720.jpg" width="720" height="480" alt="A law library’s upper gallery lined with shelves of bound volumes" loading="lazy">
+        </picture>
+        <figcaption><span>Fig. 3</span><span>The library</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<figure class="night on-dark" style="margin:0">
+  <picture>
+    <source type="image/avif" srcset="../_assets/hero/personal-injury/f-night-floor-1280.avif 1280w, ../_assets/hero/personal-injury/f-night-floor-2560.avif 2560w" sizes="100vw">
+    <img src="../_assets/hero/personal-injury/f-night-floor-1280.jpg" width="1280" height="719" alt="Downtown at 2am, one window still lit" loading="lazy">
+  </picture>
+  <figcaption class="wrap cap"><span class="label tnum">Fig. 1 — 02:14, from our floor</span><em>“Somebody is always up here.”</em><span class="label">OTL / TRIAL</span></figcaption>
+</figure>
+
+<section class="quote on-dark" aria-label="A client’s words">
+  <div class="wrap">
+    <span class="label">02 — In their words</span>
+    <div>
+      <blockquote>“The insurer offered forty thousand and told me that was the ceiling. Okonkwo filed. Eleven months later a jury came back with just under two million.”</blockquote>
+      <cite class="label" style="margin-top:1.7rem">Ray M., commercial truck collision</cite>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="process" aria-labelledby="process-h">
+  <div class="wrap">
+    <div class="section-head">
+      <div><span class="label">03 — Process</span><h2 id="process-h" style="margin-top:.6rem">How a case gets tried</h2></div>
+      <p>Almost everyone who calls us is frightened of a courtroom. Most never see one, but the preparation for it is what pays.</p>
+    </div>
+    <div class="process">
+      <figure class="process-media reveal">
+        <picture>
+          <source type="image/avif" srcset="../_assets/library/personal-injury/okonkwo-trial-law/courtroom-bench-640.avif 640w, ../_assets/library/personal-injury/okonkwo-trial-law/courtroom-bench-1280.avif 1280w" sizes="(min-width: 900px) 40vw, 100vw">
+          <img src="../_assets/library/personal-injury/okonkwo-trial-law/courtroom-bench-720.jpg" width="720" height="285" alt="The empty public benches of a panelled courtroom, seen from the aisle" loading="lazy">
+        </picture>
+        <figcaption><span>Fig. 4</span><span>The bench</span></figcaption>
+      </figure>
+      <ol class="steps">
+        <li><span class="num">1</span><div><h3>The case review</h3><p>Free, unhurried, and honest about what your case is worth. If it belongs with a different firm we will say so on that call.</p></div></li>
+        <li><span class="num">2</span><div><h3>Discovery</h3><p>Depositions, maintenance records, black-box data, internal email. This is the stage that separates a nuisance offer from a real one.</p></div></li>
+        <li><span class="num">3</span><div><h3>The demand</h3><p>Everything discovery produced, put in front of the carrier with a number attached. Most cases end here, at a price set by what we found.</p></div></li>
+        <li><span class="num">4</span><div><h3>Trial</h3><p>If the number is not serious, we pick a jury. Thirty-one times so far, which is precisely why the numbers usually are serious.</p></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="closing on-dark" id="contact" aria-labelledby="contact-h">
+  <div class="closing-grid">
+    <figure class="closing-media">
+      <picture>
+        <source type="image/avif" srcset="../_assets/library/personal-injury/okonkwo-trial-law/columns-autumn-640.avif 640w, ../_assets/library/personal-injury/okonkwo-trial-law/columns-autumn-1280.avif 1280w" sizes="(min-width: 900px) 42vw, 100vw">
+        <img src="../_assets/library/personal-injury/okonkwo-trial-law/columns-autumn-720.jpg" width="720" height="480" alt="Courthouse columns behind a branch of autumn leaves" loading="lazy">
+      </picture>
+    </figure>
+    <div class="wrap closing-body">
+      <div class="closing-copy">
+        <span class="label">04 — Contact</span>
+        <h2 id="contact-h">Been told what your case is worth?</h2>
+        <p>Get a second read before you sign anything. Free, no obligation, and we will tell you honestly if the offer in front of you is already fair.</p>
+        <div class="hero-actions">
+          <a class="btn btn-paper" href="tel:+17433164020"><span class="tnum">(743)&nbsp;316‑4020</span></a>
+          <a class="btn btn-ghost" href="#contact-form">Talk to a trial lawyer</a>
+        </div>
+        <p class="note">No fee unless we recover for you. Consultations at our office, your home, or the hospital.</p>
+      </div>
+      <!-- gsw:contact-form -->
+      <form class="form" id="contact-form" novalidate>
+        <p class="form-lead">Or leave your details and we’ll call you back.</p>
+        <div class="form-grid" style="display:grid;gap:.9rem">
+          <label><span>Name</span><input type="text" name="name" autocomplete="name" required></label>
+          <label><span>Phone or email</span><input type="text" name="contact" autocomplete="tel" required></label>
+          <label><span>What can we help with? <em>(optional)</em></span><textarea name="message" rows="3"></textarea></label>
+        </div>
+        <div class="form-row">
+          <button type="submit" class="btn btn-primary">Request a call back</button>
+          <span class="form-err" role="alert" hidden>Add your name and a way to reach you.</span>
+        </div>
+        <p class="form-done" role="status" hidden>Thanks. Someone will call you back within one business day.</p>
+      </form>
+      <!-- /gsw:contact-form -->
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer on-dark">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="#top"><img src="../_assets/identity/personal-injury/okonkwo-trial-law-mark.svg" alt="" width="36" height="36">Okonkwo Trial Law</a>
+      <p class="tnum" style="margin-top:1rem">3148 Ridgeway Avenue Suite 4B, Millbrook Park, NY 18424<br><a class="tnum" href="tel:+17433164020">(743)&nbsp;316‑4020</a></p>
+    </div>
+    <p>Attorney advertising. Prior results do not guarantee a similar outcome.</p>
+    <p class="fine">Okonkwo Trial Law is a fictional business; this page is a design reference.</p>
+  </div>
+</footer>
+
+<div class="sticky-bar" aria-label="Call or request a case review">
+  <a class="btn btn-primary tnum" href="tel:+17433164020">Call (743)&nbsp;316‑4020</a>
+  <a class="btn btn-outline" href="#contact">Free case review</a>
+</div>
+
 <script>
-/* The enquiry form confirms in place. Nothing is sent: a reference build. */
 (function () {
-  var form = document.querySelector('.gsw-cf');
-  if (!form) return;
-  form.addEventListener('submit', function (e) {
+  var btn = document.querySelector('.menu-btn'), drawer = document.getElementById('drawer');
+  if (btn && drawer) {
+    btn.addEventListener('click', function () {
+      var open = drawer.hasAttribute('data-open');
+      if (open) drawer.removeAttribute('data-open'); else drawer.setAttribute('data-open', '');
+      btn.setAttribute('aria-expanded', String(!open));
+    });
+    drawer.addEventListener('click', function (e) { if (e.target.tagName === 'A') { drawer.removeAttribute('data-open'); btn.setAttribute('aria-expanded', 'false'); } });
+  }
+  /* The enquiry form confirms in place. Nothing is sent: a reference build. */
+  var form = document.querySelector('.form');
+  if (form) form.addEventListener('submit', function (e) {
     e.preventDefault();
-    var name = form.name.value.trim(), contact = form.contact.value.trim();
-    var err = form.querySelector('.gsw-cf-err');
+    var name = form.name.value.trim(), contact = form.contact.value.trim(), err = form.querySelector('.form-err');
     if (!name || !contact) { err.hidden = false; (name ? form.contact : form.name).focus(); return; }
-    err.hidden = true;
-    form.setAttribute('data-sent', '');
-    form.querySelector('.gsw-cf-done').hidden = false;
+    err.hidden = true; form.setAttribute('data-sent', ''); form.querySelector('.form-done').hidden = false;
   });
+  /* Reveal on scroll; a no-op under reduced motion because the CSS never hides the element. */
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) { entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } }); }, { rootMargin: '0px 0px -10% 0px' });
+    document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+  } else { document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); }); }
 })();
 </script>
-<!-- /gsw:contact-form -->
 </body>
 </html>
