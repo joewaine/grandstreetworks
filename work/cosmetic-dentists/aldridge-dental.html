@@ -10,7 +10,7 @@
 <link rel="icon" href="../_assets/identity/cosmetic-dentists/aldridge-dental-icon-32.png" type="image/png" sizes="32x32">
 <link rel="icon" href="../_assets/identity/cosmetic-dentists/aldridge-dental-icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../_assets/identity/cosmetic-dentists/aldridge-dental-icon-180.png">
-<meta name="theme-color" content="#F4F0E8">
+<meta name="theme-color" content="#2F4A3A">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Aldridge Dental">
 <meta property="og:title" content="Aldridge Dental · Cosmetic &amp; Restorative Dentistry">
@@ -22,213 +22,249 @@
 <!-- /gsw:identity -->
 <link rel="preload" href="../_assets/fonts/crimson-pro-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../_assets/fonts/karla-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../_assets/hero/cosmetic-dentists/b-craft-and-precision-1280.avif" as="image" type="image/avif" fetchpriority="high">
 <style>
-/* D3 — THE QUIET ROOM. hero:panel nav:minimal services:list proof:testimonial-lead
-   ink #24211C · ivory #F4F0E8 · sage #4F6B52 · muted #6B655B · ivory-deep #EAE4D8
-   H1 ramp: 42/50/60/72px · Crimson Pro (light display, regular text, italic accent) / Karla labels
-   Device: hairline rules and counts in italic words, one serif voice from display to body,
-   the patient's own sentence set alone at display size, photographs as small matted
-   objects with captions. Nothing moves except the compare slider. FIX answered first: the
-   quiet promise was contradicted by motion, colour and twenty sizes — this page is seven
-   sizes, two families, three weights, one accent, no animation. */
+/* D3 — THE QUIET ROOM, SECOND EDITION. hero:split(loop) nav:inline services:list+photo proof:quote-band
+   forest #2F4A3A · honey #B8862B (light #E6BE66 on forest, ink #8A6218 on ivory) · sage-mist #DCE4D8 · ivory #F4F0E8 · ink #24211C · muted #4E4841
+   H1 ramp: 44/56/70/84px · Crimson Pro (light display, regular text, italic accent) / Karla labels, controls, captions
+   Device: the v1 page kept (counts in italic words on hairlines, one patient's sentence as the proof,
+   the compare slider as the only interaction) but set with the lights on: the practice's green promoted
+   from a 5 % accent to three full-bleed bands, honey as the one warm accent, the bench loop full height
+   beside the headline, every photograph at the size the copy earns and used once. FIX answered (v2):
+   the client called v1 monochrome, small and timid — this page has three chromatic colours, a hero that
+   carries an image at 78 svh, no photograph under 500 px wide at 1440, and 16 px as its smallest running size. */
 
 @font-face { font-family: "Crimson Pro"; src: url("../_assets/fonts/crimson-pro-var.woff2") format("woff2"); font-weight: 200 900; font-style: normal; font-display: swap; }
 @font-face { font-family: "Crimson Pro"; src: url("../_assets/fonts/crimson-pro-italic-var.woff2") format("woff2"); font-weight: 200 900; font-style: italic; font-display: swap; }
 @font-face { font-family: "Karla"; src: url("../_assets/fonts/karla-var.woff2") format("woff2"); font-weight: 200 800; font-style: normal; font-display: swap; }
-@font-face { font-family: "Karla"; src: url("../_assets/fonts/karla-italic-var.woff2") format("woff2"); font-weight: 200 800; font-style: italic; font-display: swap; }
 @font-face { font-family: "Crimson Fallback"; src: local("Georgia"); size-adjust: 96%; ascent-override: 90%; descent-override: 25%; }
 @font-face { font-family: "Karla Fallback"; src: local("Arial"); size-adjust: 96%; ascent-override: 92%; descent-override: 23%; }
 
 :root {
-  --ivory: #F4F0E8; --ivory-2: #EAE4D8; --mat: #FBF9F5; --ink: #24211C; --muted: #6B655B;
-  --sage: #4F6B52; --sage-deep: #3E5641; --hair: #D9D2C5;
+  --ivory: #F4F0E8; --ivory-2: #EAE4D8; --mat: #FBF9F5; --ink: #24211C; --muted: #4E4841;
+  --forest: #2F4A3A; --forest-deep: #24382C; --on-forest: #F4F0E8; --on-forest-muted: #C9D3CB;
+  --honey: #B8862B; --honey-ink: #8A6218; --honey-light: #E6BE66; --mist: #DCE4D8; --hair: #D9D2C5; --hair-forest: rgba(244, 240, 232, 0.18);
   --serif: "Crimson Pro", "Crimson Fallback", Georgia, serif;
   --sans: "Karla", "Karla Fallback", Arial, sans-serif;
-  --t-label: 0.8125rem; --t-small: 0.9375rem; --t-body: 1.125rem;
-  --t-lede: clamp(1.1875rem, 1.05rem + 0.55vw, 1.375rem);
-  --t-h3: clamp(1.5rem, 1.25rem + 1vw, 1.875rem);
-  --t-h2: clamp(2rem, 1.4rem + 2.3vw, 2.75rem);
-  --t-display: clamp(2.625rem, 1.6rem + 4.6vw, 4.5rem);
-  --s1: 10px; --s2: 20px; --s3: 30px; --s4: 40px; --s6: 60px; --s8: 80px; --s12: 120px; --s16: 160px;
-  --wrap: 1120px; --gutter: clamp(20px, 4vw, 48px); --bar-h: 64px;
+  --t-label: 0.8125rem; --t-small: 1rem; --t-body: 1.125rem;
+  --t-lede: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  --t-h3: clamp(1.5rem, 1.3rem + 0.9vw, 1.75rem);
+  --t-h2: clamp(2.125rem, 1.5rem + 2.6vw, 3.25rem);
+  --t-display: clamp(2.75rem, 1.6rem + 5vw, 5.25rem);
+  --s1: 10px; --s2: 20px; --s3: 30px; --s4: 40px; --s6: 60px; --s8: 80px; --s10: 100px; --s12: 120px;
+  --wrap: 1200px; --gutter: clamp(20px, 4vw, 56px); --bar-h: 64px;
 }
 * { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 body { margin: 0; background: var(--ivory); color: var(--ink); font: 400 var(--t-body)/1.6 var(--serif); font-optical-sizing: auto; overflow-x: hidden; padding-bottom: var(--bar-h); }
 h1, h2, h3 { font-family: var(--serif); font-weight: 400; margin: 0; text-wrap: balance; }
 p { margin: 0; text-wrap: pretty; }
 a { color: inherit; }
-img { display: block; max-width: 100%; height: auto; }
+img, video { display: block; max-width: 100%; height: auto; }
 ul, ol { list-style: none; margin: 0; padding: 0; }
 figure { margin: 0; }
 .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
-.label { font: 500 var(--t-label)/1.3 var(--sans); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.label { font: 500 var(--t-label)/1.3 var(--sans); letter-spacing: 0.1em; text-transform: uppercase; color: var(--honey-ink); }
 .small { font: 400 var(--t-small)/1.5 var(--sans); }
-.lede { font-size: var(--t-lede); line-height: 1.45; max-width: 54ch; }
+.lede { font-size: var(--t-lede); line-height: 1.45; max-width: 52ch; }
 .muted { color: var(--muted); }
-:focus-visible { outline: 2px solid var(--sage); outline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--honey); outline-offset: 3px; }
 .skip { position: absolute; left: -999px; top: 0; background: var(--ink); color: var(--ivory); padding: var(--s1) var(--s2); z-index: 100; }
 .skip:focus { left: var(--s2); top: var(--s2); }
 
 /* ---------- Buttons ---------- */
-.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: 0.7em 1.4em; border: 1px solid var(--ink); font: 500 var(--t-small)/1.2 var(--sans); letter-spacing: 0.02em; text-decoration: none; cursor: pointer; background: transparent; color: var(--ink); transition: background-color 160ms, color 160ms, border-color 160ms; }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0.7em 1.5em; border: 1px solid var(--ink); font: 500 var(--t-small)/1.2 var(--sans); letter-spacing: 0.01em; text-decoration: none; cursor: pointer; background: transparent; color: var(--ink); transition: background-color 160ms, color 160ms, border-color 160ms; }
 .btn:hover { background: var(--ink); color: var(--ivory); }
-.btn-primary { background: var(--sage); border-color: var(--sage); color: var(--ivory); }
-.btn-primary:hover { background: var(--sage-deep); border-color: var(--sage-deep); color: var(--ivory); }
+.btn-primary { background: var(--forest); border-color: var(--forest); color: var(--on-forest); }
+.btn-primary:hover { background: var(--forest-deep); border-color: var(--forest-deep); color: var(--on-forest); }
+.on-forest .btn { border-color: var(--on-forest); color: var(--on-forest); }
+.on-forest .btn:hover { background: var(--on-forest); color: var(--forest); }
+.on-forest .btn-primary { background: var(--on-forest); border-color: var(--on-forest); color: var(--forest); }
+.on-forest .btn-primary:hover { background: var(--honey-light); border-color: var(--honey-light); color: var(--ink); }
 
 /* ---------- Header ---------- */
-.top { border-bottom: 1px solid var(--hair); }
-.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: var(--s3); padding-top: var(--s2); padding-bottom: var(--s2); }
+.strip { background: var(--forest); color: var(--on-forest); font: 400 var(--t-small)/1.4 var(--sans); text-align: center; padding: 9px var(--gutter); }
+.top { background: var(--ivory); border-bottom: 1px solid var(--hair); position: sticky; top: 0; z-index: 30; }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: var(--s3); padding-top: 16px; padding-bottom: 16px; }
 .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font: 400 var(--t-lede)/1 var(--serif); letter-spacing: -0.005em; white-space: nowrap; }
-.brand img { width: 28px; height: 28px; }
-.top-line { font: 400 var(--t-label)/1.3 var(--sans); letter-spacing: 0.04em; color: var(--muted); }
+.brand img { width: 30px; height: 30px; }
 .nav { display: flex; gap: var(--s3); font: 500 var(--t-small)/1 var(--sans); }
 .nav a { text-decoration: none; padding: 6px 0; border-bottom: 1px solid transparent; }
-.nav a:hover { border-bottom-color: var(--sage); }
-.top .book { font: 500 var(--t-small)/1 var(--sans); text-decoration: none; color: var(--sage); border-bottom: 1px solid var(--sage); padding-bottom: 3px; white-space: nowrap; }
-.top .book:hover { color: var(--sage-deep); }
+.nav a:hover { border-bottom-color: var(--honey); }
+.top .btn { min-height: 44px; padding: 0.55em 1.2em; }
 
 /* ---------- Hero ---------- */
-.hero { padding: var(--s12) 0 var(--s8); }
+.hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); min-height: 78svh; }
+.hero-copy { display: flex; flex-direction: column; justify-content: center; padding: var(--s8) var(--s6) var(--s8) max(var(--gutter), calc((100vw - var(--wrap)) / 2 + var(--gutter))); }
 .hero .label { margin-bottom: var(--s3); }
-.hero h1 { font-size: var(--t-display); font-weight: 300; line-height: 1.02; letter-spacing: -0.01em; max-width: 14ch; }
+.hero h1 { font-size: var(--t-display); font-weight: 300; line-height: 1; letter-spacing: -0.015em; max-width: 12ch; }
 .hero .lede { margin-top: var(--s3); color: var(--muted); }
 .actions { display: flex; flex-wrap: wrap; gap: var(--s2); margin-top: var(--s4); }
-.badges { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s2) var(--s3); margin-top: var(--s6); padding-top: var(--s2); border-top: 1px solid var(--hair); font: 400 var(--t-small)/1.4 var(--sans); color: var(--muted); }
-.plate { padding-bottom: var(--s12); }
-.plate figure { background: var(--mat); border: 1px solid var(--hair); padding: var(--s1); }
-.plate img { width: 100%; height: clamp(240px, 32vw, 440px); object-fit: cover; object-position: center 60%; }
+.badges { display: grid; grid-template-columns: 1fr 1fr; gap: 12px var(--s3); margin-top: var(--s6); padding-top: var(--s3); border-top: 1px solid var(--hair); font: 500 var(--t-small)/1.4 var(--sans); color: var(--ink); max-width: 46ch; }
+.badges li { display: flex; gap: 10px; align-items: baseline; }
+.badges li::before { content: ""; flex: none; width: 18px; height: 1px; background: var(--honey); transform: translateY(-5px); }
+.hero-media { position: relative; overflow: hidden; background: var(--forest-deep); min-height: 78svh; }
+.hero-media img, .hero-media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 55% 50%; }
+.hero-media video { opacity: 0; transition: opacity 600ms ease; }
+.hero-media.is-playing video { opacity: 1; }
+.hero-media .pause { position: absolute; right: var(--s2); bottom: var(--s2); z-index: 2; min-height: 40px; padding: 0.4em 0.9em; border: 1px solid rgba(244, 240, 232, 0.6); background: rgba(36, 33, 28, 0.55); color: var(--on-forest); font: 500 var(--t-label)/1 var(--sans); letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; backdrop-filter: blur(4px); }
+.hero-media .pause[hidden] { display: none; }
 
 /* ---------- Sections ---------- */
-.sec { padding: 0 0 var(--s12); }
+.sec { padding: var(--s10) 0; }
 .mark { display: flex; align-items: baseline; gap: var(--s2); padding-top: var(--s2); border-top: 1px solid var(--hair); margin-bottom: var(--s6); }
-.mark .n { font: italic 300 var(--t-h3)/1 var(--serif); color: var(--sage); }
-.head { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: var(--s3) var(--s8); align-items: end; margin-bottom: var(--s6); }
-h2 { font-size: var(--t-h2); line-height: 1.1; letter-spacing: -0.005em; max-width: 18ch; }
+.mark .n { font: italic 300 var(--t-h3)/1 var(--serif); color: var(--honey-ink); }
+.head { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--s3) var(--s8); align-items: end; margin-bottom: var(--s6); }
+h2 { font-size: var(--t-h2); line-height: 1.08; letter-spacing: -0.01em; max-width: 18ch; }
 h3 { font-size: var(--t-h3); line-height: 1.2; }
-.list { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4) var(--s8); }
+.split { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--s6) var(--s8); align-items: start; }
+.split.flip { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
+.photo { position: relative; }
+.photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.photo figcaption, .rooms figcaption { margin-top: 12px; font: 400 var(--t-small)/1.4 var(--sans); color: var(--muted); }
+.photo.wide img { aspect-ratio: 4 / 3; }
+
+/* Services */
+.list { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4) var(--s6); }
 .list li { padding-top: var(--s2); border-top: 1px solid var(--hair); }
 .list h3 { margin-bottom: var(--s1); }
-.list p { max-width: 40ch; color: var(--muted); }
-.note { margin-top: var(--s6); padding-top: var(--s2); border-top: 1px solid var(--hair); font: 500 var(--t-small)/1.4 var(--sans); color: var(--sage); font-variant-numeric: tabular-nums; }
+.list p { max-width: 36ch; color: var(--muted); }
+.note { margin-top: var(--s6); padding-top: var(--s2); border-top: 1px solid var(--hair); font: 500 var(--t-small)/1.4 var(--sans); color: var(--honey-ink); font-variant-numeric: tabular-nums; }
 
-/* ---------- Results ---------- */
-.results blockquote { margin: 0; max-width: 30ch; font: italic 300 var(--t-h2)/1.15 var(--serif); letter-spacing: -0.005em; text-wrap: balance; }
-.results cite { display: block; margin-top: var(--s3); font: 500 var(--t-small)/1.4 var(--sans); font-style: normal; color: var(--muted); font-variant-numeric: tabular-nums; }
+/* Results — the forest band */
+.band { background: var(--forest); color: var(--on-forest); }
+.band .mark { border-top-color: var(--hair-forest); }
+.band .mark .n, .band .label { color: var(--honey-light); }
+.band .muted, .band .lede.muted { color: var(--on-forest-muted); }
+.results blockquote { margin: 0; max-width: 46ch; font: italic 300 var(--t-h2)/1.15 var(--serif); letter-spacing: -0.005em; text-wrap: balance; }
+.results .below { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--s4) var(--s8); align-items: end; margin-top: var(--s6); }
+.results cite { display: block; font: 500 var(--t-small)/1.5 var(--sans); font-style: normal; color: var(--on-forest-muted); font-variant-numeric: tabular-nums; max-width: 30ch; }
+.results cite strong { display: block; font: 400 var(--t-lede)/1.3 var(--serif); color: var(--on-forest); margin-bottom: 6px; }
+.results .photo img { aspect-ratio: 16 / 10; }
+.results .photo figcaption { color: var(--on-forest-muted); }
 
-/* ---------- Process ---------- */
-.steps { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4) var(--s8); counter-reset: step; }
-.steps li { display: grid; grid-template-columns: 2.2ch 1fr; gap: var(--s2); padding-top: var(--s2); border-top: 1px solid var(--hair); }
-.steps .n { font: 300 var(--t-h3)/1.2 var(--serif); font-variant-numeric: tabular-nums; color: var(--sage); }
+/* Process — the mist band */
+.mist { background: var(--mist); }
+.mist .mark { border-top-color: rgba(36, 33, 28, 0.18); }
+.mist .label { color: var(--forest); }
+.steps { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4) var(--s6); }
+.steps li { padding-top: var(--s2); border-top: 1px solid rgba(36, 33, 28, 0.18); }
+.steps .n { display: block; font: 300 var(--t-h2)/1 var(--serif); font-variant-numeric: tabular-nums; color: var(--honey-ink); margin-bottom: var(--s2); }
 .steps h3 { margin-bottom: var(--s1); }
-.steps p { max-width: 38ch; color: var(--muted); }
+.steps p { max-width: 34ch; }
 
-/* ---------- The case: compare slider ---------- */
-.cmp { --pos: 50%; max-width: 760px; background: var(--mat); border: 1px solid var(--hair); padding: var(--s1); }
+/* The case: compare slider */
+.cmp { --pos: 50%; background: var(--mat); border: 1px solid var(--hair); padding: var(--s1); }
 .cmp-frame { position: relative; overflow: hidden; touch-action: pan-y; }
 .cmp img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
 .cmp-before { position: absolute; inset: 0; clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
 .cmp-line { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 2px; background: var(--ivory); transform: translateX(-1px); pointer-events: none; }
-.cmp-grip { position: absolute; top: 50%; left: 50%; width: 44px; height: 44px; transform: translate(-50%, -50%); border-radius: 50%; background: var(--ivory); border: 1px solid var(--ink); box-shadow: 0 1px 4px rgba(36, 33, 28, 0.25); }
-.cmp-grip::before, .cmp-grip::after { content: ""; position: absolute; top: 50%; width: 7px; height: 7px; border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
-.cmp-grip::before { left: 12px; transform: translateY(-50%) rotate(-45deg); }
-.cmp-grip::after { right: 12px; transform: translateY(-50%) rotate(135deg); }
-.cmp-tag { position: absolute; top: var(--s1); font: 500 var(--t-label)/1 var(--sans); letter-spacing: 0.1em; text-transform: uppercase; background: var(--ivory); color: var(--ink); padding: 6px 9px; pointer-events: none; }
-.cmp-tag-b { left: var(--s1); } .cmp-tag-a { right: var(--s1); }
+.cmp-grip { position: absolute; top: 50%; left: 50%; width: 48px; height: 48px; transform: translate(-50%, -50%); border-radius: 50%; background: var(--ivory); border: 1px solid var(--ink); box-shadow: 0 1px 4px rgba(36, 33, 28, 0.25); }
+.cmp-grip::before, .cmp-grip::after { content: ""; position: absolute; top: 50%; width: 8px; height: 8px; border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
+.cmp-grip::before { left: 13px; transform: translateY(-50%) rotate(-45deg); }
+.cmp-grip::after { right: 13px; transform: translateY(-50%) rotate(135deg); }
+.cmp-tag { position: absolute; top: var(--s2); font: 500 var(--t-label)/1 var(--sans); letter-spacing: 0.1em; text-transform: uppercase; background: var(--ivory); color: var(--ink); padding: 8px 10px; pointer-events: none; }
+.cmp-tag-b { left: var(--s2); } .cmp-tag-a { right: var(--s2); }
 .cmp-range { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; -webkit-appearance: none; appearance: none; }
-.cmp-range:focus-visible + .cmp-line .cmp-grip { outline: 2px solid var(--sage); outline-offset: 3px; }
+.cmp-range:focus-visible + .cmp-line .cmp-grip { outline: 2px solid var(--honey); outline-offset: 3px; }
 .cmp figcaption { padding: var(--s2) var(--s1) var(--s1); font: 400 var(--t-small)/1.4 var(--sans); color: var(--muted); }
+.case .facts { margin-top: var(--s4); padding-top: var(--s2); border-top: 1px solid var(--hair); display: grid; gap: 12px; font: 400 var(--t-small)/1.5 var(--sans); color: var(--muted); max-width: 40ch; }
 
-/* ---------- The rooms ---------- */
-.rooms { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s3); }
-.rooms figure { background: var(--mat); border: 1px solid var(--hair); padding: var(--s1); }
+/* The rooms: 2 + 3 */
+.rooms { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--s3); }
+.rooms figure { grid-column: span 2; }
+.rooms figure.big { grid-column: span 3; }
 .rooms img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
-.rooms figcaption { padding: var(--s2) var(--s1) var(--s1); font: 400 var(--t-small)/1.4 var(--sans); color: var(--muted); }
+.rooms figure.big img { aspect-ratio: 16 / 10; }
 
-/* ---------- Close ---------- */
-.close { background: var(--ivory-2); padding: var(--s12) 0; }
-.close .grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: var(--s8); align-items: start; }
-.close h2 { font-size: var(--t-display); font-weight: 300; line-height: 1.02; letter-spacing: -0.01em; max-width: 12ch; }
-.close .lede { margin-top: var(--s3); color: var(--muted); }
-.close .fine { margin-top: var(--s4); max-width: 46ch; font: 400 var(--t-small)/1.5 var(--sans); color: var(--muted); font-variant-numeric: tabular-nums; }
-.form { border-top: 1px solid var(--hair); padding-top: var(--s3); }
+/* Close — forest band with the form on ivory */
+.close .split { align-items: start; }
+.close h2 { font-size: var(--t-display); font-weight: 300; line-height: 1; letter-spacing: -0.015em; max-width: 12ch; }
+.close .lede { margin-top: var(--s3); color: var(--on-forest-muted); }
+.close .fine { margin-top: var(--s4); max-width: 44ch; font: 400 var(--t-small)/1.5 var(--sans); color: var(--on-forest-muted); font-variant-numeric: tabular-nums; }
+.form { background: var(--ivory); color: var(--ink); padding: var(--s4); }
 .form .intro { margin-bottom: var(--s3); color: var(--muted); }
 .field { display: grid; gap: 6px; margin-bottom: var(--s2); }
 .field label { font: 500 var(--t-label)/1.3 var(--sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
 .field label em { font-style: normal; text-transform: none; letter-spacing: 0; color: var(--muted); }
-.field input, .field textarea { width: 100%; font: 400 var(--t-body)/1.4 var(--serif); color: var(--ink); background: var(--mat); border: 1px solid var(--hair); padding: 11px 14px; transition: border-color 160ms; }
+.field input, .field textarea { width: 100%; font: 400 var(--t-body)/1.4 var(--serif); color: var(--ink); background: var(--mat); border: 1px solid var(--hair); padding: 12px 14px; transition: border-color 160ms; }
 .field input:hover, .field textarea:hover { border-color: var(--muted); }
-.field input:focus, .field textarea:focus { outline: none; border-color: var(--sage); box-shadow: 0 0 0 1px var(--sage); }
+.field input:focus, .field textarea:focus { outline: none; border-color: var(--forest); box-shadow: 0 0 0 1px var(--forest); }
 .field.is-invalid input { border-color: #9A4A2E; }
 .form .row { display: flex; align-items: center; gap: var(--s2); flex-wrap: wrap; margin-top: var(--s3); }
 .form .err { font: 400 var(--t-small)/1.4 var(--sans); color: #9A4A2E; }
 .form .err[hidden], .form .done[hidden] { display: none; }
 .form .done { font: italic 400 var(--t-lede)/1.4 var(--serif); padding: var(--s3) 0; }
 .form.is-sent .field, .form.is-sent .row { display: none; }
+.form .btn-primary { background: var(--forest); border-color: var(--forest); color: var(--on-forest); }
+.form .btn-primary:hover { background: var(--forest-deep); border-color: var(--forest-deep); }
 
 /* ---------- Footer ---------- */
-.foot { border-top: 1px solid var(--hair); padding: var(--s6) 0; font: 400 var(--t-small)/1.5 var(--sans); color: var(--muted); }
+.foot { background: var(--ivory-2); padding: var(--s6) 0; font: 400 var(--t-small)/1.5 var(--sans); color: var(--muted); }
 .foot .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s3) var(--s8); }
 .foot .brand { color: var(--ink); margin-bottom: var(--s2); }
 .foot a { color: var(--ink); }
-.foot .fine { grid-column: 1 / -1; padding-top: var(--s2); border-top: 1px solid var(--hair); font-size: var(--t-label); letter-spacing: 0.02em; }
+.foot .fine { grid-column: 1 / -1; padding-top: var(--s2); border-top: 1px solid var(--hair); }
 
 /* ---------- Mobile bar ---------- */
 .bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--hair); border-top: 1px solid var(--hair); }
 .bar .btn { min-height: var(--bar-h); border: 0; background: var(--ivory); white-space: nowrap; }
-.bar .btn-primary { background: var(--sage); }
+.bar .btn-primary { background: var(--forest); color: var(--on-forest); }
 
 .tnum, .tnum * { font-variant-numeric: tabular-nums; }
 
 /* ---------- Responsive ---------- */
 @media (min-width: 1000px) { body { padding-bottom: 0; } .bar { display: none; } }
 @media (max-width: 999px) {
-  .head, .close .grid { grid-template-columns: 1fr; }
-  .rooms { grid-template-columns: 1fr 1fr; }
-  .top-line { display: none; }
+  .hero { grid-template-columns: 1fr; min-height: 0; }
+  .hero-media { order: -1; min-height: 52svh; }
+  .hero-copy { padding: var(--s6) var(--gutter); }
+  .head, .split, .split.flip, .close .split, .results .below { grid-template-columns: 1fr; }
+  .rooms figure, .rooms figure.big { grid-column: span 3; }
+  .rooms img, .rooms figure.big img { aspect-ratio: 4 / 3; }
+  .sec { padding: var(--s8) 0; }
 }
 @media (max-width: 759px) {
-  .nav { display: none; }
-  .hero { padding: var(--s8) 0 var(--s6); }
-  .hero h1 { max-width: 12ch; }
+  .nav, .strip { display: none; }
+  .hero-media { min-height: 56svh; }
+  .hero h1 { max-width: 11ch; }
   .actions .btn { width: 100%; }
-  .badges { grid-template-columns: 1fr 1fr; }
-  .plate { padding-bottom: var(--s8); }
-  .sec { padding-bottom: var(--s8); }
+  .badges { margin-top: var(--s4); }
   .list, .steps { grid-template-columns: 1fr; }
-  .rooms { grid-template-columns: 1fr; }
-  .close { padding: var(--s8) 0; }
+  .rooms { gap: var(--s2); }
+  .rooms figure, .rooms figure.big { grid-column: span 6; }
+  .photo img { aspect-ratio: 4 / 3; }
+  .form { padding: var(--s3) var(--s2); }
   .foot .wrap { grid-template-columns: 1fr; }
+  .top .btn { display: none; }
 }
 @media (max-width: 420px) { .badges { grid-template-columns: 1fr; } }
-@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } html { scroll-behavior: auto; } }
 @media (forced-colors: active) { .btn { border: 1px solid ButtonText; } .cmp-line { background: Canvas; } }
-@media print { .bar, .cmp-range { display: none; } }
+@media print { .bar, .cmp-range, .pause { display: none; } }
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
+<p class="strip">One dentist · No treatment coordinators · New patients welcome</p>
 <header class="top">
   <div class="wrap">
-    <div>
-      <a class="brand" href="#"><img src="../_assets/identity/cosmetic-dentists/aldridge-dental-mark.svg" alt="" width="28" height="28">Aldridge Dental</a>
-    </div>
-    <span class="top-line">One dentist · No treatment coordinators · New patients welcome</span>
+    <a class="brand" href="#"><img src="../_assets/identity/cosmetic-dentists/aldridge-dental-mark.svg" alt="" width="30" height="30">Aldridge Dental</a>
     <nav class="nav" aria-label="Sections">
       <a href="#services">Services</a>
       <a href="#results">Results</a>
       <a href="#process">Process</a>
       <a href="#contact">Contact</a>
     </nav>
-    <a class="book" href="#contact">Book a consult</a>
+    <a class="btn btn-primary" href="#contact">Book a consult</a>
   </div>
 </header>
 
 <main id="main">
 <section class="hero" aria-labelledby="promise">
-  <div class="wrap">
-    <p class="label">Veneers · Implants · Full-mouth restoration</p>
+  <div class="hero-copy">
+    <p class="label">Veneers · Implants · <span style="white-space: nowrap">Full-mouth restoration</span></p>
     <h1 id="promise">No packages. No pressure. One&nbsp;plan.</h1>
     <p class="lede">One dentist, one plan, and a number that does not move. Veneers, implants and full-mouth restoration, and an honest answer when whitening would have done&nbsp;instead.</p>
     <div class="actions">
@@ -242,78 +278,112 @@ h3 { font-size: var(--t-h3); line-height: 1.2; }
       <li>Evening appointments</li>
     </ul>
   </div>
-</section>
-<div class="plate">
-  <div class="wrap">
-    <figure>
-      <picture>
-        <source type="image/avif" srcset="../_assets/hero/cosmetic-dentists/e-the-practice-2560.avif 2560w, ../_assets/hero/cosmetic-dentists/e-the-practice-1280.avif 1280w" sizes="(max-width: 1200px) 100vw, 1120px">
-        <img src="../_assets/hero/cosmetic-dentists/e-the-practice-1280.jpg" alt="The practice: a light reception with timber walls, a stone desk and plants by the window" width="1280" height="714" fetchpriority="high">
-      </picture>
-    </figure>
+  <div class="hero-media" id="hero-media">
+    <picture>
+      <source type="image/avif" srcset="../_assets/hero/cosmetic-dentists/b-craft-and-precision-1280.avif 1280w, ../_assets/hero/cosmetic-dentists/b-craft-and-precision-2560.avif 2560w" sizes="(max-width: 999px) 100vw, 50vw">
+      <img src="../_assets/hero/cosmetic-dentists/b-craft-and-precision-1280.jpg" alt="A tray of porcelain veneers and a shade guide on the ceramist’s bench, in evening light" width="1280" height="714" fetchpriority="high" decoding="async">
+    </picture>
+    <video muted loop playsinline preload="none" aria-hidden="true" tabindex="-1" data-src="../_assets/hero/cosmetic-dentists/b-craft-and-precision.mp4"></video>
+    <button class="pause" type="button" id="hero-pause" aria-pressed="false" hidden>Pause</button>
   </div>
-</div>
+</section>
 
 <section class="sec services" id="services" aria-labelledby="services-title">
   <div class="wrap">
     <p class="mark"><span class="n">One</span><span class="label">Services</span></p>
-    <div class="head">
-      <h2 id="services-title">Treatments</h2>
-      <p class="lede muted">Every case starts with the same thing: a scan, a preview, and a written plan with a number on&nbsp;it.</p>
+    <div class="split">
+      <div>
+        <div class="head" style="grid-template-columns: 1fr">
+          <h2 id="services-title">Treatments</h2>
+          <p class="lede muted">Every case starts with the same thing: a scan, a preview, and a written plan with a number on&nbsp;it.</p>
+        </div>
+        <ul class="list">
+          <li><h3>Porcelain veneers</h3><p>Hand-layered by a master ceramist. You approve a digital preview and a trial smile before a single tooth is prepared.</p></li>
+          <li><h3>Dental implants</h3><p>Single tooth to full arch. Guided placement from a 3D scan, which is why they seat precisely and last.</p></li>
+          <li><h3>Full-mouth restoration</h3><p>For wear, bite collapse or years of patchwork dentistry. Planned as one outcome rather than a series of repairs.</p></li>
+          <li><h3>Whitening &amp; bonding</h3><p>The lower-commitment start. Often all somebody actually needs, and we’ll say so if that’s the case.</p></li>
+        </ul>
+        <p class="note">0% Financing available</p>
+      </div>
+      <figure class="photo">
+        <picture>
+          <source type="image/avif" srcset="../_assets/library/cosmetic-dentists/aldridge-dental/veneer-macro-640.avif 640w, ../_assets/library/cosmetic-dentists/aldridge-dental/veneer-macro-1280.avif 1280w" sizes="(max-width: 999px) 100vw, 480px">
+          <img src="../_assets/library/cosmetic-dentists/aldridge-dental/veneer-macro-720.jpg" alt="A single porcelain veneer held up to the light" width="720" height="587" loading="lazy" decoding="async">
+        </picture>
+        <figcaption>Porcelain, one at a time</figcaption>
+      </figure>
     </div>
-    <ul class="list">
-      <li><h3>Porcelain veneers</h3><p>Hand-layered by a master ceramist. You approve a digital preview and a trial smile before a single tooth is prepared.</p></li>
-      <li><h3>Dental implants</h3><p>Single tooth to full arch. Guided placement from a 3D scan, which is why they seat precisely and last.</p></li>
-      <li><h3>Full-mouth restoration</h3><p>For wear, bite collapse or years of patchwork dentistry. Planned as one outcome rather than a series of repairs.</p></li>
-      <li><h3>Whitening &amp; bonding</h3><p>The lower-commitment start. Often all somebody actually needs, and we’ll say so if that’s the case.</p></li>
-    </ul>
-    <p class="note">0% Financing available</p>
   </div>
 </section>
 
-<section class="sec results" id="results" aria-labelledby="results-title">
+<section class="sec band results" id="results" aria-labelledby="results-title">
   <div class="wrap">
     <p class="mark"><span class="n">Two</span><span class="label" id="results-title">Results</span></p>
     <figure>
       <blockquote>“I’d wanted this for eleven years and kept putting it off because I couldn’t picture it. They showed me the preview at the first appointment and I booked that&nbsp;afternoon.”</blockquote>
-      <figcaption><cite>Alina K. · Porcelain veneers, 10 units</cite></figcaption>
     </figure>
+    <div class="below">
+      <p><cite><strong>Alina K.</strong>Porcelain veneers, 10 units</cite></p>
+      <figure class="photo">
+        <picture>
+          <source type="image/avif" srcset="../_assets/library/cosmetic-dentists/chairside-preview-640.avif 640w, ../_assets/library/cosmetic-dentists/chairside-preview-1280.avif 1280w" sizes="(max-width: 999px) 100vw, 480px">
+          <img src="../_assets/library/cosmetic-dentists/chairside-preview-720.jpg" alt="The chairside screen showing a patient’s scan" width="720" height="537" loading="lazy" decoding="async">
+        </picture>
+        <figcaption>The preview, at the first appointment</figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
-<section class="sec process" id="process" aria-labelledby="process-title">
+<section class="sec mist process" id="process" aria-labelledby="process-title">
   <div class="wrap">
     <p class="mark"><span class="n">Three</span><span class="label">Process</span></p>
     <div class="head">
       <h2 id="process-title">How treatment works</h2>
-      <p class="lede muted">No surprises and no moving numbers. You see the outcome and the price before anything is&nbsp;prepared.</p>
+      <p class="lede">No surprises and no moving numbers. You see the outcome and the price before anything is&nbsp;prepared.</p>
     </div>
-    <ol class="steps">
-      <li><span class="n">1</span><div><h3>Consult &amp; scan</h3><p>3D scan, photographs, and a conversation about what actually bothers you. About an hour.</p></div></li>
-      <li><span class="n">2</span><div><h3>Digital preview</h3><p>You see your own result rendered before treatment starts, and we adjust it until you’re happy.</p></div></li>
-      <li><span class="n">3</span><div><h3>Written plan &amp; financing</h3><p>A fixed plan with a fixed number, plus monthly options. You take it away and think about it.</p></div></li>
-      <li><span class="n">4</span><div><h3>Treatment &amp; follow-up</h3><p>Most veneer cases are two visits. We review at six months and you have a direct line throughout.</p></div></li>
-    </ol>
+    <div class="split flip">
+      <figure class="photo">
+        <picture>
+          <source type="image/avif" srcset="../_assets/library/cosmetic-dentists/aldridge-dental/scanner-640.avif 640w, ../_assets/library/cosmetic-dentists/aldridge-dental/scanner-1280.avif 1280w" sizes="(max-width: 999px) 100vw, 480px">
+          <img src="../_assets/library/cosmetic-dentists/aldridge-dental/scanner-720.jpg" alt="An intraoral scanner on its stand" width="720" height="537" loading="lazy" decoding="async">
+        </picture>
+        <figcaption>Scanned, not moulded</figcaption>
+      </figure>
+      <ol class="steps">
+        <li><span class="n">1</span><h3>Consult &amp; scan</h3><p>3D scan, photographs, and a conversation about what actually bothers you. About an hour.</p></li>
+        <li><span class="n">2</span><h3>Digital preview</h3><p>You see your own result rendered before treatment starts, and we adjust it until you’re happy.</p></li>
+        <li><span class="n">3</span><h3>Written plan &amp; financing</h3><p>A fixed plan with a fixed number, plus monthly options. You take it away and think about it.</p></li>
+        <li><span class="n">4</span><h3>Treatment &amp; follow-up</h3><p>Most veneer cases are two visits. We review at six months and you have a direct line throughout.</p></li>
+      </ol>
+    </div>
   </div>
 </section>
 
 <section class="sec case" id="case" aria-labelledby="case-title">
   <div class="wrap">
     <p class="mark"><span class="n">Four</span><span class="label">A case</span></p>
-    <div class="head">
-      <h2 id="case-title">Worn, stained, and put&nbsp;right.</h2>
-      <p class="lede muted">Years of grinding had flattened the edges and the staining had settled into them. Drag to compare the same mouth before and&nbsp;after.</p>
-    </div>
-    <figure class="cmp" id="cmp">
-      <div class="cmp-frame">
-        <picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/smile-d-after-640.avif 640w, ../_assets/library/cosmetic-dentists/smile-d-after-1280.avif 1280w" sizes="(max-width: 800px) 100vw, 760px"><img src="../_assets/library/cosmetic-dentists/smile-d-after-720.jpg" width="1600" height="1200" alt="After treatment" loading="lazy" decoding="async"></picture>
-        <div class="cmp-before"><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/smile-d-before-640.avif 640w, ../_assets/library/cosmetic-dentists/smile-d-before-1280.avif 1280w" sizes="(max-width: 800px) 100vw, 760px"><img src="../_assets/library/cosmetic-dentists/smile-d-before-720.jpg" width="1600" height="1200" alt="Before treatment" loading="lazy" decoding="async"></picture></div>
-        <span class="cmp-tag cmp-tag-b">Before</span><span class="cmp-tag cmp-tag-a">After</span>
-        <input class="cmp-range" type="range" min="0" max="100" value="50" step="0.5" aria-label="Drag to compare the before and after photographs">
-        <span class="cmp-line" aria-hidden="true"><span class="cmp-grip"></span></span>
+    <div class="split flip">
+      <div>
+        <h2 id="case-title">Worn, stained, and put&nbsp;right.</h2>
+        <p class="lede muted" style="margin-top: var(--s3)">Years of grinding had flattened the edges and the staining had settled into them. Drag to compare the same mouth before and&nbsp;after.</p>
+        <ul class="facts">
+          <li>Worn edges rebuilt</li>
+          <li>Staining removed</li>
+          <li>Shade lifted</li>
+        </ul>
       </div>
-      <figcaption>Worn edges rebuilt, staining removed, shade lifted</figcaption>
-    </figure>
+      <figure class="cmp" id="cmp">
+        <div class="cmp-frame">
+          <picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/smile-d-after-640.avif 640w, ../_assets/library/cosmetic-dentists/smile-d-after-1280.avif 1280w" sizes="(max-width: 999px) 100vw, 660px"><img src="../_assets/library/cosmetic-dentists/smile-d-after-720.jpg" width="1600" height="1200" alt="After treatment" loading="lazy" decoding="async"></picture>
+          <div class="cmp-before"><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/smile-d-before-640.avif 640w, ../_assets/library/cosmetic-dentists/smile-d-before-1280.avif 1280w" sizes="(max-width: 999px) 100vw, 660px"><img src="../_assets/library/cosmetic-dentists/smile-d-before-720.jpg" width="1600" height="1200" alt="Before treatment" loading="lazy" decoding="async"></picture></div>
+          <span class="cmp-tag cmp-tag-b">Before</span><span class="cmp-tag cmp-tag-a">After</span>
+          <input class="cmp-range" type="range" min="0" max="100" value="50" step="0.5" aria-label="Drag to compare the before and after photographs">
+          <span class="cmp-line" aria-hidden="true"><span class="cmp-grip"></span></span>
+        </div>
+        <figcaption>Worn edges rebuilt, staining removed, shade lifted</figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
@@ -325,20 +395,19 @@ h3 { font-size: var(--t-h3); line-height: 1.2; }
       <p class="lede muted">A scan, a shade match and a conversation. Then one written plan, which is the only thing you are asked to decide&nbsp;on.</p>
     </div>
     <div class="rooms">
-      <figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/aldridge-dental/scanner-640.avif 640w, ../_assets/library/cosmetic-dentists/aldridge-dental/scanner-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/cosmetic-dentists/aldridge-dental/scanner-720.jpg" alt="An intraoral scanner on its stand" width="720" height="537" loading="lazy"></picture><figcaption>Scanned, not moulded</figcaption></figure>
-      <figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/aldridge-dental/shade-guide-640.avif 640w, ../_assets/library/cosmetic-dentists/aldridge-dental/shade-guide-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/cosmetic-dentists/aldridge-dental/shade-guide-720.jpg" alt="A porcelain shade guide" width="720" height="537" loading="lazy"></picture><figcaption>Shade matched</figcaption></figure>
-      <figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/aldridge-dental/operatory-640.avif 640w, ../_assets/library/cosmetic-dentists/aldridge-dental/operatory-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/cosmetic-dentists/aldridge-dental/operatory-720.jpg" alt="The treatment room" width="720" height="537" loading="lazy"></picture><figcaption>The treatment room</figcaption></figure>
-      <figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/aldridge-dental/veneer-macro-640.avif 640w, ../_assets/library/cosmetic-dentists/aldridge-dental/veneer-macro-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/cosmetic-dentists/aldridge-dental/veneer-macro-720.jpg" alt="A single porcelain veneer" width="720" height="587" loading="lazy"></picture><figcaption>Porcelain, one at a time</figcaption></figure>
-      <figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/aldridge-dental/lab-bench-640.avif 640w, ../_assets/library/cosmetic-dentists/aldridge-dental/lab-bench-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/cosmetic-dentists/aldridge-dental/lab-bench-720.jpg" alt="The ceramist’s bench" width="720" height="537" loading="lazy"></picture><figcaption>On the technician’s bench</figcaption></figure>
-      <figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/aldridge-dental/reception-640.avif 640w, ../_assets/library/cosmetic-dentists/aldridge-dental/reception-1280.avif 1280w" sizes="(max-width: 759px) 100vw, 33vw"><img src="../_assets/library/cosmetic-dentists/aldridge-dental/reception-720.jpg" alt="Reception, with two armchairs by the window" width="720" height="537" loading="lazy"></picture><figcaption>Reception</figcaption></figure>
+      <figure class="big"><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/aldridge-dental/operatory-640.avif 640w, ../_assets/library/cosmetic-dentists/aldridge-dental/operatory-1280.avif 1280w" sizes="(max-width: 999px) 100vw, 560px"><img src="../_assets/library/cosmetic-dentists/aldridge-dental/operatory-720.jpg" alt="The treatment room" width="720" height="537" loading="lazy" decoding="async"></picture><figcaption>The treatment room</figcaption></figure>
+      <figure class="big"><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/aldridge-dental/reception-640.avif 640w, ../_assets/library/cosmetic-dentists/aldridge-dental/reception-1280.avif 1280w" sizes="(max-width: 999px) 100vw, 560px"><img src="../_assets/library/cosmetic-dentists/aldridge-dental/reception-720.jpg" alt="Reception, with two armchairs by the window" width="720" height="537" loading="lazy" decoding="async"></picture><figcaption>Reception</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/aldridge-dental/shade-guide-640.avif 640w, ../_assets/library/cosmetic-dentists/aldridge-dental/shade-guide-1280.avif 1280w" sizes="(max-width: 999px) 100vw, 360px"><img src="../_assets/library/cosmetic-dentists/aldridge-dental/shade-guide-720.jpg" alt="A porcelain shade guide" width="720" height="537" loading="lazy" decoding="async"></picture><figcaption>Shade matched</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/aldridge-dental/lab-bench-640.avif 640w, ../_assets/library/cosmetic-dentists/aldridge-dental/lab-bench-1280.avif 1280w" sizes="(max-width: 999px) 100vw, 360px"><img src="../_assets/library/cosmetic-dentists/aldridge-dental/lab-bench-720.jpg" alt="The ceramist’s bench" width="720" height="537" loading="lazy" decoding="async"></picture><figcaption>On the technician’s bench</figcaption></figure>
+      <figure><picture><source type="image/avif" srcset="../_assets/library/cosmetic-dentists/whitening-tray-640.avif 640w, ../_assets/library/cosmetic-dentists/whitening-tray-1280.avif 1280w" sizes="(max-width: 999px) 100vw, 360px"><img src="../_assets/library/cosmetic-dentists/whitening-tray-720.jpg" alt="A whitening tray on the bench" width="720" height="537" loading="lazy" decoding="async"></picture><figcaption>The lower-commitment start</figcaption></figure>
     </div>
   </div>
 </section>
 
-<section class="close" id="contact" aria-labelledby="close-title">
+<section class="sec band close on-forest" id="contact" aria-labelledby="close-title">
   <div class="wrap">
     <p class="mark"><span class="n">Six</span><span class="label">Contact</span></p>
-    <div class="grid">
+    <div class="split">
       <div>
         <h2 id="close-title">Been sold something you didn’t need&nbsp;before?</h2>
         <p class="lede">Most of our patients had. The consult is free, there’s no pressure, and you’ll leave knowing what it would look like and what it would&nbsp;cost.</p>
@@ -367,7 +436,7 @@ h3 { font-size: var(--t-h3); line-height: 1.2; }
 <footer class="foot">
   <div class="wrap">
     <div>
-      <a class="brand" href="#"><img src="../_assets/identity/cosmetic-dentists/aldridge-dental-mark.svg" alt="" width="28" height="28">Aldridge Dental</a>
+      <a class="brand" href="#"><img src="../_assets/identity/cosmetic-dentists/aldridge-dental-mark.svg" alt="" width="30" height="30">Aldridge Dental</a>
       <p class="tnum"><a href="tel:+16607036612">(660)&nbsp;703-6612</a> · One dentist · No treatment coordinators · New patients welcome</p>
       <p>General and cosmetic dentistry · Accepting new patients</p>
     </div>
@@ -385,14 +454,38 @@ h3 { font-size: var(--t-h3); line-height: 1.2; }
 </div>
 
 <script>
-/* One listener per frame. The position lives in a custom property so the clip, the rule and the grip share one source of truth. */
 (function () {
+  /* Compare slider: the position lives in a custom property so the clip, the rule and the grip share one source of truth. */
   document.querySelectorAll('.cmp').forEach(function (frame) {
     var range = frame.querySelector('.cmp-range');
     var apply = function () { frame.style.setProperty('--pos', range.value + '%'); };
     range.addEventListener('input', apply);
     apply();
   });
+
+  /* Hero loop: the poster is the LCP image; the 7 s loop is fetched only when motion is welcome and data is not scarce,
+     and a Pause control appears once it plays (WCAG 2.2.2). */
+  var media = document.getElementById('hero-media');
+  var video = media && media.querySelector('video');
+  var pause = document.getElementById('hero-pause');
+  var conn = navigator.connection || {};
+  var motionOk = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var dataOk = !conn.saveData && !/2g/.test(conn.effectiveType || '');
+  if (video && motionOk && dataOk) {
+    video.src = video.getAttribute('data-src');
+    video.addEventListener('canplay', function () {
+      var p = video.play();
+      if (p && p.then) { p.then(function () { media.classList.add('is-playing'); pause.hidden = false; }).catch(function () {}); }
+    }, { once: true });
+    video.load();
+    pause.addEventListener('click', function () {
+      var paused = video.paused;
+      if (paused) { video.play(); } else { video.pause(); }
+      pause.textContent = paused ? 'Pause' : 'Play';
+      pause.setAttribute('aria-pressed', paused ? 'false' : 'true');
+    });
+  }
+
   /* Static preview: validates locally and confirms in place. Nothing is sent. */
   var form = document.getElementById('callback');
   form.addEventListener('submit', function (e) {
