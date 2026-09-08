@@ -129,21 +129,28 @@ text-transform:none;font-size:17px;font-family:Karla,sans-serif;font-weight:600}
 </style>
 
 <style>
-  /* Hero plate, added with the photography pass. Full-bleed between the hero
-     and the first content section, with no border of its own: every one of
-     these designs owns a different rule weight and ink colour, and a borrowed
-     hairline reads as a mistake in about half of them. */
-  .gsw-plate picture { display: block; width: 100%; }
+  /* Hero backdrop. The photograph that used to sit as a plate below the hero now
+     sits behind it; the scrim is the hero gradient's own top colour, so the
+     contrast the layout was built with is unchanged. It stays near solid down
+     the text column and clears over the truck and the lit house on the right. */
   .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
-  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
-  .gsw-plate img {
-    display: block;
-    width: 100%;
-    height: clamp(220px, 40vw, 520px);
-    object-fit: cover;
-    object-position: center;
+  .gsw-imaged { position: relative; isolation: isolate; overflow: hidden; }
+  .gsw-imaged > *:not(.gsw-backdrop) { position: relative; z-index: 1; }
+  .gsw-backdrop { position: absolute; inset: 0; z-index: 0; }
+  .gsw-backdrop img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  /* the design's diagonal hairlines belong over the photograph, not under it */
+  .hero.gsw-imaged::before { z-index: 1; }
+  .gsw-backdrop::after {
+    content: ""; position: absolute; inset: 0;
+    background:
+      linear-gradient(180deg, rgb(13 17 18 / 0.55) 0%, rgb(13 17 18 / 0.15) 30%, rgb(13 17 18 / 0.15) 70%, rgb(13 17 18 / 0.85) 100%),
+      linear-gradient(100deg,
+        rgb(13 17 18 / 0.94) 0%, rgb(13 17 18 / 0.92) 45%, rgb(13 17 18 / 0.82) 58%,
+        rgb(13 17 18 / 0.55) 68%, rgb(13 17 18 / 0.34) 80%, rgb(13 17 18 / 0.28) 100%);
   }
-  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+  @media (max-width: 60rem) { .gsw-backdrop::after { background: rgb(13 17 18 / 0.86); } }
+  @media (forced-colors: active) { .gsw-backdrop { display: none; } }
+  @media print { .gsw-backdrop { display: none; } }
 </style>
 
 
@@ -238,7 +245,7 @@ text-transform:none;font-size:17px;font-family:Karla,sans-serif;font-weight:600}
   <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
   <a class="btn btn-primary navact" href="#contact">Call now, 24/7</a>
 </div></header>
-<section class="hero"><div class="wrap">
+<section class="hero gsw-imaged"><div class="gsw-backdrop" aria-hidden="true"><picture><source type="image/avif" srcset="../_assets/hero/restoration/a-crews-roll-1280.avif 1280w, ../_assets/hero/restoration/a-crews-roll-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/restoration/a-crews-roll-1280.jpg" width="2560" height="1429" alt="" loading="eager" fetchpriority="high" decoding="async"></picture></div><div class="wrap">
   <p class="eyebrow">Water · Fire · Mould · 24/7</p>
   <h1>Three in the morning is when most of these start.</h1>
   <p class="sub">Emergency water, fire and mould restoration, staffed overnight because that is when pipes fail. Our own people answer the line at any hour, not a call centre taking a message for the morning.</p>
@@ -247,7 +254,6 @@ text-transform:none;font-size:17px;font-family:Karla,sans-serif;font-weight:600}
     <a class="btn btn-ghost" href="#claims">How claims work</a>
   </div>
 </div></section>
-<figure class="gsw-plate"><picture><source type="image/avif" srcset="../_assets/hero/restoration/a-crews-roll-1280.avif 1280w, ../_assets/hero/restoration/a-crews-roll-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/restoration/a-crews-roll-1280.jpg" width="2560" height="1429" alt="Crews roll, restoration" loading="lazy" decoding="async"></picture></figure>
 
 <div class="dispatch"><ul>
   <li>60-minute response</li><li>We bill insurers direct</li>

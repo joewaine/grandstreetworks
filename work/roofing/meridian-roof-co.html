@@ -6,6 +6,30 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Meridian Roof Co. · 2,400+ roofs completed, 24hr emergency response</title>
 <meta name="description" content="Storm damage, full replacements and repairs across the metro. Twenty-one years, 2,400 roofs, and a foreman who gives you his number on day one and answers it on day four hundred.">
+<style>
+  /* Hero backdrop. The shingle courses sit behind the hero; the scrim is the
+     design's own fog, near solid down the text column and clearing to the
+     bottom right, where the only thing over the photograph is the opaque
+     instrument panel. The repeating courses were chosen to sit with the scale
+     rule rather than compete with it. */
+  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
+  .gsw-imaged { position: relative; isolation: isolate; overflow: hidden; }
+  .gsw-imaged > *:not(.gsw-backdrop) { position: relative; z-index: 1; }
+  .gsw-backdrop { position: absolute; inset: 0; z-index: 0; }
+  .gsw-backdrop img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .gsw-backdrop::after {
+    content: ""; position: absolute; inset: 0;
+    background:
+      linear-gradient(180deg, rgb(238 240 242 / 0.35) 0%, rgb(238 240 242 / 0.08) 40%, rgb(238 240 242 / 0.60) 100%),
+      linear-gradient(100deg,
+        rgb(238 240 242 / 0.96) 0%, rgb(238 240 242 / 0.90) 50%, rgb(238 240 242 / 0.62) 68%,
+        rgb(238 240 242 / 0.38) 84%, rgb(238 240 242 / 0.30) 100%);
+  }
+  @media (max-width: 60rem) { .gsw-backdrop::after { background: rgb(238 240 242 / 0.90); } }
+  @media (forced-colors: active) { .gsw-backdrop { display: none; } }
+  @media print { .gsw-backdrop { display: none; } }
+</style>
+
 <!-- gsw:identity -->
 <link rel="icon" href="../_assets/identity/roofing/meridian-roof-co-icon-32.png" type="image/png" sizes="32x32">
 <link rel="icon" href="../_assets/identity/roofing/meridian-roof-co-icon.svg" type="image/svg+xml">
@@ -257,7 +281,8 @@ h3 { font-size: var(--t-h3); line-height: 1.25; letter-spacing: -0.005em; }
 </header>
 
 <main id="main">
-<section class="hero" aria-labelledby="promise">
+<section class="hero gsw-imaged" aria-labelledby="promise">
+  <div class="gsw-backdrop" aria-hidden="true"><picture><source type="image/avif" srcset="../_assets/hero/roofing/d-shingle-courses-1280.avif 1280w, ../_assets/hero/roofing/d-shingle-courses-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/roofing/d-shingle-courses-1280.jpg" width="1280" height="714" alt="" loading="eager" fetchpriority="high" decoding="async"></picture></div>
   <div class="wrap">
     <div class="text">
       <p class="label">2,400 roofs · 21 years · 6 crews</p>

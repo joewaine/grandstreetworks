@@ -104,7 +104,7 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 .dbody { padding: var(--s3) var(--s2) var(--s2); }
 h1 { font-size: var(--t-display); line-height: 1.04; letter-spacing: -0.012em; max-width: 14ch; }
 .dbody .lede { margin-top: var(--s2); color: var(--muted); }
-.dline { display: grid; grid-template-columns: 1fr auto; gap: var(--s2); align-items: stretch; padding: var(--s3); border-top: 1px solid var(--rule-strong); }
+.dline { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: var(--s2); padding: var(--s2); border-top: 1px solid var(--rule-strong); }
 .tel { font-family: var(--mono); font-size: var(--t-h3); white-space: nowrap; font-weight: 400; letter-spacing: -0.02em; text-decoration: none; line-height: 1.1; display: inline-block; margin-top: 6px; }
 .tel:hover { color: var(--seal); }
 .ctas { display: flex; flex-wrap: wrap; gap: var(--s1); }
@@ -215,7 +215,6 @@ h3 { font-size: var(--t-h3); line-height: 1.22; font-weight: 500; }
   .nav, .topline, .dhead .ref { display: none; }
   .sched { padding: var(--s4) 0; }
   .hero { padding-top: 0; padding-bottom: var(--s4); }
-  .dline { grid-template-columns: 1fr; }
   .ctas .btn { width: 100%; }
   .checks { grid-template-columns: 1fr; }
   .checks li:nth-child(odd) { border-right: 0; }
@@ -272,10 +271,10 @@ h3 { font-size: var(--t-h3); line-height: 1.22; font-weight: 500; }
     </div>
     <figure class="exhibit" aria-hidden="true">
       <picture>
-        <source type="image/avif" srcset="../_assets/hero/roofing/e-whole-neighbourhood-1280.avif 1280w, ../_assets/hero/roofing/e-whole-neighbourhood-2560.avif 2560w" sizes="(max-width: 999px) 0px, 40vw">
-        <img src="../_assets/hero/roofing/e-whole-neighbourhood-1280.jpg" alt="" width="1280" height="714" fetchpriority="high">
+        <source type="image/avif" srcset="../_assets/hero/roofing/c-hands-on-the-roof-1280.avif 1280w, ../_assets/hero/roofing/c-hands-on-the-roof-2560.avif 2560w" sizes="(max-width: 999px) 0px, 40vw">
+        <img src="../_assets/hero/roofing/c-hands-on-the-roof-1280.jpg" alt="" width="1280" height="714" fetchpriority="high">
       </picture>
-      <figcaption class="mono"><span>Storm and hail claims across the metro</span></figcaption>
+      <figcaption class="mono"><span>On the roof, before the adjuster arrives</span></figcaption>
     </figure>
   </div>
 </section>
