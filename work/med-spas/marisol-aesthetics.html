@@ -6,6 +6,32 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Marisol Aesthetics · Prices published. Booking in two taps.</title>
 <meta name="description" content="Botox, filler, laser and medical-grade skincare, delivered by licensed injectors. Every price is published and you can book without making an account.">
+<style>
+  /* Hero backdrop. The treatment room used to run as a full-bleed plate below the
+     hero, which cost about five hundred pixels of page for a picture nobody had
+     scrolled to yet. Behind the hero it does the same work above the fold and the
+     page gets shorter. Every word of the hero sits over it, so it is blurred well
+     past legibility and held under the design's own paper: warmth and depth
+     rather than a photograph competing with the price list. */
+  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
+  .gsw-imaged { position: relative; isolation: isolate; overflow: hidden; }
+  .gsw-imaged > *:not(.gsw-backdrop) { position: relative; z-index: 1; }
+  .gsw-backdrop { position: absolute; inset: 0; z-index: 0; }
+  .gsw-backdrop img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center;
+    filter: blur(16px) saturate(1.1); transform: scale(1.08);
+  }
+  .gsw-backdrop::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(160deg,
+      rgb(251 247 242 / 0.90) 0%, rgb(251 247 242 / 0.84) 35%,
+      rgb(251 247 242 / 0.72) 62%, rgb(251 247 242 / 0.86) 100%);
+  }
+  @media (max-width: 60rem) { .gsw-backdrop::after { background: rgb(251 247 242 / 0.90); } }
+  @media (forced-colors: active) { .gsw-backdrop { display: none; } }
+  @media print { .gsw-backdrop { display: none; } }
+</style>
+
 <!-- gsw:identity -->
 <link rel="icon" href="../_assets/identity/med-spas/marisol-aesthetics-icon-32.png" type="image/png" sizes="32x32">
 <link rel="icon" href="../_assets/identity/med-spas/marisol-aesthetics-icon.svg" type="image/svg+xml">
@@ -112,10 +138,6 @@ em { font-family: var(--serif); font-style: italic; }
 .creds li { position: relative; padding-left: 14px; }
 .creds li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 5px; height: 5px; background: var(--terra); }
 
-/* Plate */
-.plate { margin: 0 auto; }
-.plate img { width: 100%; aspect-ratio: 2.2 / 1; object-fit: cover; object-position: center; background: var(--paper-2); }
-
 /* Sections and the rule */
 .sec { padding: var(--s12) 0; }
 .mark { display: flex; align-items: baseline; gap: var(--s2); padding-top: var(--s2); border-top: 2px solid var(--terra); margin-bottom: var(--s6); }
@@ -204,7 +226,6 @@ em { font-family: var(--serif); font-style: italic; }
   .hero .cta .btn { width: 100%; }
   .treat ol, .process ol { grid-template-columns: 1fr; }
   .rooms .strip { grid-template-columns: 1fr; }
-  .plate img { aspect-ratio: 4 / 3; object-position: center; }
   .foot .wrap { grid-template-columns: 1fr; }
   .list li.row { font-size: var(--t-body); }
 }
@@ -232,7 +253,8 @@ em { font-family: var(--serif); font-style: italic; }
 </header>
 
 <main id="main">
-<section class="hero" aria-labelledby="promise">
+<section class="hero gsw-imaged" aria-labelledby="promise">
+  <div class="gsw-backdrop" aria-hidden="true"><picture><source type="image/avif" srcset="../_assets/hero/med-spas/a-bright-and-easy-1280.avif 1280w, ../_assets/hero/med-spas/a-bright-and-easy-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/med-spas/a-bright-and-easy-1280.jpg" width="1280" height="714" alt="" loading="eager" fetchpriority="high" decoding="async"></picture></div>
   <div class="wrap">
     <div class="grid">
       <div class="text">
@@ -263,12 +285,6 @@ em { font-family: var(--serif); font-style: italic; }
   </div>
 </section>
 
-<figure class="plate wrap">
-  <picture>
-    <source type="image/avif" srcset="../_assets/hero/med-spas/a-bright-and-easy-1280.avif 1280w, ../_assets/hero/med-spas/a-bright-and-easy-2560.avif 2560w" sizes="(max-width: 1120px) 100vw, 1120px">
-    <img src="../_assets/hero/med-spas/a-bright-and-easy-1280.jpg" alt="Bright and easy, med spas" width="1280" height="714" fetchpriority="high">
-  </picture>
-</figure>
 
 <section class="sec treat" id="services" aria-labelledby="services-title">
   <div class="wrap">
