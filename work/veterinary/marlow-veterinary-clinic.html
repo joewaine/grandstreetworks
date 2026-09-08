@@ -229,11 +229,17 @@ figcaption.tag{position:absolute;left:0;bottom:0;background:var(--ink);color:var
   .navact{justify-self:end}
   .brand{justify-self:center}
   .callbar{display:none}
-  .hero{background:var(--cream)}
-  .hero .plate{height:clamp(560px,84svh,820px)}
-  .hero .plate img{object-position:18% 55%}
+  /* The sign hangs over the plate, but it must not hang past it: taking the sign
+     out of flow with position:absolute meant a short viewport shrank the plate
+     while the sign kept its natural height, and the card dropped into Services.
+     Stacking both in one grid cell keeps the overlay and lets the hero take the
+     height of whichever is taller. */
+  .hero{background:var(--cream);display:grid}
+  .hero .plate{grid-area:1/1;height:auto;min-height:clamp(560px,84svh,820px)}
+  .hero .plate img{position:absolute;inset:0;object-position:18% 55%}
   .hero .plate::after{background:linear-gradient(270deg,rgba(34,38,43,.22),rgba(34,38,43,0) 55%)}
-  .sign-wrap{position:absolute;inset:0;margin:0;display:flex;align-items:flex-start}
+  .sign-wrap{grid-area:1/1;position:relative;margin:0;display:flex;align-items:flex-start;
+    padding-bottom:clamp(2rem,4vw,3.5rem)}
   .sign-wrap .wrap{width:100%;display:flex;justify-content:flex-end}
   .straps{position:absolute;top:0;right:clamp(18px,3vw,40px);width:600px;height:88px;justify-content:center;gap:300px}
   .straps span{display:block;width:4px;height:100%;background:var(--brick)}
