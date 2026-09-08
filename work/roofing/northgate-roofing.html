@@ -6,6 +6,31 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Northgate Roofing · Call and a human answers, day or night</title>
 <meta name="description" content="Storm damage, full replacements and repairs across the metro. One number, answered by a person in our office rather than a service, and a truck dispatched from whichever yard is closest to you.">
+<style>
+  /* Hero backdrop, diffused. The photograph is blurred well past legibility and
+     held under a heavy band-coloured scrim, so it reads as warmth and depth
+     behind the type rather than as a picture competing with it. Scaled up
+     slightly because a blur samples past its own edges and would otherwise
+     feather the corners. */
+  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
+  .gsw-imaged { position: relative; isolation: isolate; overflow: hidden; }
+  .gsw-imaged > *:not(.gsw-backdrop) { position: relative; z-index: 1; }
+  .gsw-backdrop { position: absolute; inset: 0; z-index: 0; }
+  .gsw-backdrop img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center;
+    filter: blur(14px) saturate(1.2); transform: scale(1.1);
+  }
+  .gsw-backdrop::after {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(80% 65% at 28% 42%, rgb(12 14 16 / 0.80), rgb(12 14 16 / 0.52) 78%),
+      linear-gradient(180deg, rgb(12 14 16 / 0.60) 0%, rgb(12 14 16 / 0.46) 45%, rgb(12 14 16 / 0.72) 100%);
+  }
+  @media (max-width: 60rem) { .gsw-backdrop::after { background: rgb(12 14 16 / 0.80); } }
+  @media (forced-colors: active) { .gsw-backdrop { display: none; } }
+  @media print { .gsw-backdrop { display: none; } }
+</style>
+
 <!-- gsw:identity -->
 <link rel="icon" href="../_assets/identity/roofing/northgate-roofing-icon-32.png" type="image/png" sizes="32x32">
 <link rel="icon" href="../_assets/identity/roofing/northgate-roofing-icon.svg" type="image/svg+xml">
@@ -230,7 +255,8 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 </header>
 
 <main id="main">
-<section class="hero" aria-labelledby="promise">
+<section class="hero gsw-imaged" aria-labelledby="promise">
+  <div class="gsw-backdrop" aria-hidden="true"><picture><source type="image/avif" srcset="../_assets/hero/roofing/b-work-done-right-1280.avif 1280w, ../_assets/hero/roofing/b-work-done-right-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/roofing/b-work-done-right-1280.jpg" width="1280" height="714" alt="" loading="eager" fetchpriority="high" decoding="async"></picture></div>
   <div class="wrap">
     <p class="label live">Dispatch open · A person, not a service</p>
     <h1 id="promise">Call during the storm. Someone&nbsp;answers.</h1>

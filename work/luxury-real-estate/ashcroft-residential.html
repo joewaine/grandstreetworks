@@ -63,17 +63,13 @@ color:var(--muted)}
 background:linear-gradient(90deg,transparent 0 33.4%,rgba(18,22,20,.11) 33.4% 33.55%,
 transparent 33.55%),linear-gradient(168deg,#E4E2D9,#F1EFE9 52%,#DCDAD1);
 box-shadow:inset 0 0 0 1px rgba(18,22,20,.07)}
-.plateone .fld::before{content:"";position:absolute;left:0;right:0;top:63%;height:1px;
-background:rgba(18,22,20,.2)}
-.plateone .fld::after{content:"";position:absolute;left:16%;right:16%;top:22%;bottom:37%;
-border:1px solid rgba(20,73,78,.35)}
 .plateone .n{display:block;font-size:13px;letter-spacing:.2em;color:var(--accent);padding-top:9px;
 font-weight:600}
 .register{list-style:none;margin:12px 0 0;padding:0;display:grid;grid-template-columns:repeat(6,1fr);
 gap:6px}
-.register li{border-top:2px solid var(--accent);padding-top:6px;font-size:13px;letter-spacing:.1em;
+.register li{border-top:2px solid rgba(20,73,78,.3);padding-top:6px;font-size:13px;letter-spacing:.1em;
 color:var(--muted);font-weight:500}
-.register li:nth-child(n+2){border-top-color:rgba(20,73,78,.3)}
+.register li:has(button[aria-current="true"]){border-top-color:var(--accent)}
 .sec{padding:54px 0;border-top:1px solid var(--hair)}
 .kicker{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);
 margin:0 0 13px;font-weight:600}
