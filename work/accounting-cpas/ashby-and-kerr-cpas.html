@@ -6,149 +6,157 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Ashby &amp; Kerr CPAs · Stop emailing your tax documents as attachments.</title>
 <meta name="description" content="Business accounting, tax and advisory for owner-managed companies. A live checklist shows exactly which documents are outstanding and who is holding each one. Usually us, and we say so.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Public+Sans:wght@400;600&family=Roboto+Mono:wght@500;700&display=swap" rel="stylesheet">
 <style>
-/* D4 — THE CHECKLIST ONE. hero:panel nav:bar services:list proof:logos
-   ink #141312 · surface #FBFAF7 · accent #B4470B · muted #5C5852
-   Familjen Grotesk display / Public Sans body / Roboto Mono micro-labels
-   Fixes "busy-season document chasing by email attachment": the hero panel is a
-   portal window drawn in CSS with a request checklist inside it — every line
-   already ticked — so the page shows the chase being finished, not promised. */
-:root{--ink:#141312;--surface:#FBFAF7;--paper:#FFFFFF;--accent:#B4470B;--muted:#5C5852;
---rule:rgba(20,19,18,.2);--hair:rgba(20,19,18,.1);--wrap:1100px}
+/* D4 — THE CHECKLIST. hero:panel nav:bar services:list proof:row
+   paper #FFFFFF · ink #16181A · green #1B7A48 · muted #5A5F63 · rule 14% ink
+   Public Sans 400/500/600 for everything read · Roboto Mono 500 for index, ticks, labels
+   Ramp (7): 13 · 15 · 16 · 18 · 20–23 · 26–36 · 34–60, one clamp curve for the top three
+   Device: the hero panel is a ruled request checklist — mono index, the four package
+   strings, a green tick per row, “Portal, not email” as the ruled foot. Ticks land one at
+   a time on first view, all present under reduced motion; no other motion on the page.
+   Fixes “busy-season document chasing by email attachment”: the page shows the list
+   already finished, so “you will always know what we’re waiting on” is demonstrated
+   in the first screen, not promised. */
+@font-face{font-family:"Public Sans";src:url("../_assets/fonts/public-sans-var.woff2") format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Roboto Mono";src:url("../_assets/fonts/roboto-mono-var.woff2") format("woff2");font-weight:100 700;font-display:swap}
+@font-face{font-family:"Public Sans Fallback";src:local("Arial"),local("Helvetica");size-adjust:99%;ascent-override:97%;descent-override:26%;line-gap-override:0%}
+@font-face{font-family:"Roboto Mono Fallback";src:local("Courier New"),local("Menlo");size-adjust:100%;ascent-override:104%;descent-override:27%;line-gap-override:0%}
+:root{
+  --paper:#FFFFFF;--ink:#16181A;--muted:#5A5F63;--green:#1B7A48;--green-deep:#155F38;
+  --rule:rgba(22,24,26,.14);--hair:rgba(22,24,26,.08);--on-ink:#F4F5F4;--on-ink-muted:#B9BDC0;
+  --sans:"Public Sans","Public Sans Fallback",system-ui,sans-serif;
+  --mono:"Roboto Mono","Roboto Mono Fallback",ui-monospace,monospace;
+  --s0:.8125rem;--s1:.9375rem;--s2:1rem;--s3:1.125rem;
+  --s4:clamp(1.25rem,1.15rem + .45vw,1.4375rem);
+  --s5:clamp(1.625rem,1.4rem + 1vw,2.25rem);
+  --s6:clamp(2.125rem,1.6rem + 2.6vw,3.75rem);
+  --u:.5625rem;--sp1:var(--u);--sp2:calc(var(--u)*2);--sp3:calc(var(--u)*3);--sp4:calc(var(--u)*4);--sp6:calc(var(--u)*6);--sp8:calc(var(--u)*8);--sp10:calc(var(--u)*10);
+  --wrap:1120px;--tick:22px}
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--surface);color:var(--ink);
-font:400 17px/1.6 "Public Sans",system-ui,-apple-system,sans-serif;padding-bottom:80px;
-overflow-x:hidden}
-.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
-h1,h2,h3{font-family:"Familjen Grotesk","Public Sans",system-ui,sans-serif;font-weight:700;margin:0;
-line-height:1.14;letter-spacing:-.02em}
+html{-webkit-text-size-adjust:100%;font-optical-sizing:auto}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:var(--s3);line-height:1.6;font-weight:400;padding-bottom:84px;overflow-x:hidden}
+p{text-wrap:pretty}
+h1,h2,h3{margin:0;font-weight:500;text-wrap:balance}
+h1{font-size:var(--s6);line-height:1.02;letter-spacing:-.02em;max-width:14ch}
+h2{font-size:var(--s5);line-height:1.08;letter-spacing:-.015em;max-width:20ch}
+h3{font-size:var(--s4);line-height:1.25;font-weight:600}
 a{color:inherit}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 22px;
-text-decoration:none;font-weight:700;font-size:16px;line-height:1.2;text-align:center;
-border:2px solid transparent;font-family:"Familjen Grotesk","Public Sans",sans-serif}
-.btn-primary{background:var(--accent);color:#fff;border-color:var(--accent)}
-.btn-ghost{background:var(--paper);color:var(--ink);border-color:var(--ink)}
-.topbar{background:var(--surface);color:var(--muted);font-family:"Roboto Mono",monospace;
-font-size:13px;border-bottom:1px solid var(--hair)}
-.topbar .wrap{padding:9px 20px}
-.nav{position:sticky;top:0;z-index:30;background:var(--ink)}
-.navrow{display:flex;align-items:center;gap:14px;height:58px;max-width:var(--wrap);margin:0 auto;
-padding:0 20px}
-.brand{font-family:"Familjen Grotesk",sans-serif;font-weight:700;font-size:19px;text-decoration:none;
-letter-spacing:-.025em;line-height:1;white-space:nowrap;color:#fff}
-.navlinks{display:flex;gap:16px;flex:1;overflow-x:auto;scrollbar-width:none}
-.navlinks::-webkit-scrollbar{display:none}
-.navlinks a{font-family:"Roboto Mono",monospace;font-size:13px;letter-spacing:.08em;
-text-transform:uppercase;color:#CFC9C1;text-decoration:none;white-space:nowrap}
-.navact{min-height:38px;padding:0 14px;font-size:14px;white-space:nowrap;background:transparent;
-color:#fff;border-color:rgba(255,255,255,.6)}
-.hero{padding:26px 0 30px}
-.eyebrow{font-family:"Roboto Mono",monospace;font-size:13px;letter-spacing:.14em;
-text-transform:uppercase;color:var(--accent);margin:0 0 14px;font-weight:700}
-.hero h1{font-size:clamp(29px,7.4vw,56px);max-width:15ch}
-.sub{font-size:16.5px;color:var(--muted);max-width:52ch;margin:16px 0 0;line-height:1.58}
-.ctas{display:flex;flex-direction:column;gap:10px;margin-top:20px}
-.panel{margin-top:28px;background:var(--paper);border:2px solid var(--ink);
-box-shadow:7px 7px 0 rgba(20,19,18,.1)}
-.pbar{display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--ink);color:#fff;
-font-family:"Roboto Mono",monospace;font-size:13px;letter-spacing:.06em}
-.pbar i{width:9px;height:9px;background:rgba(255,255,255,.45);display:block;font-style:normal}
-.pbar i:first-of-type{background:var(--accent)}
-.pbar span{margin-left:4px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--sp3)}
+.label{font-family:var(--mono);font-size:var(--s0);font-weight:500;letter-spacing:.1em;text-transform:uppercase;line-height:1.3;color:var(--muted);margin:0}
+.label.green{color:var(--green)}
+.meta{font-family:var(--mono);font-size:var(--s1);font-weight:500;line-height:1.5;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 var(--sp3);text-decoration:none;font-family:var(--sans);font-weight:600;font-size:var(--s2);line-height:1.2;text-align:center;border:1.5px solid var(--ink);color:var(--ink);background:var(--paper);cursor:pointer}
+.btn-primary{background:var(--green);border-color:var(--green);color:#fff}
+.btn-primary:hover{background:var(--green-deep);border-color:var(--green-deep)}
+.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+.btn:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+.tnum{font-variant-numeric:tabular-nums}
+/* tick */
+.tick{width:var(--tick);height:var(--tick);flex:0 0 var(--tick);background:var(--green);position:relative;display:inline-block;vertical-align:middle}
+.tick::after{content:"";position:absolute;left:7px;top:3px;width:6px;height:12px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(42deg)}
+.tick.small{--tick:14px}
+.tick.small::after{left:4px;top:1px;width:4px;height:8px;border-width:0 1.5px 1.5px 0}
+/* top bar and nav */
+.topbar{border-bottom:1px solid var(--hair)}
+.topbar .wrap{padding-top:var(--sp1);padding-bottom:var(--sp1)}
+.topbar p{margin:0}
+.nav{position:sticky;top:0;z-index:30;background:var(--paper);border-bottom:1.5px solid var(--ink)}
+.navrow{display:flex;flex-wrap:wrap;align-items:center;gap:var(--sp1) var(--sp3);padding-top:var(--sp2);padding-bottom:var(--sp2)}
+.brand{font-weight:600;font-size:var(--s3);text-decoration:none;line-height:1;white-space:nowrap;letter-spacing:-.01em}
+.gsw-lockup{display:inline-flex;align-items:center;gap:.46em}
+.gsw-lockup svg{height:1.16em;width:auto;flex:none;display:block}
+.gsw-lockup svg path{stroke:var(--green)}
+.gsw-lockup svg rect{fill:currentColor;opacity:.55}
+.navlinks{display:flex;flex-wrap:wrap;gap:var(--sp1) var(--sp2);flex:1 1 100%;order:3}
+.navlinks a{font-family:var(--mono);font-size:var(--s0);font-weight:500;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--muted);padding:2px 0}
+.navlinks a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:4px}
+.navact{min-height:40px;padding:0 var(--sp2);margin-left:auto}
+@media(max-width:999px){.navact{display:none}}
+@media(min-width:760px){.navlinks{flex:1;order:0;gap:var(--sp3);margin-left:var(--sp3)}.navrow{flex-wrap:nowrap;gap:var(--sp3)}}
+/* hero */
+.hero{padding:var(--sp6) 0 var(--sp6)}
+.hero .wrap{display:grid;gap:var(--sp4)}
+.sub{font-size:var(--s4);line-height:1.45;color:var(--muted);max-width:44ch;margin:var(--sp3) 0 0}
+.ctas{display:flex;flex-direction:column;gap:var(--sp2);margin-top:var(--sp4)}
+@media(min-width:560px){.ctas{flex-direction:row;flex-wrap:wrap}}
+@media(min-width:960px){.hero{padding:var(--sp8) 0 var(--sp8)}.hero .wrap{grid-template-columns:minmax(0,1fr) 440px;gap:var(--sp8);align-items:start}.panel{margin-top:var(--sp1)}}
+.panel{border:1.5px solid var(--ink);background:var(--paper)}
+.phead{display:flex;justify-content:space-between;align-items:center;gap:var(--sp2);padding:var(--sp2) var(--sp3);border-bottom:1.5px solid var(--ink)}
 .plist{list-style:none;margin:0;padding:0}
-.plist li{display:grid;grid-template-columns:26px 30px 1fr 24px;gap:11px;align-items:center;
-padding:13px 14px;border-bottom:1px solid var(--hair);font-size:15.5px;line-height:1.35}
+.plist li{display:grid;grid-template-columns:2.5ch 1fr var(--tick);gap:var(--sp2);align-items:center;padding:var(--sp2) var(--sp3);border-bottom:1px solid var(--rule);font-size:var(--s3);line-height:1.35}
 .plist li:last-child{border-bottom:0}
-.plist .num{font-family:"Roboto Mono",monospace;font-size:13px;color:var(--muted)}
-.sheet{height:28px;border:1.5px solid var(--rule);position:relative;background:var(--surface)}
-.sheet::before{content:"";position:absolute;left:6px;right:9px;top:7px;height:14px;
-background:repeating-linear-gradient(180deg,var(--rule) 0 2px,transparent 2px 6px)}
-.chk{width:22px;height:22px;background:var(--accent);position:relative}
-.chk::after{content:"";position:absolute;left:7px;top:4px;width:6px;height:11px;
-border:solid #fff;border-width:0 2px 2px 0;transform:rotate(42deg)}
-.pfoot{padding:12px 14px;border-top:2px solid var(--ink);background:var(--surface);
-font-family:"Roboto Mono",monospace;font-size:13px;color:var(--ink)}
-.pfoot em{font-style:normal;color:var(--accent);font-weight:700}
-.sec{padding:52px 0;border-top:1px solid var(--rule)}
-.kicker{font-family:"Roboto Mono",monospace;font-size:13px;letter-spacing:.14em;
-text-transform:uppercase;color:var(--accent);margin:0 0 12px;font-weight:700}
-.sec h2{font-size:clamp(27px,6.2vw,42px);max-width:20ch}
-.lede{color:var(--muted);max-width:58ch;margin:14px 0 0;font-size:17px}
-.list{list-style:none;margin:30px 0 0;padding:0;border-top:2px solid var(--ink)}
-.list li{padding:22px 0;border-bottom:1px solid var(--hair)}
-.list h3{font-size:21px;margin-bottom:8px}
-.list p{margin:0;color:var(--muted);font-size:16px;max-width:62ch}
-.creds{margin-top:26px;border:2px solid var(--ink);background:var(--paper)}
-.creds ul{list-style:none;margin:0;padding:0}
-.creds li{display:flex;align-items:center;gap:12px;padding:15px 16px;
-border-bottom:1px solid var(--hair);font-family:"Roboto Mono",monospace;font-size:14px;
-letter-spacing:.04em;line-height:1.4}
-.creds li:last-child{border-bottom:0}
-.creds li::before{content:"";width:14px;height:14px;flex:0 0 14px;border:2px solid var(--accent);
-transform:rotate(45deg)}
-.steps{list-style:none;margin:30px 0 0;padding:0;counter-reset:s}
-.steps li{counter-increment:s;display:grid;grid-template-columns:1fr 52px;gap:12px;
-align-items:start;padding:22px 0;border-bottom:1px solid var(--hair)}
-.steps li:first-child{border-top:2px solid var(--ink)}
-.steps li::after{content:counter(s,decimal-leading-zero);grid-column:2;grid-row:1;
-font-family:"Roboto Mono",monospace;font-size:20px;font-weight:700;color:var(--accent);
-text-align:right;line-height:1.3}
-.steps h3{font-size:20px;margin-bottom:7px}
-.steps p{margin:0;color:var(--muted);font-size:16px}
-.close{background:var(--paper);border-top:2px solid var(--ink);padding:52px 0 56px}
-.close h2{font-size:clamp(28px,6.4vw,46px);max-width:17ch}
-.close p{max-width:56ch;font-size:17px;color:var(--muted);margin:16px 0 22px}
-.close .note{font-family:"Roboto Mono",monospace;font-size:16px;color:var(--muted);margin:22px 0 0;
-line-height:1.6;border-left:3px solid var(--accent);padding-left:13px}
-.foot{padding:40px 0 34px;font-size:15.5px;color:var(--muted);background:var(--ink)}
-.foot .brand{display:inline-block;margin-bottom:12px}
-.foot p{margin:0 0 9px;max-width:66ch;color:#B8B2AA}
-.foot a{color:#F0A467;font-weight:600}
-.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--paper);padding:8px;
-border-top:2px solid var(--ink);display:grid;grid-template-columns:1fr auto;gap:8px}
-.callbar a{display:flex;align-items:center;justify-content:center;min-height:56px;
-text-decoration:none;font-weight:700;font-size:15px;text-align:center;line-height:1.2;padding:0 12px;
-font-family:"Familjen Grotesk",sans-serif}
-.callbar .book{background:var(--accent);color:#fff}
-.callbar .tel{border:2px solid var(--ink);color:var(--ink);padding:0 16px;font-size:16px}
-@media(max-width:559px){.navact{display:none}}
-@media(min-width:760px){
-.ctas{flex-direction:row}.hero{padding:48px 0 56px}.sec{padding:80px 0}.sub{font-size:19px}
-.brand{font-size:22px}.navrow{height:66px}
-.panel{max-width:640px}
-.list li{display:grid;grid-template-columns:1fr 1.35fr;gap:36px}
-.list h3{margin-bottom:0}
-.creds ul{display:grid;grid-template-columns:1fr 1fr}
-.creds li:nth-child(odd){border-right:1px solid var(--hair)}
-.creds li:nth-last-child(-n+1){border-bottom:0}
-.steps{display:grid;grid-template-columns:1fr 1fr;column-gap:44px}
-.steps li:nth-child(2){border-top:2px solid var(--ink)}}
+.plist .num{font-family:var(--mono);font-size:var(--s1);font-weight:500;color:var(--muted)}
+.pfoot{display:flex;gap:var(--sp2);align-items:baseline;padding:var(--sp2) var(--sp3);border-top:1.5px solid var(--ink);font-family:var(--mono);font-size:var(--s1);font-weight:500;color:var(--ink)}
+.pfoot em{font-style:normal;color:var(--green)}
+/* plate */
+.plate{margin:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.plate picture,.plate img{display:block;width:100%}
+.plate img{height:clamp(200px,32vw,440px);object-fit:cover;object-position:center}
+/* sections */
+.sec{padding:var(--sp8) 0}
+.sec .label{margin-bottom:var(--sp2)}
+.lede{font-size:var(--s4);line-height:1.45;color:var(--muted);max-width:52ch;margin:var(--sp3) 0 0}
+.rows{list-style:none;margin:var(--sp6) 0 0;padding:0;border-top:1.5px solid var(--ink)}
+.rows li{display:grid;grid-template-columns:3ch 1fr;gap:var(--sp2) var(--sp3);padding:var(--sp4) 0;border-bottom:1px solid var(--rule)}
+.rows .num{font-family:var(--mono);font-size:var(--s1);font-weight:500;color:var(--green);line-height:1.7}
+.rows p{margin:var(--sp1) 0 0;color:var(--muted);max-width:60ch;grid-column:2}
+@media(min-width:760px){.rows li{grid-template-columns:3ch minmax(0,.9fr) minmax(0,1.1fr);column-gap:var(--sp4)}.rows p{margin:0;grid-column:3}.rows h3{grid-column:2}.rows .num{grid-row:1}}
+.creds{list-style:none;margin:var(--sp6) 0 0;padding:var(--sp3) 0;border-top:1.5px solid var(--ink);border-bottom:1px solid var(--rule);display:flex;flex-wrap:wrap;gap:var(--sp2) var(--sp6)}
+.creds li{display:flex;align-items:center;gap:var(--sp2);font-family:var(--mono);font-size:var(--s1);font-weight:500;line-height:1.5}
+.steps{list-style:none;margin:var(--sp6) 0 0;padding:0;counter-reset:s;border-top:1.5px solid var(--ink)}
+.steps li{counter-increment:s;display:grid;grid-template-columns:3ch 1fr;gap:var(--sp2) var(--sp3);padding:var(--sp4) 0;border-bottom:1px solid var(--rule)}
+.steps li::before{content:counter(s,decimal-leading-zero);font-family:var(--mono);font-size:var(--s1);font-weight:500;color:var(--green);line-height:1.7}
+.steps h3{margin:0}
+.steps p{margin:var(--sp1) 0 0;color:var(--muted);max-width:60ch;grid-column:2}
+@media(min-width:760px){.steps{display:grid;grid-template-columns:1fr 1fr;column-gap:var(--sp8)}.steps li:nth-child(2){border-top:1.5px solid var(--ink);margin-top:-1.5px}}
+/* gallery */
+.gal{padding:var(--sp8) 0 var(--sp8);border-top:1px solid var(--rule)}
+.gal .note{color:var(--muted);max-width:52ch;margin:var(--sp3) 0 0}
+.galgrid{display:grid;gap:var(--sp3);margin-top:var(--sp6)}
+.galgrid figure{margin:0}
+.galgrid img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--rule)}
+.galgrid figcaption{margin-top:var(--sp2)}
+@media(min-width:640px){.galgrid{grid-template-columns:repeat(3,1fr)}}
+/* close */
+.close{padding:var(--sp8) 0 var(--sp10);border-top:1.5px solid var(--ink)}
+.close p{max-width:56ch;color:var(--muted);margin:var(--sp3) 0 0}
+.close .ctas{margin-top:var(--sp4)}
+.close .fine{margin:var(--sp6) 0 0;padding-left:var(--sp3);border-left:3px solid var(--green);color:var(--ink);max-width:56ch}
+.gsw-cf{max-width:640px;margin:var(--sp6) 0 0;text-align:left}
+.gsw-cf-lead{margin:0 0 var(--sp2);color:var(--ink)}
+.gsw-cf-grid{display:grid;gap:var(--sp2)}
+.gsw-cf label{display:flex;flex-direction:column;gap:6px}
+.gsw-cf label span{font-family:var(--mono);font-size:var(--s0);font-weight:500;letter-spacing:.1em;text-transform:uppercase;line-height:1.3;color:var(--muted)}
+.gsw-cf label em{font-style:normal;text-transform:none;letter-spacing:0}
+.gsw-cf input,.gsw-cf textarea{font-family:var(--sans);font-size:var(--s2);line-height:1.4;color:var(--ink);background:var(--paper);border:1.5px solid var(--ink);border-radius:0;padding:12px 12px;width:100%}
+.gsw-cf textarea{resize:vertical;min-height:88px}
+.gsw-cf-row{display:flex;align-items:center;gap:var(--sp3);flex-wrap:wrap;margin-top:var(--sp3)}
+.gsw-cf button.btn{appearance:none}
+.gsw-cf-err{font-size:var(--s1);font-weight:600;color:#9A2F1F}
+.gsw-cf-done{margin:0;font-weight:600;color:var(--green)}
+.gsw-cf[data-sent] .gsw-cf-lead,.gsw-cf[data-sent] .gsw-cf-grid,.gsw-cf[data-sent] .gsw-cf-row{display:none}
+@media(min-width:640px){.gsw-cf-grid{grid-template-columns:1fr 1fr}.gsw-cf-wide{grid-column:1 / -1}}
+/* footer */
+.foot{padding:var(--sp6) 0;background:var(--ink);color:var(--on-ink-muted);font-size:var(--s1);-webkit-font-smoothing:antialiased}
+.foot .brand{display:inline-block;color:var(--on-ink);margin-bottom:var(--sp3)}
+.foot .gsw-lockup svg rect{fill:var(--on-ink)}
+.foot p{margin:0 0 var(--sp1);max-width:66ch}
+.foot a{color:var(--on-ink);text-decoration:none;font-weight:600}
+.foot a:hover{text-decoration:underline;text-underline-offset:3px}
+/* sticky bar */
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--paper);padding:var(--sp1);border-top:1.5px solid var(--ink);display:grid;grid-template-columns:1fr auto;gap:var(--sp1)}
+.callbar .btn{min-height:56px;padding:0 var(--sp2);font-size:var(--s1);white-space:nowrap}
+.callbar{grid-template-columns:1fr auto}
 @media(min-width:1000px){body{padding-bottom:0}.callbar{display:none}}
-</style>
-
-<style>
-  /* Hero plate, added with the photography pass. Full-bleed between the hero
-     and the first content section, with no border of its own: every one of
-     these designs owns a different rule weight and ink colour, and a borrowed
-     hairline reads as a mistake in about half of them. */
-  .gsw-plate picture { display: block; width: 100%; }
-  .gsw-backdrop picture { display: block; width: 100%; height: 100%; }
-  .gsw-plate { margin: 0; display: block; width: 100%; overflow: hidden; }
-  .gsw-plate img {
-    display: block;
-    width: 100%;
-    height: clamp(220px, 40vw, 520px);
-    object-fit: cover;
-    object-position: center;
-  }
-  @media (max-width: 640px) { .gsw-plate img { height: clamp(180px, 52vw, 300px); } }
+/* motion: the tick sequence only, gated on the script */
+.seq .plist .tick{opacity:0;transform:scale(.7);transition:opacity .25s ease,transform .3s cubic-bezier(.2,1.4,.4,1)}
+.seq .plist li.in .tick{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.seq .plist .tick{opacity:1;transform:none;transition:none}}
+@media print{.nav,.callbar,.gsw-cf{display:none}body{padding:0}}
 </style>
 
 <!-- gsw:identity -->
+<link rel="icon" href="../_assets/identity/accounting-cpas/ashby-and-kerr-cpas-icon-32.png" type="image/png" sizes="32x32">
 <link rel="icon" href="../_assets/identity/accounting-cpas/ashby-and-kerr-cpas-icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../_assets/identity/accounting-cpas/ashby-and-kerr-cpas-icon-180.png">
 <meta name="theme-color" content="#141312">
@@ -160,275 +168,154 @@ font-family:"Familjen Grotesk",sans-serif}
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"AccountingService","name":"Ashby & Kerr CPAs","description":"Now taking business clients for the coming year \u00b7 Secure client portal \u2192","telephone":"(269) 692-4471","areaServed":"Metro area","image":"https://grandstreetworks.com/work/_assets/identity/accounting-cpas/ashby-and-kerr-cpas-og.png","logo":"https://grandstreetworks.com/work/_assets/identity/accounting-cpas/ashby-and-kerr-cpas-mark.svg"}</script>
-
-<style>
-  /* Identity pass. The lockup is the mark plus the wordmark the build already
-     had; the mark is sized in em so it tracks whatever display face this build
-     sets its brand in. */
-  .gsw-lockup { display: inline-flex; align-items: center; gap: .46em; }
-  .gsw-lockup svg { height: 1.16em; width: auto; flex: none; display: block; }
-</style>
-
-<style>
-  /* Recent-work gallery. Everything here is drawn from the properties the build
-     already declares, so the band inherits each design's palette and heading
-     face rather than importing a seventh look. */
-  .gsw-gal { background: #FBFAF7; color: #141312;
-             padding: clamp(38px, 6vw, 74px) 0; }
-  .gsw-gal-in { max-width: var(--wrap, 1140px); margin: 0 auto; padding: 0 20px; }
-  .gsw-gal-lab { font-size: 13px; letter-spacing: .18em; text-transform: uppercase;
-                 font-weight: 600; color: var(--accent); margin: 0 0 14px; }
-  .gsw-gal h2 { margin: 0; color: inherit; }
-  .gsw-gal-note { color: var(--muted); margin: 14px 0 30px; max-width: 58ch; }
-  .gsw-ba { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px; }
-  .gsw-gal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-  .gsw-gal figure { margin: 0; position: relative; overflow: hidden;
-                    background: var(--rule, rgba(0,0,0,.1)); }
-  .gsw-gal picture { display: block; }
-  /* height:auto matters — the width/height attributes are a presentational
-     hint, and without this the 1200px hint beats aspect-ratio. */
-  .gsw-gal img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3;
-                 object-fit: cover; transition: transform .5s ease; }
-  .gsw-gal figure:hover img { transform: scale(1.035); }
-  .gsw-gal figcaption { position: absolute; left: 0; bottom: 0;
-                        background: #141312; color: #FBFAF7;
-                        font-size: 12px; font-weight: 600; letter-spacing: .14em;
-                        text-transform: uppercase; padding: 7px 12px; }
-  @media (max-width: 720px) {
-    .gsw-ba, .gsw-gal-grid { grid-template-columns: 1fr; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .gsw-gal img { transition: none; }
-    .gsw-gal figure:hover img { transform: none; }
-  }
-</style>
-
-<style>
-  /* gsw-seq: the hero device arrives a part at a time. Gated on .gsw-seq-on,
-     which only the script adds, so without JavaScript the device is simply
-     there. */
-  .gsw-seq-on .plist li {
-    opacity: 0; transform: translateY(9px);
-    transition: opacity .5s cubic-bezier(.2,.6,.2,1), transform .5s cubic-bezier(.2,.6,.2,1);
-  }
-  .gsw-seq-on .plist li.gsw-seq-in { opacity: 1; transform: none; }
-  .gsw-seq-on .plist li .chk {
-    opacity: 0; transform: scale(.72);
-    transition: opacity .28s ease, transform .28s cubic-bezier(.2,1.5,.4,1);
-  }
-  .gsw-seq-on .plist li.gsw-seq-in .chk {
-    opacity: 1; transform: none; transition-delay: .34s;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .gsw-seq-on .plist li,
-    .gsw-seq-on .plist li .chk {
-      opacity: 1; transform: none; transition: none;
-    }
-  }
-</style>
-
-<style>
-  /* gsw:contact-form — the closing section takes a name. Borrows the section's
-     colour through currentColor and the build's own .btn for the button. */
-  .gsw-cf { max-width: 640px; margin: 28px 0 0; text-align: left; }
-  .gsw-cf--centred { margin-left: auto; margin-right: auto; }
-  .gsw-cf-lead { margin: 0 0 12px; font-size: 15px; opacity: .85; }
-  .gsw-cf-grid { display: grid; gap: 10px; }
-  .gsw-cf label { display: flex; flex-direction: column; gap: 5px; font-size: 11px;
-                  font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
-  .gsw-cf label em { font-style: normal; font-weight: 400; text-transform: none; letter-spacing: 0; opacity: .7; }
-  .gsw-cf input, .gsw-cf textarea { font: inherit; font-size: 16px; color: inherit; background: transparent;
-                                    border: 1.5px solid currentColor; border-radius: 0; padding: 10px 12px; width: 100%;
-                                    box-sizing: border-box; letter-spacing: 0; text-transform: none; font-weight: 400; }
-  .gsw-cf input:focus, .gsw-cf textarea:focus { outline: 2px solid currentColor; outline-offset: 2px; }
-  .gsw-cf textarea { resize: vertical; min-height: 84px; }
-  .gsw-cf-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 14px; }
-  .gsw-cf button.btn { font: inherit; cursor: pointer; appearance: none; }
-  .gsw-cf-err { font-size: 14px; font-weight: 600; }
-  .gsw-cf-done { margin: 0; font-size: 17px; font-weight: 600; }
-  .gsw-cf[data-sent] .gsw-cf-lead, .gsw-cf[data-sent] .gsw-cf-grid, .gsw-cf[data-sent] .gsw-cf-row { display: none; }
-  @media (min-width: 640px) {
-    .gsw-cf-grid { grid-template-columns: 1fr 1fr; }
-    .gsw-cf-wide { grid-column: 1 / -1; }
-  }
-</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"AccountingService","name":"Ashby & Kerr CPAs","description":"Now taking business clients for the coming year · Secure client portal →","telephone":"(269) 692-4471","areaServed":"Metro area","image":"https://grandstreetworks.com/work/_assets/identity/accounting-cpas/ashby-and-kerr-cpas-og.png","logo":"https://grandstreetworks.com/work/_assets/identity/accounting-cpas/ashby-and-kerr-cpas-mark.svg"}</script>
 </head>
 <body>
-<div class="topbar"><div class="wrap">Now taking business clients for the coming year · Secure client portal →</div></div>
+<div class="topbar"><div class="wrap"><p class="meta">Now taking business clients for the coming year · Secure client portal →</p></div></div>
 <header class="nav">
-  <div class="navrow"><a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M8 16 l4 4 7 -8" fill="none" stroke="#B4470B" stroke-width="4" stroke-linecap="round"/><rect x="26" y="14" width="30" height="5" fill="#141312" opacity=".6"/>
-<path d="M8 33 l4 4 7 -8" fill="none" stroke="#B4470B" stroke-width="4" stroke-linecap="round"/><rect x="26" y="31" width="24" height="5" fill="#141312" opacity=".6"/>
-<path d="M8 50 l4 4 7 -8" fill="none" stroke="#B4470B" stroke-width="4" stroke-linecap="round"/><rect x="26" y="48" width="28" height="5" fill="#141312" opacity=".6"/></svg><span>Ashby &amp; Kerr CPAs</span></span></a>
-    <nav class="navlinks"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
-    <a class="btn navact" href="#contact">Book a discovery call</a></div>
-</header>
-<section class="hero"><div class="wrap">
-  <p class="eyebrow">Business advisory &amp; tax</p>
-  <h1>You will always know what we're waiting on.</h1>
-  <p class="sub">Business accounting, tax and advisory for owner-managed companies. A live checklist shows exactly which documents are outstanding and who is holding each one. Usually us, and we say so.</p>
-  <div class="ctas">
-    <a class="btn btn-primary" data-cta="primary" href="#contact">Book a discovery call</a>
-    <a class="btn btn-ghost" href="#packages">See our packages</a>
+  <div class="wrap navrow">
+    <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M8 16 l4 4 7 -8" fill="none" stroke-width="4" stroke-linecap="round"/><rect x="26" y="14" width="30" height="5"/><path d="M8 33 l4 4 7 -8" fill="none" stroke-width="4" stroke-linecap="round"/><rect x="26" y="31" width="24" height="5"/><path d="M8 50 l4 4 7 -8" fill="none" stroke-width="4" stroke-linecap="round"/><rect x="26" y="48" width="28" height="5"/></svg><span>Ashby &amp; Kerr CPAs</span></span></a>
+    <nav class="navlinks" aria-label="Sections"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+    <a class="btn navact" href="#contact">Book a discovery call</a>
   </div>
-  <div class="panel" id="packages">
-    <div class="pbar"><i></i><i></i><i></i><span>Secure client portal</span></div>
+</header>
+
+<main>
+<section class="hero"><div class="wrap">
+  <div>
+    <p class="label green">Business advisory &amp; tax</p>
+    <h1>You will always know what we’re waiting&nbsp;on.</h1>
+    <p class="sub tnum">Business accounting, tax and advisory for owner-managed companies. A live checklist shows exactly which documents are outstanding and who is holding each one. Usually us, and we say so.</p>
+    <div class="ctas">
+      <a class="btn btn-primary" data-cta="primary" href="#contact">Book a discovery call</a>
+      <a class="btn btn-ghost" href="#packages">See our packages</a>
+    </div>
+  </div>
+  <div class="panel" id="packages" aria-label="Secure client portal">
+    <div class="phead"><p class="label">Secure client portal</p><span class="tick small" aria-hidden="true"></span></div>
     <ul class="plist">
-      <li><span class="num">01</span><span class="sheet" aria-hidden="true"></span>Fixed monthly fees<span class="chk" aria-hidden="true"></span></li>
-      <li><span class="num">02</span><span class="sheet" aria-hidden="true"></span>Secure client portal<span class="chk" aria-hidden="true"></span></li>
-      <li><span class="num">03</span><span class="sheet" aria-hidden="true"></span>Quarterly, not annual<span class="chk" aria-hidden="true"></span></li>
-      <li><span class="num">04</span><span class="sheet" aria-hidden="true"></span>CPA-led, not outsourced<span class="chk" aria-hidden="true"></span></li>
+      <li><span class="num">01</span><span>Fixed monthly fees</span><span class="tick" aria-hidden="true"></span></li>
+      <li><span class="num">02</span><span>Secure client portal</span><span class="tick" aria-hidden="true"></span></li>
+      <li><span class="num">03</span><span>Quarterly, not annual</span><span class="tick" aria-hidden="true"></span></li>
+      <li><span class="num">04</span><span>CPA-led, not outsourced</span><span class="tick" aria-hidden="true"></span></li>
     </ul>
-    <div class="pfoot"><em>Secure</em> Portal, not email</div>
+    <div class="pfoot"><em>Secure</em><span>Portal, not email</span></div>
   </div>
 </div></section>
-<figure class="gsw-plate"><picture><source type="image/avif" srcset="../_assets/hero/accounting-cpas/d-ledger-grid-1280.avif 1280w, ../_assets/hero/accounting-cpas/d-ledger-grid-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/accounting-cpas/d-ledger-grid-1280.jpg" width="2560" height="1429" alt="Ledger grid, accounting cpas" loading="lazy" decoding="async"></picture></figure>
+
+<figure class="plate"><picture><source type="image/avif" srcset="../_assets/hero/accounting-cpas/d-ledger-grid-1280.avif 1280w, ../_assets/hero/accounting-cpas/d-ledger-grid-2560.avif 2560w" sizes="100vw"><img src="../_assets/hero/accounting-cpas/d-ledger-grid-1280.jpg" width="2560" height="1429" alt="A closed notebook, reading glasses, a coffee and a squared stack of folders on a wooden desk" loading="lazy" decoding="async"></picture></figure>
 
 <section class="sec" id="services"><div class="wrap">
-  <p class="kicker">Services</p>
+  <p class="label green">Services</p>
   <h2>What we do</h2>
-  <p class="lede">We work with owner-managed businesses between roughly $500k and $20M in revenue. Below that we'll point you somewhere better suited.</p>
-  <ul class="list">
-    <li><h3>Business tax &amp; compliance</h3><p>Federal, state and local returns, filed early rather than extended. Extensions are a symptom, not a service.</p></li>
-    <li><h3>Monthly accounting</h3><p>Books closed by the tenth, with a short written commentary. You should not be finding out about last quarter in April.</p></li>
-    <li><h3>Advisory &amp; CAS</h3><p>Entity structure, owner compensation, cash-flow forecasting and the tax planning that only works if it happens before December.</p></li>
-    <li><h3>Personal returns for owners</h3><p>Included for owners of business clients. Your company and personal position are the same problem and should be looked at together.</p></li>
+  <p class="lede tnum">We work with owner-managed businesses between roughly $500k and $20M in revenue. Below that we’ll point you somewhere better suited.</p>
+  <ul class="rows">
+    <li><span class="num">01</span><h3>Business tax &amp; compliance</h3><p>Federal, state and local returns, filed early rather than extended. Extensions are a symptom, not a service.</p></li>
+    <li><span class="num">02</span><h3>Monthly accounting</h3><p>Books closed by the tenth, with a short written commentary. You should not be finding out about last quarter in April.</p></li>
+    <li><span class="num">03</span><h3>Advisory &amp; CAS</h3><p>Entity structure, owner compensation, cash-flow forecasting and the tax planning that only works if it happens before December.</p></li>
+    <li><span class="num">04</span><h3>Personal returns for owners</h3><p>Included for owners of business clients. Your company and personal position are the same problem and should be looked at together.</p></li>
   </ul>
 </div></section>
-<section class="sec" id="results"><div class="wrap">
-  <p class="kicker">Results</p>
+
+<section class="sec" id="results" style="padding-top:0"><div class="wrap">
+  <p class="label green">Results</p>
   <h2>Licensed &amp; accredited</h2>
-  <div class="creds"><ul>
-    <li>Licensed CPA Firm</li><li>AICPA Member</li><li>State Society of CPAs</li><li>QuickBooks ProAdvisor</li><li>Xero Certified</li>
-  </ul></div>
+  <ul class="creds">
+    <li><span class="tick small" aria-hidden="true"></span>Licensed CPA Firm</li>
+    <li><span class="tick small" aria-hidden="true"></span>AICPA Member</li>
+    <li><span class="tick small" aria-hidden="true"></span>State Society of CPAs</li>
+    <li><span class="tick small" aria-hidden="true"></span>QuickBooks ProAdvisor</li>
+    <li><span class="tick small" aria-hidden="true"></span>Xero Certified</li>
+  </ul>
 </div></section>
-<section class="sec" id="process"><div class="wrap">
-  <p class="kicker">Process</p>
+
+<section class="sec" id="process" style="padding-top:0"><div class="wrap">
+  <p class="label green">Process</p>
   <h2>Switching accountants</h2>
   <p class="lede">Easier than people think, and best done between May and August rather than in January.</p>
   <ol class="steps">
-    <li><div><h3>Discovery call</h3><p>Thirty minutes. What your business does, what's currently painful, and whether we're the right size for each other.</p></div></li>
-    <li><div><h3>Review &amp; proposal</h3><p>We look at two years of returns and your current books, then propose a fixed monthly fee. No hourly billing, ever.</p></div></li>
-    <li><div><h3>Transition</h3><p>We request records from your current accountant and the checklist shows you where that request has got to. No chasing on your side.</p></div></li>
-    <li><div><h3>Quarterly rhythm</h3><p>Books monthly, a proper conversation quarterly, tax planning in the autumn while it can still change the outcome.</p></div></li>
+    <li><h3>Discovery call</h3><p>Thirty minutes. What your business does, what’s currently painful, and whether we’re the right size for each other.</p></li>
+    <li><h3>Review &amp; proposal</h3><p>We look at two years of returns and your current books, then propose a fixed monthly fee. No hourly billing, ever.</p></li>
+    <li><h3>Transition</h3><p>We request records from your current accountant and the checklist shows you where that request has got to. No chasing on your side.</p></li>
+    <li><h3>Quarterly rhythm</h3><p>Books monthly, a proper conversation quarterly, tax planning in the autumn while it can still change the outcome.</p></li>
   </ol>
 </div></section>
+
 <!-- gsw:gallery -->
-<section class="gsw-gal"><div class="gsw-gal-in"><p class="gsw-gal-lab">What we are waiting on</p><h2>Nothing, usually.</h2><p class="gsw-gal-note">The portal, the folders and the desk where the list gets ticked. When the list is empty, the books are closed.</p><div class="gsw-gal-grid"><figure><picture><source type="image/avif" srcset="../_assets/library/accounting-cpas/ashby-and-kerr-cpas/folders-640.avif 640w, ../_assets/library/accounting-cpas/ashby-and-kerr-cpas/folders-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/accounting-cpas/ashby-and-kerr-cpas/folders-720.jpg" width="1600" height="1200" alt="Everything in its place" loading="lazy" decoding="async"></picture><figcaption>Everything in its place</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/accounting-cpas/ashby-and-kerr-cpas/scanner-640.avif 640w, ../_assets/library/accounting-cpas/ashby-and-kerr-cpas/scanner-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/accounting-cpas/ashby-and-kerr-cpas/scanner-720.jpg" width="1600" height="1200" alt="Scanned, not emailed" loading="lazy" decoding="async"></picture><figcaption>Scanned, not emailed</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/accounting-cpas/ashby-and-kerr-cpas/closed-ledger-640.avif 640w, ../_assets/library/accounting-cpas/ashby-and-kerr-cpas/closed-ledger-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/accounting-cpas/ashby-and-kerr-cpas/closed-ledger-720.jpg" width="1600" height="1200" alt="Books closed" loading="lazy" decoding="async"></picture><figcaption>Books closed</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/accounting-cpas/ashby-and-kerr-cpas/quiet-desk-640.avif 640w, ../_assets/library/accounting-cpas/ashby-and-kerr-cpas/quiet-desk-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/accounting-cpas/ashby-and-kerr-cpas/quiet-desk-720.jpg" width="1600" height="1200" alt="The desk" loading="lazy" decoding="async"></picture><figcaption>The desk</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/accounting-cpas/ashby-and-kerr-cpas/meeting-room-640.avif 640w, ../_assets/library/accounting-cpas/ashby-and-kerr-cpas/meeting-room-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/accounting-cpas/ashby-and-kerr-cpas/meeting-room-720.jpg" width="1600" height="1200" alt="The quarterly conversation" loading="lazy" decoding="async"></picture><figcaption>The quarterly conversation</figcaption></figure><figure><picture><source type="image/avif" srcset="../_assets/library/accounting-cpas/ashby-and-kerr-cpas/signing-640.avif 640w, ../_assets/library/accounting-cpas/ashby-and-kerr-cpas/signing-1280.avif 1280w" sizes="(max-width: 720px) 100vw, 33vw"><img src="../_assets/library/accounting-cpas/ashby-and-kerr-cpas/signing-720.jpg" width="1600" height="1200" alt="Signed off" loading="lazy" decoding="async"></picture><figcaption>Signed off</figcaption></figure></div></div></section>
+<section class="gal"><div class="wrap">
+  <p class="label green">What we are waiting on</p>
+  <h2>Nothing, usually.</h2>
+  <p class="note">The portal, the folders and the desk where the list gets ticked. When the list is empty, the books are closed.</p>
+  <div class="galgrid">
+    <figure><picture><source type="image/avif" srcset="../_assets/library/accounting-cpas/ashby-and-kerr-cpas/folders-640.avif 640w, ../_assets/library/accounting-cpas/ashby-and-kerr-cpas/folders-1280.avif 1280w" sizes="(max-width: 640px) 100vw, 33vw"><img src="../_assets/library/accounting-cpas/ashby-and-kerr-cpas/folders-720.jpg" width="1600" height="1200" alt="A row of labelled client folders standing on a desk" loading="lazy" decoding="async"></picture><figcaption class="label">Everything in its place</figcaption></figure>
+    <figure><picture><source type="image/avif" srcset="../_assets/library/accounting-cpas/ashby-and-kerr-cpas/scanner-640.avif 640w, ../_assets/library/accounting-cpas/ashby-and-kerr-cpas/scanner-1280.avif 1280w" sizes="(max-width: 640px) 100vw, 33vw"><img src="../_assets/library/accounting-cpas/ashby-and-kerr-cpas/scanner-720.jpg" width="1600" height="1200" alt="A document scanner with a page feeding through" loading="lazy" decoding="async"></picture><figcaption class="label">Scanned, not emailed</figcaption></figure>
+    <figure><picture><source type="image/avif" srcset="../_assets/library/accounting-cpas/ashby-and-kerr-cpas/closed-ledger-640.avif 640w, ../_assets/library/accounting-cpas/ashby-and-kerr-cpas/closed-ledger-1280.avif 1280w" sizes="(max-width: 640px) 100vw, 33vw"><img src="../_assets/library/accounting-cpas/ashby-and-kerr-cpas/closed-ledger-720.jpg" width="1600" height="1200" alt="A closed leather ledger with reading glasses resting on it" loading="lazy" decoding="async"></picture><figcaption class="label">Books closed</figcaption></figure>
+  </div>
+</div></section>
 <!-- /gsw:gallery -->
+
 <section class="close" id="contact"><div class="wrap">
-  <h2>Just finished a rough busy season?</h2>
-  <p>Then this is the right month to talk. Everything worth fixing has to be built between May and August. By January it's too late to change anything.</p>
+  <p class="label green">Contact</p>
+  <h2>Just finished a rough busy&nbsp;season?</h2>
+  <p>Then this is the right month to talk. Everything worth fixing has to be built between May and August. By January it’s too late to change anything.</p>
   <div class="ctas">
-    <a class="btn btn-primary" href="#contact">Book a discovery call</a>
-    <a class="btn btn-ghost">(269) 692-4471</a>
+    <a class="btn btn-primary" href="#contact-form">Book a discovery call</a>
+    <a class="btn btn-ghost tnum" href="tel:+12696924471">(269)&nbsp;692-4471</a>
   </div>
   <!-- gsw:contact-form -->
-    <form class="gsw-cf" novalidate>
-      <p class="gsw-cf-lead">Or leave your details and we'll call you back.</p>
-      <div class="gsw-cf-grid">
-        <label><span>Name</span><input type="text" name="name" autocomplete="name" required></label>
-        <label><span>Phone or email</span><input type="text" name="contact" autocomplete="tel" required></label>
-        <label class="gsw-cf-wide"><span>What can we help with? <em>(optional)</em></span><textarea name="message" rows="3"></textarea></label>
-      </div>
-      <div class="gsw-cf-row">
-        <button type="submit" class="btn btn-primary">Request a call back</button>
-        <span class="gsw-cf-err" role="alert" hidden>Add your name and a way to reach you.</span>
-      </div>
-      <p class="gsw-cf-done" role="status" hidden>Thanks. Someone will call you back within one business day.</p>
-    </form>
-    <!-- /gsw:contact-form -->
-    <p class="note">Fixed monthly fees. Business clients from roughly $500k revenue. Free discovery calls.</p>
+  <form class="gsw-cf" id="contact-form" novalidate>
+    <p class="gsw-cf-lead">Or leave your details and we’ll call you back.</p>
+    <div class="gsw-cf-grid">
+      <label><span>Name</span><input type="text" name="name" autocomplete="name" required></label>
+      <label><span>Phone or email</span><input type="text" name="contact" autocomplete="tel" required></label>
+      <label class="gsw-cf-wide"><span>What can we help with? <em>(optional)</em></span><textarea name="message" rows="3"></textarea></label>
+    </div>
+    <div class="gsw-cf-row">
+      <button type="submit" class="btn btn-primary">Request a call back</button>
+      <span class="gsw-cf-err" role="alert" hidden>Add your name and a way to reach you.</span>
+    </div>
+    <p class="gsw-cf-done" role="status" hidden>Thanks. Someone will call you back within one business day.</p>
+  </form>
+  <!-- /gsw:contact-form -->
+  <p class="meta fine tnum">Fixed monthly fees. Business clients from roughly $500k revenue. Free discovery calls.</p>
 </div></section>
+</main>
+
 <footer class="foot"><div class="wrap">
-  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M8 16 l4 4 7 -8" fill="none" stroke="#B4470B" stroke-width="4" stroke-linecap="round"/><rect x="26" y="14" width="30" height="5" fill="#141312" opacity=".6"/>
-<path d="M8 33 l4 4 7 -8" fill="none" stroke="#B4470B" stroke-width="4" stroke-linecap="round"/><rect x="26" y="31" width="24" height="5" fill="#141312" opacity=".6"/>
-<path d="M8 50 l4 4 7 -8" fill="none" stroke="#B4470B" stroke-width="4" stroke-linecap="round"/><rect x="26" y="48" width="28" height="5" fill="#141312" opacity=".6"/></svg><span>Ashby &amp; Kerr CPAs</span></span></a>
-  <p><a>(269) 692-4471</a> · Licensed CPA firm · AICPA member · Serving owner-managed businesses since 2006</p>
-  <p>2731 Bellamy Street Floor 2, Ashford Green, NJ 14826</p>
+  <a class="brand" href="#"><span class="gsw-lockup"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M8 16 l4 4 7 -8" fill="none" stroke-width="4" stroke-linecap="round"/><rect x="26" y="14" width="30" height="5"/><path d="M8 33 l4 4 7 -8" fill="none" stroke-width="4" stroke-linecap="round"/><rect x="26" y="31" width="24" height="5"/><path d="M8 50 l4 4 7 -8" fill="none" stroke-width="4" stroke-linecap="round"/><rect x="26" y="48" width="28" height="5"/></svg><span>Ashby &amp; Kerr CPAs</span></span></a>
+  <p class="tnum"><a href="tel:+12696924471">(269)&nbsp;692-4471</a> · Licensed CPA firm · AICPA member · Serving owner-managed businesses since 2006</p>
+  <p class="tnum">2731 Bellamy Street Floor 2, Ashford Green, NJ 14826</p>
+  <p>Ashby &amp; Kerr CPAs is a fictional business created to demonstrate this design.</p>
 </div></footer>
-<div class="callbar"><a class="book" href="#contact">Book a discovery call</a><a class="tel">(269) 692-4471</a></div>
-<!-- gsw:motion -->
-<style>
-  /* Motion pass. Everything here is gated on .gsw-m, which only the script
-     below adds, so a page without JavaScript never hides anything. */
-  .gsw-m [data-gsw-reveal] {
-    opacity: 0; transform: translateY(14px);
-    transition: opacity .7s cubic-bezier(.2,.6,.2,1), transform .7s cubic-bezier(.2,.6,.2,1);
-  }
-  .gsw-m [data-gsw-reveal].gsw-in { opacity: 1; transform: none; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(2) { transition-delay: .08s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(3) { transition-delay: .16s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(4) { transition-delay: .24s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(5) { transition-delay: .32s; }
-  .gsw-m .gsw-gal figure[data-gsw-reveal]:nth-child(6) { transition-delay: .40s; }
-  @keyframes gsw-hero-in { from { opacity: 0; transform: scale(1.025); } to { opacity: 1; transform: none; } }
-  .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: gsw-hero-in 1s ease-out both; }
-  @media (prefers-reduced-motion: reduce) {
-    .gsw-m [data-gsw-reveal] { opacity: 1; transform: none; transition: none; }
-    .gsw-m .gsw-plate img, .gsw-m .gsw-backdrop img { animation: none; }
-  }
-</style>
-<script>
-(function () {
-  if (!('IntersectionObserver' in window)) return;
-  var targets = [].slice.call(document.querySelectorAll('body > section, .gsw-gal figure'));
-  // The first section is the hero; it is on screen already and owns its own entrance.
-  var first = document.querySelector('body > section');
-  targets = targets.filter(function (el) { return el !== first; });
-  if (!targets.length) return;
-  document.documentElement.classList.add('gsw-m');
-  targets.forEach(function (el) { el.setAttribute('data-gsw-reveal', ''); });
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) { e.target.classList.add('gsw-in'); io.unobserve(e.target); }
-    });
-  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-  targets.forEach(function (el) { io.observe(el); });
-})();
-</script>
-<!-- /gsw:motion -->
+<div class="callbar"><a class="btn btn-primary" href="#contact">Book a discovery call</a><a class="btn btn-ghost tnum" href="tel:+12696924471">(269)&nbsp;692-4471</a></div>
 
 <script>
-/* One device per page. Parts land left to right (or top to bottom) 110ms
-   apart, once, the first time the device is on screen. */
 (function () {
-  var box = document.querySelector('.plist');
-  if (!box || !('IntersectionObserver' in window)) return;
-  var parts = box.querySelectorAll('li');
-  if (!parts.length) return;
-  document.documentElement.classList.add('gsw-seq-on');
-  var run = function () {
-    parts.forEach(function (p, i) {
-      setTimeout(function () { p.classList.add('gsw-seq-in'); }, i * 110);
-    });
-  };
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) { run(); io.disconnect(); }
-    });
-  }, { threshold: 0.35 });
-  io.observe(box);
-})();
-</script>
-
-<!-- gsw:contact-form -->
-<script>
-/* The enquiry form confirms in place. Nothing is sent: a reference build. */
-(function () {
+  /* Ticks land one at a time, once, the first time the panel is on screen. */
+  var list = document.querySelector('.plist');
+  if (list && 'IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('seq');
+    var rows = list.querySelectorAll('li');
+    var io = new IntersectionObserver(function (entries) {
+      if (!entries.some(function (e) { return e.isIntersecting; })) return;
+      io.disconnect();
+      rows.forEach(function (li, i) { setTimeout(function () { li.classList.add('in'); }, 160 + i * 140); });
+    }, { threshold: 0.3 });
+    io.observe(list);
+  }
+  /* Demonstration form: validates, then shows the confirmation. Sends nothing. */
   var form = document.querySelector('.gsw-cf');
   if (!form) return;
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var name = form.name.value.trim(), contact = form.contact.value.trim();
+  form.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var name = form.elements.name.value.trim(), contact = form.elements.contact.value.trim();
     var err = form.querySelector('.gsw-cf-err');
-    if (!name || !contact) { err.hidden = false; (name ? form.contact : form.name).focus(); return; }
+    if (!name || !contact) { err.hidden = false; (name ? form.elements.contact : form.elements.name).focus(); return; }
     err.hidden = true;
     form.setAttribute('data-sent', '');
     form.querySelector('.gsw-cf-done').hidden = false;
   });
 })();
 </script>
-<!-- /gsw:contact-form -->
 </body>
 </html>

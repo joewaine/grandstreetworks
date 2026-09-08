@@ -1,0 +1,287 @@
+{
+  "report": [
+    {
+      "viewport": "1440x1000",
+      "file": "/Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/qa/loop-01-1440x1000.png",
+      "innerWidth": 1440,
+      "innerHeight": 1000,
+      "scrollWidth": 1440,
+      "scrollHeight": 5973,
+      "title": "SoHo Men's Health | Specialty Men's Healthcare in NYC",
+      "fonts": "loaded",
+      "images": [
+        {
+          "src": "file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/logo.jpg",
+          "complete": true,
+          "naturalWidth": 262
+        },
+        {
+          "src": "file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/dr-bortecen.webp",
+          "complete": true,
+          "naturalWidth": 800
+        }
+      ]
+    },
+    {
+      "viewport": "1024x768",
+      "file": "/Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/qa/loop-01-1024x768.png",
+      "innerWidth": 1024,
+      "innerHeight": 768,
+      "scrollWidth": 1024,
+      "scrollHeight": 5955,
+      "title": "SoHo Men's Health | Specialty Men's Healthcare in NYC",
+      "fonts": "loaded",
+      "images": [
+        {
+          "src": "file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/logo.jpg",
+          "complete": true,
+          "naturalWidth": 262
+        },
+        {
+          "src": "file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/dr-bortecen.webp",
+          "complete": true,
+          "naturalWidth": 800
+        }
+      ]
+    },
+    {
+      "viewport": "768x1024",
+      "file": "/Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/qa/loop-01-768x1024.png",
+      "innerWidth": 768,
+      "innerHeight": 1024,
+      "scrollWidth": 768,
+      "scrollHeight": 6986,
+      "title": "SoHo Men's Health | Specialty Men's Healthcare in NYC",
+      "fonts": "loaded",
+      "images": [
+        {
+          "src": "file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/logo.jpg",
+          "complete": true,
+          "naturalWidth": 262
+        },
+        {
+          "src": "file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/dr-bortecen.webp",
+          "complete": true,
+          "naturalWidth": 800
+        }
+      ]
+    },
+    {
+      "viewport": "390x844",
+      "file": "/Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/qa/loop-01-390x844.png",
+      "innerWidth": 390,
+      "innerHeight": 844,
+      "scrollWidth": 390,
+      "scrollHeight": 7436,
+      "title": "SoHo Men's Health | Specialty Men's Healthcare in NYC",
+      "fonts": "loaded",
+      "images": [
+        {
+          "src": "file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/logo.jpg",
+          "complete": true,
+          "naturalWidth": 262
+        },
+        {
+          "src": "file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/dr-bortecen.webp",
+          "complete": true,
+          "naturalWidth": 800
+        }
+      ]
+    },
+    {
+      "viewport": "360x800",
+      "file": "/Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/qa/loop-01-360x800.png",
+      "innerWidth": 360,
+      "innerHeight": 800,
+      "scrollWidth": 360,
+      "scrollHeight": 7469,
+      "title": "SoHo Men's Health | Specialty Men's Healthcare in NYC",
+      "fonts": "loaded",
+      "images": [
+        {
+          "src": "file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/logo.jpg",
+          "complete": true,
+          "naturalWidth": 262
+        },
+        {
+          "src": "file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/dr-bortecen.webp",
+          "complete": true,
+          "naturalWidth": 800
+        }
+      ]
+    }
+  ],
+  "consoleIssueCount": 34,
+  "consoleIssues": [
+    {
+      "method": "Log.entryAdded",
+      "level": "warning",
+      "text": "A preload for 'file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/lora-latin.woff2' is found, but is not used because the request credentials mode does not match. Consider taking a look at crossorigin attribute."
+    },
+    {
+      "method": "Log.entryAdded",
+      "level": "warning",
+      "text": "A preload for 'file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/montserrat-latin.woff2' is found, but is not used because the request credentials mode does not match. Consider taking a look at crossorigin attribute."
+    },
+    {
+      "method": "Log.entryAdded",
+      "level": "warning",
+      "text": "A preload for 'file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/lora-latin.woff2' is found, but is not used because the request credentials mode does not match. Consider taking a look at crossorigin attribute."
+    },
+    {
+      "method": "Log.entryAdded",
+      "level": "warning",
+      "text": "A preload for 'file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/montserrat-latin.woff2' is found, but is not used because the request credentials mode does not match. Consider taking a look at crossorigin attribute."
+    },
+    {
+      "method": "Log.entryAdded",
+      "level": "warning",
+      "text": "A preload for 'file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/lora-latin.woff2' is found, but is not used because the request credentials mode does not match. Consider taking a look at crossorigin attribute."
+    },
+    {
+      "method": "Log.entryAdded",
+      "level": "warning",
+      "text": "A preload for 'file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/montserrat-latin.woff2' is found, but is not used because the request credentials mode does not match. Consider taking a look at crossorigin attribute."
+    },
+    {
+      "method": "Log.entryAdded",
+      "level": "warning",
+      "text": "A preload for 'file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/lora-latin.woff2' is found, but is not used because the request credentials mode does not match. Consider taking a look at crossorigin attribute."
+    },
+    {
+      "method": "Log.entryAdded",
+      "level": "warning",
+      "text": "A preload for 'file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/montserrat-latin.woff2' is found, but is not used because the request credentials mode does not match. Consider taking a look at crossorigin attribute."
+    },
+    {
+      "method": "Log.entryAdded",
+      "level": "warning",
+      "text": "A preload for 'file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/lora-latin.woff2' is found, but is not used because the request credentials mode does not match. Consider taking a look at crossorigin attribute."
+    },
+    {
+      "method": "Log.entryAdded",
+      "level": "warning",
+      "text": "A preload for 'file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/montserrat-latin.woff2' is found, but is not used because the request credentials mode does not match. Consider taking a look at crossorigin attribute."
+    },
+    {
+      "method": "Log.entryAdded",
+      "level": "warning",
+      "text": "A preload for 'file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/lora-latin.woff2' is found, but is not used because the request credentials mode does not match. Consider taking a look at crossorigin attribute."
+    },
+    {
+      "method": "Log.entryAdded",
+      "level": "warning",
+      "text": "A preload for 'file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/montserrat-latin.woff2' is found, but is not used because the request credentials mode does not match. Consider taking a look at crossorigin attribute."
+    },
+    {
+      "method": "Log.entryAdded",
+      "level": "warning",
+      "text": "A preload for 'file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/lora-latin.woff2' is found, but is not used because the request credentials mode does not match. Consider taking a look at crossorigin attribute."
+    },
+    {
+      "method": "Log.entryAdded",
+      "level": "warning",
+      "text": "A preload for 'file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/montserrat-latin.woff2' is found, but is not used because the request credentials mode does not match. Consider taking a look at crossorigin attribute."
+    },
+    {
+      "method": "Log.entryAdded",
+      "level": "warning",
+      "text": "A preload for 'file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/lora-latin.woff2' is found, but is not used because the request credentials mode does not match. Consider taking a look at crossorigin attribute."
+    },
+    {
+      "method": "Log.entryAdded",
+      "level": "warning",
+      "text": "A preload for 'file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/montserrat-latin.woff2' is found, but is not used because the request credentials mode does not match. Consider taking a look at crossorigin attribute."
+    },
+    {
+      "method": "Log.entryAdded",
+      "level": "warning",
+      "text": "A preload for 'file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/lora-latin.woff2' is found, but is not used because the request credentials mode does not match. Consider taking a look at crossorigin attribute."
+    },
+    {
+      "method": "Log.entryAdded",
+      "level": "warning",
+      "text": "A preload for 'file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/montserrat-latin.woff2' is found, but is not used because the request credentials mode does not match. Consider taking a look at crossorigin attribute."
+    },
+    {
+      "method": "Log.entryAdded",
+      "level": "warning",
+      "text": "A preload for 'file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/lora-latin.woff2' is found, but is not used because the request credentials mode does not match. Consider taking a look at crossorigin attribute."
+    },
+    {
+      "method": "Log.entryAdded",
+      "level": "warning",
+      "text": "A preload for 'file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/montserrat-latin.woff2' is found, but is not used because the request credentials mode does not match. Consider taking a look at crossorigin attribute."
+    },
+    {
+      "method": "Log.entryAdded",
+      "level": "warning",
+      "text": "A preload for 'file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/lora-latin.woff2' is found, but is not used because the request credentials mode does not match. Consider taking a look at crossorigin attribute."
+    },
+    {
+      "method": "Log.entryAdded",
+      "level": "warning",
+      "text": "A preload for 'file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/montserrat-latin.woff2' is found, but is not used because the request credentials mode does not match. Consider taking a look at crossorigin attribute."
+    },
+    {
+      "method": "Log.entryAdded",
+      "level": "warning",
+      "text": "A preload for 'file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/lora-latin.woff2' is found, but is not used because the request credentials mode does not match. Consider taking a look at crossorigin attribute."
+    },
+    {
+      "method": "Log.entryAdded",
+      "level": "warning",
+      "text": "A preload for 'file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/montserrat-latin.woff2' is found, but is not used because the request credentials mode does not match. Consider taking a look at crossorigin attribute."
+    },
+    {
+      "method": "Log.entryAdded",
+      "level": "warning",
+      "text": "A preload for 'file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/lora-latin.woff2' is found, but is not used because the request credentials mode does not match. Consider taking a look at crossorigin attribute."
+    },
+    {
+      "method": "Log.entryAdded",
+      "level": "warning",
+      "text": "A preload for 'file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/montserrat-latin.woff2' is found, but is not used because the request credentials mode does not match. Consider taking a look at crossorigin attribute."
+    },
+    {
+      "method": "Log.entryAdded",
+      "level": "warning",
+      "text": "A preload for 'file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/lora-latin.woff2' is found, but is not used because the request credentials mode does not match. Consider taking a look at crossorigin attribute."
+    },
+    {
+      "method": "Log.entryAdded",
+      "level": "warning",
+      "text": "A preload for 'file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/montserrat-latin.woff2' is found, but is not used because the request credentials mode does not match. Consider taking a look at crossorigin attribute."
+    },
+    {
+      "method": "Log.entryAdded",
+      "level": "warning",
+      "text": "A preload for 'file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/lora-latin.woff2' is found, but is not used because the request credentials mode does not match. Consider taking a look at crossorigin attribute."
+    },
+    {
+      "method": "Log.entryAdded",
+      "level": "warning",
+      "text": "A preload for 'file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/montserrat-latin.woff2' is found, but is not used because the request credentials mode does not match. Consider taking a look at crossorigin attribute."
+    },
+    {
+      "method": "Log.entryAdded",
+      "level": "warning",
+      "text": "A preload for 'file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/lora-latin.woff2' is found, but is not used because the request credentials mode does not match. Consider taking a look at crossorigin attribute."
+    },
+    {
+      "method": "Log.entryAdded",
+      "level": "warning",
+      "text": "A preload for 'file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/montserrat-latin.woff2' is found, but is not used because the request credentials mode does not match. Consider taking a look at crossorigin attribute."
+    },
+    {
+      "method": "Log.entryAdded",
+      "level": "warning",
+      "text": "A preload for 'file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/lora-latin.woff2' is found, but is not used because the request credentials mode does not match. Consider taking a look at crossorigin attribute."
+    },
+    {
+      "method": "Log.entryAdded",
+      "level": "warning",
+      "text": "A preload for 'file:///Users/josephwaine/fractal/grandstreetworks/sites/soho-mens-2/assets/montserrat-latin.woff2' is found, but is not used because the request credentials mode does not match. Consider taking a look at crossorigin attribute."
+    }
+  ]
+}

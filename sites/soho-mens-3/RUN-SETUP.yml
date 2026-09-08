@@ -1,0 +1,24 @@
+# Shared setup for every run on this target. Identical inputs, identical
+# budget, identical stopping conditions — that is the whole point of the
+# experiment. The agent completes the UNKNOWN fields from its own audit and
+# copies the finished block into its 01-audit.md.
+run_id: "3"
+agent_and_model: "WITHHELD FOR BLIND JUDGING — recorded in ../MAPPING.md"
+website_url: "https://sohomenshealth.com/"
+repository_path_or_url: "NONE — build inside your own result folder"
+figma_file_url: "Figma file 'SoHo Men's Health — The Member's Rooms' (built via local plugin bridge, no publishable URL — open in Figma desktop from Recents; structure and node IDs documented in 03-report.md)"
+canva_project_url: "https://www.canva.com/d/GpM3ADxJ6O86NjY (edit) · https://www.canva.com/d/rTTBRCxaD78mOZj (view) — 'The Guest Book' social-proof Instagram post, design id DAHUGp3ZEAA"
+business_name: "SoHo Men's Health"
+business_type: "Physician-led men's health & wellness clinic — outpatient specialty medical practice (schema.org MedicalClinic), two Manhattan offices"
+primary_audience: "Men ~30–65 in Manhattan/NYC seeking confidential, doctor-led care for hormonal, sexual & reproductive, aesthetic, pain, and wellness concerns; discretion- and credential-conscious"
+primary_conversion: "Request an appointment (appointment request / call 646-370-4050 / OnPatient portal booking)"
+secondary_conversions: "Wellness quizzes (Testosterone, Sexual Health), ask-the-doctor contact form, patient portal login, phone call"
+required_pages: "Homepage is in scope. Secondary page: Services — audit showed the ~70-item mega-menu buries revenue services; a structured services page is required for the conversion path."
+required_content: "Every published business fact on the live site: name, phone, address, licence/registration numbers, services, service areas, testimonials, partnerships."
+brand_assets: "Only what the live site publishes — logo, photography, video, copy. No stock, no invented imagery."
+reference_sites: "NONE supplied. No competitor was opened or imitated."
+known_constraints: "Static production-oriented implementation; WCAG 2.2 AA where practical; preserve factual content; two font families maximum; no deployment."
+time_budget: "4 hours"
+implementation_required: true
+deployment_required: false
+audited_on: "2026-09-01"
