@@ -204,7 +204,7 @@ header {
   border: 1px solid var(--border-color);
 }
 
-.principal-photo img { display: block; width: 100%; height: auto; }
+.principal-photo img { display: block; width: 100%; height: auto; filter: contrast(120%); }
 
 /* Keeps a second person's text on the same column as the first's when there
    is no portrait to hold the space. */
